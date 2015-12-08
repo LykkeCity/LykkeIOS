@@ -10,6 +10,8 @@
 // tab presenters
 #import "LKWalletsPresenter.h"
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -17,6 +19,8 @@
 #pragma mark - Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Crashlytics class]]];
+
     // init tab presenters
     LKWalletsPresenter *pWallets = [LKWalletsPresenter new];
     // init tab controller
