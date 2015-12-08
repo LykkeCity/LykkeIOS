@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A87C81BA1C7356E1D9BA3A28 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20FEBD41AE93CA79087B5 /* libPods.a */; };
+		CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */; };
+		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
+		CF6632471C175B54004353F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
+		CF6632491C175B54004353F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632451C175B54004353F5 /* main.m */; };
+		CF66325A1C175C21004353F5 /* TKPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632501C175C21004353F5 /* TKPacket.m */; };
+		CF66325B1C175C21004353F5 /* TKAPIEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632521C175C21004353F5 /* TKAPIEntry.m */; };
+		CF66325C1C175C21004353F5 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632561C175C21004353F5 /* UIColor+Generic.m */; };
+		CF66325D1C175C21004353F5 /* TKColorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632591C175C21004353F5 /* TKColorizer.m */; };
+		CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632601C175DE5004353F5 /* TKNavigationController.m */; };
+		CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632621C175DE5004353F5 /* TKPresenter.m */; };
+		CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632671C175DF0004353F5 /* TKContainer.m */; };
+		CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632691C175DF0004353F5 /* TKImageView.m */; };
+		CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66326B1C175DF0004353F5 /* TKTableViewCell.m */; };
+		CF6632711C175DF0004353F5 /* TKView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66326D1C175DF0004353F5 /* TKView.m */; };
+		CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF66327D1C1768B0004353F5 /* Localizable.strings */; };
+		CF6632861C176A63004353F5 /* LKWalletsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632841C176A63004353F5 /* LKWalletsPresenter.m */; };
+		CF6632871C176A63004353F5 /* LKWalletsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6632851C176A63004353F5 /* LKWalletsPresenter.xib */; };
+		CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632891C176AB1004353F5 /* LKTabController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B1A20FEBD41AE93CA79087B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF21DC7B1C17590E00D2399E /* LykkeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LykkeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF21DC8D1C17590E00D2399E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF66323D1C175B54004353F5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CF66323E1C175B54004353F5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CF6632431C175B54004353F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF6632441C175B54004353F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6632451C175B54004353F5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF66324B1C175BCA004353F5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CF66324F1C175C21004353F5 /* TKPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPacket.h; sourceTree = "<group>"; };
+		CF6632501C175C21004353F5 /* TKPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPacket.m; sourceTree = "<group>"; };
+		CF6632511C175C21004353F5 /* TKAPIEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAPIEntry.h; sourceTree = "<group>"; };
+		CF6632521C175C21004353F5 /* TKAPIEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAPIEntry.m; sourceTree = "<group>"; };
+		CF6632551C175C21004353F5 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
+		CF6632561C175C21004353F5 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
+		CF6632571C175C21004353F5 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		CF6632581C175C21004353F5 /* TKColorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKColorizer.h; sourceTree = "<group>"; };
+		CF6632591C175C21004353F5 /* TKColorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKColorizer.m; sourceTree = "<group>"; };
+		CF66325F1C175DE5004353F5 /* TKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNavigationController.h; sourceTree = "<group>"; };
+		CF6632601C175DE5004353F5 /* TKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationController.m; sourceTree = "<group>"; };
+		CF6632611C175DE5004353F5 /* TKPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPresenter.h; sourceTree = "<group>"; };
+		CF6632621C175DE5004353F5 /* TKPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPresenter.m; sourceTree = "<group>"; };
+		CF6632661C175DF0004353F5 /* TKContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKContainer.h; sourceTree = "<group>"; };
+		CF6632671C175DF0004353F5 /* TKContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKContainer.m; sourceTree = "<group>"; };
+		CF6632681C175DF0004353F5 /* TKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageView.h; sourceTree = "<group>"; };
+		CF6632691C175DF0004353F5 /* TKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageView.m; sourceTree = "<group>"; };
+		CF66326A1C175DF0004353F5 /* TKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTableViewCell.h; sourceTree = "<group>"; };
+		CF66326B1C175DF0004353F5 /* TKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTableViewCell.m; sourceTree = "<group>"; };
+		CF66326C1C175DF0004353F5 /* TKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKView.h; sourceTree = "<group>"; };
+		CF66326D1C175DF0004353F5 /* TKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKView.m; sourceTree = "<group>"; };
+		CF66327C1C1768B0004353F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF66327E1C1768B3004353F5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF6632831C176A63004353F5 /* LKWalletsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKWalletsPresenter.h; sourceTree = "<group>"; };
+		CF6632841C176A63004353F5 /* LKWalletsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKWalletsPresenter.m; sourceTree = "<group>"; };
+		CF6632851C176A63004353F5 /* LKWalletsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKWalletsPresenter.xib; sourceTree = "<group>"; };
+		CF6632881C176AB1004353F5 /* LKTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTabController.h; sourceTree = "<group>"; };
+		CF6632891C176AB1004353F5 /* LKTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTabController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF21DC781C17590E00D2399E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A87C81BA1C7356E1D9BA3A28 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19CB5AE73454C78525FC607F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */,
+				7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF21DC721C17590E00D2399E = {
+			isa = PBXGroup;
+			children = (
+				CF21DC7D1C17590E00D2399E /* LykkeWallet */,
+				CF21DC7C1C17590E00D2399E /* Products */,
+				19CB5AE73454C78525FC607F /* Pods */,
+				D19F0116617E74EB428F44A8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CF21DC7C1C17590E00D2399E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF21DC7B1C17590E00D2399E /* LykkeWallet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF21DC7D1C17590E00D2399E /* LykkeWallet */ = {
+			isa = PBXGroup;
+			children = (
+				CF66323C1C175B54004353F5 /* Classes */,
+				CF6632421C175B54004353F5 /* Resources */,
+			);
+			path = LykkeWallet;
+			sourceTree = "<group>";
+		};
+		CF66323C1C175B54004353F5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CF66323F1C175B54004353F5 /* Model */,
+				CF6632401C175B54004353F5 /* Presenter */,
+				CF6632411C175B54004353F5 /* View */,
+				CF66323D1C175B54004353F5 /* AppDelegate.h */,
+				CF66323E1C175B54004353F5 /* AppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CF66323F1C175B54004353F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF66324C1C175C21004353F5 /* Network */,
+				CF6632531C175C21004353F5 /* UIHelpers */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF6632401C175B54004353F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632821C176A63004353F5 /* Wallets */,
+				CF66327F1C176A63004353F5 /* History */,
+				CF6632801C176A63004353F5 /* Settings */,
+				CF6632811C176A63004353F5 /* Trading */,
+				CF66325E1C175DE5004353F5 /* Utils */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CF6632411C175B54004353F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632651C175DF0004353F5 /* Utils */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF6632421C175B54004353F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632431C175B54004353F5 /* Assets.xcassets */,
+				CF6632441C175B54004353F5 /* Info.plist */,
+				CF6632451C175B54004353F5 /* main.m */,
+				CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */,
+				CF66327D1C1768B0004353F5 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CF66324C1C175C21004353F5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CF66324D1C175C21004353F5 /* Packets */,
+				CF6632511C175C21004353F5 /* TKAPIEntry.h */,
+				CF6632521C175C21004353F5 /* TKAPIEntry.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CF66324D1C175C21004353F5 /* Packets */ = {
+			isa = PBXGroup;
+			children = (
+				CF66324E1C175C21004353F5 /* Utils */,
+			);
+			path = Packets;
+			sourceTree = "<group>";
+		};
+		CF66324E1C175C21004353F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF66324F1C175C21004353F5 /* TKPacket.h */,
+				CF6632501C175C21004353F5 /* TKPacket.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CF6632531C175C21004353F5 /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632541C175C21004353F5 /* Categories */,
+				CF6632571C175C21004353F5 /* Macro.h */,
+				CF6632581C175C21004353F5 /* TKColorizer.h */,
+				CF6632591C175C21004353F5 /* TKColorizer.m */,
+			);
+			path = UIHelpers;
+			sourceTree = "<group>";
+		};
+		CF6632541C175C21004353F5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632551C175C21004353F5 /* UIColor+Generic.h */,
+				CF6632561C175C21004353F5 /* UIColor+Generic.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CF66325E1C175DE5004353F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF66325F1C175DE5004353F5 /* TKNavigationController.h */,
+				CF6632601C175DE5004353F5 /* TKNavigationController.m */,
+				CF6632611C175DE5004353F5 /* TKPresenter.h */,
+				CF6632621C175DE5004353F5 /* TKPresenter.m */,
+				CF6632881C176AB1004353F5 /* LKTabController.h */,
+				CF6632891C176AB1004353F5 /* LKTabController.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CF6632651C175DF0004353F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632661C175DF0004353F5 /* TKContainer.h */,
+				CF6632671C175DF0004353F5 /* TKContainer.m */,
+				CF6632681C175DF0004353F5 /* TKImageView.h */,
+				CF6632691C175DF0004353F5 /* TKImageView.m */,
+				CF66326A1C175DF0004353F5 /* TKTableViewCell.h */,
+				CF66326B1C175DF0004353F5 /* TKTableViewCell.m */,
+				CF66326C1C175DF0004353F5 /* TKView.h */,
+				CF66326D1C175DF0004353F5 /* TKView.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CF66327F1C176A63004353F5 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		CF6632801C176A63004353F5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CF6632811C176A63004353F5 /* Trading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Trading;
+			sourceTree = "<group>";
+		};
+		CF6632821C176A63004353F5 /* Wallets */ = {
+			isa = PBXGroup;
+			children = (
+				CF6632831C176A63004353F5 /* LKWalletsPresenter.h */,
+				CF6632841C176A63004353F5 /* LKWalletsPresenter.m */,
+				CF6632851C176A63004353F5 /* LKWalletsPresenter.xib */,
+			);
+			path = Wallets;
+			sourceTree = "<group>";
+		};
+		D19F0116617E74EB428F44A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1A20FEBD41AE93CA79087B5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF21DC7A1C17590E00D2399E /* LykkeWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF21DC921C17590E00D2399E /* Build configuration list for PBXNativeTarget "LykkeWallet" */;
+			buildPhases = (
+				15235125039F34020E7210B4 /* Check Pods Manifest.lock */,
+				CF21DC771C17590E00D2399E /* Sources */,
+				CF21DC781C17590E00D2399E /* Frameworks */,
+				CF21DC791C17590E00D2399E /* Resources */,
+				E7ED9ED297C8D9A7381F5EB5 /* Embed Pods Frameworks */,
+				B34F384B3BF8800549C99FD7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LykkeWallet;
+			productName = LykkeWallet;
+			productReference = CF21DC7B1C17590E00D2399E /* LykkeWallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF21DC731C17590E00D2399E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LK;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Lykkex;
+				TargetAttributes = {
+					CF21DC7A1C17590E00D2399E = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = CF21DC761C17590E00D2399E /* Build configuration list for PBXProject "LykkeWallet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = CF21DC721C17590E00D2399E;
+			productRefGroup = CF21DC7C1C17590E00D2399E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF21DC7A1C17590E00D2399E /* LykkeWallet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF21DC791C17590E00D2399E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF6632871C176A63004353F5 /* LKWalletsPresenter.xib in Resources */,
+				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
+				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
+				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15235125039F34020E7210B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B34F384B3BF8800549C99FD7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7ED9ED297C8D9A7381F5EB5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF21DC771C17590E00D2399E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF6632861C176A63004353F5 /* LKWalletsPresenter.m in Sources */,
+				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
+				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
+				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
+				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
+				CF66325A1C175C21004353F5 /* TKPacket.m in Sources */,
+				CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */,
+				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
+				CF66325B1C175C21004353F5 /* TKAPIEntry.m in Sources */,
+				CF6632491C175B54004353F5 /* main.m in Sources */,
+				CF66325D1C175C21004353F5 /* TKColorizer.m in Sources */,
+				CF66325C1C175C21004353F5 /* UIColor+Generic.m in Sources */,
+				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
+				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF21DC8D1C17590E00D2399E /* Base */,
+				CF66324B1C175BCA004353F5 /* ru */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CF66327D1C1768B0004353F5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF66327C1C1768B0004353F5 /* Base */,
+				CF66327E1C1768B3004353F5 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF21DC901C17590E00D2399E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CF21DC911C17590E00D2399E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF21DC931C17590E00D2399E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF21DC941C17590E00D2399E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF21DC761C17590E00D2399E /* Build configuration list for PBXProject "LykkeWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF21DC901C17590E00D2399E /* Debug */,
+				CF21DC911C17590E00D2399E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF21DC921C17590E00D2399E /* Build configuration list for PBXNativeTarget "LykkeWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF21DC931C17590E00D2399E /* Debug */,
+				CF21DC941C17590E00D2399E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF21DC731C17590E00D2399E /* Project object */;
+}
