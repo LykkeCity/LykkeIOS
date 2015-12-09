@@ -7,6 +7,9 @@
 //
 
 #import "LWAuthNavigationController.h"
+#import "LWAuthEntryPointPresenter.h"
+#import "LWAuthPINPresenter.h"
+#import "LWAuthPINSuccessPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraPresenter.h"
 #import "LWRegisterVerifyingPresenter.h"
@@ -20,6 +23,13 @@
 
 
 @implementation LWAuthNavigationController
+
+
+#pragma mark - Root
+
+- (instancetype)init {    
+    return [super initWithRootViewController:[LWAuthEntryPointPresenter new]];
+}
 
 
 #pragma mark - Common

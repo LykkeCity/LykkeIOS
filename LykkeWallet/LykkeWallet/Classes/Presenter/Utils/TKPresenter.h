@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TKColorizer.h"
+#import "LWColorizer.h"
 #import "TKContainer.h"
 #import "NSObject+GDXObserver.h"
 

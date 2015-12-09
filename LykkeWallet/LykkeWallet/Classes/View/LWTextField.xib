@@ -11,8 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="332" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="GMX-FZ-W06">
-                    <rect key="frame" x="0.0" y="0.0" width="332" height="64"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="GMX-FZ-W06">
+                    <rect key="frame" x="8" y="9" width="316" height="46"/>
                     <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconValid" translatesAutoresizingMaskIntoConstraints="NO" id="1eq-x9-a8N">
@@ -29,7 +29,7 @@
                         <constraint firstAttribute="height" constant="30" id="8lj-YJ-dDZ"/>
                         <constraint firstAttribute="width" constant="284" id="Q6o-dg-s9e"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="rmj-KL-MWv" id="npn-Dc-3yH"/>
@@ -39,15 +39,15 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GMX-FZ-W06" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" id="Axs-u4-5Xi"/>
-                <constraint firstItem="GMX-FZ-W06" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" id="SOx-zz-QF6"/>
-                <constraint firstAttribute="trailing" secondItem="GMX-FZ-W06" secondAttribute="trailing" id="Z0m-c0-lJA"/>
+                <constraint firstItem="GMX-FZ-W06" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="9" id="Axs-u4-5Xi"/>
+                <constraint firstItem="GMX-FZ-W06" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" constant="8" id="SOx-zz-QF6"/>
+                <constraint firstAttribute="trailing" secondItem="GMX-FZ-W06" secondAttribute="trailing" constant="8" id="Z0m-c0-lJA"/>
                 <constraint firstAttribute="bottom" secondItem="1eq-x9-a8N" secondAttribute="bottom" constant="43" id="kcg-wV-W89"/>
                 <constraint firstItem="HX3-YM-s5D" firstAttribute="centerX" secondItem="rmj-KL-MWv" secondAttribute="centerX" id="mCV-Uq-gEK"/>
                 <constraint firstItem="1eq-x9-a8N" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="2" id="q1R-VZ-mnj"/>
                 <constraint firstItem="HX3-YM-s5D" firstAttribute="centerY" secondItem="rmj-KL-MWv" secondAttribute="centerY" id="sIW-oA-0mn"/>
                 <constraint firstAttribute="trailing" secondItem="1eq-x9-a8N" secondAttribute="trailing" constant="3" id="xou-JR-eud"/>
-                <constraint firstAttribute="bottom" secondItem="GMX-FZ-W06" secondAttribute="bottom" id="zkj-u5-9VW"/>
+                <constraint firstAttribute="bottom" secondItem="GMX-FZ-W06" secondAttribute="bottom" constant="9" id="zkj-u5-9VW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

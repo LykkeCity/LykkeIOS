@@ -1,18 +1,18 @@
 //
-//  LWPINSuccessPresenter.m
+//  LWAuthPINPresenter.m
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 09.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPINSuccessPresenter.h"
+#import "LWAuthPINPresenter.h"
 
-@interface LWPINSuccessPresenter ()
+@interface LWAuthPINPresenter ()
 
 @end
 
-@implementation LWPINSuccessPresenter
+@implementation LWAuthPINPresenter
 
 - (void)viewDidLoad {
     [super viewDidLoad];

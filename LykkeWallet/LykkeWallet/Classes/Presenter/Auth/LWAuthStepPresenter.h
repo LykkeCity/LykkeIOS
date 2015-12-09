@@ -9,7 +9,7 @@
 #import "TKPresenter.h"
 
 typedef NS_ENUM(NSInteger, LWAuthStep) {
-    LWAuthStepNone,
+    LWAuthStepEntryPoint,
     // existing account
     LWAuthStepPIN,
     LWAuthStepPINSuccess,
@@ -27,6 +27,6 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     
 }
 
-@property (assign, nonatomic) LWAuthStep stepId;
+@property (readonly, nonatomic) LWAuthStep stepId;
 
 @end

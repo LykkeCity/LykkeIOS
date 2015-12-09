@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Macro.h"
-#import "LKTabController.h"
+#import "LWTabController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LKTabController *tabController;
+@property (strong, nonatomic) LWTabController *tabController;
 
 @end
 

@@ -24,7 +24,7 @@
     // init tab presenters
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
     // init tab controller
-    self.tabController = [LKTabController new];
+    self.tabController = [LWTabController new];
     self.tabController.viewControllers = @[pWallets];
     // init window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

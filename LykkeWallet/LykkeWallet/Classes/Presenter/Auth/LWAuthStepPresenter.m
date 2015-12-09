@@ -11,4 +11,21 @@
 
 @implementation LWAuthStepPresenter
 
+
+#pragma mark - TKPresenter
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+
+#pragma mark - Properties
+
+- (LWAuthStep)stepId {
+    NSAssert(0, @"Must be overridden.");
+    return LWAuthStepEntryPoint;
+}
+
 @end

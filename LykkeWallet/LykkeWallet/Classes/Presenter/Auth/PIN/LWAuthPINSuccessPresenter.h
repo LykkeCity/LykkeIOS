@@ -1,5 +1,5 @@
 //
-//  LWPINPresenter.h
+//  LWAuthPINSuccessPresenter.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 09.12.15.
@@ -8,6 +8,6 @@
 
 #import "TKPresenter.h"
 
-@interface LWPINPresenter : TKPresenter
+@interface LWAuthPINSuccessPresenter : TKPresenter
 
 @end

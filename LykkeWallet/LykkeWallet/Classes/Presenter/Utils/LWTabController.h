@@ -1,5 +1,5 @@
 //
-//  LKTabController.h
+//  LWTabController.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 08.12.15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LKTabController : UITabBarController {
+@interface LWTabController : UITabBarController {
     
 }
 

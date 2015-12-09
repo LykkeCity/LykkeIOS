@@ -12,10 +12,6 @@
 		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
 		CF6632471C175B54004353F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		CF6632491C175B54004353F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632451C175B54004353F5 /* main.m */; };
-		CF66325A1C175C21004353F5 /* LWPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632501C175C21004353F5 /* LWPacket.m */; };
-		CF66325B1C175C21004353F5 /* LWAPIEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632521C175C21004353F5 /* LWAPIEntry.m */; };
-		CF66325C1C175C21004353F5 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632561C175C21004353F5 /* UIColor+Generic.m */; };
-		CF66325D1C175C21004353F5 /* LWColorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632591C175C21004353F5 /* LWColorizer.m */; };
 		CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632601C175DE5004353F5 /* TKNavigationController.m */; };
 		CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632621C175DE5004353F5 /* TKPresenter.m */; };
 		CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632671C175DF0004353F5 /* TKContainer.m */; };
@@ -25,15 +21,15 @@
 		CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF66327D1C1768B0004353F5 /* Localizable.strings */; };
 		CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632841C176A63004353F5 /* LWWalletsPresenter.m */; };
 		CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6632851C176A63004353F5 /* LWWalletsPresenter.xib */; };
-		CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632891C176AB1004353F5 /* LKTabController.m */; };
+		CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632891C176AB1004353F5 /* LWTabController.m */; };
 		CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */; };
 		CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8B51C17B66700F742A6 /* LWTextField.xib */; };
-		CF9EC8BB1C17C02F00F742A6 /* LWAuthPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */; };
-		CF9EC8BC1C17C02F00F742A6 /* LWAuthPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */; };
-		CF9EC8C71C17C07C00F742A6 /* LWPINPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */; };
-		CF9EC8C81C17C07C00F742A6 /* LWPINPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */; };
-		CF9EC8CC1C17C09400F742A6 /* LWPINSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */; };
-		CF9EC8CD1C17C09400F742A6 /* LWPINSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */; };
+		CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B91C17C02F00F742A6 /* LWAuthEntryPointPresenter.m */; };
+		CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8BA1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib */; };
+		CF9EC8C71C17C07C00F742A6 /* LWAuthPINPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8C41C17C07C00F742A6 /* LWAuthPINPresenter.m */; };
+		CF9EC8C81C17C07C00F742A6 /* LWAuthPINPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8C51C17C07C00F742A6 /* LWAuthPINPresenter.xib */; };
+		CF9EC8CC1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8CA1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m */; };
+		CF9EC8CD1C17C09400F742A6 /* LWAuthPINSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8CB1C17C09400F742A6 /* LWAuthPINSuccessPresenter.xib */; };
 		CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8D41C17C15C00F742A6 /* LWRegisterCameraPresenter.m */; };
 		CF9EC8D71C17C15D00F742A6 /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8D51C17C15C00F742A6 /* LWRegisterCameraPresenter.xib */; };
 		CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8DA1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib */; };
@@ -42,6 +38,11 @@
 		CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8EE1C17C38900F742A6 /* LWAuthNavigationController.m */; };
 		CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */; };
 		CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */; };
+		CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */; };
+		CF9EC90C1C17C6C100F742A6 /* LWAPIEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */; };
+		CF9EC90D1C17C6C100F742A6 /* LWPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9041C17C6C100F742A6 /* LWPacket.m */; };
+		CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */; };
+		CF9EC90F1C17C6C100F742A6 /* LWColorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,15 +57,6 @@
 		CF6632441C175B54004353F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6632451C175B54004353F5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF66324B1C175BCA004353F5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		CF66324F1C175C21004353F5 /* LWPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacket.h; sourceTree = "<group>"; };
-		CF6632501C175C21004353F5 /* LWPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacket.m; sourceTree = "<group>"; };
-		CF6632511C175C21004353F5 /* LWAPIEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAPIEntry.h; sourceTree = "<group>"; };
-		CF6632521C175C21004353F5 /* LWAPIEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAPIEntry.m; sourceTree = "<group>"; };
-		CF6632551C175C21004353F5 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
-		CF6632561C175C21004353F5 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
-		CF6632571C175C21004353F5 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		CF6632581C175C21004353F5 /* LWColorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorizer.h; sourceTree = "<group>"; };
-		CF6632591C175C21004353F5 /* LWColorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorizer.m; sourceTree = "<group>"; };
 		CF66325F1C175DE5004353F5 /* TKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNavigationController.h; sourceTree = "<group>"; };
 		CF6632601C175DE5004353F5 /* TKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationController.m; sourceTree = "<group>"; };
 		CF6632611C175DE5004353F5 /* TKPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPresenter.h; sourceTree = "<group>"; };
@@ -82,20 +74,20 @@
 		CF6632831C176A63004353F5 /* LWWalletsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWalletsPresenter.h; sourceTree = "<group>"; };
 		CF6632841C176A63004353F5 /* LWWalletsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWalletsPresenter.m; sourceTree = "<group>"; };
 		CF6632851C176A63004353F5 /* LWWalletsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWWalletsPresenter.xib; sourceTree = "<group>"; };
-		CF6632881C176AB1004353F5 /* LKTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTabController.h; sourceTree = "<group>"; };
-		CF6632891C176AB1004353F5 /* LKTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTabController.m; sourceTree = "<group>"; };
+		CF6632881C176AB1004353F5 /* LWTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTabController.h; sourceTree = "<group>"; };
+		CF6632891C176AB1004353F5 /* LWTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTabController.m; sourceTree = "<group>"; };
 		CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTextField.h; sourceTree = "<group>"; };
 		CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTextField.m; sourceTree = "<group>"; };
 		CF9EC8B51C17B66700F742A6 /* LWTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTextField.xib; sourceTree = "<group>"; };
-		CF9EC8B81C17C02F00F742A6 /* LWAuthPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthPresenter.h; sourceTree = "<group>"; };
-		CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthPresenter.m; sourceTree = "<group>"; };
-		CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthPresenter.xib; sourceTree = "<group>"; };
-		CF9EC8C31C17C07C00F742A6 /* LWPINPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPINPresenter.h; sourceTree = "<group>"; };
-		CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPINPresenter.m; sourceTree = "<group>"; };
-		CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPINPresenter.xib; sourceTree = "<group>"; };
-		CF9EC8C91C17C09400F742A6 /* LWPINSuccessPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPINSuccessPresenter.h; sourceTree = "<group>"; };
-		CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPINSuccessPresenter.m; sourceTree = "<group>"; };
-		CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPINSuccessPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8B81C17C02F00F742A6 /* LWAuthEntryPointPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthEntryPointPresenter.h; sourceTree = "<group>"; };
+		CF9EC8B91C17C02F00F742A6 /* LWAuthEntryPointPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthEntryPointPresenter.m; sourceTree = "<group>"; };
+		CF9EC8BA1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthEntryPointPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8C31C17C07C00F742A6 /* LWAuthPINPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthPINPresenter.h; sourceTree = "<group>"; };
+		CF9EC8C41C17C07C00F742A6 /* LWAuthPINPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthPINPresenter.m; sourceTree = "<group>"; };
+		CF9EC8C51C17C07C00F742A6 /* LWAuthPINPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthPINPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8C91C17C09400F742A6 /* LWAuthPINSuccessPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthPINSuccessPresenter.h; sourceTree = "<group>"; };
+		CF9EC8CA1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthPINSuccessPresenter.m; sourceTree = "<group>"; };
+		CF9EC8CB1C17C09400F742A6 /* LWAuthPINSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthPINSuccessPresenter.xib; sourceTree = "<group>"; };
 		CF9EC8D31C17C15C00F742A6 /* LWRegisterCameraPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterCameraPresenter.h; sourceTree = "<group>"; };
 		CF9EC8D41C17C15C00F742A6 /* LWRegisterCameraPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterCameraPresenter.m; sourceTree = "<group>"; };
 		CF9EC8D51C17C15C00F742A6 /* LWRegisterCameraPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterCameraPresenter.xib; sourceTree = "<group>"; };
@@ -109,6 +101,17 @@
 		CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterProfileDataPresenter.m; sourceTree = "<group>"; };
 		CF9EC8F61C17C3D200F742A6 /* LWAuthStepPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthStepPresenter.h; sourceTree = "<group>"; };
 		CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthStepPresenter.m; sourceTree = "<group>"; };
+		CF9EC8FA1C17C6AD00F742A6 /* LWAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthManager.h; sourceTree = "<group>"; };
+		CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthManager.m; sourceTree = "<group>"; };
+		CF9EC8FF1C17C6C100F742A6 /* LWAPIEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAPIEntry.h; sourceTree = "<group>"; };
+		CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAPIEntry.m; sourceTree = "<group>"; };
+		CF9EC9031C17C6C100F742A6 /* LWPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacket.h; sourceTree = "<group>"; };
+		CF9EC9041C17C6C100F742A6 /* LWPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacket.m; sourceTree = "<group>"; };
+		CF9EC9071C17C6C100F742A6 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
+		CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
+		CF9EC9091C17C6C100F742A6 /* LWColorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorizer.h; sourceTree = "<group>"; };
+		CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorizer.m; sourceTree = "<group>"; };
+		CF9EC90B1C17C6C100F742A6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +177,8 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CF66324C1C175C21004353F5 /* Network */,
-				CF6632531C175C21004353F5 /* UIHelpers */,
+				CF9EC8F91C17C6A100F742A6 /* Auth */,
+				CF9EC8FD1C17C6C100F742A6 /* Core */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,53 +219,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CF66324C1C175C21004353F5 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				CF66324D1C175C21004353F5 /* Packets */,
-				CF6632511C175C21004353F5 /* LWAPIEntry.h */,
-				CF6632521C175C21004353F5 /* LWAPIEntry.m */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		CF66324D1C175C21004353F5 /* Packets */ = {
-			isa = PBXGroup;
-			children = (
-				CF66324E1C175C21004353F5 /* Utils */,
-			);
-			path = Packets;
-			sourceTree = "<group>";
-		};
-		CF66324E1C175C21004353F5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CF66324F1C175C21004353F5 /* LWPacket.h */,
-				CF6632501C175C21004353F5 /* LWPacket.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		CF6632531C175C21004353F5 /* UIHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				CF6632541C175C21004353F5 /* Categories */,
-				CF6632571C175C21004353F5 /* Macro.h */,
-				CF6632581C175C21004353F5 /* LWColorizer.h */,
-				CF6632591C175C21004353F5 /* LWColorizer.m */,
-			);
-			path = UIHelpers;
-			sourceTree = "<group>";
-		};
-		CF6632541C175C21004353F5 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				CF6632551C175C21004353F5 /* UIColor+Generic.h */,
-				CF6632561C175C21004353F5 /* UIColor+Generic.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		CF66325E1C175DE5004353F5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,8 +226,8 @@
 				CF6632601C175DE5004353F5 /* TKNavigationController.m */,
 				CF6632611C175DE5004353F5 /* TKPresenter.h */,
 				CF6632621C175DE5004353F5 /* TKPresenter.m */,
-				CF6632881C176AB1004353F5 /* LKTabController.h */,
-				CF6632891C176AB1004353F5 /* LKTabController.m */,
+				CF6632881C176AB1004353F5 /* LWTabController.h */,
+				CF6632891C176AB1004353F5 /* LWTabController.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -331,9 +287,9 @@
 				CF9EC8EE1C17C38900F742A6 /* LWAuthNavigationController.m */,
 				CF9EC8F61C17C3D200F742A6 /* LWAuthStepPresenter.h */,
 				CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */,
-				CF9EC8B81C17C02F00F742A6 /* LWAuthPresenter.h */,
-				CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */,
-				CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */,
+				CF9EC8B81C17C02F00F742A6 /* LWAuthEntryPointPresenter.h */,
+				CF9EC8B91C17C02F00F742A6 /* LWAuthEntryPointPresenter.m */,
+				CF9EC8BA1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -341,12 +297,12 @@
 		CF9EC8C21C17C07C00F742A6 /* PIN */ = {
 			isa = PBXGroup;
 			children = (
-				CF9EC8C31C17C07C00F742A6 /* LWPINPresenter.h */,
-				CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */,
-				CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */,
-				CF9EC8C91C17C09400F742A6 /* LWPINSuccessPresenter.h */,
-				CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */,
-				CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */,
+				CF9EC8C31C17C07C00F742A6 /* LWAuthPINPresenter.h */,
+				CF9EC8C41C17C07C00F742A6 /* LWAuthPINPresenter.m */,
+				CF9EC8C51C17C07C00F742A6 /* LWAuthPINPresenter.xib */,
+				CF9EC8C91C17C09400F742A6 /* LWAuthPINSuccessPresenter.h */,
+				CF9EC8CA1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m */,
+				CF9EC8CB1C17C09400F742A6 /* LWAuthPINSuccessPresenter.xib */,
 			);
 			path = PIN;
 			sourceTree = "<group>";
@@ -365,6 +321,71 @@
 				CF9EC8DF1C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		CF9EC8F91C17C6A100F742A6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8FA1C17C6AD00F742A6 /* LWAuthManager.h */,
+				CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CF9EC8FD1C17C6C100F742A6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8FE1C17C6C100F742A6 /* Network */,
+				CF9EC9051C17C6C100F742A6 /* UIHelpers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CF9EC8FE1C17C6C100F742A6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8FF1C17C6C100F742A6 /* LWAPIEntry.h */,
+				CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */,
+				CF9EC9011C17C6C100F742A6 /* Packets */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CF9EC9011C17C6C100F742A6 /* Packets */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC9021C17C6C100F742A6 /* Utils */,
+			);
+			path = Packets;
+			sourceTree = "<group>";
+		};
+		CF9EC9021C17C6C100F742A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC9031C17C6C100F742A6 /* LWPacket.h */,
+				CF9EC9041C17C6C100F742A6 /* LWPacket.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CF9EC9051C17C6C100F742A6 /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC9061C17C6C100F742A6 /* Categories */,
+				CF9EC9091C17C6C100F742A6 /* LWColorizer.h */,
+				CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */,
+				CF9EC90B1C17C6C100F742A6 /* Macro.h */,
+			);
+			path = UIHelpers;
+			sourceTree = "<group>";
+		};
+		CF9EC9061C17C6C100F742A6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC9071C17C6C100F742A6 /* UIColor+Generic.h */,
+				CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		D19F0116617E74EB428F44A8 /* Frameworks */ = {
@@ -445,10 +466,10 @@
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
 				CF9EC8D71C17C15D00F742A6 /* LWRegisterCameraPresenter.xib in Resources */,
 				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
-				CF9EC8CD1C17C09400F742A6 /* LWPINSuccessPresenter.xib in Resources */,
-				CF9EC8BC1C17C02F00F742A6 /* LWAuthPresenter.xib in Resources */,
+				CF9EC8CD1C17C09400F742A6 /* LWAuthPINSuccessPresenter.xib in Resources */,
+				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
 				CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */,
-				CF9EC8C81C17C07C00F742A6 /* LWPINPresenter.xib in Resources */,
+				CF9EC8C81C17C07C00F742A6 /* LWAuthPINPresenter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,22 +545,23 @@
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
-				CF9EC8CC1C17C09400F742A6 /* LWPINSuccessPresenter.m in Sources */,
+				CF9EC8CC1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m in Sources */,
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
 				CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */,
+				CF9EC90D1C17C6C100F742A6 /* LWPacket.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
-				CF66325A1C175C21004353F5 /* LWPacket.m in Sources */,
-				CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */,
+				CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
-				CF9EC8C71C17C07C00F742A6 /* LWPINPresenter.m in Sources */,
-				CF9EC8BB1C17C02F00F742A6 /* LWAuthPresenter.m in Sources */,
-				CF66325B1C175C21004353F5 /* LWAPIEntry.m in Sources */,
+				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,
+				CF9EC8C71C17C07C00F742A6 /* LWAuthPINPresenter.m in Sources */,
+				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
-				CF66325D1C175C21004353F5 /* LWColorizer.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
+				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */,
-				CF66325C1C175C21004353F5 /* UIColor+Generic.m in Sources */,
+				CF9EC90C1C17C6C100F742A6 /* LWAPIEntry.m in Sources */,
+				CF9EC90F1C17C6C100F742A6 /* LWColorizer.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CF9EC8E01C17C18400F742A6 /* LWRegisterVerifyingPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
