@@ -1,5 +1,5 @@
 //
-//  LKWalletsPresenter.h
+//  LWWalletsPresenter.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 08.12.15.
@@ -9,7 +9,7 @@
 #import "TKPresenter.h"
 
 
-@interface LKWalletsPresenter : TKPresenter {
+@interface LWWalletsPresenter : TKPresenter {
     
 }
 

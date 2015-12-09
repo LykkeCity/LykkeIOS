@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rmj-KL-MWv" customClass="LWTextField">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="GMX-FZ-W06">
+                    <rect key="frame" x="0.0" y="0.0" width="332" height="64"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconValid" translatesAutoresizingMaskIntoConstraints="NO" id="1eq-x9-a8N">
+                    <rect key="frame" x="313" y="2" width="16" height="19"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="hDc-Gx-P0R"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HX3-YM-s5D">
+                    <rect key="frame" x="24" y="17" width="284" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8lj-YJ-dDZ"/>
+                        <constraint firstAttribute="width" constant="284" id="Q6o-dg-s9e"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="rmj-KL-MWv" id="npn-Dc-3yH"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GMX-FZ-W06" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" id="Axs-u4-5Xi"/>
+                <constraint firstItem="GMX-FZ-W06" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" id="SOx-zz-QF6"/>
+                <constraint firstAttribute="trailing" secondItem="GMX-FZ-W06" secondAttribute="trailing" id="Z0m-c0-lJA"/>
+                <constraint firstAttribute="bottom" secondItem="1eq-x9-a8N" secondAttribute="bottom" constant="43" id="kcg-wV-W89"/>
+                <constraint firstItem="HX3-YM-s5D" firstAttribute="centerX" secondItem="rmj-KL-MWv" secondAttribute="centerX" id="mCV-Uq-gEK"/>
+                <constraint firstItem="1eq-x9-a8N" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="2" id="q1R-VZ-mnj"/>
+                <constraint firstItem="HX3-YM-s5D" firstAttribute="centerY" secondItem="rmj-KL-MWv" secondAttribute="centerY" id="sIW-oA-0mn"/>
+                <constraint firstAttribute="trailing" secondItem="1eq-x9-a8N" secondAttribute="trailing" constant="3" id="xou-JR-eud"/>
+                <constraint firstAttribute="bottom" secondItem="GMX-FZ-W06" secondAttribute="bottom" id="zkj-u5-9VW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="textField" destination="HX3-YM-s5D" id="HgS-pi-n5x"/>
+                <outlet property="validImageView" destination="1eq-x9-a8N" id="N82-j0-1Ob"/>
+            </connections>
+            <point key="canvasLocation" x="218" y="68"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IconValid" width="15" height="15"/>
+        <image name="TextField" width="315" height="45"/>
+    </resources>
+</document>

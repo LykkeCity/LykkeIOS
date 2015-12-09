@@ -10,7 +10,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 // tab presenters
-#import "LKWalletsPresenter.h"
+#import "LWWalletsPresenter.h"
 
 
 @implementation AppDelegate
@@ -22,7 +22,7 @@
     // init fabric
     [Fabric with:@[[Crashlytics class]]];
     // init tab presenters
-    LKWalletsPresenter *pWallets = [LKWalletsPresenter new];
+    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
     // init tab controller
     self.tabController = [LKTabController new];
     self.tabController.viewControllers = @[pWallets];

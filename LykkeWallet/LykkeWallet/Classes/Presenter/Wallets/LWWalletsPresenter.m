@@ -1,22 +1,22 @@
 //
-//  LKWalletsPresenter.m
+//  LWWalletsPresenter.m
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 08.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LKWalletsPresenter.h"
+#import "LWWalletsPresenter.h"
 
 
-@interface LKWalletsPresenter () {
+@interface LWWalletsPresenter () {
     
 }
 
 @end
 
 
-@implementation LKWalletsPresenter
+@implementation LWWalletsPresenter
 
 
 #pragma mark - Lifecycle

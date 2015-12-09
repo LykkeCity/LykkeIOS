@@ -1,16 +1,16 @@
 //
-//  TKAPIEntry.m
+//  LWPacket.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 02.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKAPIEntry.h"
+#import <GDXNet/GDXNet.h>
 
 
-@implementation TKAPIEntry
-
-SINGLETON_INIT_EMPTY
+@interface LWPacket : GDXNetPacket<GDXRESTPacket> {
+    
+}
 
 @end

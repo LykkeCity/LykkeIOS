@@ -1,15 +1,15 @@
 //
-//  TKColorizer.m
+//  LWColorizer.m
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 02.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKColorizer.h"
+#import "LWColorizer.h"
 
 
-@implementation TKColorizer
+@implementation LWColorizer
 
 SINGLETON_INIT_EMPTY
 
@@ -17,8 +17,8 @@ SINGLETON_INIT_EMPTY
 #pragma mark - Properties
 
 - (CAGradientLayer *)gradientButton {
-    UIColor *colorOne = [UIColor colorWithHexString:@"1DB2DC"];
-    UIColor *colorTwo = [UIColor colorWithHexString:@"085DC3"];
+    UIColor *colorOne = [UIColor colorWithHexString:@"FF9100"];
+    UIColor *colorTwo = [UIColor colorWithHexString:@"AB00FF"];
     
     NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, nil];
     NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
@@ -29,8 +29,8 @@ SINGLETON_INIT_EMPTY
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.colors = colors;
     gradient.locations = locations;
-    gradient.startPoint = CGPointMake(0.25, 0.0);
-    gradient.endPoint = CGPointMake(0.75, 1.0);
+    gradient.startPoint = CGPointMake(0.0, 0.5);
+    gradient.endPoint = CGPointMake(1.0, 0.5);
     
     return gradient;
 }

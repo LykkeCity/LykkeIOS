@@ -1,5 +1,5 @@
 //
-//  TKAPIEntry.h
+//  LWAPIEntry.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 02.12.15.
@@ -15,7 +15,7 @@ NFDECLARE(APIEntryDidFail);
 NFDECLAREKEY(APIEntryError);
 
 
-@interface TKAPIEntry : NSObject {
+@interface LWAPIEntry : NSObject {
     
 }
 
