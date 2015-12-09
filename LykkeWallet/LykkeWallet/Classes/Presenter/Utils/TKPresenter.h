@@ -21,4 +21,17 @@
 - (void)localize;
 - (void)colorize;
 
+
+#pragma mark - Animation
+
+- (void)animateConstraintChanges;
+
+
+#pragma mark - Keyboard
+
+- (void)subscribeKeyboardNotifications;
+- (void)addKeyboardCloseTapGestureRecognizer;
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification;
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification;
+
 @end

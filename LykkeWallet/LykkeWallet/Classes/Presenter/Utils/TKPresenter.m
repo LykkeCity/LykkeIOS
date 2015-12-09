@@ -13,6 +13,10 @@
     
 }
 
+#pragma mark - Private
+
+- (void)closeKeyboard;
+
 @end
 
 
@@ -54,6 +58,45 @@
 
 - (void)colorize {
     // override if necessary
+}
+
+
+#pragma mark - Utils
+
+- (void)animateConstraintChanges {
+    [UIView animateWithDuration:0.25f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+
+#pragma mark - Keyboard
+
+- (void)subscribeKeyboardNotifications {
+    [self subscribe:UIKeyboardWillShowNotification selector:@selector(observeKeyboardWillShowNotification:)];
+    [self subscribe:UIKeyboardWillHideNotification selector:@selector(observeKeyboardWillHideNotification:)];
+}
+
+- (void)addKeyboardCloseTapGestureRecognizer {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(closeKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
+    // ...
+}
+
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+    // ...
+}
+
+
+#pragma mark - Private
+
+- (void)closeKeyboard {
+    [self.view endEditing:YES];
 }
 
 

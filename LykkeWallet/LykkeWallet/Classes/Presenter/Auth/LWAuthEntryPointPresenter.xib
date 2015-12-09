@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWAuthEntryPointPresenter">
             <connections>
                 <outlet property="emailTextFieldContainer" destination="jTR-ra-Fsm" id="f0R-5h-rt2"/>
+                <outlet property="proceedButton" destination="ZD9-eO-6FP" id="QMh-G4-fRH"/>
+                <outlet property="tipsBottomConstraint" destination="e0I-6C-Pvp" id="cX4-WT-cIg"/>
+                <outlet property="tipsContainer" destination="Glz-RF-sGK" id="E2S-zZ-tGf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,6 +48,14 @@
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Glz-RF-sGK" customClass="TKContainer">
+                    <rect key="frame" x="0.0" y="503" width="320" height="65"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="qKm-3S-pLj"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -52,9 +63,12 @@
                 <constraint firstItem="ZD9-eO-6FP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2j5-rL-6zh"/>
                 <constraint firstItem="jTR-ra-Fsm" firstAttribute="top" secondItem="nEs-eH-7Sv" secondAttribute="bottom" constant="33" id="DOJ-Tg-bEy"/>
                 <constraint firstItem="nEs-eH-7Sv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="57" id="I2t-g5-4Qu"/>
+                <constraint firstItem="Glz-RF-sGK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K8A-ux-U2c"/>
                 <constraint firstItem="ZD9-eO-6FP" firstAttribute="top" secondItem="jTR-ra-Fsm" secondAttribute="bottom" constant="11" id="d3j-jO-c0L"/>
+                <constraint firstAttribute="bottom" secondItem="Glz-RF-sGK" secondAttribute="bottom" id="e0I-6C-Pvp"/>
                 <constraint firstItem="nEs-eH-7Sv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gG0-2R-Mro"/>
                 <constraint firstItem="jTR-ra-Fsm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jqD-MP-xhV"/>
+                <constraint firstAttribute="trailing" secondItem="Glz-RF-sGK" secondAttribute="trailing" id="pkS-3Y-jXA"/>
             </constraints>
             <point key="canvasLocation" x="320" y="260"/>
         </view>

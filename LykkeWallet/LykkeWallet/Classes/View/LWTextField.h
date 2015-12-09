@@ -8,18 +8,26 @@
 
 #import "TKView.h"
 
+@class LWTextField;
+
+
+@protocol LWTextFieldDelegate
+@required
+- (void)textFieldDidChangeValue:(LWTextField *)textField;
+
+@end
+
 
 @interface LWTextField : TKView {
     
 }
 
+@property (weak, nonatomic) id<LWTextFieldDelegate> delegate;
+
 @property (assign, nonatomic) NSString   *text;
 @property (assign, nonatomic) NSString   *placeholder;
 @property (assign, nonatomic) NSUInteger maxLength;
 
-
-#pragma mark - Validation
-
-- (BOOL)validateWithRegex:(NSString *)regex;
+@property (assign, nonatomic, getter=isValid) BOOL valid;
 
 @end

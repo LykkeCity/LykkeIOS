@@ -22,6 +22,10 @@
 		CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632841C176A63004353F5 /* LWWalletsPresenter.m */; };
 		CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6632851C176A63004353F5 /* LWWalletsPresenter.xib */; };
 		CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632891C176AB1004353F5 /* LWTabController.m */; };
+		CF6A9CD21C18ED2400B69F53 /* LWColorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CCF1C18ED2400B69F53 /* LWColorizer.m */; };
+		CF6A9CD31C18ED2400B69F53 /* LWValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD11C18ED2400B69F53 /* LWValidator.m */; };
+		CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */; };
+		CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */; };
 		CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */; };
 		CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8B51C17B66700F742A6 /* LWTextField.xib */; };
 		CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B91C17C02F00F742A6 /* LWAuthEntryPointPresenter.m */; };
@@ -39,10 +43,9 @@
 		CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */; };
 		CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */; };
 		CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */; };
-		CF9EC90C1C17C6C100F742A6 /* LWAPIEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */; };
-		CF9EC90D1C17C6C100F742A6 /* LWPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9041C17C6C100F742A6 /* LWPacket.m */; };
 		CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */; };
-		CF9EC90F1C17C6C100F742A6 /* LWColorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */; };
+		CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD60E561C18C80C000BF83C /* LWTipsView.m */; };
+		CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD60E581C18C813000BF83C /* LWTipsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,14 @@
 		CF6632851C176A63004353F5 /* LWWalletsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWWalletsPresenter.xib; sourceTree = "<group>"; };
 		CF6632881C176AB1004353F5 /* LWTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTabController.h; sourceTree = "<group>"; };
 		CF6632891C176AB1004353F5 /* LWTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTabController.m; sourceTree = "<group>"; };
+		CF6A9CCE1C18ED2400B69F53 /* LWColorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorizer.h; sourceTree = "<group>"; };
+		CF6A9CCF1C18ED2400B69F53 /* LWColorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorizer.m; sourceTree = "<group>"; };
+		CF6A9CD01C18ED2400B69F53 /* LWValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWValidator.h; sourceTree = "<group>"; };
+		CF6A9CD11C18ED2400B69F53 /* LWValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWValidator.m; sourceTree = "<group>"; };
+		CF6A9CD51C18ED7E00B69F53 /* LWPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacket.h; sourceTree = "<group>"; };
+		CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacket.m; sourceTree = "<group>"; };
+		CF6A9CD81C18EDB900B69F53 /* LWPacketAccountExist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAccountExist.h; sourceTree = "<group>"; };
+		CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAccountExist.m; sourceTree = "<group>"; };
 		CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTextField.h; sourceTree = "<group>"; };
 		CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTextField.m; sourceTree = "<group>"; };
 		CF9EC8B51C17B66700F742A6 /* LWTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTextField.xib; sourceTree = "<group>"; };
@@ -103,15 +114,12 @@
 		CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthStepPresenter.m; sourceTree = "<group>"; };
 		CF9EC8FA1C17C6AD00F742A6 /* LWAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthManager.h; sourceTree = "<group>"; };
 		CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthManager.m; sourceTree = "<group>"; };
-		CF9EC8FF1C17C6C100F742A6 /* LWAPIEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAPIEntry.h; sourceTree = "<group>"; };
-		CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAPIEntry.m; sourceTree = "<group>"; };
-		CF9EC9031C17C6C100F742A6 /* LWPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacket.h; sourceTree = "<group>"; };
-		CF9EC9041C17C6C100F742A6 /* LWPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacket.m; sourceTree = "<group>"; };
 		CF9EC9071C17C6C100F742A6 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
 		CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
-		CF9EC9091C17C6C100F742A6 /* LWColorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorizer.h; sourceTree = "<group>"; };
-		CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorizer.m; sourceTree = "<group>"; };
 		CF9EC90B1C17C6C100F742A6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		CFD60E551C18C80C000BF83C /* LWTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTipsView.h; sourceTree = "<group>"; };
+		CFD60E561C18C80C000BF83C /* LWTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTipsView.m; sourceTree = "<group>"; };
+		CFD60E581C18C813000BF83C /* LWTipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTipsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFD60E541C18C7F3000BF83C /* Auth */,
 				CF6632651C175DF0004353F5 /* Utils */,
 				CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */,
 				CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */,
@@ -278,6 +287,15 @@
 			path = Wallets;
 			sourceTree = "<group>";
 		};
+		CF6A9CD41C18ED7E00B69F53 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A9CD51C18ED7E00B69F53 /* LWPacket.h */,
+				CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		CF9EC8B71C17C00A00F742A6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,36 +362,21 @@
 		CF9EC8FE1C17C6C100F742A6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CF9EC8FF1C17C6C100F742A6 /* LWAPIEntry.h */,
-				CF9EC9001C17C6C100F742A6 /* LWAPIEntry.m */,
-				CF9EC9011C17C6C100F742A6 /* Packets */,
+				CF6A9CD41C18ED7E00B69F53 /* Utils */,
+				CF6A9CD81C18EDB900B69F53 /* LWPacketAccountExist.h */,
+				CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		CF9EC9011C17C6C100F742A6 /* Packets */ = {
-			isa = PBXGroup;
-			children = (
-				CF9EC9021C17C6C100F742A6 /* Utils */,
-			);
-			path = Packets;
-			sourceTree = "<group>";
-		};
-		CF9EC9021C17C6C100F742A6 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CF9EC9031C17C6C100F742A6 /* LWPacket.h */,
-				CF9EC9041C17C6C100F742A6 /* LWPacket.m */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		CF9EC9051C17C6C100F742A6 /* UIHelpers */ = {
 			isa = PBXGroup;
 			children = (
 				CF9EC9061C17C6C100F742A6 /* Categories */,
-				CF9EC9091C17C6C100F742A6 /* LWColorizer.h */,
-				CF9EC90A1C17C6C100F742A6 /* LWColorizer.m */,
+				CF6A9CCE1C18ED2400B69F53 /* LWColorizer.h */,
+				CF6A9CCF1C18ED2400B69F53 /* LWColorizer.m */,
+				CF6A9CD01C18ED2400B69F53 /* LWValidator.h */,
+				CF6A9CD11C18ED2400B69F53 /* LWValidator.m */,
 				CF9EC90B1C17C6C100F742A6 /* Macro.h */,
 			);
 			path = UIHelpers;
@@ -386,6 +389,16 @@
 				CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		CFD60E541C18C7F3000BF83C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CFD60E551C18C80C000BF83C /* LWTipsView.h */,
+				CFD60E561C18C80C000BF83C /* LWTipsView.m */,
+				CFD60E581C18C813000BF83C /* LWTipsView.xib */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D19F0116617E74EB428F44A8 /* Frameworks */ = {
@@ -460,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
+				CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */,
 				CF9EC8E11C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
@@ -543,25 +557,27 @@
 			files = (
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
+				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
 				CF9EC8CC1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m in Sources */,
+				CF6A9CD21C18ED2400B69F53 /* LWColorizer.m in Sources */,
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
 				CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */,
-				CF9EC90D1C17C6C100F742A6 /* LWPacket.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,
 				CF9EC8C71C17C07C00F742A6 /* LWAuthPINPresenter.m in Sources */,
+				CF6A9CD31C18ED2400B69F53 /* LWValidator.m in Sources */,
+				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */,
-				CF9EC90C1C17C6C100F742A6 /* LWAPIEntry.m in Sources */,
-				CF9EC90F1C17C6C100F742A6 /* LWColorizer.m in Sources */,
+				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CF9EC8E01C17C18400F742A6 /* LWRegisterVerifyingPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,

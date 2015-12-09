@@ -7,3 +7,7 @@
 */
 
 "tab.wallets" = "Wallets";
+
+"auth.signIn" = "Sign In";
+
+"utils.tip" = "What should I know?";

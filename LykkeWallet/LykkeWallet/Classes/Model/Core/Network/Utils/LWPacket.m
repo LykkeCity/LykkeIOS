@@ -23,7 +23,7 @@
 }
 
 - (NSString *)urlBase {
-    return @"http://yourservice.com/api/";
+    return @"https://lykke-api.azurewebsites.net/api/";
 }
 
 - (NSString *)urlRelative {
@@ -40,13 +40,13 @@
 }
 
 - (GDXRESTPacketType)type {
-    return GDXRESTPacketTypePOST; // for our server default HTTP method is POTK
+    return GDXRESTPacketTypePOST; // for our server default HTTP method is POST
 }
 
 - (GDXRESTPacketOptions *)options {
     GDXRESTPacketOptions *options = [GDXRESTPacketOptions new];
     options.cacheAllowed = NO; // forbid cache
-    options.silent = NO; // silent requests, see 'GDXRETKPacketOptions' explanation below
+    options.silent = NO; // silent requests, see 'GDXRESTPacketOptions' explanation below
     options.repeatOnSuccess = NO; // should be auto-repeated on success
     options.repeatOnFailure = NO; // should be auto-repeated on failure
     options.timeout = 30; // request timeout
@@ -56,12 +56,12 @@
 
 - (GDXRESTOperationType)requestType {
     return ((self.type == GDXRESTPacketTypePOST)
-            ? GDXRESTOperationTypeJSON // JSON for POTK
+            ? GDXRESTOperationTypeJSON // JSON for POST
             : GDXRESTOperationTypeHTTP); // HTTP for GET
 }
 
 - (GDXRESTOperationType)responseType {
-    return GDXRESTOperationTypeJSON; // default response type is HTTP
+    return GDXRESTOperationTypeJSON;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "LWTextField.h"
+#import "NSObject+GDXObserver.h"
 
 
 @interface LWTextField ()<UITextFieldDelegate> {
@@ -15,6 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *validImageView;
+
+
+#pragma mark - Observing
+
+- (void)observeTextFieldDidChangeNotification:(NSNotification *)notification;
 
 @end
 
@@ -28,22 +34,20 @@
     [super awakeFromNib];
     
     self.validImageView.hidden = YES;
+    // observe text changes
+    [self subscribe:UITextFieldTextDidChangeNotification
+           selector:@selector(observeTextFieldDidChangeNotification:)];
+}
+
+- (void)dealloc {
+    [self unsubscribeAll];
 }
 
 
-#pragma mark - Validation
+#pragma mark - Observing
 
-- (BOOL)validateWithRegex:(NSString *)regex {
-    NSRegularExpression *expr = [NSRegularExpression
-                                 regularExpressionWithPattern:regex
-                                 options:NSRegularExpressionCaseInsensitive
-                                 error:nil];
-    BOOL valid = [expr numberOfMatchesInString:self.text
-                                       options:0
-                                         range:NSMakeRange(0, self.text.length)];
-    self.validImageView.hidden = !valid;
-    
-    return valid;
+- (void)observeTextFieldDidChangeNotification:(NSNotification *)notification {
+    [self.delegate textFieldDidChangeValue:self];
 }
 
 
@@ -63,6 +67,12 @@
 
 - (void)setPlaceholder:(NSString *)placeholder {
     self.textField.placeholder = placeholder;
+}
+
+- (void)setValid:(BOOL)valid {
+    _valid = valid;
+    
+    self.validImageView.hidden = !self.isValid;
 }
 
 
