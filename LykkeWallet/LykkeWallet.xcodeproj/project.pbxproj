@@ -28,6 +28,20 @@
 		CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632891C176AB1004353F5 /* LKTabController.m */; };
 		CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */; };
 		CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8B51C17B66700F742A6 /* LWTextField.xib */; };
+		CF9EC8BB1C17C02F00F742A6 /* LWAuthPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */; };
+		CF9EC8BC1C17C02F00F742A6 /* LWAuthPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */; };
+		CF9EC8C71C17C07C00F742A6 /* LWPINPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */; };
+		CF9EC8C81C17C07C00F742A6 /* LWPINPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */; };
+		CF9EC8CC1C17C09400F742A6 /* LWPINSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */; };
+		CF9EC8CD1C17C09400F742A6 /* LWPINSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */; };
+		CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8D41C17C15C00F742A6 /* LWRegisterCameraPresenter.m */; };
+		CF9EC8D71C17C15D00F742A6 /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8D51C17C15C00F742A6 /* LWRegisterCameraPresenter.xib */; };
+		CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8DA1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib */; };
+		CF9EC8E01C17C18400F742A6 /* LWRegisterVerifyingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8DE1C17C18400F742A6 /* LWRegisterVerifyingPresenter.m */; };
+		CF9EC8E11C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9EC8DF1C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib */; };
+		CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8EE1C17C38900F742A6 /* LWAuthNavigationController.m */; };
+		CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */; };
+		CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +87,28 @@
 		CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTextField.h; sourceTree = "<group>"; };
 		CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTextField.m; sourceTree = "<group>"; };
 		CF9EC8B51C17B66700F742A6 /* LWTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTextField.xib; sourceTree = "<group>"; };
+		CF9EC8B81C17C02F00F742A6 /* LWAuthPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthPresenter.h; sourceTree = "<group>"; };
+		CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthPresenter.m; sourceTree = "<group>"; };
+		CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8C31C17C07C00F742A6 /* LWPINPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPINPresenter.h; sourceTree = "<group>"; };
+		CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPINPresenter.m; sourceTree = "<group>"; };
+		CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPINPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8C91C17C09400F742A6 /* LWPINSuccessPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPINSuccessPresenter.h; sourceTree = "<group>"; };
+		CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPINSuccessPresenter.m; sourceTree = "<group>"; };
+		CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPINSuccessPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8D31C17C15C00F742A6 /* LWRegisterCameraPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterCameraPresenter.h; sourceTree = "<group>"; };
+		CF9EC8D41C17C15C00F742A6 /* LWRegisterCameraPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterCameraPresenter.m; sourceTree = "<group>"; };
+		CF9EC8D51C17C15C00F742A6 /* LWRegisterCameraPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterCameraPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8DA1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterProfileDataPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8DD1C17C18400F742A6 /* LWRegisterVerifyingPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterVerifyingPresenter.h; sourceTree = "<group>"; };
+		CF9EC8DE1C17C18400F742A6 /* LWRegisterVerifyingPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterVerifyingPresenter.m; sourceTree = "<group>"; };
+		CF9EC8DF1C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterVerifyingPresenter.xib; sourceTree = "<group>"; };
+		CF9EC8ED1C17C38900F742A6 /* LWAuthNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthNavigationController.h; sourceTree = "<group>"; };
+		CF9EC8EE1C17C38900F742A6 /* LWAuthNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthNavigationController.m; sourceTree = "<group>"; };
+		CF9EC8F31C17C3C900F742A6 /* LWRegisterProfileDataPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterProfileDataPresenter.h; sourceTree = "<group>"; };
+		CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterProfileDataPresenter.m; sourceTree = "<group>"; };
+		CF9EC8F61C17C3D200F742A6 /* LWAuthStepPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthStepPresenter.h; sourceTree = "<group>"; };
+		CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthStepPresenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +183,7 @@
 		CF6632401C175B54004353F5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				CF9EC8B71C17C00A00F742A6 /* Auth */,
 				CF6632821C176A63004353F5 /* Wallets */,
 				CF66327F1C176A63004353F5 /* History */,
 				CF6632801C176A63004353F5 /* Settings */,
@@ -285,6 +322,51 @@
 			path = Wallets;
 			sourceTree = "<group>";
 		};
+		CF9EC8B71C17C00A00F742A6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8C21C17C07C00F742A6 /* PIN */,
+				CF9EC8C61C17C07C00F742A6 /* Registration */,
+				CF9EC8ED1C17C38900F742A6 /* LWAuthNavigationController.h */,
+				CF9EC8EE1C17C38900F742A6 /* LWAuthNavigationController.m */,
+				CF9EC8F61C17C3D200F742A6 /* LWAuthStepPresenter.h */,
+				CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */,
+				CF9EC8B81C17C02F00F742A6 /* LWAuthPresenter.h */,
+				CF9EC8B91C17C02F00F742A6 /* LWAuthPresenter.m */,
+				CF9EC8BA1C17C02F00F742A6 /* LWAuthPresenter.xib */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CF9EC8C21C17C07C00F742A6 /* PIN */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8C31C17C07C00F742A6 /* LWPINPresenter.h */,
+				CF9EC8C41C17C07C00F742A6 /* LWPINPresenter.m */,
+				CF9EC8C51C17C07C00F742A6 /* LWPINPresenter.xib */,
+				CF9EC8C91C17C09400F742A6 /* LWPINSuccessPresenter.h */,
+				CF9EC8CA1C17C09400F742A6 /* LWPINSuccessPresenter.m */,
+				CF9EC8CB1C17C09400F742A6 /* LWPINSuccessPresenter.xib */,
+			);
+			path = PIN;
+			sourceTree = "<group>";
+		};
+		CF9EC8C61C17C07C00F742A6 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8F31C17C3C900F742A6 /* LWRegisterProfileDataPresenter.h */,
+				CF9EC8F41C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m */,
+				CF9EC8DA1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib */,
+				CF9EC8D31C17C15C00F742A6 /* LWRegisterCameraPresenter.h */,
+				CF9EC8D41C17C15C00F742A6 /* LWRegisterCameraPresenter.m */,
+				CF9EC8D51C17C15C00F742A6 /* LWRegisterCameraPresenter.xib */,
+				CF9EC8DD1C17C18400F742A6 /* LWRegisterVerifyingPresenter.h */,
+				CF9EC8DE1C17C18400F742A6 /* LWRegisterVerifyingPresenter.m */,
+				CF9EC8DF1C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		D19F0116617E74EB428F44A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,10 +439,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
+				CF9EC8E11C17C18400F742A6 /* LWRegisterVerifyingPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
+				CF9EC8D71C17C15D00F742A6 /* LWRegisterCameraPresenter.xib in Resources */,
 				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
+				CF9EC8CD1C17C09400F742A6 /* LWPINSuccessPresenter.xib in Resources */,
+				CF9EC8BC1C17C02F00F742A6 /* LWAuthPresenter.xib in Resources */,
+				CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */,
+				CF9EC8C81C17C07C00F742A6 /* LWPINPresenter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,19 +521,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
+				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
+				CF9EC8CC1C17C09400F742A6 /* LWPINSuccessPresenter.m in Sources */,
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
+				CF9EC8F51C17C3C900F742A6 /* LWRegisterProfileDataPresenter.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CF66325A1C175C21004353F5 /* LWPacket.m in Sources */,
 				CF66328A1C176AB1004353F5 /* LKTabController.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
+				CF9EC8C71C17C07C00F742A6 /* LWPINPresenter.m in Sources */,
+				CF9EC8BB1C17C02F00F742A6 /* LWAuthPresenter.m in Sources */,
 				CF66325B1C175C21004353F5 /* LWAPIEntry.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				CF66325D1C175C21004353F5 /* LWColorizer.m in Sources */,
+				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
+				CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */,
 				CF66325C1C175C21004353F5 /* UIColor+Generic.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
+				CF9EC8E01C17C18400F742A6 /* LWRegisterVerifyingPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
