@@ -12,14 +12,16 @@
 @implementation LWPacket
 
 
-#pragma mark - GDXRETKPacket
+#pragma mark - GDXRESTPacket
 
 - (instancetype)initWithJSON:(id)json {
     return [super init]; // our root packet will not parse any input JSON
 }
 
 - (void)parseResponse:(id)response error:(NSError *)error {
-    // empty
+    result = response[@"Result"];
+    reject = response[@"Error"];
+    _isRejected = (reject != nil) && ![reject isKindOfClass:NSNull.class];
 }
 
 - (NSString *)urlBase {

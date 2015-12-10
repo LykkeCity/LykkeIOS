@@ -28,6 +28,8 @@
 @property (assign, nonatomic) NSString   *placeholder;
 @property (assign, nonatomic) NSUInteger maxLength;
 
+@property (assign, nonatomic) UIKeyboardType keyboardType;
+
 @property (assign, nonatomic, getter=isValid) BOOL valid;
 
 @end

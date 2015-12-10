@@ -69,6 +69,12 @@
     self.textField.placeholder = placeholder;
 }
 
+- (void)setKeyboardType:(UIKeyboardType)keyboardType {
+    _keyboardType = keyboardType;
+    
+    self.textField.keyboardType = keyboardType;
+}
+
 - (void)setValid:(BOOL)valid {
     _valid = valid;
     

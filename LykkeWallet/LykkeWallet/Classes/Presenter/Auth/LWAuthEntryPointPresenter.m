@@ -36,6 +36,7 @@
     // init email field
     emailTextField = [LWTextField new];
     emailTextField.delegate = self;
+    emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
     [self.emailTextFieldContainer attach:emailTextField];
     // init tips
     tipsView = [LWTipsView new];

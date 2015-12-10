@@ -15,7 +15,9 @@
 #pragma mark - LWPacket
 
 - (void)parseResponse:(id)response error:(NSError *)error {
-    NSLog(response);
+    [super parseResponse:response error:error];
+    
+    _isRegistered = [result[@"IsEmailRegistered"] boolValue];
 }
 
 - (NSString *)urlRelative {
@@ -26,8 +28,8 @@
     return @{@"email" : self.email};
 }
 
-- (GDXRESTOperationType)responseType {
-    return GDXRESTOperationTypeHTTP;
+- (GDXRESTPacketType)type {
+    return GDXRESTPacketTypeGET;
 }
 
 @end

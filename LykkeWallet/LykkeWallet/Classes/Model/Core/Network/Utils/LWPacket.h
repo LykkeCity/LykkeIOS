@@ -10,7 +10,10 @@
 
 
 @interface LWPacket : GDXNetPacket<GDXRESTPacket> {
-    
+    NSDictionary *result;
+    NSDictionary *reject;
 }
+
+@property (readonly, nonatomic) BOOL isRejected;
 
 @end

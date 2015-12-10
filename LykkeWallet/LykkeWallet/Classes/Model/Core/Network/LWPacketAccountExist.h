@@ -12,7 +12,9 @@
 @interface LWPacketAccountExist : LWPacket {
     
 }
-
+// in
 @property (copy, nonatomic) NSString *email;
+// out
+@property (readonly, nonatomic) BOOL isRegistered;
 
 @end
