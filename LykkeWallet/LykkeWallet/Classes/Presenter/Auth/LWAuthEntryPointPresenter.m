@@ -12,16 +12,39 @@
 #import "LWValidator.h"
 #import "LWAuthManager.h"
 
+typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
+    LWAuthEntryPointNextStepNone,
+    LWAuthEntryPointNextStepPIN,
+    LWAuthEntryPointNextStepRegister
+};
 
-@interface LWAuthEntryPointPresenter ()<LWTextFieldDelegate, LWTipsViewDelegate> {
+
+@interface LWAuthEntryPointPresenter ()<
+    LWTextFieldDelegate,
+    LWTipsViewDelegate,
+    LWAuthManagerDelegate
+> {
     LWTextField *emailTextField;
     LWTipsView  *tipsView;
+    
+    LWAuthEntryPointNextStep step;
 }
 
 @property (weak, nonatomic) IBOutlet TKContainer *emailTextFieldContainer;
 @property (weak, nonatomic) IBOutlet UIButton    *proceedButton;
 @property (weak, nonatomic) IBOutlet TKContainer *tipsContainer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tipsBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+
+
+#pragma mark - Utils
+
+- (void)validateProceedButtonState;
+
+
+#pragma mark - Actions
+
+- (IBAction)proceedButtonClick:(id)sender;
 
 @end
 
@@ -50,19 +73,10 @@
     [super viewWillAppear:animated];
     // keyboard observing
     [self subscribeKeyboardNotifications];
-}
-
-- (void)localize {
-    [self.proceedButton setTitle:[Localize(@"auth.signIn") uppercaseString]
-                        forState:UIControlStateNormal];
-}
-
-- (void)colorize {
-    NSString *proceedImage = (emailTextField.isValid) ? @"ButtonOK" : @"ButtonOKInactive";
-    UIColor *proceedColor = (emailTextField.isValid) ? [UIColor whiteColor] : [UIColor lightGrayColor];
-    
-    [self.proceedButton setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
-    [self.proceedButton setTitleColor:proceedColor forState:UIControlStateNormal];
+    // check button state
+    [self validateProceedButtonState];
+    // managers
+    [LWAuthManager instance].delegate = self;
 }
 
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
@@ -84,15 +98,55 @@
 }
 
 
+#pragma mark - Utils
+
+- (void)validateProceedButtonState {
+    BOOL canProceed = emailTextField.isValid && (step != LWAuthEntryPointNextStepNone);
+    
+    NSString *proceedImage = (canProceed) ? @"ButtonOK" : @"ButtonOKInactive";
+    UIColor *proceedColor = (canProceed) ? [UIColor whiteColor] : [UIColor lightGrayColor];
+    BOOL enabled = (canProceed);
+    
+    [self.proceedButton setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
+    [self.proceedButton setTitleColor:proceedColor forState:UIControlStateNormal];
+    self.proceedButton.enabled = enabled;
+}
+
+
+#pragma mark - Actions
+
+- (void)proceedButtonClick:(id)sender {
+    switch (step) {
+        case LWAuthEntryPointNextStepPIN: {
+            NSLog(@"goto PIN");
+            break;
+        }
+        case LWAuthEntryPointNextStepRegister: {
+            NSLog(@"goto REGISTER");
+            break;
+        }
+        default: {
+            NSLog(@"no action");
+            break;
+        }
+    }
+}
+
+
 #pragma mark - LWTextFieldDelegate
 
 - (void)textFieldDidChangeValue:(LWTextField *)textField {
-    textField.valid = [LWValidator validateEmail:textField.text];
-    // switch colors
-    [self colorize];
-    // send request
-    if (textField.isValid) {
-        [[LWAuthManager instance] requestEmailValidation:textField.text];
+    emailTextField.valid = [LWValidator validateEmail:textField.text];
+    
+    if (emailTextField.isValid) {
+        // reset next step
+        step = LWAuthEntryPointNextStepNone;
+        // check button state
+        [self validateProceedButtonState];
+        // show activity
+        [self.activityView startAnimating];
+        // send request
+        [[LWAuthManager instance] requestEmailValidation:emailTextField.text];
     }
 }
 
@@ -101,6 +155,34 @@
 
 - (void)tipsViewDidPress:(LWTipsView *)view {
     // ...
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered {
+    [self.activityView stopAnimating];
+    
+    if (isRegistered) {
+        step = LWAuthEntryPointNextStepPIN;
+        [self.proceedButton setTitle:[Localize(@"auth.login") uppercaseString]
+                            forState:UIControlStateNormal];
+    }
+    else {
+        step = LWAuthEntryPointNextStepRegister;
+        [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]
+                            forState:UIControlStateNormal];
+    }
+    // check button state
+    [self validateProceedButtonState];
+}
+
+- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {
+    [self.activityView stopAnimating];
+    
+    step = LWAuthEntryPointNextStepRegister;
+    // check button state
+    [self validateProceedButtonState];
 }
 
 @end

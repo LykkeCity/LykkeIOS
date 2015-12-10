@@ -53,14 +53,20 @@ SINGLETON_INIT {
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
     GDXNetContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
-    NSLog(@"%@", ctx);
+    LWPacketAccountExist *pack = (LWPacketAccountExist *)ctx.packet;
+    
+    if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
+        [self.delegate authManager:self didCheckEmail:pack.isRegistered];
+    }
 }
 
 - (void)observeGDXNetAdapterDidFailRequestNotification:(NSNotification *)notification {
     GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
+    LWPacket *pack = (LWPacket *)ctx.packet;
     
-    [self notify:kNotificationAuthManagerDidFail
-        userInfo:@{kNotificationKeyAuthManagerError : ctx.error}];
+    if ([self.delegate respondsToSelector:@selector(authManager:didFail:)])  {
+        [self.delegate authManager:self didFail:pack.reject];
+    }
 }
 
 @end

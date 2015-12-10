@@ -20,8 +20,8 @@
 
 - (void)parseResponse:(id)response error:(NSError *)error {
     result = response[@"Result"];
-    reject = response[@"Error"];
-    _isRejected = (reject != nil) && ![reject isKindOfClass:NSNull.class];
+    _reject = response[@"Error"];
+    _isRejected = (self.reject != nil) && ![self.reject isKindOfClass:NSNull.class];
 }
 
 - (NSString *)urlBase {

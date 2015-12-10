@@ -10,10 +10,15 @@
 #import "Macro.h"
 #import "NSObject+GDXObserver.h"
 
-NFDECLARE(AuthManagerDidCheckEmail);
-NFDECLARE(AuthManagerDidFail);
-NFDECLAREKEY(AuthManagerError);
-NFDECLAREKEY(AuthManagerEmail);
+@class LWAuthManager;
+
+
+@protocol LWAuthManagerDelegate<NSObject>
+@optional
+- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered;
+- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject;
+
+@end
 
 
 @interface LWAuthManager : NSObject {
@@ -21,6 +26,8 @@ NFDECLAREKEY(AuthManagerEmail);
 }
 
 SINGLETON_DECLARE
+
+@property (weak, nonatomic) id<LWAuthManagerDelegate> delegate;
 
 @property (readonly, nonatomic) BOOL isAuthorized;
 

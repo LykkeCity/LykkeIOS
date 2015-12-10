@@ -8,6 +8,7 @@
 
 "tab.wallets" = "Wallets";
 
-"auth.signIn" = "Sign In";
+"auth.login" = "Log In";
+"auth.signup" = "Sign Up";
 
 "utils.tip" = "What should I know?";
