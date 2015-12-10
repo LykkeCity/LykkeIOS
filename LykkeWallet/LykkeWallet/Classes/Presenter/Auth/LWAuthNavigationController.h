@@ -9,13 +9,18 @@
 #import "TKNavigationController.h"
 #import "LWAuthStepPresenter.h"
 
+typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
+
 
 @interface LWAuthNavigationController : TKNavigationController {
     
 }
 
+@property (readonly, nonatomic) LWAuthStep currentStep;
+
+
 #pragma mark - Common
 
-- (void)navigateToStep:(LWAuthStep)step;
+- (void)navigateToStep:(LWAuthStep)step preparationBlock:(LWAuthStepPushPreparationBlock)block;
 
 @end

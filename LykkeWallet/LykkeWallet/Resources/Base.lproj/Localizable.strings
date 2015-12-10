@@ -8,7 +8,11 @@
 
 "tab.wallets" = "Wallets";
 
+"title.register" = "Register";
+
 "auth.login" = "Log In";
 "auth.signup" = "Sign Up";
+
+"register.step1.prompt" = "Complete your profile";
 
 "utils.tip" = "What should I know?";

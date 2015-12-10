@@ -7,10 +7,12 @@
 //
 
 #import "LWAuthEntryPointPresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 #import "LWTipsView.h"
 #import "LWValidator.h"
 #import "LWAuthManager.h"
+#import "LWRegisterProfileDataPresenter.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     LWAuthEntryPointNextStepNone,
@@ -71,12 +73,19 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // hide navigation bar
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     // keyboard observing
     [self subscribeKeyboardNotifications];
     // check button state
     [self validateProceedButtonState];
     // managers
     [LWAuthManager instance].delegate = self;
+}
+
+- (void)localize {
+    [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]
+                        forState:UIControlStateNormal];
 }
 
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
@@ -116,17 +125,22 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 #pragma mark - Actions
 
 - (void)proceedButtonClick:(id)sender {
+    LWAuthNavigationController *nav = (LWAuthNavigationController *)self.navigationController;
+    
     switch (step) {
         case LWAuthEntryPointNextStepPIN: {
             NSLog(@"goto PIN");
             break;
         }
         case LWAuthEntryPointNextStepRegister: {
-            NSLog(@"goto REGISTER");
+            [nav navigateToStep:LWAuthStepRegisterProfile
+               preparationBlock:^(LWAuthStepPresenter *presenter) {
+                   ((LWRegisterProfileDataPresenter *)presenter).email = emailTextField.text;
+               }];
             break;
         }
         default: {
-            NSLog(@"no action");
+            NSAssert(0, @"Invalid case.");
             break;
         }
     }
@@ -137,12 +151,12 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 - (void)textFieldDidChangeValue:(LWTextField *)textField {
     emailTextField.valid = [LWValidator validateEmail:textField.text];
+    // reset next step
+    step = LWAuthEntryPointNextStepNone;
+    // check button state
+    [self validateProceedButtonState];
     
     if (emailTextField.isValid) {
-        // reset next step
-        step = LWAuthEntryPointNextStepNone;
-        // check button state
-        [self validateProceedButtonState];
         // show activity
         [self.activityView startAnimating];
         // send request

@@ -8,6 +8,11 @@
 
 "tab.wallets" = "Кошельки";
 
-"auth.signIn" = "Войти";
+"title.register" = "Регистрация";
+
+"auth.login" = "Войти";
+"auth.signup" = "Зарегистрироваться";
+
+"register.step1.prompt" = "Заполните ваш профиль";
 
 "utils.tip" = "Что мне нужно знать?";

@@ -10,16 +10,14 @@
 
 typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepEntryPoint,
-    // existing account
-    LWAuthStepPIN,
-    LWAuthStepPINSuccess,
-    // new account
-    LWAuthStepProfile,
-    LWAuthStepSelfie,
-    LWAuthStepIdentity,
-    LWAuthStepUtilityBill,
-    LWAuthStepAwaitingVerification,
-    LWAuthStepSuccess
+    LWAuthStepLoginPIN,
+    LWAuthStepLoginPINSuccess,
+    LWAuthStepRegisterProfile,
+    LWAuthStepRegisterSelfie,
+    LWAuthStepRegisterIdentity,
+    LWAuthStepRegisterUtilityBill,
+    LWAuthStepRegisterAwaitingVerification,
+    LWAuthStepRegisterSuccess
 };
 
 

@@ -19,7 +19,7 @@
 }
 
 - (void)parseResponse:(id)response error:(NSError *)error {
-    result = response[@"Result"];
+    result = [response objectForKey:@"Result"];
     _reject = response[@"Error"];
     _isRejected = (self.reject != nil) && ![self.reject isKindOfClass:NSNull.class];
 }
