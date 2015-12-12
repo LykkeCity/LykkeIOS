@@ -100,10 +100,17 @@
 }
 
 
+#pragma mark - Properties
+
+- (BOOL)isVisible {
+    return (self.isViewLoaded && self.view.window);
+}
+
+
 #pragma mark - Rotation
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    
+    // ...
 }
 
 @end

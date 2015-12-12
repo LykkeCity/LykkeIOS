@@ -16,6 +16,9 @@
     
 }
 
+@property (readonly, nonatomic) BOOL isVisible;
+
+
 #pragma mark - Setup
 
 - (void)localize;

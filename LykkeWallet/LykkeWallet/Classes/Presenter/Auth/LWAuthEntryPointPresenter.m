@@ -151,6 +151,9 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 #pragma mark - LWTextFieldDelegate
 
 - (void)textFieldDidChangeValue:(LWTextField *)textField {
+    if (!self.isVisible) { // prevent from being processed if controller is not presented
+        return;
+    }
     emailTextField.valid = [LWValidator validateEmail:textField.text];
     // reset next step
     step = LWAuthEntryPointNextStepNone;
