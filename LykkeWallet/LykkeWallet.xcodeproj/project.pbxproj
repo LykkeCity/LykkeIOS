@@ -455,6 +455,7 @@
 				TargetAttributes = {
 					CF21DC7A1C17590E00D2399E = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = X55U7MA35J;
 					};
 				};
 			};
@@ -654,7 +655,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "8e39025e-7f0f-4f2a-a87b-3df1af66ba8a";
+				PROVISIONING_PROFILE = "133b8421-a122-4ee7-995d-504628242eea";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -665,10 +666,12 @@
 			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Alexander Pukhov (X55U7MA35J)";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "133b8421-a122-4ee7-995d-504628242eea";
 			};
 			name = AdHoc;
 		};
@@ -757,6 +760,7 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
@@ -769,6 +773,7 @@
 			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;

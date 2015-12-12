@@ -126,6 +126,8 @@
 
 - (IBAction)submitButtonClick:(id)sender {
     if ([self canProceed]) {
+        [self.view endEditing:YES];
+        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         hud.dimBackground = YES;
         hud.mode = MBProgressHUDModeIndeterminate;
