@@ -43,6 +43,10 @@
     [self unsubscribeAll];
 }
 
+- (BOOL)becomeFirstResponder {
+    return [self.textField becomeFirstResponder];
+}
+
 
 #pragma mark - Observing
 
@@ -69,10 +73,22 @@
     self.textField.placeholder = placeholder;
 }
 
+- (void)setSecure:(BOOL)secure {
+    _secure = secure;
+    
+    self.textField.secureTextEntry = self.secure;
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.textField.enabled = self.isEnabled;
+}
+
 - (void)setKeyboardType:(UIKeyboardType)keyboardType {
     _keyboardType = keyboardType;
     
-    self.textField.keyboardType = keyboardType;
+    self.textField.keyboardType = self.keyboardType;
 }
 
 - (void)setValid:(BOOL)valid {

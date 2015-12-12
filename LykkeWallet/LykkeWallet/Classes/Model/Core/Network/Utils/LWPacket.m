@@ -33,8 +33,8 @@
     return nil;
 }
 
-- (NSArray *)headers {
-    return @[]; // no headers by default
+- (NSDictionary *)headers {
+    return @{}; // no headers by default
 }
 
 - (NSDictionary *)params {

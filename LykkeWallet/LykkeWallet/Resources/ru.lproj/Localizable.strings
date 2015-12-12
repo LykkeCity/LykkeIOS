@@ -12,7 +12,17 @@
 
 "auth.login" = "Войти";
 "auth.signup" = "Зарегистрироваться";
+"auth.email" = "Email";
 
 "register.step1.prompt" = "Заполните ваш профиль";
+"register.email" = "Email";
+"register.firstName" = "Имя";
+"register.lastName" = "Фамилия";
+"register.phone" = "Телефон";
+"register.password" = "Пароль";
+"register.passwordConfirm" = "Пароль (подтверждение)";
+"register.submit" = "Отправить";
 
 "utils.tip" = "Что мне нужно знать?";
+"utils.ok" = "OK";
+"utils.error" = "Ошибка";

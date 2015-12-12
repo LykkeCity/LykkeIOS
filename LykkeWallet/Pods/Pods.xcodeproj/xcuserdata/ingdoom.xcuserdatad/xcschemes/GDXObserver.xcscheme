@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C40475A9F6084BECBE35BCDE'
+               BlueprintIdentifier = '4E70409C6813D489E38F3B83'
                BlueprintName = 'GDXObserver'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libGDXObserver.a'>

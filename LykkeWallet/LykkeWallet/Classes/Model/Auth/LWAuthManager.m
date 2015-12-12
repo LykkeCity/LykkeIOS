@@ -8,6 +8,7 @@
 
 #import "LWAuthManager.h"
 #import "LWPacketAccountExist.h"
+#import "LWPacketRegistration.h"
 
 
 @interface LWAuthManager () {
@@ -48,15 +49,38 @@ SINGLETON_INIT {
     [[GDXNet instance] send:pack userInfo:nil method:GDXNetSendMethodREST];
 }
 
+- (void)requestRegistration:(LWRegistrationData *)data {
+    LWPacketRegistration *pack = [LWPacketRegistration new];
+    pack.registrationData = data;
+    
+    [[GDXNet instance] send:pack userInfo:nil method:GDXNetSendMethodREST];
+}
+
 
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
-    GDXNetContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
-    LWPacketAccountExist *pack = (LWPacketAccountExist *)ctx.packet;
-    
-    if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
-        [self.delegate authManager:self didCheckEmail:pack.isRegistered];
+    GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
+    LWPacket *pack = (LWPacket *)ctx.packet;
+    // decline rejected packet
+    if (pack.isRejected) {
+        [self observeGDXNetAdapterDidFailRequestNotification:notification];
+        // return immediately
+        return;
+    }
+    // get auth cookie
+    _authCookie = [ctx.responseHeaders objectForKey:@"Set-Cookie"];
+    // parse packet by class
+    if (pack.class == LWPacketAccountExist.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
+            [self.delegate authManager:self
+                         didCheckEmail:((LWPacketAccountExist *)pack).isRegistered];
+        }
+    }
+    else if (pack.class == LWPacketRegistration.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidRegister:)]) {
+            [self.delegate authManagerDidRegister:self];
+        }
     }
 }
 

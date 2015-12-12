@@ -12,7 +12,17 @@
 
 "auth.login" = "Log In";
 "auth.signup" = "Sign Up";
+"auth.email" = "Email";
 
 "register.step1.prompt" = "Complete your profile";
+"register.email" = "Email";
+"register.firstName" = "First Name";
+"register.lastName" = "Last Name";
+"register.phone" = "Phone";
+"register.password" = "Password";
+"register.passwordConfirm" = "Confirm Password";
+"register.submit" = "Submit";
 
 "utils.tip" = "What should I know?";
+"utils.ok" = "OK";
+"utils.error" = "Error";

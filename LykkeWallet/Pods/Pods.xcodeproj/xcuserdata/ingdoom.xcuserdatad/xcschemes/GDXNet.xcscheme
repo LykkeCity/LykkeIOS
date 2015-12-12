@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FBC1EE8392F68019E75E9497'
+               BlueprintIdentifier = '6DC21198E578DDBCF77C4CDF'
                BlueprintName = 'GDXNet'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libGDXNet.a'>

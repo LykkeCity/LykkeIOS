@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0D58AE2BC32BC481A6C77DF5'
+               BlueprintIdentifier = '0AADB37CF602F71CCF2F8398'
                BlueprintName = 'GDXObserver-test'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'test.bundle'>

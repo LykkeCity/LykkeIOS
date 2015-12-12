@@ -1,43 +1,40 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFNetworking (3.0.1):
+    - AFNetworking/NSURLSession (= 3.0.1)
+    - AFNetworking/Reachability (= 3.0.1)
+    - AFNetworking/Security (= 3.0.1)
+    - AFNetworking/Serialization (= 3.0.1)
+    - AFNetworking/UIKit (= 3.0.1)
+  - AFNetworking/NSURLSession (3.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.0.1)
+  - AFNetworking/Security (3.0.1)
+  - AFNetworking/Serialization (3.0.1)
+  - AFNetworking/UIKit (3.0.1):
     - AFNetworking/NSURLSession
   - Crashlytics (3.4.1):
     - Fabric (~> 1.6.0)
   - Fabric (1.6.1)
-  - GDXNet (1.0.1):
+  - GDXNet (1.1.2):
     - AFNetworking
   - GDXObserver (1.0.1)
+  - MBProgressHUD (0.9.1)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - GDXNet
   - GDXObserver
+  - MBProgressHUD
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFNetworking: 20d8749e03e45f1e5c046ad0b647e0b07bcdd91f
   Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
   Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
-  GDXNet: 8b2b73ef41890a8367276f8bde98ed4dde55b96b
+  GDXNet: e11643d2933925179619b145fc6e0c058fd6ce1d
   GDXObserver: a0d1d614eb40a78f56fa2739ae2bdef529b9642b
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
 
 COCOAPODS: 0.39.0
