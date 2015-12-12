@@ -10,7 +10,7 @@
 
 
 @interface TKPresenter () {
-    
+    UITapGestureRecognizer *tapKeyboardClose;
 }
 
 #pragma mark - Private
@@ -33,8 +33,16 @@
     [self unsubscribeAll];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.hideKeyboardOnTap = YES; // hide keyboard on tap by default
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.observeKeyboardEvents = NO; // no keyboard observing by default
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setTranslucent:YES];
@@ -72,18 +80,6 @@
 
 #pragma mark - Keyboard
 
-- (void)subscribeKeyboardNotifications {
-    [self subscribe:UIKeyboardWillShowNotification selector:@selector(observeKeyboardWillShowNotification:)];
-    [self subscribe:UIKeyboardWillHideNotification selector:@selector(observeKeyboardWillHideNotification:)];
-}
-
-- (void)addKeyboardCloseTapGestureRecognizer {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(closeKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
-
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
     // ...
 }
@@ -104,6 +100,40 @@
 
 - (BOOL)isVisible {
     return (self.isViewLoaded && self.view.window);
+}
+
+- (void)setObserveKeyboardEvents:(BOOL)observeKeyboardEvents {
+    if (self.observeKeyboardEvents == observeKeyboardEvents) {
+        return;
+    }
+    _observeKeyboardEvents = observeKeyboardEvents;
+    
+    if (self.observeKeyboardEvents) {
+        [self subscribe:UIKeyboardWillShowNotification selector:@selector(observeKeyboardWillShowNotification:)];
+        [self subscribe:UIKeyboardWillHideNotification selector:@selector(observeKeyboardWillHideNotification:)];
+    }
+    else {
+        [self unsubscribe:UIKeyboardWillShowNotification];
+        [self unsubscribe:UIKeyboardWillHideNotification];
+    }
+}
+
+- (void)setHideKeyboardOnTap:(BOOL)hideKeyboardOnTap {
+    if (self.hideKeyboardOnTap == hideKeyboardOnTap) {
+        return;
+    }
+    _hideKeyboardOnTap = hideKeyboardOnTap;
+    
+    if (self.hideKeyboardOnTap) {
+        tapKeyboardClose = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                   action:@selector(closeKeyboard)];
+        [self.view addGestureRecognizer:tapKeyboardClose];
+    }
+    else {
+        [self.view removeGestureRecognizer:tapKeyboardClose];
+        // also remove reference
+        tapKeyboardClose = nil;
+    }
 }
 
 

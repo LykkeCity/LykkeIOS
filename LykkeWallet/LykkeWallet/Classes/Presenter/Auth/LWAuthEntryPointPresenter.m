@@ -68,8 +68,6 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     tipsView = [LWTipsView new];
     tipsView.delegate = self;
     [self.tipsContainer attach:tipsView];
-    // keyboard closing on tap
-    [self addKeyboardCloseTapGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,7 +75,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     // hide navigation bar
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     // keyboard observing
-    [self subscribeKeyboardNotifications];
+    self.observeKeyboardEvents = YES;
     // check button state
     [self validateProceedButtonState];
     // managers

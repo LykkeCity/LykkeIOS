@@ -17,6 +17,8 @@
 }
 
 @property (readonly, nonatomic) BOOL isVisible;
+@property (assign, nonatomic)   BOOL observeKeyboardEvents;
+@property (assign, nonatomic)   BOOL hideKeyboardOnTap;
 
 
 #pragma mark - Setup
@@ -32,8 +34,6 @@
 
 #pragma mark - Keyboard
 
-- (void)subscribeKeyboardNotifications;
-- (void)addKeyboardCloseTapGestureRecognizer;
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification;
 - (void)observeKeyboardWillHideNotification:(NSNotification *)notification;
 

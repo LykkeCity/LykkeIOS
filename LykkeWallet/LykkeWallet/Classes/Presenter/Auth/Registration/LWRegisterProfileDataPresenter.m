@@ -13,7 +13,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface LWRegisterProfileDataPresenter ()<LWTextFieldDelegate, LWAuthManagerDelegate> {
+@interface LWRegisterProfileDataPresenter ()<LWAuthManagerDelegate> {
     LWTextField *emailField;
     LWTextField *firstNameField;
     LWTextField *lastNameField;
@@ -57,7 +57,7 @@
     // init fields
     LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
         LWTextField *f = [LWTextField new];
-        f.delegate = self;
+//        f.delegate = self;
         f.keyboardType = UIKeyboardTypeASCIICapable;
         f.placeholder = placeholder;
         [container attach:f];
@@ -81,14 +81,13 @@
     passwordField.secure = YES;
     passwordConfirmField = createField(self.passwordConfirmContainer, Localize(@"register.passwordConfirm"));
     passwordConfirmField.secure = YES;
-    // keyboard closing on tap
-    [self subscribeKeyboardNotifications];
-    [self addKeyboardCloseTapGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.observeKeyboardEvents = YES;
+    // focus first name
     [firstNameField becomeFirstResponder];
     // assign delegate
     [LWAuthManager instance].delegate = self;
@@ -141,13 +140,6 @@
         
         [[LWAuthManager instance] requestRegistration:data];
     }
-}
-
-
-#pragma mark - LWTextFieldDelegate
-
-- (void)textFieldDidChangeValue:(LWTextField *)textField {
-    // ...
 }
 
 
