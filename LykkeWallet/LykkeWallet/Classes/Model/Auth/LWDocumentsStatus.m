@@ -10,4 +10,15 @@
 
 @implementation LWDocumentsStatus
 
+
+- (instancetype)initWithJSON:(id)json {
+    self = [super init];
+    if (self) {
+        _idCard = [json[@"IdCard"] boolValue];
+        _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
+        _selfie = [json[@"Selfie"] boolValue];
+    }
+    return self;
+}
+
 @end

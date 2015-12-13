@@ -6,15 +6,14 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacket.h"
+#import "LWCookiePacket.h"
 #import "LWRegistrationData.h"
 
 
-@interface LWPacketRegistration : LWPacket {
+@interface LWPacketRegistration : LWCookiePacket {
     
 }
 // in
 @property (strong, nonatomic) LWRegistrationData *registrationData;
-@property (copy, nonatomic) NSString *authCookie;
 
 @end

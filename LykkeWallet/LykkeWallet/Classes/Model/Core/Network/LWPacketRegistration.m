@@ -18,19 +18,12 @@
     return @"Registration";
 }
 
-- (NSDictionary *)headers {
-    if (self.authCookie) {
-        return @{@"Cookie" : self.authCookie};
-    }
-    return [super headers];
-}
-
 - (NSDictionary *)params {
-    return @{@"email" : self.registrationData.email,
-             @"firstname" : self.registrationData.firstName,
-             @"lastname" : self.registrationData.lastName,
-             @"contactphone" : self.registrationData.phone,
-             @"password" : self.registrationData.password};
+    return @{@"Email" : self.registrationData.email,
+             @"FirstName" : self.registrationData.firstName,
+             @"LastName" : self.registrationData.lastName,
+             @"ContactPhone" : self.registrationData.phone,
+             @"Password" : self.registrationData.password};
 }
 
 @end

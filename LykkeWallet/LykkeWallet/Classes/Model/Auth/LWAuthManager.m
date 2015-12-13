@@ -8,11 +8,15 @@
 
 #import "LWAuthManager.h"
 #import "LWPacketAccountExist.h"
+#import "LWPacketAuthentication.h"
 #import "LWPacketRegistration.h"
 #import "LWPacketCheckDocumentsToUpload.h"
 #import "LWPacketKYCSendDocument.h"
 #import "LWPacketKYCStatusGet.h"
 #import "LWPacketKYCStatusSet.h"
+#import "LWPacketPinSecurityGet.h"
+#import "LWPacketPinSecuritySet.h"
+#import "LWPacketRestrictedCountries.h"
 
 
 @interface LWAuthManager () {
@@ -53,9 +57,18 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestAuthentication:(LWAuthenticationData *)data {
+    LWPacketAuthentication *pack = [LWPacketAuthentication new];
+    pack.authenticationData = data;
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
 - (void)requestRegistration:(LWRegistrationData *)data {
     LWPacketRegistration *pack = [LWPacketRegistration new];
     pack.registrationData = data;
+    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
@@ -90,6 +103,29 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestPinSecurityGet:(NSString *)pin {
+    LWPacketPinSecurityGet *pack = [LWPacketPinSecurityGet new];
+    pack.pin = pin;
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestPinSecuritySet:(NSString *)pin {
+    LWPacketPinSecuritySet *pack = [LWPacketPinSecuritySet new];
+    pack.pin = pin;
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestRestrictedCountries {
+    LWPacketRestrictedCountries *pack = [LWPacketRestrictedCountries new];
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -111,6 +147,11 @@ SINGLETON_INIT {
         if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
             [self.delegate authManager:self
                          didCheckEmail:((LWPacketAccountExist *)pack).isRegistered];
+        }
+    }
+    else if (pack.class == LWPacketAuthentication.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidAuthenticate:)]) {
+            [self.delegate authManagerDidAuthenticate:self];
         }
     }
     else if (pack.class == LWPacketRegistration.class) {
@@ -138,6 +179,21 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketKYCStatusSet.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSetKYCStatus:)]) {
             [self.delegate authManagerDidSetKYCStatus:self];
+        }
+    }
+    else if (pack.class == LWPacketPinSecurityGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didPinValide:)]) {
+            [self.delegate authManager:self didPinValide:((LWPacketPinSecurityGet *)pack).isPassed];
+        }
+    }
+    else if (pack.class == LWPacketPinSecuritySet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidPinSetup:)]) {
+            [self.delegate authManagerDidPinSetup:self];
+        }
+    }
+    else if (pack.class == LWPacketRestrictedCountries.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidReciveRestrictedCountries:)]) {
+            [self.delegate authManagerDidReciveRestrictedCountries:self];
         }
     }
 }

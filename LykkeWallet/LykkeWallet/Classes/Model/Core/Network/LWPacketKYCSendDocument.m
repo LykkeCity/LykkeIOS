@@ -15,14 +15,7 @@
 #pragma mark - LWPacket
 
 - (NSString *)urlRelative {
-    return @"CheckDocumentsToUpload";
-}
-
-- (NSDictionary *)headers {
-    if (self.authCookie) {
-        return @{@"Cookie" : self.authCookie};
-    }
-    return [super headers];
+    return @"KycDocuments";
 }
 
 - (NSDictionary *)params {

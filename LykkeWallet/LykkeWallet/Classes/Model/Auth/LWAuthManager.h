@@ -8,6 +8,7 @@
 
 #import "LWNetAccessor.h"
 #import "LWRegistrationData.h"
+#import "LWAuthenticationData.h"
 #import "LWPacketKYCSendDocument.h"
 
 @class LWAuthManager;
@@ -18,10 +19,14 @@
 - (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject;
 - (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
+- (void)authManagerDidAuthenticate:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status;
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
 - (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status;
 - (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didPinValide:(BOOL)isValidated;
+- (void)authManagerDidPinSetup:(LWAuthManager *)manager;
+- (void)authManagerDidReciveRestrictedCountries:(LWAuthManager *)manager;
 
 @end
 
@@ -45,10 +50,14 @@ SINGLETON_DECLARE
 #pragma mark - Common
 
 - (void)requestEmailValidation:(NSString *)email;
+- (void)requestAuthentication:(LWAuthenticationData *)data;
 - (void)requestRegistration:(LWRegistrationData *)data;
 - (void)requestDocumentsToUpload;
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image;
 - (void)requestKYCStatusGet;
 - (void)requestKYCStatusSet;
+- (void)requestPinSecurityGet:(NSString *)pin;
+- (void)requestPinSecuritySet:(NSString *)pin;
+- (void)requestRestrictedCountries;
 
 @end

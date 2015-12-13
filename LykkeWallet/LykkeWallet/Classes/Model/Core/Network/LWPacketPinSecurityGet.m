@@ -1,15 +1,15 @@
 //
-//  LWPacketCheckDocumentsToUpload.m
+//  LWPacketPinSecurityGet.m
 //  LykkeWallet
 //
-//  Created by Георгий Малюков on 12.12.15.
+//  Created by Alexander Pukhov on 13.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacketCheckDocumentsToUpload.h"
+#import "LWPacketPinSecurityGet.h"
 
 
-@implementation LWPacketCheckDocumentsToUpload
+@implementation LWPacketPinSecurityGet
 
 
 #pragma mark - LWPacket
@@ -20,12 +20,15 @@
     if (self.isRejected) {
         return;
     }
-    
-    _documentsStatus = [[LWDocumentsStatus alloc] initWithJSON:result];
+    _isPassed = [result[@"Passed"] boolValue];
 }
 
 - (NSString *)urlRelative {
-    return @"CheckDocumentsToUpload";
+    return @"PinSecurity";
+}
+
+- (NSDictionary *)params {
+    return @{@"pin" : self.pin};
 }
 
 - (GDXRESTPacketType)type {

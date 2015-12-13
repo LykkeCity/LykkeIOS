@@ -18,11 +18,4 @@
     return @"KycStatus";
 }
 
-- (NSDictionary *)headers {
-    if (self.authCookie) {
-        return @{@"Cookie" : self.authCookie};
-    }
-    return [super headers];
-}
-
 @end

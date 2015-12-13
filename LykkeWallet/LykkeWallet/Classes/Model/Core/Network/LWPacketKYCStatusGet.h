@@ -6,14 +6,12 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacket.h"
+#import "LWCookiePacket.h"
 
 
-@interface LWPacketKYCStatusGet : LWPacket {
+@interface LWPacketKYCStatusGet : LWCookiePacket {
     
 }
-// in
-@property (copy, nonatomic) NSString *authCookie;
 // out
 @property (readonly, nonatomic) NSString *status;
 

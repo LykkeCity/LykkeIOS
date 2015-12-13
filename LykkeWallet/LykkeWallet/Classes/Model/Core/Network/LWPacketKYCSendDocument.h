@@ -6,15 +6,14 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacket.h"
+#import "LWCookiePacket.h"
 #import "LWDocumentsStatus.h"
 
 
-@interface LWPacketKYCSendDocument : LWPacket {
+@interface LWPacketKYCSendDocument : LWCookiePacket {
     
 }
 // in
-@property (copy, nonatomic)   NSString        *authCookie;
 @property (copy, nonatomic)   NSData          *imageJPEGRepresentation;
 @property (assign, nonatomic) KYCDocumentType docType;
 

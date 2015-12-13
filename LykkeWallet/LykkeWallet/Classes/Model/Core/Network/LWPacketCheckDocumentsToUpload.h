@@ -6,15 +6,13 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacket.h"
+#import "LWCookiePacket.h"
 #import "LWDocumentsStatus.h"
 
 
-@interface LWPacketCheckDocumentsToUpload : LWPacket {
+@interface LWPacketCheckDocumentsToUpload : LWCookiePacket {
     
 }
-// in
-@property (copy, nonatomic) NSString *authCookie;
 // out
 @property (readonly, nonatomic) LWDocumentsStatus *documentsStatus;
 

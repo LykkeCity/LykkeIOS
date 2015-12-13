@@ -1,15 +1,15 @@
 //
-//  LWPacketCheckDocumentsToUpload.m
+//  LWPacketRestrictedCountries.m
 //  LykkeWallet
 //
-//  Created by Георгий Малюков on 12.12.15.
+//  Created by Alexander Pukhov on 14.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacketCheckDocumentsToUpload.h"
+#import "LWPacketRestrictedCountries.h"
 
 
-@implementation LWPacketCheckDocumentsToUpload
+@implementation LWPacketRestrictedCountries
 
 
 #pragma mark - LWPacket
@@ -20,12 +20,11 @@
     if (self.isRejected) {
         return;
     }
-    
-    _documentsStatus = [[LWDocumentsStatus alloc] initWithJSON:result];
+    _countries = result[@"RestrictedCountries"];
 }
 
 - (NSString *)urlRelative {
-    return @"CheckDocumentsToUpload";
+    return @"RestrictedCountries";
 }
 
 - (GDXRESTPacketType)type {
