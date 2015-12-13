@@ -9,6 +9,10 @@
 #import "LWAuthManager.h"
 #import "LWPacketAccountExist.h"
 #import "LWPacketRegistration.h"
+#import "LWPacketCheckDocumentsToUpload.h"
+#import "LWPacketKYCSendDocument.h"
+#import "LWPacketKYCStatusGet.h"
+#import "LWPacketKYCStatusSet.h"
 
 
 @interface LWAuthManager () {
@@ -46,14 +50,44 @@ SINGLETON_INIT {
     LWPacketAccountExist *pack = [LWPacketAccountExist new];
     pack.email = email;
     
-    [[GDXNet instance] send:pack userInfo:nil method:GDXNetSendMethodREST];
+    [self sendPacket:pack];
 }
 
 - (void)requestRegistration:(LWRegistrationData *)data {
     LWPacketRegistration *pack = [LWPacketRegistration new];
     pack.registrationData = data;
     
-    [[GDXNet instance] send:pack userInfo:nil method:GDXNetSendMethodREST];
+    [self sendPacket:pack];
+}
+
+- (void)requestDocumentsToUpload {
+    LWPacketCheckDocumentsToUpload *pack = [LWPacketCheckDocumentsToUpload new];
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image {
+    LWPacketKYCSendDocument *pack = [LWPacketKYCSendDocument new];
+    pack.authCookie = self.authCookie;
+    pack.docType = docType;
+    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f); // 20% compression
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestKYCStatusGet {
+    LWPacketKYCStatusGet *pack = [LWPacketKYCStatusGet new];
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestKYCStatusSet {
+    LWPacketKYCStatusSet *pack = [LWPacketKYCStatusSet new];
+    pack.authCookie = self.authCookie;
+    
+    [self sendPacket:pack];
 }
 
 
@@ -68,8 +102,10 @@ SINGLETON_INIT {
         // return immediately
         return;
     }
-    // get auth cookie
-    _authCookie = [ctx.responseHeaders objectForKey:@"Set-Cookie"];
+    // set auth cookie (token)
+    if ([ctx.responseHeaders objectForKey:@"Set-Cookie"]) {
+        _authCookie = ctx.responseHeaders[@"Set-Cookie"];
+    }
     // parse packet by class
     if (pack.class == LWPacketAccountExist.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
@@ -82,6 +118,28 @@ SINGLETON_INIT {
             [self.delegate authManagerDidRegister:self];
         }
     }
+    else if (pack.class == LWPacketCheckDocumentsToUpload.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didCheckDocumentsStatus:)]) {
+            [self.delegate authManager:self
+               didCheckDocumentsStatus:((LWPacketCheckDocumentsToUpload *)pack).documentsStatus];
+        }
+    }
+    else if (pack.class == LWPacketKYCSendDocument.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSendDocument:ofType:)]) {
+            [self.delegate authManagerDidSendDocument:self
+                                               ofType:((LWPacketKYCSendDocument *)pack).docType];
+        }
+    }
+    else if (pack.class == LWPacketKYCStatusGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetKYCStatus:)]) {
+            [self.delegate authManager:self didGetKYCStatus:((LWPacketKYCStatusGet *)pack).status];
+        }
+    }
+    else if (pack.class == LWPacketKYCStatusSet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSetKYCStatus:)]) {
+            [self.delegate authManagerDidSetKYCStatus:self];
+        }
+    }
 }
 
 - (void)observeGDXNetAdapterDidFailRequestNotification:(NSNotification *)notification {
@@ -91,6 +149,13 @@ SINGLETON_INIT {
     if ([self.delegate respondsToSelector:@selector(authManager:didFail:)])  {
         [self.delegate authManager:self didFail:pack.reject];
     }
+}
+
+
+#pragma mark - Properties
+
+- (BOOL)isAuthorized {
+    return (self.authCookie != nil);
 }
 
 @end

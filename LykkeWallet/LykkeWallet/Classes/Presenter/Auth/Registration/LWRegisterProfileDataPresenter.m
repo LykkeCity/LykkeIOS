@@ -146,20 +146,12 @@
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManagerDidRegister:(LWAuthManager *)manager {
+    [[LWAuthManager instance] requestDocumentsToUpload];
+}
+
+- (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     [[MBProgressHUD HUDForView:self.navigationController.view] hide:YES];
     
-    UIAlertController *ctrl = [UIAlertController
-                               alertControllerWithTitle:nil
-                               message:@"Registered!"
-                               preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         [ctrl dismissViewControllerAnimated:YES
-                                                                                  completion:nil];
-                                                     }];
-    [ctrl addAction:actionOK];
-    [self presentViewController:ctrl animated:YES completion:nil];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {

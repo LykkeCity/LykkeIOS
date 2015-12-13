@@ -6,24 +6,27 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Macro.h"
-#import "NSObject+GDXObserver.h"
+#import "LWNetAccessor.h"
 #import "LWRegistrationData.h"
+#import "LWPacketKYCSendDocument.h"
 
 @class LWAuthManager;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
 @optional
-- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered;
 - (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject;
+- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status;
+- (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
+- (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status;
+- (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager;
 
 @end
 
 
-@interface LWAuthManager : NSObject {
+@interface LWAuthManager : LWNetAccessor {
     
 }
 
@@ -34,10 +37,18 @@ SINGLETON_DECLARE
 @property (readonly, nonatomic) BOOL     isAuthorized;
 @property (readonly, nonatomic) NSString *authCookie;
 
+@property (copy, nonatomic) UIImage *imageSelfie;
+@property (copy, nonatomic) UIImage *imageIdCard;
+@property (copy, nonatomic) UIImage *imageProofOfAddress;
+
 
 #pragma mark - Common
 
 - (void)requestEmailValidation:(NSString *)email;
 - (void)requestRegistration:(LWRegistrationData *)data;
+- (void)requestDocumentsToUpload;
+- (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image;
+- (void)requestKYCStatusGet;
+- (void)requestKYCStatusSet;
 
 @end

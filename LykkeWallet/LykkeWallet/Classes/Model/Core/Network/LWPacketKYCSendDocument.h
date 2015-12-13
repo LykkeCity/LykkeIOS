@@ -1,0 +1,21 @@
+//
+//  LWPacketKYCSendDocument.h
+//  LykkeWallet
+//
+//  Created by Георгий Малюков on 12.12.15.
+//  Copyright © 2015 Lykkex. All rights reserved.
+//
+
+#import "LWPacket.h"
+#import "LWDocumentsStatus.h"
+
+
+@interface LWPacketKYCSendDocument : LWPacket {
+    
+}
+// in
+@property (copy, nonatomic)   NSString        *authCookie;
+@property (copy, nonatomic)   NSData          *imageJPEGRepresentation;
+@property (assign, nonatomic) KYCDocumentType docType;
+
+@end

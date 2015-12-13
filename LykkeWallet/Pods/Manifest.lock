@@ -17,7 +17,7 @@ PODS:
   - Crashlytics (3.4.1):
     - Fabric (~> 1.6.0)
   - Fabric (1.6.1)
-  - GDXNet (1.1.2):
+  - GDXNet (1.1.3):
     - AFNetworking
   - GDXObserver (1.0.1)
   - MBProgressHUD (0.9.1)
@@ -33,7 +33,7 @@ SPEC CHECKSUMS:
   AFNetworking: 20d8749e03e45f1e5c046ad0b647e0b07bcdd91f
   Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
   Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
-  GDXNet: e11643d2933925179619b145fc6e0c058fd6ce1d
+  GDXNet: 013db279536d86942430eb21b67265244587f454
   GDXObserver: a0d1d614eb40a78f56fa2739ae2bdef529b9642b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
 

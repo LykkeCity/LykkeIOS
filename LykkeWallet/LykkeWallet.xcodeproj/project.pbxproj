@@ -26,6 +26,8 @@
 		CF6A9CD31C18ED2400B69F53 /* LWValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD11C18ED2400B69F53 /* LWValidator.m */; };
 		CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */; };
 		CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */; };
+		CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8252B41C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m */; };
+		CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8252B71C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m */; };
 		CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86B3771C1B6566006D5488 /* LWRegistrationData.m */; };
 		CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86B37A1C1B693B006D5488 /* LWPacketRegistration.m */; };
 		CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */; };
@@ -46,8 +48,12 @@
 		CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */; };
 		CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */; };
 		CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */; };
+		CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */; };
+		CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC9FE1C1C1CE87C001F1974 /* LWNetAccessor.m */; };
 		CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD60E561C18C80C000BF83C /* LWTipsView.m */; };
 		CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD60E581C18C813000BF83C /* LWTipsView.xib */; };
+		CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9B7021C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m */; };
+		CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9B7051C1C945C00F717FE /* LWPacketKYCSendDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +95,10 @@
 		CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacket.m; sourceTree = "<group>"; };
 		CF6A9CD81C18EDB900B69F53 /* LWPacketAccountExist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAccountExist.h; sourceTree = "<group>"; };
 		CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAccountExist.m; sourceTree = "<group>"; };
+		CF8252B31C1CE2C700D6A4BD /* LWPacketKYCStatusSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketKYCStatusSet.h; sourceTree = "<group>"; };
+		CF8252B41C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCStatusSet.m; sourceTree = "<group>"; };
+		CF8252B61C1CE2D400D6A4BD /* LWPacketKYCStatusGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketKYCStatusGet.h; sourceTree = "<group>"; };
+		CF8252B71C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCStatusGet.m; sourceTree = "<group>"; };
 		CF86B3761C1B6566006D5488 /* LWRegistrationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegistrationData.h; sourceTree = "<group>"; };
 		CF86B3771C1B6566006D5488 /* LWRegistrationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegistrationData.m; sourceTree = "<group>"; };
 		CF86B3791C1B693B006D5488 /* LWPacketRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketRegistration.h; sourceTree = "<group>"; };
@@ -123,9 +133,17 @@
 		CF9EC9071C17C6C100F742A6 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
 		CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
 		CF9EC90B1C17C6C100F742A6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		CFAD8A8B1C1D5E4B00185CD1 /* LWDocumentsStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDocumentsStatus.h; sourceTree = "<group>"; };
+		CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDocumentsStatus.m; sourceTree = "<group>"; };
+		CFC9FE1B1C1CE87C001F1974 /* LWNetAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWNetAccessor.h; sourceTree = "<group>"; };
+		CFC9FE1C1C1CE87C001F1974 /* LWNetAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWNetAccessor.m; sourceTree = "<group>"; };
 		CFD60E551C18C80C000BF83C /* LWTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTipsView.h; sourceTree = "<group>"; };
 		CFD60E561C18C80C000BF83C /* LWTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTipsView.m; sourceTree = "<group>"; };
 		CFD60E581C18C813000BF83C /* LWTipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTipsView.xib; sourceTree = "<group>"; };
+		CFD9B7011C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketCheckDocumentsToUpload.h; sourceTree = "<group>"; };
+		CFD9B7021C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketCheckDocumentsToUpload.m; sourceTree = "<group>"; };
+		CFD9B7041C1C945C00F717FE /* LWPacketKYCSendDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketKYCSendDocument.h; sourceTree = "<group>"; };
+		CFD9B7051C1C945C00F717FE /* LWPacketKYCSendDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +211,8 @@
 			children = (
 				CF9EC8F91C17C6A100F742A6 /* Auth */,
 				CF9EC8FD1C17C6C100F742A6 /* Core */,
+				CFC9FE1B1C1CE87C001F1974 /* LWNetAccessor.h */,
+				CFC9FE1C1C1CE87C001F1974 /* LWNetAccessor.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +374,8 @@
 				CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */,
 				CF86B3761C1B6566006D5488 /* LWRegistrationData.h */,
 				CF86B3771C1B6566006D5488 /* LWRegistrationData.m */,
+				CFAD8A8B1C1D5E4B00185CD1 /* LWDocumentsStatus.h */,
+				CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -375,6 +397,14 @@
 				CF6A9CD91C18EDB900B69F53 /* LWPacketAccountExist.m */,
 				CF86B3791C1B693B006D5488 /* LWPacketRegistration.h */,
 				CF86B37A1C1B693B006D5488 /* LWPacketRegistration.m */,
+				CFD9B7011C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.h */,
+				CFD9B7021C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m */,
+				CFD9B7041C1C945C00F717FE /* LWPacketKYCSendDocument.h */,
+				CFD9B7051C1C945C00F717FE /* LWPacketKYCSendDocument.m */,
+				CF8252B61C1CE2D400D6A4BD /* LWPacketKYCStatusGet.h */,
+				CF8252B71C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m */,
+				CF8252B31C1CE2C700D6A4BD /* LWPacketKYCStatusSet.h */,
+				CF8252B41C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -569,7 +599,9 @@
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
+				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
+				CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
 				CF9EC8CC1C17C09400F742A6 /* LWAuthPINSuccessPresenter.m in Sources */,
 				CF6A9CD21C18ED2400B69F53 /* LWColorizer.m in Sources */,
@@ -584,14 +616,18 @@
 				CF6A9CD31C18ED2400B69F53 /* LWValidator.m in Sources */,
 				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
+				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
+				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				CF9EC8D61C17C15D00F742A6 /* LWRegisterCameraPresenter.m in Sources */,
+				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CF9EC8E01C17C18400F742A6 /* LWRegisterVerifyingPresenter.m in Sources */,
+				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */,
 			);
