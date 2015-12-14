@@ -182,18 +182,19 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketPinSecurityGet.class) {
-        if ([self.delegate respondsToSelector:@selector(authManager:didPinValide:)]) {
-            [self.delegate authManager:self didPinValide:((LWPacketPinSecurityGet *)pack).isPassed];
+        if ([self.delegate respondsToSelector:@selector(authManager:didValidatePin:)]) {
+            [self.delegate authManager:self didValidatePin:((LWPacketPinSecurityGet *)pack).isPassed];
         }
     }
     else if (pack.class == LWPacketPinSecuritySet.class) {
-        if ([self.delegate respondsToSelector:@selector(authManagerDidPinSetup:)]) {
-            [self.delegate authManagerDidPinSetup:self];
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSetPin:)]) {
+            [self.delegate authManagerDidSetPin:self];
         }
     }
     else if (pack.class == LWPacketRestrictedCountries.class) {
-        if ([self.delegate respondsToSelector:@selector(authManagerDidReciveRestrictedCountries:)]) {
-            [self.delegate authManagerDidReciveRestrictedCountries:self];
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveRestrictedCountries:)]) {
+            [self.delegate authManager:self
+         didReceiveRestrictedCountries:((LWPacketRestrictedCountries *)pack).countries];
         }
     }
 }

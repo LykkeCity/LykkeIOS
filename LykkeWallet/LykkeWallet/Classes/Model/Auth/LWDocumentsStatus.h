@@ -19,10 +19,13 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
     
 }
 
-- (instancetype)initWithJSON:(id)json;
-
 @property (readonly, nonatomic) BOOL selfie;
 @property (readonly, nonatomic) BOOL idCard;
 @property (readonly, nonatomic) BOOL proofOfAddress;
+
+
+#pragma mark - Root
+
+- (instancetype)initWithJSON:(id)json;
 
 @end

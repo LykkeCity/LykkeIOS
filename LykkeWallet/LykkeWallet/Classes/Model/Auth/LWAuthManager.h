@@ -24,9 +24,9 @@
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
 - (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status;
 - (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager;
-- (void)authManager:(LWAuthManager *)manager didPinValide:(BOOL)isValidated;
-- (void)authManagerDidPinSetup:(LWAuthManager *)manager;
-- (void)authManagerDidReciveRestrictedCountries:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid;
+- (void)authManagerDidSetPin:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
 
 @end
 

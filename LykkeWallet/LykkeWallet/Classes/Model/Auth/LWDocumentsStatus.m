@@ -8,15 +8,18 @@
 
 #import "LWDocumentsStatus.h"
 
+
 @implementation LWDocumentsStatus
 
+
+#pragma mark - Root
 
 - (instancetype)initWithJSON:(id)json {
     self = [super init];
     if (self) {
+        _selfie = [json[@"Selfie"] boolValue];
         _idCard = [json[@"IdCard"] boolValue];
         _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
-        _selfie = [json[@"Selfie"] boolValue];
     }
     return self;
 }
