@@ -20,7 +20,6 @@
     if (self.isRejected) {
         return;
     }
-    
     _documentsStatus = [[LWDocumentsStatus alloc] initWithJSON:result];
 }
 

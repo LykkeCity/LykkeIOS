@@ -41,6 +41,10 @@
     return @{}; // no API method's input parameters by default
 }
 
+- (void (^)(id<AFMultipartFormData> formData))bodyConstructionBlock {
+    return nil;
+}
+
 - (GDXRESTPacketType)type {
     return GDXRESTPacketTypePOST; // for our server default HTTP method is POST
 }
