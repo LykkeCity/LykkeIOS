@@ -24,4 +24,11 @@
     return self;
 }
 
+
+#pragma mark - Properties
+
+- (BOOL)isDocumentRequired {
+    return (self.selfie || self.idCard || self.proofOfAddress);
+}
+
 @end

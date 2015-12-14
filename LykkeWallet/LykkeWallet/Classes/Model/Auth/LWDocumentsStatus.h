@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
 @property (readonly, nonatomic) BOOL selfie;
 @property (readonly, nonatomic) BOOL idCard;
 @property (readonly, nonatomic) BOOL proofOfAddress;
+// utils
+@property (readonly, nonatomic) BOOL isDocumentRequired;
 
 
 #pragma mark - Root

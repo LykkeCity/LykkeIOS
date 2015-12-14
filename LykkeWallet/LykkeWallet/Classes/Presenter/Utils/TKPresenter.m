@@ -45,7 +45,7 @@
     self.observeKeyboardEvents = NO; // no keyboard observing by default
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar setTranslucent:NO];
     
     [self localize];
     [self colorize];
