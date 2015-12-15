@@ -22,6 +22,12 @@
 "register.password" = "Password";
 "register.passwordConfirm" = "Confirm Password";
 "register.submit" = "Submit";
+"register.camera.title.selfie" = "Make a selfie";
+"register.camera.title.idCard" = "Make a photo of your passport or other ID";
+"register.camera.title.proofOfAddress" = "Make a photo of your Proof of Address (utility bill)";
+"register.camera.photo.take" = "Launch Camera";
+"register.camera.photo.cancel" = "Not good, reshoot";
+"register.camera.photo.ok" = "Nice, submit";
 
 "utils.tip" = "What should I know?";
 "utils.ok" = "OK";

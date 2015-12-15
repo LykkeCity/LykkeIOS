@@ -28,6 +28,7 @@
     self.tabController.viewControllers = @[pWallets];
     // init window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.tabController;
     [self.window makeKeyAndVisible];
     

@@ -11,7 +11,7 @@
 #import "LWAuthPINPresenter.h"
 #import "LWAuthPINSuccessPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
-#import "LWRegisterCameraPresenter.h"
+#import "LWRegisterCameraSelfiePresenter.h"
 #import "LWRegisterVerifyingPresenter.h"
 
 
@@ -37,7 +37,7 @@
                     LWAuthPINPresenter.class,
                     LWAuthPINSuccessPresenter.class,
                     LWRegisterProfileDataPresenter.class,
-                    LWRegisterCameraPresenter.class,
+                    LWRegisterCameraSelfiePresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterVerifyingPresenter.class,
@@ -60,7 +60,9 @@
         // otherwise create new step presenter
         LWAuthStepPresenter *presenter = [classes[step] new];
         activeSteps[@(step)] = presenter;
-        // prepare to push if possible
+        // prevent lazy view loading
+        NSLog(@"PreventingLazyLoad: %@", presenter.view);
+        // prepare to push if necessary
         if (block) {
             block(presenter);
         }

@@ -51,6 +51,16 @@
     [self colorize];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithTitle:@""
+                                             style:UIBarButtonItemStylePlain
+                                             target:self.navigationController
+                                             action:@selector(popViewControllerAnimated:)];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     

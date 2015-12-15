@@ -11,6 +11,7 @@
 #import "LWValidator.h"
 #import "LWAuthManager.h"
 #import "MBProgressHUD.h"
+#import "LWAuthNavigationController.h"
 
 
 @interface LWRegisterProfileDataPresenter ()<LWAuthManagerDelegate> {
@@ -66,7 +67,6 @@
     };
     emailField = createField(self.emailContainer, Localize(@"register.email"));
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
-    emailField.text = self.email;
     emailField.enabled = NO;
     
     firstNameField = createField(self.firstNameContainer, Localize(@"register.firstName"));
@@ -87,6 +87,8 @@
     [super viewWillAppear:animated];
     
     self.observeKeyboardEvents = YES;
+    // load email
+    emailField.text = self.email;
     // focus first name
     [firstNameField becomeFirstResponder];
     // assign delegate
@@ -152,6 +154,21 @@
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     [[MBProgressHUD HUDForView:self.navigationController.view] hide:YES];
     
+    if (status.isDocumentRequired) {
+        // navigate to camera presenter
+        LWAuthStep step = ((status.selfie)
+                           ? LWAuthStepRegisterSelfie
+                           : ((status.idCard)
+                              ? LWAuthStepRegisterIdentity
+                              : LWAuthStepRegisterUtilityBill));
+        [((LWAuthNavigationController *)self.navigationController)
+         navigateToStep:step
+         preparationBlock:nil];
+    }
+    else {
+        // navigate to verification
+        // ...
+    }
 }
 
 - (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {
