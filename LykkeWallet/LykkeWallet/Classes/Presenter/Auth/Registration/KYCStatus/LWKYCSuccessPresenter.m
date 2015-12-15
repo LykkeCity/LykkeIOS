@@ -39,3 +39,5 @@
                            self.registrationData.firstName,
                            self.registrationData.lastName];
 }
+
+@end
