@@ -8,9 +8,13 @@
 
 #import "TKPresenter.h"
 
+@class LWRegistrationData;
+
 
 @interface LWKYCSuccessPresenter : TKPresenter {
     
 }
+
+@property (strong, nonatomic) LWRegistrationData *registrationData;
 
 @end
