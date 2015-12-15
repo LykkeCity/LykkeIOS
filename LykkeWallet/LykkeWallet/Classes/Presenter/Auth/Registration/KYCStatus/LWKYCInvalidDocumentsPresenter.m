@@ -14,8 +14,14 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *textLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+
+
+#pragma mark - Actions
+
+- (IBAction)okButtonClick:(id)sender;
 
 @end
 
@@ -27,6 +33,8 @@
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.invalidDocuments.header");
+    [self.okButton setTitle:[Localize(@"register.kyc.invalidDocuments.okButton") uppercaseString]
+                   forState:UIControlStateNormal];
 }
 
 
@@ -38,6 +46,14 @@
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.invalidDocuments"),
                            self.registrationData.firstName,
                            self.registrationData.lastName];
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)okButtonClick:(id)sender {
+    [((LWAuthNavigationController *)self.navigationController) navigateToStep:LWAuthStepEntryPoint
+                                                             preparationBlock:nil];
 }
 
 @end

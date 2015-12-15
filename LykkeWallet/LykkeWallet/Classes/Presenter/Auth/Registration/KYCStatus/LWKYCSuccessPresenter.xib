@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWKYCSuccessPresenter">
             <connections>
                 <outlet property="headerLabel" destination="TnR-Jp-eji" id="uXQ-Fz-W63"/>
+                <outlet property="okButton" destination="rJc-2A-FCk" id="Ho4-ys-HL6"/>
                 <outlet property="textLabel" destination="H28-hK-2aV" id="Hrr-9V-RAA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

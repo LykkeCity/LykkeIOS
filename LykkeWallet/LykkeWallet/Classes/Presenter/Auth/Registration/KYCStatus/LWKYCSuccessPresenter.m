@@ -14,8 +14,9 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *textLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end
 
@@ -27,6 +28,8 @@
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.success.header");
+    [self.okButton setTitle:[Localize(@"register.kyc.success.okButton") uppercaseString]
+                             forState:UIControlStateNormal];
 }
 
 

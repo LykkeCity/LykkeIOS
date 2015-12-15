@@ -8,6 +8,7 @@
 
 #import "TKPresenter.h"
 #import "LWAuthManager.h"
+#import "LWAuthNavigationController.h"
 
 
 @interface LWKYCPresenter : TKPresenter<LWAuthManagerDelegate> {
