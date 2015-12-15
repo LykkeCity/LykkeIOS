@@ -28,6 +28,7 @@
 "register.camera.photo.take" = "Launch Camera";
 "register.camera.photo.cancel" = "Not good, reshoot";
 "register.camera.photo.ok" = "Nice, submit";
+"register.kyc.pending" = "Dear %@ %@, your information is being reviewed by our KYC team. It may take up to 15-20 minutes.";
 
 "utils.tip" = "What should I know?";
 "utils.ok" = "OK";

@@ -28,6 +28,7 @@
 "register.camera.photo.take" = "Сделать фото";
 "register.camera.photo.cancel" = "Нет, переснять";
 "register.camera.photo.ok" = "ОК, отправить";
+"register.kyc.pending" = "Уважаемый %@ %@, ваша информация проверяется нашей службой безопасности. Это может занять 15-20 минут.";
 
 "utils.tip" = "Что мне нужно знать?";
 "utils.ok" = "OK";

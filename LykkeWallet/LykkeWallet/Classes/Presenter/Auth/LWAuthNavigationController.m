@@ -12,7 +12,10 @@
 #import "LWAuthPINSuccessPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
-#import "LWRegisterVerifyingPresenter.h"
+#import "LWKYCPendingPresenter.h"
+#import "LWKYCInvalidDocumentsPresenter.h"
+#import "LWKYCRestrictedPresenter.h"
+#import "LWKYCSuccessPresenter.h"
 
 
 @interface LWAuthNavigationController () {
@@ -40,8 +43,10 @@
                     LWRegisterCameraSelfiePresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
-                    LWRegisterVerifyingPresenter.class,
-                    LWRegisterVerifyingPresenter.class];
+                    LWKYCPendingPresenter.class,
+                    LWKYCInvalidDocumentsPresenter.class,
+                    LWKYCRestrictedPresenter.class,
+                    LWKYCSuccessPresenter.class];
         activeSteps = [NSMutableDictionary new];
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;
     }
