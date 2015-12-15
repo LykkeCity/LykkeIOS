@@ -35,14 +35,9 @@
             break;
         }
     }
-    return @{@"type" : docTypeString,
-             @"ext" : @"jpeg"};
-}
-
-- (void (^)(id<AFMultipartFormData>))bodyConstructionBlock {
-    return ^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:self.imageJPEGRepresentation name:@"image"];
-    };
+    return @{@"Type" : docTypeString,
+             @"Ext" : @"jpeg",
+             @"Data" : [self.imageJPEGRepresentation base64EncodedStringWithOptions:0]};
 }
 
 @end

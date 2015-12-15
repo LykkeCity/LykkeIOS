@@ -163,12 +163,6 @@
     [self presentViewController:ctrl animated:YES completion:nil];
 }
 
-- (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
-    // maybe IdCard or POA is still required
-    // ...
-    NSLog(@"completed");
-}
-
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType {
     [[LWAuthManager instance] requestDocumentsToUpload];
 }
