@@ -22,6 +22,12 @@
 "register.password" = "Пароль";
 "register.passwordConfirm" = "Пароль (подтверждение)";
 "register.submit" = "Отправить";
+"register.camera.title.selfie" = "Сделайте селфи";
+"register.camera.title.idCard" = "Сделайте фото паспорта";
+"register.camera.title.proofOfAddress" = "Сделайте фото вида на жительство";
+"register.camera.photo.take" = "Сделать фото";
+"register.camera.photo.cancel" = "Нет, переснять";
+"register.camera.photo.ok" = "ОК, отправить";
 
 "utils.tip" = "Что мне нужно знать?";
 "utils.ok" = "OK";
