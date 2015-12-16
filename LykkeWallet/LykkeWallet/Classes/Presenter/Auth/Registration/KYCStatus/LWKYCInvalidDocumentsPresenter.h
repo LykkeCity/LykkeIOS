@@ -8,13 +8,9 @@
 
 #import "LWKYCPresenter.h"
 
-@class LWRegistrationData;
-
 
 @interface LWKYCInvalidDocumentsPresenter : LWKYCPresenter {
     
 }
-
-@property (strong, nonatomic) LWRegistrationData *registrationData;
 
 @end

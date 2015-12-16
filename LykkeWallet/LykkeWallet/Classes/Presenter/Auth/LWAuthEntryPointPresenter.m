@@ -193,7 +193,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     [self validateProceedButtonState];
 }
 
-- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     [self.activityView stopAnimating];
     
     step = LWAuthEntryPointNextStepRegister;

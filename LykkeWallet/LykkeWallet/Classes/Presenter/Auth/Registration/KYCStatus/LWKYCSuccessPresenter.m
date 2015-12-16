@@ -28,19 +28,11 @@
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.success.header");
-    [self.okButton setTitle:[Localize(@"register.kyc.success.okButton") uppercaseString]
-                             forState:UIControlStateNormal];
-}
-
-
-#pragma mark - Properties
-
-- (void)setRegistrationData:(LWRegistrationData *)registrationData {
-    _registrationData = registrationData;
-    
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.success"),
-                           self.registrationData.firstName,
-                           self.registrationData.lastName];
+                           [LWAuthManager instance].registrationData.firstName,
+                           [LWAuthManager instance].registrationData.lastName];
+    [self.okButton setTitle:[Localize(@"register.kyc.success.okButton") uppercaseString]
+                   forState:UIControlStateNormal];
 }
 
 @end

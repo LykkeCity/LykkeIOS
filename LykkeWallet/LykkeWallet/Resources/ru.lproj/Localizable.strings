@@ -29,6 +29,12 @@
 "register.camera.photo.cancel" = "Нет, переснять";
 "register.camera.photo.ok" = "ОК, отправить";
 "register.kyc.pending" = "Уважаемый %@ %@, ваша информация проверяется нашей службой безопасности. Это может занять 15-20 минут.";
+"register.kyc.invalidDocuments.header" = "Упс!";
+"register.kyc.invalidDocuments" = "Уважаемый %@ %@, мы очень сожалеем, но Lykke Wallet не может быть создан на основе KYC-информации, которую Вы предоставили.";
+"register.kyc.invalidDocuments.okButton" = "Ок, я понимаю";
+"register.kyc.success.header" = "Lykke Wallet был успешно создан!";
+"register.kyc.success" = "Уважаемый %@ %@, теперь вы можете перейти к обзору инструментов, доступных для торговли.";
+"register.kyc.success.okButton" = "Начать работу!";
 
 "utils.tip" = "Что мне нужно знать?";
 "utils.ok" = "OK";

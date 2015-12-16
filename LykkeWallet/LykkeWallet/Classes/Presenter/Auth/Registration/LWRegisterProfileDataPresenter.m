@@ -10,8 +10,8 @@
 #import "LWTextField.h"
 #import "LWValidator.h"
 #import "LWAuthManager.h"
-#import "MBProgressHUD.h"
 #import "LWAuthNavigationController.h"
+#import "TKPresenter+Loading.h"
 
 
 @interface LWRegisterProfileDataPresenter ()<LWAuthManagerDelegate> {
@@ -127,11 +127,7 @@
 
 - (IBAction)submitButtonClick:(id)sender {
     if ([self canProceed]) {
-        [self.view endEditing:YES];
-        
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        hud.dimBackground = YES;
-        hud.mode = MBProgressHUDModeIndeterminate;
+        [self setLoading:YES];
         
         LWRegistrationData *data = [LWRegistrationData new];
         data.email = emailField.text;
@@ -152,17 +148,12 @@
 }
 
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
-    [[MBProgressHUD HUDForView:self.navigationController.view] hide:YES];
+    [self setLoading:NO];
     
-    if (status.isDocumentRequired) {
-        // navigate to camera presenter
-        LWAuthStep step = ((status.selfie)
-                           ? LWAuthStepRegisterSelfie
-                           : ((status.idCard)
-                              ? LWAuthStepRegisterIdentity
-                              : LWAuthStepRegisterUtilityBill));
+    if (status.documentTypeRequired != nil) {
+        // navigate to selfie camera presenter
         [((LWAuthNavigationController *)self.navigationController)
-         navigateToStep:step
+         navigateToStep:LWAuthStepRegisterSelfie
          preparationBlock:nil];
     }
     else {
@@ -171,23 +162,8 @@
     }
 }
 
-- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {
-    [[MBProgressHUD HUDForView:self.navigationController.view] hide:YES];
-    
-    NSString *message = [reject objectForKey:@"Message"];
-    
-    UIAlertController *ctrl = [UIAlertController
-                               alertControllerWithTitle:Localize(@"utils.error")
-                               message:message
-                               preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         [ctrl dismissViewControllerAnimated:YES
-                                                                                  completion:nil];
-                                                     }];
-    [ctrl addAction:actionOK];
-    [self presentViewController:ctrl animated:YES completion:nil];
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject];
 }
 
 @end

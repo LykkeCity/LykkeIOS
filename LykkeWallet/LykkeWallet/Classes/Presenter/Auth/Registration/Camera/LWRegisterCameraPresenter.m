@@ -7,8 +7,10 @@
 //
 
 #import "LWRegisterCameraPresenter.h"
-#import "LWAuthManager.h"
 #import "MBProgressHUD.h"
+#import "LWAuthNavigationController.h"
+#import "LWRegisterCameraSelfiePresenter.h"
+#import "TKPresenter+Loading.h"
 
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
@@ -17,7 +19,6 @@
 
 #pragma mark - Utils
 
-- (void)startLoading;
 - (void)checkButtonsState;
 
 @end
@@ -44,6 +45,7 @@
 
 - (void)localize {
     NSString *tag = nil;
+    
     switch (self.stepId) {
         case LWAuthStepRegisterSelfie: {
             tag = @"register.camera.title.selfie";
@@ -80,7 +82,7 @@
 
 - (IBAction)okButtonClick:(id)sender {
     if (photo) {
-        [self startLoading];
+        [self setLoading:YES];
         // send photo
         KYCDocumentType type = ((self.stepId == LWAuthStepRegisterSelfie)
                                 ? KYCDocumentTypeSelfie
@@ -103,12 +105,6 @@
 
 
 #pragma mark - Utils
-
-- (void)startLoading {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.dimBackground = YES;
-    hud.mode = MBProgressHUDModeIndeterminate;
-}
 
 - (void)checkButtonsState {
     if (photo) {
@@ -144,27 +140,36 @@
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject {
-    [[MBProgressHUD HUDForView:self.navigationController.view] hide:YES];
-    
-    NSString *message = [reject objectForKey:@"Message"];
-    
-    UIAlertController *ctrl = [UIAlertController
-                               alertControllerWithTitle:Localize(@"utils.error")
-                               message:message
-                               preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         [ctrl dismissViewControllerAnimated:YES
-                                                                                  completion:nil];
-                                                     }];
-    [ctrl addAction:actionOK];
-    [self presentViewController:ctrl animated:YES completion:nil];
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject];
 }
 
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType {
-    [[LWAuthManager instance] requestDocumentsToUpload];
+    [self setLoading:NO];
+    
+    NSNumber *required = [LWAuthManager instance].documentsStatus.documentTypeRequired;
+    LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
+    
+    if (required) {
+        // navigate to valid step with document uploading
+        switch ((KYCDocumentType)[required integerValue]) {
+            case KYCDocumentTypeSelfie: {
+                [navController navigateToStep:LWAuthStepRegisterSelfie preparationBlock:nil];
+                break;
+            }
+            case KYCDocumentTypeIdCard: {
+                [navController navigateToStep:LWAuthStepRegisterIdentity preparationBlock:nil];
+                break;
+            }
+            case KYCDocumentTypeProofOfAddress: {
+                [navController navigateToStep:LWAuthStepRegisterUtilityBill preparationBlock:nil];
+            }
+        }
+    }
+    else {
+        // navigate to KYC pending
+        [navController navigateToStep:LWAuthStepRegisterKYCPending preparationBlock:nil];
+    }
 }
 
 @end

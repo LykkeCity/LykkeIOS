@@ -6,7 +6,7 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, KYCDocumentType) {
     KYCDocumentTypeSelfie,
@@ -23,11 +23,19 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
 @property (readonly, nonatomic) BOOL idCard;
 @property (readonly, nonatomic) BOOL proofOfAddress;
 // utils
-@property (readonly, nonatomic) BOOL isDocumentRequired;
+@property (readonly, nonatomic) BOOL isSelfieUploaded;
+@property (readonly, nonatomic) BOOL isIdCardUploaded;
+@property (readonly, nonatomic) BOOL isPOAUploaded;
+@property (readonly, nonatomic) NSNumber *documentTypeRequired;
 
 
 #pragma mark - Root
 
 - (instancetype)initWithJSON:(id)json;
+
+
+#pragma mark - Utils
+
+- (void)setTypeUploaded:(KYCDocumentType)type;
 
 @end

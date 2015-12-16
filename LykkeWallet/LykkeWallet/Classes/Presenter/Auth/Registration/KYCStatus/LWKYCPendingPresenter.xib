@@ -33,13 +33,18 @@
                     <color key="textColor" red="0.56470588239999997" green="0.58431372550000005" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="npx-Aj-5hI">
+                    <rect key="frame" x="150" y="378" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="npx-Aj-5hI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0eD-LX-hSu"/>
                 <constraint firstItem="Ne1-q5-5YQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="74Z-Eu-a9Z"/>
                 <constraint firstItem="AAh-rJ-UAw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OJJ-c5-qcM"/>
                 <constraint firstItem="Ne1-q5-5YQ" firstAttribute="top" secondItem="AAh-rJ-UAw" secondAttribute="bottom" constant="27" id="fN4-7n-2DA"/>
                 <constraint firstItem="AAh-rJ-UAw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="mtB-ps-WhO"/>
+                <constraint firstItem="npx-Aj-5hI" firstAttribute="top" secondItem="Ne1-q5-5YQ" secondAttribute="bottom" constant="8" id="wN1-Ec-nmu"/>
             </constraints>
             <point key="canvasLocation" x="337" y="260"/>
         </view>

@@ -16,7 +16,7 @@
 
 @protocol LWAuthManagerDelegate<NSObject>
 @optional
-- (void)authManager:(LWAuthManager *)manager didFail:(NSDictionary *)reject;
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context;
 - (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
 - (void)authManagerDidAuthenticate:(LWAuthManager *)manager;
@@ -39,12 +39,10 @@ SINGLETON_DECLARE
 
 @property (weak, nonatomic) id<LWAuthManagerDelegate> delegate;
 
-@property (readonly, nonatomic) BOOL     isAuthorized;
-@property (readonly, nonatomic) NSString *authCookie;
-
-@property (copy, nonatomic) UIImage *imageSelfie;
-@property (copy, nonatomic) UIImage *imageIdCard;
-@property (copy, nonatomic) UIImage *imageProofOfAddress;
+@property (readonly, nonatomic) BOOL               isAuthorized;
+@property (readonly, nonatomic) NSString           *authCookie;
+@property (readonly, nonatomic) LWRegistrationData *registrationData;
+@property (readonly, nonatomic) LWDocumentsStatus  *documentsStatus;
 
 
 #pragma mark - Common

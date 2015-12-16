@@ -160,20 +160,28 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketRegistration.class) {
+        // set self registration data
+        _registrationData = ((LWPacketRegistration *)pack).registrationData;
+        // call delegate
         if ([self.delegate respondsToSelector:@selector(authManagerDidRegister:)]) {
             [self.delegate authManagerDidRegister:self];
         }
     }
     else if (pack.class == LWPacketCheckDocumentsToUpload.class) {
+        // set self documents status
+        _documentsStatus = ((LWPacketCheckDocumentsToUpload *)pack).documentsStatus;
+        // call delegate
         if ([self.delegate respondsToSelector:@selector(authManager:didCheckDocumentsStatus:)]) {
-            [self.delegate authManager:self
-               didCheckDocumentsStatus:((LWPacketCheckDocumentsToUpload *)pack).documentsStatus];
+            [self.delegate authManager:self didCheckDocumentsStatus:self.documentsStatus];
         }
     }
     else if (pack.class == LWPacketKYCSendDocument.class) {
+        KYCDocumentType docType = ((LWPacketKYCSendDocument *)pack).docType;
+        // modify self documents status
+        [self.documentsStatus setTypeUploaded:docType];
+        // call delegate
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendDocument:ofType:)]) {
-            [self.delegate authManagerDidSendDocument:self
-                                               ofType:((LWPacketKYCSendDocument *)pack).docType];
+            [self.delegate authManagerDidSendDocument:self ofType:docType];
         }
     }
     else if (pack.class == LWPacketKYCStatusGet.class) {
@@ -208,8 +216,8 @@ SINGLETON_INIT {
     GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
     LWPacket *pack = (LWPacket *)ctx.packet;
     
-    if ([self.delegate respondsToSelector:@selector(authManager:didFail:)])  {
-        [self.delegate authManager:self didFail:pack.reject];
+    if ([self.delegate respondsToSelector:@selector(authManager:didFailWithReject:context:)])  {
+        [self.delegate authManager:self didFailWithReject:pack.reject context:ctx];
     }
 }
 

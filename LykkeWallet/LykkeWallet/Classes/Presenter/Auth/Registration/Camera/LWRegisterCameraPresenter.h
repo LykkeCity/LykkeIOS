@@ -7,6 +7,7 @@
 //
 
 #import "LWAuthStepPresenter.h"
+#import "LWAuthManager.h"
 
 
 @interface LWRegisterCameraPresenter : LWAuthStepPresenter<
