@@ -13,6 +13,7 @@
 #import "LWValidator.h"
 #import "LWAuthManager.h"
 #import "LWRegisterProfileDataPresenter.h"
+#import "ABPadLockScreen.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     LWAuthEntryPointNextStepNone,
@@ -24,7 +25,8 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 @interface LWAuthEntryPointPresenter ()<
     LWTextFieldDelegate,
     LWTipsViewDelegate,
-    LWAuthManagerDelegate
+    LWAuthManagerDelegate,
+    ABPadLockScreenSetupViewControllerDelegate
 > {
     LWTextField *emailTextField;
     LWTipsView  *tipsView;
@@ -128,7 +130,8 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     
     switch (step) {
         case LWAuthEntryPointNextStepPIN: {
-            NSLog(@"goto PIN");
+            [nav navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];
+            
             break;
         }
         case LWAuthEntryPointNextStepRegister: {
@@ -179,7 +182,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 - (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered {
     [self.activityView stopAnimating];
     
-    if (isRegistered) {
+    if (YES/*isRegistered*/) {
         step = LWAuthEntryPointNextStepPIN;
         [self.proceedButton setTitle:[Localize(@"auth.login") uppercaseString]
                             forState:UIControlStateNormal];
@@ -199,6 +202,13 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     step = LWAuthEntryPointNextStepRegister;
     // check button state
     [self validateProceedButtonState];
+}
+
+
+#pragma mark - ABPadLockScreenViewControllerDelegate
+
+- (void)padLockScreenSetupViewController:(ABPadLockScreenSetupViewController *)controller didSetPin:(NSString *)pin {
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

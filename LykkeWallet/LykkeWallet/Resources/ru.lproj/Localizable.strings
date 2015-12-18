@@ -39,3 +39,13 @@
 "utils.tip" = "Что мне нужно знать?";
 "utils.ok" = "OK";
 "utils.error" = "Ошибка";
+
+"ABPadLockScreen.pin.enter" = "Введите Ваш PIN";
+"ABPadLockScreen.pin.enterConfirm" = "Повторно введите PIN";
+"ABPadLockScreen.pin.matchError" = "PIN-коды не совпадают.";
+"ABPadLockScreen.pin.attempts.left.none" = "Попытки закончились. Приложение заблокировано.";
+"ABPadLockScreen.pin.attempts.left.one" = "попытка осталась";
+"ABPadLockScreen.pin.attempts.left.several" = "попыток осталось";
+"ABPadLockScreen.cancel" = "Отмена";
+"ABPadLockScreen.delete" = "Стереть";
+"ABPadLockScreen.ok" = "ОК";

@@ -10,8 +10,7 @@
 
 typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepEntryPoint,
-    LWAuthStepLoginPIN,
-    LWAuthStepLoginPINSuccess,
+    LWAuthStepPINEnter,
     LWAuthStepRegisterProfile,
     LWAuthStepRegisterSelfie,
     LWAuthStepRegisterIdentity,
@@ -19,7 +18,8 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepRegisterKYCPending,
     LWAuthStepRegisterKYCInvalidDocuments,
     LWAuthStepRegisterKYCRestricted,
-    LWAuthStepRegisterKYCSuccess
+    LWAuthStepRegisterKYCSuccess,
+    LWAuthStepRegisterPINSetup
 };
 
 

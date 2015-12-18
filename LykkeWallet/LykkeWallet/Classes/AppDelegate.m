@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "ABPadLockScreen.h"
 // tab presenters
 #import "LWWalletsPresenter.h"
 
@@ -21,6 +22,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // init fabric
     [Fabric with:@[[Crashlytics class]]];
+    // customize PIN screen
+    [[ABPadLockScreenView appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[ABPadLockScreenView appearance] setLabelColor:[UIColor blackColor]];
+    [[ABPadButton appearance] setBackgroundColor:[UIColor clearColor]];
+    [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:@"D3D6DB"]];
+    [[ABPadButton appearance] setSelectedColor:[UIColor lightGrayColor]];
+    [[ABPadButton appearance] setTextColor:[UIColor blackColor]];
+    [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:@"AB00FF"]];
     // init tab presenters
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
     // init tab controller
