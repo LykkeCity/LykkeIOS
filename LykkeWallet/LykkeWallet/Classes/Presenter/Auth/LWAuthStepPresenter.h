@@ -7,6 +7,7 @@
 //
 
 #import "TKPresenter.h"
+#import "LWAuthManager.h"
 
 typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepEntryPoint,
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
 };
 
 
-@interface LWAuthStepPresenter : TKPresenter {
+@interface LWAuthStepPresenter : TKPresenter<LWAuthManagerDelegate> {
     
 }
 

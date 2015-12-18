@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 @interface LWAuthEntryPointPresenter ()<
     LWTextFieldDelegate,
     LWTipsViewDelegate,
-    LWAuthManagerDelegate,
     ABPadLockScreenSetupViewControllerDelegate
 > {
     LWTextField *emailTextField;
@@ -80,8 +79,6 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     self.observeKeyboardEvents = YES;
     // check button state
     [self validateProceedButtonState];
-    // managers
-    [LWAuthManager instance].delegate = self;
 }
 
 - (void)localize {
@@ -130,7 +127,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     
     switch (step) {
         case LWAuthEntryPointNextStepPIN: {
-            [nav navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];
+            [nav navigateToStep:LWAuthStepPINEnter preparationBlock:nil];
             
             break;
         }
@@ -182,7 +179,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 - (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered {
     [self.activityView stopAnimating];
     
-    if (YES/*isRegistered*/) {
+    if (isRegistered) {
         step = LWAuthEntryPointNextStepPIN;
         [self.proceedButton setTitle:[Localize(@"auth.login") uppercaseString]
                             forState:UIControlStateNormal];

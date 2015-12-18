@@ -39,8 +39,6 @@
     [super viewWillAppear:animated];
     
     [self checkButtonsState];
-    
-    [LWAuthManager instance].delegate = self;
 }
 
 - (void)localize {
@@ -94,8 +92,11 @@
     else {
         // display image picker
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.sourceType = (/*UIImagePickerControllerSourceTypeCamera
-                                  | */UIImagePickerControllerSourceTypePhotoLibrary);
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        // add camera as a source (if possible)
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePicker.sourceType = (imagePicker.sourceType & UIImagePickerControllerSourceTypeCamera);
+        }
         imagePicker.delegate = self;
         
         [self presentViewController:imagePicker animated:YES completion:nil];

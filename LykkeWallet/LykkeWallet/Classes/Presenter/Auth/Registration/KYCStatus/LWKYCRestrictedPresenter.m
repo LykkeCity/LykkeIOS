@@ -18,4 +18,11 @@
 
 @implementation LWKYCRestrictedPresenter
 
+
+#pragma mark - LWAuthStepPresenter
+
+- (LWAuthStep)stepId {
+    return LWAuthStepRegisterKYCRestricted;
+}
+
 @end

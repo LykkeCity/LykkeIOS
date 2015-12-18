@@ -54,6 +54,9 @@
                     <state key="normal" title="GET STARTED!" backgroundImage="ButtonOK">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="okButtonClick:" destination="-1" eventType="touchUpInside" id="qke-ap-SX9"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

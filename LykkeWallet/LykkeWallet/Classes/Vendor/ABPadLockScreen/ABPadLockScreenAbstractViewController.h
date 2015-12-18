@@ -45,6 +45,7 @@
 
 - (void)newPinSelected:(NSInteger)pinNumber;
 - (void)deleteFromPin;
+- (void)clearPin;
 
 - (void)setLockScreenTitle:(NSString *)title;
 - (void)setSubtitleText:(NSString *)text;

@@ -27,7 +27,7 @@
 @implementation LWKYCPendingPresenter
 
 
-#pragma mark - LWKYCPresenter
+#pragma mark - LWAuthStepPresenter
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -39,6 +39,10 @@
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.pending"),
                            [LWAuthManager instance].registrationData.firstName,
                            [LWAuthManager instance].registrationData.lastName];
+}
+
+- (LWAuthStep)stepId {
+    return LWAuthStepRegisterKYCPending;
 }
 
 

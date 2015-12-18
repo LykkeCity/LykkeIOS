@@ -35,14 +35,17 @@
 "register.kyc.success.header" = "Lykke Wallet was successfully created!";
 "register.kyc.success" = "Dear %@ %@, you can now browse the assets available for trade.";
 "register.kyc.success.okButton" = "Get started!";
+"register.pin.setup.ok.title" = "Congratulations!";
+"register.pin.setup.ok.text" = "Your private key is generated now.\nYou are almost ready to trade. We would like to ask for necessary compliance information.\n\nThis may take only 1-2 minutes. You would need to have your passport and utility bill with home address in front of you.";
 
 "utils.tip" = "What should I know?";
 "utils.ok" = "OK";
 "utils.error" = "Error";
 
-"ABPadLockScreen.pin.enter" = "Enter your PIN";
-"ABPadLockScreen.pin.enterConfirm" = "Re-enter PIN";
-"ABPadLockScreen.pin.matchError" = "PINs do not match.";
+"ABPadLockScreen.pin.enter" = "Enter PIN";
+"ABPadLockScreen.pin.setup" = "Setup your new PIN";
+"ABPadLockScreen.pin.setup.confirm" = "Re-enter PIN";
+"ABPadLockScreen.pin.matchError" = "PINs do not match!";
 "ABPadLockScreen.pin.attempts.left.none" = "No attempts left. Application is locked.";
 "ABPadLockScreen.pin.attempts.left.one" = "attempt left";
 "ABPadLockScreen.pin.attempts.left.several" = "attempts left";

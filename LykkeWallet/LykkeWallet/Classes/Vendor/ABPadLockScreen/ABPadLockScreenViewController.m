@@ -55,6 +55,9 @@
         _lockedOutString = NSLocalizedString(@"ABPadLockScreen.pin.attempts.left.none", @"");
         _pluralAttemptsLeftString = NSLocalizedString(@"ABPadLockScreen.pin.attempts.left.several", @"");
         _singleAttemptLeftString = NSLocalizedString(@"ABPadLockScreen.pin.attempts.left.one", @"");
+        
+        [lockScreenView updateDetailLabelWithString:NSLocalizedString(@"ABPadLockScreen.pin.enter", @"") animated:NO completion:nil];
+        [lockScreenView resetAnimated:NO];
     }
     return self;
 }

@@ -25,8 +25,6 @@
     [super viewWillAppear:animated];
     // hide navigation bar
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    // managers
-    [LWAuthManager instance].delegate = self;
 }
 
 @end

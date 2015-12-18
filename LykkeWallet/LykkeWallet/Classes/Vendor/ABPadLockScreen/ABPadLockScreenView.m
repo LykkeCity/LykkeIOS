@@ -90,7 +90,7 @@
         _requiresRotationCorrection = NO;
         
         _enterPasscodeLabel = [self standardLabel];
-        _enterPasscodeLabel.text = NSLocalizedString(@"ABPadLockScreen.pin.enter", @"");
+        _enterPasscodeLabel.text = NSLocalizedString(@"ABPadLockScreen.pin.setup", @"");
         
         _detailLabel = [self standardLabel];
         

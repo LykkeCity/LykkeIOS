@@ -18,13 +18,18 @@
 @property (weak, nonatomic) IBOutlet UILabel  *textLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 
+
+#pragma mark - Actions
+
+- (IBAction)okButtonClick:(id)sender;
+
 @end
 
 
 @implementation LWKYCSuccessPresenter
 
 
-#pragma mark - TKPresenter
+#pragma mark - LWAuthStepPresenter
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.success.header");
@@ -33,6 +38,19 @@
                            [LWAuthManager instance].registrationData.lastName];
     [self.okButton setTitle:[Localize(@"register.kyc.success.okButton") uppercaseString]
                    forState:UIControlStateNormal];
+}
+
+- (LWAuthStep)stepId {
+    return LWAuthStepRegisterKYCSuccess;
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)okButtonClick:(id)sender {
+    [((LWAuthNavigationController *)self.navigationController)
+     navigateToStep:LWAuthStepRegisterPINSetup
+     preparationBlock:nil];
 }
 
 @end

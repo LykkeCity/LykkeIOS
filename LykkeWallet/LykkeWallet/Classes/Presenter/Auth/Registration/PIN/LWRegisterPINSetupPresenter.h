@@ -8,6 +8,9 @@
 
 #import "LWAuthStepPresenter.h"
 
-@interface LWRegisterPINSetupPresenter : LWAuthStepPresenter
+
+@interface LWRegisterPINSetupPresenter : LWAuthStepPresenter {
+    
+}
 
 @end

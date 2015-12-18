@@ -139,14 +139,12 @@ SINGLETON_INIT {
         return;
     }
     // read cookie just for auth and registration
-    if (pack.class == LWPacketAuthentication.class ||
-        pack.class == LWPacketRegistration.class) {
+    if (pack.class == LWPacketAuthentication.class || pack.class == LWPacketRegistration.class) {
         // set auth cookie (token)
         if ([ctx.responseHeaders objectForKey:@"Set-Cookie"]) {
             _authCookie = ctx.responseHeaders[@"Set-Cookie"];
         }
     }
-
     // parse packet by class
     if (pack.class == LWPacketAccountExist.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {

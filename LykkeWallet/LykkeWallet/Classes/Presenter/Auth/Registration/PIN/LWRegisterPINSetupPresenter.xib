@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWRegisterPINSetupPresenter">
             <connections>
                 <outlet property="maskingView" destination="qrL-vt-qQM" id="JzZ-eO-Omc"/>
+                <outlet property="textLabel" destination="vDl-cH-nEm" id="tua-SP-rwz"/>
+                <outlet property="titleLabel" destination="r1C-A4-PhI" id="vOs-9z-qVo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

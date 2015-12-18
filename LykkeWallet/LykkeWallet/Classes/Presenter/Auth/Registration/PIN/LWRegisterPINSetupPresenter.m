@@ -12,10 +12,14 @@
 
 @interface LWRegisterPINSetupPresenter ()<ABPadLockScreenSetupViewControllerDelegate> {
     ABPadLockScreenSetupViewController *pinController;
+    
     NSString *pin;
+    BOOL     pinDidSendToServer;
 }
 
-@property (weak, nonatomic) IBOutlet UIView *maskingView;
+@property (weak, nonatomic) IBOutlet UIView  *maskingView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -23,14 +27,14 @@
 @implementation LWRegisterPINSetupPresenter
 
 
-#pragma mark - TKPresenter
+#pragma mark - LWAuthStepPresenter
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    self.maskingView.hidden = (pin != nil);
+    // set masking view visibility
+    self.maskingView.hidden = pinDidSendToServer;
     // adjust pin controller frame
     if (!pinController) {
         pinController = [[ABPadLockScreenSetupViewController alloc] initWithDelegate:self
@@ -45,6 +49,11 @@
     }
 }
 
+- (void)localize {
+    self.titleLabel.text = [Localize(@"register.pin.setup.ok.title") uppercaseString];
+    self.textLabel.text = Localize(@"register.pin.setup.ok.text");
+}
+
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterPINSetup;
 }
@@ -53,9 +62,21 @@
 #pragma mark - ABPadLockScreenSetupViewControllerDelegate
 
 - (void)padLockScreenSetupViewController:(ABPadLockScreenSetupViewController *)controller didSetPin:(NSString *)pin_ {
+    [controller dismissViewControllerAnimated:YES completion:nil]; // dismiss
+    [pinController clearPin]; // don't forget to clear PIN data
+    // save pin
     pin = [pin_ copy];
-    
-    [controller dismissViewControllerAnimated:YES completion:nil];
+    // request PIN setup
+    [[LWAuthManager instance] requestPinSecuritySet:pin];
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManagerDidSetPin:(LWAuthManager *)manager {
+    pinDidSendToServer = YES;
+    // hide masking view
+    self.maskingView.hidden = YES;
 }
 
 @end

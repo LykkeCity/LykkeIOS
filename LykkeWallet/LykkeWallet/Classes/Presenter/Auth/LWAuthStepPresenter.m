@@ -12,6 +12,15 @@
 @implementation LWAuthStepPresenter
 
 
+#pragma mark - TKPresenter
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // management
+    [LWAuthManager instance].delegate = self;
+}
+
+
 #pragma mark - Properties
 
 - (LWAuthStep)stepId {

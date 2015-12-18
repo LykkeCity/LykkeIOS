@@ -277,6 +277,11 @@
     }
 }
 
+- (void)clearPin {
+    self.currentPin = @"1";
+    [self deleteFromPin];
+}
+
 - (void)buttonSelected:(UIButton *)sender
 {
     NSInteger tag = sender.tag;

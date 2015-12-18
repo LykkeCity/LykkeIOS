@@ -59,7 +59,7 @@
 - (void)setDefaultTexts
 {
     _pinNotMatchedText = NSLocalizedString(@"ABPadLockScreen.pin.matchError", @"");
-    _pinConfirmationText = NSLocalizedString(@"ABPadLockScreen.pin.enterConfirm", @"");
+    _pinConfirmationText = NSLocalizedString(@"ABPadLockScreen.pin.setup.confirm", @"");
 }
 
 #pragma mark -

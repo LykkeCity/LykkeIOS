@@ -91,8 +91,6 @@
     emailField.text = self.email;
     // focus first name
     [firstNameField becomeFirstResponder];
-    // assign delegate
-    [LWAuthManager instance].delegate = self;
 }
 
 - (void)localize {

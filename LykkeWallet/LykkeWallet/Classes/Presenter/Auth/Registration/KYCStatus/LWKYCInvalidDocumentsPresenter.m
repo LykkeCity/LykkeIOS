@@ -29,7 +29,7 @@
 @implementation LWKYCInvalidDocumentsPresenter
 
 
-#pragma mark - TKPresenter
+#pragma mark - LWAuthStepPresenter
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.invalidDocuments.header");
@@ -38,6 +38,10 @@
                            [LWAuthManager instance].registrationData.lastName];
     [self.okButton setTitle:[Localize(@"register.kyc.invalidDocuments.okButton") uppercaseString]
                    forState:UIControlStateNormal];
+}
+
+- (LWAuthStep)stepId {
+    return LWAuthStepRegisterKYCInvalidDocuments;
 }
 
 
