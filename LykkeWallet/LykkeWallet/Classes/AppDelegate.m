@@ -34,9 +34,29 @@
     [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:@"AB00FF"]];
     // init tab presenters
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
+    pWallets.tabBarItem = [[UITabBarItem alloc]
+                           initWithTitle:Localize(@"tab.wallets")
+                           image:nil
+                           selectedImage:nil];
+
     LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    pTrading.tabBarItem = [[UITabBarItem alloc]
+                           initWithTitle:Localize(@"tab.trading")
+                           image:nil
+                           selectedImage:nil];
+    
     LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    pHistory.tabBarItem = [[UITabBarItem alloc]
+                           initWithTitle:Localize(@"tab.history")
+                           image:nil
+                           selectedImage:nil];
+    
     LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
+    pSettings.tabBarItem = [[UITabBarItem alloc]
+                           initWithTitle:Localize(@"tab.settings")
+                            image:nil
+                            selectedImage:nil];
+    
     // init tab controller
     self.tabController = [LWTabController new];
     self.tabController.viewControllers = @[pWallets, pTrading, pHistory, pSettings];

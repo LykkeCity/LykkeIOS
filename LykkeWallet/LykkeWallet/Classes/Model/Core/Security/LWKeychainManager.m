@@ -39,6 +39,11 @@ static NSString *const LOGIN_FIELD    = @"Login";
     return result;
 }
 
++ (void)clear {
+    VALValet *valet = [LWKeychainManager valet];
+    [valet removeObjectForKey:LOGIN_FIELD];
+    [valet removeObjectForKey:TOKEN_FIELD];
+}
 
 #pragma mark - Inetrnal methods
 

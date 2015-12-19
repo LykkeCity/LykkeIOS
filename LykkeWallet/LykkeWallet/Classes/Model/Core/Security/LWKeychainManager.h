@@ -18,5 +18,6 @@
 + (void)saveLogin:(NSString *)login andToken:(NSString *)token;
 + (NSString *)readLogin;
 + (NSString *)readToken;
++ (void)clear;
 
 @end
