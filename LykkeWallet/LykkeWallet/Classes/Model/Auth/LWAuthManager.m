@@ -17,6 +17,7 @@
 #import "LWPacketPinSecurityGet.h"
 #import "LWPacketPinSecuritySet.h"
 #import "LWPacketRestrictedCountries.h"
+#import "LWKeychainManager.h"
 
 
 @interface LWAuthManager () {
@@ -60,7 +61,6 @@ SINGLETON_INIT {
 - (void)requestAuthentication:(LWAuthenticationData *)data {
     LWPacketAuthentication *pack = [LWPacketAuthentication new];
     pack.authenticationData = data;
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
@@ -68,21 +68,18 @@ SINGLETON_INIT {
 - (void)requestRegistration:(LWRegistrationData *)data {
     LWPacketRegistration *pack = [LWPacketRegistration new];
     pack.registrationData = data;
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
 
 - (void)requestDocumentsToUpload {
     LWPacketCheckDocumentsToUpload *pack = [LWPacketCheckDocumentsToUpload new];
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
 
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image {
     LWPacketKYCSendDocument *pack = [LWPacketKYCSendDocument new];
-    pack.authCookie = self.authCookie;
     pack.docType = docType;
     pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f); // 20% compression
     
@@ -91,14 +88,12 @@ SINGLETON_INIT {
 
 - (void)requestKYCStatusGet {
     LWPacketKYCStatusGet *pack = [LWPacketKYCStatusGet new];
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
 
 - (void)requestKYCStatusSet {
     LWPacketKYCStatusSet *pack = [LWPacketKYCStatusSet new];
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
@@ -106,7 +101,6 @@ SINGLETON_INIT {
 - (void)requestPinSecurityGet:(NSString *)pin {
     LWPacketPinSecurityGet *pack = [LWPacketPinSecurityGet new];
     pack.pin = pin;
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
@@ -114,14 +108,12 @@ SINGLETON_INIT {
 - (void)requestPinSecuritySet:(NSString *)pin {
     LWPacketPinSecuritySet *pack = [LWPacketPinSecuritySet new];
     pack.pin = pin;
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
 
 - (void)requestRestrictedCountries {
     LWPacketRestrictedCountries *pack = [LWPacketRestrictedCountries new];
-    pack.authCookie = self.authCookie;
     
     [self sendPacket:pack];
 }
@@ -138,13 +130,7 @@ SINGLETON_INIT {
         // return immediately
         return;
     }
-    // read cookie just for auth and registration
-    if (pack.class == LWPacketAuthentication.class || pack.class == LWPacketRegistration.class) {
-        // set auth cookie (token)
-        if ([ctx.responseHeaders objectForKey:@"Set-Cookie"]) {
-            _authCookie = ctx.responseHeaders[@"Set-Cookie"];
-        }
-    }
+
     // parse packet by class
     if (pack.class == LWPacketAccountExist.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
@@ -223,7 +209,8 @@ SINGLETON_INIT {
 #pragma mark - Properties
 
 - (BOOL)isAuthorized {
-    return (self.authCookie != nil);
+    NSString *token = [LWKeychainManager readToken];
+    return (token != nil);
 }
 
 @end

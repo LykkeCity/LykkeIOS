@@ -6,10 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWCookiePacket.h"
+#import "LWAuthorizePacket.h"
 
 
-@interface LWPacketKYCStatusSet : LWCookiePacket {
+@interface LWPacketKYCStatusSet : LWAuthorizePacket {
     
 }
 

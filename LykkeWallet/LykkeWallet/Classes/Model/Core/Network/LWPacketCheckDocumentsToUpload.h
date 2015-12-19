@@ -6,11 +6,11 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWCookiePacket.h"
+#import "LWAuthorizePacket.h"
 #import "LWDocumentsStatus.h"
 
 
-@interface LWPacketCheckDocumentsToUpload : LWCookiePacket {
+@interface LWPacketCheckDocumentsToUpload : LWAuthorizePacket {
     
 }
 // out

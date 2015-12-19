@@ -13,7 +13,8 @@
 		CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAA81C1E10E40086634B /* LWPacketPinSecurityGet.m */; };
 		CD10AAAC1C1E10F60086634B /* LWPacketPinSecuritySet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAB1C1E10F60086634B /* LWPacketPinSecuritySet.m */; };
 		CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */; };
-		CD10AAB21C1E16260086634B /* LWCookiePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWCookiePacket.m */; };
+		CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */; };
+		CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */; };
 		CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */; };
 		CF37D8C21C21CEDE0021B94E /* TKPresenter+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF37D8C11C21CEDE0021B94E /* TKPresenter+Loading.m */; };
 		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
@@ -91,8 +92,10 @@
 		CD10AAAB1C1E10F60086634B /* LWPacketPinSecuritySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPinSecuritySet.m; sourceTree = "<group>"; };
 		CD10AAAD1C1E14800086634B /* LWPacketRestrictedCountries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketRestrictedCountries.h; sourceTree = "<group>"; };
 		CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketRestrictedCountries.m; sourceTree = "<group>"; };
-		CD10AAB01C1E16260086634B /* LWCookiePacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCookiePacket.h; sourceTree = "<group>"; };
-		CD10AAB11C1E16260086634B /* LWCookiePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCookiePacket.m; sourceTree = "<group>"; };
+		CD10AAB01C1E16260086634B /* LWAuthorizePacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthorizePacket.h; sourceTree = "<group>"; };
+		CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthorizePacket.m; sourceTree = "<group>"; };
+		CDCD5AE11C2576EB007BAD78 /* LWKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWKeychainManager.h; path = Security/LWKeychainManager.h; sourceTree = "<group>"; };
+		CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWKeychainManager.m; path = Security/LWKeychainManager.m; sourceTree = "<group>"; };
 		CF21DC7B1C17590E00D2399E /* LykkeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LykkeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF21DC8D1C17590E00D2399E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF37D8C01C21CEDE0021B94E /* TKPresenter+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKPresenter+Loading.h"; sourceTree = "<group>"; };
@@ -226,6 +229,15 @@
 				7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CDA9E7F01C25764E0067FB32 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				CDCD5AE11C2576EB007BAD78 /* LWKeychainManager.h */,
+				CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */,
+			);
+			name = Security;
 			sourceTree = "<group>";
 		};
 		CF21DC721C17590E00D2399E = {
@@ -392,8 +404,8 @@
 			children = (
 				CF6A9CD51C18ED7E00B69F53 /* LWPacket.h */,
 				CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */,
-				CD10AAB01C1E16260086634B /* LWCookiePacket.h */,
-				CD10AAB11C1E16260086634B /* LWCookiePacket.m */,
+				CD10AAB01C1E16260086634B /* LWAuthorizePacket.h */,
+				CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -475,6 +487,7 @@
 		CF9EC8FD1C17C6C100F742A6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CDA9E7F01C25764E0067FB32 /* Security */,
 				CF9EC8FE1C17C6C100F742A6 /* Network */,
 				CF9EC9051C17C6C100F742A6 /* UIHelpers */,
 			);
@@ -735,6 +748,7 @@
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
+				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
 				CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */,
@@ -751,7 +765,7 @@
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				CF6F69D41C2413F70016CFC5 /* ABPinSelectionView.m in Sources */,
-				CD10AAB21C1E16260086634B /* LWCookiePacket.m in Sources */,
+				CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */,
 				CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */,
 				CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */,
 				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,

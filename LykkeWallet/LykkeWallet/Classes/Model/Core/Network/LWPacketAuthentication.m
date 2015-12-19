@@ -7,12 +7,24 @@
 //
 
 #import "LWPacketAuthentication.h"
+#import "LWKeychainManager.h"
 
 
 @implementation LWPacketAuthentication
 
 
 #pragma mark - LWPacket
+
+- (void)parseResponse:(id)response error:(NSError *)error {
+    [super parseResponse:response error:error];
+    
+    if (self.isRejected) {
+        return;
+    }
+    _token = result[@"Token"];
+    
+    [LWKeychainManager saveLogin:self.authenticationData.email andToken:_token];
+}
 
 - (NSString *)urlRelative {
     return @"Auth";

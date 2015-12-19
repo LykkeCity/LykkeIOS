@@ -7,12 +7,24 @@
 //
 
 #import "LWPacketRegistration.h"
+#import "LWKeychainManager.h"
 
 
 @implementation LWPacketRegistration
 
 
 #pragma mark - LWPacket
+
+- (void)parseResponse:(id)response error:(NSError *)error {
+    [super parseResponse:response error:error];
+    
+    if (self.isRejected) {
+        return;
+    }
+    _token = result[@"Token"];
+    
+    [LWKeychainManager saveLogin:self.registrationData.email andToken:_token];
+}
 
 - (NSString *)urlRelative {
     return @"Registration";

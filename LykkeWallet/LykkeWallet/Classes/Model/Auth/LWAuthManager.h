@@ -40,7 +40,6 @@ SINGLETON_DECLARE
 @property (weak, nonatomic) id<LWAuthManagerDelegate> delegate;
 
 @property (readonly, nonatomic) BOOL               isAuthorized;
-@property (readonly, nonatomic) NSString           *authCookie;
 @property (readonly, nonatomic) LWRegistrationData *registrationData;
 @property (readonly, nonatomic) LWDocumentsStatus  *documentsStatus;
 

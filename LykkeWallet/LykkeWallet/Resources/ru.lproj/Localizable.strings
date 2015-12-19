@@ -14,6 +14,7 @@
 "auth.signup" = "Зарегистрироваться";
 "auth.email" = "Email";
 
+"register.title" = "Регистрация";
 "register.step1.prompt" = "Заполните ваш профиль";
 "register.email" = "Email";
 "register.firstName" = "Имя";

@@ -1,5 +1,5 @@
 //
-//  LWCookiePacket.h
+//  LWAuthorizePacket.h
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 14.12.15.
@@ -9,10 +9,8 @@
 #import "LWPacket.h"
 
 
-@interface LWCookiePacket : LWPacket {
+@interface LWAuthorizePacket : LWPacket {
     
 }
-// in
-@property (copy, nonatomic) NSString *authCookie;
 
 @end
