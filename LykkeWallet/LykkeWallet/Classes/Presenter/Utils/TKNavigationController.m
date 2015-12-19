@@ -18,4 +18,13 @@
 
 @implementation TKNavigationController
 
+
+#pragma mark - Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationBar.barTintColor = [UIColor whiteColor];
+}
+
 @end

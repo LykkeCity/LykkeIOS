@@ -10,6 +10,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "ABPadLockScreen.h"
+#import "TKNavigationController.h"
 // tab presenters
 #import "LWWalletsPresenter.h"
 #import "LWTradingPresenter.h"
@@ -34,35 +35,9 @@ static NSString *const MAIN_COLOR = @"AB00FF";
     [[ABPadButton appearance] setSelectedColor:[UIColor lightGrayColor]];
     [[ABPadButton appearance] setTextColor:[UIColor blackColor]];
     [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:MAIN_COLOR]];
-    // init tab presenters
-    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
-    pWallets.tabBarItem = [[UITabBarItem alloc]
-                           initWithTitle:Localize(@"tab.wallets")
-                           image:[UIImage imageNamed:@"WalletsTab"]
-                           selectedImage:nil];
 
-    LWTradingPresenter *pTrading = [LWTradingPresenter new];
-    pTrading.tabBarItem = [[UITabBarItem alloc]
-                           initWithTitle:Localize(@"tab.trading")
-                           image:[UIImage imageNamed:@"TradingTab"]
-                           selectedImage:nil];
-    
-    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
-    pHistory.tabBarItem = [[UITabBarItem alloc]
-                           initWithTitle:Localize(@"tab.history")
-                           image:[UIImage imageNamed:@"HistoryTab"]
-                           selectedImage:nil];
-    
-    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
-    pSettings.tabBarItem = [[UITabBarItem alloc]
-                           initWithTitle:Localize(@"tab.settings")
-                            image:[UIImage imageNamed:@"SettingsTab"]
-                            selectedImage:nil];
-    
-    // init tab controller
-    self.tabController = [LWTabController new];
-    self.tabController.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
-    self.tabController.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+    // init tab presenters
+    [self initializeTabController];
     
     // init window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -84,6 +59,47 @@ static NSString *const MAIN_COLOR = @"AB00FF";
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark - Inetrnal methods
+
+- (void)initializeTabController {
+    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
+    pWallets.tabBarItem = [self createTabBarItemWithTitle:@"tab.wallets"
+                                                withImage:@"WalletsTab"];
+    TKNavigationController *navWallets = [[TKNavigationController alloc]
+                                          initWithRootViewController:pWallets];
+    
+    LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
+                                                withImage:@"TradingTab"];
+    TKNavigationController *navTrading = [[TKNavigationController alloc]
+                                          initWithRootViewController:pTrading];
+    
+    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    pHistory.tabBarItem = [self createTabBarItemWithTitle:@"tab.history"
+                                                withImage:@"HistoryTab"];
+    TKNavigationController *navHistory = [[TKNavigationController alloc]
+                                          initWithRootViewController:pHistory];
+    
+    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
+    pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
+                                                 withImage:@"SettingsTab"];
+    TKNavigationController *navSettings = [[TKNavigationController alloc]
+                                           initWithRootViewController:pSettings];
+    
+    // init tab controller
+    self.tabController = [LWTabController new];
+    self.tabController.viewControllers = @[navWallets, navTrading, navHistory, navSettings];
+    self.tabController.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+}
+
+- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
+    return [[UITabBarItem alloc]
+                            initWithTitle:Localize(title)
+                            image:[UIImage imageNamed:image]
+                            selectedImage:nil];
 }
 
 @end
