@@ -7,6 +7,9 @@
 */
 
 "tab.wallets" = "Кошельки";
+"tab.trading" = "Торговля";
+"tab.history" = "История";
+"tab.settings" = "Настройки";
 
 "title.register" = "Регистрация";
 

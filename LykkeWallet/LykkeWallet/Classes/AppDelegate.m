@@ -12,7 +12,9 @@
 #import "ABPadLockScreen.h"
 // tab presenters
 #import "LWWalletsPresenter.h"
-
+#import "LWTradingPresenter.h"
+#import "LWHistoryPresenter.h"
+#import "LWSettingsPresenter.h"
 
 @implementation AppDelegate
 
@@ -32,9 +34,12 @@
     [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:@"AB00FF"]];
     // init tab presenters
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
+    LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
     // init tab controller
     self.tabController = [LWTabController new];
-    self.tabController.viewControllers = @[pWallets];
+    self.tabController.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
     // init window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

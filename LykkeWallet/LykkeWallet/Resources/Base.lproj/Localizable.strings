@@ -7,6 +7,9 @@
 */
 
 "tab.wallets" = "Wallets";
+"tab.trading" = "Trading";
+"tab.history" = "History";
+"tab.settings" = "Settings";
 
 "title.register" = "Register";
 
