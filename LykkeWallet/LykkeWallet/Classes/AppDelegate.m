@@ -18,6 +18,8 @@
 
 @implementation AppDelegate
 
+static NSString *const BORDER_COLOR = @"D3D6DB";
+static NSString *const MAIN_COLOR = @"AB00FF";
 
 #pragma mark - Lifecycle
 
@@ -28,38 +30,40 @@
     [[ABPadLockScreenView appearance] setBackgroundColor:[UIColor whiteColor]];
     [[ABPadLockScreenView appearance] setLabelColor:[UIColor blackColor]];
     [[ABPadButton appearance] setBackgroundColor:[UIColor clearColor]];
-    [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:@"D3D6DB"]];
+    [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:BORDER_COLOR]];
     [[ABPadButton appearance] setSelectedColor:[UIColor lightGrayColor]];
     [[ABPadButton appearance] setTextColor:[UIColor blackColor]];
-    [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:@"AB00FF"]];
+    [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:MAIN_COLOR]];
     // init tab presenters
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
     pWallets.tabBarItem = [[UITabBarItem alloc]
                            initWithTitle:Localize(@"tab.wallets")
-                           image:nil
+                           image:[UIImage imageNamed:@"WalletsTab"]
                            selectedImage:nil];
 
     LWTradingPresenter *pTrading = [LWTradingPresenter new];
     pTrading.tabBarItem = [[UITabBarItem alloc]
                            initWithTitle:Localize(@"tab.trading")
-                           image:nil
+                           image:[UIImage imageNamed:@"TradingTab"]
                            selectedImage:nil];
     
     LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
     pHistory.tabBarItem = [[UITabBarItem alloc]
                            initWithTitle:Localize(@"tab.history")
-                           image:nil
+                           image:[UIImage imageNamed:@"HistoryTab"]
                            selectedImage:nil];
     
     LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
     pSettings.tabBarItem = [[UITabBarItem alloc]
                            initWithTitle:Localize(@"tab.settings")
-                            image:nil
+                            image:[UIImage imageNamed:@"SettingsTab"]
                             selectedImage:nil];
     
     // init tab controller
     self.tabController = [LWTabController new];
     self.tabController.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
+    self.tabController.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+    
     // init window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
