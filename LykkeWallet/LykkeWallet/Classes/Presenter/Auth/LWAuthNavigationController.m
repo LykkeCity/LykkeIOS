@@ -20,6 +20,7 @@
 #import "LWAuthPINEnterPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
+#import "LWKYCSubmitPresenter.h"
 #import "LWKYCPendingPresenter.h"
 #import "LWKYCInvalidDocumentsPresenter.h"
 #import "LWKYCRestrictedPresenter.h"
@@ -57,6 +58,7 @@
                     LWRegisterCameraSelfiePresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
+                    LWKYCSubmitPresenter.class,
                     LWKYCPendingPresenter.class,
                     LWKYCInvalidDocumentsPresenter.class,
                     LWKYCRestrictedPresenter.class,
@@ -67,7 +69,6 @@
     }
     return self;
 }
-
 
 #pragma mark - Common
 

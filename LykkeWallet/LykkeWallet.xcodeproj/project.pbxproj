@@ -14,6 +14,8 @@
 		CD10AAAC1C1E10F60086634B /* LWPacketPinSecuritySet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAB1C1E10F60086634B /* LWPacketPinSecuritySet.m */; };
 		CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */; };
 		CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */; };
+		CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */; };
+		CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
 		CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */; };
 		CDCD5AE61C259587007BAD78 /* TKTablePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AE51C259586007BAD78 /* TKTablePresenter.m */; };
 		CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AE81C259629007BAD78 /* LWHistoryPresenter.m */; };
@@ -112,6 +114,9 @@
 		CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketRestrictedCountries.m; sourceTree = "<group>"; };
 		CD10AAB01C1E16260086634B /* LWAuthorizePacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthorizePacket.h; sourceTree = "<group>"; };
 		CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthorizePacket.m; sourceTree = "<group>"; };
+		CDA69FCB1C275C3800BE4DCA /* LWKYCSubmitPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSubmitPresenter.h; sourceTree = "<group>"; };
+		CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSubmitPresenter.m; sourceTree = "<group>"; };
+		CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSubmitPresenter.xib; sourceTree = "<group>"; };
 		CDCD5AE11C2576EB007BAD78 /* LWKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWKeychainManager.h; path = Security/LWKeychainManager.h; sourceTree = "<group>"; };
 		CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWKeychainManager.m; path = Security/LWKeychainManager.m; sourceTree = "<group>"; };
 		CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTablePresenter.h; sourceTree = "<group>"; };
@@ -673,6 +678,9 @@
 				CFF758481C202D1100BC7658 /* LWKYCSuccessPresenter.h */,
 				CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */,
 				CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */,
+				CDA69FCB1C275C3800BE4DCA /* LWKYCSubmitPresenter.h */,
+				CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */,
+				CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */,
 			);
 			path = KYCStatus;
 			sourceTree = "<group>";
@@ -764,6 +772,7 @@
 				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
 				CFF7583D1C202C6500BC7658 /* LWKYCPendingPresenter.xib in Resources */,
 				CF6877511C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib in Resources */,
+				CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */,
 				CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */,
 				CDCD5B1E1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
 				CDCE88501C26F6630039798B /* LWAuthenticationPresenter.xib in Resources */,
@@ -882,6 +891,7 @@
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
+				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,

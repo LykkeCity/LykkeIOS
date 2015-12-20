@@ -171,8 +171,8 @@
         }
     }
     else {
-        // navigate to KYC pending
-        [navController navigateToStep:LWAuthStepRegisterKYCPending preparationBlock:nil];
+        // navigate to KYC submit
+        [navController navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
     }
 }
 

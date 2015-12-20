@@ -35,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dear Christian P. Clements, you can now browse the assets available for trade." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H28-hK-2aV">
-                    <rect key="frame" x="22.5" y="332" width="275" height="51"/>
+                    <rect key="frame" x="23" y="332" width="275" height="51"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="275" id="bdJ-Ii-FKf"/>
                         <constraint firstAttribute="height" constant="51" id="tI5-o8-v4y"/>

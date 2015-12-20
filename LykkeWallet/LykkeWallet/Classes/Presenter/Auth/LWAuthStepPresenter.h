@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepRegisterSelfie,
     LWAuthStepRegisterIdentity,
     LWAuthStepRegisterUtilityBill,
+    LWAuthStepRegisterKYCSubmit,
     LWAuthStepRegisterKYCPending,
     LWAuthStepRegisterKYCInvalidDocuments,
     LWAuthStepRegisterKYCRestricted,

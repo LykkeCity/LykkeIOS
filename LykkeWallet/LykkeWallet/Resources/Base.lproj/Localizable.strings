@@ -45,6 +45,11 @@
 "register.pin.setup.ok.title" = "Congratulations!";
 "register.pin.setup.ok.text" = "Your private key is generated now.\nYou are almost ready to trade. We would like to ask for necessary compliance information.\n\nThis may take only 1-2 minutes. You would need to have your passport and utility bill with home address in front of you.";
 
+"register.kyc.submit.title" = "Submit documents";
+"register.kyc.submit.header" = "KYC Procedure.";
+"register.kyc.submit" = "Dear %@ you are about being reviewed by our KYC team.\nIt may take up to 15-20 minutes.";
+"register.kyc.submit.submitButton" = "Submit";
+
 "utils.tip" = "What should I know?";
 "utils.ok" = "OK";
 "utils.error" = "Error";

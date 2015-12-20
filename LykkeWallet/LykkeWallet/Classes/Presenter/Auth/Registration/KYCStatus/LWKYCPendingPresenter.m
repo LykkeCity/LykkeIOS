@@ -32,7 +32,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[LWAuthManager instance] requestKYCStatusSet];
+    [[LWAuthManager instance] requestKYCStatusGet];
 }
 
 - (void)localize {
@@ -58,19 +58,11 @@
         const NSInteger repeatSeconds = 5;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (pack.class == LWPacketKYCStatusSet.class) {
-                [[LWAuthManager instance] requestKYCStatusSet];
-            }
-            else if (pack.class == LWPacketKYCStatusGet.class) {
+            if (pack.class == LWPacketKYCStatusGet.class) {
                 [[LWAuthManager instance] requestKYCStatusGet];
             }
         });
     }
-}
-
-- (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager {
-    NSLog(@"Requesting KYC status...");
-    [[LWAuthManager instance] requestKYCStatusGet];
 }
 
 - (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status {
@@ -81,7 +73,7 @@
         const NSInteger repeatSeconds = 5;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self authManagerDidSetKYCStatus:nil];
+                [[LWAuthManager instance] requestKYCStatusGet];
         });
     }
     else {
