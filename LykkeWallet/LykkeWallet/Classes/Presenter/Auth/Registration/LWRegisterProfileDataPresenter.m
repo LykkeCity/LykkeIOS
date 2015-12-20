@@ -129,8 +129,8 @@
         
         LWRegistrationData *data = [LWRegistrationData new];
         data.email = emailField.text;
-        data.firstName = firstNameField.text;
-        data.lastName = lastNameField.text;
+        data.fullName = [NSString stringWithFormat:@"%@ %@",
+                         firstNameField.text, lastNameField.text];
         data.phone = phoneField.text;
         data.password = passwordField.text;
         

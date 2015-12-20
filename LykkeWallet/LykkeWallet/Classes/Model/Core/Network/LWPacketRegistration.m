@@ -32,8 +32,7 @@
 
 - (NSDictionary *)params {
     return @{@"Email" : self.registrationData.email,
-             @"FirstName" : self.registrationData.firstName,
-             @"LastName" : self.registrationData.lastName,
+             @"FullName" : self.registrationData.fullName,
              @"ContactPhone" : self.registrationData.phone,
              @"Password" : self.registrationData.password};
 }

@@ -11,13 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface LWRegistrationData : NSObject {
+@interface LWRegistrationData : NSObject <NSCopying> {
     
 }
 
 @property (copy, nonatomic) NSString *email;
-@property (copy, nonatomic) NSString *firstName;
-@property (copy, nonatomic) NSString *lastName;
+@property (copy, nonatomic) NSString *fullName;
 @property (copy, nonatomic) NSString *phone;
 @property (copy, nonatomic) NSString *password;
 

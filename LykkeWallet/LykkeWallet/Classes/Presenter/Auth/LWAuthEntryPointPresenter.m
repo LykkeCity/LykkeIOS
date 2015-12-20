@@ -135,7 +135,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
         case LWAuthEntryPointNextStepRegister: {
             [nav navigateToStep:LWAuthStepRegisterFullName /*LWAuthStepRegisterProfile*/
                preparationBlock:^(LWAuthStepPresenter *presenter) {
-                   //((LWRegisterProfileDataPresenter *)presenter).email = emailTextField.text;
+                   ((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
                }];
             break;
         }

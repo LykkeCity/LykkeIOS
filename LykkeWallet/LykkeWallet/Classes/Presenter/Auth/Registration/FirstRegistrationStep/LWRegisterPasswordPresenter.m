@@ -25,14 +25,27 @@
     [super viewDidLoad];
 }
 
-- (void)goNext {
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:LWAuthStepRegisterConfirmPassword
-     preparationBlock:nil];
+
+#pragma mark - LWRegisterBasePresenter
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepRegisterConfirmPassword;
+}
+
+- (void)prepareNextStepData:(NSString *)input {
+    self.registrationInfo.password = input;
 }
 
 - (NSString *)fieldPlaceholder {
     return Localize(@"register.password");
+}
+
+- (BOOL)validateInput:(NSString *)input {
+    return [LWValidator validatePassword:input];
+}
+
+- (void)configureTextField:(LWTextField *)textField {
+    textField.secure = YES;
 }
 
 
@@ -40,13 +53,6 @@
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterPassword;
-}
-
-
-#pragma mark - LWRegisterBasePresenter
-
-- (BOOL)validateInput:(NSString *)input {
-    return [LWValidator validatePassword:input];
 }
 
 @end

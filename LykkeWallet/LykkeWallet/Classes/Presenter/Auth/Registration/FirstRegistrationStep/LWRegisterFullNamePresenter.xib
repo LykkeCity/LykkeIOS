@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWRegisterFullNamePresenter">
             <connections>
-                <outlet property="nextButton" destination="Tg5-fp-5cg" id="qm4-jl-2xH"/>
+                <outlet property="nextButton" destination="Tg5-fp-5cg" id="hK0-wk-Zu9"/>
                 <outlet property="textContainer" destination="Rsg-x6-n4H" id="0cl-Ze-Cbf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

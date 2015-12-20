@@ -37,8 +37,7 @@
 
 - (void)localize {
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.pending"),
-                           [LWAuthManager instance].registrationData.firstName,
-                           [LWAuthManager instance].registrationData.lastName];
+                           [LWAuthManager instance].registrationData.fullName];
 }
 
 - (LWAuthStep)stepId {

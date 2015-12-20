@@ -25,7 +25,7 @@
 }
 
 - (NSString *)urlBase {
-    return @"https://lykke-api.azurewebsites.net/api/";
+    return @"https://lykke-api-dev.azurewebsites.net/api/";
 }
 
 - (NSString *)urlRelative {

@@ -7,7 +7,6 @@
 //
 
 #import "LWRegisterFullNamePresenter.h"
-#import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
 
@@ -23,14 +22,23 @@
     [super viewDidLoad];
 }
 
-- (void)goNext {
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:LWAuthStepRegisterPhone
-     preparationBlock:nil];
+
+#pragma mark - LWRegisterBasePresenter
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepRegisterPhone;
+}
+
+- (void)prepareNextStepData:(NSString *)input {
+    self.registrationInfo.fullName = input;
 }
 
 - (NSString *)fieldPlaceholder {
     return Localize(@"register.fullName");
+}
+
+- (BOOL)validateInput:(NSString *)input {
+    return [LWValidator validateFullName:input];
 }
 
 
@@ -38,13 +46,6 @@
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterFullName;
-}
-
-
-#pragma mark - LWRegisterBasePresenter
-
-- (BOOL)validateInput:(NSString *)input {
-    return [LWValidator validateFullName:input];
 }
 
 @end

@@ -11,4 +11,14 @@
 
 @implementation LWRegistrationData
 
+-(instancetype)copyWithZone:(NSZone *)zone
+{
+    LWRegistrationData* data = [[LWRegistrationData allocWithZone:zone] init];
+    data.email = [self.email copy];
+    data.fullName = [self.fullName copy];
+    data.phone = [self.phone copy];
+    data.password = [self.password copy];
+    return data;
+}
+
 @end

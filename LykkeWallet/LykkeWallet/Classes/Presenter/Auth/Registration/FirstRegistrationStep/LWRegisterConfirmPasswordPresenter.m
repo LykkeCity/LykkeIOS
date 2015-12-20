@@ -26,21 +26,26 @@
     [super viewDidLoad];
 }
 
+
+#pragma mark - LWRegisterBasePresenter
+
 - (void)goNext {
     [self setLoading:YES];
 
-    LWRegistrationData *data = [LWRegistrationData new];
-    //data.email = emailField.text;
-    //data.firstName = firstNameField.text;
-    //data.lastName = lastNameField.text;
-    //data.phone = phoneField.text;
-    //data.password = passwordField.text;
-        
-    [[LWAuthManager instance] requestRegistration:data];
+    [[LWAuthManager instance] requestRegistration:self.registrationInfo];
 }
 
 - (NSString *)fieldPlaceholder {
     return Localize(@"register.passwordConfirm");
+}
+
+- (BOOL)validateInput:(NSString *)input {
+    return [LWValidator validateConfirmPassword:input] &&
+    [self.registrationInfo.password isEqualToString:input];
+}
+
+- (void)configureTextField:(LWTextField *)textField {
+    textField.secure = YES;
 }
 
 
@@ -48,13 +53,6 @@
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterConfirmPassword;
-}
-
-
-#pragma mark - LWRegisterBasePresenter
-
-- (BOOL)validateInput:(NSString *)input {
-    return [LWValidator validateConfirmPassword:input];
 }
 
 

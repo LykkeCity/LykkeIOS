@@ -23,14 +23,23 @@
     [super viewDidLoad];
 }
 
-- (void)goNext {
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:LWAuthStepRegisterPassword
-     preparationBlock:nil];
+
+#pragma mark - LWRegisterBasePresenter
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepRegisterPassword;
+}
+
+- (void)prepareNextStepData:(NSString *)input {
+    self.registrationInfo.phone = input;
 }
 
 - (NSString *)fieldPlaceholder {
     return Localize(@"register.phone");
+}
+
+- (BOOL)validateInput:(NSString *)input {
+    return [LWValidator validatePhone:input];
 }
 
 
@@ -38,13 +47,6 @@
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterPhone;
-}
-
-
-#pragma mark - LWRegisterBasePresenter
-
-- (BOOL)validateInput:(NSString *)input {
-    return [LWValidator validatePhone:input];
 }
 
 @end

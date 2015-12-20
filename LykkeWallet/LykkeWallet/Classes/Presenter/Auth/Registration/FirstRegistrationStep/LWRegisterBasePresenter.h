@@ -9,13 +9,20 @@
 #import "LWAuthStepPresenter.h"
 
 
+@class LWTextField;
+
 @interface LWRegisterBasePresenter : LWAuthStepPresenter {
-    LWRegistrationData *registrationInfo;
+    
 }
 
+@property (copy, nonatomic) LWRegistrationData *registrationInfo;
+
 - (void)goNext;
+- (LWAuthStep)nextStep;
+- (void)prepareNextStepData:(NSString *)input;
 - (NSString *)fieldPlaceholder;
 - (void)validateProceedButtonState;
 - (BOOL)validateInput:(NSString *)input;
+- (void)configureTextField:(LWTextField *)textField;
 
 @end

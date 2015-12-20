@@ -7,6 +7,7 @@
 //
 
 #import "LWRegisterBasePresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 
 
@@ -25,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.registrationInfo = [LWRegistrationData new];
+    
     self.title = Localize(@"title.register");
 
     // init fields
@@ -41,6 +44,7 @@
     textField = createField(self.textContainer, [self fieldPlaceholder]);
     textField.keyboardType = UIKeyboardTypeDefault;
     textField.delegate = self;
+    [self configureTextField:textField];
     
     [textField becomeFirstResponder];
 }
@@ -56,6 +60,22 @@
 }
 
 - (void)goNext {
+    // copy data to model
+    [self prepareNextStepData:textField.text];
+    
+    [((LWAuthNavigationController *)self.navigationController)
+     navigateToStep:[self nextStep]
+     preparationBlock:^(LWAuthStepPresenter *presenter) {
+         LWRegisterBasePresenter *nextPresenter = (LWRegisterBasePresenter *)presenter;
+         nextPresenter.registrationInfo = [self.registrationInfo copy];
+     }];
+}
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepEntryPoint;
+}
+
+- (void)prepareNextStepData:(NSString *)input {
     
 }
 
@@ -66,6 +86,11 @@
 - (BOOL)validateInput:(NSString *)input {
     return NO;
 }
+
+- (void)configureTextField:(LWTextField *)textField {
+    
+}
+
 
 #pragma mark - LWTextFieldDelegate
 
