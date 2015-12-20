@@ -16,5 +16,9 @@
 #pragma mark - Texts
 
 + (BOOL)validateEmail:(NSString *)input;
++ (BOOL)validateFullName:(NSString *)input;
++ (BOOL)validatePhone:(NSString *)input;
++ (BOOL)validatePassword:(NSString *)input;
++ (BOOL)validateConfirmPassword:(NSString *)input;
 
 @end

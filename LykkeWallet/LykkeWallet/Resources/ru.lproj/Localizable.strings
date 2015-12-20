@@ -21,10 +21,11 @@
 "register.step1.prompt" = "Заполните ваш профиль";
 "register.email" = "Email";
 "register.firstName" = "Имя";
+"register.firstName" = "Имя Фамилия";
 "register.lastName" = "Фамилия";
 "register.phone" = "Телефон";
-"register.password" = "Пароль";
-"register.passwordConfirm" = "Пароль (подтверждение)";
+"register.password" = "Пароль (мин 6 символов)";
+"register.passwordConfirm" = "Подтвердите пароль (мин 6 символов)";
 "register.submit" = "Отправить";
 "register.camera.title.selfie" = "Сделайте селфи";
 "register.camera.title.idCard" = "Сделайте фото паспорта";

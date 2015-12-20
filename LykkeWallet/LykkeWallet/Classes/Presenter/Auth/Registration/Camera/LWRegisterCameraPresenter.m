@@ -92,6 +92,7 @@
     else {
         // display image picker
         UIImagePickerController *imagePicker = [UIImagePickerController new];
+        //imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         // add camera as a source (if possible)
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

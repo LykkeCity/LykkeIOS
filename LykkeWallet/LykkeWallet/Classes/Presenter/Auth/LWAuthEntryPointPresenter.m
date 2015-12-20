@@ -13,6 +13,7 @@
 #import "LWValidator.h"
 #import "LWAuthManager.h"
 #import "LWRegisterProfileDataPresenter.h"
+#import "LWRegisterBasePresenter.h"
 #import "ABPadLockScreen.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
@@ -132,9 +133,9 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
             break;
         }
         case LWAuthEntryPointNextStepRegister: {
-            [nav navigateToStep:LWAuthStepRegisterProfile
+            [nav navigateToStep:LWAuthStepRegisterFullName /*LWAuthStepRegisterProfile*/
                preparationBlock:^(LWAuthStepPresenter *presenter) {
-                   ((LWRegisterProfileDataPresenter *)presenter).email = emailTextField.text;
+                   //((LWRegisterProfileDataPresenter *)presenter).email = emailTextField.text;
                }];
             break;
         }

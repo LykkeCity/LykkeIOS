@@ -8,6 +8,13 @@
 
 #import "LWAuthNavigationController.h"
 #import "LWAuthEntryPointPresenter.h"
+
+#import "LWRegisterBasePresenter.h"
+#import "LWRegisterFullNamePresenter.h"
+#import "LWRegisterPhonePresenter.h"
+#import "LWRegisterPasswordPresenter.h"
+#import "LWRegisterConfirmPasswordPresenter.h"
+
 #import "LWAuthPINEnterPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
@@ -38,7 +45,14 @@
         
         classes = @[LWAuthEntryPointPresenter.class,
                     LWAuthPINEnterPresenter.class,
-                    LWRegisterProfileDataPresenter.class,
+                    //LWRegisterProfileDataPresenter.class,
+
+                    //LWRegisterFullNamePresenter.class,
+                    LWRegisterFullNamePresenter.class,
+                    LWRegisterPhonePresenter.class,
+                    LWRegisterPasswordPresenter.class,
+                    LWRegisterConfirmPasswordPresenter.class,
+                    
                     LWRegisterCameraSelfiePresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,

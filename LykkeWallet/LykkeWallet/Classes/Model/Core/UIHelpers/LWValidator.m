@@ -11,6 +11,8 @@
 
 @implementation LWValidator
 
+static int const MinTextLength = 1;
+static int const PasswordLength = 6;
 
 #pragma mark - Texts
 
@@ -26,6 +28,22 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
     
     return [emailTest evaluateWithObject:input];
+}
+
++ (BOOL)validateFullName:(NSString *)input {
+    return (input && input.length >= MinTextLength);
+}
+
++ (BOOL)validatePhone:(NSString *)input {
+    return (input && input.length >= MinTextLength);
+}
+
++ (BOOL)validatePassword:(NSString *)input {
+    return (input && input.length >= PasswordLength);
+}
+
++ (BOOL)validateConfirmPassword:(NSString *)input {
+    return (input && input.length >= PasswordLength);
 }
 
 @end

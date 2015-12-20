@@ -21,10 +21,11 @@
 "register.step1.prompt" = "Complete your profile";
 "register.email" = "Email";
 "register.firstName" = "First Name";
+"register.fullName" = "Full Name";
 "register.lastName" = "Last Name";
 "register.phone" = "Phone";
-"register.password" = "Password";
-"register.passwordConfirm" = "Confirm Password";
+"register.password" = "Password (min 6 symbols)";
+"register.passwordConfirm" = "Confirm Password (min 6 symbols)";
 "register.submit" = "Submit";
 "register.camera.title.selfie" = "Make a selfie";
 "register.camera.title.idCard" = "Make a photo of your passport or other ID";

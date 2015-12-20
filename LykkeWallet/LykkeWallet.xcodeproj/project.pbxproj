@@ -22,6 +22,15 @@
 		CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AEE1C259662007BAD78 /* LWSettingsPresenter.xib */; };
 		CDCD5AF41C25988B007BAD78 /* LWTradingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AF21C25988B007BAD78 /* LWTradingPresenter.m */; };
 		CDCD5AF51C25988B007BAD78 /* LWTradingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AF31C25988B007BAD78 /* LWTradingPresenter.xib */; };
+		CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B091C26C92A007BAD78 /* LWRegisterBasePresenter.m */; };
+		CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B0B1C26C92A007BAD78 /* LWRegisterFullNamePresenter.m */; };
+		CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B0C1C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib */; };
+		CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B0E1C26C92A007BAD78 /* LWRegisterPhonePresenter.m */; };
+		CDCD5B141C26C92A007BAD78 /* LWRegisterPhonePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */; };
+		CDCD5B181C26CC50007BAD78 /* LWRegisterPasswordPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B161C26CC50007BAD78 /* LWRegisterPasswordPresenter.m */; };
+		CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B171C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib */; };
+		CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B1B1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m */; };
+		CDCD5B1E1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */; };
 		CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */; };
 		CF37D8C21C21CEDE0021B94E /* TKPresenter+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF37D8C11C21CEDE0021B94E /* TKPresenter+Loading.m */; };
 		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
@@ -114,6 +123,20 @@
 		CDCD5AF11C25988B007BAD78 /* LWTradingPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTradingPresenter.h; sourceTree = "<group>"; };
 		CDCD5AF21C25988B007BAD78 /* LWTradingPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTradingPresenter.m; sourceTree = "<group>"; };
 		CDCD5AF31C25988B007BAD78 /* LWTradingPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTradingPresenter.xib; sourceTree = "<group>"; };
+		CDCD5B081C26C92A007BAD78 /* LWRegisterBasePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterBasePresenter.h; path = FirstRegistrationStep/LWRegisterBasePresenter.h; sourceTree = "<group>"; };
+		CDCD5B091C26C92A007BAD78 /* LWRegisterBasePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterBasePresenter.m; path = FirstRegistrationStep/LWRegisterBasePresenter.m; sourceTree = "<group>"; };
+		CDCD5B0A1C26C92A007BAD78 /* LWRegisterFullNamePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterFullNamePresenter.h; path = FirstRegistrationStep/LWRegisterFullNamePresenter.h; sourceTree = "<group>"; };
+		CDCD5B0B1C26C92A007BAD78 /* LWRegisterFullNamePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterFullNamePresenter.m; path = FirstRegistrationStep/LWRegisterFullNamePresenter.m; sourceTree = "<group>"; };
+		CDCD5B0C1C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRegisterFullNamePresenter.xib; path = FirstRegistrationStep/LWRegisterFullNamePresenter.xib; sourceTree = "<group>"; };
+		CDCD5B0D1C26C92A007BAD78 /* LWRegisterPhonePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterPhonePresenter.h; path = FirstRegistrationStep/LWRegisterPhonePresenter.h; sourceTree = "<group>"; };
+		CDCD5B0E1C26C92A007BAD78 /* LWRegisterPhonePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterPhonePresenter.m; path = FirstRegistrationStep/LWRegisterPhonePresenter.m; sourceTree = "<group>"; };
+		CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRegisterPhonePresenter.xib; path = FirstRegistrationStep/LWRegisterPhonePresenter.xib; sourceTree = "<group>"; };
+		CDCD5B151C26CC50007BAD78 /* LWRegisterPasswordPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterPasswordPresenter.h; path = FirstRegistrationStep/LWRegisterPasswordPresenter.h; sourceTree = "<group>"; };
+		CDCD5B161C26CC50007BAD78 /* LWRegisterPasswordPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterPasswordPresenter.m; path = FirstRegistrationStep/LWRegisterPasswordPresenter.m; sourceTree = "<group>"; };
+		CDCD5B171C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRegisterPasswordPresenter.xib; path = FirstRegistrationStep/LWRegisterPasswordPresenter.xib; sourceTree = "<group>"; };
+		CDCD5B1A1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterConfirmPasswordPresenter.h; path = FirstRegistrationStep/LWRegisterConfirmPasswordPresenter.h; sourceTree = "<group>"; };
+		CDCD5B1B1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterConfirmPasswordPresenter.m; path = FirstRegistrationStep/LWRegisterConfirmPasswordPresenter.m; sourceTree = "<group>"; };
+		CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRegisterConfirmPasswordPresenter.xib; path = FirstRegistrationStep/LWRegisterConfirmPasswordPresenter.xib; sourceTree = "<group>"; };
 		CF21DC7B1C17590E00D2399E /* LykkeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LykkeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF21DC8D1C17590E00D2399E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF37D8C01C21CEDE0021B94E /* TKPresenter+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKPresenter+Loading.h"; sourceTree = "<group>"; };
@@ -256,6 +279,27 @@
 				CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */,
 			);
 			name = Security;
+			sourceTree = "<group>";
+		};
+		CDCD5AF61C26B925007BAD78 /* FirstRegistrationStep */ = {
+			isa = PBXGroup;
+			children = (
+				CDCD5B081C26C92A007BAD78 /* LWRegisterBasePresenter.h */,
+				CDCD5B091C26C92A007BAD78 /* LWRegisterBasePresenter.m */,
+				CDCD5B0A1C26C92A007BAD78 /* LWRegisterFullNamePresenter.h */,
+				CDCD5B0B1C26C92A007BAD78 /* LWRegisterFullNamePresenter.m */,
+				CDCD5B0C1C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib */,
+				CDCD5B0D1C26C92A007BAD78 /* LWRegisterPhonePresenter.h */,
+				CDCD5B0E1C26C92A007BAD78 /* LWRegisterPhonePresenter.m */,
+				CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */,
+				CDCD5B151C26CC50007BAD78 /* LWRegisterPasswordPresenter.h */,
+				CDCD5B161C26CC50007BAD78 /* LWRegisterPasswordPresenter.m */,
+				CDCD5B171C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib */,
+				CDCD5B1A1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.h */,
+				CDCD5B1B1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m */,
+				CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */,
+			);
+			name = FirstRegistrationStep;
 			sourceTree = "<group>";
 		};
 		CF21DC721C17590E00D2399E = {
@@ -488,6 +532,7 @@
 		CF9EC8C61C17C07C00F742A6 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				CDCD5AF61C26B925007BAD78 /* FirstRegistrationStep */,
 				CFF2AADE1C1F88B800320FF9 /* Camera */,
 				CFF758211C2022A400BC7658 /* KYCStatus */,
 				CF68774C1C234A5700E7A7D9 /* PIN */,
@@ -690,9 +735,11 @@
 			files = (
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
 				CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */,
+				CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */,
 				CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
+				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
 				CFF2AAE81C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib in Resources */,
@@ -702,6 +749,8 @@
 				CFF7583D1C202C6500BC7658 /* LWKYCPendingPresenter.xib in Resources */,
 				CF6877511C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib in Resources */,
 				CF9EC8DC1C17C16C00F742A6 /* LWRegisterProfileDataPresenter.xib in Resources */,
+				CDCD5B1E1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
+				CDCD5B141C26C92A007BAD78 /* LWRegisterPhonePresenter.xib in Resources */,
 				CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */,
 				CF68775B1C234A9800E7A7D9 /* LWAuthPINEnterPresenter.xib in Resources */,
 				CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */,
@@ -777,6 +826,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */,
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
@@ -819,17 +869,21 @@
 				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,
 				CF6F69D21C2413F70016CFC5 /* ABPadLockScreenView.m in Sources */,
 				CF6F69D31C2413F70016CFC5 /* ABPadLockScreenViewController.m in Sources */,
+				CDCD5B181C26CC50007BAD78 /* LWRegisterPasswordPresenter.m in Sources */,
 				CDCD5AF41C25988B007BAD78 /* LWTradingPresenter.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
+				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
+				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				CF6F69D01C2413F70016CFC5 /* ABPadLockScreenAbstractViewController.m in Sources */,
 				CF6F69CF1C2413F70016CFC5 /* ABPadButton.m in Sources */,
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
+				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				CF37D8C21C21CEDE0021B94E /* TKPresenter+Loading.m in Sources */,
 				CFF2AAE71C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
