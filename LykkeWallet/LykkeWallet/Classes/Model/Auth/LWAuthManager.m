@@ -133,9 +133,11 @@ SINGLETON_INIT {
 
     // parse packet by class
     if (pack.class == LWPacketAccountExist.class) {
-        if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail:)])  {
+        if ([self.delegate respondsToSelector:@selector(authManager:didCheckEmail: forEmail:)])  {
+            LWPacketAccountExist *account = (LWPacketAccountExist *)pack;
             [self.delegate authManager:self
-                         didCheckEmail:((LWPacketAccountExist *)pack).isRegistered];
+                         didCheckEmail:account.isRegistered
+                              forEmail:account.email];
         }
     }
     else if (pack.class == LWPacketAuthentication.class) {

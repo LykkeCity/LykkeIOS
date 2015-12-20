@@ -14,11 +14,12 @@
 #import "LWAuthManager.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterBasePresenter.h"
+#import "LWAuthenticationPresenter.h"
 #import "ABPadLockScreen.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     LWAuthEntryPointNextStepNone,
-    LWAuthEntryPointNextStepPIN,
+    LWAuthEntryPointNextStepLogin,
     LWAuthEntryPointNextStepRegister
 };
 
@@ -82,6 +83,11 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     [self validateProceedButtonState];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self textFieldDidChangeValue:emailTextField];
+}
+
 - (void)localize {
     [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]
                         forState:UIControlStateNormal];
@@ -127,13 +133,15 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     LWAuthNavigationController *nav = (LWAuthNavigationController *)self.navigationController;
     
     switch (step) {
-        case LWAuthEntryPointNextStepPIN: {
-            [nav navigateToStep:LWAuthStepPINEnter preparationBlock:nil];
-            
+        case LWAuthEntryPointNextStepLogin: {
+            [nav navigateToStep:LWAuthStepAuthentication
+               preparationBlock:^(LWAuthStepPresenter *presenter) {
+                ((LWAuthenticationPresenter *)presenter).email = emailTextField.text;
+            }];
             break;
         }
         case LWAuthEntryPointNextStepRegister: {
-            [nav navigateToStep:LWAuthStepRegisterFullName /*LWAuthStepRegisterProfile*/
+            [nav navigateToStep:LWAuthStepRegisterFullName
                preparationBlock:^(LWAuthStepPresenter *presenter) {
                    ((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
                }];
@@ -177,11 +185,11 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered {
+- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered forEmail:(NSString *)email {
     [self.activityView stopAnimating];
     
     if (isRegistered) {
-        step = LWAuthEntryPointNextStepPIN;
+        step = LWAuthEntryPointNextStepLogin;
         [self.proceedButton setTitle:[Localize(@"auth.login") uppercaseString]
                             forState:UIControlStateNormal];
     }
@@ -192,6 +200,11 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     }
     // check button state
     [self validateProceedButtonState];
+    
+    // request again if email changed
+    if (![email isEqualToString:emailTextField.text]) {
+        [self textFieldDidChangeValue:emailTextField];
+    }
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {

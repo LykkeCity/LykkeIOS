@@ -12,10 +12,12 @@
 "tab.settings" = "Настройки";
 
 "title.register" = "Регистрация";
+"title.authentication" = "Вход";
 
 "auth.login" = "Войти";
 "auth.signup" = "Зарегистрироваться";
 "auth.email" = "Email";
+"auth.password" = "Пароль (мин 6 символов)";
 
 "register.title" = "Регистрация";
 "register.step1.prompt" = "Заполните ваш профиль";

@@ -30,6 +30,7 @@
     
     self.title = Localize(@"title.register");
 
+#warning TODO: move to common function
     // init fields
     LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
         LWTextField *f = [LWTextField new];

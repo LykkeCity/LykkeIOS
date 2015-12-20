@@ -12,10 +12,12 @@
 "tab.settings" = "Settings";
 
 "title.register" = "Register";
+"title.authentication" = "Log in";
 
 "auth.login" = "Log In";
 "auth.signup" = "Sign Up";
 "auth.email" = "Email";
+"auth.password" = "Password (min 6 symbols)";
 
 "register.title" = "Register";
 "register.step1.prompt" = "Complete your profile";

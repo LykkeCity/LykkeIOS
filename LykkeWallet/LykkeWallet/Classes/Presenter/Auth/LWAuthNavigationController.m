@@ -15,6 +15,8 @@
 #import "LWRegisterPasswordPresenter.h"
 #import "LWRegisterConfirmPasswordPresenter.h"
 
+#import "LWAuthenticationPresenter.h"
+
 #import "LWAuthPINEnterPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
@@ -44,10 +46,9 @@
         _currentStep = LWAuthStepEntryPoint;
         
         classes = @[LWAuthEntryPointPresenter.class,
-                    LWAuthPINEnterPresenter.class,
-                    //LWRegisterProfileDataPresenter.class,
+                    //LWAuthPINEnterPresenter.class,
+                    LWAuthenticationPresenter.class,
 
-                    //LWRegisterFullNamePresenter.class,
                     LWRegisterFullNamePresenter.class,
                     LWRegisterPhonePresenter.class,
                     LWRegisterPasswordPresenter.class,
