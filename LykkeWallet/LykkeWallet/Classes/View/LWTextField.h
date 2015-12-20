@@ -9,14 +9,13 @@
 #import "TKView.h"
 
 @class LWTextField;
-
+@class TKContainer;
 
 @protocol LWTextFieldDelegate
 @required
 - (void)textFieldDidChangeValue:(LWTextField *)textField;
 
 @end
-
 
 @interface LWTextField : TKView {
     
@@ -32,5 +31,7 @@
 @property (assign, nonatomic, getter=isSecure)  BOOL secure;
 @property (assign, nonatomic, getter=isEnabled) BOOL enabled;
 @property (assign, nonatomic, getter=isValid)   BOOL valid;
+
++ (LWTextField *)createTextFieldForContainer:(TKContainer *)container withPlaceholder:(NSString *)placeholder;
 
 @end

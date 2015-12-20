@@ -34,23 +34,14 @@
     
     self.title = Localize(@"title.authentication");
     
-#warning TODO: move to common function
     // init fields
-    LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
-        LWTextField *f = [LWTextField new];
-        //        f.delegate = self;
-        f.keyboardType = UIKeyboardTypeASCIICapable;
-        f.placeholder = placeholder;
-        [container attach:f];
-        
-        return f;
-    };
-    
-    emailField = createField(self.emailContainer, Localize(@"auth.email"));
+    emailField = [LWTextField createTextFieldForContainer:self.emailContainer
+                                          withPlaceholder:Localize(@"auth.email")];
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
     emailField.enabled = NO;
     
-    passwordField = createField(self.passwordContainer, Localize(@"auth.password"));
+    passwordField = [LWTextField createTextFieldForContainer:self.passwordContainer
+                                             withPlaceholder:Localize(@"auth.password")];
     passwordField.secure = YES;
     passwordField.delegate = self;
 }

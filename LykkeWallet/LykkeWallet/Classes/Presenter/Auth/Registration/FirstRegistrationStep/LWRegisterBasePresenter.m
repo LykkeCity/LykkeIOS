@@ -31,19 +31,8 @@
     
     self.title = Localize(@"title.register");
 
-#warning TODO: move to common function
-    // init fields
-    LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
-        LWTextField *f = [LWTextField new];
-        //        f.delegate = self;
-        f.keyboardType = UIKeyboardTypeASCIICapable;
-        f.placeholder = placeholder;
-        [container attach:f];
-        
-        return f;
-    };
-    
-    textField = createField(self.textContainer, [self fieldPlaceholder]);
+    textField = [LWTextField createTextFieldForContainer:self.textContainer
+                                         withPlaceholder:[self fieldPlaceholder]];
     textField.keyboardType = UIKeyboardTypeDefault;
     textField.delegate = self;
     [self configureTextField:textField];

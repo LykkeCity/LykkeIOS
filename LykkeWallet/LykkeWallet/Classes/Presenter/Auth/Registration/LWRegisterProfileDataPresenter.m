@@ -56,30 +56,30 @@
     
     self.title = Localize(@"title.register");
     // init fields
-    LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
-        LWTextField *f = [LWTextField new];
-//        f.delegate = self;
-        f.keyboardType = UIKeyboardTypeASCIICapable;
-        f.placeholder = placeholder;
-        [container attach:f];
-        
-        return f;
-    };
-    emailField = createField(self.emailContainer, Localize(@"register.email"));
+    emailField = [LWTextField createTextFieldForContainer:self.emailContainer
+                                          withPlaceholder:Localize(@"register.email")];
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
     emailField.enabled = NO;
     
-    firstNameField = createField(self.firstNameContainer, Localize(@"register.firstName"));
+    firstNameField = [LWTextField createTextFieldForContainer:self.firstNameContainer
+                                              withPlaceholder:Localize(@"register.firstName")];
     firstNameField.keyboardType = UIKeyboardTypeDefault;
-    lastNameField = createField(self.lastNameContainer, Localize(@"register.lastName"));
+    
+    lastNameField = [LWTextField createTextFieldForContainer:self.lastNameContainer
+                                             withPlaceholder:Localize(@"register.lastName")];
     lastNameField.keyboardType = UIKeyboardTypeDefault;
     
-    phoneField = createField(self.phoneContainer, Localize(@"register.phone"));
+    phoneField = [LWTextField createTextFieldForContainer:self.phoneContainer
+                                          withPlaceholder:Localize(@"register.phone")];
     phoneField.keyboardType = UIKeyboardTypeNumberPad;
     
-    passwordField = createField(self.passwordContainer, Localize(@"register.password"));
+    passwordField = [LWTextField createTextFieldForContainer:self.passwordContainer
+                                             withPlaceholder:Localize(@"register.password")];
     passwordField.secure = YES;
-    passwordConfirmField = createField(self.passwordConfirmContainer, Localize(@"register.passwordConfirm"));
+    
+    passwordConfirmField = [LWTextField
+                            createTextFieldForContainer:self.passwordConfirmContainer
+                            withPlaceholder:Localize(@"register.passwordConfirm")];
     passwordConfirmField.secure = YES;
 }
 

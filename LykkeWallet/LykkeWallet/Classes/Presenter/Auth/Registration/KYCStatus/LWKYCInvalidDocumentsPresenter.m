@@ -47,8 +47,9 @@
 #pragma mark - Actions
 
 - (IBAction)okButtonClick:(id)sender {
-    [((LWAuthNavigationController *)self.navigationController) navigateToStep:LWAuthStepEntryPoint
-                                                             preparationBlock:nil];
+    [((LWAuthNavigationController *)self.navigationController)
+     navigateToStep:LWAuthStepRegisterSelfie
+     preparationBlock:nil];
 }
 
 @end

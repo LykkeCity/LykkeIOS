@@ -7,6 +7,7 @@
 //
 
 #import "LWTextField.h"
+#import "TKContainer.h"
 #import "NSObject+GDXObserver.h"
 
 
@@ -47,6 +48,19 @@
     return [self.textField becomeFirstResponder];
 }
 
++ (LWTextField *)createTextFieldForContainer:(TKContainer *)container withPlaceholder:(NSString *)placeholder {
+    LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
+        LWTextField *f = [LWTextField new];
+        f.keyboardType = UIKeyboardTypeASCIICapable;
+        f.placeholder = placeholder;
+        [container attach:f];
+        
+        return f;
+    };
+    
+    LWTextField *result = createField(container, placeholder);
+    return result;
+}
 
 #pragma mark - Observing
 
