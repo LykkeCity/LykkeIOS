@@ -21,7 +21,6 @@
 - (LWAuthStep)nextStep;
 - (void)prepareNextStepData:(NSString *)input;
 - (NSString *)fieldPlaceholder;
-- (void)validateProceedButtonState;
 - (BOOL)validateInput:(NSString *)input;
 - (void)configureTextField:(LWTextField *)textField;
 

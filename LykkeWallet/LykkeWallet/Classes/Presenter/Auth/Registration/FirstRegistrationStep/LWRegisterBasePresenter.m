@@ -9,6 +9,7 @@
 #import "LWRegisterBasePresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWTextField.h"
+#import "LWValidator.h"
 
 
 @interface LWRegisterBasePresenter () <LWTextFieldDelegate> {
@@ -53,7 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.nextButton enabled:[self canProceed]];
 }
 
 - (IBAction)nextClicked:(id)sender {
@@ -102,22 +103,15 @@
     
     textField.valid = [self validateInput:textField.text];
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.nextButton enabled:[self canProceed]];
 }
 
 
 #pragma mark - Utils
 
-- (void)validateProceedButtonState {
+- (BOOL)canProceed {
     BOOL canProceed = textField.isValid;
-    
-    NSString *proceedImage = (canProceed) ? @"ButtonOK" : @"ButtonOKInactive";
-    UIColor *proceedColor = (canProceed) ? [UIColor whiteColor] : [UIColor lightGrayColor];
-    BOOL enabled = (canProceed);
-    
-    [self.nextButton setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
-    [self.nextButton setTitleColor:proceedColor forState:UIControlStateNormal];
-    self.nextButton.enabled = enabled;
+    return canProceed;
 }
 
 @end

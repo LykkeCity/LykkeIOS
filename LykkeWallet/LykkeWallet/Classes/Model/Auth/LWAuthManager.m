@@ -141,8 +141,11 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketAuthentication.class) {
-        if ([self.delegate respondsToSelector:@selector(authManagerDidAuthenticate:)]) {
-            [self.delegate authManagerDidAuthenticate:self];
+        if ([self.delegate respondsToSelector:@selector(authManagerDidAuthenticate: withKYCStatus:withPinEntered:)]) {
+            LWPacketAuthentication *auth = (LWPacketAuthentication *)pack;
+            [self.delegate authManagerDidAuthenticate:self
+                                        withKYCStatus:auth.status
+                                       withPinEntered:auth.isPinEntered];
         }
     }
     else if (pack.class == LWPacketRegistration.class) {

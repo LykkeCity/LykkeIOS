@@ -7,6 +7,7 @@
 //
 
 #import "LWValidator.h"
+#import <UIKit/UIImage.h>
 
 
 @implementation LWValidator
@@ -44,6 +45,15 @@ static int const PasswordLength = 6;
 
 + (BOOL)validateConfirmPassword:(NSString *)input {
     return (input && input.length >= PasswordLength);
+}
+
++ (void)setButton:(UIButton *)button enabled:(BOOL)enabled {
+    NSString *proceedImage = (enabled) ? @"ButtonOK" : @"ButtonOKInactive";
+    UIColor *proceedColor = (enabled) ? [UIColor whiteColor] : [UIColor lightGrayColor];
+    
+    [button setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
+    [button setTitleColor:proceedColor forState:UIControlStateNormal];
+    button.enabled = enabled;
 }
 
 @end

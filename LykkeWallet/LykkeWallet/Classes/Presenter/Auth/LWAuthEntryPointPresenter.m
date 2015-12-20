@@ -42,11 +42,6 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 
-#pragma mark - Utils
-
-- (void)validateProceedButtonState;
-
-
 #pragma mark - Actions
 
 - (IBAction)proceedButtonClick:(id)sender;
@@ -80,7 +75,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     // keyboard observing
     self.observeKeyboardEvents = YES;
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,16 +109,9 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 #pragma mark - Utils
 
-- (void)validateProceedButtonState {
+- (BOOL)canProceed {
     BOOL canProceed = emailTextField.isValid && (step != LWAuthEntryPointNextStepNone);
-    
-    NSString *proceedImage = (canProceed) ? @"ButtonOK" : @"ButtonOKInactive";
-    UIColor *proceedColor = (canProceed) ? [UIColor whiteColor] : [UIColor lightGrayColor];
-    BOOL enabled = (canProceed);
-    
-    [self.proceedButton setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
-    [self.proceedButton setTitleColor:proceedColor forState:UIControlStateNormal];
-    self.proceedButton.enabled = enabled;
+    return canProceed;
 }
 
 
@@ -165,7 +153,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     // reset next step
     step = LWAuthEntryPointNextStepNone;
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
     
     if (emailTextField.isValid) {
         // show activity
@@ -199,7 +187,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
                             forState:UIControlStateNormal];
     }
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
     
     // request again if email changed
     if (![email isEqualToString:emailTextField.text]) {
@@ -212,7 +200,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     
     step = LWAuthEntryPointNextStepRegister;
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
 }
 
 

@@ -32,7 +32,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[LWAuthManager instance] requestKYCStatusSet];
+    // if status already received (authentication for example) - we shouldn't make request
+    if (self.status && ![self.status isEqualToString:@""]) {
+        [self authManager:[LWAuthManager instance] didGetKYCStatus:self.status];
+    } else {
+        [[LWAuthManager instance] requestKYCStatusSet];
+    }
 }
 
 - (void)localize {
@@ -83,6 +88,7 @@
         [navController navigateToStep:LWAuthStepRegisterKYCRestricted preparationBlock:nil];
     }
     else if ([status isEqualToString:@"Ok"]) {
+#warning TODO: validate PIN here (for authentication)
         [navController navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
     }
     else if ([status isEqualToString:@"Rejected"] || [status isEqualToString:@"Pending"]) {

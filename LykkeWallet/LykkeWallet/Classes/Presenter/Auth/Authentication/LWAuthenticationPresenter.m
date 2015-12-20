@@ -7,6 +7,8 @@
 //
 
 #import "LWAuthenticationPresenter.h"
+#import "LWKYCPendingPresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWAuthenticationData.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
@@ -56,7 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.loginButton enabled:[self canProceed]];
     
     // load email
     emailField.text = self.email;
@@ -73,7 +75,7 @@
     }
     
     // check button state
-    [self validateProceedButtonState];
+    [LWValidator setButton:self.loginButton enabled:[self canProceed]];
 }
 
 
@@ -87,19 +89,6 @@
 
 
 #pragma mark - Utils
-
-#warning TODO: move to common function
-- (void)validateProceedButtonState {
-    BOOL canProceed = [self canProceed];
-    
-    NSString *proceedImage = (canProceed) ? @"ButtonOK" : @"ButtonOKInactive";
-    UIColor *proceedColor = (canProceed) ? [UIColor whiteColor] : [UIColor lightGrayColor];
-    BOOL enabled = (canProceed);
-    
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
-    [self.loginButton setTitleColor:proceedColor forState:UIControlStateNormal];
-    self.loginButton.enabled = enabled;
-}
 
 - (IBAction)loginClicked:(id)sender {
     if ([self canProceed]) {
@@ -116,20 +105,16 @@
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManagerDidAuthenticate:(LWAuthManager *)manager {
+- (void)authManagerDidAuthenticate:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered {
     [self setLoading:NO];
     
-#warning TODO: navigate depends on status
-    /*if (status.documentTypeRequired != nil) {
-        // navigate to selfie camera presenter
-        [((LWAuthNavigationController *)self.navigationController)
-         navigateToStep:LWAuthStepRegisterSelfie
-         preparationBlock:nil];
-    }
-    else {
-        // navigate to verification
-        // ...
-    }*/
+    LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
+    [navController navigateToStep:LWAuthStepRegisterKYCPending
+                 preparationBlock:^(LWAuthStepPresenter *presenter) {
+                     LWKYCPendingPresenter *pending = (LWKYCPendingPresenter *)presenter;
+                     pending.status = status;
+                     pending.isPinEntered = isPinEntered;
+                 }];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {

@@ -92,12 +92,14 @@
     else {
         // display image picker
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        //imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        // add camera as a source (if possible)
+
+        // if camera unavailable - set photo library
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            imagePicker.sourceType = (imagePicker.sourceType & UIImagePickerControllerSourceTypeCamera);
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
+
         imagePicker.delegate = self;
         
         [self presentViewController:imagePicker animated:YES completion:nil];

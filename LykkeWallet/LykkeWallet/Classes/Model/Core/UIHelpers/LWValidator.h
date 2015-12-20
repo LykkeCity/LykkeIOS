@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIButton.h>
 
 
 @interface LWValidator : NSObject {
@@ -20,5 +21,6 @@
 + (BOOL)validatePhone:(NSString *)input;
 + (BOOL)validatePassword:(NSString *)input;
 + (BOOL)validateConfirmPassword:(NSString *)input;
++ (void)setButton:(UIButton *)button enabled:(BOOL)isValid;
 
 @end

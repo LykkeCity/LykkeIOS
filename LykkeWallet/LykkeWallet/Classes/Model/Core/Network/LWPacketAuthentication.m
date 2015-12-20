@@ -22,6 +22,8 @@
         return;
     }
     _token = result[@"Token"];
+    _status = result[@"KycStatus"];
+    _isPinEntered = [result[@"PinIsEntered"] boolValue];
     
     [LWKeychainManager saveLogin:self.authenticationData.email andToken:_token];
 }

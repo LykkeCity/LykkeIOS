@@ -16,6 +16,8 @@
 // in
 @property (strong, nonatomic) LWAuthenticationData *authenticationData;
 // out
-@property (copy, nonatomic) NSString *token;
+@property (readonly, nonatomic) NSString *token;
+@property (readonly, nonatomic) NSString *status;
+@property (readonly, nonatomic) BOOL isPinEntered;
 
 @end
