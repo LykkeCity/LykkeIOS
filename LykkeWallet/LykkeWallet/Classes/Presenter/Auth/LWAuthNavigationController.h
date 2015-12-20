@@ -22,5 +22,6 @@ typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
 #pragma mark - Common
 
 - (void)navigateToStep:(LWAuthStep)step preparationBlock:(LWAuthStepPushPreparationBlock)block;
+- (void)navigateWithKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication;
 
 @end

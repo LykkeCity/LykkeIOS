@@ -13,7 +13,4 @@
     
 }
 
-@property (copy, nonatomic) NSString *status;
-@property (nonatomic) BOOL isPinEntered;
-
 @end

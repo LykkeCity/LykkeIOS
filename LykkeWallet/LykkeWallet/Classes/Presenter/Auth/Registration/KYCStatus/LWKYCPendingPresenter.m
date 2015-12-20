@@ -32,12 +32,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // if status already received (authentication for example) - we shouldn't make request
-    if (self.status && ![self.status isEqualToString:@""]) {
-        [self authManager:[LWAuthManager instance] didGetKYCStatus:self.status];
-    } else {
-        [[LWAuthManager instance] requestKYCStatusSet];
-    }
+    [[LWAuthManager instance] requestKYCStatusSet];
 }
 
 - (void)localize {
@@ -80,18 +75,9 @@
 
 - (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status {
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    NSLog(@"KYC GetStatus: %@", status);
-    if ([status isEqualToString:@"NeedToFillData"]) {
-        [navController navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
-    }
-    else if ([status isEqualToString:@"RestrictedArea"]) {
-        [navController navigateToStep:LWAuthStepRegisterKYCRestricted preparationBlock:nil];
-    }
-    else if ([status isEqualToString:@"Ok"]) {
-#warning TODO: validate PIN here (for authentication)
-        [navController navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
-    }
-    else if ([status isEqualToString:@"Rejected"] || [status isEqualToString:@"Pending"]) {
+
+    // repeat request every x seconds
+    if ([status isEqualToString:@"Rejected"] || [status isEqualToString:@"Pending"]) {
         const NSInteger repeatSeconds = 5;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -99,7 +85,7 @@
         });
     }
     else {
-        NSAssert(0, @"Unknown KYC status.");
+        [navController navigateWithKYCStatus:status withPinEntered:NO isAuthentication:NO];
     }
 }
 

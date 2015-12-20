@@ -109,12 +109,9 @@
     [self setLoading:NO];
     
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    [navController navigateToStep:LWAuthStepRegisterKYCPending
-                 preparationBlock:^(LWAuthStepPresenter *presenter) {
-                     LWKYCPendingPresenter *pending = (LWKYCPendingPresenter *)presenter;
-                     pending.status = status;
-                     pending.isPinEntered = isPinEntered;
-                 }];
+    [navController navigateWithKYCStatus:status
+                          withPinEntered:isPinEntered
+                        isAuthentication:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {

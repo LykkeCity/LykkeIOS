@@ -92,6 +92,32 @@
     _currentStep = step;
 }
 
+- (void)navigateWithKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication {
+
+    NSLog(@"KYC GetStatus: %@", status);
+
+    if ([status isEqualToString:@"NeedToFillData"]) {
+        [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
+    }
+    else if ([status isEqualToString:@"RestrictedArea"]) {
+        [self navigateToStep:LWAuthStepRegisterKYCRestricted preparationBlock:nil];
+    }
+    else if ([status isEqualToString:@"Ok"] && !isAuthentication) {
+        [self navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
+    }
+    else if ([status isEqualToString:@"Ok"] && isAuthentication) {
+        if (isPinEntered) {
+            #warning TODO: navigate to main screen
+        }
+        else  {
+            [self navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];
+        }
+    }
+    else {
+        NSAssert(0, @"Unknown KYC status.");
+    }
+}
+
 
 #pragma mark - UINavigationController
 
