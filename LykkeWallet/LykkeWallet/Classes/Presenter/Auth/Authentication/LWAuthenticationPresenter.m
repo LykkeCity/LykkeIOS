@@ -99,12 +99,12 @@
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManagerDidAuthenticate:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered {
+- (void)authManagerDidAuthenticate:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered {
     [self setLoading:NO];
     
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    [navController navigateWithKYCStatus:status
-                          withPinEntered:isPinEntered
+    [navController navigateKYCStatus:status
+                          isPinEntered:isPinEntered
                         isAuthentication:YES];
 }
 

@@ -40,11 +40,11 @@
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.validation.label")];
 }
 
-- (void)authManagerDidRegisterGet:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered {
+- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered {
 
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    [navController navigateWithKYCStatus:status
-                          withPinEntered:isPinEntered
+    [navController navigateKYCStatus:status
+                          isPinEntered:isPinEntered
                         isAuthentication:YES];
 }
 

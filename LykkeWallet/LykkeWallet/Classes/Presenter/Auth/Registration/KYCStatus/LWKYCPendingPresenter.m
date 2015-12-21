@@ -77,7 +77,7 @@
         });
     }
     else {
-        [navController navigateWithKYCStatus:status withPinEntered:NO isAuthentication:NO];
+        [navController navigateKYCStatus:status isPinEntered:NO isAuthentication:NO];
     }
 }
 

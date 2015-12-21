@@ -148,11 +148,11 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketAuthentication.class) {
-        if ([self.delegate respondsToSelector:@selector(authManagerDidAuthenticate: withKYCStatus:withPinEntered:)]) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidAuthenticate:KYCStatus:isPinEntered:)]) {
             LWPacketAuthentication *auth = (LWPacketAuthentication *)pack;
             [self.delegate authManagerDidAuthenticate:self
-                                        withKYCStatus:auth.status
-                                       withPinEntered:auth.isPinEntered];
+                                            KYCStatus:auth.status
+                                         isPinEntered:auth.isPinEntered];
         }
     }
     else if (pack.class == LWPacketRegistration.class) {
@@ -165,11 +165,11 @@ SINGLETON_INIT {
     }
     else if (pack.class == LWPacketRegistrationGet.class) {
         // call delegate
-        if ([self.delegate respondsToSelector:@selector(authManagerDidRegisterGet:withKYCStatus:withPinEntered:)]) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidRegisterGet:KYCStatus:isPinEntered:)]) {
             LWPacketRegistrationGet *registration = (LWPacketRegistrationGet *)pack;
             [self.delegate authManagerDidRegisterGet:self
-                                       withKYCStatus:registration.status
-                                      withPinEntered:registration.isPinEntered];
+                                           KYCStatus:registration.status
+                                        isPinEntered:registration.isPinEntered];
         }
     }
     else if (pack.class == LWPacketCheckDocumentsToUpload.class) {

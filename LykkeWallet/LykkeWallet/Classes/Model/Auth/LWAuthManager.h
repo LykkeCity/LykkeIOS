@@ -19,8 +19,8 @@
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context;
 - (void)authManager:(LWAuthManager *)manager didCheckRegistration:(BOOL)isRegistered email:(NSString *)email;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
-- (void)authManagerDidRegisterGet:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered;
-- (void)authManagerDidAuthenticate:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered;
+- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered;
+- (void)authManagerDidAuthenticate:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered;
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status;
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
 - (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status;

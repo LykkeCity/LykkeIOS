@@ -118,7 +118,7 @@
     _currentStep = step;
 }
 
-- (void)navigateWithKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication {
+- (void)navigateKYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication {
     NSLog(@"KYC GetStatus: %@", status);
     
     if ([status isEqualToString:@"NeedToFillData"]) {
