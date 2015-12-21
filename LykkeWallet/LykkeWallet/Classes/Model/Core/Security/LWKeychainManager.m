@@ -9,54 +9,58 @@
 #import "LWKeychainManager.h"
 #import <Valet/Valet.h>
 
+static NSString *const kKeychainManagerAppId = @"LykkeWallet";
+static NSString *const kKeychainManagerToken = @"Token";
+static NSString *const kKeychainManagerLogin = @"Login";
+
+
+@interface LWKeychainManager () {
+    VALValet *valet;
+}
+
+@end
+
 
 @implementation LWKeychainManager
 
 
-static NSString *const APP_IDENTIFIER = @"LykkeWallet";
-static NSString *const TOKEN_FIELD    = @"Token";
-static NSString *const LOGIN_FIELD    = @"Login";
+#pragma mark - Root
+
+SINGLETON_INIT {
+    self = [super init];
+    if (self) {
+        valet = [[VALValet alloc] initWithIdentifier:kKeychainManagerAppId
+                                       accessibility:VALAccessibilityWhenUnlocked];
+    }
+    return self;
+}
 
 
 #pragma mark - Common
 
-
-+ (void)saveLogin:(NSString *)login andToken:(NSString *)token {
-    VALValet *valet = [LWKeychainManager valet];
-    [valet setString:token forKey:TOKEN_FIELD];
-    [valet setString:login forKey:LOGIN_FIELD];
+- (void)saveLogin:(NSString *)login token:(NSString *)token {
+    [valet setString:token forKey:kKeychainManagerToken];
+    [valet setString:login forKey:kKeychainManagerLogin];
 }
 
-+ (NSString *)readLogin {
-    VALValet *valet = [LWKeychainManager valet];
-    NSString *result = [valet stringForKey:LOGIN_FIELD];
-    return result;
+- (void)clear {
+    [valet removeObjectForKey:kKeychainManagerToken];
+    [valet removeObjectForKey:kKeychainManagerLogin];
 }
 
-+ (NSString *)readToken {
-    VALValet *valet = [LWKeychainManager valet];
-    NSString *result = [valet stringForKey:TOKEN_FIELD];
-    return result;
+
+#pragma mark - Properties
+
+- (NSString *)login {
+    return [valet stringForKey:kKeychainManagerLogin];
 }
 
-+ (void)clear {
-    VALValet *valet = [LWKeychainManager valet];
-    [valet removeObjectForKey:LOGIN_FIELD];
-    [valet removeObjectForKey:TOKEN_FIELD];
+- (NSString *)token {
+    return [valet stringForKey:kKeychainManagerToken];
 }
 
-+ (BOOL)isAuthenticated {
-    NSString *token = [LWKeychainManager readToken];
-    return token && ![token isEqualToString:@""];
-}
-
-#pragma mark - Inetrnal methods
-
-
-+ (VALValet *)valet {
-    VALValet *valet = [[VALValet alloc] initWithIdentifier:APP_IDENTIFIER
-                                             accessibility:VALAccessibilityWhenUnlocked];
-    return valet;
+- (BOOL)isAuthenticated {
+    return (self.token && ![self.token isEqualToString:@""]);
 }
 
 @end

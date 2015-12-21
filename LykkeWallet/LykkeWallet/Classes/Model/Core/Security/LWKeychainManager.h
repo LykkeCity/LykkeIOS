@@ -7,18 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Macro.h"
 
 
 @interface LWKeychainManager : NSObject {
     
 }
 
+SINGLETON_DECLARE
+
+@property (readonly, nonatomic) NSString *login;
+@property (readonly, nonatomic) NSString *token;
+@property (readonly, nonatomic) BOOL     isAuthenticated;
+
+
 #pragma mark - Common
 
-+ (void)saveLogin:(NSString *)login andToken:(NSString *)token;
-+ (NSString *)readLogin;
-+ (NSString *)readToken;
-+ (void)clear;
-+ (BOOL)isAuthenticated;
+- (void)saveLogin:(NSString *)login token:(NSString *)token;
+- (void)clear;
 
 @end

@@ -23,7 +23,7 @@
     }
     _token = result[@"Token"];
     
-    [LWKeychainManager saveLogin:self.registrationData.email andToken:_token];
+    [LWKeychainManager saveLogin:self.registrationData.email token:_token];
 }
 
 - (NSString *)urlRelative {
