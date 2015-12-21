@@ -50,6 +50,11 @@
 - (void)setRootAuthScreen;
 - (void)setRootMainTabScreen;
 
+
+#pragma mark - Utils
+
+- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image;
+
 @end
 
 
@@ -63,9 +68,10 @@
     self = [super initWithRootViewController:[LWAuthNavigationController authPresenter]];
 
     if (self) {
-        _currentStep = ([LWKeychainManager isAuthenticated]
-                        ? LWAuthStepValidation : LWAuthStepEntryPoint);
-        
+        _currentStep = ([LWKeychainManager instance].isAuthenticated
+                        ? LWAuthStepValidation
+                        : LWAuthStepEntryPoint);
+        // set controllers classes
         classes = @[LWAuthValidationPresenter.class,
                     LWAuthEntryPointPresenter.class,
                     //LWAuthPINEnterPresenter.class,
@@ -89,75 +95,6 @@
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;
     }
     return self;
-}
-
-
-#pragma mark - Root Controller Configuration
-
-+ (LWAuthStepPresenter *)authPresenter {
-    LWAuthStepPresenter *presenter = nil;
-    // validate status
-    if ([LWKeychainManager isAuthenticated]) {
-        presenter = [LWAuthValidationPresenter new];
-    }
-    else {
-        presenter = [LWAuthEntryPointPresenter new];
-    }
-    return presenter;
-}
-
-- (void)setRootAuthScreen {
-    [self setViewControllers:@[[LWAuthNavigationController authPresenter]] animated:NO];
-}
-
-- (void)setRootMainTabScreen {
-    LWTabController *tab = [LWTabController new];
-    
-    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
-    pWallets.tabBarItem = [self createTabBarItemWithTitle:@"tab.wallets"
-                                                withImage:@"WalletsTab"];
-//    TKNavigationController *navWallets = [[TKNavigationController alloc]
-//                                          initWithRootViewController:pWallets];
-    
-    LWTradingPresenter *pTrading = [LWTradingPresenter new];
-    pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
-                                                withImage:@"TradingTab"];
-//    TKNavigationController *navTrading = [[TKNavigationController alloc]
-//                                          initWithRootViewController:pTrading];
-    
-    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
-    pHistory.tabBarItem = [self createTabBarItemWithTitle:@"tab.history"
-                                                withImage:@"HistoryTab"];
-//    TKNavigationController *navHistory = [[TKNavigationController alloc]
-//                                          initWithRootViewController:pHistory];
-    
-    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
-    pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
-                                                 withImage:@"SettingsTab"];
-//    TKNavigationController *navSettings = [[TKNavigationController alloc]
-//                                           initWithRootViewController:pSettings];
-    
-    // init tab controller
-    //tab.viewControllers = @[navWallets, navTrading, navHistory, navSettings];
-    tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
-    tab.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
-    
-    [self setViewControllers:@[tab] animated:NO];
-}
-
-- (void)logout {
-    [activeSteps removeAllObjects];
-    [self setRootAuthScreen];
-}
-
-
-#pragma mark - Internal methods
-
-- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
-    return [[UITabBarItem alloc]
-            initWithTitle:Localize(title)
-            image:[UIImage imageNamed:image]
-            selectedImage:nil];
 }
 
 
@@ -185,9 +122,8 @@
 }
 
 - (void)navigateWithKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication {
-
     NSLog(@"KYC GetStatus: %@", status);
-
+    
     if ([status isEqualToString:@"NeedToFillData"]) {
         [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
     }
@@ -211,6 +147,59 @@
     else {
         NSAssert(0, @"Unknown KYC status.");
     }
+}
+
+
+#pragma mark - Auth
+
+- (void)logout {
+    [activeSteps removeAllObjects];
+    [self setRootAuthScreen];
+}
+
+
+#pragma mark - Root Controller Configuration
+
++ (LWAuthStepPresenter *)authPresenter {
+    return ([LWKeychainManager instance].isAuthenticated
+            ? [LWAuthValidationPresenter new]
+            : [LWAuthEntryPointPresenter new]);
+}
+
+- (void)setRootAuthScreen {
+    [self setViewControllers:@[[LWAuthNavigationController authPresenter]] animated:NO];
+}
+
+- (void)setRootMainTabScreen {
+    LWTabController *tab = [LWTabController new];
+    
+    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
+    pWallets.tabBarItem = [self createTabBarItemWithTitle:@"tab.wallets"
+                                                withImage:@"WalletsTab"];
+    LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
+                                                withImage:@"TradingTab"];
+    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    pHistory.tabBarItem = [self createTabBarItemWithTitle:@"tab.history"
+                                                withImage:@"HistoryTab"];
+    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
+    pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
+                                                 withImage:@"SettingsTab"];    
+    // init tab controller
+    tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
+    tab.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+    
+    [self setViewControllers:@[tab] animated:NO];
+}
+
+
+#pragma mark - Utils
+
+- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
+    return [[UITabBarItem alloc]
+            initWithTitle:Localize(title)
+            image:[UIImage imageNamed:image]
+            selectedImage:nil];
 }
 
 

@@ -230,8 +230,7 @@ SINGLETON_INIT {
 #pragma mark - Properties
 
 - (BOOL)isAuthorized {
-    NSString *token = [LWKeychainManager readToken];
-    return (token != nil);
+    return [LWKeychainManager instance].token;
 }
 
 @end

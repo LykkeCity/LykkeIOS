@@ -26,7 +26,7 @@ typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
 - (void)navigateWithKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered isAuthentication:(BOOL)isAuthentication;
 
 
-#pragma mark - Root Controller Configuration
+#pragma mark - Auth
 
 - (void)logout;
 

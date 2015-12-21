@@ -8,8 +8,8 @@
 
 #import "LWAuthStepPresenter.h"
 
-
 @class LWTextField;
+
 
 @interface LWRegisterBasePresenter : LWAuthStepPresenter {
     
@@ -17,10 +17,19 @@
 
 @property (copy, nonatomic) LWRegistrationData *registrationInfo;
 
-- (void)goNext;
-- (LWAuthStep)nextStep;
+@property (readonly, nonatomic) NSString   *fieldPlaceholder;
+@property (readonly, nonatomic) LWAuthStep nextStep;
+@property (readonly, nonatomic) BOOL       canProceed;
+
+
+#pragma mark - Navigation
+
+- (void)proceedToNextStep;
 - (void)prepareNextStepData:(NSString *)input;
-- (NSString *)fieldPlaceholder;
+
+
+#pragma mark - Utils
+
 - (BOOL)validateInput:(NSString *)input;
 - (void)configureTextField:(LWTextField *)textField;
 

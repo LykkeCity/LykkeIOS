@@ -25,7 +25,7 @@
     _status = result[@"KycStatus"];
     _isPinEntered = [result[@"PinIsEntered"] boolValue];
     
-    [LWKeychainManager saveLogin:self.authenticationData.email token:_token];
+    [[LWKeychainManager instance] saveLogin:self.authenticationData.email token:_token];
 }
 
 - (NSString *)urlRelative {

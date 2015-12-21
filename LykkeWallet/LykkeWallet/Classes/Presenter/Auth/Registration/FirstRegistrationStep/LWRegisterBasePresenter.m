@@ -17,12 +17,15 @@
 }
 
 @property (weak, nonatomic) IBOutlet TKContainer *textContainer;
-@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton    *nextButton;
 
 @end
 
 
 @implementation LWRegisterBasePresenter
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +35,7 @@
     self.title = Localize(@"title.register");
 
     textField = [LWTextField createTextFieldForContainer:self.textContainer
-                                         withPlaceholder:[self fieldPlaceholder]];
+                                         withPlaceholder:self.fieldPlaceholder];
     textField.keyboardType = UIKeyboardTypeDefault;
     textField.delegate = self;
     [self configureTextField:textField];
@@ -47,10 +50,13 @@
 }
 
 - (IBAction)nextClicked:(id)sender {
-    [self goNext];
+    [self proceedToNextStep];
 }
 
-- (void)goNext {
+
+#pragma mark - Navigation
+
+- (void)proceedToNextStep {
     // copy data to model
     [self prepareNextStepData:textField.text];
     
@@ -62,24 +68,34 @@
      }];
 }
 
-- (LWAuthStep)nextStep {
-    return LWAuthStepEntryPoint;
-}
-
 - (void)prepareNextStepData:(NSString *)input {
-    
+    // override if necessary
 }
 
-- (NSString *)fieldPlaceholder {
-    return @"";
-}
+
+#pragma mark - Utils
 
 - (BOOL)validateInput:(NSString *)input {
     return NO;
 }
 
 - (void)configureTextField:(LWTextField *)textField {
-    
+    // override if necessary
+}
+
+
+#pragma mark - Properties
+
+- (NSString *)fieldPlaceholder {
+    return @"";
+}
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepEntryPoint;
+}
+
+- (BOOL)canProceed {
+    return textField.isValid;
 }
 
 
@@ -89,18 +105,9 @@
     if (!self.isVisible) { // prevent from being processed if controller is not presented
         return;
     }
-    
     textField.valid = [self validateInput:textField.text];
     // check button state
-    [LWValidator setButton:self.nextButton enabled:[self canProceed]];
-}
-
-
-#pragma mark - Utils
-
-- (BOOL)canProceed {
-    BOOL canProceed = textField.isValid;
-    return canProceed;
+    [LWValidator setButton:self.nextButton enabled:self.canProceed];
 }
 
 @end

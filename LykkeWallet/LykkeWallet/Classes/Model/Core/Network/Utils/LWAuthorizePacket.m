@@ -16,8 +16,9 @@
 #pragma mark - LWPacket
 
 - (NSDictionary *)headers {
-    NSString *token = [LWKeychainManager readToken];
-    if (token && ![token isEqualToString:@""]) {
+    NSString *token = [LWKeychainManager instance].token;
+    
+    if (token) {
         return @{@"Authorization" : [NSString stringWithFormat:@"Bearer %@", token]};
     }
     return [super headers];

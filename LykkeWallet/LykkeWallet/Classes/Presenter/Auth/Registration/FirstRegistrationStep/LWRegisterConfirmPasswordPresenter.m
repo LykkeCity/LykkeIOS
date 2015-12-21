@@ -22,16 +22,11 @@
 
 @implementation LWRegisterConfirmPasswordPresenter
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 
 #pragma mark - LWRegisterBasePresenter
 
-- (void)goNext {
+- (void)proceedToNextStep {
     [self setLoading:YES];
-
     [[LWAuthManager instance] requestRegistration:self.registrationInfo];
 }
 
@@ -40,8 +35,8 @@
 }
 
 - (BOOL)validateInput:(NSString *)input {
-    return [LWValidator validateConfirmPassword:input] &&
-    [self.registrationInfo.password isEqualToString:input];
+    return ([LWValidator validateConfirmPassword:input]
+            && [self.registrationInfo.password isEqualToString:input]);
 }
 
 - (void)configureTextField:(LWTextField *)textField {
