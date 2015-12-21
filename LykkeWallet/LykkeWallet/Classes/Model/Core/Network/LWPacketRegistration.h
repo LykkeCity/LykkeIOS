@@ -14,7 +14,7 @@
     
 }
 // in
-@property (strong, nonatomic) LWRegistrationData *registrationData;
+@property (copy, nonatomic) LWRegistrationData *registrationData;
 // out
 @property (copy, nonatomic) NSString *token;
 

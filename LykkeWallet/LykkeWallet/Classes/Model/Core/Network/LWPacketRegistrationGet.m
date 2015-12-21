@@ -9,9 +9,7 @@
 #import "LWPacketRegistrationGet.h"
 
 
-@implementation LWPacketRegistrationGet {
-    
-}
+@implementation LWPacketRegistrationGet
 
 
 #pragma mark - LWPacket
