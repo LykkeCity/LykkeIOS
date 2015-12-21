@@ -29,6 +29,9 @@
 
 @implementation LWAuthenticationPresenter
 
+
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -64,7 +67,6 @@
     if (!self.isVisible) { // prevent from being processed if controller is not presented
         return;
     }
-    
     // check button state
     [LWValidator setButton:self.loginButton enabled:[self canProceed]];
 }
@@ -75,6 +77,7 @@
 - (BOOL)canProceed {
     BOOL isValidEmail = [LWValidator validateEmail:emailField.text];
     BOOL isValidPassword = [LWValidator validatePassword:passwordField.text];
+    
     return (isValidEmail && isValidPassword);
 }
 

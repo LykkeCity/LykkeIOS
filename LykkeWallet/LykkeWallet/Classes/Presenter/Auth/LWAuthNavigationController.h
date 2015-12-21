@@ -9,7 +9,6 @@
 #import "TKNavigationController.h"
 #import "LWAuthStepPresenter.h"
 
-
 typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
 
 

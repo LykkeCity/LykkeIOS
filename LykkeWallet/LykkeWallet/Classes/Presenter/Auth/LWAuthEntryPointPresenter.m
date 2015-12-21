@@ -12,7 +12,6 @@
 #import "LWTipsView.h"
 #import "LWValidator.h"
 #import "LWAuthManager.h"
-#import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterBasePresenter.h"
 #import "LWAuthenticationPresenter.h"
 #import "ABPadLockScreen.h"
@@ -173,7 +172,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered forEmail:(NSString *)email {
+- (void)authManager:(LWAuthManager *)manager didCheckRegistration:(BOOL)isRegistered email:(NSString *)email {
     [self.activityView stopAnimating];
     
     if (isRegistered) {

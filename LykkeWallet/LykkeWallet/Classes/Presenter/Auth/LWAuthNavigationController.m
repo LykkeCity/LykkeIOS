@@ -19,7 +19,6 @@
 #import "LWAuthenticationPresenter.h"
 #import "LWAuthValidationPresenter.h"
 #import "LWAuthPINEnterPresenter.h"
-#import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
 #import "LWKYCSubmitPresenter.h"
 #import "LWKYCPendingPresenter.h"
@@ -64,9 +63,7 @@
 #pragma mark - Root
 
 - (instancetype)init {
-
     self = [super initWithRootViewController:[LWAuthNavigationController authPresenter]];
-
     if (self) {
         _currentStep = ([LWKeychainManager instance].isAuthenticated
                         ? LWAuthStepValidation
@@ -133,15 +130,17 @@
     else if ([status isEqualToString:@"Rejected"] || [status isEqualToString:@"Pending"]) {
         [self navigateToStep:LWAuthStepRegisterKYCPending preparationBlock:nil];
     }
-    else if ([status isEqualToString:@"Ok"] && !isAuthentication) {
-        [self navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
-    }
-    else if ([status isEqualToString:@"Ok"] && isAuthentication) {
-        if (isPinEntered) {
-            [self setRootMainTabScreen];
+    else if ([status isEqualToString:@"Ok"]) {
+        if (!isAuthentication) {
+            [self navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
         }
-        else  {
-            [self navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];
+        else {
+            if (isPinEntered) {
+                [self setRootMainTabScreen];
+            }
+            else  {
+                [self navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];
+            }
         }
     }
     else {
@@ -196,10 +195,9 @@
 #pragma mark - Utils
 
 - (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
-    return [[UITabBarItem alloc]
-            initWithTitle:Localize(title)
-            image:[UIImage imageNamed:image]
-            selectedImage:nil];
+    return [[UITabBarItem alloc] initWithTitle:Localize(title)
+                                         image:[UIImage imageNamed:image]
+                                 selectedImage:nil];
 }
 
 

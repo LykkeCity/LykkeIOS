@@ -18,6 +18,6 @@
 // out
 @property (readonly, nonatomic) NSString *token;
 @property (readonly, nonatomic) NSString *status;
-@property (readonly, nonatomic) BOOL isPinEntered;
+@property (readonly, nonatomic) BOOL     isPinEntered;
 
 @end
