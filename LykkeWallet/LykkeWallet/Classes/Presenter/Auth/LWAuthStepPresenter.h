@@ -10,6 +10,7 @@
 #import "LWAuthManager.h"
 
 typedef NS_ENUM(NSInteger, LWAuthStep) {
+    LWAuthStepValidation,
     LWAuthStepEntryPoint,
 
     LWAuthStepAuthentication,

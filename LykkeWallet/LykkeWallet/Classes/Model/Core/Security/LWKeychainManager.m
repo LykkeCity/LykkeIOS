@@ -45,6 +45,11 @@ static NSString *const LOGIN_FIELD    = @"Login";
     [valet removeObjectForKey:TOKEN_FIELD];
 }
 
++ (BOOL)isAuthenticated {
+    NSString *token = [LWKeychainManager readToken];
+    return token && ![token isEqualToString:@""];
+}
+
 #pragma mark - Inetrnal methods
 
 

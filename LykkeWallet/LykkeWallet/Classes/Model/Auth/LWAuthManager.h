@@ -19,6 +19,7 @@
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context;
 - (void)authManager:(LWAuthManager *)manager didCheckEmail:(BOOL)isRegistered forEmail:(NSString *)email;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
+- (void)authManagerDidRegisterGet:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered;
 - (void)authManagerDidAuthenticate:(LWAuthManager *)manager withKYCStatus:(NSString *)status withPinEntered:(BOOL)isPinEntered;
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status;
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
@@ -49,6 +50,7 @@ SINGLETON_DECLARE
 - (void)requestEmailValidation:(NSString *)email;
 - (void)requestAuthentication:(LWAuthenticationData *)data;
 - (void)requestRegistration:(LWRegistrationData *)data;
+- (void)requestRegistrationGet;
 - (void)requestDocumentsToUpload;
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image;
 - (void)requestKYCStatusGet;

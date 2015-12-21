@@ -7,6 +7,7 @@
 //
 
 #import "LWSettingsPresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWKeychainManager.h"
 
 
@@ -50,6 +51,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 && indexPath.section == 0) {
         [LWKeychainManager clear];
+
+        LWAuthNavigationController *root = (LWAuthNavigationController *)self.navigationController;
+        [root logout];
     }
 }
 

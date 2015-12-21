@@ -8,6 +8,7 @@
 
 #import "LWAuthNavigationController.h"
 #import "LWAuthEntryPointPresenter.h"
+#import "LWAuthValidationPresenter.h"
 
 #import "LWRegisterBasePresenter.h"
 #import "LWRegisterFullNamePresenter.h"
@@ -16,7 +17,7 @@
 #import "LWRegisterConfirmPasswordPresenter.h"
 
 #import "LWAuthenticationPresenter.h"
-
+#import "LWAuthValidationPresenter.h"
 #import "LWAuthPINEnterPresenter.h"
 #import "LWRegisterProfileDataPresenter.h"
 #import "LWRegisterCameraSelfiePresenter.h"
@@ -27,11 +28,27 @@
 #import "LWKYCSuccessPresenter.h"
 #import "LWRegisterPINSetupPresenter.h"
 
+// tab presenters
+#import "LWTabController.h"
+#import "LWWalletsPresenter.h"
+#import "LWTradingPresenter.h"
+#import "LWHistoryPresenter.h"
+#import "LWSettingsPresenter.h"
+
+#import "LWKeychainManager.h"
+
 
 @interface LWAuthNavigationController () {
     NSArray *classes;
     NSMutableDictionary<NSNumber *, LWAuthStepPresenter *> *activeSteps;
 }
+
+
+#pragma mark - Root Controller Configuration
+
++ (LWAuthStepPresenter *)authPresenter;
+- (void)setRootAuthScreen;
+- (void)setRootMainTabScreen;
 
 @end
 
@@ -42,11 +59,15 @@
 #pragma mark - Root
 
 - (instancetype)init {
-    self = [super initWithRootViewController:[LWAuthEntryPointPresenter new]];
+
+    self = [super initWithRootViewController:[LWAuthNavigationController authPresenter]];
+
     if (self) {
-        _currentStep = LWAuthStepEntryPoint;
+        _currentStep = ([LWKeychainManager isAuthenticated]
+                        ? LWAuthStepValidation : LWAuthStepEntryPoint);
         
-        classes = @[LWAuthEntryPointPresenter.class,
+        classes = @[LWAuthValidationPresenter.class,
+                    LWAuthEntryPointPresenter.class,
                     //LWAuthPINEnterPresenter.class,
                     LWAuthenticationPresenter.class,
 
@@ -69,6 +90,76 @@
     }
     return self;
 }
+
+
+#pragma mark - Root Controller Configuration
+
++ (LWAuthStepPresenter *)authPresenter {
+    LWAuthStepPresenter *presenter = nil;
+    // validate status
+    if ([LWKeychainManager isAuthenticated]) {
+        presenter = [LWAuthValidationPresenter new];
+    }
+    else {
+        presenter = [LWAuthEntryPointPresenter new];
+    }
+    return presenter;
+}
+
+- (void)setRootAuthScreen {
+    [self setViewControllers:@[[LWAuthNavigationController authPresenter]] animated:NO];
+}
+
+- (void)setRootMainTabScreen {
+    LWTabController *tab = [LWTabController new];
+    
+    LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
+    pWallets.tabBarItem = [self createTabBarItemWithTitle:@"tab.wallets"
+                                                withImage:@"WalletsTab"];
+//    TKNavigationController *navWallets = [[TKNavigationController alloc]
+//                                          initWithRootViewController:pWallets];
+    
+    LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
+                                                withImage:@"TradingTab"];
+//    TKNavigationController *navTrading = [[TKNavigationController alloc]
+//                                          initWithRootViewController:pTrading];
+    
+    LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    pHistory.tabBarItem = [self createTabBarItemWithTitle:@"tab.history"
+                                                withImage:@"HistoryTab"];
+//    TKNavigationController *navHistory = [[TKNavigationController alloc]
+//                                          initWithRootViewController:pHistory];
+    
+    LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
+    pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
+                                                 withImage:@"SettingsTab"];
+//    TKNavigationController *navSettings = [[TKNavigationController alloc]
+//                                           initWithRootViewController:pSettings];
+    
+    // init tab controller
+    //tab.viewControllers = @[navWallets, navTrading, navHistory, navSettings];
+    tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
+    tab.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+    
+    [self setViewControllers:@[tab] animated:NO];
+}
+
+- (void)logout {
+    [activeSteps removeAllObjects];
+    [self setRootAuthScreen];
+}
+
+
+#pragma mark - Internal methods
+
+- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
+    return [[UITabBarItem alloc]
+            initWithTitle:Localize(title)
+            image:[UIImage imageNamed:image]
+            selectedImage:nil];
+}
+
 
 #pragma mark - Common
 
@@ -103,12 +194,15 @@
     else if ([status isEqualToString:@"RestrictedArea"]) {
         [self navigateToStep:LWAuthStepRegisterKYCRestricted preparationBlock:nil];
     }
+    else if ([status isEqualToString:@"Rejected"] || [status isEqualToString:@"Pending"]) {
+        [self navigateToStep:LWAuthStepRegisterKYCPending preparationBlock:nil];
+    }
     else if ([status isEqualToString:@"Ok"] && !isAuthentication) {
         [self navigateToStep:LWAuthStepRegisterKYCSuccess preparationBlock:nil];
     }
     else if ([status isEqualToString:@"Ok"] && isAuthentication) {
         if (isPinEntered) {
-            #warning TODO: navigate to main screen
+            [self setRootMainTabScreen];
         }
         else  {
             [self navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];

@@ -10,6 +10,7 @@
 #import "LWPacketAccountExist.h"
 #import "LWPacketAuthentication.h"
 #import "LWPacketRegistration.h"
+#import "LWPacketRegistrationGet.h"
 #import "LWPacketCheckDocumentsToUpload.h"
 #import "LWPacketKYCSendDocument.h"
 #import "LWPacketKYCStatusGet.h"
@@ -72,9 +73,15 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestRegistrationGet {
+    LWPacketRegistrationGet *pack = [LWPacketRegistrationGet new];
+    
+    [self sendPacket:pack];
+}
+
 - (void)requestDocumentsToUpload {
     LWPacketCheckDocumentsToUpload *pack = [LWPacketCheckDocumentsToUpload new];
-    
+
     [self sendPacket:pack];
 }
 
@@ -154,6 +161,15 @@ SINGLETON_INIT {
         // call delegate
         if ([self.delegate respondsToSelector:@selector(authManagerDidRegister:)]) {
             [self.delegate authManagerDidRegister:self];
+        }
+    }
+    else if (pack.class == LWPacketRegistrationGet.class) {
+        // call delegate
+        if ([self.delegate respondsToSelector:@selector(authManagerDidRegisterGet:withKYCStatus:withPinEntered:)]) {
+            LWPacketRegistrationGet *registration = (LWPacketRegistrationGet *)pack;
+            [self.delegate authManagerDidRegisterGet:self
+                                       withKYCStatus:registration.status
+                                      withPinEntered:registration.isPinEntered];
         }
     }
     else if (pack.class == LWPacketCheckDocumentsToUpload.class) {

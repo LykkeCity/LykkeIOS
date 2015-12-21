@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Macro.h"
-#import "LWTabController.h"
+#import "LWAuthNavigationController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LWTabController *tabController;
+@property (strong, nonatomic) LWAuthNavigationController *mainController;
 
 @end
 

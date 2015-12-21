@@ -19,5 +19,6 @@
 + (NSString *)readLogin;
 + (NSString *)readToken;
 + (void)clear;
++ (BOOL)isAuthenticated;
 
 @end

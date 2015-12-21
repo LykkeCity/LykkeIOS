@@ -50,6 +50,8 @@
 "register.kyc.submit" = "Dear %@ you are about being reviewed by our KYC team.\nIt may take up to 15-20 minutes.";
 "register.kyc.submit.submitButton" = "Submit";
 
+"register.validation.label" = "Connection with servier.\nPlease wait...";
+
 "utils.tip" = "What should I know?";
 "utils.ok" = "OK";
 "utils.error" = "Error";

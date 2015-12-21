@@ -25,7 +25,7 @@
 
 - (LWAuthStep)stepId {
     NSAssert(0, @"Must be overridden.");
-    return LWAuthStepEntryPoint;
+    return LWAuthStepValidation;
 }
 
 @end
