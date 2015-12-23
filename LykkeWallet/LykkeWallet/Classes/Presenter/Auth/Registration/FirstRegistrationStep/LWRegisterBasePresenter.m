@@ -17,6 +17,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet TKContainer *textContainer;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -44,12 +45,35 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
     // check button state
     [LWValidator setButton:self.nextButton enabled:[self canProceed]];
+
+    self.observeKeyboardEvents = YES;
 }
 
 - (IBAction)nextClicked:(id)sender {
     [self proceedToNextStep];
+}
+
+#pragma mark - Keyboard
+
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
+    CGRect rect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    const CGFloat bottomMargin = 20;
+    CGFloat bottomX = (self.scrollView.frame.origin.y
+                       + self.nextButton.frame.origin.y
+                       + self.nextButton.frame.size.height
+                       + bottomMargin);
+    if (bottomX > rect.size.height) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - rect.size.height, 0);
+        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.contentInset.bottom);
+    }
+}
+
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+    self.scrollView.contentInset = UIEdgeInsetsZero;
 }
 
 

@@ -91,6 +91,7 @@
         activeSteps = [NSMutableDictionary new];
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;
     }
+    
     return self;
 }
 
@@ -100,6 +101,10 @@
 - (void)navigateToStep:(LWAuthStep)step preparationBlock:(LWAuthStepPushPreparationBlock)block {
     // check whether we can just unwind to step
     if ([activeSteps.allKeys containsObject:@(step)]) {
+        if (block) {
+            LWAuthStepPresenter *ctrl = activeSteps[@(step)];
+            block(ctrl);
+        }
         [self popToViewController:activeSteps[@(step)] animated:YES];
     }
     else {
@@ -152,6 +157,7 @@
 #pragma mark - Auth
 
 - (void)logout {
+    [[LWKeychainManager instance] clear];
     [activeSteps removeAllObjects];
     [self setRootAuthScreen];
 }

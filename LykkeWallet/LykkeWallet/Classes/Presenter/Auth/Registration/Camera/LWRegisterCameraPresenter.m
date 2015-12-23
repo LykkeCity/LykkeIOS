@@ -39,6 +39,10 @@
     [super viewWillAppear:animated];
     
     [self checkButtonsState];
+    // hide back button if necessary
+    if (self.shouldHideBackButton) {
+        self.navigationItem.hidesBackButton = YES;
+    }
 }
 
 - (void)localize {

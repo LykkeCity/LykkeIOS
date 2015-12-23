@@ -19,16 +19,8 @@
 
 @implementation LWRegisterPhonePresenter
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 
 #pragma mark - LWRegisterBasePresenter
-
-- (LWAuthStep)nextStep {
-    return LWAuthStepRegisterPassword;
-}
 
 - (void)prepareNextStepData:(NSString *)input {
     self.registrationInfo.phone = input;
@@ -44,6 +36,10 @@
 
 
 #pragma mark - LWAuthStepPresenter
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepRegisterPassword;
+}
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterPhone;

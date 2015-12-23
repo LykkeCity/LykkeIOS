@@ -52,17 +52,8 @@
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
 
-    if (reject) {
-        [self showReject:reject];
-    }
-    else {
-        // some server error? Then just repeat request after some delay
-        const NSInteger repeatSeconds = 5;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[LWAuthManager instance] requestRegistrationGet];
-        });
-    }
+    LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
+    [navController logout];
 }
 
 @end

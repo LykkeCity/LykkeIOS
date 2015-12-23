@@ -8,6 +8,7 @@
 
 #import "LWRegisterConfirmPasswordPresenter.h"
 #import "LWAuthNavigationController.h"
+#import "LWRegisterCameraPresenter.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
 #import "TKPresenter+Loading.h"
@@ -64,7 +65,9 @@
         // navigate to selfie camera presenter
         [((LWAuthNavigationController *)self.navigationController)
          navigateToStep:LWAuthStepRegisterSelfie
-         preparationBlock:nil];
+         preparationBlock:^(LWAuthStepPresenter *presenter) {
+             ((LWRegisterCameraPresenter *)presenter).shouldHideBackButton = YES;
+         }];
     }
     else {
         // navigate to verification

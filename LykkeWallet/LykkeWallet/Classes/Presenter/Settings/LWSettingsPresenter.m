@@ -50,7 +50,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 && indexPath.section == 0) {
-        [[LWKeychainManager instance] clear];
         [(LWAuthNavigationController *)self.navigationController logout];
     }
 }

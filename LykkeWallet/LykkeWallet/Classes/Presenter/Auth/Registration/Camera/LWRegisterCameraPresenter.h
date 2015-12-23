@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton    *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton    *okButton;
 
+@property (assign, nonatomic) BOOL shouldHideBackButton;
+
 
 #pragma mark - Actions
 
