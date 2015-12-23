@@ -31,6 +31,10 @@
     return [LWValidator validateFullName:input];
 }
 
+- (void)configureTextField:(LWTextField *)textField {
+    [textField setAutocapitalizationType:UITextAutocapitalizationTypeWords];
+}
+
 - (NSString *)fieldPlaceholder {
     return Localize(@"register.fullName");
 }

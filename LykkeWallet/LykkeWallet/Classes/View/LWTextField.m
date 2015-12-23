@@ -105,6 +105,12 @@
     self.textField.keyboardType = self.keyboardType;
 }
 
+- (void)setAutocapitalizationType:(UITextAutocapitalizationType)autocapitalizationType {
+    _autocapitalizationType = autocapitalizationType;
+    
+    self.textField.autocapitalizationType = self.autocapitalizationType;
+}
+
 - (void)setValid:(BOOL)valid {
     _valid = valid;
     

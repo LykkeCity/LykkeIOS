@@ -27,6 +27,7 @@
 @property (assign, nonatomic) NSString   *placeholder;
 @property (assign, nonatomic) NSUInteger maxLength;
 @property (assign, nonatomic) UIKeyboardType keyboardType;
+@property (assign, nonatomic) UITextAutocapitalizationType autocapitalizationType;
 
 @property (assign, nonatomic, getter=isSecure)  BOOL secure;
 @property (assign, nonatomic, getter=isEnabled) BOOL enabled;
