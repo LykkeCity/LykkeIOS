@@ -230,7 +230,7 @@ SINGLETON_INIT {
 #pragma mark - Properties
 
 - (BOOL)isAuthorized {
-    return [LWKeychainManager instance].token;
+    return ([LWKeychainManager instance].token != nil);
 }
 
 @end
