@@ -17,7 +17,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet TKContainer *textContainer;
-@property (weak, nonatomic) IBOutlet UIButton    *nextButton;
 
 @end
 

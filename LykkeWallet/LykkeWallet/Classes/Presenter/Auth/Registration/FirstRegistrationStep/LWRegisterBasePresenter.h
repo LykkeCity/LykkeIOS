@@ -15,6 +15,8 @@
     
 }
 
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
 @property (copy, nonatomic) LWRegistrationData *registrationInfo;
 
 @property (readonly, nonatomic) NSString   *fieldPlaceholder;

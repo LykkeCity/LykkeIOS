@@ -11,38 +11,68 @@
 #import "LWValidator.h"
 
 
-@interface LWRegisterFullNamePresenter ()
+@interface LWRegisterFullNamePresenter ()  {
+    
+}
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 
 @implementation LWRegisterFullNamePresenter
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+#pragma mark - Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.observeKeyboardEvents = YES;
+}
+
+
+#pragma mark - Keyboard
+
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
+    CGRect rect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    const CGFloat bottomMargin = 20;
+    CGFloat bottomX = (self.scrollView.frame.origin.y
+                       + self.nextButton.frame.origin.y
+                       + self.nextButton.frame.size.height
+                       + bottomMargin);
+    if (bottomX > rect.size.height) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - rect.size.height, 0);
+        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.contentInset.bottom);
+    }
+}
+
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+    self.scrollView.contentInset = UIEdgeInsetsZero;
 }
 
 
 #pragma mark - LWRegisterBasePresenter
 
-- (LWAuthStep)nextStep {
-    return LWAuthStepRegisterPhone;
-}
-
 - (void)prepareNextStepData:(NSString *)input {
     self.registrationInfo.fullName = input;
-}
-
-- (NSString *)fieldPlaceholder {
-    return Localize(@"register.fullName");
 }
 
 - (BOOL)validateInput:(NSString *)input {
     return [LWValidator validateFullName:input];
 }
 
+- (NSString *)fieldPlaceholder {
+    return Localize(@"register.fullName");
+}
+
 
 #pragma mark - LWAuthStepPresenter
+
+- (LWAuthStep)nextStep {
+    return LWAuthStepRegisterPhone;
+}
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterFullName;
