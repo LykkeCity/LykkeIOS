@@ -220,4 +220,15 @@
     return result;
 }
 
+- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSArray *result = [super popToViewController:viewController animated:animated];
+    // clean steps
+    for (NSNumber *key in activeSteps.allKeys) {
+        if (![self.viewControllers containsObject:activeSteps[key]]) {
+            [activeSteps removeObjectForKey:key];
+        }
+    }
+    return result;
+}
+
 @end
