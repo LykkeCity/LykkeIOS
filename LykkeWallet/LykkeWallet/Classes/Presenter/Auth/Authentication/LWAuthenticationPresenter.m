@@ -12,6 +12,7 @@
 #import "LWAuthenticationData.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
+#import "LWDeviceInfo.h"
 #import "TKPresenter+Loading.h"
 
 
@@ -91,6 +92,7 @@
         LWAuthenticationData *data = [LWAuthenticationData new];
         data.email = emailField.text;
         data.password = passwordField.text;
+        data.clientInfo = [[LWDeviceInfo instance] clientInfo];
         
         [[LWAuthManager instance] requestAuthentication:data];
     }

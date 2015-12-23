@@ -10,6 +10,7 @@
 #import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
+#import "LWDeviceInfo.h"
 
 
 @interface LWRegisterBasePresenter () <LWTextFieldDelegate> {
@@ -31,6 +32,7 @@
     [super viewDidLoad];
     
     self.registrationInfo = [LWRegistrationData new];
+    self.registrationInfo.clientInfo = [[LWDeviceInfo instance] clientInfo];
     
     self.title = Localize(@"title.register");
 

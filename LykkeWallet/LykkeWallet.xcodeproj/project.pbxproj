@@ -14,6 +14,7 @@
 		CD10AAAC1C1E10F60086634B /* LWPacketPinSecuritySet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAB1C1E10F60086634B /* LWPacketPinSecuritySet.m */; };
 		CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */; };
 		CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */; };
+		CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */; };
 		CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */; };
 		CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
 		CDA69FDB1C281A5500BE4DCA /* LWPacketRegistrationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FDA1C281A5500BE4DCA /* LWPacketRegistrationGet.m */; };
@@ -115,6 +116,8 @@
 		CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketRestrictedCountries.m; sourceTree = "<group>"; };
 		CD10AAB01C1E16260086634B /* LWAuthorizePacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthorizePacket.h; sourceTree = "<group>"; };
 		CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthorizePacket.m; sourceTree = "<group>"; };
+		CD3CCDDB1C2B3DD400DDCE46 /* LWDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDeviceInfo.h; sourceTree = "<group>"; };
+		CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDeviceInfo.m; sourceTree = "<group>"; };
 		CDA69FCB1C275C3800BE4DCA /* LWKYCSubmitPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSubmitPresenter.h; sourceTree = "<group>"; };
 		CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSubmitPresenter.m; sourceTree = "<group>"; };
 		CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSubmitPresenter.xib; sourceTree = "<group>"; };
@@ -588,6 +591,8 @@
 				CDA9E7F01C25764E0067FB32 /* Security */,
 				CF9EC8FE1C17C6C100F742A6 /* Network */,
 				CF9EC9051C17C6C100F742A6 /* UIHelpers */,
+				CD3CCDDB1C2B3DD400DDCE46 /* LWDeviceInfo.h */,
+				CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -907,6 +912,7 @@
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
+				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,

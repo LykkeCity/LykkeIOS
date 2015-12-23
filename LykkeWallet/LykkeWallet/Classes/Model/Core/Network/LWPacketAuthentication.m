@@ -34,7 +34,8 @@
 
 - (NSDictionary *)params {
     return @{@"Email" : self.authenticationData.email,
-             @"Password" : self.authenticationData.password};
+             @"Password" : self.authenticationData.password,
+             @"ClientInfo" : self.authenticationData.clientInfo};
 }
 
 @end

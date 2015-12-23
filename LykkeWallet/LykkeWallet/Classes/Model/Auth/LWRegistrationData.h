@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *fullName;
 @property (copy, nonatomic) NSString *phone;
 @property (copy, nonatomic) NSString *password;
+@property (copy, nonatomic) NSString *clientInfo;
 
 @end
 
