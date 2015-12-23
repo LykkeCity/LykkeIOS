@@ -52,8 +52,7 @@
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
 
-    LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    [navController logout];
+    [((LWAuthNavigationController *)self.navigationController) logout];
 }
 
 @end

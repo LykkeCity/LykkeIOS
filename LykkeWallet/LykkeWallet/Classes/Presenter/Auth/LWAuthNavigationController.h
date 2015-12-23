@@ -29,4 +29,9 @@ typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
 
 - (void)logout;
 
+
+#pragma mark - Root Controller Configuration
+
+- (void)setRootMainTabScreen;
+
 @end

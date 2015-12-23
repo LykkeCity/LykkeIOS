@@ -47,7 +47,6 @@
 
 + (LWAuthStepPresenter *)authPresenter;
 - (void)setRootAuthScreen;
-- (void)setRootMainTabScreen;
 
 
 #pragma mark - Utils
@@ -71,8 +70,8 @@
         // set controllers classes
         classes = @[LWAuthValidationPresenter.class,
                     LWAuthEntryPointPresenter.class,
-                    //LWAuthPINEnterPresenter.class,
                     LWAuthenticationPresenter.class,
+                    LWAuthPINEnterPresenter.class,
 
                     LWRegisterFullNamePresenter.class,
                     LWRegisterPhonePresenter.class,
@@ -141,7 +140,7 @@
         }
         else {
             if (isPinEntered) {
-                [self setRootMainTabScreen];
+                [self navigateToStep:LWAuthStepValidatePIN preparationBlock:nil];
             }
             else  {
                 [self navigateToStep:LWAuthStepRegisterPINSetup preparationBlock:nil];

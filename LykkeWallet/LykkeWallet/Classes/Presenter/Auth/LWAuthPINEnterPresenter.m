@@ -7,31 +7,90 @@
 //
 
 #import "LWAuthPINEnterPresenter.h"
+#import "LWAuthNavigationController.h"
+#import "ABPadLockScreen.h"
+#import "TKPresenter+Loading.h"
 
-@interface LWAuthPINEnterPresenter ()
+
+@interface LWAuthPINEnterPresenter () <ABPadLockScreenViewControllerDelegate> {
+    ABPadLockScreenViewController *pinController;
+    
+    NSString *pin;
+    BOOL     pinDidValidOnServer;
+}
 
 @end
 
+
 @implementation LWAuthPINEnterPresenter
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+#pragma mark - LWAuthStepPresenter
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    // adjust pin controller frame
+    if (!pinController) {
+        pinController = [[ABPadLockScreenViewController alloc] initWithDelegate:self
+                                                                     complexPin:NO];
+        [pinController cancelButtonDisabled:YES];
+        
+        pinController.modalPresentationStyle = UIModalPresentationFullScreen;
+        pinController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    }
+    if (!pin) {
+        [self presentViewController:pinController animated:YES completion:nil];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)localize {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (LWAuthStep)stepId {
+    return LWAuthStepValidatePIN;
 }
-*/
+
+
+#pragma mark - ABPadLockScreenSetupViewControllerDelegate
+
+- (BOOL)padLockScreenViewController:(ABPadLockScreenViewController *)controller validatePin:(NSString*)pin_ {
+
+    [controller dismissViewControllerAnimated:YES completion:nil]; // dismiss
+    [pinController clearPin]; // don't forget to clear PIN data
+    // save pin
+    pin = [pin_ copy];
+    // request PIN setup
+    [[LWAuthManager instance] requestPinSecurityGet:pin];
+    
+#warning TODO: sync get method
+    return YES;
+}
+
+- (void)unlockWasSuccessfulForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    
+    [((LWAuthNavigationController *)self.navigationController) setRootMainTabScreen];
+}
+
+- (void)unlockWasUnsuccessful:(NSString *)falsePin afterAttemptNumber:(NSInteger)attemptNumber padLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    [((LWAuthNavigationController *)self.navigationController) logout];
+}
+
+- (void)unlockWasCancelledForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    [((LWAuthNavigationController *)self.navigationController) logout];
+}
+
+- (void)attemptsExpiredForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    [((LWAuthNavigationController *)self.navigationController) logout];
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+/*- (void)authManagerDidSetPin:(LWAuthManager *)manager {
+    pinDidValidOnServer = YES;
+    // hide masking view
+}*/
 
 @end
