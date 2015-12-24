@@ -24,11 +24,7 @@
 }
 
 - (NSString *)urlRelative {
-    return @"PinSecurity";
-}
-
-- (NSDictionary *)params {
-    return @{@"pin" : self.pin};
+    return [NSString stringWithFormat:@"PinSecurity?pin=%@", self.pin];
 }
 
 - (GDXRESTPacketType)type {

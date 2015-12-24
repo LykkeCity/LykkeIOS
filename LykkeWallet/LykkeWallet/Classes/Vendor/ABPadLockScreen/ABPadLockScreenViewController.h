@@ -40,6 +40,10 @@
 @property (nonatomic, assign, readonly) NSInteger totalAttempts;
 @property (nonatomic, assign, readonly) NSInteger remainingAttempts;
 
+#pragma mark - Custom properties
+typedef BOOL (^LWValidatePin)(NSString *);
+@property (nonatomic, copy) LWValidatePin validateBlock;
+
 - (void)setAllowedAttempts:(NSInteger)allowedAttempts;
 
 - (void)setLockedOutText:(NSString *)title;

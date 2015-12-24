@@ -7,16 +7,19 @@
 //
 
 #import "LWAuthPINEnterPresenter.h"
+
+#import <AFNetworking/AFNetworking.h>
+
 #import "LWAuthNavigationController.h"
 #import "ABPadLockScreen.h"
+#import "LWPacketPinSecurityGet.h"
 #import "TKPresenter+Loading.h"
 
 
+static int const kAllowedAttempts = 3;
+
 @interface LWAuthPINEnterPresenter () <ABPadLockScreenViewControllerDelegate> {
     ABPadLockScreenViewController *pinController;
-    
-    NSString *pin;
-    BOOL     pinDidValidOnServer;
 }
 
 @end
@@ -32,17 +35,56 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     // adjust pin controller frame
+
     if (!pinController) {
         pinController = [[ABPadLockScreenViewController alloc] initWithDelegate:self
                                                                      complexPin:NO];
         [pinController cancelButtonDisabled:YES];
-        
+        [pinController setAllowedAttempts:kAllowedAttempts];
+
         pinController.modalPresentationStyle = UIModalPresentationFullScreen;
         pinController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        ABPadLockScreenView *view = (ABPadLockScreenView *)pinController.view;
+        view.enterPasscodeLabel.text = Localize(@"ABPadLockScreen.pin.enter");
+        
+        pinController.validateBlock = ^BOOL(NSString *pin_) {
+
+            // configure URL
+            __block LWPacketPinSecurityGet *pack = [LWPacketPinSecurityGet new];
+            pack.pin = [pin_ copy];
+        
+            NSURL *url = [NSURL URLWithString:pack.urlBase];
+            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]
+                                             initWithBaseURL:url];
+            manager.requestSerializer = [AFJSONRequestSerializer serializer];
+            manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            
+            NSDictionary *headers = [pack headers];
+            for (NSString *key in headers.allKeys) {
+                [manager.requestSerializer setValue:headers[key] forHTTPHeaderField:key];
+            }
+            
+            [manager GET:pack.urlRelative
+                parameters:nil
+                progress:nil
+                success:^(NSURLSessionTask *task, id responseObject) {
+                    [pack parseResponse:responseObject error:nil];
+                    dispatch_semaphore_signal(semaphore);
+                }
+                failure:^(NSURLSessionTask *operation, NSError *error) {
+                    pack = nil;
+                    dispatch_semaphore_signal(semaphore);
+                }];
+            
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        
+            BOOL const result = (pack && pack.isPassed);
+            return result;
+        };
     }
-    if (!pin) {
-        [self presentViewController:pinController animated:YES completion:nil];
-    }
+    [self presentViewController:pinController animated:YES completion:nil];
 }
 
 - (void)localize {
@@ -55,17 +97,17 @@
 
 #pragma mark - ABPadLockScreenSetupViewControllerDelegate
 
-- (BOOL)padLockScreenViewController:(ABPadLockScreenViewController *)controller validatePin:(NSString*)pin_ {
+- (BOOL)padLockScreenViewController:(ABPadLockScreenViewController *)controller validatePin:(NSString*)pin {
 
     [controller dismissViewControllerAnimated:YES completion:nil]; // dismiss
     [pinController clearPin]; // don't forget to clear PIN data
-    // save pin
-    pin = [pin_ copy];
-    // request PIN setup
-    [[LWAuthManager instance] requestPinSecurityGet:pin];
-    
-#warning TODO: sync get method
-    return YES;
+
+    // validate pin
+    [self setLoading:YES];
+    BOOL const result = (controller.validateBlock ? controller.validateBlock(pin) : NO);
+    [self setLoading:NO];
+
+    return result;
 }
 
 - (void)unlockWasSuccessfulForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
@@ -74,7 +116,7 @@
 }
 
 - (void)unlockWasUnsuccessful:(NSString *)falsePin afterAttemptNumber:(NSInteger)attemptNumber padLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
-    [((LWAuthNavigationController *)self.navigationController) logout];
+    [pinController clearPin];
 }
 
 - (void)unlockWasCancelledForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
@@ -84,13 +126,5 @@
 - (void)attemptsExpiredForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
     [((LWAuthNavigationController *)self.navigationController) logout];
 }
-
-
-#pragma mark - LWAuthManagerDelegate
-
-/*- (void)authManagerDidSetPin:(LWAuthManager *)manager {
-    pinDidValidOnServer = YES;
-    // hide masking view
-}*/
 
 @end
