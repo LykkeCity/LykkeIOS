@@ -15,6 +15,20 @@
 		CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */; };
 		CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */; };
 		CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */; };
+		CD73627A1C2C26FF00924077 /* Proxima Nova Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */; };
+		CD73627B1C2C26FF00924077 /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */; };
+		CD73627C1C2C26FF00924077 /* Proxima Nova Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */; };
+		CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */; };
+		CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */; };
+		CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */; };
+		CD7362801C2C26FF00924077 /* Proxima Nova Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */; };
+		CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */; };
+		CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */; };
+		CD7362831C2C26FF00924077 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */; };
+		CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */; };
+		CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */; };
+		CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */; };
+		CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */; };
 		CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */; };
 		CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
 		CDA69FDB1C281A5500BE4DCA /* LWPacketRegistrationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FDA1C281A5500BE4DCA /* LWPacketRegistrationGet.m */; };
@@ -118,6 +132,20 @@
 		CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthorizePacket.m; sourceTree = "<group>"; };
 		CD3CCDDB1C2B3DD400DDCE46 /* LWDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDeviceInfo.h; sourceTree = "<group>"; };
 		CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDeviceInfo.m; sourceTree = "<group>"; };
+		CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Black Italic.otf"; path = "Fonts/Proxima Nova Black Italic.otf"; sourceTree = "<group>"; };
+		CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Black.otf"; path = "Fonts/Proxima Nova Black.otf"; sourceTree = "<group>"; };
+		CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold Italic.otf"; path = "Fonts/Proxima Nova Bold Italic.otf"; sourceTree = "<group>"; };
+		CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold.otf"; path = "Fonts/Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Extrabold Italic.otf"; path = "Fonts/Proxima Nova Extrabold Italic.otf"; sourceTree = "<group>"; };
+		CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Extrabold.otf"; path = "Fonts/Proxima Nova Extrabold.otf"; sourceTree = "<group>"; };
+		CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Light Italic.otf"; path = "Fonts/Proxima Nova Light Italic.otf"; sourceTree = "<group>"; };
+		CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Light.otf"; path = "Fonts/Proxima Nova Light.otf"; sourceTree = "<group>"; };
+		CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Regular Italic.otf"; path = "Fonts/Proxima Nova Regular Italic.otf"; sourceTree = "<group>"; };
+		CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Regular.otf"; path = "Fonts/Proxima Nova Regular.otf"; sourceTree = "<group>"; };
+		CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Semibold Italic.otf"; path = "Fonts/Proxima Nova Semibold Italic.otf"; sourceTree = "<group>"; };
+		CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Semibold.otf"; path = "Fonts/Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
+		CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Thin Italic.otf"; path = "Fonts/Proxima Nova Thin Italic.otf"; sourceTree = "<group>"; };
+		CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Thin.otf"; path = "Fonts/Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		CDA69FCB1C275C3800BE4DCA /* LWKYCSubmitPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSubmitPresenter.h; sourceTree = "<group>"; };
 		CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSubmitPresenter.m; sourceTree = "<group>"; };
 		CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSubmitPresenter.xib; sourceTree = "<group>"; };
@@ -288,6 +316,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CD73626B1C2C26BE00924077 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */,
+				CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */,
+				CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */,
+				CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */,
+				CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */,
+				CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */,
+				CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */,
+				CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */,
+				CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */,
+				CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */,
+				CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */,
+				CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */,
+				CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */,
+				CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CDA9E7F01C25764E0067FB32 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +456,7 @@
 		CF6632421C175B54004353F5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD73626B1C2C26BE00924077 /* Fonts */,
 				CF6632431C175B54004353F5 /* Assets.xcassets */,
 				CF6632441C175B54004353F5 /* Info.plist */,
 				CF6632451C175B54004353F5 /* main.m */,
@@ -767,6 +817,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD7362801C2C26FF00924077 /* Proxima Nova Light Italic.otf in Resources */,
+				CD73627C1C2C26FF00924077 /* Proxima Nova Bold Italic.otf in Resources */,
+				CD73627B1C2C26FF00924077 /* Proxima Nova Black.otf in Resources */,
+				CD73627A1C2C26FF00924077 /* Proxima Nova Black Italic.otf in Resources */,
+				CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */,
+				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
+				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
+				CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */,
+				CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */,
+				CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */,
+				CD7362831C2C26FF00924077 /* Proxima Nova Regular.otf in Resources */,
+				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
+				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
+				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
 				CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */,
 				CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */,

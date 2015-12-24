@@ -42,6 +42,23 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Proxima Nova Black Italic.otf</string>
+		<string>Proxima Nova Black.otf</string>
+		<string>Proxima Nova Bold Italic.otf</string>
+		<string>Proxima Nova Bold.otf</string>
+		<string>Proxima Nova Extrabold Italic.otf</string>
+		<string>Proxima Nova Extrabold.otf</string>
+		<string>Proxima Nova Light Italic.otf</string>
+		<string>Proxima Nova Light.otf</string>
+		<string>Proxima Nova Regular Italic.otf</string>
+		<string>Proxima Nova Regular.otf</string>
+		<string>Proxima Nova Semibold Italic.otf</string>
+		<string>Proxima Nova Semibold.otf</string>
+		<string>Proxima Nova Thin Italic.otf</string>
+		<string>Proxima Nova Thin.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
