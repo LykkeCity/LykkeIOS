@@ -7,7 +7,8 @@
 //
 
 #import "TKNavigationController.h"
-
+#import "UIColor+Generic.h"
+#import "LWConstants.h"
 
 @interface TKNavigationController () {
     
@@ -23,8 +24,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.navigationBar.barTintColor = [UIColor whiteColor];
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:[title uppercaseString]];
 }
 
 @end

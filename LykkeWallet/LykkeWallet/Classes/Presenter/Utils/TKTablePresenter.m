@@ -22,4 +22,16 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.tabBarController) {
+        self.tabBarController.title = self.title;
+    }
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:[title uppercaseString]];
+}
+
 @end

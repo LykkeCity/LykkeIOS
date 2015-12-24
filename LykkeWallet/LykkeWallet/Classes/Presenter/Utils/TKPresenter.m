@@ -67,6 +67,10 @@
     [self unsubscribeAll];
 }
 
+- (void)setTitle:(NSString *)title {
+    [super setTitle:[title uppercaseString]];
+}
+
 
 #pragma mark - Setup
 

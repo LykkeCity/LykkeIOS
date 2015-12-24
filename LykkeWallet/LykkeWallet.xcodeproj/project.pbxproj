@@ -154,6 +154,7 @@
 		CDA69FDC1C281E1C00BE4DCA /* LWAuthValidationPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthValidationPresenter.h; sourceTree = "<group>"; };
 		CDA69FDD1C281E1C00BE4DCA /* LWAuthValidationPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthValidationPresenter.m; sourceTree = "<group>"; };
 		CDA69FDE1C281E1C00BE4DCA /* LWAuthValidationPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAuthValidationPresenter.xib; sourceTree = "<group>"; };
+		CDA81DDF1C2C449300FEEA70 /* LWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWConstants.h; sourceTree = "<group>"; };
 		CDCD5AE11C2576EB007BAD78 /* LWKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWKeychainManager.h; path = Security/LWKeychainManager.h; sourceTree = "<group>"; };
 		CDCD5AE21C2576EB007BAD78 /* LWKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWKeychainManager.m; path = Security/LWKeychainManager.m; sourceTree = "<group>"; };
 		CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTablePresenter.h; sourceTree = "<group>"; };
@@ -685,6 +686,7 @@
 				CF6A9CCF1C18ED2400B69F53 /* LWColorizer.m */,
 				CF6A9CD01C18ED2400B69F53 /* LWValidator.h */,
 				CF6A9CD11C18ED2400B69F53 /* LWValidator.m */,
+				CDA81DDF1C2C449300FEEA70 /* LWConstants.h */,
 				CF9EC90B1C17C6C100F742A6 /* Macro.h */,
 			);
 			path = UIHelpers;
