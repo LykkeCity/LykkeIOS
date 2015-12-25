@@ -38,6 +38,11 @@
 
 #pragma mark - Button Constants
 
+static NSString *const kLabelFontColor = kMainDarkElementsColor;
+
+
+#pragma mark - Button Constants
+
 static float     const kButtonFontSize  = 15.0;
 static NSString *const kButtonFontName  = kFontBold;
 static NSString *const kDisabledButtonFontColor = @"D6D6D6";

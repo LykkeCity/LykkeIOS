@@ -26,6 +26,7 @@
 
 - (void)customizePINScreen;
 - (void)customizeNavigationBar;
+- (void)customizeLabel;
 - (void)customizeButton;
 - (void)customizeTextField;
 
@@ -42,6 +43,7 @@
 
     [self customizePINScreen];
     [self customizeNavigationBar];
+    [self customizeLabel];
     [self customizeButton];
     [self customizeTextField];
 
@@ -98,6 +100,10 @@
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                        forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)customizeLabel {
+    [[UILabel appearance] setTextColor: [UIColor colorWithHexString:kLabelFontColor]];
 }
 
 - (void)customizeButton {
