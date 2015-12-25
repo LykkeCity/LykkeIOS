@@ -36,6 +36,10 @@
 "register.camera.photo.cancel" = "Not good, reshoot";
 "register.camera.photo.ok" = "Nice, submit";
 "register.kyc.pending" = "Dear %@, your information is being reviewed by our KYC team. It may take up to 15-20 minutes.";
+
+"register.kyc.restricted.header" = "OOPS!";
+"register.kyc.restricted" = "Dear %@, we're terribly sorry, but Lykke Wallet can't be created based on the KYC information that you have provided.";
+
 "register.kyc.invalidDocuments.header" = "OOPS!";
 "register.kyc.invalidDocuments" = "Dear %@, we're terribly sorry, but Lykke Wallet can't be created based on the KYC information that you have provided.";
 "register.kyc.invalidDocuments.okButton" = "Okay, I understood";

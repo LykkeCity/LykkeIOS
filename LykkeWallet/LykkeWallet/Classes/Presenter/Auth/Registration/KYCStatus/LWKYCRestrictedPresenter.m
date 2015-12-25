@@ -13,6 +13,9 @@
     
 }
 
+@property (weak, nonatomic) IBOutlet UILabel  *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *textLabel;
+
 @end
 
 
@@ -20,6 +23,12 @@
 
 
 #pragma mark - LWAuthStepPresenter
+
+- (void)localize {
+    self.headerLabel.text = Localize(@"register.kyc.restricted.header");
+    self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.restricted"),
+                           [LWAuthManager instance].registrationData.fullName];
+}
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterKYCRestricted;

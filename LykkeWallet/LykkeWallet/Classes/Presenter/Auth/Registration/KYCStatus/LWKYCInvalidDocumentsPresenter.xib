@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KYCStatusWallet" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-OV-lDX">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterFailed" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-OV-lDX">
                     <rect key="frame" x="62" y="60" width="197" height="206"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="206" id="CUc-lc-Icg"/>
@@ -84,6 +84,6 @@
     </objects>
     <resources>
         <image name="ButtonOKInactive" width="316" height="46"/>
-        <image name="KYCStatusWallet" width="178" height="178"/>
+        <image name="RegisterFailed" width="178" height="178"/>
     </resources>
 </document>
