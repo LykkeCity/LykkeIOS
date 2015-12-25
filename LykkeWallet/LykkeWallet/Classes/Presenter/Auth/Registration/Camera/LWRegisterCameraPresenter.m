@@ -96,15 +96,21 @@
     else {
         // display image picker
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-
-        // if camera unavailable - set photo library
+        // if camera is unavailable - set photo library
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        } else {
+        }
+        else {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
-
         imagePicker.delegate = self;
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        imagePicker.showsCameraControls = NO;
+        imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
+                                    ? UIImagePickerControllerCameraDeviceFront
+                                    : UIImagePickerControllerCameraDeviceRear);
+        imagePicker.navigationBarHidden = YES;
+        imagePicker.toolbarHidden = YES;
         
         [self presentViewController:imagePicker animated:YES completion:nil];
         [self checkButtonsState];
