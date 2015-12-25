@@ -112,6 +112,7 @@
 		CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF758451C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib */; };
 		CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */; };
 		CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
+		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -294,6 +295,8 @@
 		CFF758481C202D1100BC7658 /* LWKYCSuccessPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSuccessPresenter.h; sourceTree = "<group>"; };
 		CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSuccessPresenter.m; sourceTree = "<group>"; };
 		CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSuccessPresenter.xib; sourceTree = "<group>"; };
+		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
+		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +498,8 @@
 				CF66326B1C175DF0004353F5 /* TKTableViewCell.m */,
 				CF66326C1C175DF0004353F5 /* TKView.h */,
 				CF66326D1C175DF0004353F5 /* TKView.m */,
+				ECA80B591C2DE1A8001C4E8F /* TKButton.h */,
+				ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -966,6 +971,7 @@
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
+				ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
@@ -1067,6 +1073,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alexander Pukhov (X55U7MA35J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alexander Pukhov (X55U7MA35J)";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
@@ -1092,7 +1099,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (2UVFADLFC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (2UVFADLFC4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1114,6 +1122,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "b4602087-9ccd-481c-bec4-589d453824f3";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1160,7 +1169,8 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (2UVFADLFC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (2UVFADLFC4)";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;

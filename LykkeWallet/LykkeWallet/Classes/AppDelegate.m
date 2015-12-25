@@ -11,6 +11,7 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import "ABPadLockScreen.h"
+#import "TKButton.h"
 #import "TKNavigationController.h"
 #import "LWConstants.h"
 #import "UIColor+Generic.h"
@@ -25,6 +26,8 @@
 
 - (void)customizePINScreen;
 - (void)customizeNavigationBar;
+- (void)customizeButton;
+- (void)customizeTextField;
 
 @end
 
@@ -39,6 +42,8 @@
 
     [self customizePINScreen];
     [self customizeNavigationBar];
+    [self customizeButton];
+    [self customizeTextField];
 
     // init main controller
     self.mainController = [LWAuthNavigationController new];
@@ -93,6 +98,23 @@
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                        forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)customizeButton {
+    [[TKButton appearance] setTitleColor:[UIColor colorWithHexString:kDisabledButtonFontColor]
+                                forState:UIControlStateDisabled];
+    
+    [[TKButton appearance] setTitleColor:[UIColor colorWithHexString:kEnabledButtonFontColor]
+                                forState:UIControlStateNormal];
+    
+    [[TKButton appearance] setTitleFont:[UIFont fontWithName:kButtonFontName
+                                                        size:kButtonFontSize]];
+}
+
+- (void)customizeTextField {
+    [[UITextField appearance] setFont:[UIFont fontWithName:kTextFieldFontName
+                                                      size:kTextFieldFontSize]];
+    [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor colorWithHexString:kTextFieldFontColor]];
 }
 
 @end

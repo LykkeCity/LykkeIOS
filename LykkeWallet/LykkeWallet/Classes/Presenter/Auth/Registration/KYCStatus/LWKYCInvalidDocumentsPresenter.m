@@ -10,6 +10,8 @@
 #import "LWRegisterCameraPresenter.h"
 #import "LWRegistrationData.h"
 #import "TKPresenter+Loading.h"
+#import "TKButton.h"
+#import "LWConstants.h"
 
 
 @interface LWKYCInvalidDocumentsPresenter () {
@@ -18,7 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel  *headerLabel;
 @property (weak, nonatomic) IBOutlet UILabel  *textLabel;
-@property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet TKButton *okButton;
 
 
 #pragma mark - Actions
@@ -37,6 +39,9 @@
     [super viewWillAppear:animated];
     
     [self setLoading:YES];
+
+    [self.okButton setTitleFont:[UIFont fontWithName:kFontSemibold size:kButtonFontSize]];
+    [self.okButton setTitleColor:[UIColor colorWithHexString:kMainDarkElementsColor] forState:UIControlStateNormal];
     
     [[LWAuthManager instance] requestDocumentsToUpload];
 }
