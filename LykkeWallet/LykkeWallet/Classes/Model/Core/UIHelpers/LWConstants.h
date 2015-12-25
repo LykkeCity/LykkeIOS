@@ -26,11 +26,40 @@
  ProximaNova-ThinIt
  */
 
+#pragma mark - General Constants
+
+#define kFontBold @"ProximaNova-Bold"
+#define kFontRegular @"ProximaNova-Regular"
+#define kFontSemibold @"ProximaNova-Semibold"
+
 #define kMainElementsColor @"AB00FF"
+#define kMainDarkElementsColor @"3F4D60"
+
+
+#pragma mark - Button Constants
+
+static NSString *const kLabelFontColor = kMainDarkElementsColor;
+
+
+#pragma mark - Button Constants
+
+static float     const kButtonFontSize  = 15.0;
+static NSString *const kButtonFontName  = kFontBold;
+static NSString *const kDisabledButtonFontColor = @"D6D6D6";
+static NSString *const kEnabledButtonFontColor = @"FFFFFF";
+
+
+#pragma mark - Text Field Constants
+
+static float     const kTextFieldFontSize  = 17.0;
+static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
+static NSString *const kTextFieldFontName  = kFontRegular;
+
+
+#pragma mark - Navigation Bar Constants
 
 static NSString *const kNavigationBarTintColor = kMainElementsColor;
 
 static float     const kNavigationBarFontSize  = 17.0;
-static NSString *const kNavigationBarFontColor = @"3F4D60";
-static NSString *const kNavigationBarFontName  = @"ProximaNova-Semibold";
-
+static NSString *const kNavigationBarFontColor = kMainDarkElementsColor;
+static NSString *const kNavigationBarFontName  = kFontSemibold;

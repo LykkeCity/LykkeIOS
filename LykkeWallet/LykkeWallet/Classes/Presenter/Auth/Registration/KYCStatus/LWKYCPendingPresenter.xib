@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWKYCPendingPresenter">
             <connections>
@@ -24,17 +29,17 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dear Christian P. Clements, your information is being reviewed by our KYC team. It may take up to 15-20 minutes." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne1-q5-5YQ">
-                    <rect key="frame" x="23" y="293" width="275" height="77"/>
+                    <rect key="frame" x="23" y="311" width="275" height="77"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="275" id="RCY-yN-iUB"/>
                         <constraint firstAttribute="height" constant="77" id="wm5-W4-vMA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                     <color key="textColor" red="0.56470588239999997" green="0.58431372550000005" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="npx-Aj-5hI">
-                    <rect key="frame" x="150" y="378" width="20" height="20"/>
+                    <rect key="frame" x="150" y="396" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -42,7 +47,7 @@
                 <constraint firstItem="npx-Aj-5hI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0eD-LX-hSu"/>
                 <constraint firstItem="Ne1-q5-5YQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="74Z-Eu-a9Z"/>
                 <constraint firstItem="AAh-rJ-UAw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OJJ-c5-qcM"/>
-                <constraint firstItem="Ne1-q5-5YQ" firstAttribute="top" secondItem="AAh-rJ-UAw" secondAttribute="bottom" constant="27" id="fN4-7n-2DA"/>
+                <constraint firstItem="Ne1-q5-5YQ" firstAttribute="top" secondItem="AAh-rJ-UAw" secondAttribute="bottom" constant="45" id="fN4-7n-2DA"/>
                 <constraint firstItem="AAh-rJ-UAw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="mtB-ps-WhO"/>
                 <constraint firstItem="npx-Aj-5hI" firstAttribute="top" secondItem="Ne1-q5-5YQ" secondAttribute="bottom" constant="8" id="wN1-Ec-nmu"/>
             </constraints>
