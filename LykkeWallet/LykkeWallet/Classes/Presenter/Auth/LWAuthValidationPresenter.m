@@ -9,7 +9,7 @@
 #import "LWAuthValidationPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWAuthManager.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWAuthValidationPresenter () {

@@ -13,7 +13,7 @@
 #import "LWTextField.h"
 #import "LWValidator.h"
 #import "LWDeviceInfo.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWAuthenticationPresenter () <LWTextFieldDelegate, LWAuthManagerDelegate> {

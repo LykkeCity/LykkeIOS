@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWRegisterCameraSelfiePresenter">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWRegisterCameraPresenter">
             <connections>
                 <outlet property="cancelButton" destination="ne8-PU-fLU" id="AM3-mv-ppX"/>
                 <outlet property="okButton" destination="rtU-XG-JPl" id="uY3-ft-plD"/>

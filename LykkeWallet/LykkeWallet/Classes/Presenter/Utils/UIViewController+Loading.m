@@ -1,16 +1,16 @@
 //
-//  TKPresenter+Loading.m
+//  UIViewController+Loading.m
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 16.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKPresenter+Loading.h"
-#import "MBProgressHUD.h"
+#import "UIViewController+Loading.h"
+#import "Macro.h"
 
 
-@implementation TKPresenter (Loading)
+@implementation UIViewController (Loading)
 
 
 - (void)setLoading:(BOOL)loading {

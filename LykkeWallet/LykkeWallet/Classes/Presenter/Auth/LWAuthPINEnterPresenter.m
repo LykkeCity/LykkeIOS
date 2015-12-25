@@ -13,7 +13,7 @@
 #import "LWAuthNavigationController.h"
 #import "ABPadLockScreen.h"
 #import "LWPacketPinSecurityGet.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 static int const kAllowedAttempts = 3;

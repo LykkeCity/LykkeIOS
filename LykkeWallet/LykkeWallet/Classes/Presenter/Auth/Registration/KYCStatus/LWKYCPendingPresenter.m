@@ -12,7 +12,7 @@
 #import "LWPacketKYCStatusSet.h"
 #import "LWPacketKYCStatusGet.h"
 #import "LWAuthNavigationController.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWKYCPendingPresenter () {

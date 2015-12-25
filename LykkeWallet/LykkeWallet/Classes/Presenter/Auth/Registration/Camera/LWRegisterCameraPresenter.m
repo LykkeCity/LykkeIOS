@@ -7,10 +7,8 @@
 //
 
 #import "LWRegisterCameraPresenter.h"
-#import "MBProgressHUD.h"
 #import "LWAuthNavigationController.h"
-#import "LWRegisterCameraSelfiePresenter.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
@@ -99,18 +97,17 @@
         // if camera is unavailable - set photo library
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+            imagePicker.showsCameraControls = NO;
+            imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
+                                        ? UIImagePickerControllerCameraDeviceFront
+                                        : UIImagePickerControllerCameraDeviceRear);
+            imagePicker.toolbarHidden = YES;
         }
         else {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
         imagePicker.delegate = self;
-        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-        imagePicker.showsCameraControls = NO;
-        imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
-                                    ? UIImagePickerControllerCameraDeviceFront
-                                    : UIImagePickerControllerCameraDeviceRear);
-        imagePicker.navigationBarHidden = YES;
-        imagePicker.toolbarHidden = YES;
         
         [self presentViewController:imagePicker animated:YES completion:nil];
         [self checkButtonsState];

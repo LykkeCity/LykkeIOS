@@ -9,7 +9,7 @@
 #import "LWKYCInvalidDocumentsPresenter.h"
 #import "LWRegisterCameraPresenter.h"
 #import "LWRegistrationData.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWKYCInvalidDocumentsPresenter () {

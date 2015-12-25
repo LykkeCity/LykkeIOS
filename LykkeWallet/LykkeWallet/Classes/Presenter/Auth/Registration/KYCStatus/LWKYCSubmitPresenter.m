@@ -8,7 +8,7 @@
 
 #import "LWKYCSubmitPresenter.h"
 #import "LWAuthNavigationController.h"
-#import "TKPresenter+Loading.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWKYCSubmitPresenter () {

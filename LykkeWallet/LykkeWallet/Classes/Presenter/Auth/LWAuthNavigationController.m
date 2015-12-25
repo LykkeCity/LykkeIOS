@@ -19,14 +19,13 @@
 #import "LWAuthenticationPresenter.h"
 #import "LWAuthValidationPresenter.h"
 #import "LWAuthPINEnterPresenter.h"
-#import "LWRegisterCameraSelfiePresenter.h"
 #import "LWKYCSubmitPresenter.h"
 #import "LWKYCPendingPresenter.h"
 #import "LWKYCInvalidDocumentsPresenter.h"
 #import "LWKYCRestrictedPresenter.h"
 #import "LWKYCSuccessPresenter.h"
 #import "LWRegisterPINSetupPresenter.h"
-
+#import "LWRegisterCameraPresenter.h"
 // tab presenters
 #import "LWTabController.h"
 #import "LWWalletsPresenter.h"
@@ -78,7 +77,7 @@
                     LWRegisterPasswordPresenter.class,
                     LWRegisterConfirmPasswordPresenter.class,
                     
-                    LWRegisterCameraSelfiePresenter.class,
+                    LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWKYCSubmitPresenter.class,
