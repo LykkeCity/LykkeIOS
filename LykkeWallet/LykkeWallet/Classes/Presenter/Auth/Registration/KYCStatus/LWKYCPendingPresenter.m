@@ -9,6 +9,7 @@
 #import "LWKYCPendingPresenter.h"
 #import "LWRegistrationData.h"
 #import "LWAuthManager.h"
+#import "LWKeychainManager.h"
 #import "LWPacketKYCStatusSet.h"
 #import "LWPacketKYCStatusGet.h"
 #import "LWAuthNavigationController.h"
@@ -37,7 +38,7 @@
 
 - (void)localize {
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.pending"),
-                           [LWAuthManager instance].registrationData.fullName];
+                           [LWKeychainManager instance].fullName];
 }
 
 - (LWAuthStep)stepId {

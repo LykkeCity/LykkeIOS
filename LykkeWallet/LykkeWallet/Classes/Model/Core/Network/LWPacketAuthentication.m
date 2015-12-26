@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketAuthentication.h"
+#import "LWPersonalData.h"
 #import "LWKeychainManager.h"
 
 
@@ -24,8 +25,13 @@
     _token = result[@"Token"];
     _status = result[@"KycStatus"];
     _isPinEntered = [result[@"PinIsEntered"] boolValue];
+    _personalData = [[LWPersonalData alloc]
+                     initWithJSON:[result objectForKey:@"PersonalData"]];
     
-    [[LWKeychainManager instance] saveLogin:self.authenticationData.email token:_token];
+    [[LWKeychainManager instance] saveLogin:self.authenticationData.email
+                                      token:_token];
+    
+    [[LWKeychainManager instance] savePersonalData:_personalData];
 }
 
 - (NSString *)urlRelative {

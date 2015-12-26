@@ -6,15 +6,15 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthorizePacket.h"
+#import "LWPersonalDataPacket.h"
 #import "LWDocumentsStatus.h"
 
 
-@interface LWPacketKYCSendDocument : LWAuthorizePacket {
+@interface LWPacketKYCSendDocument : LWPersonalDataPacket {
     
 }
 // in
-@property (copy, nonatomic)   NSData          *imageJPEGRepresentation;
-@property (assign, nonatomic) KYCDocumentType docType;
+@property (copy, nonatomic)   NSData           *imageJPEGRepresentation;
+@property (assign, nonatomic) KYCDocumentType  docType;
 
 @end

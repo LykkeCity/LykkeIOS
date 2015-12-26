@@ -89,7 +89,7 @@
         activeSteps = [NSMutableDictionary new];
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;
     }
-    
+
     return self;
 }
 

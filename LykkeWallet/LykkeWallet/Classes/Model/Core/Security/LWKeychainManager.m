@@ -7,11 +7,14 @@
 //
 
 #import "LWKeychainManager.h"
+#import "LWPersonalData.h"
 #import <Valet/Valet.h>
 
-static NSString *const kKeychainManagerAppId = @"LykkeWallet";
-static NSString *const kKeychainManagerToken = @"Token";
-static NSString *const kKeychainManagerLogin = @"Login";
+static NSString *const kKeychainManagerAppId    = @"LykkeWallet";
+static NSString *const kKeychainManagerToken    = @"Token";
+static NSString *const kKeychainManagerLogin    = @"Login";
+static NSString *const kKeychainManagerPhone    = @"Phone";
+static NSString *const kKeychainManagerFullName = @"FullName";
 
 
 @interface LWKeychainManager () {
@@ -43,9 +46,24 @@ SINGLETON_INIT {
     [valet setString:login forKey:kKeychainManagerLogin];
 }
 
+- (void)savePersonalData:(LWPersonalData *)personalData {
+    if (personalData) {
+        if (personalData.phone
+            && ![personalData.phone isKindOfClass:[NSNull class]]) {
+            [valet setString:personalData.phone    forKey:kKeychainManagerPhone];
+        }
+        if (personalData.fullName
+            && ![personalData.fullName isKindOfClass:[NSNull class]]) {
+            [valet setString:personalData.fullName forKey:kKeychainManagerFullName];
+        }
+    }
+}
+
 - (void)clear {
     [valet removeObjectForKey:kKeychainManagerToken];
     [valet removeObjectForKey:kKeychainManagerLogin];
+    [valet removeObjectForKey:kKeychainManagerPhone];
+    [valet removeObjectForKey:kKeychainManagerFullName];
 }
 
 
@@ -61,6 +79,10 @@ SINGLETON_INIT {
 
 - (BOOL)isAuthenticated {
     return (self.token && ![self.token isEqualToString:@""]);
+}
+
+- (NSString *)fullName {
+    return [valet stringForKey:kKeychainManagerFullName];
 }
 
 @end

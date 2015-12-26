@@ -115,6 +115,8 @@
 		ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */; };
 		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
 		ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */; };
+		ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC61C2EB63500E1D3DA /* LWPersonalData.m */; };
+		ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +304,10 @@
 		ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCameraOverlayPresenter.xib; path = Utils/LWCameraOverlayPresenter.xib; sourceTree = "<group>"; };
 		ECD76BC21C2EA81100E1D3DA /* LWPacketPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPersonalData.h; sourceTree = "<group>"; };
 		ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPersonalData.m; sourceTree = "<group>"; };
+		ECD76BC51C2EB63400E1D3DA /* LWPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalData.h; sourceTree = "<group>"; };
+		ECD76BC61C2EB63500E1D3DA /* LWPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalData.m; sourceTree = "<group>"; };
+		ECD76BC81C2EBE9C00E1D3DA /* LWPersonalDataPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalDataPacket.h; sourceTree = "<group>"; };
+		ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalDataPacket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +572,8 @@
 				CF6A9CD61C18ED7E00B69F53 /* LWPacket.m */,
 				CD10AAB01C1E16260086634B /* LWAuthorizePacket.h */,
 				CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */,
+				ECD76BC81C2EBE9C00E1D3DA /* LWPersonalDataPacket.h */,
+				ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -642,6 +650,8 @@
 				CF86B3771C1B6566006D5488 /* LWRegistrationData.m */,
 				CFAD8A8B1C1D5E4B00185CD1 /* LWDocumentsStatus.h */,
 				CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */,
+				ECD76BC51C2EB63400E1D3DA /* LWPersonalData.h */,
+				ECD76BC61C2EB63500E1D3DA /* LWPersonalData.m */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -986,6 +996,7 @@
 				CD10AAA31C1E0B530086634B /* LWPacketAuthentication.m in Sources */,
 				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,
 				CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */,
+				ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
@@ -1016,6 +1027,7 @@
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
+				ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */,
 				ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */,
 				CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */,
 			);

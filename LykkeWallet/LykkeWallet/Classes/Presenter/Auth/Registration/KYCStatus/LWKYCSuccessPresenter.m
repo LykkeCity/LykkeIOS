@@ -8,6 +8,7 @@
 
 #import "LWKYCSuccessPresenter.h"
 #import "LWRegistrationData.h"
+#import "LWKeychainManager.h"
 
 
 @interface LWKYCSuccessPresenter () {
@@ -34,7 +35,7 @@
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.success.header");
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.success"),
-                           [LWAuthManager instance].registrationData.fullName];
+                           [LWKeychainManager instance].fullName];
     [self.okButton setTitle:[Localize(@"register.kyc.success.okButton") uppercaseString]
                    forState:UIControlStateNormal];
 }

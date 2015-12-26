@@ -9,6 +9,7 @@
 #import "LWKYCInvalidDocumentsPresenter.h"
 #import "LWRegisterCameraPresenter.h"
 #import "LWRegistrationData.h"
+#import "LWKeychainManager.h"
 #import "UIViewController+Loading.h"
 #import "TKButton.h"
 #import "LWConstants.h"
@@ -49,7 +50,7 @@
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.invalidDocuments.header");
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.invalidDocuments"),
-                           [LWAuthManager instance].registrationData.fullName];
+                           [LWKeychainManager instance].fullName];
     [self.okButton setTitle:[Localize(@"register.kyc.invalidDocuments.okButton") uppercaseString]
                    forState:UIControlStateNormal];
 }

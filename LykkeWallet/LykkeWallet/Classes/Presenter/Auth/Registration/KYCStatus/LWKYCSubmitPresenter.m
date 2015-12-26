@@ -8,6 +8,7 @@
 
 #import "LWKYCSubmitPresenter.h"
 #import "LWAuthNavigationController.h"
+#import "LWKeychainManager.h"
 #import "UIViewController+Loading.h"
 
 
@@ -39,10 +40,8 @@
 
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.submit.header");
-    self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.submit"),
-                           [LWAuthManager instance].registrationData.fullName];
-    [self.submitButton setTitle:[Localize(@"register.kyc.submit.submitButton") uppercaseString]
-                       forState:UIControlStateNormal];
+    self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.submit"), [LWKeychainManager instance].fullName];
+    [self.submitButton setTitle:[Localize(@"register.kyc.submit.submitButton") uppercaseString] forState:UIControlStateNormal];
 }
 
 - (LWAuthStep)stepId {

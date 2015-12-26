@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Macro.h"
 
+@class LWPersonalData;
 
 @interface LWKeychainManager : NSObject {
     
@@ -24,6 +25,12 @@ SINGLETON_DECLARE
 #pragma mark - Common
 
 - (void)saveLogin:(NSString *)login token:(NSString *)token;
+- (void)savePersonalData:(LWPersonalData *)personalData;
 - (void)clear;
+
+
+#pragma mark - Properties
+
+- (NSString *)fullName;
 
 @end

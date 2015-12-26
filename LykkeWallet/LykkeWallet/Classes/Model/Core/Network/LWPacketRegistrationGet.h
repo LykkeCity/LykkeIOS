@@ -6,10 +6,9 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthorizePacket.h"
+#import "LWPersonalDataPacket.h"
 
-
-@interface LWPacketRegistrationGet : LWAuthorizePacket {
+@interface LWPacketRegistrationGet : LWPersonalDataPacket {
     
 }
 // out

@@ -7,6 +7,7 @@
 //
 
 #import "LWKYCRestrictedPresenter.h"
+#import "LWKeychainManager.h"
 
 
 @interface LWKYCRestrictedPresenter () {
@@ -27,7 +28,7 @@
 - (void)localize {
     self.headerLabel.text = Localize(@"register.kyc.restricted.header");
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.kyc.restricted"),
-                           [LWAuthManager instance].registrationData.fullName];
+                           [LWKeychainManager instance].fullName];
 }
 
 - (LWAuthStep)stepId {
