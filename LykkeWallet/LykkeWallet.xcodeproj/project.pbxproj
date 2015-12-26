@@ -54,7 +54,6 @@
 		CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCE884D1C26F6630039798B /* LWAuthenticationPresenter.m */; };
 		CDCE88501C26F6630039798B /* LWAuthenticationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCE884E1C26F6630039798B /* LWAuthenticationPresenter.xib */; };
 		CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF21DC8C1C17590E00D2399E /* LaunchScreen.storyboard */; };
-		CF37D8C21C21CEDE0021B94E /* TKPresenter+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF37D8C11C21CEDE0021B94E /* TKPresenter+Loading.m */; };
 		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
 		CF6632471C175B54004353F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		CF6632491C175B54004353F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632451C175B54004353F5 /* main.m */; };
@@ -101,8 +100,6 @@
 		CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9B7021C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m */; };
 		CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9B7051C1C945C00F717FE /* LWPacketKYCSendDocument.m */; };
 		CFF2AAE21C1F893000320FF9 /* LWRegisterCameraPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF2AAE01C1F893000320FF9 /* LWRegisterCameraPresenter.m */; };
-		CFF2AAE71C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF2AAE51C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m */; };
-		CFF2AAE81C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF2AAE61C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib */; };
 		CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF758371C20233A00BC7658 /* LWKYCPresenter.m */; };
 		CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF7583A1C202C6500BC7658 /* LWKYCPendingPresenter.m */; };
 		CFF7583D1C202C6500BC7658 /* LWKYCPendingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7583B1C202C6500BC7658 /* LWKYCPendingPresenter.xib */; };
@@ -113,6 +110,10 @@
 		CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */; };
 		CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
+		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
+		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
+		ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */; };
+		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,8 +189,6 @@
 		CDCE884E1C26F6630039798B /* LWAuthenticationPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAuthenticationPresenter.xib; path = Authentication/LWAuthenticationPresenter.xib; sourceTree = "<group>"; };
 		CF21DC7B1C17590E00D2399E /* LykkeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LykkeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF21DC8D1C17590E00D2399E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CF37D8C01C21CEDE0021B94E /* TKPresenter+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKPresenter+Loading.h"; sourceTree = "<group>"; };
-		CF37D8C11C21CEDE0021B94E /* TKPresenter+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKPresenter+Loading.m"; sourceTree = "<group>"; };
 		CF66323D1C175B54004353F5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF66323E1C175B54004353F5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CF6632431C175B54004353F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,9 +277,6 @@
 		CFD9B7051C1C945C00F717FE /* LWPacketKYCSendDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocument.m; sourceTree = "<group>"; };
 		CFF2AADF1C1F893000320FF9 /* LWRegisterCameraPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterCameraPresenter.h; sourceTree = "<group>"; };
 		CFF2AAE01C1F893000320FF9 /* LWRegisterCameraPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterCameraPresenter.m; sourceTree = "<group>"; };
-		CFF2AAE41C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRegisterCameraSelfiePresenter.h; sourceTree = "<group>"; };
-		CFF2AAE51C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRegisterCameraSelfiePresenter.m; sourceTree = "<group>"; };
-		CFF2AAE61C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterCameraSelfiePresenter.xib; sourceTree = "<group>"; };
 		CFF758361C20233A00BC7658 /* LWKYCPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCPresenter.h; sourceTree = "<group>"; };
 		CFF758371C20233A00BC7658 /* LWKYCPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCPresenter.m; sourceTree = "<group>"; };
 		CFF758391C202C6500BC7658 /* LWKYCPendingPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCPendingPresenter.h; sourceTree = "<group>"; };
@@ -297,6 +293,12 @@
 		CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSuccessPresenter.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
+		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
+		ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Loading.m"; sourceTree = "<group>"; };
+		ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRegisterCameraPresenter.xib; sourceTree = "<group>"; };
+		ECA80B621C2E0E47001C4E8F /* LWCameraOverlayPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCameraOverlayPresenter.h; path = Utils/LWCameraOverlayPresenter.h; sourceTree = "<group>"; };
+		ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCameraOverlayPresenter.m; path = Utils/LWCameraOverlayPresenter.m; sourceTree = "<group>"; };
+		ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCameraOverlayPresenter.xib; path = Utils/LWCameraOverlayPresenter.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,14 +475,14 @@
 		CF66325E1C175DE5004353F5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */,
+				ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */,
 				CF66325F1C175DE5004353F5 /* TKNavigationController.h */,
 				CF6632601C175DE5004353F5 /* TKNavigationController.m */,
 				CF6632611C175DE5004353F5 /* TKPresenter.h */,
 				CF6632621C175DE5004353F5 /* TKPresenter.m */,
 				CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */,
 				CDCD5AE51C259586007BAD78 /* TKTablePresenter.m */,
-				CF37D8C01C21CEDE0021B94E /* TKPresenter+Loading.h */,
-				CF37D8C11C21CEDE0021B94E /* TKPresenter+Loading.m */,
 				CF6632881C176AB1004353F5 /* LWTabController.h */,
 				CF6632891C176AB1004353F5 /* LWTabController.m */,
 			);
@@ -721,9 +723,8 @@
 			children = (
 				CFF2AADF1C1F893000320FF9 /* LWRegisterCameraPresenter.h */,
 				CFF2AAE01C1F893000320FF9 /* LWRegisterCameraPresenter.m */,
-				CFF2AAE41C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.h */,
-				CFF2AAE51C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m */,
-				CFF2AAE61C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib */,
+				ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */,
+				ECA80B611C2E0E38001C4E8F /* Utils */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -758,6 +759,16 @@
 				B1A20FEBD41AE93CA79087B5 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECA80B611C2E0E38001C4E8F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ECA80B621C2E0E47001C4E8F /* LWCameraOverlayPresenter.h */,
+				ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */,
+				ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -840,14 +851,15 @@
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
 				CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */,
+				ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */,
 				CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */,
 				CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
+				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
-				CFF2AAE81C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.xib in Resources */,
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
 				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
 				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
@@ -938,6 +950,7 @@
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
+				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
 				CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */,
@@ -990,14 +1003,13 @@
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				CF6F69D01C2413F70016CFC5 /* ABPadLockScreenAbstractViewController.m in Sources */,
 				CF6F69CF1C2413F70016CFC5 /* ABPadButton.m in Sources */,
+				ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */,
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				CDA69FDF1C281E1C00BE4DCA /* LWAuthValidationPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
-				CF37D8C21C21CEDE0021B94E /* TKPresenter+Loading.m in Sources */,
-				CFF2AAE71C1F895200320FF9 /* LWRegisterCameraSelfiePresenter.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
 				CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */,
 			);
