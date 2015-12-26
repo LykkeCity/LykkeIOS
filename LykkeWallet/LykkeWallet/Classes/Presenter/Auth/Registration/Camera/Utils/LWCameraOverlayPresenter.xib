@@ -20,8 +20,72 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-VZ-Gx8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ddQ-oM-ouq"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="REGISTER" id="HhN-xZ-aQE">
+                            <barButtonItem key="leftBarButtonItem" image="BackIcon" style="plain" id="TTA-aa-W3x">
+                                <color key="tintColor" red="0.58431372549019611" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="closeButtonClick:" destination="-1" id="bm4-Hj-WIV"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-5U-6hY">
+                    <rect key="frame" x="0.0" y="466" width="320" height="102"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exs-XU-MtT">
+                            <rect key="frame" x="123" y="13" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="Bxv-Td-6Se"/>
+                                <constraint firstAttribute="width" constant="75" id="N7D-8B-p1Q"/>
+                            </constraints>
+                            <state key="normal" image="ButtonCameraTakePicture"/>
+                            <connections>
+                                <action selector="takePictureButtonClick:" destination="-1" eventType="touchUpInside" id="xvO-Cd-dFS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8n-c5-GD5">
+                            <rect key="frame" x="237" y="13" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="9Yf-jw-6V6"/>
+                                <constraint firstAttribute="width" constant="75" id="K0U-fX-jx2"/>
+                            </constraints>
+                            <state key="normal" image="ButtonCameraSwitch"/>
+                            <connections>
+                                <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="Vpp-Ke-ycI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeE-xF-3j7">
+                            <rect key="frame" x="8" y="12" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="21V-zq-B4X"/>
+                                <constraint firstAttribute="height" constant="75" id="mNg-pz-dyL"/>
+                            </constraints>
+                            <state key="normal" image="ButtonCameraSelectGallery"/>
+                            <connections>
+                                <action selector="selectFileButtonClick:" destination="-1" eventType="touchUpInside" id="crn-3l-ROJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Exs-XU-MtT" firstAttribute="centerX" secondItem="Qx2-5U-6hY" secondAttribute="centerX" id="D40-v9-jJ3"/>
+                        <constraint firstAttribute="bottom" secondItem="X8n-c5-GD5" secondAttribute="bottom" constant="14" id="KZX-PG-zIn"/>
+                        <constraint firstAttribute="bottom" secondItem="HeE-xF-3j7" secondAttribute="bottom" constant="15" id="MUl-Ns-CY4"/>
+                        <constraint firstItem="HeE-xF-3j7" firstAttribute="leading" secondItem="Qx2-5U-6hY" secondAttribute="leading" constant="8" id="Qyn-nc-a28"/>
+                        <constraint firstItem="Exs-XU-MtT" firstAttribute="centerY" secondItem="Qx2-5U-6hY" secondAttribute="centerY" id="S2h-9P-rwY"/>
+                        <constraint firstAttribute="height" constant="102" id="cXi-GX-eXR"/>
+                        <constraint firstAttribute="trailing" secondItem="X8n-c5-GD5" secondAttribute="trailing" constant="8" id="dPp-tV-A51"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a selfie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Md-fwi">
-                    <rect key="frame" x="8" y="0.0" width="304" height="21"/>
+                    <rect key="frame" x="8" y="57" width="304" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="dwp-QV-dVW"/>
                     </constraints>
@@ -29,62 +93,36 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep2" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-bG-cYA">
-                    <rect key="frame" x="0.0" y="29" width="320" height="40"/>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep3" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-bG-cYA">
+                    <rect key="frame" x="0.0" y="86" width="320" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="GmR-4Z-ZbN"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6K-QS-TqL" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="304" id="UAT-cq-wVc"/>
-                        <constraint firstAttribute="height" constant="45" id="cHf-gf-8u4"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="NICE, SUBMIT" backgroundImage="ButtonOK">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-1f-9Qv">
-                    <rect key="frame" x="8" y="77" width="304" height="377"/>
-                    <color key="backgroundColor" red="0.84250801279999998" green="0.84250801279999998" blue="0.84250801279999998" alpha="1" colorSpace="calibratedRGB"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjO-5O-4Tt" customClass="TKButton">
-                    <rect key="frame" x="8" y="462" width="304" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="JIb-Ya-l1Z"/>
-                        <constraint firstAttribute="width" constant="304" id="gFe-iX-RDR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="NOT GOOD, RESHOOT" backgroundImage="ButtonOKInactive">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Y6K-QS-TqL" secondAttribute="bottom" constant="8" id="7wq-2Y-aNf"/>
+                <constraint firstAttribute="trailing" secondItem="Qx2-5U-6hY" secondAttribute="trailing" id="38v-2k-WhH"/>
+                <constraint firstAttribute="bottom" secondItem="Qx2-5U-6hY" secondAttribute="bottom" id="57E-rx-MK2"/>
                 <constraint firstAttribute="trailing" secondItem="b6l-bG-cYA" secondAttribute="trailing" id="8g2-2B-yC7"/>
                 <constraint firstItem="b6l-bG-cYA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8hG-fG-kIZ"/>
-                <constraint firstItem="DVO-1f-9Qv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="AeT-xs-UK1"/>
                 <constraint firstItem="b6l-bG-cYA" firstAttribute="top" secondItem="gda-Md-fwi" secondAttribute="bottom" constant="8" id="FwP-TK-ZPn"/>
-                <constraint firstItem="Y6K-QS-TqL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q6J-pw-fwD"/>
-                <constraint firstAttribute="trailing" secondItem="DVO-1f-9Qv" secondAttribute="trailing" constant="8" id="TWt-dy-I9a"/>
-                <constraint firstItem="DVO-1f-9Qv" firstAttribute="top" secondItem="b6l-bG-cYA" secondAttribute="bottom" constant="8" id="VRi-vg-1Fj"/>
-                <constraint firstItem="Y6K-QS-TqL" firstAttribute="top" secondItem="KjO-5O-4Tt" secondAttribute="bottom" constant="8" id="Yqz-sr-Gem"/>
-                <constraint firstItem="KjO-5O-4Tt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZE6-wV-V8v"/>
+                <constraint firstAttribute="trailing" secondItem="DBg-VZ-Gx8" secondAttribute="trailing" id="JAJ-Sn-igL"/>
+                <constraint firstItem="Qx2-5U-6hY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zh9-pG-avw"/>
                 <constraint firstAttribute="trailing" secondItem="gda-Md-fwi" secondAttribute="trailing" constant="8" id="a8d-gP-wwz"/>
-                <constraint firstItem="Y6K-QS-TqL" firstAttribute="top" secondItem="DVO-1f-9Qv" secondAttribute="bottom" constant="61" id="dms-cQ-qpE"/>
+                <constraint firstItem="DBg-VZ-Gx8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cC1-ed-8c5"/>
                 <constraint firstItem="gda-Md-fwi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hB2-4k-o58"/>
-                <constraint firstItem="gda-Md-fwi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcf-eC-Nr3"/>
+                <constraint firstItem="gda-Md-fwi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="57" id="vcf-eC-Nr3"/>
+                <constraint firstItem="DBg-VZ-Gx8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vlx-Iq-DPa"/>
             </constraints>
             <point key="canvasLocation" x="252" y="319"/>
         </view>
     </objects>
     <resources>
-        <image name="ButtonOK" width="315" height="45"/>
-        <image name="ButtonOKInactive" width="316" height="46"/>
-        <image name="RegisterLineStep2" width="303" height="36"/>
+        <image name="BackIcon" width="22" height="22"/>
+        <image name="ButtonCameraSelectGallery" width="35" height="35"/>
+        <image name="ButtonCameraSwitch" width="23" height="36"/>
+        <image name="ButtonCameraTakePicture" width="75" height="75"/>
+        <image name="RegisterLineStep3" width="303" height="36"/>
     </resources>
 </document>

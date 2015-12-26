@@ -10,10 +10,11 @@
 #import "LWAuthNavigationController.h"
 #import "UIViewController+Loading.h"
 #import "LWConstants.h"
+#import "LWCameraOverlayPresenter.h"
 
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
-    
+    LWCameraOverlayPresenter *cameraOverlayPresenter;
 }
 
 #pragma mark - Utils
@@ -112,6 +113,12 @@
                                         ? UIImagePickerControllerCameraDeviceFront
                                         : UIImagePickerControllerCameraDeviceRear);
             imagePicker.toolbarHidden = YES;
+            // configure overlay
+            if (!cameraOverlayPresenter) {
+                cameraOverlayPresenter = [LWCameraOverlayPresenter new];
+                cameraOverlayPresenter.pickerReference = imagePicker;
+            }
+            imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
         }
         else {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;

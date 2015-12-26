@@ -741,10 +741,10 @@
 		CFF2AADE1C1F88B800320FF9 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				ECA80B611C2E0E38001C4E8F /* Utils */,
 				CFF2AADF1C1F893000320FF9 /* LWRegisterCameraPresenter.h */,
 				CFF2AAE01C1F893000320FF9 /* LWRegisterCameraPresenter.m */,
 				ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */,
-				ECA80B611C2E0E38001C4E8F /* Utils */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
