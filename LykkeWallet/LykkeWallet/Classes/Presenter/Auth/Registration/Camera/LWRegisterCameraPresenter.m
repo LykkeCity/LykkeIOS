@@ -9,6 +9,7 @@
 #import "LWRegisterCameraPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "UIViewController+Loading.h"
+#import "LWConstants.h"
 
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
@@ -37,10 +38,18 @@
     [super viewWillAppear:animated];
     
     [self checkButtonsState];
+    
+        [self.cancelButton setTitleColor:[UIColor colorWithHexString:kMainDarkElementsColor] forState:UIControlStateNormal];
+    
     // hide back button if necessary
     if (self.shouldHideBackButton) {
         self.navigationItem.hidesBackButton = YES;
     }
+}
+
+#warning TODO: while 31 is under work
+- (LWAuthStep)stepId {
+    return LWAuthStepRegisterSelfie;
 }
 
 - (void)localize {

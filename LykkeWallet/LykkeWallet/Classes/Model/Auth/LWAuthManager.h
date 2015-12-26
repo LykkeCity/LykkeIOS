@@ -28,6 +28,7 @@
 - (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid;
 - (void)authManagerDidSetPin:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
+- (void)authManager:(LWAuthManager *)manager didReceivePersonalFullName:(NSString *)fullName phone:(NSString *)phone email:(NSString *)email;
 
 @end
 
@@ -58,5 +59,6 @@ SINGLETON_DECLARE
 - (void)requestPinSecurityGet:(NSString *)pin;
 - (void)requestPinSecuritySet:(NSString *)pin;
 - (void)requestRestrictedCountries;
+- (void)requestPersonalData;
 
 @end

@@ -18,6 +18,7 @@
 #import "LWPacketPinSecurityGet.h"
 #import "LWPacketPinSecuritySet.h"
 #import "LWPacketRestrictedCountries.h"
+#import "LWPacketPersonalData.h"
 #import "LWKeychainManager.h"
 
 
@@ -125,6 +126,11 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestPersonalData {
+    LWPacketPersonalData *pack = [LWPacketPersonalData new];
+    
+    [self sendPacket:pack];
+}
 
 #pragma mark - Observing
 
@@ -170,6 +176,15 @@ SINGLETON_INIT {
             [self.delegate authManagerDidRegisterGet:self
                                            KYCStatus:registration.status
                                         isPinEntered:registration.isPinEntered];
+        }
+    }
+    else if (pack.class == LWPacketPersonalData.class) {
+        // call delegate
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceivePersonalFullName:phone:email:)]) {
+            LWPacketPersonalData *user = (LWPacketPersonalData *)pack;
+            [self.delegate authManager:self didReceivePersonalFullName:user.fullName
+                                 phone:user.phone
+                                 email:user.email];
         }
     }
     else if (pack.class == LWPacketCheckDocumentsToUpload.class) {

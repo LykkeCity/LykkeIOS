@@ -114,6 +114,7 @@
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
 		ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */; };
 		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
+		ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -299,6 +300,8 @@
 		ECA80B621C2E0E47001C4E8F /* LWCameraOverlayPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCameraOverlayPresenter.h; path = Utils/LWCameraOverlayPresenter.h; sourceTree = "<group>"; };
 		ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCameraOverlayPresenter.m; path = Utils/LWCameraOverlayPresenter.m; sourceTree = "<group>"; };
 		ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCameraOverlayPresenter.xib; path = Utils/LWCameraOverlayPresenter.xib; sourceTree = "<group>"; };
+		ECD76BC21C2EA81100E1D3DA /* LWPacketPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPersonalData.h; sourceTree = "<group>"; };
+		ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPersonalData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +684,8 @@
 				CDA69FDA1C281A5500BE4DCA /* LWPacketRegistrationGet.m */,
 				CD10AAAD1C1E14800086634B /* LWPacketRestrictedCountries.h */,
 				CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */,
+				ECD76BC21C2EA81100E1D3DA /* LWPacketPersonalData.h */,
+				ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1011,6 +1016,7 @@
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
+				ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */,
 				CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
