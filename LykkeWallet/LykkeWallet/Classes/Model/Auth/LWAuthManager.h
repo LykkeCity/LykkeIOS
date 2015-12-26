@@ -29,6 +29,7 @@
 - (void)authManagerDidSetPin:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
 - (void)authManager:(LWAuthManager *)manager didReceivePersonalFullName:(NSString *)fullName phone:(NSString *)phone email:(NSString *)email;
+- (void)authManager:(LWAuthManager *)manager didReceiveLykkeWallets:(NSArray *)wallets;
 
 @end
 
@@ -60,5 +61,6 @@ SINGLETON_DECLARE
 - (void)requestPinSecuritySet:(NSString *)pin;
 - (void)requestRestrictedCountries;
 - (void)requestPersonalData;
+- (void)requestLykkeWallets;
 
 @end

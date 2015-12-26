@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWRegisterPINSetupPresenter">
             <connections>
                 <outlet property="maskingView" destination="qrL-vt-qQM" id="JzZ-eO-Omc"/>
+                <outlet property="okButton" destination="khZ-YY-su1" id="RZF-AD-Xo4"/>
                 <outlet property="textLabel" destination="vDl-cH-nEm" id="tua-SP-rwz"/>
                 <outlet property="titleLabel" destination="r1C-A4-PhI" id="vOs-9z-qVo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,6 +27,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-YY-su1" customClass="TKButton">
+                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="RDF-gF-tjU"/>
+                        <constraint firstAttribute="width" constant="304" id="U4R-Wt-WmN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="OK" backgroundImage="ButtonOK">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="okButtonClick:" destination="-1" eventType="touchUpInside" id="F8T-fX-JNe"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PINSetupSuccess" translatesAutoresizingMaskIntoConstraints="NO" id="AeQ-ZW-X5t">
                     <rect key="frame" x="62" y="60" width="197" height="206"/>
                     <constraints>
@@ -42,13 +57,12 @@
                     <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-cH-nEm">
-                    <rect key="frame" x="23" y="311" width="275" height="144"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your private key is generated now. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-cH-nEm">
+                    <rect key="frame" x="23" y="311" width="275" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="144" id="E7b-q1-0V2"/>
+                        <constraint firstAttribute="height" constant="80" id="E7b-q1-0V2"/>
                         <constraint firstAttribute="width" constant="275" id="Ty3-97-dQn"/>
                     </constraints>
-                    <string key="text">Your private key is generated now.  You are almost ready to trade. We would like to ask for necessary compliance information.  This may take only 1-2 minutes. You would need to have your passport and utility bill with home address in front of you.</string>
                     <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                     <color key="textColor" red="0.56470588239999997" green="0.58431372550000005" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -77,7 +91,9 @@
                 <constraint firstItem="AeQ-ZW-X5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="FhL-ex-aTU"/>
                 <constraint firstItem="vDl-cH-nEm" firstAttribute="top" secondItem="r1C-A4-PhI" secondAttribute="bottom" constant="5" id="HbB-41-h2H"/>
                 <constraint firstItem="qrL-vt-qQM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sfy-nH-dJd"/>
+                <constraint firstAttribute="bottom" secondItem="khZ-YY-su1" secondAttribute="bottom" constant="8" id="SzJ-rX-68l"/>
                 <constraint firstItem="AeQ-ZW-X5t" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VS2-Xr-sJB"/>
+                <constraint firstItem="khZ-YY-su1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wi6-9K-Kwd"/>
                 <constraint firstItem="qrL-vt-qQM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dMx-Nh-7Iz"/>
                 <constraint firstAttribute="bottom" secondItem="qrL-vt-qQM" secondAttribute="bottom" id="uef-yl-eiG"/>
             </constraints>
@@ -85,6 +101,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ButtonOK" width="315" height="45"/>
         <image name="PINSetupSuccess" width="178" height="178"/>
     </resources>
 </document>

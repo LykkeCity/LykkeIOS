@@ -7,6 +7,7 @@
 //
 
 #import "LWRegisterPINSetupPresenter.h"
+#import "LWAuthNavigationController.h"
 #import "ABPadLockScreen.h"
 
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView  *maskingView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end
 
@@ -52,10 +54,18 @@
 - (void)localize {
     self.titleLabel.text = [Localize(@"register.pin.setup.ok.title") uppercaseString];
     self.textLabel.text = Localize(@"register.pin.setup.ok.text");
+    self.okButton.titleLabel.text = Localize(@"register.pin.setup.ok.okButton");
 }
 
 - (LWAuthStep)stepId {
     return LWAuthStepRegisterPINSetup;
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)okButtonClick:(id)sender {
+    [((LWAuthNavigationController *)self.navigationController) setRootMainTabScreen];
 }
 
 

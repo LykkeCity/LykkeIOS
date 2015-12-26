@@ -19,6 +19,7 @@
 #import "LWPacketPinSecuritySet.h"
 #import "LWPacketRestrictedCountries.h"
 #import "LWPacketPersonalData.h"
+#import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
 
 
@@ -132,6 +133,12 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestLykkeWallets {
+    LWPacketLykkeWallet *pack = [LWPacketLykkeWallet new];
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -230,13 +237,18 @@ SINGLETON_INIT {
          didReceiveRestrictedCountries:((LWPacketRestrictedCountries *)pack).countries];
         }
     }
+    else if (pack.class == LWPacketLykkeWallet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeWallets:)]) {
+            [self.delegate authManager:self didReceiveLykkeWallets:((LWPacketLykkeWallet *)pack).wallets];
+        }
+    }
 }
 
 - (void)observeGDXNetAdapterDidFailRequestNotification:(NSNotification *)notification {
     GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
     LWPacket *pack = (LWPacket *)ctx.packet;
     
-    if ([self.delegate respondsToSelector:@selector(authManager:didFailWithReject:context:)])  {
+    if ([self.delegate respondsToSelector:@selector(authManager:didFailWithReject:context:)]) {
         [self.delegate authManager:self didFailWithReject:pack.reject context:ctx];
     }
 }
