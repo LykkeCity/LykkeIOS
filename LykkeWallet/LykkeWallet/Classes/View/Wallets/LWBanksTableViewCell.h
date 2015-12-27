@@ -13,4 +13,10 @@
     
 }
 
+
+#pragma mark - Outlets
+
+@property (weak, nonatomic) IBOutlet UILabel *cardNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardDigitsLabel;
+
 @end

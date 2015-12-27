@@ -13,8 +13,12 @@
 #import "LWLykkeAssetsData.h"
 #import "LWBankCardsData.h"
 #import "LWWalletTableViewCell.h"
+#import "LWLykkeTableViewCell.h"
+#import "LWBanksTableViewCell.h"
+#import "LWEquityTableViewCell.h"
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
+#define equityCellIdentifier @"LWEquityTableViewCellIdentifier"
 
 
 @interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource,LWAuthManagerDelegate> {
@@ -80,6 +84,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
     
+    [self registerCellWithIdentifier:equityCellIdentifier
+                             forName:@"LWEquityTableViewCell"];
     
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -117,11 +123,13 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     if ([expandedSections containsIndex:section] && self.data)
     {
+        int const rowCell = 1;
         if (section == 0 && self.data.lykkeData && self.data.lykkeData.assets) {
-            return MAX(1, self.data.lykkeData.assets.count) + 1;
+            int const equityCell = 1;
+            return MAX(1, self.data.lykkeData.assets.count + equityCell) + rowCell;
         }
         else if (section == 1 && self.data.bankCards) {
-            return MAX(1, self.data.bankCards.count) + 1;
+            return MAX(1, self.data.bankCards.count) + rowCell;
         }
         else {
             return 2;
@@ -156,7 +164,18 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
                 // Show Lykke Wallets
                 if (self.data.lykkeData.assets.count > 0) {
-                    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                    // Show Equity cell
+                    if (indexPath.row == self.data.lykkeData.assets.count + 1) {
+                        cell = [tableView dequeueReusableCellWithIdentifier:equityCellIdentifier];
+                        LWEquityTableViewCell *equity = (LWEquityTableViewCell *)cell;
+                        equity.equityValueLabel.text = [NSString stringWithFormat:@"%@", self.data.lykkeData.equity];
+                    } else {
+                        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                        LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
+                        LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+                        lykke.walletNameLabel.text = asset.name;
+                        lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
+                    }
                 }
                 // Show Empty
                 else {
@@ -170,6 +189,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 // Show Banks Wallets
                 if (self.data.bankCards.count > 0) {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                    LWBanksTableViewCell *lykke = (LWBanksTableViewCell *)cell;
+                    LWBankCardsData *card = (LWBankCardsData *)self.data.bankCards[indexPath.row - 1];
+                    lykke.cardNameLabel.text = card.type;
+                    lykke.cardDigitsLabel.text = [NSString stringWithFormat:@".... %@", card.lastDigits];
                 }
                 // Show Empty
                 else {
@@ -215,7 +238,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     {
         rows = [self tableView:tableView numberOfRowsInSection:section];
         [expandedSections removeIndex:section];
-        
     }
     else
     {
@@ -230,22 +252,15 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         [tmpArray addObject:tmpIndexPath];
     }
     
-    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
     if (currentlyExpanded)
     {
         [tableView deleteRowsAtIndexPaths:tmpArray
                          withRowAnimation:UITableViewRowAnimationTop];
-        
-        //cell.accessoryView = [DTCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:DTCustomColoredAccessoryTypeDown];
-        
     }
     else
     {
         [tableView insertRowsAtIndexPaths:tmpArray
                          withRowAnimation:UITableViewRowAnimationTop];
-        //cell.accessoryView =  [DTCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:DTCustomColoredAccessoryTypeUp];
-        
     }
 }
 
