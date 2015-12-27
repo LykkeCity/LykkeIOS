@@ -47,18 +47,12 @@
                 <constraints>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="4Hs-YQ-5QJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vnA-lR-YVf" secondAttribute="trailing" constant="10" id="6NM-5n-rfq"/>
-                    <constraint firstItem="vnA-lR-YVf" firstAttribute="trailing" secondItem="ZoO-ZD-LeT" secondAttribute="trailingMargin" id="ECF-49-hr4"/>
                     <constraint firstItem="vnA-lR-YVf" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="FM8-OB-FnY"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="leading" secondItem="ZoO-ZD-LeT" secondAttribute="leadingMargin" constant="10" id="Opi-CZ-Prc"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="pfu-qf-qUn"/>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="leading" secondItem="jmG-fB-2ha" secondAttribute="trailing" constant="12" id="rwD-tD-uE3"/>
                     <constraint firstItem="vnA-lR-YVf" firstAttribute="leading" secondItem="QcT-ZZ-34n" secondAttribute="trailing" constant="12" id="wmO-0F-zfO"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="ECF-49-hr4"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>

@@ -14,23 +14,49 @@
 #import "LWBankCardsData.h"
 #import "LWWalletTableViewCell.h"
 
+#define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
+
 
 @interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource,LWAuthManagerDelegate> {
     
+    NSMutableIndexSet *expandedSections;
+    
 }
 
+
+#pragma mark - Properties
+
 @property (readonly, nonatomic) LWLykkeWalletsData *data;
+
+
+#pragma mark - Utils
+
+- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
 
 @end
 
 
 @implementation LWWalletsPresenter
 
-static NSString *const WalletNames[] = { @"LYKKE WALLET", @"VISA/MASTERCARD", @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI" };
-
-static NSString *const WalletIcons[] = { @"WalletLykke", @"WalletBanks", @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi" };
-
+static NSInteger const kNumberOfSections = 6;
 static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
+
+static NSString *const WalletIdentifiers[kNumberOfSections] = {
+    @"LWLykkeTableViewCellIdentifier", @"LWBanksTableViewCellIdentifier",
+    
+    emptyCellIdentifier,
+    emptyCellIdentifier,
+    emptyCellIdentifier,
+    emptyCellIdentifier
+};
+
+static NSString *const WalletNames[kNumberOfSections] = {
+    @"LYKKE WALLET", @"VISA/MASTERCARD", @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"
+};
+
+static NSString *const WalletIcons[kNumberOfSections] = {
+    @"WalletLykke", @"WalletBanks", @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"
+};
 
 
 #pragma mark - Lifecycle
@@ -40,9 +66,24 @@ static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
     
     self.title = Localize(@"tab.wallets");
     
-    UINib *nib = [UINib nibWithNibName:@"LWWalletTableViewCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    expandedSections = [[NSMutableIndexSet alloc] init];
+    
+    [self registerCellWithIdentifier:cellIdentifier
+                             forName:@"LWWalletTableViewCell"];
+    
+    [self registerCellWithIdentifier:WalletIdentifiers[0]
+                             forName:@"LWLykkeTableViewCell"];
+    
+    [self registerCellWithIdentifier:WalletIdentifiers[1]
+                             forName:@"LWBanksTableViewCell"];
+    
+    [self registerCellWithIdentifier:emptyCellIdentifier
+                             forName:@"LWWalletEmptyTableViewCell"];
+    
+    
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,46 +110,78 @@ static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // lykke
-    // bank cards
-    // paypal
-    // webmoney
-    // monetas
-    // qiwi
-    return 6;
+    return kNumberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-/*
-    if (self.data) {
-// In the future
-        if (section == 0) {
-            return (self.data.lykkeData && self.data.lykkeData.assets
-                    ? self.data.lykkeData.assets.count : 0);
+    
+    if ([expandedSections containsIndex:section] && self.data)
+    {
+        if (section == 0 && self.data.lykkeData && self.data.lykkeData.assets) {
+            return MAX(1, self.data.lykkeData.assets.count) + 1;
         }
-        else if (section == 1) {
-            return (self.data.bankCards ? self.data.bankCards.count : 0);
+        else if (section == 1 && self.data.bankCards) {
+            return MAX(1, self.data.bankCards.count) + 1;
         }
-
-        return 1;
+        else {
+            return 2;
+        }
     }
-*/
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LWWalletTableViewCell *cell = (LWWalletTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
-        cell = (LWWalletTableViewCell *)[[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:cellIdentifier];
+    UITableViewCell *cell = nil;
+    // Show category row
+    if (!indexPath.row) {
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        LWWalletTableViewCell *wallet = (LWWalletTableViewCell *)cell;
+        if (wallet == nil)
+        {
+            wallet = (LWWalletTableViewCell *)[[UITableViewCell alloc]
+                                    initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:cellIdentifier];
+        }
+        
+        wallet.walletLabel.text = WalletNames[indexPath.section];
+        wallet.walletImageView.image = [UIImage imageNamed:WalletIcons[indexPath.section]];
+        wallet.expandImageView.image = [UIImage imageNamed:@"ExpandIcon"];
     }
-    
-    cell.walletLabel.text = WalletNames[indexPath.section];
-    cell.walletImageView.image = [UIImage imageNamed:WalletIcons[indexPath.section]];
-    cell.expandImageView.image = [UIImage imageNamed:@"ExpandIcon"];
+    // Show wallets for category
+    else {
+        NSString *identifier = WalletIdentifiers[indexPath.section];
+        // Lykke cells
+        if (indexPath.section == 0) {
+            if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
+                // Show Lykke Wallets
+                if (self.data.lykkeData.assets.count > 0) {
+                    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                }
+                // Show Empty
+                else {
+                    cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
+                }
+            }
+        }
+        // Banks cells
+        else if (indexPath.section == 1) {
+            if (self.data && self.data.bankCards) {
+                // Show Banks Wallets
+                if (self.data.bankCards.count > 0) {
+                    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                }
+                // Show Empty
+                else {
+                    cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
+                }
+            }
+        }
+        // Show empty cells
+        else {
+            cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
+        }
+    }
     
     return cell;
 }
@@ -127,6 +200,55 @@ static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    // only first row toggles exapand/collapse
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSInteger section = indexPath.section;
+    BOOL currentlyExpanded = [expandedSections containsIndex:section];
+    NSInteger rows = 0;
+    
+    NSMutableArray *tmpArray = [NSMutableArray array];
+    
+    if (currentlyExpanded)
+    {
+        rows = [self tableView:tableView numberOfRowsInSection:section];
+        [expandedSections removeIndex:section];
+        
+    }
+    else
+    {
+        [expandedSections addIndex:section];
+        rows = [self tableView:tableView numberOfRowsInSection:section];
+    }
+    
+    for (int i = 1; i < rows; i++)
+    {
+        NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i
+                                                       inSection:section];
+        [tmpArray addObject:tmpIndexPath];
+    }
+    
+    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (currentlyExpanded)
+    {
+        [tableView deleteRowsAtIndexPaths:tmpArray
+                         withRowAnimation:UITableViewRowAnimationTop];
+        
+        //cell.accessoryView = [DTCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:DTCustomColoredAccessoryTypeDown];
+        
+    }
+    else
+    {
+        [tableView insertRowsAtIndexPaths:tmpArray
+                         withRowAnimation:UITableViewRowAnimationTop];
+        //cell.accessoryView =  [DTCustomColoredAccessory accessoryWithColor:[UIColor grayColor] type:DTCustomColoredAccessoryTypeUp];
+        
+    }
+}
+
 
 #pragma mark - LWAuthManagerDelegate
 
@@ -134,6 +256,14 @@ static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
     _data = data;
     
     [self.tableView reloadData];
+}
+
+
+#pragma mark - Utils
+
+- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name {
+    UINib *nib = [UINib nibWithNibName:name bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
 @end

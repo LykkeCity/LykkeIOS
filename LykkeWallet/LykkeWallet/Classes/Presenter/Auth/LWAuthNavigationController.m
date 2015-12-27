@@ -125,7 +125,13 @@
     NSLog(@"KYC GetStatus: %@", status);
     
     if ([status isEqualToString:@"NeedToFillData"]) {
-        [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
+        if (isAuthentication) {
+#warning TODO: skip LWAuthStepRegisterKYCInvalidDocuments and go to one of document
+            [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
+        }
+        else {
+            [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
+        }
     }
     else if ([status isEqualToString:@"RestrictedArea"]) {
         [self navigateToStep:LWAuthStepRegisterKYCRestricted preparationBlock:nil];
