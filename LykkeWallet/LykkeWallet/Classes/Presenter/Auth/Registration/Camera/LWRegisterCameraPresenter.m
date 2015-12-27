@@ -14,6 +14,7 @@
 
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
+    UIImagePickerController  *imagePicker;
     LWCameraOverlayPresenter *cameraOverlayPresenter;
 }
 
@@ -40,13 +41,19 @@
     
     [self checkButtonsState];
     
-        [self.cancelButton setTitleColor:[UIColor colorWithHexString:kMainDarkElementsColor] forState:UIControlStateNormal];
+    UIColor *cancelColor = [UIColor colorWithHexString:kMainDarkElementsColor];
+    [self.cancelButton setTitleColor:cancelColor forState:UIControlStateNormal];
     
     // hide back button if necessary
     if (self.shouldHideBackButton) {
         self.navigationItem.hidesBackButton = YES;
     }
+    
+    if ([self isMovingToParentViewController]) {
+        [self showCameraView];
+    }
 }
+
 
 #warning TODO: while 31 is under work
 - (LWAuthStep)stepId {
@@ -102,31 +109,7 @@
         [[LWAuthManager instance] requestSendDocument:type image:photo];
     }
     else {
-        // display image picker
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
-        // if camera is unavailable - set photo library
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-            imagePicker.showsCameraControls = NO;
-            imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
-                                        ? UIImagePickerControllerCameraDeviceFront
-                                        : UIImagePickerControllerCameraDeviceRear);
-            imagePicker.toolbarHidden = YES;
-            // configure overlay
-            if (!cameraOverlayPresenter) {
-                cameraOverlayPresenter = [LWCameraOverlayPresenter new];
-                cameraOverlayPresenter.pickerReference = imagePicker;
-            }
-            imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
-        }
-        else {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        }
-        imagePicker.delegate = self;
-        
-        [self presentViewController:imagePicker animated:YES completion:nil];
-        [self checkButtonsState];
+        [self showCameraView];
     }
 }
 
@@ -146,11 +129,53 @@
     }
 }
 
+- (void)showCameraView {
+    // create image picker
+    if (!imagePicker) {
+        imagePicker = [UIImagePickerController new];
+    }
+    
+    // configure overlay
+    if (!cameraOverlayPresenter) {
+        cameraOverlayPresenter = [LWCameraOverlayPresenter new];
+    }
+    
+    // if camera is unavailable - set photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        // configure image picker
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        imagePicker.showsCameraControls = NO;
+        imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
+                                    ? UIImagePickerControllerCameraDeviceFront
+                                    : UIImagePickerControllerCameraDeviceRear);
+        imagePicker.toolbarHidden = YES;
+        imagePicker.allowsEditing = NO;
+
+        cameraOverlayPresenter.pickerReference = imagePicker;
+        cameraOverlayPresenter.view.frame = imagePicker.cameraOverlayView.frame;
+        cameraOverlayPresenter.isSelfieView = (self.stepId == LWAuthStepRegisterSelfie);
+
+    }
+    else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    imagePicker.delegate = self;
+    
+    [self presentViewController:imagePicker animated:NO completion:^{
+        imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
+        [cameraOverlayPresenter updateView];
+    }];
+    
+    [self checkButtonsState];
+}
+
 
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:NO completion:nil];
     
     [self checkButtonsState];
 }
@@ -159,7 +184,7 @@
     photo = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.photoImageView.image = photo;
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:NO completion:nil];
     
     [self checkButtonsState];
 }

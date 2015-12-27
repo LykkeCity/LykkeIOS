@@ -12,7 +12,6 @@
 
 #import "ABPadLockScreen.h"
 #import "TKButton.h"
-#import "TKNavigationController.h"
 #import "LWConstants.h"
 #import "UIColor+Generic.h"
 

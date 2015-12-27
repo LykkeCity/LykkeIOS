@@ -57,7 +57,7 @@
 		CF6632461C175B54004353F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66323E1C175B54004353F5 /* AppDelegate.m */; };
 		CF6632471C175B54004353F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		CF6632491C175B54004353F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632451C175B54004353F5 /* main.m */; };
-		CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632601C175DE5004353F5 /* TKNavigationController.m */; };
+		CF6632631C175DE5004353F5 /* TKNavigationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632601C175DE5004353F5 /* TKNavigationPresenter.m */; };
 		CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632621C175DE5004353F5 /* TKPresenter.m */; };
 		CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632671C175DF0004353F5 /* TKContainer.m */; };
 		CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6632691C175DF0004353F5 /* TKImageView.m */; };
@@ -199,8 +199,8 @@
 		CF6632441C175B54004353F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6632451C175B54004353F5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF66324B1C175BCA004353F5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		CF66325F1C175DE5004353F5 /* TKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNavigationController.h; sourceTree = "<group>"; };
-		CF6632601C175DE5004353F5 /* TKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationController.m; sourceTree = "<group>"; };
+		CF66325F1C175DE5004353F5 /* TKNavigationPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNavigationPresenter.h; sourceTree = "<group>"; };
+		CF6632601C175DE5004353F5 /* TKNavigationPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationPresenter.m; sourceTree = "<group>"; };
 		CF6632611C175DE5004353F5 /* TKPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPresenter.h; sourceTree = "<group>"; };
 		CF6632621C175DE5004353F5 /* TKPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPresenter.m; sourceTree = "<group>"; };
 		CF6632661C175DF0004353F5 /* TKContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKContainer.h; sourceTree = "<group>"; };
@@ -489,8 +489,8 @@
 			children = (
 				ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */,
 				ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */,
-				CF66325F1C175DE5004353F5 /* TKNavigationController.h */,
-				CF6632601C175DE5004353F5 /* TKNavigationController.m */,
+				CF66325F1C175DE5004353F5 /* TKNavigationPresenter.h */,
+				CF6632601C175DE5004353F5 /* TKNavigationPresenter.m */,
 				CF6632611C175DE5004353F5 /* TKPresenter.h */,
 				CF6632621C175DE5004353F5 /* TKPresenter.m */,
 				CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */,
@@ -973,7 +973,7 @@
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
-				CF6632631C175DE5004353F5 /* TKNavigationController.m in Sources */,
+				CF6632631C175DE5004353F5 /* TKNavigationPresenter.m in Sources */,
 				CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
 				CF6A9CD21C18ED2400B69F53 /* LWColorizer.m in Sources */,
@@ -1097,7 +1097,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "133b8421-a122-4ee7-995d-504628242eea";
+				PROVISIONING_PROFILE = "45ea8eb1-e063-48d5-87bc-aed03f980c77";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1114,7 +1114,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "133b8421-a122-4ee7-995d-504628242eea";
+				PROVISIONING_PROFILE = "45ea8eb1-e063-48d5-87bc-aed03f980c77";
 			};
 			name = AdHoc;
 		};
@@ -1158,7 +1158,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b4602087-9ccd-481c-bec4-589d453824f3";
+				PROVISIONING_PROFILE = "476d32d6-9fb2-4eac-8b2c-cf0c66577704";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1211,6 +1211,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "476d32d6-9fb2-4eac-8b2c-cf0c66577704";
 			};
 			name = Debug;
 		};
@@ -1220,10 +1221,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

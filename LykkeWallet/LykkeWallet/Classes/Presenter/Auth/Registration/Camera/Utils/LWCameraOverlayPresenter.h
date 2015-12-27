@@ -15,5 +15,8 @@
 }
 
 @property (weak, nonatomic) UIImagePickerController *pickerReference;
+@property (nonatomic) BOOL isSelfieView;
+
+- (void)updateView;
 
 @end

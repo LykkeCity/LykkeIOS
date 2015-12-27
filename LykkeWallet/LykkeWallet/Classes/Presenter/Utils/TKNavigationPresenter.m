@@ -1,23 +1,23 @@
 //
-//  TKNavigationController.m
+//  TKNavigationPresenter.m
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 02.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKNavigationController.h"
+#import "TKNavigationPresenter.h"
 #import "UIColor+Generic.h"
 #import "LWConstants.h"
 
-@interface TKNavigationController () {
+@interface TKNavigationPresenter () {
     
 }
 
 @end
 
 
-@implementation TKNavigationController
+@implementation TKNavigationPresenter
 
 
 #pragma mark - Lifecycle

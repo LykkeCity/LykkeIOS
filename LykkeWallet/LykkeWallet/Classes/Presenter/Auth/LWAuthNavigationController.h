@@ -6,13 +6,13 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKNavigationController.h"
+#import "TKNavigationPresenter.h"
 #import "LWAuthStepPresenter.h"
 
 typedef void (^LWAuthStepPushPreparationBlock)(LWAuthStepPresenter *presenter);
 
 
-@interface LWAuthNavigationController : TKNavigationController {
+@interface LWAuthNavigationController : TKNavigationPresenter {
     
 }
 

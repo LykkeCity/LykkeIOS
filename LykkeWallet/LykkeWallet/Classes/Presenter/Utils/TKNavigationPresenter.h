@@ -1,5 +1,5 @@
 //
-//  TKNavigationController.h
+//  TKNavigationPresenter.h
 //  LykkeWallet
 //
 //  Created by Георгий Малюков on 02.12.15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TKNavigationController : UINavigationController {
+@interface TKNavigationPresenter : UINavigationController {
     
 }
 

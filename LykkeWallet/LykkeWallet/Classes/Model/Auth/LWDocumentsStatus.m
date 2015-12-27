@@ -18,9 +18,8 @@
     self = [super init];
     if (self) {
         _selfie = [json[@"Selfie"] boolValue];
-#warning TODO: Remove hardcode
-        _idCard = NO;//[json[@"IdCard"] boolValue];
-        _proofOfAddress = NO;//[json[@"ProofOfAddress"] boolValue];
+        _idCard = [json[@"IdCard"] boolValue];
+        _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
     }
     return self;
 }

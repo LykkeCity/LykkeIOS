@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWCameraOverlayPresenter">
             <connections>
+                <outlet property="libraryButton" destination="HeE-xF-3j7" id="XjL-Gv-A66"/>
+                <outlet property="navigationBar" destination="DBg-VZ-Gx8" id="7C1-ZI-UO5"/>
+                <outlet property="subtitleLabel" destination="gda-Md-fwi" id="E5S-Fx-RMc"/>
+                <outlet property="switchButton" destination="X8n-c5-GD5" id="LLp-GY-Slq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-VZ-Gx8">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="ddQ-oM-ouq"/>
+                        <constraint firstAttribute="height" constant="64" id="ddQ-oM-ouq"/>
                     </constraints>
                     <items>
                         <navigationItem title="REGISTER" id="HhN-xZ-aQE">
-                            <barButtonItem key="leftBarButtonItem" image="BackIcon" style="plain" id="TTA-aa-W3x">
+                            <barButtonItem key="leftBarButtonItem" image="BackIcon" id="TTA-aa-W3x">
                                 <color key="tintColor" red="0.58431372549019611" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="closeButtonClick:" destination="-1" id="bm4-Hj-WIV"/>
@@ -84,36 +88,48 @@
                         <constraint firstAttribute="trailing" secondItem="X8n-c5-GD5" secondAttribute="trailing" constant="8" id="dPp-tV-A51"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a selfie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Md-fwi">
-                    <rect key="frame" x="8" y="57" width="304" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pS-f8-3zl">
+                    <rect key="frame" x="0.0" y="64" width="320" height="77"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a selfie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Md-fwi">
+                            <rect key="frame" x="8" y="0.0" width="304" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="304" id="1du-Sf-IxV"/>
+                                <constraint firstAttribute="height" constant="21" id="dwp-QV-dVW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep3" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-bG-cYA">
+                            <rect key="frame" x="0.0" y="29" width="320" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="BBJ-ML-7G3"/>
+                                <constraint firstAttribute="height" constant="40" id="GmR-4Z-ZbN"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="dwp-QV-dVW"/>
+                        <constraint firstItem="b6l-bG-cYA" firstAttribute="top" secondItem="gda-Md-fwi" secondAttribute="bottom" constant="8" id="5Xp-E9-Gnc"/>
+                        <constraint firstItem="gda-Md-fwi" firstAttribute="top" secondItem="4pS-f8-3zl" secondAttribute="top" id="8OS-EI-mMn"/>
+                        <constraint firstItem="b6l-bG-cYA" firstAttribute="centerX" secondItem="4pS-f8-3zl" secondAttribute="centerX" id="Kss-G1-S6V"/>
+                        <constraint firstAttribute="height" constant="77" id="MNB-Kj-VUj"/>
+                        <constraint firstItem="gda-Md-fwi" firstAttribute="centerX" secondItem="4pS-f8-3zl" secondAttribute="centerX" id="yYu-u2-kcm"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep3" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-bG-cYA">
-                    <rect key="frame" x="0.0" y="86" width="320" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="GmR-4Z-ZbN"/>
-                    </constraints>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Qx2-5U-6hY" secondAttribute="trailing" id="38v-2k-WhH"/>
                 <constraint firstAttribute="bottom" secondItem="Qx2-5U-6hY" secondAttribute="bottom" id="57E-rx-MK2"/>
-                <constraint firstAttribute="trailing" secondItem="b6l-bG-cYA" secondAttribute="trailing" id="8g2-2B-yC7"/>
-                <constraint firstItem="b6l-bG-cYA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8hG-fG-kIZ"/>
-                <constraint firstItem="b6l-bG-cYA" firstAttribute="top" secondItem="gda-Md-fwi" secondAttribute="bottom" constant="8" id="FwP-TK-ZPn"/>
+                <constraint firstItem="4pS-f8-3zl" firstAttribute="top" secondItem="DBg-VZ-Gx8" secondAttribute="bottom" id="7jx-B2-pwT"/>
+                <constraint firstAttribute="trailing" secondItem="4pS-f8-3zl" secondAttribute="trailing" id="Ak9-Z7-y0O"/>
                 <constraint firstAttribute="trailing" secondItem="DBg-VZ-Gx8" secondAttribute="trailing" id="JAJ-Sn-igL"/>
                 <constraint firstItem="Qx2-5U-6hY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zh9-pG-avw"/>
-                <constraint firstAttribute="trailing" secondItem="gda-Md-fwi" secondAttribute="trailing" constant="8" id="a8d-gP-wwz"/>
                 <constraint firstItem="DBg-VZ-Gx8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cC1-ed-8c5"/>
-                <constraint firstItem="gda-Md-fwi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hB2-4k-o58"/>
-                <constraint firstItem="gda-Md-fwi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="57" id="vcf-eC-Nr3"/>
                 <constraint firstItem="DBg-VZ-Gx8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vlx-Iq-DPa"/>
+                <constraint firstItem="4pS-f8-3zl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wjw-N3-9W0"/>
             </constraints>
             <point key="canvasLocation" x="252" y="319"/>
         </view>
