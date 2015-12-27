@@ -7,13 +7,13 @@
 //
 
 #import "LWAuthorizePacket.h"
+#import "LWLykkeWalletsData.h"
 
 
 @interface LWPacketLykkeWallet : LWAuthorizePacket {
     
 }
 // out
-@property (readonly, nonatomic) NSArray  *wallets;
-@property (readonly, nonatomic) NSNumber *equity;
+@property (readonly, nonatomic) LWLykkeWalletsData *data;
 
 @end

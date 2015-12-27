@@ -9,7 +9,7 @@
 #import "LWCameraOverlayPresenter.h"
 
 
-@interface LWCameraOverlayPresenter () {
+@interface LWCameraOverlayPresenter () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
 }
 
@@ -38,7 +38,7 @@
 
 - (void)updateView {
     [self localize];
-    self.libraryButton.hidden = self.isSelfieView;
+    //self.libraryButton.hidden = self.isSelfieView;
     self.switchButton.hidden = self.isSelfieView;
 }
 
@@ -60,7 +60,12 @@
 }
 
 - (IBAction)selectFileButtonClick:(id)sender {
-    NSAssert(0, @"What do you want to do here?");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+
 }
 
 - (IBAction)takePictureButtonClick:(id)sender {
@@ -77,6 +82,19 @@
     else {
         self.pickerReference.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     }
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:NO completion:^{
+        [self.delegate fileChoosen:info];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

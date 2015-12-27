@@ -15,7 +15,7 @@
 
 - (instancetype)initWithJSON:(id)json {
     if (json) {
-        self = [super init];
+        self = [super initWithJSON:json];
         if (self) {
             _phone    = [json objectForKey:@"Phone"];
             _email    = [json objectForKey:@"Email"];

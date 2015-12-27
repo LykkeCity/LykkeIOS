@@ -12,6 +12,7 @@
 #import "LWPacketKYCSendDocument.h"
 
 @class LWAuthManager;
+@class LWLykkeWalletsData;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -29,7 +30,7 @@
 - (void)authManagerDidSetPin:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
 - (void)authManager:(LWAuthManager *)manager didReceivePersonalFullName:(NSString *)fullName phone:(NSString *)phone email:(NSString *)email;
-- (void)authManager:(LWAuthManager *)manager didReceiveLykkeWallets:(NSArray *)wallets;
+- (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data;
 
 @end
 

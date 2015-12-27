@@ -22,8 +22,8 @@
     if (self.isRejected) {
         return;
     }
-    _equity  = result[@"Equity"];
-    _wallets = result[@"Assets"];
+    
+    _data = [[LWLykkeWalletsData alloc] initWithJSON:result];
 }
 
 - (NSString *)urlRelative {

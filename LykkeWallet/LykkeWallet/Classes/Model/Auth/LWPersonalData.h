@@ -6,10 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "LWJSONObject.h"
 
 
-@interface LWPersonalData : NSObject {
+@interface LWPersonalData : LWJSONObject {
     
 }
 
@@ -17,10 +17,5 @@
 @property (copy, nonatomic) NSString *email;
 @property (copy, nonatomic) NSString *phone;
 @property (copy, nonatomic) NSString *fullName;
-
-
-#pragma mark - LWPersonalData
-
-- (instancetype)initWithJSON:(id)json;
 
 @end

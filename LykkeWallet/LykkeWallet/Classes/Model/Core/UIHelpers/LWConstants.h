@@ -63,3 +63,4 @@ static NSString *const kNavigationBarTintColor = kMainElementsColor;
 static float     const kNavigationBarFontSize  = 17.0;
 static NSString *const kNavigationBarFontColor = kMainDarkElementsColor;
 static NSString *const kNavigationBarFontName  = kFontSemibold;
+

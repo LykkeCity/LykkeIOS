@@ -9,11 +9,17 @@
 #import "TKPresenter.h"
 #import "NSObject+GDXObserver.h"
 
+@protocol LWCameraOverlayDelegate<NSObject>
+@required
+- (void)fileChoosen:(NSDictionary<NSString *,id> *)info;
+@end
+
 
 @interface LWCameraOverlayPresenter : TKPresenter {
     
 }
 
+@property (weak, nonatomic) id<LWCameraOverlayDelegate> delegate;
 @property (weak, nonatomic) UIImagePickerController *pickerReference;
 @property (nonatomic) BOOL isSelfieView;
 

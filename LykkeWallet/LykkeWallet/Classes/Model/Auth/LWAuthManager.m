@@ -19,6 +19,7 @@
 #import "LWPacketPinSecuritySet.h"
 #import "LWPacketRestrictedCountries.h"
 #import "LWPacketPersonalData.h"
+#import "LWLykkeWalletsData.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
 
@@ -238,8 +239,8 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketLykkeWallet.class) {
-        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeWallets:)]) {
-            [self.delegate authManager:self didReceiveLykkeWallets:((LWPacketLykkeWallet *)pack).wallets];
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeData:)]) {
+            [self.delegate authManager:self didReceiveLykkeData:((LWPacketLykkeWallet *)pack).data];
         }
     }
 }

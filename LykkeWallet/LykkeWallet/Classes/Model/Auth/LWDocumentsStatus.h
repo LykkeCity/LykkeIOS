@@ -6,6 +6,7 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
+#import "LWJSONObject.h"
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, KYCDocumentType) {
@@ -15,7 +16,7 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
 };
 
 
-@interface LWDocumentsStatus : NSObject {
+@interface LWDocumentsStatus : LWJSONObject {
     
 }
 
@@ -27,11 +28,6 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
 @property (readonly, nonatomic) BOOL isIdCardUploaded;
 @property (readonly, nonatomic) BOOL isPOAUploaded;
 @property (readonly, nonatomic) NSNumber *documentTypeRequired;
-
-
-#pragma mark - Root
-
-- (instancetype)initWithJSON:(id)json;
 
 
 #pragma mark - Utils

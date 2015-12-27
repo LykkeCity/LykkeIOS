@@ -12,14 +12,15 @@
 @implementation LWDocumentsStatus
 
 
-#pragma mark - Root
+#pragma mark - LWJSONObject
 
 - (instancetype)initWithJSON:(id)json {
-    self = [super init];
+    self = [super initWithJSON:json];
     if (self) {
         _selfie = [json[@"Selfie"] boolValue];
-        _idCard = [json[@"IdCard"] boolValue];
-        _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
+#warning TODO: remove hardcode
+        _idCard = NO;//[json[@"IdCard"] boolValue];
+        _proofOfAddress = NO;//[json[@"ProofOfAddress"] boolValue];
     }
     return self;
 }

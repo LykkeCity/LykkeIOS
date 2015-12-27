@@ -13,7 +13,7 @@
 #import "LWCameraOverlayPresenter.h"
 
 
-@interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate> {
+@interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate, LWCameraOverlayDelegate> {
     UIImagePickerController  *imagePicker;
     LWCameraOverlayPresenter *cameraOverlayPresenter;
 }
@@ -156,6 +156,7 @@
         cameraOverlayPresenter.pickerReference = imagePicker;
         cameraOverlayPresenter.view.frame = imagePicker.cameraOverlayView.frame;
         cameraOverlayPresenter.isSelfieView = (self.stepId == LWAuthStepRegisterSelfie);
+        cameraOverlayPresenter.delegate = self;
 
     }
     else {
@@ -222,6 +223,13 @@
         // navigate to KYC submit
         [navController navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
     }
+}
+
+
+#pragma mark - LWCameraOverlayDelegate
+
+- (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
+    [self imagePickerController:imagePicker didFinishPickingMediaWithInfo:info];
 }
 
 @end
