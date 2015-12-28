@@ -289,7 +289,7 @@
             });
         }
         else {
-            NSAssert(0, @"Potentially invalid network operation.");
+            //NSAssert(0, @"Potentially invalid network operation.");
         }
     };
     // switch operation type & send request

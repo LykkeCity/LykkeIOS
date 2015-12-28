@@ -21,6 +21,12 @@
 - (void)parseResponse:(id)response error:(NSError *)error {
     result = [response objectForKey:@"Result"];
     _reject = response[@"Error"];
+    
+    if (_reject && ![_reject isKindOfClass:[NSNull class]]) {
+#warning TODO: as request by customer (temporarly)
+        [_reject setObject:[NSString stringWithFormat:@"%@%@", [self urlBase], [self urlRelative]] forKey:@"URL"];
+    }
+    
     _isRejected = (self.reject != nil) && ![self.reject isKindOfClass:NSNull.class];
 }
 

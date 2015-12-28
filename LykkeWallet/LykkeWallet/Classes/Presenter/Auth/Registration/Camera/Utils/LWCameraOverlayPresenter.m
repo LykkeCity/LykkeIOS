@@ -8,6 +8,8 @@
 
 #import "LWCameraOverlayPresenter.h"
 
+#import <Fabric/Fabric.h>
+
 
 @interface LWCameraOverlayPresenter () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
@@ -40,9 +42,9 @@
 - (void)updateView {
     [self localize];
     
-    BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
-    self.libraryButton.hidden = isSelfie;
-    self.switchButton.hidden = isSelfie;
+    //BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
+    //self.libraryButton.hidden = isSelfie;
+    //self.switchButton.hidden = isSelfie;
     
     self.backButtonItem = nil;
 }
@@ -75,9 +77,6 @@
 
 - (IBAction)takePictureButtonClick:(id)sender {
     [self.pickerReference takePicture];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.pickerReference dismissViewControllerAnimated:NO completion:nil];
-    });
 }
 
 - (IBAction)switchButtonClick:(id)sender {

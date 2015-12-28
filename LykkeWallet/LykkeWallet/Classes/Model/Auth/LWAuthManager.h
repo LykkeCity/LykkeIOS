@@ -64,5 +64,6 @@ SINGLETON_DECLARE
 - (void)requestRestrictedCountries;
 - (void)requestPersonalData;
 - (void)requestLykkeWallets;
+- (void)requestSendLog:(NSString *)log;
 
 @end

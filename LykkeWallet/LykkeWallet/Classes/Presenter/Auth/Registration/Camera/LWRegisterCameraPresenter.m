@@ -12,11 +12,14 @@
 #import "LWConstants.h"
 #import "LWCameraOverlayPresenter.h"
 
+#import <Fabric/Fabric.h>
+
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate, LWCameraOverlayDelegate> {
-    UIImagePickerController  *imagePicker;
     LWCameraOverlayPresenter *cameraOverlayPresenter;
 }
+
+@property (nonatomic) UIImagePickerController *imagePickerController;
 
 
 #pragma mark - Utils
@@ -45,6 +48,9 @@
     
     UIColor *cancelColor = [UIColor colorWithHexString:kMainDarkElementsColor];
     [self.cancelButton setTitleColor:cancelColor forState:UIControlStateNormal];
+    
+#warning TODO: as request by customer (temporarly)
+    self.navigationItem.hidesBackButton = YES;
     
     // hide back button if necessary
     if (self.shouldHideBackButton) {
@@ -104,44 +110,44 @@
 }
 
 - (void)showCameraView {
-    // create image picker
-    if (!imagePicker) {
-        imagePicker = [UIImagePickerController new];
-    }
     
     // configure overlay
     if (!cameraOverlayPresenter) {
         cameraOverlayPresenter = [LWCameraOverlayPresenter new];
     }
     
+    UIImagePickerController *picker = [UIImagePickerController new];
     // if camera is unavailable - set photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
         // configure image picker
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
-        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-        imagePicker.showsCameraControls = NO;
-        imagePicker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        picker.showsCameraControls = NO;
+        picker.cameraDevice = ((self.stepId == LWAuthStepRegisterSelfie)
                                     ? UIImagePickerControllerCameraDeviceFront
                                     : UIImagePickerControllerCameraDeviceRear);
-        imagePicker.toolbarHidden = YES;
-        imagePicker.allowsEditing = NO;
+        picker.toolbarHidden = YES;
+        picker.allowsEditing = YES;
+        picker.modalPresentationStyle = UIModalPresentationCurrentContext;
 
-        cameraOverlayPresenter.pickerReference = imagePicker;
-        cameraOverlayPresenter.view.frame = imagePicker.cameraOverlayView.frame;
+        cameraOverlayPresenter.pickerReference = picker;
+        cameraOverlayPresenter.view.frame = picker.cameraOverlayView.frame;
         cameraOverlayPresenter.step = self.stepId;
         cameraOverlayPresenter.delegate = self;
 
-        imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
+        picker.cameraOverlayView = cameraOverlayPresenter.view;
     }
     else {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    imagePicker.delegate = self;
-    
-    [self presentViewController:imagePicker animated:NO completion:^{
-        [cameraOverlayPresenter updateView];
-    }];
+    picker.delegate = self;
+
+    self.imagePickerController = picker;
+    [self presentViewController:self.imagePickerController
+                       animated:NO completion:^{
+                           [cameraOverlayPresenter updateView];
+                       }];
     
     [self checkButtonsState];
 }
@@ -152,6 +158,8 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:NO completion:nil];
     
+    [[LWAuthManager instance] requestSendLog:@"Cancel choosen image"];
+    
     [self checkButtonsState];
 }
 
@@ -159,6 +167,8 @@
     photo = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.photoImageView.image = photo;
     
+    [[LWAuthManager instance] requestSendLog:@"Camera image selected"];
+
     [picker dismissViewControllerAnimated:NO completion:nil];
     
     [self checkButtonsState];
@@ -198,7 +208,19 @@
 #pragma mark - LWCameraOverlayDelegate
 
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
-    [self imagePickerController:imagePicker didFinishPickingMediaWithInfo:info];
+    //[self imagePickerController:self.imagePickerController didFinishPickingMediaWithInfo:info];
+    
+    photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.photoImageView.image = photo;
+    
+    if (self.imagePickerController) {
+        [self.imagePickerController dismissViewControllerAnimated:NO
+                                                       completion:nil];
+    }
+    
+    [[LWAuthManager instance] requestSendLog:@"Camera file choosen"];
+
+    [self checkButtonsState];
 }
 
 

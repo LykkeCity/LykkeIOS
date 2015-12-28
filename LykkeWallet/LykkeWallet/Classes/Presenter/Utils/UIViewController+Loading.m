@@ -34,10 +34,14 @@
     [self setLoading:NO];
     
     NSString *message = [reject objectForKey:@"Message"];
+#warning TODO: as request by customer (temporarly)
+    NSString *url = [reject objectForKey:@"URL"];
+    NSNumber *code = [reject objectForKey:@"Code"];
+    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. URL: %@", message, code, url];
     
     UIAlertController *ctrl = [UIAlertController
                                alertControllerWithTitle:Localize(@"utils.error")
-                               message:message
+                               message:error
                                preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
                                                        style:UIAlertActionStyleDefault

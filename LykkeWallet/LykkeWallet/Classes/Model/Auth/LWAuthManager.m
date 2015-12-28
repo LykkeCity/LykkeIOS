@@ -19,6 +19,8 @@
 #import "LWPacketPinSecuritySet.h"
 #import "LWPacketRestrictedCountries.h"
 #import "LWPacketPersonalData.h"
+#import "LWPacketLog.h"
+
 #import "LWLykkeWalletsData.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
@@ -140,6 +142,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestSendLog:(NSString *)log {
+    LWPacketLog *pack = [LWPacketLog new];
+    pack.log = log;
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -242,6 +251,9 @@ SINGLETON_INIT {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeData:)]) {
             [self.delegate authManager:self didReceiveLykkeData:((LWPacketLykkeWallet *)pack).data];
         }
+    }
+    else if (pack.class == LWPacketLog.class) {
+        
     }
 }
 
