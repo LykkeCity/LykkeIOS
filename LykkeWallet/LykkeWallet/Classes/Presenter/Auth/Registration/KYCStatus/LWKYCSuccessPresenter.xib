@@ -53,7 +53,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJc-2A-FCk" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <rect key="frame" x="8" y="493" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="304" id="Ezs-ew-zuW"/>
                         <constraint firstAttribute="height" constant="45" id="eAy-99-xtL"/>
@@ -70,7 +70,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rJc-2A-FCk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5M5-mB-HGF"/>
-                <constraint firstAttribute="bottom" secondItem="rJc-2A-FCk" secondAttribute="bottom" constant="8" id="81H-9S-z2I"/>
+                <constraint firstAttribute="bottom" secondItem="rJc-2A-FCk" secondAttribute="bottom" constant="30" id="81H-9S-z2I"/>
                 <constraint firstItem="TnR-Jp-eji" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JGD-za-eRf"/>
                 <constraint firstItem="TnR-Jp-eji" firstAttribute="top" secondItem="BKJ-ee-fuu" secondAttribute="bottom" constant="5" id="Vr3-cA-kbc"/>
                 <constraint firstItem="H28-hK-2aV" firstAttribute="top" secondItem="TnR-Jp-eji" secondAttribute="bottom" constant="5" id="beQ-tS-MM0"/>

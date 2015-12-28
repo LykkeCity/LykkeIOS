@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-YY-su1" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <rect key="frame" x="8" y="493" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="RDF-gF-tjU"/>
                         <constraint firstAttribute="width" constant="304" id="U4R-Wt-WmN"/>
@@ -91,7 +91,7 @@
                 <constraint firstItem="AeQ-ZW-X5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="FhL-ex-aTU"/>
                 <constraint firstItem="vDl-cH-nEm" firstAttribute="top" secondItem="r1C-A4-PhI" secondAttribute="bottom" constant="5" id="HbB-41-h2H"/>
                 <constraint firstItem="qrL-vt-qQM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sfy-nH-dJd"/>
-                <constraint firstAttribute="bottom" secondItem="khZ-YY-su1" secondAttribute="bottom" constant="8" id="SzJ-rX-68l"/>
+                <constraint firstAttribute="bottom" secondItem="khZ-YY-su1" secondAttribute="bottom" constant="30" id="SzJ-rX-68l"/>
                 <constraint firstItem="AeQ-ZW-X5t" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VS2-Xr-sJB"/>
                 <constraint firstItem="khZ-YY-su1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wi6-9K-Kwd"/>
                 <constraint firstItem="qrL-vt-qQM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dMx-Nh-7Iz"/>

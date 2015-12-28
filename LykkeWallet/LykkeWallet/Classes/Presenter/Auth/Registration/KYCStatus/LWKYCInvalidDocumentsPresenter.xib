@@ -54,7 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nA-3A-Gdq" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <rect key="frame" x="8" y="493" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="AEk-pb-SRn"/>
                         <constraint firstAttribute="width" constant="304" id="d75-Ky-YZa"/>
@@ -74,7 +74,7 @@
                 <constraint firstItem="wVh-hH-Siy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7X0-2W-l7i"/>
                 <constraint firstItem="CPy-OV-lDX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ere-zp-QAG"/>
                 <constraint firstItem="CPy-OV-lDX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="J5W-Ko-W14"/>
-                <constraint firstAttribute="bottom" secondItem="9nA-3A-Gdq" secondAttribute="bottom" constant="8" id="JZJ-ai-ni8"/>
+                <constraint firstAttribute="bottom" secondItem="9nA-3A-Gdq" secondAttribute="bottom" constant="30" id="JZJ-ai-ni8"/>
                 <constraint firstItem="wVh-hH-Siy" firstAttribute="top" secondItem="CPy-OV-lDX" secondAttribute="bottom" constant="5" id="UlC-0S-tvZ"/>
                 <constraint firstItem="tt1-P4-1fA" firstAttribute="top" secondItem="wVh-hH-Siy" secondAttribute="bottom" constant="5" id="dMR-0M-UNT"/>
                 <constraint firstItem="9nA-3A-Gdq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hNA-Pk-peb"/>

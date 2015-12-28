@@ -55,7 +55,7 @@ It may take up to 15-20 minutes.</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kO-QD-Gnv" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <rect key="frame" x="8" y="493" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="304" id="KTv-lQ-cHe"/>
                         <constraint firstAttribute="height" constant="45" id="RvT-3K-VHi"/>
@@ -77,7 +77,7 @@ It may take up to 15-20 minutes.</string>
                 <constraint firstItem="RAM-2w-nE5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lee-AQ-hWc"/>
                 <constraint firstItem="VK3-C8-F8Q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hbb-JX-xk3"/>
                 <constraint firstItem="RAM-2w-nE5" firstAttribute="top" secondItem="VK3-C8-F8Q" secondAttribute="bottom" constant="5" id="i9v-2B-JZ8"/>
-                <constraint firstAttribute="bottom" secondItem="2kO-QD-Gnv" secondAttribute="bottom" constant="8" id="mzS-C0-9C0"/>
+                <constraint firstAttribute="bottom" secondItem="2kO-QD-Gnv" secondAttribute="bottom" constant="30" id="mzS-C0-9C0"/>
                 <constraint firstItem="VK3-C8-F8Q" firstAttribute="top" secondItem="a4M-0z-Zkg" secondAttribute="bottom" constant="5" id="tgn-ee-d0H"/>
             </constraints>
             <point key="canvasLocation" x="198" y="193"/>

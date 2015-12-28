@@ -41,7 +41,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-XG-JPl" customClass="TKButton">
-                    <rect key="frame" x="8" y="515" width="304" height="45"/>
+                    <rect key="frame" x="8" y="493" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="VQ0-Mi-wso"/>
                         <constraint firstAttribute="width" constant="304" id="kK7-5g-xul"/>
@@ -55,11 +55,11 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZW-FF-Awg">
-                    <rect key="frame" x="8" y="77" width="304" height="377"/>
+                    <rect key="frame" x="8" y="77" width="304" height="355"/>
                     <color key="backgroundColor" red="0.84250801279999998" green="0.84250801279999998" blue="0.84250801279999998" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ne8-PU-fLU" customClass="TKButton">
-                    <rect key="frame" x="8" y="462" width="304" height="45"/>
+                    <rect key="frame" x="8" y="440" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Y1l-fX-cdd"/>
                         <constraint firstAttribute="width" constant="304" id="mrd-QG-nNS"/>
@@ -78,7 +78,7 @@
                 <constraint firstItem="rtU-XG-JPl" firstAttribute="top" secondItem="ne8-PU-fLU" secondAttribute="bottom" constant="8" id="24y-1V-lyz"/>
                 <constraint firstAttribute="trailing" secondItem="5SE-Ce-n7H" secondAttribute="trailing" constant="8" id="4fV-R3-Dl3"/>
                 <constraint firstAttribute="trailing" secondItem="lwI-SC-5gM" secondAttribute="trailing" id="5tr-k6-pub"/>
-                <constraint firstAttribute="bottom" secondItem="rtU-XG-JPl" secondAttribute="bottom" constant="8" id="9IT-Ei-cKi"/>
+                <constraint firstAttribute="bottom" secondItem="rtU-XG-JPl" secondAttribute="bottom" constant="30" id="9IT-Ei-cKi"/>
                 <constraint firstItem="rtU-XG-JPl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9rA-FT-Cyz"/>
                 <constraint firstItem="lwI-SC-5gM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AqQ-PI-9jh"/>
                 <constraint firstItem="ne8-PU-fLU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bzA-AN-Qcl"/>

@@ -158,6 +158,7 @@
         cameraOverlayPresenter.isSelfieView = (self.stepId == LWAuthStepRegisterSelfie);
         cameraOverlayPresenter.delegate = self;
 
+        imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
     }
     else {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -165,7 +166,6 @@
     imagePicker.delegate = self;
     
     [self presentViewController:imagePicker animated:NO completion:^{
-        imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
         [cameraOverlayPresenter updateView];
     }];
     
