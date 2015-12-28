@@ -44,8 +44,8 @@
 "register.kyc.invalidDocuments" = "Dear %@, we're terribly sorry, but our compliance department have not accepted some of your documents. Please upload them one more time.";
 "register.kyc.invalidDocuments.okButton" = "Okay, I understood";
 "register.kyc.success.header" = "LYKKE WALLET WAS SUCCESSFULLY CREATED!";
-"register.kyc.success" = "Dear %@, you can now browse the assets available for trade.";
-"register.kyc.success.okButton" = "Get started!";
+"register.kyc.success" = "Dear %@, thank you for your patience. Your documents are in order. Lets set up our security.";
+"register.kyc.success.okButton" = "Continue";
 "register.pin.setup.ok.title" = "Congratulations!";
 "register.pin.setup.ok.okButton" = "OK";
 "register.pin.setup.ok.text" = "Your private key is generated now.\n";

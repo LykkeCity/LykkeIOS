@@ -45,8 +45,8 @@
 "register.kyc.invalidDocuments" = "Уважаемый %@, приносим свои извинения, но мы не смогли принять часть Ваших докмуентов. Пожалуйста, загрузите их снова.";
 "register.kyc.invalidDocuments.okButton" = "Ок, я понимаю";
 "register.kyc.success.header" = "Lykke Wallet был успешно создан!";
-"register.kyc.success" = "Уважаемый %@, теперь вы можете перейти к обзору инструментов, доступных для торговли.";
-"register.kyc.success.okButton" = "Начать работу!";
+"register.kyc.success" = "Уважаемый %@, спасибо за ожидание. С документами все в порядке. Переходим к вопросам безопасности.";
+"register.kyc.success.okButton" = "Продолжить";
 "register.pin.setup.ok.title" = "Поздравляем!";
 "register.pin.setup.ok.okButton" = "OK";
 "register.pin.setup.ok.text" = "Ваш приватный ключ сгенерирован.\nВы почти готовы к торговле, мы лишь зададим несколько дополнительных вопросов.\n\nЭто займет 1-2 минуты. Пожалуйста, держите рядом Ваши паспорт и вид на жительство.";
