@@ -24,11 +24,17 @@
 @property (weak, nonatomic) IBOutlet UIButton    *okButton;
 
 @property (assign, nonatomic) BOOL shouldHideBackButton;
+@property (assign, nonatomic) BOOL showCameraImmediately;
 @property (assign, nonatomic) LWAuthStep currentStep;
 
 #pragma mark - Actions
 
 - (IBAction)cancelButtonClick:(id)sender;
 - (IBAction)okButtonClick:(id)sender;
+
+
+#pragma mark - Utils
+
+- (void)clearImage;
 
 @end

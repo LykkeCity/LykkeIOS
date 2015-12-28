@@ -68,7 +68,9 @@
      preparationBlock:^(LWAuthStepPresenter *presenter) {
          LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
          camera.shouldHideBackButton = YES;
+         camera.showCameraImmediately = YES;
          camera.currentStep = nextStep;
+         [camera clearImage];
      }];
 }
 

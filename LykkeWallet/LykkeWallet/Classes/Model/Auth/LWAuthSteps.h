@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepEntryPoint,
     LWAuthStepAuthentication,
     LWAuthStepValidatePIN,
+    LWAuthStepCheckDocuments,
     
     LWAuthStepRegisterFullName,
     LWAuthStepRegisterPhone,

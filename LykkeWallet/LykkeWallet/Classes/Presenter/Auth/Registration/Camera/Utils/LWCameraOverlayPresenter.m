@@ -76,6 +76,7 @@
 }
 
 - (IBAction)takePictureButtonClick:(id)sender {
+    [self.delegate pictureTaken];
     [self.pickerReference takePicture];
 }
 

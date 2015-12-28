@@ -1,19 +1,16 @@
 //
-//  LWAuthValidationPresenter.m
+//  LWKYCCheckDocumentsPresenter.m
 //  LykkeWallet
 //
-//  Created by Alexander Pukhov on 21.12.15.
+//  Created by Alexander Pukhov on 29.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthValidationPresenter.h"
+#import "LWKYCCheckDocumentsPresenter.h"
 #import "LWRegisterCameraPresenter.h"
-#import "LWAuthNavigationController.h"
-#import "LWAuthManager.h"
-#import "UIViewController+Loading.h"
 
 
-@interface LWAuthValidationPresenter () {
+@interface LWKYCCheckDocumentsPresenter () {
     
 }
 
@@ -22,7 +19,7 @@
 @end
 
 
-@implementation LWAuthValidationPresenter
+@implementation LWKYCCheckDocumentsPresenter
 
 
 #pragma mark - LWAuthStepPresenter
@@ -32,39 +29,23 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    [[LWAuthManager instance] requestRegistrationGet];
+    [[LWAuthManager instance] requestDocumentsToUpload];
 }
 
 - (LWAuthStep)stepId {
-    return LWAuthStepValidation;
+    return LWAuthStepCheckDocuments;
 }
 
 - (void)localize {
-    self.textLabel.text = [NSString stringWithFormat:Localize(@"register.validation.label")];
+    self.textLabel.text = [NSString stringWithFormat:Localize(@"register.check.documents.label")];
 }
 
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered {
-
-    LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    
-    if ([status isEqualToString:@"NeedToFillData"]) {
-        // request documents to upload
-        self.textLabel.text = [NSString stringWithFormat:Localize(@"register.check.documents.label")];
-        [[LWAuthManager instance] requestDocumentsToUpload];
-    }
-    else {
-        [navController navigateKYCStatus:status
-                            isPinEntered:isPinEntered
-                        isAuthentication:YES];
-    }
-}
-
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     LWAuthStep nextStep = [LWAuthSteps getNextDocumentByStatus:status];
-    
+
     [((LWAuthNavigationController *)self.navigationController)
      navigateToStep:nextStep
      preparationBlock:^(LWAuthStepPresenter *presenter) {

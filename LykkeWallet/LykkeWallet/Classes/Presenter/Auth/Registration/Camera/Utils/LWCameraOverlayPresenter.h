@@ -13,6 +13,7 @@
 @protocol LWCameraOverlayDelegate<NSObject>
 @required
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info;
+- (void)pictureTaken;
 @end
 
 

@@ -56,8 +56,8 @@
     if (self.shouldHideBackButton) {
         self.navigationItem.hidesBackButton = YES;
     }
-    
-    if ([self isMovingToParentViewController]) {
+
+    if (self.showCameraImmediately) {
         [self showCameraView];
     }
 }
@@ -74,9 +74,7 @@
 #pragma mark - Actions
 
 - (IBAction)cancelButtonClick:(id)sender {
-    photo = nil;
-    self.photoImageView.image = nil;
-    
+    [self clearImage];
     [self okButtonClick:nil];
 }
 
@@ -95,6 +93,11 @@
 
 
 #pragma mark - Utils
+
+- (void)clearImage {
+    photo = nil;
+    self.photoImageView.image = nil;
+}
 
 - (void)checkButtonsState {
     if (photo) {
@@ -194,6 +197,7 @@
         [navController navigateToStep:step preparationBlock:^(LWAuthStepPresenter *presenter) {
             LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
             camera.shouldHideBackButton = NO;
+            camera.showCameraImmediately = YES;
             camera.currentStep = step;
         }];
     }
@@ -221,6 +225,10 @@
     [[LWAuthManager instance] requestSendLog:@"Camera file choosen"];
 
     [self checkButtonsState];
+}
+
+- (void)pictureTaken {
+    self.showCameraImmediately = NO;
 }
 
 

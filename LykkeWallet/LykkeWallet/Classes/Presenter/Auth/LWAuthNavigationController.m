@@ -9,6 +9,7 @@
 #import "LWAuthNavigationController.h"
 #import "LWAuthEntryPointPresenter.h"
 #import "LWAuthValidationPresenter.h"
+#import "LWKYCCheckDocumentsPresenter.h"
 
 #import "LWRegisterBasePresenter.h"
 #import "LWRegisterFullNamePresenter.h"
@@ -71,6 +72,7 @@
                     LWAuthEntryPointPresenter.class,
                     LWAuthenticationPresenter.class,
                     LWAuthPINEnterPresenter.class,
+                    LWKYCCheckDocumentsPresenter.class,
 
                     LWRegisterFullNamePresenter.class,
                     LWRegisterPhonePresenter.class,
@@ -127,8 +129,7 @@
     
     if ([status isEqualToString:@"NeedToFillData"]) {
         if (isAuthentication) {
-#warning TODO: skip LWAuthStepRegisterKYCInvalidDocuments and go to one of document
-            [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
+            [self navigateToStep:LWAuthStepCheckDocuments preparationBlock:nil];
         }
         else {
             [self navigateToStep:LWAuthStepRegisterKYCInvalidDocuments preparationBlock:nil];
