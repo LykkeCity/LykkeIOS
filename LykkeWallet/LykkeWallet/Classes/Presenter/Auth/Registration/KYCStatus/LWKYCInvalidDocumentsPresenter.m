@@ -66,7 +66,9 @@
     [((LWAuthNavigationController *)self.navigationController)
      navigateToStep:nextStep
      preparationBlock:^(LWAuthStepPresenter *presenter) {
-         ((LWRegisterCameraPresenter *)presenter).shouldHideBackButton = YES;
+         LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
+         camera.shouldHideBackButton = YES;
+         camera.currentStep = nextStep;
      }];
 }
 
@@ -75,24 +77,8 @@
 
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     [self setLoading:NO];
-    
-    nextStep = LWAuthStepRegisterKYCInvalidDocuments;
-    
-    if (!status.isSelfieUploaded) {
-        // to selfie
-        nextStep = LWAuthStepRegisterSelfie;
-    }
-    else if (!status.isIdCardUploaded) {
-        // to identity card
-        nextStep = LWAuthStepRegisterIdentity;
-    }
-    else if (!status.isPOAUploaded) {
-        // to POA
-        nextStep = LWAuthStepRegisterUtilityBill;
-    }
-    else {
-        NSAssert(0, @"Invalid documents status, we can't have invalid documents if they are all uploaded.");
-    }
+
+    nextStep = [LWAuthSteps getNextDocumentByStatus:status];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {

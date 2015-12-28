@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton        *libraryButton;
 @property (weak, nonatomic) IBOutlet UILabel         *subtitleLabel;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonItem;
 
 @end
 
@@ -38,8 +39,12 @@
 
 - (void)updateView {
     [self localize];
-    //self.libraryButton.hidden = self.isSelfieView;
-    self.switchButton.hidden = self.isSelfieView;
+    
+    BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
+    self.libraryButton.hidden = isSelfie;
+    self.switchButton.hidden = isSelfie;
+    
+    self.backButtonItem = nil;
 }
 
 
@@ -48,7 +53,7 @@
 - (void)localize {
     
     self.navigationBar.topItem.title = [Localize(@"register.title") uppercaseString];
-    self.subtitleLabel.text = Localize(@"register.camera.title.selfie");
+    self.subtitleLabel.text = Localize([LWAuthSteps titleByStep:self.step]);
 }
 
 

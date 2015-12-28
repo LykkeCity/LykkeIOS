@@ -18,9 +18,11 @@
     LWCameraOverlayPresenter *cameraOverlayPresenter;
 }
 
+
 #pragma mark - Utils
 
 - (void)checkButtonsState;
+- (void)showCameraView;
 
 @end
 
@@ -54,37 +56,12 @@
     }
 }
 
-
-#warning TODO: while 31 is under work
 - (LWAuthStep)stepId {
-    return LWAuthStepRegisterSelfie;
+    return self.currentStep;
 }
 
 - (void)localize {
-    NSString *tag = nil;
-    
-    switch (self.stepId) {
-        case LWAuthStepRegisterSelfie: {
-            tag = @"register.camera.title.selfie";
-            break;
-        }
-        case LWAuthStepRegisterIdentity: {
-            tag = @"register.camera.title.idCard";
-            break;
-        }
-        case LWAuthStepRegisterUtilityBill: {
-            tag = @"register.camera.title.proofOfAddress";
-            break;
-        }
-        default: {
-            break;
-        }
-    }
-    NSAssert(tag, @"Invalid step.");
-    
-    self.promptLabel.text = Localize(tag);
-    [self.cancelButton setTitle:[Localize(@"register.camera.photo.cancel") uppercaseString]
-                       forState:UIControlStateNormal];
+    [self.cancelButton setTitle:[Localize(@"register.camera.photo.cancel") uppercaseString] forState:UIControlStateNormal];
 }
 
 
@@ -100,12 +77,9 @@
 - (IBAction)okButtonClick:(id)sender {
     if (photo) {
         [self setLoading:YES];
+
         // send photo
-        KYCDocumentType type = ((self.stepId == LWAuthStepRegisterSelfie)
-                                ? KYCDocumentTypeSelfie
-                                : ((self.stepId == LWAuthStepRegisterIdentity)
-                                   ? KYCDocumentTypeIdCard
-                                   : KYCDocumentTypeProofOfAddress));
+        KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
         [[LWAuthManager instance] requestSendDocument:type image:photo];
     }
     else {
@@ -155,7 +129,7 @@
 
         cameraOverlayPresenter.pickerReference = imagePicker;
         cameraOverlayPresenter.view.frame = imagePicker.cameraOverlayView.frame;
-        cameraOverlayPresenter.isSelfieView = (self.stepId == LWAuthStepRegisterSelfie);
+        cameraOverlayPresenter.step = self.stepId;
         cameraOverlayPresenter.delegate = self;
 
         imagePicker.cameraOverlayView = cameraOverlayPresenter.view;
@@ -200,28 +174,23 @@
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType {
     [self setLoading:NO];
     
-    NSNumber *required = [LWAuthManager instance].documentsStatus.documentTypeRequired;
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
     
-    if (required) {
+    if ([LWAuthManager instance].documentsStatus.documentTypeRequired) {
         // navigate to valid step with document uploading
-        switch ((KYCDocumentType)[required integerValue]) {
-            case KYCDocumentTypeSelfie: {
-                [navController navigateToStep:LWAuthStepRegisterSelfie preparationBlock:nil];
-                break;
-            }
-            case KYCDocumentTypeIdCard: {
-                [navController navigateToStep:LWAuthStepRegisterIdentity preparationBlock:nil];
-                break;
-            }
-            case KYCDocumentTypeProofOfAddress: {
-                [navController navigateToStep:LWAuthStepRegisterUtilityBill preparationBlock:nil];
-            }
-        }
+        LWAuthStep step = [LWAuthSteps getNextDocumentByStatus:
+                           [LWAuthManager instance].documentsStatus];
+        
+        [navController navigateToStep:step preparationBlock:^(LWAuthStepPresenter *presenter) {
+            LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
+            camera.shouldHideBackButton = NO;
+            camera.currentStep = step;
+        }];
     }
     else {
         // navigate to KYC submit
-        [navController navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
+        [navController navigateToStep:LWAuthStepRegisterKYCSubmit
+                     preparationBlock:nil];
     }
 }
 
@@ -230,6 +199,14 @@
 
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
     [self imagePickerController:imagePicker didFinishPickingMediaWithInfo:info];
+}
+
+
+#pragma mark - Properties
+
+- (void)setCurrentStep:(LWAuthStep)currentStep {
+    _currentStep = currentStep;
+    self.promptLabel.text = Localize([LWAuthSteps titleByStep:currentStep]);
 }
 
 @end

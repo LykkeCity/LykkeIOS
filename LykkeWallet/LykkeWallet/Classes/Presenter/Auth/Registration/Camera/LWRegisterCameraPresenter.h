@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton    *okButton;
 
 @property (assign, nonatomic) BOOL shouldHideBackButton;
-
+@property (assign, nonatomic) LWAuthStep currentStep;
 
 #pragma mark - Actions
 

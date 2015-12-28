@@ -61,17 +61,23 @@
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     [self setLoading:NO];
     
+    LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+    
+    LWAuthStep nextStep = [LWAuthSteps getNextDocumentByStatus:status];
+    
     if (status.documentTypeRequired != nil) {
-        // navigate to selfie camera presenter
-        [((LWAuthNavigationController *)self.navigationController)
-         navigateToStep:LWAuthStepRegisterSelfie
-         preparationBlock:^(LWAuthStepPresenter *presenter) {
-             ((LWRegisterCameraPresenter *)presenter).shouldHideBackButton = YES;
-         }];
+        // navigate to document upload camera camera presenter
+        [navigation navigateToStep:nextStep
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                      LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
+                      camera.shouldHideBackButton = YES;
+                      camera.currentStep = nextStep;
+                  }];
     }
     else {
-        // navigate to verification
-        // ...
+        // navigate to KYC submit
+        [navigation navigateToStep:LWAuthStepRegisterKYCSubmit
+                  preparationBlock:nil];
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import "TKPresenter.h"
 #import "NSObject+GDXObserver.h"
+#import "LWAuthSteps.h"
 
 @protocol LWCameraOverlayDelegate<NSObject>
 @required
@@ -21,7 +22,7 @@
 
 @property (weak, nonatomic) id<LWCameraOverlayDelegate> delegate;
 @property (weak, nonatomic) UIImagePickerController *pickerReference;
-@property (nonatomic) BOOL isSelfieView;
+@property (assign, nonatomic) LWAuthStep step;
 
 - (void)updateView;
 

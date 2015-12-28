@@ -86,6 +86,7 @@
                     LWKYCRestrictedPresenter.class,
                     LWKYCSuccessPresenter.class,
                     LWRegisterPINSetupPresenter.class];
+        
         activeSteps = [NSMutableDictionary new];
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;
     }

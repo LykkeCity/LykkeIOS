@@ -10,6 +10,7 @@
 #import "LWRegistrationData.h"
 #import "LWAuthenticationData.h"
 #import "LWPacketKYCSendDocument.h"
+#import "LWAuthSteps.h"
 
 @class LWAuthManager;
 @class LWLykkeWalletsData;

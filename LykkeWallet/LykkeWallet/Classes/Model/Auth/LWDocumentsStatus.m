@@ -17,10 +17,19 @@
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self) {
-        _selfie = [json[@"Selfie"] boolValue];
-#warning TODO: remove hardcode
-        _idCard = NO;//[json[@"IdCard"] boolValue];
-        _proofOfAddress = NO;//[json[@"ProofOfAddress"] boolValue];
+        _selfie         = [json[@"Selfie"] boolValue];
+        _idCard         = [json[@"IdCard"] boolValue];
+        _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
+        
+        /*if (!self.selfie) {
+            [self setTypeUploaded:KYCDocumentTypeSelfie];
+        }
+        if (!self.idCard) {
+            [self setTypeUploaded:KYCDocumentTypeIdCard];
+        }
+        if (!self.proofOfAddress) {
+            [self setTypeUploaded:KYCDocumentTypeProofOfAddress];
+        }*/
     }
     return self;
 }

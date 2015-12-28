@@ -9,28 +9,6 @@
 #import "TKPresenter.h"
 #import "LWAuthManager.h"
 
-typedef NS_ENUM(NSInteger, LWAuthStep) {
-    LWAuthStepValidation,
-    LWAuthStepEntryPoint,
-    LWAuthStepAuthentication,
-    LWAuthStepValidatePIN,
-    
-    LWAuthStepRegisterFullName,
-    LWAuthStepRegisterPhone,
-    LWAuthStepRegisterPassword,
-    LWAuthStepRegisterConfirmPassword,
-    
-    LWAuthStepRegisterSelfie,
-    LWAuthStepRegisterIdentity,
-    LWAuthStepRegisterUtilityBill,
-    LWAuthStepRegisterKYCSubmit,
-    LWAuthStepRegisterKYCPending,
-    LWAuthStepRegisterKYCInvalidDocuments,
-    LWAuthStepRegisterKYCRestricted,
-    LWAuthStepRegisterKYCSuccess,
-    LWAuthStepRegisterPINSetup
-};
-
 
 @interface LWAuthStepPresenter : TKPresenter<LWAuthManagerDelegate> {
     
