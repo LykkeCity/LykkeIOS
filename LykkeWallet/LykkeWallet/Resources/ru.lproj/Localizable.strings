@@ -42,7 +42,7 @@
 "register.kyc.restricted" = "Уважаемый %@, мы очень сожалеем, но Lykke Wallet не может быть создан на основе KYC-информации, которую Вы предоставили.";
 
 "register.kyc.invalidDocuments.header" = "Упс!";
-"register.kyc.invalidDocuments" = "Уважаемый %@, мы очень сожалеем, но Lykke Wallet не может быть создан на основе KYC-информации, которую Вы предоставили.";
+"register.kyc.invalidDocuments" = "Уважаемый %@, приносим свои извинения, но мы не смогли принять часть Ваших докмуентов. Пожалуйста, загрузите их снова.";
 "register.kyc.invalidDocuments.okButton" = "Ок, я понимаю";
 "register.kyc.success.header" = "Lykke Wallet был успешно создан!";
 "register.kyc.success" = "Уважаемый %@, теперь вы можете перейти к обзору инструментов, доступных для торговли.";

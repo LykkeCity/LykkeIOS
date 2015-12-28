@@ -16,12 +16,14 @@
 #import "LWLykkeTableViewCell.h"
 #import "LWBanksTableViewCell.h"
 #import "LWEquityTableViewCell.h"
+#import "LWAuthNavigationController.h"
+
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
 #define equityCellIdentifier @"LWEquityTableViewCellIdentifier"
 
 
-@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource,LWAuthManagerDelegate> {
+@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource> {
     
     NSMutableIndexSet *expandedSections;
     

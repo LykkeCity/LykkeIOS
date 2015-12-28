@@ -114,6 +114,7 @@
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
 		EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D19B1C30575600550EF2 /* LWBankCardsData.m */; };
 		EC51D19F1C30578700550EF2 /* LWLykkeAssetsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D19E1C30578700550EF2 /* LWLykkeAssetsData.m */; };
+		EC5952681C31DF160036240C /* LWAuthenticatedTablePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5952671C31DF160036240C /* LWAuthenticatedTablePresenter.m */; };
 		EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45C31C30650C00926BB4 /* LWWalletTableViewCell.m */; };
 		EC7A45C91C3083CE00926BB4 /* LWAuthSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45C81C3083CE00926BB4 /* LWAuthSteps.m */; };
 		EC7A45CC1C3099F900926BB4 /* LWLykkeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45CB1C3099F900926BB4 /* LWLykkeTableViewCell.m */; };
@@ -322,6 +323,8 @@
 		EC51D19B1C30575600550EF2 /* LWBankCardsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBankCardsData.m; path = Wallets/LWBankCardsData.m; sourceTree = "<group>"; };
 		EC51D19D1C30578700550EF2 /* LWLykkeAssetsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeAssetsData.h; path = Wallets/LWLykkeAssetsData.h; sourceTree = "<group>"; };
 		EC51D19E1C30578700550EF2 /* LWLykkeAssetsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeAssetsData.m; path = Wallets/LWLykkeAssetsData.m; sourceTree = "<group>"; };
+		EC5952661C31DF150036240C /* LWAuthenticatedTablePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthenticatedTablePresenter.h; sourceTree = "<group>"; };
+		EC5952671C31DF160036240C /* LWAuthenticatedTablePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthenticatedTablePresenter.m; sourceTree = "<group>"; };
 		EC7A45C21C30650C00926BB4 /* LWWalletTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletTableViewCell.h; path = Wallets/LWWalletTableViewCell.h; sourceTree = "<group>"; };
 		EC7A45C31C30650C00926BB4 /* LWWalletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletTableViewCell.m; path = Wallets/LWWalletTableViewCell.m; sourceTree = "<group>"; };
 		EC7A45C71C3083CE00926BB4 /* LWAuthSteps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthSteps.h; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 				CDCD5AE51C259586007BAD78 /* TKTablePresenter.m */,
 				CF6632881C176AB1004353F5 /* LWTabController.h */,
 				CF6632891C176AB1004353F5 /* LWTabController.m */,
+				EC5952661C31DF150036240C /* LWAuthenticatedTablePresenter.h */,
+				EC5952671C31DF160036240C /* LWAuthenticatedTablePresenter.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1137,6 +1142,7 @@
 				EC7A45D11C309A2B00926BB4 /* LWBanksTableViewCell.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
+				EC5952681C31DF160036240C /* LWAuthenticatedTablePresenter.m in Sources */,
 				CDA69FDF1C281E1C00BE4DCA /* LWAuthValidationPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,

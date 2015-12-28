@@ -35,9 +35,8 @@
     
     NSString *message = [reject objectForKey:@"Message"];
 #warning TODO: as request by customer (temporarly)
-    NSString *url = [reject objectForKey:@"URL"];
     NSNumber *code = [reject objectForKey:@"Code"];
-    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. URL: %@", message, code, url];
+    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@.", message, code];
     
     UIAlertController *ctrl = [UIAlertController
                                alertControllerWithTitle:Localize(@"utils.error")

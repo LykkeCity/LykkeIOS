@@ -32,6 +32,7 @@
 - (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
 - (void)authManager:(LWAuthManager *)manager didReceivePersonalFullName:(NSString *)fullName phone:(NSString *)phone email:(NSString *)email;
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data;
+- (void)authManagerDidNotAuthorized:(LWAuthManager *)manager;
 
 @end
 

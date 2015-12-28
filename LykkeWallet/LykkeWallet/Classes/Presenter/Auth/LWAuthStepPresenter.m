@@ -7,6 +7,7 @@
 //
 
 #import "LWAuthStepPresenter.h"
+#import "LWAuthNavigationController.h"
 
 
 @implementation LWAuthStepPresenter
@@ -26,6 +27,13 @@
 - (LWAuthStep)stepId {
     NSAssert(0, @"Must be overridden.");
     return LWAuthStepValidation;
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManagerDidNotAuthorized:(LWAuthManager *)manager {
+    [((LWAuthNavigationController *)self.navigationController) logout];
 }
 
 @end

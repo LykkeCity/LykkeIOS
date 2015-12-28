@@ -24,7 +24,10 @@
     
     if (_reject && ![_reject isKindOfClass:[NSNull class]]) {
 #warning TODO: as request by customer (temporarly)
-        [_reject setObject:[NSString stringWithFormat:@"%@%@", [self urlBase], [self urlRelative]] forKey:@"URL"];
+        _reject = [response[@"Error"] mutableCopy];
+        NSString *message = [_reject objectForKey:@"Message"];
+        NSString *temp = [NSString stringWithFormat:@"%@%@ %@", [self urlBase], [self urlRelative], message];
+        [_reject setObject:temp forKey:@"Message"];
     }
     
     _isRejected = (self.reject != nil) && ![self.reject isKindOfClass:NSNull.class];

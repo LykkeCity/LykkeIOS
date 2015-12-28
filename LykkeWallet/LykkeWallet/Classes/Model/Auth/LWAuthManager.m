@@ -261,8 +261,18 @@ SINGLETON_INIT {
     GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
     LWPacket *pack = (LWPacket *)ctx.packet;
     
-    if ([self.delegate respondsToSelector:@selector(authManager:didFailWithReject:context:)]) {
-        [self.delegate authManager:self didFailWithReject:pack.reject context:ctx];
+    NSHTTPURLResponse* response = (NSHTTPURLResponse*)ctx.task.response;
+    NSInteger const NotAuthenticated = 401;
+    // check if user not authorized - kick them
+    if (response && response.statusCode == NotAuthenticated) {
+        [self.delegate authManagerDidNotAuthorized:self];
+    }
+    else {
+        if ([self.delegate respondsToSelector:@selector(authManager:didFailWithReject:context:)]) {
+            [self.delegate authManager:self
+                     didFailWithReject:pack.reject
+                               context:ctx];
+        }
     }
 }
 
