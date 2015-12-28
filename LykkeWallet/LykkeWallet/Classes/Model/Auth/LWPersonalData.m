@@ -14,7 +14,7 @@
 }
 
 - (instancetype)initWithJSON:(id)json {
-    if (json) {
+    if (json && ![json isKindOfClass:[NSNull class]]) {
         self = [super initWithJSON:json];
         if (self) {
             _phone    = [json objectForKey:@"Phone"];
