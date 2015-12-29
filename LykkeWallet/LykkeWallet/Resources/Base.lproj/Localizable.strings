@@ -18,6 +18,7 @@
 "auth.signup" = "Sign Up";
 "auth.email" = "Email";
 "auth.password" = "Password (min 6 symbols)";
+"auth.validation.fingerpring" = "Please scan your fingerprint to validate your identity.";
 
 "register.title" = "Register";
 "register.step1.prompt" = "Complete your profile";

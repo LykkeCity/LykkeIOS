@@ -9,6 +9,7 @@
 #import "LWAuthPINEnterPresenter.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <LocalAuthentication/LocalAuthentication.h>
 
 #import "LWAuthNavigationController.h"
 #import "ABPadLockScreen.h"
@@ -22,6 +23,11 @@ static int const kAllowedAttempts = 3;
     ABPadLockScreenViewController *pinController;
 }
 
+
+#pragma mark - Utils
+
+- (void)validateUser;
+
 @end
 
 
@@ -34,8 +40,8 @@ static int const kAllowedAttempts = 3;
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
     // adjust pin controller frame
-
     if (!pinController) {
         pinController = [[ABPadLockScreenViewController alloc] initWithDelegate:self
                                                                      complexPin:NO];
@@ -84,7 +90,11 @@ static int const kAllowedAttempts = 3;
             return result;
         };
     }
-    [self presentViewController:pinController animated:YES completion:nil];
+    
+    // run fingerprint validation
+    [self presentViewController:pinController animated:NO completion:^{
+        [self validateUser];
+    }];
 }
 
 - (void)localize {
@@ -125,6 +135,41 @@ static int const kAllowedAttempts = 3;
 
 - (void)attemptsExpiredForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
     [((LWAuthNavigationController *)self.navigationController) logout];
+}
+
+
+#pragma mark - Utils
+
+- (void)validateUser {
+    LAContext *laContext = [[LAContext alloc] init];
+    NSError *authError = nil;
+    if ([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+
+        NSString *reasonString = Localize(@"auth.validation.fingerpring");
+        [laContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                  localizedReason:reasonString
+                            reply:^(BOOL success, NSError *error) {
+                                if (success) {
+                                    [[LWAuthManager instance] requestSendLog:@"! Fingerprint success begin!"];
+                                    
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [[LWAuthManager instance] requestSendLog:@"! Fingerprint success navigate to main tab!"];
+                                        
+                                        [pinController dismissViewControllerAnimated:NO completion:^{
+                                            [((LWAuthNavigationController *)self.navigationController) setRootMainTabScreen];
+                                        }];
+                                    });
+                                } else {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [[LWAuthManager instance] requestSendLog:@"! Fingerprint failed!"];
+                                    });
+                                }
+                            }];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[LWAuthManager instance] requestSendLog:@"! Fingerprint unavailable!"];
+        });
+    }
 }
 
 @end

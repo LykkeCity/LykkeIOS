@@ -18,6 +18,7 @@
 "auth.signup" = "Зарегистрироваться";
 "auth.email" = "Email";
 "auth.password" = "Пароль (мин 6 символов)";
+"auth.validation.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения Вашей учетной записи.";
 
 "register.title" = "Регистрация";
 "register.step1.prompt" = "Заполните ваш профиль";

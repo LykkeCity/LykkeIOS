@@ -9,6 +9,8 @@
 #import "UIViewController+Loading.h"
 #import "Macro.h"
 
+#warning TODO: temporary
+#import "LWKeychainManager.h"
 
 @implementation UIViewController (Loading)
 
@@ -36,7 +38,11 @@
     NSString *message = [reject objectForKey:@"Message"];
 #warning TODO: as request by customer (temporarly)
     NSNumber *code = [reject objectForKey:@"Code"];
-    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@.", message, code];
+#warning TODO: temporary keychain email
+    NSString *email = [[LWKeychainManager instance] login];
+    NSString *time = [self currentUTC];
+    
+    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
     
     UIAlertController *ctrl = [UIAlertController
                                alertControllerWithTitle:Localize(@"utils.error")
@@ -50,6 +56,22 @@
                                                      }];
     [ctrl addAction:actionOK];
     [self presentViewController:ctrl animated:YES completion:nil];
+}
+
+
+#pragma mark - Utils
+
+- (NSString *)currentUTC {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"ddMMyyyy HH:mm"];
+    
+    // Add this part to your code
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [formatter setTimeZone:timeZone];
+    
+    NSDate *now = [NSDate date];
+    NSString *result = [formatter stringFromDate:now];
+    return result;
 }
 
 @end
