@@ -164,7 +164,6 @@
     size.width = width;
     size.height = size.height * coeff;
     
-#warning TODO: IPHONELW-48
     photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
     self.photoImageView.image = photo;
 }

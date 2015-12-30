@@ -32,7 +32,7 @@
                     </constraints>
                     <items>
                         <navigationItem title="REGISTER" id="HhN-xZ-aQE">
-                            <barButtonItem key="leftBarButtonItem" image="06124C22-3775-4AC3-8CCD-82327BD6C854" id="TTA-aa-W3x">
+                            <barButtonItem key="leftBarButtonItem" image="08B9303B-846C-45CA-97E2-340CBC82B949" id="TTA-aa-W3x">
                                 <color key="tintColor" red="0.58431372549019611" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="closeButtonClick:" destination="-1" id="bm4-Hj-WIV"/>
@@ -136,7 +136,7 @@
         </view>
     </objects>
     <resources>
-        <image name="06124C22-3775-4AC3-8CCD-82327BD6C854" width="22" height="22">
+        <image name="08B9303B-846C-45CA-97E2-340CBC82B949" width="22" height="22">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -219,8 +219,8 @@ AKsArQCyALUAtwC5ALsAvQDCANkA2wDdEQ8RFBEfESgROxE/EUoRUxFYEWARYxFoEXcRexGCEYoRlxGc
 EZ4RoBGlEa0RsBG1Eb0RwBHSEdUR2gAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABHcA
 </mutableData>
         </image>
-        <image name="ButtonCameraSelectGallery" width="35" height="35"/>
-        <image name="ButtonCameraSwitch" width="23" height="36"/>
+        <image name="ButtonCameraSelectGallery" width="36" height="36"/>
+        <image name="ButtonCameraSwitch" width="36" height="36"/>
         <image name="ButtonCameraTakePicture" width="75" height="75"/>
         <image name="RegisterLineStep3" width="303" height="36"/>
     </resources>

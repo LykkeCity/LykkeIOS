@@ -42,9 +42,9 @@
 - (void)updateView {
     [self localize];
     
-    //BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
-    //self.libraryButton.hidden = isSelfie;
-    //self.switchButton.hidden = isSelfie;
+    BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
+    self.libraryButton.hidden = isSelfie;
+    self.switchButton.hidden = isSelfie;
     
     self.backButtonItem = nil;
 }
