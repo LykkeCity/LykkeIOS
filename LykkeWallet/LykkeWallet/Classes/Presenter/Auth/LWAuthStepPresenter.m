@@ -8,6 +8,7 @@
 
 #import "LWAuthStepPresenter.h"
 #import "LWAuthNavigationController.h"
+#import "UIViewController+Loading.h"
 
 
 @implementation LWAuthStepPresenter
@@ -33,6 +34,7 @@
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManagerDidNotAuthorized:(LWAuthManager *)manager {
+    [self setLoading:NO];
     [((LWAuthNavigationController *)self.navigationController) logout];
 }
 

@@ -203,8 +203,7 @@
     }
     else {
         // navigate to KYC submit
-        [navController navigateToStep:LWAuthStepRegisterKYCSubmit
-                     preparationBlock:nil];
+        [navController navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
     }
 }
 

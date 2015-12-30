@@ -39,11 +39,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self setLoading:YES];
-
     [self.okButton setTitleFont:[UIFont fontWithName:kFontSemibold size:kButtonFontSize]];
     [self.okButton setTitleColor:[UIColor colorWithHexString:kMainDarkElementsColor] forState:UIControlStateNormal];
     
+    [self setLoading:YES];
     [[LWAuthManager instance] requestDocumentsToUpload];
 }
 

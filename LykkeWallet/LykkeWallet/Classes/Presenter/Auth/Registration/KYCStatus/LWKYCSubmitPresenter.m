@@ -66,15 +66,16 @@
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     if (reject) {
         [self showReject:reject];
+    } else {
+        [self setLoading:NO];
     }
 }
 
 - (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager {
     [self setLoading:NO];
     
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:LWAuthStepRegisterKYCPending
-     preparationBlock:nil];
+    [((LWAuthNavigationController *)self.navigationController) navigateToStep:LWAuthStepRegisterKYCPending
+                                                             preparationBlock:nil];
 }
 
 @end
