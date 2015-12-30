@@ -94,6 +94,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:NO completion:^{
+        [self.delegate pictureTaken];
         [self.delegate fileChoosen:info];
     }];
 }

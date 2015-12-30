@@ -110,6 +110,7 @@
 		CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */; };
 		CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
 		EC25A6921C331F0B00F223FF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */; };
+		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -316,6 +317,8 @@
 		CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSuccessPresenter.m; sourceTree = "<group>"; };
 		CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSuccessPresenter.xib; sourceTree = "<group>"; };
 		EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		EC2813EA1C343CE9009BE680 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		EC51D1911C30514200550EF2 /* LWLykkeWalletsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeWalletsData.h; path = Wallets/LWLykkeWalletsData.h; sourceTree = "<group>"; };
 		EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeWalletsData.m; path = Wallets/LWLykkeWalletsData.m; sourceTree = "<group>"; };
 		EC51D1941C3054AA00550EF2 /* LWJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWJSONObject.h; sourceTree = "<group>"; };
@@ -543,6 +546,8 @@
 		CF66325E1C175DE5004353F5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EC2813EA1C343CE9009BE680 /* UIImage+Resize.h */,
+				EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */,
 				ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */,
 				ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */,
 				CF66325F1C175DE5004353F5 /* TKNavigationPresenter.h */,
@@ -1123,6 +1128,7 @@
 				EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */,
 				ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */,
 				EC51D19F1C30578700550EF2 /* LWLykkeAssetsData.m in Sources */,
+				EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,

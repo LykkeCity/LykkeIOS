@@ -8,12 +8,11 @@
 
 #import "LWRegisterCameraPresenter.h"
 #import "LWAuthNavigationController.h"
-#import "UIViewController+Loading.h"
 #import "LWConstants.h"
 #import "LWCameraOverlayPresenter.h"
 
-#import <Fabric/Fabric.h>
-
+#import "UIViewController+Loading.h"
+#import "UIImage+Resize.h"
 
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate, LWCameraOverlayDelegate> {
     LWCameraOverlayPresenter *cameraOverlayPresenter;
@@ -26,6 +25,7 @@
 
 - (void)checkButtonsState;
 - (void)showCameraView;
+- (void)setupImageFromInfo:(NSDictionary *)info;
 
 @end
 
@@ -147,12 +147,26 @@
     picker.delegate = self;
 
     self.imagePickerController = picker;
-    [self presentViewController:self.imagePickerController
-                       animated:NO completion:^{
-                           [cameraOverlayPresenter updateView];
-                       }];
+    [self presentViewController:self.imagePickerController animated:NO completion:^{
+        [cameraOverlayPresenter updateView];
+    }];
     
     [self checkButtonsState];
+}
+
+- (void)setupImageFromInfo:(NSDictionary *)info {
+    
+    photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    CGFloat const width = 1024.0;
+    CGSize size = photo.size;
+    CGFloat coeff = width / photo.size.width;
+    size.width = width;
+    size.height = size.height * coeff;
+    
+#warning TODO: IPHONELW-48
+    photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
+    self.photoImageView.image = photo;
 }
 
 
@@ -162,18 +176,15 @@
     [picker dismissViewControllerAnimated:NO completion:nil];
     
     [[LWAuthManager instance] requestSendLog:@"Cancel choosen image"];
-    
     [self checkButtonsState];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.photoImageView.image = photo;
-    
-    [[LWAuthManager instance] requestSendLog:@"Camera image selected"];
+    [self setupImageFromInfo:info];
 
     [picker dismissViewControllerAnimated:NO completion:nil];
     
+    [[LWAuthManager instance] requestSendLog:@"Camera image selected"];
     [self checkButtonsState];
 }
 
@@ -211,18 +222,13 @@
 #pragma mark - LWCameraOverlayDelegate
 
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
-    //[self imagePickerController:self.imagePickerController didFinishPickingMediaWithInfo:info];
-    
-    photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.photoImageView.image = photo;
+    [self setupImageFromInfo:info];
     
     if (self.imagePickerController) {
-        [self.imagePickerController dismissViewControllerAnimated:NO
-                                                       completion:nil];
+        [self.imagePickerController dismissViewControllerAnimated:NO completion:nil];
     }
     
     [[LWAuthManager instance] requestSendLog:@"Camera file choosen"];
-
     [self checkButtonsState];
 }
 

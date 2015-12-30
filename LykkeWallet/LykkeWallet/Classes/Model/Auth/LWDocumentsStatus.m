@@ -21,15 +21,10 @@
         _idCard         = [json[@"IdCard"] boolValue];
         _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
         
-        /*if (!self.selfie) {
-            [self setTypeUploaded:KYCDocumentTypeSelfie];
-        }
-        if (!self.idCard) {
-            [self setTypeUploaded:KYCDocumentTypeIdCard];
-        }
-        if (!self.proofOfAddress) {
-            [self setTypeUploaded:KYCDocumentTypeProofOfAddress];
-        }*/
+        // check which documents already uploaded
+        _isSelfieUploaded = !_selfie;
+        _isIdCardUploaded = !_idCard;
+        _isPOAUploaded = !_proofOfAddress;
     }
     return self;
 }
