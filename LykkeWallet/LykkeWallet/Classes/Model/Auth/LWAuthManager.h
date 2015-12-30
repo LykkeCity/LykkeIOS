@@ -58,6 +58,7 @@ SINGLETON_DECLARE
 - (void)requestRegistrationGet;
 - (void)requestDocumentsToUpload;
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image;
+- (void)requestSendDocumentBin:(KYCDocumentType)docType image:(UIImage *)image;
 - (void)requestKYCStatusGet;
 - (void)requestKYCStatusSet;
 - (void)requestPinSecurityGet:(NSString *)pin;

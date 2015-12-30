@@ -44,16 +44,7 @@
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
-    LWAuthStep nextStep = [LWAuthSteps getNextDocumentByStatus:status];
-
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:nextStep
-     preparationBlock:^(LWAuthStepPresenter *presenter) {
-         LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
-         camera.shouldHideBackButton = YES;
-         camera.showCameraImmediately = YES;
-         camera.currentStep = nextStep;
-     }];
+    [((LWAuthNavigationController *)self.navigationController) navigateWithDocumentStatus:status hideBackButton:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {

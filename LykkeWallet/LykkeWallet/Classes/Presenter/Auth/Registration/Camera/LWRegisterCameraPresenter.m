@@ -84,7 +84,8 @@
 
         // send photo
         KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
-        [[LWAuthManager instance] requestSendDocument:type image:photo];
+        //[[LWAuthManager instance] requestSendDocument:type image:photo];
+        [[LWAuthManager instance] requestSendDocumentBin:type image:photo];
     }
     else {
         [self showCameraView];
@@ -198,23 +199,7 @@
     [self setLoading:NO];
     
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
-    
-    if ([LWAuthManager instance].documentsStatus.documentTypeRequired) {
-        // navigate to valid step with document uploading
-        LWAuthStep step = [LWAuthSteps getNextDocumentByStatus:
-                           [LWAuthManager instance].documentsStatus];
-        
-        [navController navigateToStep:step preparationBlock:^(LWAuthStepPresenter *presenter) {
-            LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
-            camera.shouldHideBackButton = NO;
-            camera.showCameraImmediately = YES;
-            camera.currentStep = step;
-        }];
-    }
-    else {
-        // navigate to KYC submit
-        [navController navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
-    }
+    [navController navigateWithDocumentStatus:[LWAuthManager instance].documentsStatus hideBackButton:NO];
 }
 
 

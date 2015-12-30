@@ -159,6 +159,28 @@
     }
 }
 
+- (void)navigateWithDocumentStatus:(LWDocumentsStatus *)status hideBackButton:(BOOL)hideBackButton {
+    LWAuthStep step = [LWAuthSteps getNextDocumentByStatus:status];
+
+    if (status.documentTypeRequired) {
+        if (step != LWAuthStepRegisterKYCSubmit) {
+            [self navigateToStep:step
+                preparationBlock:^(LWAuthStepPresenter *presenter) {
+                    LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
+                    camera.shouldHideBackButton = hideBackButton;
+                    camera.showCameraImmediately = YES;
+                    camera.currentStep = step;
+                }];
+        }
+        else {
+            [self navigateToStep:step preparationBlock:nil];
+        }
+    }
+    else {
+        [self navigateToStep:LWAuthStepRegisterKYCSubmit preparationBlock:nil];
+    }
+}
+
 
 #pragma mark - Auth
 

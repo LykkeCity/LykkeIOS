@@ -13,6 +13,7 @@
 #import "LWPacketRegistrationGet.h"
 #import "LWPacketCheckDocumentsToUpload.h"
 #import "LWPacketKYCSendDocument.h"
+#import "LWPacketKYCSendDocumentBin.h"
 #import "LWPacketKYCStatusGet.h"
 #import "LWPacketKYCStatusSet.h"
 #import "LWPacketPinSecurityGet.h"
@@ -93,7 +94,17 @@ SINGLETON_INIT {
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image {
     LWPacketKYCSendDocument *pack = [LWPacketKYCSendDocument new];
     pack.docType = docType;
-    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f); // 20% compression
+    // 20% compression
+    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f);
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestSendDocumentBin:(KYCDocumentType)docType image:(UIImage *)image {
+    LWPacketKYCSendDocumentBin *pack = [LWPacketKYCSendDocumentBin new];
+    pack.docType = docType;
+    // 20% compression
+    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f);
     
     [self sendPacket:pack];
 }
@@ -212,7 +223,8 @@ SINGLETON_INIT {
             [self.delegate authManager:self didCheckDocumentsStatus:self.documentsStatus];
         }
     }
-    else if (pack.class == LWPacketKYCSendDocument.class) {
+    else if (pack.class == LWPacketKYCSendDocument.class ||
+             pack.class == LWPacketKYCSendDocumentBin.class) {
         KYCDocumentType docType = ((LWPacketKYCSendDocument *)pack).docType;
         // modify self documents status
         [self.documentsStatus setTypeUploaded:docType];

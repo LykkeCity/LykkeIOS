@@ -30,7 +30,8 @@
         nextStep = LWAuthStepRegisterUtilityBill;
     }
     else {
-        NSAssert(0, @"Invalid documents status, we can't have invalid documents if they are all uploaded.");
+        // to LWAuthStepRegisterKYCSubmit
+        nextStep = LWAuthStepRegisterKYCSubmit;
     }
     return nextStep;
 }

@@ -62,24 +62,7 @@
     [self setLoading:NO];
     
     LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
-    
-    LWAuthStep nextStep = [LWAuthSteps getNextDocumentByStatus:status];
-    
-    if (status.documentTypeRequired != nil) {
-        // navigate to document upload camera camera presenter
-        [navigation navigateToStep:nextStep
-                  preparationBlock:^(LWAuthStepPresenter *presenter) {
-                      LWRegisterCameraPresenter *camera = (LWRegisterCameraPresenter *)presenter;
-                      camera.shouldHideBackButton = YES;
-                      camera.showCameraImmediately = YES;
-                      camera.currentStep = nextStep;
-                  }];
-    }
-    else {
-        // navigate to KYC submit
-        [navigation navigateToStep:LWAuthStepRegisterKYCSubmit
-                  preparationBlock:nil];
-    }
+    [navigation navigateWithDocumentStatus:status hideBackButton:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
