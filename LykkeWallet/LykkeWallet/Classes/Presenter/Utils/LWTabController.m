@@ -11,7 +11,7 @@
 #import "LWAuthNavigationController.h"
 
 
-@interface LWTabController () {
+@interface LWTabController ()<LWAuthManagerDelegate> {
     
 }
 
@@ -23,10 +23,21 @@
 
 #pragma mark - Lifecycle
 
+- (void)viewDidLoad {
+    [LWAuthManager instance].delegate = self;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+ 
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManagerDidNotAuthorized:(LWAuthManager *)manager {
+    [((LWAuthNavigationController *)self.navigationController) logout];
 }
 
 @end

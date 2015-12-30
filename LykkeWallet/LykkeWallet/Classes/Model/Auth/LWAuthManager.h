@@ -67,4 +67,9 @@ SINGLETON_DECLARE
 - (void)requestLykkeWallets;
 - (void)requestSendLog:(NSString *)log;
 
+
+#pragma mark - Static methods
+
++ (BOOL)isAuthneticationFailed:(NSURLResponse *)response;
+
 @end

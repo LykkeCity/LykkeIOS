@@ -24,7 +24,10 @@
         hud.mode = MBProgressHUDModeIndeterminate;
     }
     else {
-        [[self hud] hide:YES];
+        MBProgressHUD *hud = [self hud];
+        if (hud) {
+            [hud hide:YES];
+        }
     }
 }
 
@@ -63,7 +66,7 @@
 
 - (NSString *)currentUTC {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"ddMMyyyy HH:mm"];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
     
     // Add this part to your code
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];

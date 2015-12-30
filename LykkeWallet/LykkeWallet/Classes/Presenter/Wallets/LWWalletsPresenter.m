@@ -97,9 +97,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //management
-    [LWAuthManager instance].delegate = self;
-    
     [[LWAuthManager instance] requestLykkeWallets];
 }
 

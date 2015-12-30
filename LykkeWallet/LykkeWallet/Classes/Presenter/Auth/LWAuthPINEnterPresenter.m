@@ -53,7 +53,10 @@ static int const kAllowedAttempts = 3;
         
         ABPadLockScreenView *view = (ABPadLockScreenView *)pinController.view;
         view.enterPasscodeLabel.text = Localize(@"ABPadLockScreen.pin.enter");
-        
+
+        __block UIViewController *mainController = self;
+        __block UINavigationController *navigation = self.navigationController;
+
         pinController.validateBlock = ^BOOL(NSString *pin_) {
 
             // configure URL
@@ -80,6 +83,17 @@ static int const kAllowedAttempts = 3;
                     dispatch_semaphore_signal(semaphore);
                 }
                 failure:^(NSURLSessionTask *operation, NSError *error) {
+                    if (![LWAuthManager isAuthneticationFailed:operation.response]) {
+                        NSMutableDictionary *errorInfo = [[NSMutableDictionary alloc]
+                                                          initWithObjects:@[ error.localizedDescription, [NSNumber numberWithInt:-1]] forKeys:@[ @"Message", @"Code" ]];
+                        [mainController showReject:errorInfo];
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [mainController setLoading:NO];
+                        [((LWAuthNavigationController *)navigation) logout];
+                    });
+
                     pack = nil;
                     dispatch_semaphore_signal(semaphore);
                 }];

@@ -261,10 +261,8 @@ SINGLETON_INIT {
     GDXRESTContext *ctx = notification.userInfo[kNotificationKeyGDXNetContext];
     LWPacket *pack = (LWPacket *)ctx.packet;
     
-    NSHTTPURLResponse* response = (NSHTTPURLResponse*)ctx.task.response;
-    NSInteger const NotAuthenticated = 401;
     // check if user not authorized - kick them
-    if (response && response.statusCode == NotAuthenticated) {
+    if ([LWAuthManager isAuthneticationFailed:ctx.task.response]) {
         [self.delegate authManagerDidNotAuthorized:self];
     }
     else {
@@ -281,6 +279,18 @@ SINGLETON_INIT {
 
 - (BOOL)isAuthorized {
     return ([LWKeychainManager instance].token != nil);
+}
+
+
+#pragma mark - Static methods
+
++ (BOOL)isAuthneticationFailed:(NSURLResponse *)response {
+    NSHTTPURLResponse* urlResponse = (NSHTTPURLResponse*)response;
+    NSInteger const NotAuthenticated = 401;
+    if (urlResponse && urlResponse.statusCode == NotAuthenticated) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

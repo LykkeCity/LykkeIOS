@@ -6,10 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthenticatedTablePresenter.h"
+#import "TKTablePresenter.h"
 
 
-@interface LWHistoryPresenter : LWAuthenticatedTablePresenter {
+@interface LWHistoryPresenter : TKTablePresenter {
     
 }
 
