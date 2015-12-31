@@ -63,6 +63,8 @@
 "utils.ok" = "OK";
 "utils.error" = "Error";
 
+"wallets.cardform.title" = "ADDED CARDS";
+
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Re-enter PIN";

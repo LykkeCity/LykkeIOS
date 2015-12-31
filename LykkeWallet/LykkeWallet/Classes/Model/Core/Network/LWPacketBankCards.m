@@ -1,15 +1,15 @@
 //
-//  LWPacketLykkeWallet.m
+//  LWPacketBankCards.m
 //  LykkeWallet
 //
-//  Created by Alexander Pukhov on 26.12.15.
+//  Created by Alexander Pukhov on 31.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacketLykkeWallet.h"
+#import "LWPacketBankCards.h"
 
 
-@implementation LWPacketLykkeWallet
+@implementation LWPacketBankCards
 
 
 #pragma mark - LWPacket
@@ -21,15 +21,11 @@
         return;
     }
     
-    _data = [[LWLykkeWalletsData alloc] initWithJSON:result];
+    //_data = [[LWLykkeWalletsData alloc] initWithJSON:result];
 }
 
 - (NSString *)urlRelative {
-    return @"LykkeWallet";
-}
-
-- (GDXRESTPacketType)type {
-    return GDXRESTPacketTypeGET;
+    return @"BankCards";
 }
 
 @end

@@ -36,31 +36,38 @@
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-lR-YVf">
-                        <rect key="frame" x="268" y="8" width="34" height="34"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-g7-jr5">
+                        <rect key="frame" x="268" y="7" width="34" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="34" id="7bG-IF-ge5"/>
-                            <constraint firstAttribute="height" constant="34" id="vmX-gm-4B6"/>
+                            <constraint firstAttribute="width" constant="34" id="8VL-Jp-dLf"/>
+                            <constraint firstAttribute="height" constant="34" id="Tmf-1M-XGJ"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" backgroundImage="AddWalletIcon"/>
+                        <connections>
+                            <action selector="plusClicked:" destination="C4z-vr-b1d" eventType="touchUpInside" id="PMA-6l-dKM"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="4Hs-YQ-5QJ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vnA-lR-YVf" secondAttribute="trailing" constant="10" id="6NM-5n-rfq"/>
-                    <constraint firstItem="vnA-lR-YVf" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="FM8-OB-FnY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MJG-g7-jr5" secondAttribute="trailing" constant="10" id="4UW-ps-mzg"/>
+                    <constraint firstItem="MJG-g7-jr5" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="BhV-BZ-BaV"/>
+                    <constraint firstItem="MJG-g7-jr5" firstAttribute="leading" secondItem="QcT-ZZ-34n" secondAttribute="trailing" constant="12" id="Nsd-ox-IR0"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="leading" secondItem="ZoO-ZD-LeT" secondAttribute="leadingMargin" constant="10" id="Opi-CZ-Prc"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="pfu-qf-qUn"/>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="leading" secondItem="jmG-fB-2ha" secondAttribute="trailing" constant="12" id="rwD-tD-uE3"/>
-                    <constraint firstItem="vnA-lR-YVf" firstAttribute="leading" secondItem="QcT-ZZ-34n" secondAttribute="trailing" constant="12" id="wmO-0F-zfO"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="expandImageView" destination="vnA-lR-YVf" id="yUl-t3-aLe"/>
+                <outlet property="addWalletButton" destination="MJG-g7-jr5" id="Rcv-dJ-JdM"/>
                 <outlet property="walletImageView" destination="jmG-fB-2ha" id="lff-jp-ElQ"/>
                 <outlet property="walletLabel" destination="QcT-ZZ-34n" id="ZiE-6l-1z3"/>
             </connections>
             <point key="canvasLocation" x="202" y="190"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="AddWalletIcon" width="34" height="34"/>
+    </resources>
 </document>

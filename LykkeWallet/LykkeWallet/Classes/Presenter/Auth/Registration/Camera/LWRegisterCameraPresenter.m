@@ -84,8 +84,8 @@
 
         // send photo
         KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
-        //[[LWAuthManager instance] requestSendDocument:type image:photo];
-        [[LWAuthManager instance] requestSendDocumentBin:type image:photo];
+        [[LWAuthManager instance] requestSendDocument:type image:photo];
+        //[[LWAuthManager instance] requestSendDocumentBin:type image:photo];
     }
     else {
         [self showCameraView];

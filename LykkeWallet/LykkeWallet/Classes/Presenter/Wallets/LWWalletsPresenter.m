@@ -17,13 +17,17 @@
 #import "LWBanksTableViewCell.h"
 #import "LWEquityTableViewCell.h"
 #import "LWAuthNavigationController.h"
+#import "LWWalletFormPresenter.h"
 
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
 #define equityCellIdentifier @"LWEquityTableViewCellIdentifier"
 
 
-@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource> {
+static NSInteger const kSectionLykkeWallets = 0;
+static NSInteger const kSectionBankCards    = 1;
+
+@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate> {
     
     NSMutableIndexSet *expandedSections;
     
@@ -123,11 +127,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     if ([expandedSections containsIndex:section] && self.data)
     {
         int const rowCell = 1;
-        if (section == 0 && self.data.lykkeData && self.data.lykkeData.assets) {
+        if (section == kSectionLykkeWallets &&
+            self.data.lykkeData && self.data.lykkeData.assets) {
             int const equityCell = 1;
             return MAX(1, self.data.lykkeData.assets.count + equityCell) + rowCell;
         }
-        else if (section == 1 && self.data.bankCards) {
+        else if (section == kSectionBankCards && self.data.bankCards) {
             return MAX(1, self.data.bankCards.count) + rowCell;
         }
         else {
@@ -151,15 +156,15 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                                   reuseIdentifier:cellIdentifier];
         }
         
+        wallet.delegate = self;
         wallet.walletLabel.text = WalletNames[indexPath.section];
         wallet.walletImageView.image = [UIImage imageNamed:WalletIcons[indexPath.section]];
-        wallet.expandImageView.image = [UIImage imageNamed:@"ExpandIcon"];
     }
     // Show wallets for category
     else {
         NSString *identifier = WalletIdentifiers[indexPath.section];
         // Lykke cells
-        if (indexPath.section == 0) {
+        if (indexPath.section == kSectionLykkeWallets) {
             if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
                 // Show Lykke Wallets
                 if (self.data.lykkeData.assets.count > 0) {
@@ -183,7 +188,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             }
         }
         // Banks cells
-        else if (indexPath.section == 1) {
+        else if (indexPath.section == kSectionBankCards) {
             if (self.data && self.data.bankCards) {
                 // Show Banks Wallets
                 if (self.data.bankCards.count > 0) {
@@ -270,6 +275,17 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     _data = data;
     
     [self.tableView reloadData];
+}
+
+
+#pragma mark - LWBanksTableViewCellDelegate
+
+- (void)addWalletClicked:(LWBanksTableViewCell *)cell {
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    if (path && path.section == kSectionBankCards) {
+        LWWalletFormPresenter *form = [LWWalletFormPresenter new];
+        [self.navigationController pushViewController:form animated:YES];
+    }
 }
 
 

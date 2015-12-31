@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWWalletFormPresenter">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-MB-U10">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="9uE-db-RF9"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z1-5l-E6M">
+                    <rect key="frame" x="8" y="188" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="7VL-p6-pGR"/>
+                        <constraint firstAttribute="width" constant="304" id="x6F-UL-I2z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4t-O9-BAb" customClass="TKContainer">
+                    <rect key="frame" x="8" y="217" width="225" height="64"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="69l-9u-yU4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiR-XD-JdP" customClass="TKContainer">
+                    <rect key="frame" x="8" y="289" width="225" height="64"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="DfN-gQ-iJ9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxO-eQ-VTN" customClass="TKContainer">
+                    <rect key="frame" x="241" y="217" width="71" height="64"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="AeS-ur-Lue"/>
+                        <constraint firstAttribute="width" constant="71" id="DNf-Sv-wBf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8W-SD-JYX" customClass="TKContainer">
+                    <rect key="frame" x="241" y="289" width="71" height="64"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="71" id="RC5-EL-8Eg"/>
+                        <constraint firstAttribute="height" constant="64" id="uTh-0x-NwL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="L8W-SD-JYX" firstAttribute="top" secondItem="bxO-eQ-VTN" secondAttribute="bottom" constant="8" id="1uf-mZ-lEE"/>
+                <constraint firstItem="8z1-5l-E6M" firstAttribute="top" secondItem="8xI-MB-U10" secondAttribute="bottom" constant="8" id="3rq-PW-KTx"/>
+                <constraint firstAttribute="trailing" secondItem="bxO-eQ-VTN" secondAttribute="trailing" constant="8" id="5zI-VU-d54"/>
+                <constraint firstItem="bxO-eQ-VTN" firstAttribute="leading" secondItem="k4t-O9-BAb" secondAttribute="trailing" constant="8" id="6TX-LH-97T"/>
+                <constraint firstItem="8z1-5l-E6M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="85u-MD-NbE"/>
+                <constraint firstAttribute="trailing" secondItem="L8W-SD-JYX" secondAttribute="trailing" constant="8" id="Deg-fG-k1L"/>
+                <constraint firstItem="8xI-MB-U10" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LVX-4A-NqS"/>
+                <constraint firstItem="OiR-XD-JdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="SmQ-rz-elw"/>
+                <constraint firstItem="L8W-SD-JYX" firstAttribute="leading" secondItem="OiR-XD-JdP" secondAttribute="trailing" constant="8" id="U5b-jF-WDL"/>
+                <constraint firstItem="OiR-XD-JdP" firstAttribute="top" secondItem="k4t-O9-BAb" secondAttribute="bottom" constant="8" id="URW-FU-58o"/>
+                <constraint firstItem="k4t-O9-BAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Z92-Kj-3M0"/>
+                <constraint firstAttribute="trailing" secondItem="8xI-MB-U10" secondAttribute="trailing" id="aAb-Y5-7E1"/>
+                <constraint firstItem="8xI-MB-U10" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cx8-L3-6BP"/>
+                <constraint firstItem="k4t-O9-BAb" firstAttribute="top" secondItem="8z1-5l-E6M" secondAttribute="bottom" constant="8" id="eUw-cm-Se7"/>
+                <constraint firstItem="bxO-eQ-VTN" firstAttribute="top" secondItem="8z1-5l-E6M" secondAttribute="bottom" constant="8" id="uuH-BR-2NZ"/>
+            </constraints>
+            <point key="canvasLocation" x="151" y="188"/>
+        </view>
+    </objects>
+</document>

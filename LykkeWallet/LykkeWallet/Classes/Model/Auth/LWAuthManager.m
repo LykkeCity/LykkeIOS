@@ -21,8 +21,10 @@
 #import "LWPacketRestrictedCountries.h"
 #import "LWPacketPersonalData.h"
 #import "LWPacketLog.h"
+#import "LWPacketBankCards.h"
 
 #import "LWLykkeWalletsData.h"
+#import "LWBankCardsAdd.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
 
@@ -160,6 +162,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestAddBankCard:(LWBankCardsAdd *)card {
+    LWPacketBankCards *pack = [LWPacketBankCards new];
+    pack.addCardData = [card copy];
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -265,7 +274,12 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketLog.class) {
-        
+        // nothing to do
+    }
+    else if (pack.class == LWPacketBankCards.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidCardAdd:)]) {
+            [self.delegate authManagerDidCardAdd:self];
+        }
     }
 }
 

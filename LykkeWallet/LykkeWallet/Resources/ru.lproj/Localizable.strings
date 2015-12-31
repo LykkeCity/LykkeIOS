@@ -63,6 +63,8 @@
 "utils.ok" = "OK";
 "utils.error" = "Ошибка";
 
+"wallets.cardform.title" = "ДОБАВЛЕННЫЕ СЧЕТА";
+
 "ABPadLockScreen.pin.enter" = "Введите PIN";
 "ABPadLockScreen.pin.setup" = "Задайте новый PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Повторно введите PIN";

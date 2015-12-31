@@ -16,16 +16,13 @@
 @end
 
 
-@implementation LWWalletTableViewCell {
-    
-}
+@implementation LWWalletTableViewCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+#pragma mark - Actions
+
+- (IBAction)plusClicked:(id)sender {
+    [self.delegate addWalletClicked:self];
 }
-*/
 
 @end

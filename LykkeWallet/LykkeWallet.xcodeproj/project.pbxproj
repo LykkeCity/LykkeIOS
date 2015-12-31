@@ -140,6 +140,11 @@
 		ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */; };
 		ECD76BCD1C2EC50700E1D3DA /* LWPacketLykkeWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BCC1C2EC50700E1D3DA /* LWPacketLykkeWallet.m */; };
 		ECDA15E11C31C6F0003C071C /* LWPacketLog.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDA15E01C31C6F0003C071C /* LWPacketLog.m */; };
+		ECE902BD1C3537B700F52971 /* LWWalletFormPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902BB1C3537B700F52971 /* LWWalletFormPresenter.m */; };
+		ECE902BE1C3537B700F52971 /* LWWalletFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE902BC1C3537B700F52971 /* LWWalletFormPresenter.xib */; };
+		ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */; };
+		ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C31C354FA500F52971 /* LWPacketBankCards.m */; };
+		ECE902C71C35504200F52971 /* LWBankCardsAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C61C35504200F52971 /* LWBankCardsAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -370,6 +375,15 @@
 		ECD76BCC1C2EC50700E1D3DA /* LWPacketLykkeWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketLykkeWallet.m; sourceTree = "<group>"; };
 		ECDA15DF1C31C6F0003C071C /* LWPacketLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketLog.h; sourceTree = "<group>"; };
 		ECDA15E01C31C6F0003C071C /* LWPacketLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketLog.m; sourceTree = "<group>"; };
+		ECE902BA1C3537B700F52971 /* LWWalletFormPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletFormPresenter.h; path = WalletForm/LWWalletFormPresenter.h; sourceTree = "<group>"; };
+		ECE902BB1C3537B700F52971 /* LWWalletFormPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletFormPresenter.m; path = WalletForm/LWWalletFormPresenter.m; sourceTree = "<group>"; };
+		ECE902BC1C3537B700F52971 /* LWWalletFormPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletFormPresenter.xib; path = WalletForm/LWWalletFormPresenter.xib; sourceTree = "<group>"; };
+		ECE902BF1C353F5600F52971 /* LWAuthenticatedTablePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthenticatedTablePresenter.h; sourceTree = "<group>"; };
+		ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthenticatedTablePresenter.m; sourceTree = "<group>"; };
+		ECE902C21C354FA500F52971 /* LWPacketBankCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketBankCards.h; sourceTree = "<group>"; };
+		ECE902C31C354FA500F52971 /* LWPacketBankCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketBankCards.m; sourceTree = "<group>"; };
+		ECE902C51C35504200F52971 /* LWBankCardsAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWBankCardsAdd.h; path = Wallets/LWBankCardsAdd.h; sourceTree = "<group>"; };
+		ECE902C61C35504200F52971 /* LWBankCardsAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBankCardsAdd.m; path = Wallets/LWBankCardsAdd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +573,8 @@
 				CF6632621C175DE5004353F5 /* TKPresenter.m */,
 				CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */,
 				CDCD5AE51C259586007BAD78 /* TKTablePresenter.m */,
+				ECE902BF1C353F5600F52971 /* LWAuthenticatedTablePresenter.h */,
+				ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */,
 				CF6632881C176AB1004353F5 /* LWTabController.h */,
 				CF6632891C176AB1004353F5 /* LWTabController.m */,
 			);
@@ -615,6 +631,7 @@
 		CF6632821C176A63004353F5 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				ECE902B91C35368800F52971 /* WalletForm */,
 				CF6632831C176A63004353F5 /* LWWalletsPresenter.h */,
 				CF6632841C176A63004353F5 /* LWWalletsPresenter.m */,
 				CF6632851C176A63004353F5 /* LWWalletsPresenter.xib */,
@@ -773,6 +790,8 @@
 				ECD76BCC1C2EC50700E1D3DA /* LWPacketLykkeWallet.m */,
 				ECDA15DF1C31C6F0003C071C /* LWPacketLog.h */,
 				ECDA15E01C31C6F0003C071C /* LWPacketLog.m */,
+				ECE902C21C354FA500F52971 /* LWPacketBankCards.h */,
+				ECE902C31C354FA500F52971 /* LWPacketBankCards.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -868,6 +887,8 @@
 				EC51D19E1C30578700550EF2 /* LWLykkeAssetsData.m */,
 				EC51D19A1C30575600550EF2 /* LWBankCardsData.h */,
 				EC51D19B1C30575600550EF2 /* LWBankCardsData.m */,
+				ECE902C51C35504200F52971 /* LWBankCardsAdd.h */,
+				ECE902C61C35504200F52971 /* LWBankCardsAdd.m */,
 			);
 			name = Wallets;
 			sourceTree = "<group>";
@@ -902,6 +923,16 @@
 				ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		ECE902B91C35368800F52971 /* WalletForm */ = {
+			isa = PBXGroup;
+			children = (
+				ECE902BA1C3537B700F52971 /* LWWalletFormPresenter.h */,
+				ECE902BB1C3537B700F52971 /* LWWalletFormPresenter.m */,
+				ECE902BC1C3537B700F52971 /* LWWalletFormPresenter.xib */,
+			);
+			name = WalletForm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -972,6 +1003,7 @@
 				CD73627C1C2C26FF00924077 /* Proxima Nova Bold Italic.otf in Resources */,
 				CD73627B1C2C26FF00924077 /* Proxima Nova Black.otf in Resources */,
 				CD73627A1C2C26FF00924077 /* Proxima Nova Black Italic.otf in Resources */,
+				ECE902BE1C3537B700F52971 /* LWWalletFormPresenter.xib in Resources */,
 				CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */,
 				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
 				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
@@ -1105,6 +1137,7 @@
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
 				CDCD5AEF1C259662007BAD78 /* LWSettingsPresenter.m in Sources */,
 				EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */,
+				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */,
 				CF6F69D11C2413F70016CFC5 /* ABPadLockScreenSetupViewController.m in Sources */,
@@ -1120,6 +1153,7 @@
 				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,
 				CF68775A1C234A9800E7A7D9 /* LWAuthPINEnterPresenter.m in Sources */,
 				CD10AAAC1C1E10F60086634B /* LWPacketPinSecuritySet.m in Sources */,
+				ECE902BD1C3537B700F52971 /* LWWalletFormPresenter.m in Sources */,
 				CFF758411C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.m in Sources */,
 				EC7A45C91C3083CE00926BB4 /* LWAuthSteps.m in Sources */,
 				EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */,
@@ -1134,6 +1168,7 @@
 				ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */,
 				EC51D19F1C30578700550EF2 /* LWLykkeAssetsData.m in Sources */,
 				EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */,
+				ECE902C71C35504200F52971 /* LWBankCardsAdd.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
@@ -1150,6 +1185,7 @@
 				CDCD5AF41C25988B007BAD78 /* LWTradingPresenter.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
+				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
 				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
