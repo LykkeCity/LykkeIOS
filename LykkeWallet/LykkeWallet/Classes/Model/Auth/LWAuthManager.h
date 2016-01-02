@@ -15,6 +15,7 @@
 @class LWAuthManager;
 @class LWLykkeWalletsData;
 @class LWBankCardsAdd;
+@class LWAssetModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -35,6 +36,9 @@
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data;
 - (void)authManagerDidNotAuthorized:(LWAuthManager *)manager;
 - (void)authManagerDidCardAdd:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didGetBaseAssets:(NSArray *)assets;
+- (void)authManager:(LWAuthManager *)manager didGetBaseAsset:(LWAssetModel *)asset;
+- (void)authManagerDidSetAsset:(LWAuthManager *)manager;
 
 @end
 
@@ -70,6 +74,9 @@ SINGLETON_DECLARE
 - (void)requestLykkeWallets;
 - (void)requestSendLog:(NSString *)log;
 - (void)requestAddBankCard:(LWBankCardsAdd *)card;
+- (void)requestBaseAssets;
+- (void)requestBaseAssetGet;
+- (void)requestBaseAssetSet:(NSString *)assetId;
 
 
 #pragma mark - Static methods

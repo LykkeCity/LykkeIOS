@@ -65,6 +65,10 @@
 
 "wallets.cardform.title" = "ADDED CARDS";
 
+"settings.assets.title" = "BASE ASSET";
+"settings.cell.logout.title" = "Log out";
+"settings.cell.asset.title" = "Base asset";
+
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Re-enter PIN";

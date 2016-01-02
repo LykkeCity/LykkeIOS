@@ -38,11 +38,6 @@ static NSInteger const kSectionBankCards    = 1;
 
 @property (readonly, nonatomic) LWLykkeWalletsData *data;
 
-
-#pragma mark - Utils
-
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
-
 @end
 
 
@@ -92,27 +87,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     [self registerCellWithIdentifier:equityCellIdentifier
                              forName:@"LWEquityTableViewCell"];
-    
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[LWAuthManager instance] requestLykkeWallets];
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 
@@ -216,17 +196,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 #pragma mark - UITableViewDelegate
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     // only first row toggles exapand/collapse
@@ -286,14 +255,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         LWWalletFormPresenter *form = [LWWalletFormPresenter new];
         [self.navigationController pushViewController:form animated:YES];
     }
-}
-
-
-#pragma mark - Utils
-
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name {
-    UINib *nib = [UINib nibWithNibName:name bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
 @end

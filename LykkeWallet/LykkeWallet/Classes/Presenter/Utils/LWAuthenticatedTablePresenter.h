@@ -13,4 +13,11 @@
     
 }
 
+
+#pragma mark - Utils
+
+- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
+
+- (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
+
 @end

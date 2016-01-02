@@ -22,6 +22,9 @@
 #import "LWPacketPersonalData.h"
 #import "LWPacketLog.h"
 #import "LWPacketBankCards.h"
+#import "LWPacketBaseAssets.h"
+#import "LWPacketBaseAssetGet.h"
+#import "LWPacketBaseAssetSet.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -169,6 +172,25 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestBaseAssets {
+    LWPacketBaseAssets *pack = [LWPacketBaseAssets new];
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestBaseAssetGet {
+    LWPacketBaseAssetGet *pack = [LWPacketBaseAssetGet new];
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestBaseAssetSet:(NSString *)assetId {
+    LWPacketBaseAssetSet *pack = [LWPacketBaseAssetSet new];
+    pack.identity = assetId;
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -269,6 +291,7 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketLykkeWallet.class) {
+        // recieved data with all wallets
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeData:)]) {
             [self.delegate authManager:self didReceiveLykkeData:((LWPacketLykkeWallet *)pack).data];
         }
@@ -277,8 +300,27 @@ SINGLETON_INIT {
         // nothing to do
     }
     else if (pack.class == LWPacketBankCards.class) {
+        // receiving confirmation about added credit card
         if ([self.delegate respondsToSelector:@selector(authManagerDidCardAdd:)]) {
             [self.delegate authManagerDidCardAdd:self];
+        }
+    }
+    else if (pack.class == LWPacketBaseAssets.class) {
+        // receiving assets catalog
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetBaseAssets:)]) {
+            [self.delegate authManager:self didGetBaseAssets:((LWPacketBaseAssets *)pack).assets];
+        }
+    }
+    else if (pack.class == LWPacketBaseAssetGet.class) {
+        // receving base asset
+        if ([self.delegate respondsToSelector:@selector(authManager: didGetBaseAsset:)]) {
+            [self.delegate authManager:self didGetBaseAsset:((LWPacketBaseAssetGet *)pack).asset];
+        }
+    }
+    else if (pack.class == LWPacketBaseAssetSet.class) {
+        // receiving base asset set confirmation
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSetAsset:)]) {
+            [self.delegate authManagerDidSetAsset:self];
         }
     }
 }
