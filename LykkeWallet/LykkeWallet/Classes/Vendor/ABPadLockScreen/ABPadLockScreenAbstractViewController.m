@@ -26,7 +26,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #define lockScreenView ((ABPadLockScreenView *) [self view])
-#define kABPadLockScreenDefaultSimplePinLength 5
+#define kABPadLockScreenDefaultSimplePinLength 4
 
 
 @interface ABPadLockScreenAbstractViewController () {

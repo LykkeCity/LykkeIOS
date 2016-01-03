@@ -106,7 +106,7 @@ static int const kAllowedAttempts = 3;
     }
     
     // run fingerprint validation
-    [self presentViewController:pinController animated:NO completion:^{
+    [self.navigationController presentViewController:pinController animated:NO completion:^{
         [self validateUser];
     }];
 }
@@ -123,7 +123,6 @@ static int const kAllowedAttempts = 3;
 
 - (BOOL)padLockScreenViewController:(ABPadLockScreenViewController *)controller validatePin:(NSString*)pin {
 
-    [controller dismissViewControllerAnimated:YES completion:nil]; // dismiss
     [pinController clearPin]; // don't forget to clear PIN data
 
     // validate pin
@@ -136,19 +135,25 @@ static int const kAllowedAttempts = 3;
 
 - (void)unlockWasSuccessfulForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
     
-    [((LWAuthNavigationController *)self.navigationController) setRootMainTabScreen];
+    [pinController dismissViewControllerAnimated:NO completion:^{
+        [((LWAuthNavigationController *)self.navigationController) setRootMainTabScreen];
+    }];
 }
 
 - (void)unlockWasUnsuccessful:(NSString *)falsePin afterAttemptNumber:(NSInteger)attemptNumber padLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
-    [pinController clearPin];
+
 }
 
 - (void)unlockWasCancelledForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
-    [((LWAuthNavigationController *)self.navigationController) logout];
+    [pinController dismissViewControllerAnimated:NO completion:^{
+        [((LWAuthNavigationController *)self.navigationController) logout];
+    }];
 }
 
 - (void)attemptsExpiredForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
-    [((LWAuthNavigationController *)self.navigationController) logout];
+    [pinController dismissViewControllerAnimated:NO completion:^{
+        [((LWAuthNavigationController *)self.navigationController) logout];
+    }];
 }
 
 

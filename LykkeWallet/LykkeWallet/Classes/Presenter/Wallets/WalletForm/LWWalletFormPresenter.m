@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCardHeightConstraint;
 
@@ -65,24 +66,20 @@ static CGFloat const kBanksHeight = 20.0;
     [super viewDidLoad];
     
     [self createTextFields];
-    
-    //self.navigationController.navigationBar.topItem.title = @"";
-    //UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:nil action:nil];
-
-    //self.navigationItem.leftBarButtonItem = btn;
-    //self.navigationItem.leftBarButtonItem = nil;
-    //self.navigationItem.backBarButtonItem = btn;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackIcon"] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    self.navigationItem.leftBarButtonItem = button;
+    
     self.bankCardHeightConstraint.constant = [self isCardsExists] ? kBanksHeight : 0.0;
-
-    [LWAuthManager instance].delegate = self;
 
     // check button state
     [LWValidator setButton:self.submitButton enabled:self.canProceed];
+
+    [LWAuthManager instance].delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -114,6 +111,8 @@ static CGFloat const kBanksHeight = 20.0;
     
     UIColor *resetColor = [UIColor colorWithHexString:kMainDarkElementsColor];
     [self.resetButton setTitleColor:resetColor forState:UIControlStateNormal];
+    
+    self.warningLabel.textColor = [UIColor redColor];
 }
 
 

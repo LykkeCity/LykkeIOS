@@ -8,6 +8,7 @@
         <mutableArray key="Proxima Nova Regular.otf">
             <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
+            <string>ProximaNova-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -23,6 +24,7 @@
                 <outlet property="resetButton" destination="J9T-GM-tVw" id="1x7-4R-ulp"/>
                 <outlet property="submitButton" destination="Cdx-0f-2sF" id="55I-4G-uSB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="warningLabel" destination="on2-jD-oZ6" id="d2G-iW-PHO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -121,8 +123,28 @@
                         <action selector="resetClicked:" destination="-1" eventType="touchUpInside" id="IXl-jZ-GGT"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The funds from this card will be charged only for the transaction" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-0A-G1h">
+                    <rect key="frame" x="20" y="516" width="280" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="0ot-z6-g4B"/>
+                        <constraint firstAttribute="height" constant="44" id="XnU-qt-7Cw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                    <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO Only. Do not enter real bank cards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="on2-jD-oZ6">
+                    <rect key="frame" x="8" y="414" width="304" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="ez6-oE-mBP"/>
+                        <constraint firstAttribute="width" constant="304" id="sV6-QP-UUE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdx-0f-2sF" customClass="TKButton">
-                    <rect key="frame" x="8" y="414" width="304" height="45"/>
+                    <rect key="frame" x="8" y="445" width="304" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="TRk-9N-S53"/>
                         <constraint firstAttribute="width" constant="304" id="c9Y-9U-EDJ"/>
@@ -135,16 +157,6 @@
                         <action selector="submitClicked:" destination="-1" eventType="touchUpInside" id="B1a-Uy-sFu"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The funds from this card will be charged only for the transaction" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-0A-G1h">
-                    <rect key="frame" x="20" y="516" width="280" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="280" id="0ot-z6-g4B"/>
-                        <constraint firstAttribute="height" constant="44" id="XnU-qt-7Cw"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
-                    <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -153,14 +165,16 @@
                 <constraint firstItem="8z1-5l-E6M" firstAttribute="top" secondItem="8xI-MB-U10" secondAttribute="bottom" constant="8" id="3rq-PW-KTx"/>
                 <constraint firstItem="8z1-5l-E6M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="85u-MD-NbE"/>
                 <constraint firstItem="DGp-0A-G1h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GSY-j2-dp4"/>
+                <constraint firstItem="on2-jD-oZ6" firstAttribute="top" secondItem="J9T-GM-tVw" secondAttribute="bottom" constant="8" id="HHH-cu-RBX"/>
                 <constraint firstItem="8xI-MB-U10" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LVX-4A-NqS"/>
                 <constraint firstItem="CoH-wt-fj4" firstAttribute="top" secondItem="8z1-5l-E6M" secondAttribute="bottom" constant="8" id="TCp-O7-HLx"/>
                 <constraint firstAttribute="trailing" secondItem="8xI-MB-U10" secondAttribute="trailing" id="aAb-Y5-7E1"/>
-                <constraint firstItem="Cdx-0f-2sF" firstAttribute="top" secondItem="J9T-GM-tVw" secondAttribute="bottom" constant="8" id="aF4-i1-Fcg"/>
                 <constraint firstItem="Cdx-0f-2sF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ayu-W9-7e3"/>
                 <constraint firstItem="8xI-MB-U10" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cx8-L3-6BP"/>
                 <constraint firstItem="WLF-fm-5yQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f3X-JO-A4f"/>
+                <constraint firstItem="on2-jD-oZ6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gCY-y6-O8X"/>
                 <constraint firstItem="J9T-GM-tVw" firstAttribute="top" secondItem="WLF-fm-5yQ" secondAttribute="bottom" constant="8" id="ihJ-sj-jpJ"/>
+                <constraint firstItem="Cdx-0f-2sF" firstAttribute="top" secondItem="on2-jD-oZ6" secondAttribute="bottom" constant="8" id="mll-Rj-klv"/>
                 <constraint firstItem="WLF-fm-5yQ" firstAttribute="top" secondItem="CoH-wt-fj4" secondAttribute="bottom" constant="8" id="rRj-ED-32i"/>
                 <constraint firstItem="J9T-GM-tVw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="x3N-4u-id0"/>
             </constraints>
