@@ -32,6 +32,9 @@
 
 #pragma mark - Outlets
 
+@property (weak, nonatomic) IBOutlet UIView       *contentView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UIView *bankCardsView;
 @property (weak, nonatomic) IBOutlet TKContainer *cardNumberContainer;
 @property (weak, nonatomic) IBOutlet TKContainer *cardExpireContainer;
@@ -85,6 +88,8 @@ static CGFloat const kBanksHeight = 190.0;
     // check button state
     [LWValidator setButton:self.submitButton enabled:self.canProceed];
 
+    [self.scrollView setScrollEnabled:YES];
+    
     [LWAuthManager instance].delegate = self;
 }
 
@@ -92,6 +97,12 @@ static CGFloat const kBanksHeight = 190.0;
     self.navigationController.navigationBar.barTintColor = navigationTintColor;
 
     [super viewWillDisappear:animated];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    self.scrollView.contentSize = self.contentView.frame.size;
 }
 
 
