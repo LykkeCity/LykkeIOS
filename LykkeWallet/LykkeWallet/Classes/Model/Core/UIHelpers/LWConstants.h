@@ -64,8 +64,12 @@ static NSString *const kNavigationBarTintColor = kMainElementsColor;
 static NSString *const kNavigationBarGrayColor = kMainGrayElementsColor;
 static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
 
-
 static float     const kNavigationBarFontSize  = 17.0;
 static NSString *const kNavigationBarFontColor = kMainDarkElementsColor;
 static NSString *const kNavigationBarFontName  = kFontSemibold;
 
+
+#pragma mark - Page Control Constants
+
+static NSString *const kPageControlDotColor       = @"D3D6DB";
+static NSString *const kPageControlActiveDotColor = kMainElementsColor;

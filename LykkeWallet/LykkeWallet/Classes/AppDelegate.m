@@ -28,6 +28,7 @@
 - (void)customizeLabel;
 - (void)customizeButton;
 - (void)customizeTextField;
+- (void)customizePageControl;
 
 @end
 
@@ -45,6 +46,7 @@
     [self customizeLabel];
     [self customizeButton];
     [self customizeTextField];
+    [self customizePageControl];
 
     // init main controller
     self.mainController = [LWAuthNavigationController new];
@@ -120,6 +122,11 @@
     [[UITextField appearance] setFont:[UIFont fontWithName:kTextFieldFontName
                                                       size:kTextFieldFontSize]];
     [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor colorWithHexString:kTextFieldFontColor]];
+}
+
+- (void)customizePageControl {
+    [[UIPageControl appearance] setPageIndicatorTintColor:[UIColor colorWithHexString:kPageControlDotColor]];
+    [[UIPageControl appearance] setCurrentPageIndicatorTintColor:[UIColor colorWithHexString:kPageControlActiveDotColor]];
 }
 
 @end

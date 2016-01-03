@@ -7,6 +7,7 @@
 //
 
 #import "LWWalletFormPresenter.h"
+#import "LWWalletPagePresenter.h"
 #import "LWWalletConfirmPresenter.h"
 #import "LWAuthManager.h"
 #import "LWTextField.h"
@@ -18,12 +19,14 @@
 #import "UIViewController+Loading.h"
 
 
-@interface LWWalletFormPresenter ()<LWAuthManagerDelegate, LWTextFieldDelegate> {
+@interface LWWalletFormPresenter ()<LWAuthManagerDelegate, LWTextFieldDelegate, UIPageViewControllerDataSource> {
     UIColor *navigationTintColor;
     LWTextField *cardNumberTextField;
     LWTextField *cardExpireTextField;
     LWTextField *cardOwnerTextField;
     LWTextField *cardCodeTextField;
+    
+    UIPageViewController *pageController;
 }
 
 
@@ -45,9 +48,11 @@
 
 #pragma mark - Utils
 
+- (void)createWallets;
 - (void)createTextFields;
 - (BOOL)isCardsExists;
 - (BOOL)canProceed;
+- (NSInteger)bankCardsCount;
 
 @end
 
@@ -57,7 +62,7 @@
 
 #pragma mark - Constants
 
-static CGFloat const kBanksHeight = 20.0;
+static CGFloat const kBanksHeight = 190.0;
 
 
 #pragma mark - Lifecycle
@@ -65,6 +70,7 @@ static CGFloat const kBanksHeight = 20.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self createWallets];
     [self createTextFields];
 }
 
@@ -183,6 +189,32 @@ static CGFloat const kBanksHeight = 20.0;
 
 #pragma mark - Utils
 
+- (void)createWallets {
+    if ([self bankCardsCount] <= 0) {
+        return;
+    }
+    
+    // create wallet pages
+    pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    pageController.dataSource = self;
+
+    [[pageController view] setFrame:CGRectMake(0, 0,
+                                               self.bankCardsView.bounds.size.width,
+                                               self.bankCardsView.bounds.size.height)];
+    
+    LWWalletPagePresenter *initialViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+    
+    [pageController setViewControllers:viewControllers
+                             direction:UIPageViewControllerNavigationDirectionForward
+                              animated:NO completion:nil];
+    
+    [self addChildViewController:pageController];
+    [self.bankCardsView addSubview:[pageController view]];
+    [pageController didMoveToParentViewController:self];
+}
+
 - (void)createTextFields {
     // card number
     cardNumberTextField = [LWTextField
@@ -218,6 +250,56 @@ static CGFloat const kBanksHeight = 20.0;
 
 - (BOOL)canProceed {
     return cardNumberTextField.valid && cardExpireTextField.valid && cardOwnerTextField.valid && cardCodeTextField.valid;
+}
+
+- (NSInteger)bankCardsCount {
+    NSInteger const count = (self.bankCards ? self.bankCards.count : 0);
+    return count;
+}
+
+
+#pragma mark - UIPageViewControllerDataSource
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    NSUInteger index = [(LWWalletPagePresenter *)viewController index];
+    
+    if (index == 0) {
+        return nil;
+    }
+    index--;
+    
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    NSUInteger index = [(LWWalletPagePresenter *)viewController index];
+    
+    index++;
+    if (index == [self bankCardsCount]) {
+        return nil;
+    }
+    
+    return [self viewControllerAtIndex:index];
+}
+
+- (LWWalletPagePresenter *)viewControllerAtIndex:(NSUInteger)index {
+    
+    LWWalletPagePresenter *childViewController = [[LWWalletPagePresenter alloc] initWithNibName:@"LWWalletPagePresenter" bundle:nil];
+    childViewController.index = index;
+    childViewController.cardData = [self.bankCards objectAtIndex:index];
+    
+    return childViewController;
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    NSInteger const size = [self bankCardsCount];
+    return size;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
 }
 
 @end
