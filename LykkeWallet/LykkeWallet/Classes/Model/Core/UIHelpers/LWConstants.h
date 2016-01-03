@@ -33,7 +33,9 @@
 #define kFontSemibold @"ProximaNova-Semibold"
 
 #define kMainElementsColor @"AB00FF"
+#define kMainWhiteElementsColor @"FFFFFF"
 #define kMainDarkElementsColor @"3F4D60"
+#define kMainGrayElementsColor @"EAEDEF"
 
 
 #pragma mark - Button Constants
@@ -59,6 +61,9 @@ static NSString *const kTextFieldFontName  = kFontRegular;
 #pragma mark - Navigation Bar Constants
 
 static NSString *const kNavigationBarTintColor = kMainElementsColor;
+static NSString *const kNavigationBarGrayColor = kMainGrayElementsColor;
+static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
+
 
 static float     const kNavigationBarFontSize  = 17.0;
 static NSString *const kNavigationBarFontColor = kMainDarkElementsColor;

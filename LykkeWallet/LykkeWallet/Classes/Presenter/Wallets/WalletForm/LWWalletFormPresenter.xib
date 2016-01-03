@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWWalletFormPresenter">
             <connections>
+                <outlet property="bankCardsView" destination="8xI-MB-U10" id="m8F-YL-VLR"/>
+                <outlet property="cardCodeContainer" destination="L8W-SD-JYX" id="w38-i0-VxV"/>
+                <outlet property="cardExpireContainer" destination="bxO-eQ-VTN" id="flC-nf-biy"/>
+                <outlet property="cardNumberContainer" destination="k4t-O9-BAb" id="Hgw-ST-1QS"/>
+                <outlet property="cardOwnerContainer" destination="OiR-XD-JdP" id="DH5-Gy-7Lb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

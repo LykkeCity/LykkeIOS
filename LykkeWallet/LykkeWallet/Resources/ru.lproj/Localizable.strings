@@ -63,7 +63,11 @@
 "utils.ok" = "OK";
 "utils.error" = "Ошибка";
 
-"wallets.cardform.title" = "ДОБАВЛЕННЫЕ СЧЕТА";
+"wallets.cardform.title" = "ДОБАВЛЕННЫЕ КАРТЫ";
+"wallets.cardform.card.number.placeholder" = "Номер карты";
+"wallets.cardform.card.expire.placeholder" = "М/Г";
+"wallets.cardform.card.owner.placeholder" = "Имя владельца";
+"wallets.cardform.card.code.placeholder" = "CVC";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти";

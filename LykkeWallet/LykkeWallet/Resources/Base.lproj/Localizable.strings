@@ -64,6 +64,10 @@
 "utils.error" = "Error";
 
 "wallets.cardform.title" = "ADDED CARDS";
+"wallets.cardform.card.number.placeholder" = "Card number";
+"wallets.cardform.card.expire.placeholder" = "M/Y";
+"wallets.cardform.card.owner.placeholder" = "Name on card";
+"wallets.cardform.card.code.placeholder" = "CVC";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out";

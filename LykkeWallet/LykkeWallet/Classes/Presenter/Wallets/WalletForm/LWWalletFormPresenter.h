@@ -13,4 +13,6 @@
     
 }
 
+@property (assign, nonatomic) NSArray *bankCards;
+
 @end
