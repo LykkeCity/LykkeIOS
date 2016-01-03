@@ -51,6 +51,7 @@
 
 #pragma mark - Utils
 
+- (void)updateInsetsWithHeight:(CGFloat)height;
 - (void)createWallets;
 - (void)createTextFields;
 - (BOOL)isCardsExists;
@@ -88,21 +89,20 @@ static CGFloat const kBanksHeight = 190.0;
     // check button state
     [LWValidator setButton:self.submitButton enabled:self.canProceed];
 
-    [self.scrollView setScrollEnabled:YES];
-    
+    self.observeKeyboardEvents = YES;
     [LWAuthManager instance].delegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self updateInsetsWithHeight:self.view.frame.size.height];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = navigationTintColor;
 
     [super viewWillDisappear:animated];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-
-    self.scrollView.contentSize = self.contentView.frame.size;
 }
 
 
@@ -199,6 +199,24 @@ static CGFloat const kBanksHeight = 190.0;
 
 
 #pragma mark - Utils
+
+- (void)updateInsetsWithHeight:(CGFloat)height {
+    const CGFloat bottomMargin = 20;
+    CGFloat bottomX = (self.scrollView.frame.origin.y
+                       + self.descriptionLabel.frame.origin.y
+                       + self.descriptionLabel.frame.size.height
+                       + bottomMargin);
+    if (bottomX > height) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - height, 0);
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+    }
+    else {
+        //self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - height, 0);
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        //self.scrollView.contentOffset = CGPointMake(0, self.scrollView.contentInset.bottom);
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+    }
+}
 
 - (void)createWallets {
     if ([self bankCardsCount] <= 0) {
@@ -311,6 +329,19 @@ static CGFloat const kBanksHeight = 190.0;
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     return 0;
+}
+
+
+#pragma mark - Keyboard
+
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
+    CGRect rect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [self updateInsetsWithHeight:rect.size.height];
+}
+
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+    [self updateInsetsWithHeight:self.view.frame.size.height];
 }
 
 @end

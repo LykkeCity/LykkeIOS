@@ -44,13 +44,6 @@
                                 <constraint firstAttribute="height" constant="542" id="AZX-Xb-vka"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-MB-U10">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="180" id="9uE-db-RF9"/>
-                            </constraints>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z1-5l-E6M">
                             <rect key="frame" x="8" y="188" width="304" height="21"/>
                             <constraints>
@@ -169,6 +162,13 @@
                             <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-MB-U10">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="180" id="9uE-db-RF9"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="8z1-5l-E6M" firstAttribute="top" secondItem="8xI-MB-U10" secondAttribute="bottom" constant="8" id="65p-dz-Zbl"/>
