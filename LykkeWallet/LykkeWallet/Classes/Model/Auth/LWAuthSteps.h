@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepRegisterPhone,
     LWAuthStepRegisterPassword,
     LWAuthStepRegisterConfirmPassword,
-    
     LWAuthStepRegisterSelfie,
     LWAuthStepRegisterIdentity,
     LWAuthStepRegisterUtilityBill,
@@ -30,7 +29,10 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepRegisterKYCInvalidDocuments,
     LWAuthStepRegisterKYCRestricted,
     LWAuthStepRegisterKYCSuccess,
-    LWAuthStepRegisterPINSetup
+    LWAuthStepRegisterPINSetup,
+    
+    LWWalletAddForm,
+    LWWalletAddConfirm
 };
 
 

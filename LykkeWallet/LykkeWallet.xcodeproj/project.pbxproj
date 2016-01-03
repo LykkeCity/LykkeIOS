@@ -109,6 +109,8 @@
 		CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF758451C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib */; };
 		CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */; };
 		CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
+		EC24CC791C39786C00C2FDAA /* LWWalletConfirmPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24CC771C39786C00C2FDAA /* LWWalletConfirmPresenter.m */; };
+		EC24CC7A1C39786C00C2FDAA /* LWWalletConfirmPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC24CC781C39786C00C2FDAA /* LWWalletConfirmPresenter.xib */; };
 		EC25A6921C331F0B00F223FF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */; };
 		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */; };
@@ -334,6 +336,9 @@
 		CFF758481C202D1100BC7658 /* LWKYCSuccessPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSuccessPresenter.h; sourceTree = "<group>"; };
 		CFF758491C202D1100BC7658 /* LWKYCSuccessPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSuccessPresenter.m; sourceTree = "<group>"; };
 		CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSuccessPresenter.xib; sourceTree = "<group>"; };
+		EC24CC761C39786C00C2FDAA /* LWWalletConfirmPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletConfirmPresenter.h; path = WalletConfirm/LWWalletConfirmPresenter.h; sourceTree = "<group>"; };
+		EC24CC771C39786C00C2FDAA /* LWWalletConfirmPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletConfirmPresenter.m; path = WalletConfirm/LWWalletConfirmPresenter.m; sourceTree = "<group>"; };
+		EC24CC781C39786C00C2FDAA /* LWWalletConfirmPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletConfirmPresenter.xib; path = WalletConfirm/LWWalletConfirmPresenter.xib; sourceTree = "<group>"; };
 		EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		EC2813EA1C343CE9009BE680 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -570,13 +575,11 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC24CC6F1C3937C600C2FDAA /* TextFields */,
 				EC7519AD1C3732E600CDDF5B /* Settings */,
 				EC7A45BE1C30648000926BB4 /* Wallets */,
 				CFD60E541C18C7F3000BF83C /* Auth */,
 				CF6632651C175DF0004353F5 /* Utils */,
-				CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */,
-				CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */,
-				CF9EC8B51C17B66700F742A6 /* LWTextField.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 		CF6632821C176A63004353F5 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				EC24CC751C3977C500C2FDAA /* WalletConfirm */,
 				ECE902B91C35368800F52971 /* WalletForm */,
 				CF6632831C176A63004353F5 /* LWWalletsPresenter.h */,
 				CF6632841C176A63004353F5 /* LWWalletsPresenter.m */,
@@ -917,6 +921,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC24CC6F1C3937C600C2FDAA /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				CF9EC8B21C17B4FC00F742A6 /* LWTextField.h */,
+				CF9EC8B31C17B4FC00F742A6 /* LWTextField.m */,
+				CF9EC8B51C17B66700F742A6 /* LWTextField.xib */,
+			);
+			name = TextFields;
+			sourceTree = "<group>";
+		};
+		EC24CC751C3977C500C2FDAA /* WalletConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				EC24CC761C39786C00C2FDAA /* LWWalletConfirmPresenter.h */,
+				EC24CC771C39786C00C2FDAA /* LWWalletConfirmPresenter.m */,
+				EC24CC781C39786C00C2FDAA /* LWWalletConfirmPresenter.xib */,
+			);
+			name = WalletConfirm;
+			sourceTree = "<group>";
+		};
 		EC51D1901C3050E100550EF2 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1106,6 +1130,7 @@
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
 				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
+				EC24CC7A1C39786C00C2FDAA /* LWWalletConfirmPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
@@ -1226,6 +1251,7 @@
 				EC7519C91C3742B800CDDF5B /* LWPacketBaseAssetSet.m in Sources */,
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
 				CDCD5AEF1C259662007BAD78 /* LWSettingsPresenter.m in Sources */,
+				EC24CC791C39786C00C2FDAA /* LWWalletConfirmPresenter.m in Sources */,
 				EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */,
 				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,

@@ -11,20 +11,13 @@
             <rect key="frame" x="0.0" y="0.0" width="332" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="GMX-FZ-W06">
-                    <rect key="frame" x="8" y="9" width="316" height="46"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconValid" translatesAutoresizingMaskIntoConstraints="NO" id="1eq-x9-a8N">
-                    <rect key="frame" x="313" y="2" width="16" height="19"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="16" id="hDc-Gx-P0R"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GMX-FZ-W06">
+                    <rect key="frame" x="8" y="10" width="316" height="45"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HX3-YM-s5D">
-                    <rect key="frame" x="24" y="17" width="284" height="30"/>
+                    <rect key="frame" x="20" y="17" width="292" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8lj-YJ-dDZ"/>
-                        <constraint firstAttribute="width" constant="284" id="Q6o-dg-s9e"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -32,30 +25,38 @@
                         <outlet property="delegate" destination="rmj-KL-MWv" id="npn-Dc-3yH"/>
                     </connections>
                 </textField>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconValid" translatesAutoresizingMaskIntoConstraints="NO" id="sTd-UW-FWs">
+                    <rect key="frame" x="313" y="3" width="16" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="4wG-JC-9QP"/>
+                        <constraint firstAttribute="width" constant="16" id="Mzl-ym-QNn"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GMX-FZ-W06" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="9" id="Axs-u4-5Xi"/>
+                <constraint firstItem="HX3-YM-s5D" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" constant="20" id="8Fh-5S-NFY"/>
+                <constraint firstAttribute="trailing" secondItem="sTd-UW-FWs" secondAttribute="trailing" constant="3" id="9Ze-za-DHL"/>
+                <constraint firstItem="GMX-FZ-W06" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="10" id="Axs-u4-5Xi"/>
+                <constraint firstAttribute="trailing" secondItem="HX3-YM-s5D" secondAttribute="trailing" constant="20" id="Rbe-xq-iOZ"/>
                 <constraint firstItem="GMX-FZ-W06" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" constant="8" id="SOx-zz-QF6"/>
                 <constraint firstAttribute="trailing" secondItem="GMX-FZ-W06" secondAttribute="trailing" constant="8" id="Z0m-c0-lJA"/>
-                <constraint firstAttribute="bottom" secondItem="1eq-x9-a8N" secondAttribute="bottom" constant="43" id="kcg-wV-W89"/>
+                <constraint firstItem="sTd-UW-FWs" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="3" id="lKy-h5-1Uk"/>
                 <constraint firstItem="HX3-YM-s5D" firstAttribute="centerX" secondItem="rmj-KL-MWv" secondAttribute="centerX" id="mCV-Uq-gEK"/>
-                <constraint firstItem="1eq-x9-a8N" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="2" id="q1R-VZ-mnj"/>
                 <constraint firstItem="HX3-YM-s5D" firstAttribute="centerY" secondItem="rmj-KL-MWv" secondAttribute="centerY" id="sIW-oA-0mn"/>
-                <constraint firstAttribute="trailing" secondItem="1eq-x9-a8N" secondAttribute="trailing" constant="3" id="xou-JR-eud"/>
                 <constraint firstAttribute="bottom" secondItem="GMX-FZ-W06" secondAttribute="bottom" constant="9" id="zkj-u5-9VW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundImageView" destination="GMX-FZ-W06" id="ekj-oD-9ez"/>
                 <outlet property="textField" destination="HX3-YM-s5D" id="HgS-pi-n5x"/>
-                <outlet property="validImageView" destination="1eq-x9-a8N" id="N82-j0-1Ob"/>
+                <outlet property="validImageView" destination="sTd-UW-FWs" id="6GH-Uk-ee8"/>
             </connections>
             <point key="canvasLocation" x="218" y="68"/>
         </view>
     </objects>
     <resources>
         <image name="IconValid" width="15" height="15"/>
-        <image name="TextField" width="315" height="45"/>
     </resources>
 </document>

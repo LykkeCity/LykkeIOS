@@ -21,6 +21,11 @@
 + (BOOL)validatePhone:(NSString *)input;
 + (BOOL)validatePassword:(NSString *)input;
 + (BOOL)validateConfirmPassword:(NSString *)input;
++ (BOOL)validateCardNumber:(NSString *)input;
++ (BOOL)validateCardExpiration:(NSString *)input;
++ (BOOL)validateCardOwner:(NSString *)input;
++ (BOOL)validateCardCode:(NSString *)input;
+
 + (void)setButton:(UIButton *)button enabled:(BOOL)isValid;
 
 @end

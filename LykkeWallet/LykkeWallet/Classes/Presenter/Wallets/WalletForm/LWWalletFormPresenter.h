@@ -6,10 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKPresenter.h"
+#import "LWAuthStepPresenter.h"
 
 
-@interface LWWalletFormPresenter : TKPresenter {
+@interface LWWalletFormPresenter : LWAuthStepPresenter {
     
 }
 

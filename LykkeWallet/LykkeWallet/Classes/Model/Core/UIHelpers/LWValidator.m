@@ -47,6 +47,26 @@ static int const PasswordLength = 6;
     return (input && input.length >= PasswordLength);
 }
 
++ (BOOL)validateCardNumber:(NSString *)input {
+#warning TODO:
+    return NO;
+}
+
++ (BOOL)validateCardExpiration:(NSString *)input {
+#warning TODO:
+    return NO;
+}
+
++ (BOOL)validateCardOwner:(NSString *)input {
+#warning TODO:
+    return NO;
+}
+
++ (BOOL)validateCardCode:(NSString *)input {
+#warning TODO:
+    return NO;
+}
+
 + (void)setButton:(UIButton *)button enabled:(BOOL)enabled {
     NSString *proceedImage = (enabled) ? @"ButtonOK" : @"ButtonOKInactive";
     UIColor *proceedColor = (enabled) ? [UIColor whiteColor] : [UIColor lightGrayColor];

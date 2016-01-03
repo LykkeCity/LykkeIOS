@@ -60,7 +60,6 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // request asset
     [[LWAuthManager instance] requestBaseAssetGet];
 }
 

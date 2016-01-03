@@ -15,6 +15,7 @@
     
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *validImageView;
 
@@ -38,6 +39,10 @@
     // observe text changes
     [self subscribe:UITextFieldTextDidChangeNotification
            selector:@selector(observeTextFieldDidChangeNotification:)];
+    
+    UIImage *background = [[UIImage imageNamed:@"TextField"]
+                           resizableImageWithCapInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
+    self.backgroundImageView.image = background;
 }
 
 - (void)dealloc {
@@ -50,6 +55,7 @@
 
 + (LWTextField *)createTextFieldForContainer:(TKContainer *)container withPlaceholder:(NSString *)placeholder {
     LWTextField *(^createField)(TKContainer *, NSString *) = ^LWTextField *(TKContainer *container, NSString *placeholder) {
+        
         LWTextField *f = [LWTextField new];
         f.keyboardType = UIKeyboardTypeASCIICapable;
         f.placeholder = placeholder;
@@ -109,6 +115,12 @@
     _autocapitalizationType = autocapitalizationType;
     
     self.textField.autocapitalizationType = self.autocapitalizationType;
+}
+
+- (void)setViewMode:(UITextFieldViewMode)viewMode {
+    _viewMode = viewMode;
+    
+    [self.textField setClearButtonMode:self.viewMode];
 }
 
 - (void)setValid:(BOOL)valid {
