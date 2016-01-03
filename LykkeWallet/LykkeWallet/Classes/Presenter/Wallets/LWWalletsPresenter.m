@@ -56,7 +56,7 @@ static NSString *const WalletIdentifiers[kNumberOfSections] = {
 };
 
 static NSString *const WalletNames[kNumberOfSections] = {
-    @"LYKKE WALLET", @"VISA/MASTERCARD", @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"
+    @"LYKKE", @"VISA/MASTERCARD", @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"
 };
 
 static NSString *const WalletIcons[kNumberOfSections] = {

@@ -1363,7 +1363,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "80aad4ac-6552-4f1e-80ad-7752dc9cb070";
+				PROVISIONING_PROFILE = "20d7b5c0-a504-4a2e-a50e-84b3b7928970";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1380,7 +1380,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "80aad4ac-6552-4f1e-80ad-7752dc9cb070";
+				PROVISIONING_PROFILE = "20d7b5c0-a504-4a2e-a50e-84b3b7928970";
 			};
 			name = AdHoc;
 		};
@@ -1424,7 +1424,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5f938aa1-ad05-4630-987c-d6b7cbcdb3d4";
+				PROVISIONING_PROFILE = "f430b7e5-e3e3-441b-95d6-47769012c2b6";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1477,7 +1477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5f938aa1-ad05-4630-987c-d6b7cbcdb3d4";
+				PROVISIONING_PROFILE = "f430b7e5-e3e3-441b-95d6-47769012c2b6";
 			};
 			name = Debug;
 		};
