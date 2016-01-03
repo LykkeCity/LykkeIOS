@@ -167,7 +167,7 @@ SINGLETON_INIT {
 
 - (void)requestAddBankCard:(LWBankCardsAdd *)card {
     LWPacketBankCards *pack = [LWPacketBankCards new];
-    pack.addCardData = [card copy];
+    pack.addCardData = card;
     
     [self sendPacket:pack];
 }

@@ -6,16 +6,16 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacketAuthentication.h"
+#import "LWAuthorizePacket.h"
 
 
 @class LWBankCardsAdd;
 
 
-@interface LWPacketBankCards : LWPacketAuthentication {
+@interface LWPacketBankCards : LWAuthorizePacket {
     
 }
 // in
-@property (copy, nonatomic) LWBankCardsAdd *addCardData;
+@property (strong, nonatomic) LWBankCardsAdd *addCardData;
 
 @end

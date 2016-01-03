@@ -29,10 +29,7 @@ typedef NS_ENUM(NSInteger, LWAuthStep) {
     LWAuthStepRegisterKYCInvalidDocuments,
     LWAuthStepRegisterKYCRestricted,
     LWAuthStepRegisterKYCSuccess,
-    LWAuthStepRegisterPINSetup,
-    
-    LWWalletAddForm,
-    LWWalletAddConfirm
+    LWAuthStepRegisterPINSetup
 };
 
 

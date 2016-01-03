@@ -38,7 +38,7 @@
 }
 
 - (IBAction)continueClicked:(id)sender {
-#warning TODO:
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

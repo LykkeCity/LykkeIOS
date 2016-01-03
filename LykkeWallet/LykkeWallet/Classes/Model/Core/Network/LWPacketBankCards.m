@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketBankCards.h"
+#import "LWBankCardsAdd.h"
 
 
 @implementation LWPacketBankCards
@@ -20,12 +21,19 @@
     if (self.isRejected) {
         return;
     }
-    
-    //_data = [[LWLykkeWalletsData alloc] initWithJSON:result];
 }
 
 - (NSString *)urlRelative {
     return @"BankCards";
+}
+
+- (NSDictionary *)params {
+    return @{@"BankNumber" : self.addCardData.bankNumber,
+             @"Name"       : self.addCardData.name,
+             @"Type"       : self.addCardData.type,
+             @"MonthTo"    : self.addCardData.monthTo,
+             @"YearTo"     : self.addCardData.yearTo,
+             @"Cvc"        : self.addCardData.cvc};
 }
 
 @end

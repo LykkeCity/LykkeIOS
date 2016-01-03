@@ -7,7 +7,7 @@
 //
 
 #import "LWWalletFormPresenter.h"
-#import "LWAuthNavigationController.h"
+#import "LWWalletConfirmPresenter.h"
 #import "LWAuthManager.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
@@ -56,7 +56,7 @@
 
 #pragma mark - Constants
 
-static CGFloat const kBanksHeight = 180.0;
+static CGFloat const kBanksHeight = 20.0;
 
 
 #pragma mark - Lifecycle
@@ -120,7 +120,10 @@ static CGFloat const kBanksHeight = 180.0;
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManagerDidCardAdd:(LWAuthManager *)manager {
-    [(LWAuthNavigationController *)self.navigationController navigateToStep:LWWalletAddForm preparationBlock:nil];
+    [self setLoading:NO];
+    
+    LWWalletConfirmPresenter *form = [LWWalletConfirmPresenter new];
+    [self.navigationController pushViewController:form animated:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
@@ -163,6 +166,8 @@ static CGFloat const kBanksHeight = 180.0;
 
 - (IBAction)submitClicked:(id)sender {
     [self.view endEditing:YES];
+
+    [self setLoading:YES];
     
     LWBankCardsAdd *data = [LWBankCardsAdd new];
     data.bankNumber = cardNumberTextField.text;

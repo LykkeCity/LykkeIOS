@@ -27,9 +27,7 @@
 #import "LWKYCSuccessPresenter.h"
 #import "LWRegisterPINSetupPresenter.h"
 #import "LWRegisterCameraPresenter.h"
-// authenticated presenters
-#import "LWWalletFormPresenter.h"
-#import "LWWalletConfirmPresenter.h"
+
 // tab presenters
 #import "LWTabController.h"
 #import "LWWalletsPresenter.h"
@@ -89,12 +87,7 @@
                     LWKYCInvalidDocumentsPresenter.class,
                     LWKYCRestrictedPresenter.class,
                     LWKYCSuccessPresenter.class,
-                    LWRegisterPINSetupPresenter.class,
-                    
-                    LWWalletFormPresenter.class,
-                    LWWalletConfirmPresenter.class
-                    
-                    ];
+                    LWRegisterPINSetupPresenter.class];
         
         activeSteps = [NSMutableDictionary new];
         activeSteps[@(self.currentStep)] = self.viewControllers.firstObject;

@@ -49,22 +49,22 @@ static int const PasswordLength = 6;
 
 + (BOOL)validateCardNumber:(NSString *)input {
 #warning TODO:
-    return NO;
+    return input.length > 0;
 }
 
 + (BOOL)validateCardExpiration:(NSString *)input {
 #warning TODO:
-    return NO;
+    return input.length > 0;
 }
 
 + (BOOL)validateCardOwner:(NSString *)input {
 #warning TODO:
-    return NO;
+    return input.length > 0;
 }
 
 + (BOOL)validateCardCode:(NSString *)input {
 #warning TODO:
-    return NO;
+    return input.length > 0;
 }
 
 + (void)setButton:(UIButton *)button enabled:(BOOL)enabled {

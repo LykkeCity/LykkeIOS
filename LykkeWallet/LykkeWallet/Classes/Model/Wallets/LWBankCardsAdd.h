@@ -6,7 +6,7 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWJSONObject.h"
+#import <Foundation/Foundation.h>
 
 
 @interface LWBankCardsAdd : NSObject {

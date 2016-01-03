@@ -252,9 +252,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)addWalletClicked:(LWBanksTableViewCell *)cell {
     NSIndexPath *path = [self.tableView indexPathForCell:cell];
     if (path && path.section == kSectionBankCards) {
-        [(LWAuthNavigationController *)self.navigationController navigateToStep:LWWalletAddForm preparationBlock:^(LWAuthStepPresenter *presenter) {
-            ((LWWalletFormPresenter *)presenter).bankCards = self.data.bankCards;
-        }];
+        LWWalletFormPresenter *form = [LWWalletFormPresenter new];
+        form.bankCards = self.data.bankCards;
+        [self.navigationController pushViewController:form animated:YES];
     }
 }
 

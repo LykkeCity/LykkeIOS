@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KYCStatusWallet" translatesAutoresizingMaskIntoConstraints="NO" id="s1K-uY-Ibu">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddWalletConfirm" translatesAutoresizingMaskIntoConstraints="NO" id="s1K-uY-Ibu">
                     <rect key="frame" x="62" y="60" width="197" height="206"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="197" id="KO1-Gw-2gv"/>
@@ -83,7 +83,7 @@
         </view>
     </objects>
     <resources>
+        <image name="AddWalletConfirm" width="178" height="178"/>
         <image name="ButtonOK" width="315" height="45"/>
-        <image name="KYCStatusWallet" width="178" height="178"/>
     </resources>
 </document>
