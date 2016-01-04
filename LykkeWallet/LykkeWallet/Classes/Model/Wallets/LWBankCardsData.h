@@ -16,5 +16,8 @@
 @property (readonly, nonatomic) NSString *identity;
 @property (readonly, nonatomic) NSString *type;
 @property (readonly, nonatomic) NSString *lastDigits;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSNumber *monthTo;
+@property (readonly, nonatomic) NSNumber *yearTo;
 
 @end

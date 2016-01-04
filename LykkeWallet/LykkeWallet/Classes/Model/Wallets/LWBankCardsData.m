@@ -22,6 +22,9 @@
         _identity   = [json objectForKey:@"Id"];
         _type       = [json objectForKey:@"Type"];
         _lastDigits = [json objectForKey:@"LastDigits"];
+        _name       = [json objectForKey:@"Name"];
+        _monthTo    = [json objectForKey:@"MonthTo"];
+        _yearTo     = [json objectForKey:@"YearTo"];
     }
     return self;
 }
