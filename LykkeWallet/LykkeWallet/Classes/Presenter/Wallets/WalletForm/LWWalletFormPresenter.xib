@@ -22,7 +22,6 @@
                 <outlet property="cardOwnerContainer" destination="OiR-XD-JdP" id="DH5-Gy-7Lb"/>
                 <outlet property="contentView" destination="y99-es-9Nx" id="fzl-bm-kUm"/>
                 <outlet property="descriptionLabel" destination="DGp-0A-G1h" id="Fis-Ct-chT"/>
-                <outlet property="resetButton" destination="J9T-GM-tVw" id="1x7-4R-ulp"/>
                 <outlet property="scrollView" destination="0ZL-ks-71b" id="4r5-u6-wHk"/>
                 <outlet property="submitButton" destination="Cdx-0f-2sF" id="55I-4G-uSB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,13 +34,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZL-ks-71b">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="542"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="481"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y99-es-9Nx">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="542"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="481"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="542" id="AZX-Xb-vka"/>
+                                <constraint firstAttribute="height" constant="481" id="AZX-Xb-vka"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z1-5l-E6M">
@@ -114,22 +113,8 @@
                                 <constraint firstItem="L8W-SD-JYX" firstAttribute="leading" secondItem="OiR-XD-JdP" secondAttribute="trailing" id="vNY-bH-ZuR"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-GM-tVw" customClass="TKButton">
-                            <rect key="frame" x="8" y="353" width="304" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="45" id="C4v-xM-8M0"/>
-                                <constraint firstAttribute="width" constant="304" id="zrx-SV-Jjs"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="RESET ALL" backgroundImage="ButtonOKInactive">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="resetClicked:" destination="-1" eventType="touchUpInside" id="IXl-jZ-GGT"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO Only. Do not enter real bank cards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="on2-jD-oZ6">
-                            <rect key="frame" x="8" y="406" width="304" height="23"/>
+                            <rect key="frame" x="8" y="353" width="304" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="ez6-oE-mBP"/>
                                 <constraint firstAttribute="width" constant="304" id="sV6-QP-UUE"/>
@@ -139,7 +124,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdx-0f-2sF" customClass="TKButton">
-                            <rect key="frame" x="8" y="437" width="304" height="45"/>
+                            <rect key="frame" x="8" y="384" width="304" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="TRk-9N-S53"/>
                                 <constraint firstAttribute="width" constant="304" id="c9Y-9U-EDJ"/>
@@ -153,7 +138,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The funds from this card will be charged only for the transaction" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-0A-G1h">
-                            <rect key="frame" x="20" y="490" width="280" height="44"/>
+                            <rect key="frame" x="20" y="437" width="280" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="280" id="0ot-z6-g4B"/>
                                 <constraint firstAttribute="height" constant="44" id="XnU-qt-7Cw"/>
@@ -173,14 +158,13 @@
                     <constraints>
                         <constraint firstItem="8z1-5l-E6M" firstAttribute="top" secondItem="8xI-MB-U10" secondAttribute="bottom" constant="8" id="65p-dz-Zbl"/>
                         <constraint firstItem="y99-es-9Nx" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="9gh-YM-fJM"/>
+                        <constraint firstItem="on2-jD-oZ6" firstAttribute="top" secondItem="WLF-fm-5yQ" secondAttribute="bottom" constant="8" id="EXn-Pj-6eq"/>
                         <constraint firstItem="y99-es-9Nx" firstAttribute="leading" secondItem="0ZL-ks-71b" secondAttribute="leading" id="EbA-nP-vBB"/>
                         <constraint firstItem="8z1-5l-E6M" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="FKY-hz-Nsq"/>
                         <constraint firstItem="CoH-wt-fj4" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="GWj-M6-Pa6"/>
                         <constraint firstItem="WLF-fm-5yQ" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="HPs-n0-HAW"/>
                         <constraint firstItem="on2-jD-oZ6" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="Ibj-Vb-EEt"/>
                         <constraint firstItem="DGp-0A-G1h" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="J7G-4u-Hlh"/>
-                        <constraint firstItem="on2-jD-oZ6" firstAttribute="top" secondItem="J9T-GM-tVw" secondAttribute="bottom" constant="8" id="JzK-4K-LUz"/>
-                        <constraint firstItem="J9T-GM-tVw" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="PfL-jO-0tl"/>
                         <constraint firstItem="Cdx-0f-2sF" firstAttribute="top" secondItem="on2-jD-oZ6" secondAttribute="bottom" constant="8" id="X3L-G2-xAn"/>
                         <constraint firstItem="8xI-MB-U10" firstAttribute="top" secondItem="0ZL-ks-71b" secondAttribute="top" id="Ziq-ac-i7q"/>
                         <constraint firstItem="CoH-wt-fj4" firstAttribute="top" secondItem="8z1-5l-E6M" secondAttribute="bottom" constant="8" id="bEe-AU-WQ1"/>
@@ -188,10 +172,9 @@
                         <constraint firstItem="DGp-0A-G1h" firstAttribute="top" secondItem="Cdx-0f-2sF" secondAttribute="bottom" constant="8" id="glb-ga-nd1"/>
                         <constraint firstItem="WLF-fm-5yQ" firstAttribute="top" secondItem="CoH-wt-fj4" secondAttribute="bottom" id="hhH-29-yPK"/>
                         <constraint firstItem="8xI-MB-U10" firstAttribute="leading" secondItem="0ZL-ks-71b" secondAttribute="leading" id="hhn-oS-28b"/>
-                        <constraint firstItem="J9T-GM-tVw" firstAttribute="top" secondItem="WLF-fm-5yQ" secondAttribute="bottom" constant="8" id="jTj-Wr-CNk"/>
                         <constraint firstAttribute="trailing" secondItem="y99-es-9Nx" secondAttribute="trailing" id="kfx-AY-tiu"/>
                         <constraint firstItem="Cdx-0f-2sF" firstAttribute="centerX" secondItem="0ZL-ks-71b" secondAttribute="centerX" id="lqS-HQ-xoQ"/>
-                        <constraint firstAttribute="height" constant="542" id="xeR-YN-e6E"/>
+                        <constraint firstAttribute="height" constant="481" id="xeR-YN-e6E"/>
                         <constraint firstItem="y99-es-9Nx" firstAttribute="top" secondItem="0ZL-ks-71b" secondAttribute="top" id="zTj-ge-p2a"/>
                         <constraint firstAttribute="bottom" secondItem="y99-es-9Nx" secondAttribute="bottom" id="zrQ-f2-GfB"/>
                     </constraints>
@@ -208,6 +191,5 @@
     </objects>
     <resources>
         <image name="ButtonOK" width="315" height="45"/>
-        <image name="ButtonOKInactive" width="316" height="46"/>
     </resources>
 </document>

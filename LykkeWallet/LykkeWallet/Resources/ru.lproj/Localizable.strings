@@ -69,7 +69,6 @@
 "wallets.cardform.card.owner.placeholder" = "Имя владельца";
 "wallets.cardform.card.code.placeholder" = "CVC";
 "wallets.cardform.card.submitButton" = "СОЗДАТЬ";
-"wallets.cardform.card.resetButton" = "СБРОСИТЬ";
 "wallets.cardform.card.description" = "Средства с данной карты будут списаны только при проведении транзакции";
 
 "wallets.confirm.title" = "КАРТА УСПЕШНО ПОДКЛЮЧЕНА";
@@ -77,7 +76,7 @@
 "wallets.confirm.continue" = "ПРОДОЛЖИТЬ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
-"settings.cell.logout.title" = "Выйти";
+"settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";
 
 "ABPadLockScreen.pin.enter" = "Введите PIN";

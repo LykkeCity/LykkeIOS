@@ -8,6 +8,7 @@
 
 #import "LWTextField.h"
 #import "TKContainer.h"
+#import "LWStringUtils.h"
 #import "NSObject+GDXObserver.h"
 
 
@@ -67,6 +68,13 @@
     LWTextField *result = createField(container, placeholder);
     return result;
 }
+
+- (void)addSelector:(SEL)selector targer:(id)target {
+    [self.textField addTarget:target
+                       action:selector
+             forControlEvents:UIControlEventEditingChanged];
+}
+
 
 #pragma mark - Observing
 
@@ -132,17 +140,23 @@
 
 #pragma mark - UITextFieldDelegate
 
-- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSUInteger oldLength = [textField.text length];
-    NSUInteger replacementLength = [string length];
-    NSUInteger rangeLength = range.length;
-    
-    NSUInteger newLength = oldLength - rangeLength + replacementLength;
-    NSUInteger maxLength = (self.maxLength > 0) ? self.maxLength : INT_MAX;
-    
-    BOOL isReturnKey = [string rangeOfString: @"\n"].location != NSNotFound;
-    
-    return (newLength <= maxLength) || isReturnKey;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textField:shouldChangeCharsInRange:replacementString:)]) {
+        return [self.delegate textField:self shouldChangeCharsInRange:range replacementString:string];
+    }
+    else {
+        NSUInteger oldLength = [textField.text length];
+        NSUInteger replacementLength = [string length];
+        NSUInteger rangeLength = range.length;
+        
+        NSUInteger newLength = oldLength - rangeLength + replacementLength;
+        NSUInteger maxLength = (self.maxLength > 0) ? self.maxLength : INT_MAX;
+        
+        BOOL isReturnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+        
+        return (newLength <= maxLength) || isReturnKey;
+    }
 }
 
 @end

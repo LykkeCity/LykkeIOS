@@ -121,7 +121,8 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     }
     else if (indexPath.row == 1) {
         LWSettingsLogOutTableViewCell *logoutCell = (LWSettingsLogOutTableViewCell *)cell;
-        logoutCell.logoutLabel.text = Localize(@"settings.cell.logout.title");
+        NSString *logout = [NSString stringWithFormat:@"%@ %@", Localize(@"settings.cell.logout.title"), [LWKeychainManager instance].login];
+        logoutCell.logoutLabel.text = logout;
     }
 }
 

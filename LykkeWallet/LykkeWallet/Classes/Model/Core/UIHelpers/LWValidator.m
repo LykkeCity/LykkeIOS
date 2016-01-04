@@ -48,23 +48,28 @@ static int const PasswordLength = 6;
 }
 
 + (BOOL)validateCardNumber:(NSString *)input {
-#warning TODO:
-    return input.length > 0;
+    NSString *cardNumberRegex = @"^(\\d{4}(?:-)){3}\\d{4}$";
+    NSPredicate *cardNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", cardNumberRegex];
+    
+    return [cardNumberTest evaluateWithObject:input];
 }
 
 + (BOOL)validateCardExpiration:(NSString *)input {
-#warning TODO:
-    return input.length > 0;
+    NSString *cardExpirationRegex = @"^(1[0-2]|(?:0)[1-9])(?:/)\\d{2}$";
+    NSPredicate *cardExpirationTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", cardExpirationRegex];
+    
+    return [cardExpirationTest evaluateWithObject:input];
 }
 
 + (BOOL)validateCardOwner:(NSString *)input {
-#warning TODO:
     return input.length > 0;
 }
 
 + (BOOL)validateCardCode:(NSString *)input {
-#warning TODO:
-    return input.length > 0;
+    NSString *cardCodeRegex = @"^\\d{3}$";
+    NSPredicate *cardCodeTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", cardCodeRegex];
+    
+    return [cardCodeTest evaluateWithObject:input];
 }
 
 + (void)setButton:(UIButton *)button enabled:(BOOL)enabled {

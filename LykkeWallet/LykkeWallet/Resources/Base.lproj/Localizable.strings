@@ -69,7 +69,6 @@
 "wallets.cardform.card.owner.placeholder" = "Name on card";
 "wallets.cardform.card.code.placeholder" = "CVC";
 "wallets.cardform.card.submitButton" = "SUBMIT";
-"wallets.cardform.card.resetButton" = "RESET ALL";
 "wallets.cardform.card.description" = "The funds from this card will be charged only for the transaction";
 
 "wallets.confirm.title" = "CARD SUCCESSFULLY LINKED";
@@ -77,7 +76,7 @@
 "wallets.confirm.continue" = "CONTINUE";
 
 "settings.assets.title" = "BASE ASSET";
-"settings.cell.logout.title" = "Log out";
+"settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";
 
 "ABPadLockScreen.pin.enter" = "Enter PIN";

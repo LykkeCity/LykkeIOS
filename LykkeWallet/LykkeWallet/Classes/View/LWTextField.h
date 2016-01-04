@@ -8,12 +8,17 @@
 
 #import "TKView.h"
 
+
 @class LWTextField;
 @class TKContainer;
 
-@protocol LWTextFieldDelegate
+@protocol LWTextFieldDelegate <NSObject>
+
 @required
 - (void)textFieldDidChangeValue:(LWTextField *)textField;
+
+@optional
+- (BOOL)textField:(LWTextField *)textField shouldChangeCharsInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end
 
@@ -35,5 +40,7 @@
 @property (assign, nonatomic, getter=isValid)   BOOL valid;
 
 + (LWTextField *)createTextFieldForContainer:(TKContainer *)container withPlaceholder:(NSString *)placeholder;
+
+- (void)addSelector:(SEL)selector targer:(id)target;
 
 @end

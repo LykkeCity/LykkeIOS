@@ -12,6 +12,7 @@
 #import "LWAuthManager.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
+#import "LWStringUtils.h"
 #import "LWConstants.h"
 #import "LWBankCardsAdd.h"
 #import "LWBankCardsData.h"
@@ -41,7 +42,6 @@
 @property (weak, nonatomic) IBOutlet TKContainer *cardOwnerContainer;
 @property (weak, nonatomic) IBOutlet TKContainer *cardCodeContainer;
 
-@property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
@@ -112,7 +112,6 @@ static CGFloat const kBanksHeight = 190.0;
     self.title = Localize(@"wallets.cardform.title");
     
     self.submitButton.titleLabel.text = Localize(@"wallets.cardform.card.submitButton");
-    self.resetButton.titleLabel.text = Localize(@"wallets.cardform.card.resetButton");
     self.descriptionLabel.text = Localize(@"wallets.cardform.card.description");
 }
 
@@ -125,9 +124,6 @@ static CGFloat const kBanksHeight = 190.0;
     navigationTintColor = self.navigationController.navigationBar.barTintColor;
     [self.navigationController.navigationBar setBarTintColor:color];
     self.bankCardsView.backgroundColor = color;
-    
-    UIColor *resetColor = [UIColor colorWithHexString:kMainDarkElementsColor];
-    [self.resetButton setTitleColor:resetColor forState:UIControlStateNormal];
     
     self.warningLabel.textColor = [UIColor redColor];
 }
@@ -171,14 +167,26 @@ static CGFloat const kBanksHeight = 190.0;
     [LWValidator setButton:self.submitButton enabled:self.canProceed];
 }
 
-#pragma mark - Actions
-
-- (IBAction)resetClicked:(id)sender {
-    cardNumberTextField.text = @"";
-    cardExpireTextField.text = @"";
-    cardOwnerTextField.text = @"";
-    cardCodeTextField.text = @"";
+- (BOOL)textField:(LWTextField *)textField shouldChangeCharsInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    if (textField == cardNumberTextField) {
+        if (textField.text.length > 18)
+            return NO;
+    } else if (textField == cardExpireTextField) {
+        if (textField.text.length > 4)
+            return NO;
+    } else if (textField == cardCodeTextField) {
+        if (textField.text.length > 2) {
+            return NO;
+        }
+    }
+    return YES;
 }
+
+#pragma mark - Actions
 
 - (IBAction)submitClicked:(id)sender {
     [self.view endEditing:YES];
@@ -190,8 +198,8 @@ static CGFloat const kBanksHeight = 190.0;
     data.name = cardOwnerTextField.text;
 #warning TODO:
     data.type = @"Visa";
-    data.monthTo = [NSNumber numberWithInt:10];
-    data.yearTo = [NSNumber numberWithInt:2017];
+    data.monthTo = [LWStringUtils monthFromExpiration:cardExpireTextField.text];
+    data.yearTo = [LWStringUtils yearFromExpiration:cardExpireTextField.text];
     data.cvc = cardCodeTextField.text;
     
     [[LWAuthManager instance] requestAddBankCard:data];
@@ -250,13 +258,15 @@ static CGFloat const kBanksHeight = 190.0;
                            createTextFieldForContainer:self.cardNumberContainer withPlaceholder:Localize(@"wallets.cardform.card.number.placeholder")];
     cardNumberTextField.keyboardType = UIKeyboardTypeNumberPad;
     cardNumberTextField.delegate = self;
+    [cardNumberTextField addSelector:@selector(creditCardNumberFormatter:) targer:self];
     
     // card expiration date
     cardExpireTextField = [LWTextField
                            createTextFieldForContainer:self.cardExpireContainer withPlaceholder:Localize(@"wallets.cardform.card.expire.placeholder")];
-    cardExpireTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    cardExpireTextField.keyboardType = UIKeyboardTypeNumberPad;
     cardExpireTextField.viewMode = UITextFieldViewModeNever;
     cardExpireTextField.delegate = self;
+    [cardExpireTextField addSelector:@selector(creditCardExpiryFormatter:) targer:self];
     
     // card owner name
     cardOwnerTextField = [LWTextField
@@ -269,6 +279,8 @@ static CGFloat const kBanksHeight = 190.0;
                          createTextFieldForContainer:self.cardCodeContainer withPlaceholder:Localize(@"wallets.cardform.card.code.placeholder")];
     cardCodeTextField.keyboardType = UIKeyboardTypeNumberPad;
     cardCodeTextField.viewMode = UITextFieldViewModeNever;
+    cardCodeTextField.secure = YES;
+    cardCodeTextField.maxLength = 3;
     cardCodeTextField.delegate = self;
 }
 
@@ -342,6 +354,27 @@ static CGFloat const kBanksHeight = 190.0;
 
 - (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
     [self updateInsetsWithHeight:self.view.frame.size.height];
+}
+
+
+#pragma mark - Text Field
+
+- (void)creditCardNumberFormatter:(id)sender {
+    NSString *formattedText = [LWStringUtils formatCreditCard:cardNumberTextField.text];
+    if (![formattedText isEqualToString:cardNumberTextField.text]) {
+        cardNumberTextField.text = formattedText;
+    }
+    if (cardNumberTextField.text.length == 19) {
+        [cardNumberTextField resignFirstResponder];
+        [cardNumberTextField becomeFirstResponder];
+    }
+}
+
+- (void)creditCardExpiryFormatter:(id)sender {
+    NSString *formattedText = [LWStringUtils formatCreditCardExpiry:cardExpireTextField.text];
+    if (![formattedText isEqualToString:cardExpireTextField.text]) {
+        cardExpireTextField.text = formattedText;
+    }
 }
 
 @end
