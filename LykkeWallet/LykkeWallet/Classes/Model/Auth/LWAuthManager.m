@@ -25,6 +25,10 @@
 #import "LWPacketBaseAssets.h"
 #import "LWPacketBaseAssetGet.h"
 #import "LWPacketBaseAssetSet.h"
+#import "LWPacketAssetPairs.h"
+#import "LWPacketAssetPairRate.h"
+#import "LWPacketAssetPairRates.h"
+#import "LWPacketAppSettings.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -191,6 +195,31 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestAssetPairs {
+    LWPacketAssetPairs *pack = [LWPacketAssetPairs new];
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestAssetPairRate:(NSString *)pairId {
+    LWPacketAssetPairRate *pack = [LWPacketAssetPairRate new];
+    pack.identity = pairId;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestAssetPairRates {
+    LWPacketAssetPairRates *pack = [LWPacketAssetPairRates new];
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestAppSettings {
+    LWPacketAppSettings *pack = [LWPacketAppSettings new];
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -321,6 +350,29 @@ SINGLETON_INIT {
         // receiving base asset set confirmation
         if ([self.delegate respondsToSelector:@selector(authManagerDidSetAsset:)]) {
             [self.delegate authManagerDidSetAsset:self];
+        }
+    }
+    else if (pack.class == LWPacketAssetPairs.class) {
+        // receiving asset pairs
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetPairs:)]) {
+            [self.delegate authManager:self didGetAssetPairs:((LWPacketAssetPairs *)pack).assetPairs];
+        }
+    }
+    else if (pack.class == LWPacketAssetPairRate.class) {
+        // receiving asset pair rate by id
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetPairRate:)]) {
+            [self.delegate authManager:self didGetAssetPairRate:((LWPacketAssetPairRate *)pack).assetPairRate];
+        }
+    }
+    else if (pack.class == LWPacketAssetPairRates.class) {
+        // receiving asset pair rates
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetPairRates:)]) {
+            [self.delegate authManager:self didGetAssetPairRates:((LWPacketAssetPairRates *)pack).assetPairRates];
+        }
+    }
+    else if (pack.class == LWPacketAppSettings.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAppSettings:)]) {
+            [self.delegate authManager:self didGetAppSettings:((LWPacketAppSettings *)pack).appSettings];
         }
     }
 }

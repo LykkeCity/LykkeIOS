@@ -152,6 +152,14 @@
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
 		ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */; };
 		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
+		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
+		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
+		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
+		ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8F01C3B10170064AAB3 /* LWPacketAssetPairRates.m */; };
+		ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8F31C3B10AE0064AAB3 /* LWPacketAssetPairRate.m */; };
+		ECD1E8F81C3B17090064AAB3 /* LWAppSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8F71C3B17090064AAB3 /* LWAppSettingsModel.m */; };
+		ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */; };
+		ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8FE1C3B21300064AAB3 /* LWMath.m */; };
 		ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */; };
 		ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC61C2EB63500E1D3DA /* LWPersonalData.m */; };
 		ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */; };
@@ -410,6 +418,22 @@
 		ECA80B621C2E0E47001C4E8F /* LWCameraOverlayPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCameraOverlayPresenter.h; path = Utils/LWCameraOverlayPresenter.h; sourceTree = "<group>"; };
 		ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCameraOverlayPresenter.m; path = Utils/LWCameraOverlayPresenter.m; sourceTree = "<group>"; };
 		ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCameraOverlayPresenter.xib; path = Utils/LWCameraOverlayPresenter.xib; sourceTree = "<group>"; };
+		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
+		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
+		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
+		ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAssetPairs.m; sourceTree = "<group>"; };
+		ECD1E8EC1C3B0F300064AAB3 /* LWAssetPairRateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairRateModel.h; path = Assets/LWAssetPairRateModel.h; sourceTree = "<group>"; };
+		ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairRateModel.m; path = Assets/LWAssetPairRateModel.m; sourceTree = "<group>"; };
+		ECD1E8EF1C3B10170064AAB3 /* LWPacketAssetPairRates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairRates.h; sourceTree = "<group>"; };
+		ECD1E8F01C3B10170064AAB3 /* LWPacketAssetPairRates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAssetPairRates.m; sourceTree = "<group>"; };
+		ECD1E8F21C3B10AE0064AAB3 /* LWPacketAssetPairRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairRate.h; sourceTree = "<group>"; };
+		ECD1E8F31C3B10AE0064AAB3 /* LWPacketAssetPairRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAssetPairRate.m; sourceTree = "<group>"; };
+		ECD1E8F61C3B17090064AAB3 /* LWAppSettingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAppSettingsModel.h; path = Settings/LWAppSettingsModel.h; sourceTree = "<group>"; };
+		ECD1E8F71C3B17090064AAB3 /* LWAppSettingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAppSettingsModel.m; path = Settings/LWAppSettingsModel.m; sourceTree = "<group>"; };
+		ECD1E8F91C3B181F0064AAB3 /* LWPacketAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAppSettings.h; sourceTree = "<group>"; };
+		ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAppSettings.m; sourceTree = "<group>"; };
+		ECD1E8FD1C3B21300064AAB3 /* LWMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMath.h; sourceTree = "<group>"; };
+		ECD1E8FE1C3B21300064AAB3 /* LWMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMath.m; sourceTree = "<group>"; };
 		ECD76BC21C2EA81100E1D3DA /* LWPacketPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPersonalData.h; sourceTree = "<group>"; };
 		ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPersonalData.m; sourceTree = "<group>"; };
 		ECD76BC51C2EB63400E1D3DA /* LWPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalData.h; sourceTree = "<group>"; };
@@ -557,6 +581,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1E8F51C3B16E40064AAB3 /* Settings */,
 				EC7519C31C373A1900CDDF5B /* Assets */,
 				EC51D1901C3050E100550EF2 /* Wallets */,
 				CF9EC8F91C17C6A100F742A6 /* Auth */,
@@ -793,6 +818,7 @@
 		CF9EC8FD1C17C6C100F742A6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1E8FC1C3B1F720064AAB3 /* Math */,
 				CDA9E7F01C25764E0067FB32 /* Security */,
 				CF9EC8FE1C17C6C100F742A6 /* Network */,
 				CF9EC9051C17C6C100F742A6 /* UIHelpers */,
@@ -846,6 +872,14 @@
 				EC7519C11C3739D300CDDF5B /* LWPacketBaseAssetGet.m */,
 				EC7519C71C3742B700CDDF5B /* LWPacketBaseAssetSet.h */,
 				EC7519C81C3742B800CDDF5B /* LWPacketBaseAssetSet.m */,
+				ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */,
+				ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */,
+				ECD1E8F21C3B10AE0064AAB3 /* LWPacketAssetPairRate.h */,
+				ECD1E8F31C3B10AE0064AAB3 /* LWPacketAssetPairRate.m */,
+				ECD1E8EF1C3B10170064AAB3 /* LWPacketAssetPairRates.h */,
+				ECD1E8F01C3B10170064AAB3 /* LWPacketAssetPairRates.m */,
+				ECD1E8F91C3B181F0064AAB3 /* LWPacketAppSettings.h */,
+				ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1008,6 +1042,10 @@
 			children = (
 				EC7519C41C373A4900CDDF5B /* LWAssetModel.h */,
 				EC7519C51C373A4900CDDF5B /* LWAssetModel.m */,
+				ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */,
+				ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */,
+				ECD1E8EC1C3B0F300064AAB3 /* LWAssetPairRateModel.h */,
+				ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1052,6 +1090,24 @@
 				ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		ECD1E8F51C3B16E40064AAB3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1E8F61C3B17090064AAB3 /* LWAppSettingsModel.h */,
+				ECD1E8F71C3B17090064AAB3 /* LWAppSettingsModel.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		ECD1E8FC1C3B1F720064AAB3 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1E8FD1C3B21300064AAB3 /* LWMath.h */,
+				ECD1E8FE1C3B21300064AAB3 /* LWMath.m */,
+			);
+			name = Math;
 			sourceTree = "<group>";
 		};
 		ECE902B91C35368800F52971 /* WalletForm */ = {
@@ -1260,12 +1316,14 @@
 				EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */,
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
+				ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
 				CF6632631C175DE5004353F5 /* TKNavigationPresenter.m in Sources */,
 				EC7A45DC1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m in Sources */,
 				CFD9B7031C1C932B00F717FE /* LWPacketCheckDocumentsToUpload.m in Sources */,
 				CF9EC8B41C17B4FC00F742A6 /* LWTextField.m in Sources */,
 				CF6A9CD21C18ED2400B69F53 /* LWColorizer.m in Sources */,
+				ECD1E8F81C3B17090064AAB3 /* LWAppSettingsModel.m in Sources */,
 				ECDA15E11C31C6F0003C071C /* LWPacketLog.m in Sources */,
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
 				CD10AAA61C1E0C560086634B /* LWAuthenticationData.m in Sources */,
@@ -1303,6 +1361,7 @@
 				EC7A45CC1C3099F900926BB4 /* LWLykkeTableViewCell.m in Sources */,
 				CD10AAA31C1E0B530086634B /* LWPacketAuthentication.m in Sources */,
 				EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */,
+				ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */,
 				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,
 				CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */,
 				EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */,
@@ -1317,8 +1376,11 @@
 				ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
+				ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
+				ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */,
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
+				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				EC7519D01C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m in Sources */,
 				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,
@@ -1332,8 +1394,10 @@
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
+				ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */,
 				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
+				ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				CF6F69D01C2413F70016CFC5 /* ABPadLockScreenAbstractViewController.m in Sources */,
