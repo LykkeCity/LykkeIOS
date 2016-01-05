@@ -29,7 +29,6 @@
 
 @property (weak, nonatomic) id<LWWalletTableViewCellDelegate> delegate;
 
-
 #pragma mark - Outlets
 
 @property (weak, nonatomic) IBOutlet UILabel *walletLabel;

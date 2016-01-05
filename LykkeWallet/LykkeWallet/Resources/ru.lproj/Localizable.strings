@@ -75,6 +75,11 @@
 "wallets.confirm.description" = "Вы можете изменить данные о карте в любой момент.";
 "wallets.confirm.continue" = "ПРОДОЛЖИТЬ";
 
+"exchange.assets.selection" = "Выберите ассет";
+"exchange.assets.header.issuer" = "Издатель/Ассет";
+"exchange.assets.header.price" = "Цена";
+"exchange.assets.header.change" = "Изменение";
+
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";

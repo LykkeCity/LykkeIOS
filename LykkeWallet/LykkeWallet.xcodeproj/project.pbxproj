@@ -40,8 +40,6 @@
 		CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AE91C259629007BAD78 /* LWHistoryPresenter.xib */; };
 		CDCD5AEF1C259662007BAD78 /* LWSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AED1C259662007BAD78 /* LWSettingsPresenter.m */; };
 		CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AEE1C259662007BAD78 /* LWSettingsPresenter.xib */; };
-		CDCD5AF41C25988B007BAD78 /* LWTradingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5AF21C25988B007BAD78 /* LWTradingPresenter.m */; };
-		CDCD5AF51C25988B007BAD78 /* LWTradingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AF31C25988B007BAD78 /* LWTradingPresenter.xib */; };
 		CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B091C26C92A007BAD78 /* LWRegisterBasePresenter.m */; };
 		CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD5B0B1C26C92A007BAD78 /* LWRegisterFullNamePresenter.m */; };
 		CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B0C1C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib */; };
@@ -145,8 +143,6 @@
 		EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45D61C309A6200926BB4 /* LWWalletTableViewCell.xib */; };
 		EC7A45DC1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */; };
 		EC7A45E01C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */; };
-		EC7A45E31C30ADC600926BB4 /* LWEquityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45E21C30ADC600926BB4 /* LWEquityTableViewCell.m */; };
-		EC7A45E71C30AE0100926BB4 /* LWEquityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45E61C30AE0100926BB4 /* LWEquityTableViewCell.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -160,6 +156,15 @@
 		ECD1E8F81C3B17090064AAB3 /* LWAppSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8F71C3B17090064AAB3 /* LWAppSettingsModel.m */; };
 		ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */; };
 		ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8FE1C3B21300064AAB3 /* LWMath.m */; };
+		ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E9011C3BC8B40064AAB3 /* LWAuthPresenter.m */; };
+		ECD1E9051C3BCAE30064AAB3 /* LWExchangePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E9041C3BCAE30064AAB3 /* LWExchangePresenter.m */; };
+		ECD1E9071C3BCAF60064AAB3 /* LWExchangePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E9061C3BCAF60064AAB3 /* LWExchangePresenter.xib */; };
+		ECD1E90B1C3BDEA70064AAB3 /* LWAssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E90A1C3BDEA70064AAB3 /* LWAssetTableViewCell.m */; };
+		ECD1E90D1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E90C1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib */; };
+		ECD1E9101C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E90F1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m */; };
+		ECD1E9121C3BDEE40064AAB3 /* LWAssetLykkeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E9111C3BDEE40064AAB3 /* LWAssetLykkeTableViewCell.xib */; };
+		ECD1E9151C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E9141C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m */; };
+		ECD1E9171C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E9161C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib */; };
 		ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */; };
 		ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC61C2EB63500E1D3DA /* LWPersonalData.m */; };
 		ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */; };
@@ -223,9 +228,6 @@
 		CDCD5AEC1C259662007BAD78 /* LWSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSettingsPresenter.h; sourceTree = "<group>"; };
 		CDCD5AED1C259662007BAD78 /* LWSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSettingsPresenter.m; sourceTree = "<group>"; };
 		CDCD5AEE1C259662007BAD78 /* LWSettingsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSettingsPresenter.xib; sourceTree = "<group>"; };
-		CDCD5AF11C25988B007BAD78 /* LWTradingPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTradingPresenter.h; sourceTree = "<group>"; };
-		CDCD5AF21C25988B007BAD78 /* LWTradingPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTradingPresenter.m; sourceTree = "<group>"; };
-		CDCD5AF31C25988B007BAD78 /* LWTradingPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTradingPresenter.xib; sourceTree = "<group>"; };
 		CDCD5B081C26C92A007BAD78 /* LWRegisterBasePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterBasePresenter.h; path = FirstRegistrationStep/LWRegisterBasePresenter.h; sourceTree = "<group>"; };
 		CDCD5B091C26C92A007BAD78 /* LWRegisterBasePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterBasePresenter.m; path = FirstRegistrationStep/LWRegisterBasePresenter.m; sourceTree = "<group>"; };
 		CDCD5B0A1C26C92A007BAD78 /* LWRegisterFullNamePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterFullNamePresenter.h; path = FirstRegistrationStep/LWRegisterFullNamePresenter.h; sourceTree = "<group>"; };
@@ -407,9 +409,6 @@
 		EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletEmptyTableViewCell.h; path = Wallets/LWWalletEmptyTableViewCell.h; sourceTree = "<group>"; };
 		EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletEmptyTableViewCell.m; path = Wallets/LWWalletEmptyTableViewCell.m; sourceTree = "<group>"; };
 		EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletEmptyTableViewCell.xib; path = Wallets/LWWalletEmptyTableViewCell.xib; sourceTree = "<group>"; };
-		EC7A45E11C30ADC600926BB4 /* LWEquityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWEquityTableViewCell.h; path = Wallets/LWEquityTableViewCell.h; sourceTree = "<group>"; };
-		EC7A45E21C30ADC600926BB4 /* LWEquityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWEquityTableViewCell.m; path = Wallets/LWEquityTableViewCell.m; sourceTree = "<group>"; };
-		EC7A45E61C30AE0100926BB4 /* LWEquityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWEquityTableViewCell.xib; path = Wallets/LWEquityTableViewCell.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -434,6 +433,20 @@
 		ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAppSettings.m; sourceTree = "<group>"; };
 		ECD1E8FD1C3B21300064AAB3 /* LWMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMath.h; sourceTree = "<group>"; };
 		ECD1E8FE1C3B21300064AAB3 /* LWMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMath.m; sourceTree = "<group>"; };
+		ECD1E9001C3BC8B40064AAB3 /* LWAuthPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthPresenter.h; sourceTree = "<group>"; };
+		ECD1E9011C3BC8B40064AAB3 /* LWAuthPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthPresenter.m; sourceTree = "<group>"; };
+		ECD1E9031C3BCAE30064AAB3 /* LWExchangePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangePresenter.h; sourceTree = "<group>"; };
+		ECD1E9041C3BCAE30064AAB3 /* LWExchangePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangePresenter.m; sourceTree = "<group>"; };
+		ECD1E9061C3BCAF60064AAB3 /* LWExchangePresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangePresenter.xib; sourceTree = "<group>"; };
+		ECD1E9091C3BDEA70064AAB3 /* LWAssetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetTableViewCell.h; path = Assets/LWAssetTableViewCell.h; sourceTree = "<group>"; };
+		ECD1E90A1C3BDEA70064AAB3 /* LWAssetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetTableViewCell.m; path = Assets/LWAssetTableViewCell.m; sourceTree = "<group>"; };
+		ECD1E90C1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetTableViewCell.xib; path = Assets/LWAssetTableViewCell.xib; sourceTree = "<group>"; };
+		ECD1E90E1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetLykkeTableViewCell.h; path = Assets/LWAssetLykkeTableViewCell.h; sourceTree = "<group>"; };
+		ECD1E90F1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetLykkeTableViewCell.m; path = Assets/LWAssetLykkeTableViewCell.m; sourceTree = "<group>"; };
+		ECD1E9111C3BDEE40064AAB3 /* LWAssetLykkeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetLykkeTableViewCell.xib; path = Assets/LWAssetLykkeTableViewCell.xib; sourceTree = "<group>"; };
+		ECD1E9131C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetEmptyTableViewCell.h; path = Assets/LWAssetEmptyTableViewCell.h; sourceTree = "<group>"; };
+		ECD1E9141C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetEmptyTableViewCell.m; path = Assets/LWAssetEmptyTableViewCell.m; sourceTree = "<group>"; };
+		ECD1E9161C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetEmptyTableViewCell.xib; path = Assets/LWAssetEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		ECD76BC21C2EA81100E1D3DA /* LWPacketPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPersonalData.h; sourceTree = "<group>"; };
 		ECD76BC31C2EA81100E1D3DA /* LWPacketPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPersonalData.m; sourceTree = "<group>"; };
 		ECD76BC51C2EB63400E1D3DA /* LWPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalData.h; sourceTree = "<group>"; };
@@ -608,6 +621,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1E9081C3BDE700064AAB3 /* Assets */,
 				EC24CC6F1C3937C600C2FDAA /* TextFields */,
 				EC7519AD1C3732E600CDDF5B /* Settings */,
 				EC7A45BE1C30648000926BB4 /* Wallets */,
@@ -643,6 +657,8 @@
 				CF6632621C175DE5004353F5 /* TKPresenter.m */,
 				CDCD5AE41C259586007BAD78 /* TKTablePresenter.h */,
 				CDCD5AE51C259586007BAD78 /* TKTablePresenter.m */,
+				ECD1E9001C3BC8B40064AAB3 /* LWAuthPresenter.h */,
+				ECD1E9011C3BC8B40064AAB3 /* LWAuthPresenter.m */,
 				ECE902BF1C353F5600F52971 /* LWAuthenticatedTablePresenter.h */,
 				ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */,
 				CF6632881C176AB1004353F5 /* LWTabController.h */,
@@ -692,9 +708,9 @@
 		CF6632811C176A63004353F5 /* Trading */ = {
 			isa = PBXGroup;
 			children = (
-				CDCD5AF11C25988B007BAD78 /* LWTradingPresenter.h */,
-				CDCD5AF21C25988B007BAD78 /* LWTradingPresenter.m */,
-				CDCD5AF31C25988B007BAD78 /* LWTradingPresenter.xib */,
+				ECD1E9031C3BCAE30064AAB3 /* LWExchangePresenter.h */,
+				ECD1E9041C3BCAE30064AAB3 /* LWExchangePresenter.m */,
+				ECD1E9061C3BCAF60064AAB3 /* LWExchangePresenter.xib */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -1075,9 +1091,6 @@
 				EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */,
 				EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */,
 				EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */,
-				EC7A45E11C30ADC600926BB4 /* LWEquityTableViewCell.h */,
-				EC7A45E21C30ADC600926BB4 /* LWEquityTableViewCell.m */,
-				EC7A45E61C30AE0100926BB4 /* LWEquityTableViewCell.xib */,
 			);
 			name = Wallets;
 			sourceTree = "<group>";
@@ -1108,6 +1121,22 @@
 				ECD1E8FE1C3B21300064AAB3 /* LWMath.m */,
 			);
 			name = Math;
+			sourceTree = "<group>";
+		};
+		ECD1E9081C3BDE700064AAB3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1E9091C3BDEA70064AAB3 /* LWAssetTableViewCell.h */,
+				ECD1E90A1C3BDEA70064AAB3 /* LWAssetTableViewCell.m */,
+				ECD1E90C1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib */,
+				ECD1E90E1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.h */,
+				ECD1E90F1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m */,
+				ECD1E9111C3BDEE40064AAB3 /* LWAssetLykkeTableViewCell.xib */,
+				ECD1E9131C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.h */,
+				ECD1E9141C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m */,
+				ECD1E9161C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		ECE902B91C35368800F52971 /* WalletForm */ = {
@@ -1193,9 +1222,12 @@
 				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
 				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
 				CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */,
+				ECD1E9171C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib in Resources */,
 				CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */,
 				CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */,
 				CD7362831C2C26FF00924077 /* Proxima Nova Regular.otf in Resources */,
+				ECD1E9071C3BCAF60064AAB3 /* LWExchangePresenter.xib in Resources */,
+				ECD1E90D1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib in Resources */,
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
@@ -1212,7 +1244,6 @@
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
-				EC7A45E71C30AE0100926BB4 /* LWEquityTableViewCell.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
 				EC7A45D81C309A6200926BB4 /* LWLykkeTableViewCell.xib in Resources */,
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
@@ -1232,8 +1263,8 @@
 				CFF7584C1C202D1100BC7658 /* LWKYCSuccessPresenter.xib in Resources */,
 				CF68775B1C234A9800E7A7D9 /* LWAuthPINEnterPresenter.xib in Resources */,
 				EC24CC861C399A8600C2FDAA /* LWWalletPagePresenter.xib in Resources */,
+				ECD1E9121C3BDEE40064AAB3 /* LWAssetLykkeTableViewCell.xib in Resources */,
 				CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */,
-				CDCD5AF51C25988B007BAD78 /* LWTradingPresenter.xib in Resources */,
 				CDA69FE01C281E1C00BE4DCA /* LWAuthValidationPresenter.xib in Resources */,
 				EC7519BF1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib in Resources */,
 			);
@@ -1315,6 +1346,7 @@
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
 				EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */,
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
+				ECD1E9051C3BCAE30064AAB3 /* LWExchangePresenter.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
 				ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
@@ -1333,13 +1365,15 @@
 				CDCD5AEF1C259662007BAD78 /* LWSettingsPresenter.m in Sources */,
 				EC24CC791C39786C00C2FDAA /* LWWalletConfirmPresenter.m in Sources */,
 				EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */,
+				ECD1E9151C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m in Sources */,
 				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
+				ECD1E9101C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */,
 				CF6F69D11C2413F70016CFC5 /* ABPadLockScreenSetupViewController.m in Sources */,
 				CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */,
+				ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */,
 				CFF2AAE21C1F893000320FF9 /* LWRegisterCameraPresenter.m in Sources */,
-				EC7A45E31C30ADC600926BB4 /* LWEquityTableViewCell.m in Sources */,
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
@@ -1388,7 +1422,6 @@
 				EC7519B81C37351C00CDDF5B /* LWAssetsTablePresenter.m in Sources */,
 				CF6F69D31C2413F70016CFC5 /* ABPadLockScreenViewController.m in Sources */,
 				CDCD5B181C26CC50007BAD78 /* LWRegisterPasswordPresenter.m in Sources */,
-				CDCD5AF41C25988B007BAD78 /* LWTradingPresenter.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
@@ -1410,6 +1443,7 @@
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				CDA69FDF1C281E1C00BE4DCA /* LWAuthValidationPresenter.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
+				ECD1E90B1C3BDEA70064AAB3 /* LWAssetTableViewCell.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,

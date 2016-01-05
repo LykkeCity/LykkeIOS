@@ -15,13 +15,11 @@
 #import "LWWalletTableViewCell.h"
 #import "LWLykkeTableViewCell.h"
 #import "LWBanksTableViewCell.h"
-#import "LWEquityTableViewCell.h"
 #import "LWAuthNavigationController.h"
 #import "LWWalletFormPresenter.h"
 
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
-#define equityCellIdentifier @"LWEquityTableViewCellIdentifier"
 
 
 static NSInteger const kSectionLykkeWallets = 0;
@@ -84,9 +82,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
-    
-    [self registerCellWithIdentifier:equityCellIdentifier
-                             forName:@"LWEquityTableViewCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,14 +104,13 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         int const rowCell = 1;
         if (section == kSectionLykkeWallets &&
             self.data.lykkeData && self.data.lykkeData.assets) {
-            int const equityCell = 1;
-            return MAX(1, self.data.lykkeData.assets.count + equityCell) + rowCell;
+            return MAX(1, self.data.lykkeData.assets.count) + rowCell;
         }
         else if (section == kSectionBankCards && self.data.bankCards) {
             return MAX(1, self.data.bankCards.count) + rowCell;
         }
         else {
-            return 2;
+            return 2; // general + empty
         }
     }
     return 1;
@@ -148,18 +142,11 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
                 // Show Lykke Wallets
                 if (self.data.lykkeData.assets.count > 0) {
-                    // Show Equity cell
-                    if (indexPath.row == self.data.lykkeData.assets.count + 1) {
-                        cell = [tableView dequeueReusableCellWithIdentifier:equityCellIdentifier];
-                        LWEquityTableViewCell *equity = (LWEquityTableViewCell *)cell;
-                        equity.equityValueLabel.text = [NSString stringWithFormat:@"%@", self.data.lykkeData.equity];
-                    } else {
-                        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-                        LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
-                        LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
-                        lykke.walletNameLabel.text = asset.name;
-                        lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
-                    }
+                    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+                    LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
+                    LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+                    lykke.walletNameLabel.text = asset.name;
+                    lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
                 }
                 // Show Empty
                 else {
@@ -199,6 +186,11 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    // react just for headers
+    if (indexPath.row != 0) {
+        return;
+    }
+    
     // only first row toggles exapand/collapse
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

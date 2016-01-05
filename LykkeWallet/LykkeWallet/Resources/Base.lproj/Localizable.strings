@@ -75,6 +75,11 @@
 "wallets.confirm.description" = "You can change your credit card information at any time";
 "wallets.confirm.continue" = "CONTINUE";
 
+"exchange.assets.selection" = "Select an asset";
+"exchange.assets.header.issuer" = "Issuer/Asset";
+"exchange.assets.header.price" = "Price";
+"exchange.assets.header.change" = "Change";
+
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";

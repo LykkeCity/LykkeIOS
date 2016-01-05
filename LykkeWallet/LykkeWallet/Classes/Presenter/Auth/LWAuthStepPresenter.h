@@ -6,11 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKPresenter.h"
-#import "LWAuthManager.h"
+#import "LWAuthPresenter.h"
 
 
-@interface LWAuthStepPresenter : TKPresenter<LWAuthManagerDelegate> {
+@interface LWAuthStepPresenter : LWAuthPresenter {
     
 }
 

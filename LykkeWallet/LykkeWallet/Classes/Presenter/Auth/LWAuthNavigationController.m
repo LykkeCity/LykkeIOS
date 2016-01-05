@@ -31,7 +31,7 @@
 // tab presenters
 #import "LWTabController.h"
 #import "LWWalletsPresenter.h"
-#import "LWTradingPresenter.h"
+#import "LWExchangePresenter.h"
 #import "LWHistoryPresenter.h"
 #import "LWSettingsPresenter.h"
 
@@ -209,7 +209,7 @@
     LWWalletsPresenter *pWallets = [LWWalletsPresenter new];
     pWallets.tabBarItem = [self createTabBarItemWithTitle:@"tab.wallets"
                                                 withImage:@"WalletsTab"];
-    LWTradingPresenter *pTrading = [LWTradingPresenter new];
+    LWExchangePresenter *pTrading = [LWExchangePresenter new];
     pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
                                                 withImage:@"TradingTab"];
     LWHistoryPresenter *pHistory = [LWHistoryPresenter new];

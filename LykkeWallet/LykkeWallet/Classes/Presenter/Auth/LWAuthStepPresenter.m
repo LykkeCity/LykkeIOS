@@ -7,20 +7,9 @@
 //
 
 #import "LWAuthStepPresenter.h"
-#import "LWAuthNavigationController.h"
-#import "UIViewController+Loading.h"
 
 
 @implementation LWAuthStepPresenter
-
-
-#pragma mark - TKPresenter
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    // management
-    [LWAuthManager instance].delegate = self;
-}
 
 
 #pragma mark - Properties
@@ -28,14 +17,6 @@
 - (LWAuthStep)stepId {
     NSAssert(0, @"Must be overridden.");
     return LWAuthStepValidation;
-}
-
-
-#pragma mark - LWAuthManagerDelegate
-
-- (void)authManagerDidNotAuthorized:(LWAuthManager *)manager {
-    [self setLoading:NO];
-    [((LWAuthNavigationController *)self.navigationController) logout];
 }
 
 @end
