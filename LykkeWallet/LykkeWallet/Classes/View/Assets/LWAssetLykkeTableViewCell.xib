@@ -44,15 +44,6 @@
                             <constraint firstAttribute="height" constant="30" id="ycl-WX-AO1"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR/USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-T4-zjb">
-                        <rect key="frame" x="18" y="8" width="86" height="33"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="86" id="otg-pS-Xam"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
-                        <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=". . ." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ts-TG-rzO">
                         <rect key="frame" x="166" y="8" width="81" height="33"/>
                         <constraints>
@@ -62,29 +53,51 @@
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AssetInfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UpM-l1-XrJ">
-                        <rect key="frame" x="104" y="17" width="16" height="16"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-pX-a5L">
+                        <rect key="frame" x="18" y="8" width="141" height="33"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR/USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-T4-zjb">
+                                <rect key="frame" x="0.0" y="0.0" width="71" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="HQG-8e-OiB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AssetInfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UpM-l1-XrJ">
+                                <rect key="frame" x="76" y="9" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Dpo-Kl-14H"/>
+                                    <constraint firstAttribute="width" constant="16" id="y1b-1F-hWK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="7Sf-4i-0wB"/>
-                            <constraint firstAttribute="width" constant="16" id="cJv-Cu-Cdu"/>
+                            <constraint firstItem="LAC-T4-zjb" firstAttribute="centerY" secondItem="Kme-pX-a5L" secondAttribute="centerY" id="7fB-Ic-WmQ"/>
+                            <constraint firstItem="LAC-T4-zjb" firstAttribute="top" secondItem="Kme-pX-a5L" secondAttribute="top" id="882-im-dci"/>
+                            <constraint firstItem="UpM-l1-XrJ" firstAttribute="leading" secondItem="LAC-T4-zjb" secondAttribute="trailing" constant="5" id="Y6z-ke-xKQ"/>
+                            <constraint firstItem="LAC-T4-zjb" firstAttribute="leading" secondItem="Kme-pX-a5L" secondAttribute="leading" id="kOS-6H-19J"/>
+                            <constraint firstAttribute="bottom" secondItem="LAC-T4-zjb" secondAttribute="bottom" id="kvn-bU-IPS"/>
+                            <constraint firstItem="UpM-l1-XrJ" firstAttribute="centerY" secondItem="Kme-pX-a5L" secondAttribute="centerY" id="xmX-Vm-fnq"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="8Ts-TG-rzO" firstAttribute="leading" secondItem="Kme-pX-a5L" secondAttribute="trailing" constant="7" id="2oy-oT-xMJ"/>
                     <constraint firstItem="dZV-DO-I3D" firstAttribute="centerY" secondItem="WW6-dd-IMW" secondAttribute="centerY" id="6fS-65-2yx"/>
                     <constraint firstItem="dZV-DO-I3D" firstAttribute="leading" secondItem="8Ts-TG-rzO" secondAttribute="trailing" constant="7" id="7xx-tb-wvy"/>
                     <constraint firstItem="dZV-DO-I3D" firstAttribute="top" secondItem="WW6-dd-IMW" secondAttribute="topMargin" id="8jx-lz-K3m"/>
                     <constraint firstItem="8Ts-TG-rzO" firstAttribute="top" secondItem="WW6-dd-IMW" secondAttribute="topMargin" id="FNk-cS-gnF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dZV-DO-I3D" secondAttribute="trailing" constant="8" id="NOg-wA-OYH"/>
-                    <constraint firstItem="LAC-T4-zjb" firstAttribute="bottom" secondItem="WW6-dd-IMW" secondAttribute="bottomMargin" id="YU2-71-bik"/>
-                    <constraint firstItem="LAC-T4-zjb" firstAttribute="leading" secondItem="WW6-dd-IMW" secondAttribute="leadingMargin" constant="10" id="auy-RO-JVH"/>
+                    <constraint firstItem="Kme-pX-a5L" firstAttribute="top" secondItem="WW6-dd-IMW" secondAttribute="topMargin" id="b5E-T1-oXu"/>
                     <constraint firstItem="8Ts-TG-rzO" firstAttribute="bottom" secondItem="WW6-dd-IMW" secondAttribute="bottomMargin" id="boh-Yl-y4y"/>
                     <constraint firstItem="dZV-DO-I3D" firstAttribute="bottom" secondItem="WW6-dd-IMW" secondAttribute="bottomMargin" id="fxq-lo-Rqq"/>
                     <constraint firstItem="PRu-Xk-opH" firstAttribute="centerY" secondItem="WW6-dd-IMW" secondAttribute="centerY" id="fyI-cY-dQx"/>
-                    <constraint firstItem="LAC-T4-zjb" firstAttribute="top" secondItem="WW6-dd-IMW" secondAttribute="topMargin" id="icw-6d-csx"/>
                     <constraint firstItem="dZV-DO-I3D" firstAttribute="leading" secondItem="PRu-Xk-opH" secondAttribute="trailing" constant="7" id="lrv-C3-mLg"/>
-                    <constraint firstItem="UpM-l1-XrJ" firstAttribute="leading" secondItem="LAC-T4-zjb" secondAttribute="trailing" id="m7T-bs-g3L"/>
-                    <constraint firstItem="UpM-l1-XrJ" firstAttribute="centerY" secondItem="WW6-dd-IMW" secondAttribute="centerY" id="mhc-Uz-P7M"/>
+                    <constraint firstItem="Kme-pX-a5L" firstAttribute="leading" secondItem="WW6-dd-IMW" secondAttribute="leadingMargin" constant="10" id="sHu-KX-fKQ"/>
+                    <constraint firstItem="Kme-pX-a5L" firstAttribute="bottom" secondItem="WW6-dd-IMW" secondAttribute="bottomMargin" id="tpP-oJ-oOj"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>

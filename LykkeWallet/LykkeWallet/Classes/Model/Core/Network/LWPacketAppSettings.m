@@ -8,6 +8,7 @@
 
 #import "LWPacketAppSettings.h"
 #import "LWAppSettingsModel.h"
+#import "LWCache.h"
 
 
 @implementation LWPacketAppSettings
@@ -23,6 +24,9 @@
     }
     
     _appSettings = [[LWAppSettingsModel alloc] initWithJSON:result];
+    
+    // refresh cache
+    [LWCache instance].refreshTimer = self.appSettings.rateRefreshPeriod;
 }
 
 - (NSString *)urlRelative {

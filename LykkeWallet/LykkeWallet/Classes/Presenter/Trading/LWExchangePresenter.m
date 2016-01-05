@@ -12,13 +12,15 @@
 #import "LWAssetEmptyTableViewCell.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
+#import "LWCache.h"
 
 
 #define emptyCellIdentifier @"LWAssetEmptyTableViewCellIdentifier"
 
 
 @interface LWExchangePresenter () <UITableViewDataSource, UITableViewDelegate> {
-    NSMutableIndexSet *expandedSections;
+    NSMutableIndexSet   *expandedSections;
+    NSMutableDictionary *pairRates;
 }
 
 
@@ -26,8 +28,6 @@
 
 // array of LWAssetPairModel
 @property (readonly, nonatomic) NSArray *assetPairs;
-// array of LWAssetPairRateModel
-@property (readonly, nonatomic) NSArray *assetPairRates;
 
 
 #pragma mark - Outlets
@@ -73,7 +73,8 @@ static NSString *const AssetIcons[kNumberOfSections] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    expandedSections = [[NSMutableIndexSet alloc] init];
+    expandedSections = [NSMutableIndexSet new];
+    pairRates = [NSMutableDictionary new];
     
     [self registerCellWithIdentifier:cellIdentifier
                              forName:@"LWAssetTableViewCell"];
@@ -172,8 +173,8 @@ static NSString *const AssetIcons[kNumberOfSections] = {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWAssetLykkeTableViewCell *asset = (LWAssetLykkeTableViewCell *)cell;
                     LWAssetPairModel *assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
-                    asset.assetNameLabel.text = assetPair.name;
-                    asset.rate = nil;
+                    asset.pair = assetPair;
+                    asset.rate = pairRates[assetPair.identity];
                 }
                 // Show Empty
                 else {
@@ -258,12 +259,13 @@ static NSString *const AssetIcons[kNumberOfSections] = {
 }
 
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRates:(NSArray *)assetPairRates {
-    _assetPairRates = assetPairRates;
-    
-#warning TODO: 
-    const NSInteger repeatSeconds = 5;
+    for (LWAssetPairRateModel *rate in assetPairRates) {
+        pairRates[rate.identity] = rate;
+    }
+
     [self.tableView reloadData];
-    
+
+    const NSInteger repeatSeconds = [LWCache instance].refreshTimer.integerValue / 1000;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[LWAuthManager instance] requestAssetPairRates];
     });

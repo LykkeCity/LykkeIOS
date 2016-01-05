@@ -73,3 +73,10 @@ static NSString *const kNavigationBarFontName  = kFontSemibold;
 
 static NSString *const kPageControlDotColor       = @"D3D6DB";
 static NSString *const kPageControlActiveDotColor = kMainElementsColor;
+
+
+#pragma mark - Asset Colors
+
+static NSString *const kAssetChangePlusColor      = @"53AA00";
+static NSString *const kAssetChangeMinusColor     = @"FF2E2E";
+

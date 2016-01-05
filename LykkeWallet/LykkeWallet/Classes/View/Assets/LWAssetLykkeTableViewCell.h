@@ -9,6 +9,7 @@
 #import "TKTableViewCell.h"
 
 
+@class LWAssetPairModel;
 @class LWAssetPairRateModel;
 
 
@@ -18,6 +19,7 @@
 
 #pragma mark - Properties
 
+@property (strong, nonatomic) LWAssetPairModel     *pair;
 @property (strong, nonatomic) LWAssetPairRateModel *rate;
 
 

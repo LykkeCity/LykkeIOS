@@ -30,6 +30,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
  
+    [[LWAuthManager instance] requestAppSettings];
+    
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
