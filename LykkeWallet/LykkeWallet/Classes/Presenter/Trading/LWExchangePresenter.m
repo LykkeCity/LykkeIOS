@@ -7,6 +7,7 @@
 //
 
 #import "LWExchangePresenter.h"
+#import "LWExchangeFormPresenter.h"
 #import "LWAssetTableViewCell.h"
 #import "LWAssetLykkeTableViewCell.h"
 #import "LWAssetEmptyTableViewCell.h"
@@ -151,16 +152,16 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     // Show category row
     if (!indexPath.row) {
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        LWAssetTableViewCell *wallet = (LWAssetTableViewCell *)cell;
-        if (wallet == nil)
+        LWAssetTableViewCell *asset = (LWAssetTableViewCell *)cell;
+        if (asset == nil)
         {
-            wallet = (LWAssetTableViewCell *)[[UITableViewCell alloc]
-                                               initWithStyle:UITableViewCellStyleDefault
-                                               reuseIdentifier:cellIdentifier];
+            asset = (LWAssetTableViewCell *)[[UITableViewCell alloc]
+                                             initWithStyle:UITableViewCellStyleDefault
+                                             reuseIdentifier:cellIdentifier];
         }
         
-        wallet.assetLabel.text = AssetNames[indexPath.section];
-        wallet.assetImageView.image = [UIImage imageNamed:AssetIcons[indexPath.section]];
+        asset.assetLabel.text = AssetNames[indexPath.section];
+        asset.assetImageView.image = [UIImage imageNamed:AssetIcons[indexPath.section]];
     }
     // Show wallets for category
     else {
@@ -205,45 +206,51 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     
     // react just for headers
     if (indexPath.row != 0) {
-        return;
+        // lykke assets
+        if (indexPath.section == 0) {
+            LWExchangeFormPresenter *form = [LWExchangeFormPresenter new];
+            form.assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
+            [self.navigationController pushViewController:form animated:YES];
+        }
     }
-    
-    // only first row toggles exapand/collapse
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSInteger section = indexPath.section;
-    BOOL currentlyExpanded = [expandedSections containsIndex:section];
-    NSInteger rows = 0;
-    
-    NSMutableArray *tmpArray = [NSMutableArray array];
-    
-    if (currentlyExpanded)
-    {
-        rows = [self tableView:tableView numberOfRowsInSection:section];
-        [expandedSections removeIndex:section];
-    }
-    else
-    {
-        [expandedSections addIndex:section];
-        rows = [self tableView:tableView numberOfRowsInSection:section];
-    }
-    
-    for (int i = 1; i < rows; i++)
-    {
-        NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i
-                                                       inSection:section];
-        [tmpArray addObject:tmpIndexPath];
-    }
-    
-    if (currentlyExpanded)
-    {
-        [tableView deleteRowsAtIndexPaths:tmpArray
-                         withRowAnimation:UITableViewRowAnimationTop];
-    }
-    else
-    {
-        [tableView insertRowsAtIndexPaths:tmpArray
-                         withRowAnimation:UITableViewRowAnimationTop];
+    else {
+        // only first row toggles exapand/collapse
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        NSInteger section = indexPath.section;
+        BOOL currentlyExpanded = [expandedSections containsIndex:section];
+        NSInteger rows = 0;
+        
+        NSMutableArray *tmpArray = [NSMutableArray array];
+        
+        if (currentlyExpanded)
+        {
+            rows = [self tableView:tableView numberOfRowsInSection:section];
+            [expandedSections removeIndex:section];
+        }
+        else
+        {
+            [expandedSections addIndex:section];
+            rows = [self tableView:tableView numberOfRowsInSection:section];
+        }
+        
+        for (int i = 1; i < rows; i++)
+        {
+            NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i
+                                                           inSection:section];
+            [tmpArray addObject:tmpIndexPath];
+        }
+        
+        if (currentlyExpanded)
+        {
+            [tableView deleteRowsAtIndexPaths:tmpArray
+                             withRowAnimation:UITableViewRowAnimationTop];
+        }
+        else
+        {
+            [tableView insertRowsAtIndexPaths:tmpArray
+                             withRowAnimation:UITableViewRowAnimationTop];
+        }
     }
 }
 

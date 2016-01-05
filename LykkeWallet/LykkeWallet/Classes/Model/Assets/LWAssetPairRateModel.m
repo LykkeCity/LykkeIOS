@@ -14,7 +14,6 @@
 
 #pragma mark - LWJSONObject
 
-
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self) {

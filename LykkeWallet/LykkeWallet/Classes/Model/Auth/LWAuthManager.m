@@ -29,6 +29,7 @@
 #import "LWPacketAssetPairRate.h"
 #import "LWPacketAssetPairRates.h"
 #import "LWPacketAppSettings.h"
+#import "LWPacketAssetDescription.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -214,6 +215,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestAssetDescription:(NSString *)assetId {
+    LWPacketAssetDescription *pack = [LWPacketAssetDescription new];
+    pack.identity = assetId;
+    
+    [self sendPacket:pack];
+}
+
 - (void)requestAppSettings {
     LWPacketAppSettings *pack = [LWPacketAppSettings new];
     
@@ -368,6 +376,12 @@ SINGLETON_INIT {
         // receiving asset pair rates
         if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetPairRates:)]) {
             [self.delegate authManager:self didGetAssetPairRates:((LWPacketAssetPairRates *)pack).assetPairRates];
+        }
+    }
+    else if (pack.class == LWPacketAssetDescription.class) {
+        // receiving asset description
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetDescription:)]) {
+            [self.delegate authManager:self didGetAssetDescription:((LWPacketAssetDescription *)pack).assetDescription];
         }
     }
     else if (pack.class == LWPacketAppSettings.class) {

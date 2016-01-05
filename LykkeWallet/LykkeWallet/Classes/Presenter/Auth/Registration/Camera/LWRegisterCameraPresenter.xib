@@ -34,7 +34,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep2" translatesAutoresizingMaskIntoConstraints="NO" id="lwI-SC-5gM">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterLineStep3" translatesAutoresizingMaskIntoConstraints="NO" id="lwI-SC-5gM">
                     <rect key="frame" x="0.0" y="29" width="320" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ZhG-QX-hsB"/>
@@ -96,6 +96,6 @@
     <resources>
         <image name="ButtonOK" width="315" height="45"/>
         <image name="ButtonOKInactive" width="316" height="46"/>
-        <image name="RegisterLineStep2" width="303" height="36"/>
+        <image name="RegisterLineStep3" width="303" height="36"/>
     </resources>
 </document>

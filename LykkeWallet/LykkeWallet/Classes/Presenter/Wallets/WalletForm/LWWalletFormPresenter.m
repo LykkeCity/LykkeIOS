@@ -18,6 +18,7 @@
 #import "LWBankCardsData.h"
 #import "UIColor+Generic.h"
 #import "UIViewController+Loading.h"
+#import "UIViewController+Navigation.h"
 
 
 @interface LWWalletFormPresenter ()<LWAuthManagerDelegate, LWTextFieldDelegate, UIPageViewControllerDataSource> {
@@ -81,8 +82,7 @@ static CGFloat const kBanksHeight = 190.0;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackIcon"] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
-    self.navigationItem.leftBarButtonItem = button;
+    [self setBackButton];
     
     self.bankCardHeightConstraint.constant = [self isCardsExists] ? kBanksHeight : 0.0;
 

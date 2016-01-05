@@ -18,6 +18,7 @@
 @class LWAssetModel;
 @class LWAssetPairRateModel;
 @class LWAppSettingsModel;
+@class LWAssetDescriptionModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -44,6 +45,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairs:(NSArray *)assetPairs;
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRate:(LWAssetPairRateModel *)assetPairRate;
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRates:(NSArray *)assetPairRates;
+- (void)authManager:(LWAuthManager *)manager didGetAssetDescription:(LWAssetDescriptionModel *)assetDescription;
 - (void)authManager:(LWAuthManager *)manager didGetAppSettings:(LWAppSettingsModel *)appSettings;
 
 @end
@@ -86,6 +88,7 @@ SINGLETON_DECLARE
 - (void)requestAssetPairs;
 - (void)requestAssetPairRate:(NSString *)pairId;
 - (void)requestAssetPairRates;
+- (void)requestAssetDescription:(NSString *)assetId;
 - (void)requestAppSettings;
 
 

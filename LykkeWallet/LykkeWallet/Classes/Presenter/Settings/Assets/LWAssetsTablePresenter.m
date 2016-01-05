@@ -14,6 +14,7 @@
 
 #import "UIColor+Generic.h"
 #import "UIViewController+Loading.h"
+#import "UIViewController+Navigation.h"
 
 
 @interface LWAssetsTablePresenter () {
@@ -34,6 +35,8 @@
     [super viewDidLoad];
     
     self.title = Localize(@"settings.assets.title");
+    
+    [self setBackButton];
     
     [self registerCellWithIdentifier:@"LWChooseAssetTableViewCellIdentifier"
                              forName:@"LWChooseAssetTableViewCell"];
