@@ -158,6 +158,7 @@
 - (void)setupImageFromInfo:(NSDictionary *)info {
     
     photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+    photo = [photo correctImageOrientation:photo];
 
     CGFloat const width = 1024.0;
     CGSize size = photo.size;
