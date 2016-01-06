@@ -10,6 +10,7 @@
 #import "TKContainer.h"
 #import "LWStringUtils.h"
 #import "NSObject+GDXObserver.h"
+#import "UITextField+Validation.h"
 
 
 @interface LWTextField ()<UITextFieldDelegate> {
@@ -146,16 +147,7 @@
         return [self.delegate textField:self shouldChangeCharsInRange:range replacementString:string];
     }
     else {
-        NSUInteger oldLength = [textField.text length];
-        NSUInteger replacementLength = [string length];
-        NSUInteger rangeLength = range.length;
-        
-        NSUInteger newLength = oldLength - rangeLength + replacementLength;
-        NSUInteger maxLength = (self.maxLength > 0) ? self.maxLength : INT_MAX;
-        
-        BOOL isReturnKey = [string rangeOfString: @"\n"].location != NSNotFound;
-        
-        return (newLength <= maxLength) || isReturnKey;
+        return [textField shouldChangeCharactersInRange:range replacementString:string forMaxLength:self.maxLength];
     }
 }
 

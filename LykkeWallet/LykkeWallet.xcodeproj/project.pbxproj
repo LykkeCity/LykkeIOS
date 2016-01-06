@@ -140,6 +140,7 @@
 		EC57F4771C3D528100E31746 /* LWAssetBuyPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4761C3D528100E31746 /* LWAssetBuyPriceTableViewCell.xib */; };
 		EC57F47A1C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F4791C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m */; };
 		EC57F47C1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F47B1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib */; };
+		EC57F47F1C3D8A6400E31746 /* UITextField+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F47E1C3D8A6400E31746 /* UITextField+Validation.m */; };
 		EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC59526A1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m */; };
 		EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC59526B1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib */; };
 		EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7519AF1C37338000CDDF5B /* LWSettingsAssetTableViewCell.m */; };
@@ -425,6 +426,8 @@
 		EC57F4781C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBuyTotalTableViewCell.h; path = Assets/LWAssetBuyTotalTableViewCell.h; sourceTree = "<group>"; };
 		EC57F4791C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBuyTotalTableViewCell.m; path = Assets/LWAssetBuyTotalTableViewCell.m; sourceTree = "<group>"; };
 		EC57F47B1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetBuyTotalTableViewCell.xib; path = Assets/LWAssetBuyTotalTableViewCell.xib; sourceTree = "<group>"; };
+		EC57F47D1C3D8A6400E31746 /* UITextField+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Validation.h"; sourceTree = "<group>"; };
+		EC57F47E1C3D8A6400E31746 /* UITextField+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Validation.m"; sourceTree = "<group>"; };
 		EC5952691C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCCheckDocumentsPresenter.h; sourceTree = "<group>"; };
 		EC59526A1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCCheckDocumentsPresenter.m; sourceTree = "<group>"; };
 		EC59526B1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCCheckDocumentsPresenter.xib; sourceTree = "<group>"; };
@@ -702,6 +705,8 @@
 			children = (
 				EC2813EA1C343CE9009BE680 /* UIImage+Resize.h */,
 				EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */,
+				EC57F47D1C3D8A6400E31746 /* UITextField+Validation.h */,
+				EC57F47E1C3D8A6400E31746 /* UITextField+Validation.m */,
 				EC57F4631C3D197800E31746 /* NSString+Utils.h */,
 				EC57F4641C3D197900E31746 /* NSString+Utils.m */,
 				ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */,
@@ -1477,6 +1482,7 @@
 				CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */,
 				CF6F69D11C2413F70016CFC5 /* ABPadLockScreenSetupViewController.m in Sources */,
 				CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */,
+				EC57F47F1C3D8A6400E31746 /* UITextField+Validation.m in Sources */,
 				ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */,
 				CFF2AAE21C1F893000320FF9 /* LWRegisterCameraPresenter.m in Sources */,
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,

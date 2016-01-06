@@ -87,6 +87,11 @@
 "exchange.assets.form.capitalization" = "Капитализация рынка";
 "exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
 "exchange.assets.buy.title" = "КУПИТЬ ";
+"exchange.assets.buy.sum" = "Сумма";
+"exchange.assets.buy.placeholder" = "Введите сумму";
+"exchange.assets.buy.price" = "Цена";
+"exchange.assets.buy.total" = "Объем сделки";
+"exchange.assets.buy.checkout" = "ОФОРМИТЬ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

@@ -201,10 +201,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     NSString *priceRateString = @". . .";
     if (rate) {
-        NSDecimalNumber *rateValue = [NSDecimalNumber decimalNumberWithDecimal:[rate.ask decimalValue]];
-        NSString *priceString = [LWMath makeStringByDecimal:rateValue withPrecision:self.assetPair.accuracy.integerValue];
-        
-        priceRateString = [NSString stringWithFormat:@"%@%@", Localize(@"exchange.assets.form.button"), priceString];
+        priceRateString = [LWMath priceString:rate.ask precision:self.assetPair.accuracy withPrefix:Localize(@"exchange.assets.form.button")];
     }
 
     [LWValidator setPriceButton:self.dealButton enabled:(rate != nil)];

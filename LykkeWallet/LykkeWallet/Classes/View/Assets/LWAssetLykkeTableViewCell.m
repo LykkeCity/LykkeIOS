@@ -20,22 +20,20 @@
     _rate = rate;
     
     if (self.rate && self.pair) {
-        NSDecimalNumber *rateValue = [NSDecimalNumber decimalNumberWithDecimal:[rate.ask decimalValue]];
-
         // price section
-        NSString *priceString = [LWMath makeStringByDecimal:rateValue withPrecision:self.pair.accuracy.integerValue];
-        self.assetPriceLabel.text = [NSString stringWithFormat:@"$ %@", priceString];
+        NSString *priceString = [LWMath priceString:rate.ask precision:self.pair.accuracy withPrefix:@"$ "];
+        self.assetPriceLabel.text = priceString;
         self.assetPriceLabel.textColor = [UIColor colorWithHexString:kMainElementsColor];
 
         // change section
-        NSDecimalNumber *changeValue = [NSDecimalNumber decimalNumberWithDecimal:[rate.pchng decimalValue]];
-        NSString *changeString = [LWMath makeStringByDecimal:changeValue withPrecision:2];
         NSString *sign = (rate.pchng.doubleValue >= 0.0) ? @"+" : @"";
+        NSString *changeString = [LWMath priceString:rate.pchng precision:[NSNumber numberWithInt:2] withPrefix:sign];
+
         UIColor *changeColor = (rate.pchng.doubleValue >= 0.0)
                                 ? [UIColor colorWithHexString:kAssetChangePlusColor]
                                 : [UIColor colorWithHexString:kAssetChangeMinusColor];
         self.assetChangeLabel.textColor = changeColor;
-        self.assetChangeLabel.text = [NSString stringWithFormat:@"%@%@%%", sign, changeString];
+        self.assetChangeLabel.text = [NSString stringWithFormat:@"%@%%", changeString];
         
         self.assetPriceImageView.image = [UIImage imageNamed:@"AssetPriceArea"];
     }

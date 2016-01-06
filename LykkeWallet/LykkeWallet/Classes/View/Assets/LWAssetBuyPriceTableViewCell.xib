@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LWAssetBuyPriceTableViewCellIdentifier" rowHeight="50" id="zRK-59-L5B" customClass="LWAssetBuyPriceTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LWAssetBuyPriceTableViewCellIdentifier" rowHeight="50" id="zRK-59-L5B" customClass="LWAssetBuyPriceTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zRK-59-L5B" id="BvS-PM-3BW">
@@ -50,6 +50,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="priceLabel" destination="vn9-mi-jpP" id="rlh-Yf-aTY"/>
+                <outlet property="titleLabel" destination="Hfk-xk-FIE" id="42B-cD-jC1"/>
+            </connections>
             <point key="canvasLocation" x="171" y="184"/>
         </tableViewCell>
     </objects>

@@ -20,7 +20,7 @@
 
 #pragma mark - Properties
 
-@property (assign, nonatomic) LWAssetPairModel     *assetPair;
-@property (assign, nonatomic) LWAssetPairRateModel *assetRate;
+@property (strong, nonatomic) LWAssetPairModel     *assetPair;
+@property (strong, nonatomic) LWAssetPairRateModel *assetRate;
 
 @end

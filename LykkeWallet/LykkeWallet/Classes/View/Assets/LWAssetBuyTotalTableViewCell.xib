@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LWAssetBuyTotalTableViewCellIdentifier" rowHeight="50" id="I7S-Vi-KI2" customClass="LWAssetBuyTotalTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LWAssetBuyTotalTableViewCellIdentifier" rowHeight="50" id="I7S-Vi-KI2" customClass="LWAssetBuyTotalTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I7S-Vi-KI2" id="Xta-5o-j73">
@@ -48,6 +48,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="titleLabel" destination="lct-Bk-4Px" id="kUw-bd-NYC"/>
+                <outlet property="totalLabel" destination="V4S-Uw-dg8" id="0Fc-NB-2eG"/>
+            </connections>
             <point key="canvasLocation" x="169" y="182"/>
         </tableViewCell>
     </objects>

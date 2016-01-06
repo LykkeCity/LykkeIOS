@@ -13,4 +13,10 @@
     
 }
 
+
+#pragma mark - Outlets
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
 @end

@@ -119,4 +119,15 @@
     return result;
 }
 
++ (NSString *)priceString:(NSNumber *)value precision:(NSNumber *)precision withPrefix:(NSString *)prefix {
+
+    NSString *priceRateString = @". . .";
+
+    NSDecimalNumber *rateValue = [NSDecimalNumber decimalNumberWithDecimal:[value decimalValue]];
+    NSString *priceString = [LWMath makeStringByDecimal:rateValue withPrecision:precision.integerValue];
+        
+    priceRateString = [NSString stringWithFormat:@"%@%@", prefix, priceString];
+    return priceRateString;
+}
+
 @end
