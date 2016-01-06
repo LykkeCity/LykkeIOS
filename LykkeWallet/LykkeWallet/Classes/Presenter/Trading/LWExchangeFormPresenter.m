@@ -13,6 +13,7 @@
 #import "LWAssetInfoTextTableViewCell.h"
 #import "LWAssetInfoIconTableViewCell.h"
 #import "LWValidator.h"
+#import "LWConstants.h"
 #import "LWCache.h"
 #import "LWMath.h"
 #import "UIViewController+Loading.h"
@@ -34,6 +35,7 @@
 #pragma mark - Utils
 
 - (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
+- (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row;
 
 @end
 
@@ -116,7 +118,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     else {
         LWAssetInfoTextTableViewCell *textCell = (LWAssetInfoTextTableViewCell *)cell;
         textCell.titleLabel.text = DescriptionNames[indexPath.row];
-        textCell.descriptionLabel.text = @"bla bla";
+        textCell.descriptionLabel.text = [self description:assetDetails forRow:indexPath.row];
     }
 
     return cell;
@@ -126,27 +128,37 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     CGFloat const kDefaultRowHeight = 50.0;
+
     if (assetDetails == nil) {
         return 0;
     }
     
-    switch (indexPath.row) {
-        case 0:
-            return [assetDetails.assetClass isEmpty] ? 0 : kDefaultRowHeight;
-        case 1:
-            return (assetDetails.popIndex == nil) ? 0 : kDefaultRowHeight;
-        case 2:
-            return [assetDetails.details isEmpty] ? 0 : kDefaultRowHeight;
-        case 3:
-            return [assetDetails.issuerName isEmpty] ? 0 : kDefaultRowHeight;
-        case 4:
-            return [assetDetails.numberOfCoins isEmpty] ? 0 : kDefaultRowHeight;
-        case 5:
-            return [assetDetails.marketCapitalization isEmpty] ? 0 : kDefaultRowHeight;
-        default:
-            return kDefaultRowHeight;
+    NSString *text = [self description:assetDetails forRow:indexPath.row];
+    if ([text isEmpty]) {
+        return 0;
     }
+    
+    // calculate height just for text cells
+    if (indexPath.row != 1) {
+        CGFloat const kTopBottomPadding = 8.0;
+        CGFloat const kLeftRightPadding = 26.0 * 2.0;
+        CGFloat const kTitleWidth = 116.0;
+        CGFloat const kDescriptionWidth = self.tableView.frame.size.width - kLeftRightPadding - kTitleWidth;
+
+        UIFont *font = [UIFont fontWithName:kFontRegular size:kAssetDetailsFontSize];
+        CGSize const size = CGSizeMake(kDescriptionWidth, CGFLOAT_MAX);
+        CGRect rect = [text boundingRectWithSize:size
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName:font}
+                                         context:nil];
+
+        CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
+        return cellHeight;
+    }
+    
+    return kDefaultRowHeight;
 }
 
 
@@ -193,6 +205,35 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
     [LWValidator setPriceButton:self.dealButton enabled:(rate != nil)];
     [self.dealButton setTitle:priceRateString forState:UIControlStateNormal];
+}
+
+- (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row {
+    NSString *text = nil;
+    if (model == nil) {
+        return text;
+    }
+    
+    switch (row) {
+        case 0:
+            text = model.assetClass;
+            break;
+        case 1:
+            text = (model.popIndex == nil) ? @"" : [NSString stringWithFormat:@"%@", model.popIndex];
+            break;
+        case 2:
+            text = model.details;
+            break;
+        case 3:
+            text = model.issuerName;
+            break;
+        case 4:
+            text = model.numberOfCoins;
+            break;
+        case 5:
+            text = model.marketCapitalization;
+            break;
+    }
+    return text;
 }
 
 @end

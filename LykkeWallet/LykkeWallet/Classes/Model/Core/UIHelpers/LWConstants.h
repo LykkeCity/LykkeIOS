@@ -77,6 +77,7 @@ static NSString *const kPageControlActiveDotColor = kMainElementsColor;
 
 #pragma mark - Asset Colors
 
+static float     const kAssetDetailsFontSize      = 17.0;
 static NSString *const kAssetChangePlusColor      = @"53AA00";
 static NSString *const kAssetChangeMinusColor     = @"FF2E2E";
 
