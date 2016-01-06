@@ -6,16 +6,21 @@
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWAuthPresenter.h"
+#import "LWAuthComplexPresenter.h"
 
 
 @class LWAssetPairModel;
+@class LWAssetPairRateModel;
 
 
-@interface LWExchangeFormPresenter : LWAuthPresenter {
+@interface LWExchangeFormPresenter : LWAuthComplexPresenter {
     
 }
 
-@property (assign, nonatomic) LWAssetPairModel *assetPair;
+
+#pragma mark - Properties
+
+@property (strong, nonatomic) LWAssetPairModel *assetPair;
+@property (strong, nonatomic) LWAssetPairRateModel *assetRate;
 
 @end

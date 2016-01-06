@@ -19,7 +19,7 @@
 #define emptyCellIdentifier @"LWAssetEmptyTableViewCellIdentifier"
 
 
-@interface LWExchangePresenter () <UITableViewDataSource, UITableViewDelegate> {
+@interface LWExchangePresenter () {
     NSMutableIndexSet   *expandedSections;
     NSMutableDictionary *pairRates;
 }
@@ -34,17 +34,11 @@
 #pragma mark - Outlets
 
 @property (weak, nonatomic) IBOutlet UIView      *headerView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel     *selectAssetLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *assetHeaderNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *assetHeaderPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *assetHeaderChangeLabel;
 
-
-#pragma mark - Utils
-
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
-- (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -78,17 +72,13 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     pairRates = [NSMutableDictionary new];
     
     [self registerCellWithIdentifier:cellIdentifier
-                             forName:@"LWAssetTableViewCell"];
+                                name:@"LWAssetTableViewCell"];
     
     [self registerCellWithIdentifier:AssetIdentifiers[0]
-                             forName:@"LWAssetLykkeTableViewCell"];
+                                name:@"LWAssetLykkeTableViewCell"];
     
     [self registerCellWithIdentifier:emptyCellIdentifier
-                             forName:@"LWAssetEmptyTableViewCell"];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+                             name:@"LWAssetEmptyTableViewCell"];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
@@ -101,17 +91,6 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     self.tabBarController.title = self.title;
     
     [[LWAuthManager instance] requestAssetPairs];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 
@@ -191,28 +170,28 @@ static NSString *const AssetIcons[kNumberOfSections] = {
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // react just for headers
-    if (indexPath.row != 0) {
+    NSInteger const row = indexPath.row;
+    // react for assets
+    if (row != 0) {
         // lykke assets
         if (indexPath.section == 0) {
-            LWExchangeFormPresenter *form = [LWExchangeFormPresenter new];
-            form.assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
-            [self.navigationController pushViewController:form animated:YES];
+            LWAssetPairModel *model = (LWAssetPairModel *)self.assetPairs[row - 1];
+            // validate pair
+            if (model) {
+                LWAssetPairRateModel *rate = pairRates[model.identity];
+                // validate rate
+                if (rate) {
+                    LWExchangeFormPresenter *form = [LWExchangeFormPresenter new];
+                    form.assetPair = model;
+                    form.assetRate = rate;
+                    [self.navigationController pushViewController:form animated:YES];
+                }
+            }
         }
     }
+    // react just for headers
     else {
         // only first row toggles exapand/collapse
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -276,18 +255,6 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[LWAuthManager instance] requestAssetPairRates];
     });
-}
-
-
-#pragma mark - Utils
-
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name {
-    UINib *nib = [UINib nibWithNibName:name bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
-}
-
-- (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
 }
 
 @end

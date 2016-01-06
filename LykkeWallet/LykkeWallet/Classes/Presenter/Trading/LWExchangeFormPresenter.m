@@ -7,6 +7,7 @@
 //
 
 #import "LWExchangeFormPresenter.h"
+#import "LWExchangeBuyFormPresenter.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAssetDescriptionModel.h"
@@ -21,21 +22,14 @@
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeFormPresenter () <UITableViewDataSource, UITableViewDelegate> {
+@interface LWExchangeFormPresenter () {
     LWAssetDescriptionModel *assetDetails;
 }
 
 
 #pragma mark - Outlets
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton    *dealButton;
-
-
-#pragma mark - Utils
-
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name;
-- (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row;
+@property (weak, nonatomic) IBOutlet UIButton *dealButton;
 
 @end
 
@@ -62,24 +56,25 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     [self setBackButton];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
     [self registerCellWithIdentifier:@"LWAssetInfoTextTableViewCellIdentifier"
-                             forName:@"LWAssetInfoTextTableViewCell"];
+                                name:@"LWAssetInfoTextTableViewCell"];
     
     [self registerCellWithIdentifier:@"LWAssetInfoIconTableViewCellIdentifier"
-                             forName:@"LWAssetInfoIconTableViewCell"];
+                                name:@"LWAssetInfoIconTableViewCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self updateRate:nil];
-    [self setLoading:YES];
-    
-    [[LWAuthManager instance] requestAssetDescription:self.assetPair.identity];
+    [self updateRate:self.assetRate];
+
+    if (!assetDetails) {
+        [self setLoading:YES];
+        [[LWAuthManager instance] requestAssetDescription:self.assetPair.identity];
+    }
+    else {
+        [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
+    }
 }
 
 
@@ -186,14 +181,23 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 }
 
 
-#pragma mark - Utils
+#pragma mark - Actions
 
-- (void)registerCellWithIdentifier:(NSString *)identifier forName:(NSString *)name {
-    UINib *nib = [UINib nibWithNibName:name bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
+- (IBAction)buyClicked:(id)sender {
+    if (self.assetPair && self.assetRate) {
+        LWExchangeBuyFormPresenter *controller = [LWExchangeBuyFormPresenter new];
+        controller.assetPair = self.assetPair;
+        controller.assetRate = self.assetRate;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
+
+#pragma mark - Utils
+
 - (void)updateRate:(LWAssetPairRateModel *)rate {
+    
+    self.assetRate = rate;
     
     NSString *priceRateString = @". . .";
     if (rate) {

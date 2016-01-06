@@ -20,7 +20,7 @@
                 <outlet property="assetHeaderPriceLabel" destination="YfJ-X6-i3k" id="uQ1-r5-Qs7"/>
                 <outlet property="headerView" destination="I8d-KY-nFJ" id="0uX-Vl-EIQ"/>
                 <outlet property="selectAssetLabel" destination="uP5-K9-6KA" id="3CY-ka-vfn"/>
-                <outlet property="tableView" destination="PE4-aL-sKX" id="9ZK-ZU-o2g"/>
+                <outlet property="tableView" destination="PE4-aL-sKX" id="lEH-Ub-wwx"/>
                 <outlet property="view" destination="FTH-kb-LJq" id="hty-aN-95M"/>
             </connections>
         </placeholder>

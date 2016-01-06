@@ -86,6 +86,7 @@
 "exchange.assets.form.coinsnumber" = "Валюты выпущено";
 "exchange.assets.form.capitalization" = "Капитализация рынка";
 "exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
+"exchange.assets.buy.title" = "КУПИТЬ ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

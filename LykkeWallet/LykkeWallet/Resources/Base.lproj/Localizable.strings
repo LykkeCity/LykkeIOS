@@ -86,6 +86,7 @@
 "exchange.assets.form.coinsnumber" = "Number of coins issued";
 "exchange.assets.form.capitalization" = "Market capitalization";
 "exchange.assets.form.button" = "BUY AT PRICE $ ";
+"exchange.assets.buy.title" = "BUY ";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";

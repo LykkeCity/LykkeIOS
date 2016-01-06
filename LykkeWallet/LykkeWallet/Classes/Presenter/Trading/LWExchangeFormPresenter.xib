@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeFormPresenter">
             <connections>
                 <outlet property="dealButton" destination="CnQ-NH-i6e" id="1xn-JA-7Sd"/>
-                <outlet property="tableView" destination="ig2-Ih-6ZR" id="nKZ-Jz-GFx"/>
+                <outlet property="tableView" destination="ig2-Ih-6ZR" id="9nL-GC-Snj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,6 +39,9 @@
                             <state key="normal" title=". . ." backgroundImage="ButtonOKGreen">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="buyClicked:" destination="-1" eventType="touchUpInside" id="kch-uf-zca"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
