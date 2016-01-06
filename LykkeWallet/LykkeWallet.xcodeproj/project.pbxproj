@@ -130,6 +130,7 @@
 		EC57F45D1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F45C1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib */; };
 		EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F45F1C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m */; };
 		EC57F4621C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4611C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib */; };
+		EC57F4651C3D197900E31746 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F4641C3D197900E31746 /* NSString+Utils.m */; };
 		EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC59526A1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m */; };
 		EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC59526B1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib */; };
 		EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7519AF1C37338000CDDF5B /* LWSettingsAssetTableViewCell.m */; };
@@ -399,6 +400,8 @@
 		EC57F45E1C3C55D700E31746 /* LWAssetInfoIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetInfoIconTableViewCell.h; path = Assets/LWAssetInfoIconTableViewCell.h; sourceTree = "<group>"; };
 		EC57F45F1C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetInfoIconTableViewCell.m; path = Assets/LWAssetInfoIconTableViewCell.m; sourceTree = "<group>"; };
 		EC57F4611C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetInfoIconTableViewCell.xib; path = Assets/LWAssetInfoIconTableViewCell.xib; sourceTree = "<group>"; };
+		EC57F4631C3D197800E31746 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		EC57F4641C3D197900E31746 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		EC5952691C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCCheckDocumentsPresenter.h; sourceTree = "<group>"; };
 		EC59526A1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCCheckDocumentsPresenter.m; sourceTree = "<group>"; };
 		EC59526B1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCCheckDocumentsPresenter.xib; sourceTree = "<group>"; };
@@ -676,6 +679,8 @@
 			children = (
 				EC2813EA1C343CE9009BE680 /* UIImage+Resize.h */,
 				EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */,
+				EC57F4631C3D197800E31746 /* NSString+Utils.h */,
+				EC57F4641C3D197900E31746 /* NSString+Utils.m */,
 				ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */,
 				ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */,
 				EC57F4561C3C41E600E31746 /* UIViewController+Navigation.h */,
@@ -1400,6 +1405,7 @@
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
 				EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */,
+				EC57F4651C3D197900E31746 /* NSString+Utils.m in Sources */,
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
 				ECD1E9051C3BCAE30064AAB3 /* LWExchangePresenter.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,

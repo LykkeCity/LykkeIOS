@@ -27,5 +27,6 @@
 + (BOOL)validateCardCode:(NSString *)input;
 
 + (void)setButton:(UIButton *)button enabled:(BOOL)isValid;
++ (void)setPriceButton:(UIButton *)button enabled:(BOOL)isValid;
 
 @end

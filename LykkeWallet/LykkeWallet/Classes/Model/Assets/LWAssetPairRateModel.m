@@ -16,7 +16,7 @@
 
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
-    if (self) {
+    if (self && ![json isKindOfClass:[NSNull class]]) {
         _identity   = [json objectForKey:@"Id"];
         _bid        = [json objectForKey:@"Bid"];
         _ask        = [json objectForKey:@"Ask"];

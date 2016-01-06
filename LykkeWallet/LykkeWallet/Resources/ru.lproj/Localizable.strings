@@ -79,6 +79,13 @@
 "exchange.assets.header.issuer" = "Издатель/Ассет";
 "exchange.assets.header.price" = "Цена";
 "exchange.assets.header.change" = "Изменение";
+"exchange.assets.form.assetclass" = "Класс ассета";
+"exchange.assets.form.popularity" = "Индекс популярности";
+"exchange.assets.form.description" = "Описание";
+"exchange.assets.form.issuername" = "Издатель";
+"exchange.assets.form.coinsnumber" = "Валюты выпущено";
+"exchange.assets.form.capitalization" = "Капитализация рынка";
+"exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

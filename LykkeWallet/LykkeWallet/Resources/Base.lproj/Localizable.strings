@@ -79,6 +79,13 @@
 "exchange.assets.header.issuer" = "Issuer/Asset";
 "exchange.assets.header.price" = "Price";
 "exchange.assets.header.change" = "Change";
+"exchange.assets.form.assetclass" = "Asset class";
+"exchange.assets.form.popularity" = "Popularity index";
+"exchange.assets.form.description" = "Description";
+"exchange.assets.form.issuername" = "Issuer name";
+"exchange.assets.form.coinsnumber" = "Number of coins issued";
+"exchange.assets.form.capitalization" = "Market capitalization";
+"exchange.assets.form.button" = "BUY AT PRICE $ ";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";

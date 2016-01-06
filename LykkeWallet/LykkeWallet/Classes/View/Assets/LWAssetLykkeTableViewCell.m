@@ -29,7 +29,7 @@
 
         // change section
         NSDecimalNumber *changeValue = [NSDecimalNumber decimalNumberWithDecimal:[rate.pchng decimalValue]];
-        NSString *changeString = [LWMath makeStringByDecimal:changeValue withPrecision:1];
+        NSString *changeString = [LWMath makeStringByDecimal:changeValue withPrecision:2];
         NSString *sign = (rate.pchng.doubleValue >= 0.0) ? @"+" : @"";
         UIColor *changeColor = (rate.pchng.doubleValue >= 0.0)
                                 ? [UIColor colorWithHexString:kAssetChangePlusColor]

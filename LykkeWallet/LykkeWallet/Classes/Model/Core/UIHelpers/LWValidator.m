@@ -81,4 +81,13 @@ static int const PasswordLength = 6;
     button.enabled = enabled;
 }
 
++ (void)setPriceButton:(UIButton *)button enabled:(BOOL)enabled {
+    NSString *proceedImage = (enabled) ? @"ButtonOKGreen" : @"ButtonOKInactive";
+    UIColor *proceedColor = (enabled) ? [UIColor whiteColor] : [UIColor lightGrayColor];
+    
+    [button setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
+    [button setTitleColor:proceedColor forState:UIControlStateNormal];
+    button.enabled = enabled;
+}
+
 @end

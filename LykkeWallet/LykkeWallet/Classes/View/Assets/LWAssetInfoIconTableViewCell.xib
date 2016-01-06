@@ -59,6 +59,11 @@
                     <constraint firstItem="XQa-Ei-vk6" firstAttribute="centerY" secondItem="u6V-Ga-IBK" secondAttribute="centerY" id="m70-Mg-k28"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+            <connections>
+                <outlet property="popularityImageView" destination="w0c-by-kDj" id="7UK-AK-gr0"/>
+                <outlet property="titleLabel" destination="4MS-Jo-r0b" id="NZq-E1-w3z"/>
+            </connections>
             <point key="canvasLocation" x="166" y="162"/>
         </tableViewCell>
     </objects>
