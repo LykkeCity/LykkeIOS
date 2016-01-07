@@ -20,5 +20,6 @@ SINGLETON_DECLARE
 #pragma mark - Properties
 
 @property (copy, nonatomic) NSNumber *refreshTimer;
+@property (copy, nonatomic) NSString *baseAssetId;
 
 @end

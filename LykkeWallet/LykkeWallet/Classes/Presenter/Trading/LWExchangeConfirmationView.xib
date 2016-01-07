@@ -72,6 +72,7 @@
                 <outlet property="navigationBar" destination="1mg-qn-FIR" id="g9B-Ih-di9"/>
                 <outlet property="navigationItem" destination="NzY-Hb-sVr" id="U3i-Xn-fYD"/>
                 <outlet property="placeOrderButton" destination="0qW-MJ-RSA" id="G5y-k1-b3t"/>
+                <outlet property="tableView" destination="Z65-rD-INZ" id="L75-Sy-HTw"/>
                 <outlet property="topView" destination="GdU-Wo-YAJ" id="uMU-IA-Lt2"/>
             </connections>
             <point key="canvasLocation" x="396" y="218"/>

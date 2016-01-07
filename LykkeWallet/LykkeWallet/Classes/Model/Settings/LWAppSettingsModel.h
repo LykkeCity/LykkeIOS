@@ -9,6 +9,9 @@
 #import "LWJSONObject.h"
 
 
+@class LWAssetModel;
+
+
 @interface LWAppSettingsModel : LWJSONObject {
     
 }
@@ -16,6 +19,7 @@
 
 #pragma mark - Properties
 
-@property (readonly, nonatomic) NSNumber *rateRefreshPeriod;
+@property (readonly, nonatomic) NSNumber     *rateRefreshPeriod;
+@property (readonly, nonatomic) LWAssetModel *baseAsset;
 
 @end

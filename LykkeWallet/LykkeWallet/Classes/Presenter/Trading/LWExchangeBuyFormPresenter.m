@@ -23,8 +23,10 @@
 
 
 @interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate> {
-    UITextField *sumTextField;
-    BOOL canCloseKeyboard;
+
+    LWExchangeConfirmationView *confirmationView;
+    UITextField                *sumTextField;
+    BOOL                        canCloseKeyboard;
 }
 
 
@@ -185,15 +187,11 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [self.view endEditing:YES];
     
     // preparing modal view
-    LWExchangeConfirmationView *modalView = [LWExchangeConfirmationView modalViewWithDelegate:self];
-#warning TODO:
-    modalView.controller = self;
-    modalView.assetPair = @"";
-    modalView.baseAsset = @"";
-    modalView.volume    = [NSNumber numberWithInteger:0];
-    modalView.rate      = [NSNumber numberWithDouble:0.0];
-    UIViewController *topController = self.navigationController;
-    [modalView setFrame:topController.view.bounds];
+    confirmationView = [LWExchangeConfirmationView modalViewWithDelegate:self];
+    confirmationView.controller = self;
+    confirmationView.assetPair = self.assetPair;
+    confirmationView.baseAsset = [LWCache instance].baseAssetId;
+    [confirmationView setFrame:self.navigationController.view.bounds];
     
     // animation
     CATransition *transition = [CATransition animation];
@@ -201,10 +199,10 @@ static NSString *const FormIdentifiers[kFormRows] = {
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromTop;
     [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [modalView.layer addAnimation:transition forKey:nil];
+    [confirmationView.layer addAnimation:transition forKey:nil];
     
     // showing modal view
-    [topController.view addSubview:modalView];
+    [self.navigationController.view addSubview:confirmationView];
 }
 
 
@@ -215,6 +213,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     if (sumTextField) {
         [sumTextField becomeFirstResponder];
     }
+    confirmationView = nil;
 }
 
 - (void)submitClicked {
@@ -242,9 +241,17 @@ static NSString *const FormIdentifiers[kFormRows] = {
     LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
     NSDecimalNumber *volume = [sumTextField.text isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:sumTextField.text];
+    NSString *volumeText = [LWMath makeStringByDecimal:volume withPrecision:0];
+    
     NSDecimalNumber *result = [decimalPrice decimalNumberByMultiplyingBy:volume];
     NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:2];
     totalCell.totalLabel.text = totalText;
+    
+    if (confirmationView) {
+        confirmationView.rate = priceText;
+        confirmationView.volume = volumeText;
+        confirmationView.total = totalText;
+    }
 }
 
 @end

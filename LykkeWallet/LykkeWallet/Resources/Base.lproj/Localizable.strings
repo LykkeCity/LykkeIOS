@@ -92,9 +92,10 @@
 "exchange.assets.buy.price" = "Price";
 "exchange.assets.buy.total" = "Total cost";
 "exchange.assets.buy.checkout" = "CHECKOUT";
-"exchange.assets.model.title" = "ORDER SUMMARY";
-"exchange.assets.model.button" = "PLACE AN ORDER";
-"exchange.assets.model.cancel" = "CANCEL";
+"exchange.assets.modal.title" = "ORDER SUMMARY";
+"exchange.assets.modal.button" = "PLACE AN ORDER";
+"exchange.assets.modal.cancel" = "CANCEL";
+"exchange.assets.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";

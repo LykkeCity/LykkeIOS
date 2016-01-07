@@ -7,6 +7,7 @@
 //
 
 #import "LWAppSettingsModel.h"
+#import "LWAssetModel.h"
 
 
 @implementation LWAppSettingsModel
@@ -18,6 +19,7 @@
     self = [super initWithJSON:json];
     if (self) {
         _rateRefreshPeriod = [json objectForKey:@"RateRefreshPeriod"];
+        _baseAsset = [[LWAssetModel alloc] initWithJSON:json[@"BaseAsset"]];
     }
     return self;
 }

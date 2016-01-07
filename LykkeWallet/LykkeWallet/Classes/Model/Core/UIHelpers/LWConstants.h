@@ -29,6 +29,7 @@
 #pragma mark - General Constants
 
 #define kFontBold @"ProximaNova-Bold"
+#define kFontLight @"ProximaNova-Light"
 #define kFontRegular @"ProximaNova-Regular"
 #define kFontSemibold @"ProximaNova-Semibold"
 
@@ -83,4 +84,11 @@ static NSString *const kPageControlActiveDotColor = kMainElementsColor;
 static float     const kAssetDetailsFontSize      = 17.0;
 static NSString *const kAssetChangePlusColor      = @"53AA00";
 static NSString *const kAssetChangeMinusColor     = @"FF2E2E";
+
+
+#pragma mark - Table Cells
+
+static float     const kTableCellDetailFontSize   = 22.0;
+static NSString *const kTableCellLightFontName    = kFontLight;
+static NSString *const kTableCellRegularFontName  = kFontRegular;
 

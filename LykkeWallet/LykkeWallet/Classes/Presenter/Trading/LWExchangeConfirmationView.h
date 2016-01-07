@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
+@class LWAssetPairModel;
+@class LWAssetPairRateModel;
+
+
 @protocol LWExchangeConfirmationViewDelegate <NSObject>
 
 @required
@@ -25,12 +29,13 @@
 
 #pragma mark - Properties
 
-@property (weak, nonatomic) UIViewController *controller;
-@property (copy, nonatomic) NSString *baseAsset;
-@property (copy, nonatomic) NSString *assetPair;
-@property (copy, nonatomic) NSNumber *volume;
-@property (copy, nonatomic) NSNumber *rate;
+@property (strong, nonatomic) LWAssetPairModel     *assetPair;
+@property (weak, nonatomic) UIViewController       *controller;
 
+@property (copy, nonatomic) NSString *baseAsset;
+@property (copy, nonatomic) NSString *rate;
+@property (copy, nonatomic) NSString *volume;
+@property (copy, nonatomic) NSString *total;
 
 #pragma mark - General
 

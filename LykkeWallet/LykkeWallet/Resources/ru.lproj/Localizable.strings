@@ -92,9 +92,10 @@
 "exchange.assets.buy.price" = "Цена";
 "exchange.assets.buy.total" = "Результат";
 "exchange.assets.buy.checkout" = "ОФОРМИТЬ";
-"exchange.assets.model.title" = "ИНФОРМАЦИЯ";
-"exchange.assets.model.button" = "УСТАНОВИТЬ ОРДЕР";
-"exchange.assets.model.cancel" = "ОТМЕНИТЬ";
+"exchange.assets.modal.title" = "ИНФОРМАЦИЯ";
+"exchange.assets.modal.button" = "УСТАНОВИТЬ ОРДЕР";
+"exchange.assets.modal.cancel" = "ОТМЕНИТЬ";
+"exchange.assets.modal.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

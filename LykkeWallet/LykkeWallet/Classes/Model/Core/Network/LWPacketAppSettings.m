@@ -8,6 +8,7 @@
 
 #import "LWPacketAppSettings.h"
 #import "LWAppSettingsModel.h"
+#import "LWAssetModel.h"
 #import "LWCache.h"
 
 
@@ -27,6 +28,7 @@
     
     // refresh cache
     [LWCache instance].refreshTimer = self.appSettings.rateRefreshPeriod;
+    [LWCache instance].baseAssetId = self.appSettings.baseAsset.identity;
 }
 
 - (NSString *)urlRelative {
