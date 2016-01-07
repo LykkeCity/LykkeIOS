@@ -109,6 +109,7 @@
 "exchange.assets.result.share" = "SHARE";
 
 "settings.assets.title" = "BASE ASSET";
+"settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
 "settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";
 

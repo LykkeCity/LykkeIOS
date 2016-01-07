@@ -109,6 +109,7 @@
 "exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
+"settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";
 "settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";
 

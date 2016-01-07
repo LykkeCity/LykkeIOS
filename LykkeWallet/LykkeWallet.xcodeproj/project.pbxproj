@@ -173,6 +173,8 @@
 		EC7F05091C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */; };
 		EC7F050C1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F050B1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m */; };
 		EC7F050E1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */; };
+		EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */; };
+		EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -488,6 +490,9 @@
 		EC7F050A1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLeftDetailTableViewCell.h; path = TableCells/LWLeftDetailTableViewCell.h; sourceTree = "<group>"; };
 		EC7F050B1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLeftDetailTableViewCell.m; path = TableCells/LWLeftDetailTableViewCell.m; sourceTree = "<group>"; };
 		EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWLeftDetailTableViewCell.xib; path = TableCells/LWLeftDetailTableViewCell.xib; sourceTree = "<group>"; };
+		EC7F050F1C3EE5290079ECD0 /* LWRadioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRadioTableViewCell.h; path = TableCells/LWRadioTableViewCell.h; sourceTree = "<group>"; };
+		EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRadioTableViewCell.m; path = TableCells/LWRadioTableViewCell.m; sourceTree = "<group>"; };
+		EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRadioTableViewCell.xib; path = TableCells/LWRadioTableViewCell.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -1220,6 +1225,9 @@
 				EC7F050A1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.h */,
 				EC7F050B1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m */,
 				EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */,
+				EC7F050F1C3EE5290079ECD0 /* LWRadioTableViewCell.h */,
+				EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */,
+				EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -1409,6 +1417,7 @@
 				CF6877511C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib in Resources */,
 				EC7A45D71C309A6200926BB4 /* LWBanksTableViewCell.xib in Resources */,
 				CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */,
+				EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */,
 				EC7519D21C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib in Resources */,
 				CDCD5B1E1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
 				CDCE88501C26F6630039798B /* LWAuthenticationPresenter.xib in Resources */,
@@ -1591,6 +1600,7 @@
 				CF6F69D31C2413F70016CFC5 /* ABPadLockScreenViewController.m in Sources */,
 				CDCD5B181C26CC50007BAD78 /* LWRegisterPasswordPresenter.m in Sources */,
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
+				EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */,
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,

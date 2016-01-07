@@ -29,6 +29,7 @@
 - (void)customizeButton;
 - (void)customizeTextField;
 - (void)customizePageControl;
+- (void)customizeSwitcher;
 
 @end
 
@@ -47,6 +48,7 @@
     [self customizeButton];
     [self customizeTextField];
     [self customizePageControl];
+    [self customizeSwitcher];
 
     // init main controller
     self.mainController = [LWAuthNavigationController new];
@@ -127,6 +129,11 @@
 - (void)customizePageControl {
     [[UIPageControl appearance] setPageIndicatorTintColor:[UIColor colorWithHexString:kPageControlDotColor]];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:[UIColor colorWithHexString:kPageControlActiveDotColor]];
+}
+
+- (void)customizeSwitcher {
+    [[UISwitch appearance] setOnTintColor:[UIColor colorWithHexString:kMainElementsColor]];
+    [[UISwitch appearance] setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
 }
 
 @end

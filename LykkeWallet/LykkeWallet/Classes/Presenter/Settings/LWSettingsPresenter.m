@@ -13,6 +13,7 @@
 #import "LWAssetModel.h"
 #import "LWSettingsAssetTableViewCell.h"
 #import "LWSettingsLogOutTableViewCell.h"
+#import "LWRadioTableViewCell.h"
 
 
 @interface LWSettingsPresenter () {
@@ -25,15 +26,17 @@
 @implementation LWSettingsPresenter
 
 
-static NSInteger const kNumberOfRows = 2;
+static NSInteger const kNumberOfRows = 3;
 
 static NSString *const SettingsCells[kNumberOfRows] = {
     @"LWSettingsAssetTableViewCell",
+    kRadioTableViewCell,
     @"LWSettingsLogOutTableViewCell"
 };
 
 static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     @"LWSettingsAssetTableViewCellIdentifier",
+    kRadioTableViewCellIdentifier,
     @"LWSettingsLogOutTableViewCellIdentifier"
 };
 
@@ -50,6 +53,9 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     
     [self registerCellWithIdentifier:SettingsIdentifiers[1]
                              forName:SettingsCells[1]];
+    
+    [self registerCellWithIdentifier:SettingsIdentifiers[2]
+                             forName:SettingsCells[2]];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
@@ -72,17 +78,9 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = SettingsIdentifiers[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:cellIdentifier];
-    }
-    
+    NSString *identifier = SettingsIdentifiers[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     [self configureCell:cell indexPath:indexPath];
-    
     return cell;
 }
 
@@ -92,7 +90,7 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
         assets.baseAssetId = baseAsset.identity;
         [self.navigationController pushViewController:assets animated:YES];
     }
-    else if (indexPath.row == 1) {
+    else if (indexPath.row == 2) {
         [(LWAuthNavigationController *)self.navigationController logout];
     }
 }
@@ -120,6 +118,10 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
         }
     }
     else if (indexPath.row == 1) {
+        LWRadioTableViewCell *radioCell = (LWRadioTableViewCell *)cell;
+        radioCell.titleLabel.text = Localize(@"settings.cell.pin.title");
+    }
+    else if (indexPath.row == 2) {
         LWSettingsLogOutTableViewCell *logoutCell = (LWSettingsLogOutTableViewCell *)cell;
         NSString *logout = [NSString stringWithFormat:@"%@ %@", Localize(@"settings.cell.logout.title"), [LWKeychainManager instance].login];
         logoutCell.logoutLabel.text = logout;
