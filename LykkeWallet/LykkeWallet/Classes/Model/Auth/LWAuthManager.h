@@ -48,6 +48,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetAssetDescription:(LWAssetDescriptionModel *)assetDescription;
 - (void)authManager:(LWAuthManager *)manager didGetAppSettings:(LWAppSettingsModel *)appSettings;
 - (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(NSString *)orderId;
+- (void)authManagerDidSetSignOrders:(LWAuthManager *)manager;
 
 @end
 
@@ -92,6 +93,7 @@ SINGLETON_DECLARE
 - (void)requestAssetDescription:(NSString *)assetId;
 - (void)requestAppSettings;
 - (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
+- (void)requestSignOrders:(BOOL)shouldSignOrders;
 
 
 #pragma mark - Static methods

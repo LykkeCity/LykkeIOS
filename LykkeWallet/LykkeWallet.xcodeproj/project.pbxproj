@@ -175,6 +175,7 @@
 		EC7F050E1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */; };
 		EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */; };
 		EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */; };
+		EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -493,6 +494,8 @@
 		EC7F050F1C3EE5290079ECD0 /* LWRadioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRadioTableViewCell.h; path = TableCells/LWRadioTableViewCell.h; sourceTree = "<group>"; };
 		EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRadioTableViewCell.m; path = TableCells/LWRadioTableViewCell.m; sourceTree = "<group>"; };
 		EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRadioTableViewCell.xib; path = TableCells/LWRadioTableViewCell.xib; sourceTree = "<group>"; };
+		EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketSettingSignOrder.h; sourceTree = "<group>"; };
+		EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketSettingSignOrder.m; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -1006,6 +1009,8 @@
 				EC57F44C1C3C35B000E31746 /* LWPacketAssetDescription.m */,
 				EC7F04FC1C3E86760079ECD0 /* LWPacketPurchaseAsset.h */,
 				EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */,
+				EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */,
+				EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1555,6 +1560,7 @@
 				CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */,
 				CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */,
 				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,
+				EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */,
 				EC7519C61C373A4900CDDF5B /* LWAssetModel.m in Sources */,
 				CF68775A1C234A9800E7A7D9 /* LWAuthPINEnterPresenter.m in Sources */,
 				CD10AAAC1C1E10F60086634B /* LWPacketPinSecuritySet.m in Sources */,

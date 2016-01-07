@@ -31,6 +31,7 @@
 #import "LWPacketAppSettings.h"
 #import "LWPacketAssetDescription.h"
 #import "LWPacketPurchaseAsset.h"
+#import "LWPacketSettingSignOrder.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -239,6 +240,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestSignOrders:(BOOL)shouldSignOrders {
+    LWPacketSettingSignOrder *pack = [LWPacketSettingSignOrder new];
+    pack.shouldSignOrder = shouldSignOrders;
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -403,6 +411,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketPurchaseAsset.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceivePurchaseResponse:)]) {
             [self.delegate authManager:self didReceivePurchaseResponse:((LWPacketPurchaseAsset *)pack).orderId];
+        }
+    }
+    else if (pack.class == LWPacketSettingSignOrder.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSetSignOrders:)]) {
+            [self.delegate authManagerDidSetSignOrders:self];
         }
     }
 }
