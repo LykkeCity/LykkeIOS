@@ -28,7 +28,6 @@
 
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
-    BOOL                        canCloseKeyboard;
 }
 
 
@@ -65,7 +64,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     
     self.title = [NSString stringWithFormat:@"%@%@", Localize(@"exchange.assets.buy.title"), self.assetPair.name];
     
-    //[self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+    [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
                                 name:@"LWAssetBuySumTableViewCell"];
@@ -86,11 +85,18 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [super viewWillAppear:animated];
 
     self.observeKeyboardEvents = YES;
-    canCloseKeyboard = NO;
     
     [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
 
     [self updatePrice];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (sumTextField) {
+        [sumTextField becomeFirstResponder];
+    }
 }
 
 
@@ -129,7 +135,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
-        [sumTextField becomeFirstResponder];
+        //[sumTextField becomeFirstResponder];
         [sumTextField setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
         [sumTextField addTarget:self
                          action:@selector(textFieldDidChange:)
@@ -149,10 +155,6 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 
 #pragma mark - UITextFieldDelegate
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    return canCloseKeyboard;
-}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
@@ -203,7 +205,6 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 - (IBAction)purchaseClicked:(id)sender {
     
-    canCloseKeyboard = YES;
     [self.view endEditing:YES];
     
     // preparing modal view
@@ -228,7 +229,6 @@ static NSString *const FormIdentifiers[kFormRows] = {
 #pragma mark - LWExchangeConfirmationViewDelegate
 
 - (void)cancelClicked {
-    canCloseKeyboard = NO;
     if (sumTextField) {
         [sumTextField becomeFirstResponder];
     }
@@ -236,7 +236,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (void)requestOperation {
-    canCloseKeyboard = NO;
+    [self.view endEditing:YES];
     
     [[LWAuthManager instance] requestPurchaseAsset:[LWCache instance].baseAssetId
                                          assetPair:self.assetPair.identity
