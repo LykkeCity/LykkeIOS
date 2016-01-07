@@ -97,6 +97,16 @@
 "exchange.assets.modal.cancel" = "CANCEL";
 "exchange.assets.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
 "exchange.assets.modal.waiting" = "Sending the order ...";
+"exchange.assets.result.title" = " PURCHASED!";
+"exchange.assets.result.assetname" = "Asset name";
+"exchange.assets.result.units" = "Units purchased";
+"exchange.assets.result.price" = "Execution price";
+"exchange.assets.result.commission" = "Commission paid";
+"exchange.assets.result.cost" = "Total cost";
+"exchange.assets.result.blockchain" = "Blockchain settlement";
+"exchange.assets.result.position" = "Position";
+"exchange.assets.result.close" = "CLOSE";
+"exchange.assets.result.share" = "SHARE";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";

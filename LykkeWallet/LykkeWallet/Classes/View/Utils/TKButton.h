@@ -17,4 +17,12 @@
 
 @property (nonatomic, strong) UIFont *titleFont UI_APPEARANCE_SELECTOR;
 
+
+#pragma mark - Customization
+
+- (void)setGrayPalette;
+- (void)setColoredPalette;
+- (void)setGreenPalette;
+- (void)setDisabledPalette;
+
 @end

@@ -97,6 +97,16 @@
 "exchange.assets.modal.cancel" = "ОТМЕНИТЬ";
 "exchange.assets.modal.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
 "exchange.assets.modal.waiting" = "Выполняем операцию ...";
+"exchange.assets.result.title" = " ПРИОБРЕТЕН!";
+"exchange.assets.result.assetname" = "Ассет";
+"exchange.assets.result.units" = "Количество";
+"exchange.assets.result.price" = "Цена";
+"exchange.assets.result.commission" = "Комиссия";
+"exchange.assets.result.cost" = "Общая стоимость";
+"exchange.assets.result.blockchain" = "Blockchain";
+"exchange.assets.result.position" = "Позиция";
+"exchange.assets.result.close" = "ЗАКРЫТЬ";
+"exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

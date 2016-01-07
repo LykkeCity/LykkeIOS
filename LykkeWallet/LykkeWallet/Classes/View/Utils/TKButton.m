@@ -11,9 +11,19 @@
 #import "UIColor+Generic.h"
 
 
-@implementation TKButton {
+@interface TKButton () {
     
 }
+
+
+#pragma mark - Utils
+
+- (void)updateImage;
+
+@end
+
+
+@implementation TKButton
 
 
 #pragma mark - Properties
@@ -23,6 +33,47 @@
         _titleFont = titleFont;
         [self.titleLabel setFont:_titleFont];
     }
+}
+
+
+#pragma mark - Customization
+
+- (void)setGrayPalette {
+    [self updateImage];
+    
+    UIColor *color = [UIColor colorWithHexString:kMainDarkElementsColor];
+    [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+- (void)setColoredPalette {
+    [self updateImage];
+    
+    UIColor *color = [UIColor whiteColor];
+    [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+- (void)setGreenPalette {
+    [self updateImage];
+    
+    UIColor *color = [UIColor whiteColor];
+    [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+- (void)setDisabledPalette {
+    [self updateImage];
+    
+    UIColor *color = [UIColor lightGrayColor];
+    [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+
+#pragma mark - Utils
+
+- (void)updateImage {
+    UIImage *image = [self backgroundImageForState:UIControlStateNormal];
+    UIEdgeInsets const insets = UIEdgeInsetsMake(23, 23, 23, 23);
+    UIImage *background = [image resizableImageWithCapInsets:insets];
+    [self setBackgroundImage:background forState:UIControlStateNormal];
 }
 
 @end

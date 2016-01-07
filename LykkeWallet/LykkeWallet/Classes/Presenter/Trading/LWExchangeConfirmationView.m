@@ -116,7 +116,7 @@ static int const kDescriptionRows = 3;
     LAContext *laContext = [[LAContext alloc] init];
     NSError *authError = nil;
     if ([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
-        return (authError != nil);
+        return (authError == nil);
     }
     return NO;
 }
