@@ -17,7 +17,7 @@
 
 @required
 - (void)cancelClicked;
-- (void)submitClicked;
+- (void)requestOperation;
 
 @end
 
@@ -30,15 +30,18 @@
 #pragma mark - Properties
 
 @property (strong, nonatomic) LWAssetPairModel     *assetPair;
-@property (weak, nonatomic) UIViewController       *controller;
 
-@property (copy, nonatomic) NSString *baseAsset;
-@property (copy, nonatomic) NSString *rate;
-@property (copy, nonatomic) NSString *volume;
-@property (copy, nonatomic) NSString *total;
+@property (copy, nonatomic) NSString *rateString;
+@property (copy, nonatomic) NSString *volumeString;
+@property (copy, nonatomic) NSString *totalString;
 
 #pragma mark - General
 
 + (LWExchangeConfirmationView *)modalViewWithDelegate:(id<LWExchangeConfirmationViewDelegate>)delegate;
+
+
+#pragma mark - Utils
+
+- (void)setLoading:(BOOL)loading;
 
 @end

@@ -96,6 +96,7 @@
 "exchange.assets.modal.button" = "УСТАНОВИТЬ ОРДЕР";
 "exchange.assets.modal.cancel" = "ОТМЕНИТЬ";
 "exchange.assets.modal.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
+"exchange.assets.modal.waiting" = "Выполняем операцию ...";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

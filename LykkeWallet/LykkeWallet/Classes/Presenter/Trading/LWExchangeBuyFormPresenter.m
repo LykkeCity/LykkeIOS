@@ -7,6 +7,7 @@
 //
 
 #import "LWExchangeBuyFormPresenter.h"
+#import "LWExchangeResultPresenter.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAssetBuyPriceTableViewCell.h"
 #import "LWAssetBuyTotalTableViewCell.h"
@@ -18,6 +19,7 @@
 #import "LWConstants.h"
 #import "UIColor+Generic.h"
 #import "UIViewController+Navigation.h"
+#import "UIViewController+Loading.h"
 #import "UITextField+Validation.h"
 #import "NSString+Utils.h"
 
@@ -39,6 +41,7 @@
 #pragma mark - Utils
 
 - (void)updatePrice;
+- (NSNumber *)volumeFromField;
 
 @end
 
@@ -178,6 +181,23 @@ static NSString *const FormIdentifiers[kFormRows] = {
     });
 }
 
+- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(NSString *)orderId {
+    if (confirmationView) {
+        [confirmationView setLoading:NO];
+        [confirmationView removeFromSuperview];
+        LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    if (confirmationView) {
+        [confirmationView setLoading:NO];
+        [self showReject:reject];
+        [confirmationView removeFromSuperview];
+    }
+}
+
 
 #pragma mark - Actions
 
@@ -188,9 +208,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     
     // preparing modal view
     confirmationView = [LWExchangeConfirmationView modalViewWithDelegate:self];
-    confirmationView.controller = self;
     confirmationView.assetPair = self.assetPair;
-    confirmationView.baseAsset = [LWCache instance].baseAssetId;
     [confirmationView setFrame:self.navigationController.view.bounds];
     
     // animation
@@ -203,6 +221,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     
     // showing modal view
     [self.navigationController.view addSubview:confirmationView];
+    [self updatePrice];
 }
 
 
@@ -216,11 +235,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
     confirmationView = nil;
 }
 
-- (void)submitClicked {
+- (void)requestOperation {
     canCloseKeyboard = NO;
-    if (sumTextField) {
-        [sumTextField becomeFirstResponder];
-    }
+    
+    [[LWAuthManager instance] requestPurchaseAsset:[LWCache instance].baseAssetId
+                                         assetPair:self.assetPair.identity
+                                            volume:[self volumeFromField]
+                                              rate:self.assetRate.ask];
 }
 
 
@@ -248,10 +269,15 @@ static NSString *const FormIdentifiers[kFormRows] = {
     totalCell.totalLabel.text = totalText;
     
     if (confirmationView) {
-        confirmationView.rate = priceText;
-        confirmationView.volume = volumeText;
-        confirmationView.total = totalText;
+        confirmationView.rateString = priceText;
+        confirmationView.volumeString = volumeText;
+        confirmationView.totalString = totalText;
     }
+}
+
+- (NSNumber *)volumeFromField {
+    NSDecimalNumber *volume = [sumTextField.text isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:sumTextField.text];
+    return [NSNumber numberWithInt:volume.intValue];
 }
 
 @end

@@ -96,6 +96,7 @@
 "exchange.assets.modal.button" = "PLACE AN ORDER";
 "exchange.assets.modal.cancel" = "CANCEL";
 "exchange.assets.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
+"exchange.assets.modal.waiting" = "Sending the order ...";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";

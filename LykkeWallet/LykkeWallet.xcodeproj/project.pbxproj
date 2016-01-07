@@ -169,6 +169,8 @@
 		EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */; };
 		EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05011C3EA8810079ECD0 /* LWDetailTableViewCell.m */; };
 		EC7F05041C3EA8950079ECD0 /* LWDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */; };
+		EC7F05081C3EC54B0079ECD0 /* LWExchangeResultPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05061C3EC54B0079ECD0 /* LWExchangeResultPresenter.m */; };
+		EC7F05091C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -478,6 +480,9 @@
 		EC7F05001C3EA8810079ECD0 /* LWDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWDetailTableViewCell.h; path = TableCells/LWDetailTableViewCell.h; sourceTree = "<group>"; };
 		EC7F05011C3EA8810079ECD0 /* LWDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWDetailTableViewCell.m; path = TableCells/LWDetailTableViewCell.m; sourceTree = "<group>"; };
 		EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWDetailTableViewCell.xib; path = TableCells/LWDetailTableViewCell.xib; sourceTree = "<group>"; };
+		EC7F05051C3EC54B0079ECD0 /* LWExchangeResultPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeResultPresenter.h; sourceTree = "<group>"; };
+		EC7F05061C3EC54B0079ECD0 /* LWExchangeResultPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeResultPresenter.m; sourceTree = "<group>"; };
+		EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeResultPresenter.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -798,6 +803,9 @@
 				EC7F04F71C3E75CA0079ECD0 /* LWExchangeConfirmationView.h */,
 				EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */,
 				EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */,
+				EC7F05051C3EC54B0079ECD0 /* LWExchangeResultPresenter.h */,
+				EC7F05061C3EC54B0079ECD0 /* LWExchangeResultPresenter.m */,
+				EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -1352,6 +1360,7 @@
 				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
 				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
 				CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */,
+				EC7F05091C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib in Resources */,
 				ECD1E9171C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib in Resources */,
 				CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */,
 				CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */,
@@ -1512,6 +1521,7 @@
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */,
 				CF6F69D11C2413F70016CFC5 /* ABPadLockScreenSetupViewController.m in Sources */,
+				EC7F05081C3EC54B0079ECD0 /* LWExchangeResultPresenter.m in Sources */,
 				CF66328A1C176AB1004353F5 /* LWTabController.m in Sources */,
 				EC57F47F1C3D8A6400E31746 /* UITextField+Validation.m in Sources */,
 				ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */,

@@ -13,14 +13,13 @@
 #import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
-#import "UIViewController+Loading.h"
 #import "Macro.h"
 
 #import <LocalAuthentication/LocalAuthentication.h>
 
 
-@interface LWExchangeConfirmationView () <UITableViewDataSource, LWAuthManagerDelegate> {
-
+@interface LWExchangeConfirmationView () <UITableViewDataSource> {
+    BOOL isRequested;
 }
 
 #pragma mark - Outlets
@@ -30,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar  *navigationBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton         *placeOrderButton;
+@property (weak, nonatomic) IBOutlet UILabel          *waitingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView      *waitingImageView;
 
 
 #pragma mark - Properties
@@ -43,7 +44,6 @@
 - (void)validateUser;
 - (BOOL)isFingerprintAvailable;
 - (void)updateView;
-- (void)setLoading:(BOOL)loading;
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
 
 @end
@@ -83,28 +83,11 @@ static int const kDescriptionRows = 3;
 }
 
 
-#pragma mark - LWAuthManagerDelegate
-
-- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(NSString *)orderId {
-    [self setLoading:NO];
-}
-
-- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self setLoading:NO];
-    [self.controller showReject:reject];
-    [self removeFromSuperview];
-}
-
-
 #pragma mark - Utils
 
 - (void)requestOperation {
     [self setLoading:YES];
-    
-    [[LWAuthManager instance] requestPurchaseAsset:self.baseAsset
-                                         assetPair:self.assetPair.identity
-                                            volume:self.volume
-                                              rate:self.assetRate.ask];
+    [self.delegate requestOperation];
 }
 
 - (void)validateUser {
@@ -141,13 +124,12 @@ static int const kDescriptionRows = 3;
 - (void)updateView {
     [UIView setAnimationsEnabled:NO];
     
-    [LWAuthManager instance].delegate = self;
-    
     self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     
     self.topView.backgroundColor = [UIColor whiteColor];
     self.topView.opaque = NO;
     
+    self.waitingLabel.text = Localize(@"exchange.assets.modal.waiting");
     [self.navigationItem setTitle:Localize(@"exchange.assets.modal.title")];
     [self.placeOrderButton setTitle:Localize(@"exchange.assets.modal.button")
                            forState:UIControlStateNormal];
@@ -168,13 +150,23 @@ static int const kDescriptionRows = 3;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self setLoading:NO];
+    
     // if fingerprint available - show confirmation view
     [self validateUser];
 }
 
 - (void)setLoading:(BOOL)loading {
+    isRequested = loading;
+    
+    // update values
+    [self setRateString:_rateString];
+    [self setTotalString:_totalString];
+    
     self.navigationItem.leftBarButtonItem.enabled = !loading;
-    [LWValidator setButton:self.placeOrderButton enabled:!loading];
+    self.placeOrderButton.hidden = loading;
+    self.waitingLabel.hidden = !loading;
+    self.waitingImageView.hidden = !loading;
 }
 
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name {
@@ -202,9 +194,9 @@ static int const kDescriptionRows = 3;
     };
     
     NSString *const values[kDescriptionRows] = {
-        self.volume,
-        self.rate,
-        self.total
+        self.volumeString,
+        self.rateString,
+        self.totalString
     };
     
     LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kDetailTableViewCellIdentifier];
@@ -220,6 +212,27 @@ static int const kDescriptionRows = 3;
     cell.detailLabel.text = values[indexPath.row];
     
     return cell;
+}
+
+
+#pragma mark - Setters
+
+- (void)setRateString:(NSString *)rateString {
+    _rateString = rateString;
+
+    if (!isRequested) {
+        LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+        cell.detailLabel.text = rateString;
+    }
+}
+
+- (void)setTotalString:(NSString *)totalString {
+    _totalString = totalString;
+
+    if (!isRequested) {
+        LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+        cell.detailLabel.text = totalString;
+    }
 }
 
 @end

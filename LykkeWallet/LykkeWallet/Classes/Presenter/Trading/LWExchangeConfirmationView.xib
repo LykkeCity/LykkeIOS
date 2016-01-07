@@ -5,6 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </mutableArray>
         <mutableArray key="Proxima Nova Semibold.otf">
             <string>ProximaNova-Semibold</string>
         </mutableArray>
@@ -28,37 +31,70 @@
                                 <navigationItem title="ORDER SUMMARY" id="NzY-Hb-sVr"/>
                             </items>
                         </navigationBar>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z65-rD-INZ">
-                            <rect key="frame" x="0.0" y="44" width="320" height="195"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z65-rD-INZ">
+                            <rect key="frame" x="0.0" y="44" width="320" height="151"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-MJ-RSA" customClass="TKButton">
-                            <rect key="frame" x="8" y="247" width="304" height="45"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FS6-1i-C6X">
+                            <rect key="frame" x="0.0" y="195" width="320" height="105"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-MJ-RSA" customClass="TKButton">
+                                    <rect key="frame" x="8" y="30" width="304" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="304" id="4cY-xY-SG0"/>
+                                        <constraint firstAttribute="height" constant="45" id="8k7-0L-Gmr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
+                                    <state key="normal" title="PLACE AN ORDER" backgroundImage="ButtonOK">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="confirmClicked:" destination="VJ3-CH-Y9w" eventType="touchUpInside" id="0Xe-QZ-ERN"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending the order ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSo-9b-1l6">
+                                    <rect key="frame" x="8" y="70" width="304" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="QM0-yx-3sF"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                    <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SendingOrderIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="z9B-yv-blD">
+                                    <rect key="frame" x="132" y="7" width="56" height="56"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="2Sg-Or-v1I"/>
+                                        <constraint firstAttribute="width" constant="56" id="ZUx-tm-d2a"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="304" id="4cY-xY-SG0"/>
-                                <constraint firstAttribute="height" constant="45" id="8k7-0L-Gmr"/>
+                                <constraint firstItem="HSo-9b-1l6" firstAttribute="top" secondItem="z9B-yv-blD" secondAttribute="bottom" constant="7" id="Iel-3V-5gE"/>
+                                <constraint firstAttribute="bottom" secondItem="HSo-9b-1l6" secondAttribute="bottom" constant="14" id="JjX-H3-Ym1"/>
+                                <constraint firstAttribute="trailing" secondItem="HSo-9b-1l6" secondAttribute="trailing" constant="8" id="QWi-6A-FOt"/>
+                                <constraint firstItem="HSo-9b-1l6" firstAttribute="leading" secondItem="FS6-1i-C6X" secondAttribute="leading" constant="8" id="ThY-sW-1PE"/>
+                                <constraint firstItem="0qW-MJ-RSA" firstAttribute="centerY" secondItem="FS6-1i-C6X" secondAttribute="centerY" id="kYR-Jo-hxo"/>
+                                <constraint firstItem="z9B-yv-blD" firstAttribute="centerX" secondItem="FS6-1i-C6X" secondAttribute="centerX" id="mao-m8-tjN"/>
+                                <constraint firstItem="0qW-MJ-RSA" firstAttribute="centerX" secondItem="FS6-1i-C6X" secondAttribute="centerX" id="sLy-JS-d66"/>
+                                <constraint firstAttribute="height" constant="105" id="wy2-Y9-AWv"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                            <state key="normal" title="PLACE AN ORDER" backgroundImage="ButtonOK">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="confirmClicked:" destination="VJ3-CH-Y9w" eventType="touchUpInside" id="0Xe-QZ-ERN"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Z65-rD-INZ" firstAttribute="leading" secondItem="GdU-Wo-YAJ" secondAttribute="leading" id="9jm-MO-bOJ"/>
-                        <constraint firstAttribute="bottom" secondItem="0qW-MJ-RSA" secondAttribute="bottom" constant="8" id="Fcx-Ni-bnS"/>
+                        <constraint firstAttribute="trailing" secondItem="FS6-1i-C6X" secondAttribute="trailing" id="Erl-Ma-N7a"/>
+                        <constraint firstAttribute="bottom" secondItem="FS6-1i-C6X" secondAttribute="bottom" id="Kex-Qg-7bx"/>
                         <constraint firstAttribute="trailing" secondItem="Z65-rD-INZ" secondAttribute="trailing" id="UR0-UD-w3N"/>
                         <constraint firstAttribute="trailing" secondItem="1mg-qn-FIR" secondAttribute="trailing" id="XdY-JG-B6c"/>
                         <constraint firstItem="1mg-qn-FIR" firstAttribute="top" secondItem="GdU-Wo-YAJ" secondAttribute="top" id="Y3w-7t-uJb"/>
                         <constraint firstAttribute="height" constant="300" id="aJi-go-ERi"/>
+                        <constraint firstItem="FS6-1i-C6X" firstAttribute="top" secondItem="Z65-rD-INZ" secondAttribute="bottom" id="acR-zr-VKF"/>
+                        <constraint firstItem="FS6-1i-C6X" firstAttribute="leading" secondItem="GdU-Wo-YAJ" secondAttribute="leading" id="cQm-l4-loo"/>
                         <constraint firstItem="Z65-rD-INZ" firstAttribute="top" secondItem="1mg-qn-FIR" secondAttribute="bottom" id="fsE-jn-UqW"/>
                         <constraint firstItem="1mg-qn-FIR" firstAttribute="leading" secondItem="GdU-Wo-YAJ" secondAttribute="leading" id="mmY-Pn-Nce"/>
-                        <constraint firstItem="0qW-MJ-RSA" firstAttribute="top" secondItem="Z65-rD-INZ" secondAttribute="bottom" constant="8" id="sCZ-Be-lnd"/>
-                        <constraint firstItem="0qW-MJ-RSA" firstAttribute="centerX" secondItem="GdU-Wo-YAJ" secondAttribute="centerX" id="xBM-HG-OZz"/>
                     </constraints>
                 </view>
             </subviews>
@@ -74,11 +110,14 @@
                 <outlet property="placeOrderButton" destination="0qW-MJ-RSA" id="G5y-k1-b3t"/>
                 <outlet property="tableView" destination="Z65-rD-INZ" id="L75-Sy-HTw"/>
                 <outlet property="topView" destination="GdU-Wo-YAJ" id="uMU-IA-Lt2"/>
+                <outlet property="waitingImageView" destination="z9B-yv-blD" id="6N7-Qp-7yM"/>
+                <outlet property="waitingLabel" destination="HSo-9b-1l6" id="ATv-se-a4S"/>
             </connections>
             <point key="canvasLocation" x="396" y="218"/>
         </view>
     </objects>
     <resources>
         <image name="ButtonOK" width="315" height="45"/>
+        <image name="SendingOrderIndicator" width="56" height="56"/>
     </resources>
 </document>
