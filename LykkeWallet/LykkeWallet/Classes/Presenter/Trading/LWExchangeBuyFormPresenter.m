@@ -10,17 +10,21 @@
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAssetBuyPriceTableViewCell.h"
 #import "LWAssetBuyTotalTableViewCell.h"
+#import "LWExchangeConfirmationView.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWCache.h"
 #import "LWMath.h"
+#import "LWConstants.h"
+#import "UIColor+Generic.h"
 #import "UIViewController+Navigation.h"
 #import "UITextField+Validation.h"
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate> {
+@interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate> {
     UITextField *sumTextField;
+    BOOL canCloseKeyboard;
 }
 
 
@@ -77,6 +81,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [super viewWillAppear:animated];
 
     self.observeKeyboardEvents = YES;
+    canCloseKeyboard = NO;
     
     [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
 
@@ -114,12 +119,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (indexPath.row == 0) {
         LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)cell;
-        sumCell.sumTextField.delegate = self;
-        sumCell.sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
         sumCell.titleLabel.text = Localize(@"exchange.assets.buy.sum");
-        [sumCell.sumTextField becomeFirstResponder];
+
         sumTextField = sumCell.sumTextField;
-        
+        sumTextField.delegate = self;
+        sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
+        [sumTextField becomeFirstResponder];
+        [sumTextField setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
         [sumTextField addTarget:self
                          action:@selector(textFieldDidChange:)
                forControlEvents:UIControlEventEditingChanged];
@@ -140,7 +146,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    return NO;
+    return canCloseKeyboard;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -168,6 +174,54 @@ static NSString *const FormIdentifiers[kFormRows] = {
             [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
         }
     });
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)purchaseClicked:(id)sender {
+    
+    canCloseKeyboard = YES;
+    [self.view endEditing:YES];
+    
+    // preparing modal view
+    LWExchangeConfirmationView *modalView = [LWExchangeConfirmationView modalViewWithDelegate:self];
+#warning TODO:
+    modalView.controller = self;
+    modalView.assetPair = @"";
+    modalView.baseAsset = @"";
+    modalView.volume    = [NSNumber numberWithInteger:0];
+    modalView.rate      = [NSNumber numberWithDouble:0.0];
+    UIViewController *topController = self.navigationController;
+    [modalView setFrame:topController.view.bounds];
+    
+    // animation
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [modalView.layer addAnimation:transition forKey:nil];
+    
+    // showing modal view
+    [topController.view addSubview:modalView];
+}
+
+
+#pragma mark - LWExchangeConfirmationViewDelegate
+
+- (void)cancelClicked {
+    canCloseKeyboard = NO;
+    if (sumTextField) {
+        [sumTextField becomeFirstResponder];
+    }
+}
+
+- (void)submitClicked {
+    canCloseKeyboard = NO;
+    if (sumTextField) {
+        [sumTextField becomeFirstResponder];
+    }
 }
 
 

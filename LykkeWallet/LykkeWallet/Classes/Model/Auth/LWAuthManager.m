@@ -30,6 +30,7 @@
 #import "LWPacketAssetPairRates.h"
 #import "LWPacketAppSettings.h"
 #import "LWPacketAssetDescription.h"
+#import "LWPacketPurchaseAsset.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -228,6 +229,16 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate {
+    LWPacketPurchaseAsset *pack = [LWPacketPurchaseAsset new];
+    pack.baseAsset = asset;
+    pack.assetPair = assetPair;
+    pack.volume    = volume;
+    pack.rate      = rate;
+    
+    [self sendPacket:pack];
+}
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -387,6 +398,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketAppSettings.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didGetAppSettings:)]) {
             [self.delegate authManager:self didGetAppSettings:((LWPacketAppSettings *)pack).appSettings];
+        }
+    }
+    else if (pack.class == LWPacketPurchaseAsset.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceivePurchaseResponse:)]) {
+            [self.delegate authManager:self didReceivePurchaseResponse:((LWPacketPurchaseAsset *)pack).orderId];
         }
     }
 }

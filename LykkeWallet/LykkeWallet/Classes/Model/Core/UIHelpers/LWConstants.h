@@ -60,13 +60,16 @@ static NSString *const kTextFieldFontName  = kFontRegular;
 
 #pragma mark - Navigation Bar Constants
 
-static NSString *const kNavigationBarTintColor = kMainElementsColor;
-static NSString *const kNavigationBarGrayColor = kMainGrayElementsColor;
+static NSString *const kNavigationBarTintColor  = kMainElementsColor;
+static NSString *const kNavigationBarGrayColor  = kMainGrayElementsColor;
 static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
 
-static float     const kNavigationBarFontSize  = 17.0;
-static NSString *const kNavigationBarFontColor = kMainDarkElementsColor;
-static NSString *const kNavigationBarFontName  = kFontSemibold;
+static float     const kNavigationBarFontSize   = 17.0;
+static NSString *const kNavigationBarFontColor  = kMainDarkElementsColor;
+static NSString *const kNavigationBarFontName   = kFontSemibold;
+
+static float     const kModalNavBarFontSize     = 15.0;
+static NSString *const kModalNavBarFontName     = kFontRegular;
 
 
 #pragma mark - Page Control Constants

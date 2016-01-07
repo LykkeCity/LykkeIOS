@@ -87,11 +87,14 @@
 "exchange.assets.form.capitalization" = "Капитализация рынка";
 "exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
 "exchange.assets.buy.title" = "КУПИТЬ ";
-"exchange.assets.buy.sum" = "Сумма";
-"exchange.assets.buy.placeholder" = "Введите сумму";
+"exchange.assets.buy.sum" = "Объем";
+"exchange.assets.buy.placeholder" = "Введите объем";
 "exchange.assets.buy.price" = "Цена";
-"exchange.assets.buy.total" = "Объем сделки";
+"exchange.assets.buy.total" = "Результат";
 "exchange.assets.buy.checkout" = "ОФОРМИТЬ";
+"exchange.assets.model.title" = "ИНФОРМАЦИЯ";
+"exchange.assets.model.button" = "УСТАНОВИТЬ ОРДЕР";
+"exchange.assets.model.cancel" = "ОТМЕНИТЬ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.logout.title" = "Выйти из-под";

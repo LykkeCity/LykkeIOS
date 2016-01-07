@@ -164,6 +164,9 @@
 		EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45D61C309A6200926BB4 /* LWWalletTableViewCell.xib */; };
 		EC7A45DC1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */; };
 		EC7A45E01C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */; };
+		EC7F04F91C3E75CA0079ECD0 /* LWExchangeConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */; };
+		EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */; };
+		EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -465,6 +468,11 @@
 		EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletEmptyTableViewCell.h; path = Wallets/LWWalletEmptyTableViewCell.h; sourceTree = "<group>"; };
 		EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletEmptyTableViewCell.m; path = Wallets/LWWalletEmptyTableViewCell.m; sourceTree = "<group>"; };
 		EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletEmptyTableViewCell.xib; path = Wallets/LWWalletEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		EC7F04F71C3E75CA0079ECD0 /* LWExchangeConfirmationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeConfirmationView.h; sourceTree = "<group>"; };
+		EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeConfirmationView.m; sourceTree = "<group>"; };
+		EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeConfirmationView.xib; sourceTree = "<group>"; };
+		EC7F04FC1C3E86760079ECD0 /* LWPacketPurchaseAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPurchaseAsset.h; sourceTree = "<group>"; };
+		EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPurchaseAsset.m; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -781,6 +789,9 @@
 				EC57F4661C3D3FF900E31746 /* LWExchangeBuyFormPresenter.h */,
 				EC57F4671C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m */,
 				EC57F4691C3D400600E31746 /* LWExchangeBuyFormPresenter.xib */,
+				EC7F04F71C3E75CA0079ECD0 /* LWExchangeConfirmationView.h */,
+				EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */,
+				EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -969,6 +980,8 @@
 				ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */,
 				EC57F44B1C3C35B000E31746 /* LWPacketAssetDescription.h */,
 				EC57F44C1C3C35B000E31746 /* LWPacketAssetDescription.m */,
+				EC7F04FC1C3E86760079ECD0 /* LWPacketPurchaseAsset.h */,
+				EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1339,6 +1352,7 @@
 				EC57F4771C3D528100E31746 /* LWAssetBuyPriceTableViewCell.xib in Resources */,
 				CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */,
 				CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */,
+				EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */,
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
 				EC57F47C1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib in Resources */,
@@ -1490,6 +1504,7 @@
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				EC57F47A1C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m in Sources */,
 				CF6F69D41C2413F70016CFC5 /* ABPinSelectionView.m in Sources */,
+				EC7F04F91C3E75CA0079ECD0 /* LWExchangeConfirmationView.m in Sources */,
 				CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */,
 				CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */,
 				CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */,
@@ -1547,6 +1562,7 @@
 				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */,
+				EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */,
 				ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
@@ -1631,7 +1647,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "20d7b5c0-a504-4a2e-a50e-84b3b7928970";
+				PROVISIONING_PROFILE = "fb6ad5d1-50c1-4942-8fe2-e5f83481f5bf";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1648,7 +1664,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "20d7b5c0-a504-4a2e-a50e-84b3b7928970";
+				PROVISIONING_PROFILE = "fb6ad5d1-50c1-4942-8fe2-e5f83481f5bf";
 			};
 			name = AdHoc;
 		};
@@ -1692,7 +1708,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f430b7e5-e3e3-441b-95d6-47769012c2b6";
+				PROVISIONING_PROFILE = "4afda811-bc84-443a-baa2-698e1cd20196";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1745,7 +1761,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.LykkeWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f430b7e5-e3e3-441b-95d6-47769012c2b6";
+				PROVISIONING_PROFILE = "4afda811-bc84-443a-baa2-698e1cd20196";
 			};
 			name = Debug;
 		};

@@ -87,11 +87,14 @@
 "exchange.assets.form.capitalization" = "Market capitalization";
 "exchange.assets.form.button" = "BUY AT PRICE $ ";
 "exchange.assets.buy.title" = "BUY ";
-"exchange.assets.buy.sum" = "Shares";
-"exchange.assets.buy.placeholder" = "Input sum";
+"exchange.assets.buy.sum" = "Volume";
+"exchange.assets.buy.placeholder" = "Input amount";
 "exchange.assets.buy.price" = "Price";
 "exchange.assets.buy.total" = "Total cost";
 "exchange.assets.buy.checkout" = "CHECKOUT";
+"exchange.assets.model.title" = "ORDER SUMMARY";
+"exchange.assets.model.button" = "PLACE AN ORDER";
+"exchange.assets.model.cancel" = "CANCEL";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.logout.title" = "Log out from";
