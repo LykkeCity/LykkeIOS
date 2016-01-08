@@ -110,6 +110,15 @@
 "exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
 "exchange.blockchain.close" = "ЗАКРЫТЬ";
 "exchange.blockchain.title" = "ОБОЗРЕВАТЕЛЬ BLOCKCHAIN";
+"exchange.blockchain.hash" = "Hash";
+"exchange.blockchain.date" = "Дата";
+"exchange.blockchain.confirm" = "Confirm.";
+"exchange.blockchain.block" = "Block";
+"exchange.blockchain.height" = "Height";
+"exchange.blockchain.sender" = "Sender ID";
+"exchange.blockchain.asset" = "Asset ID";
+"exchange.blockchain.quantity" = "Количество";
+"exchange.blockchain.url" = "URL";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";

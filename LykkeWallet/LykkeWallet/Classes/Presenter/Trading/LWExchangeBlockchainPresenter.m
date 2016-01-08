@@ -9,13 +9,15 @@
 #import "LWExchangeBlockchainPresenter.h"
 #import "LWAssetBlockchainTableViewCell.h"
 #import "LWAssetBlockchainIconTableViewCell.h"
+#import "LWAssetBlockchainModel.h"
 #import "TKButton.h"
 #import "LWConstants.h"
+#import "LWMath.h"
 #import "UIViewController+Loading.h"
 
 
 @interface LWExchangeBlockchainPresenter () {
-    
+    LWAssetBlockchainModel *blockchainModel;
 }
 
 
@@ -23,16 +25,26 @@
 
 @property (weak, nonatomic) IBOutlet TKButton *closeButton;
 
+
+#pragma mark - Utils
+
+- (NSString *)stringFromData:(NSString *)data;
+
+- (CGFloat)calculateRowHeightForText:(NSString *)text;
+
+- (NSString *)dataByCellRow:(NSInteger)row;
+
 @end
 
 
 @implementation LWExchangeBlockchainPresenter
 
 
-static NSInteger const kDescriptionRows = 9;
+static NSInteger const kDescriptionRows = 10;
 
 static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     kAssetBlockchainIconTableViewCellIdentifier,
+    kAssetBlockchainTableViewCellIdentifier,
     kAssetBlockchainTableViewCellIdentifier,
     kAssetBlockchainTableViewCellIdentifier,
     kAssetBlockchainTableViewCellIdentifier,
@@ -83,7 +95,10 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain {
+    blockchainModel = blockchain;
     [self setLoading:NO];
+    
+    [self.tableView reloadData];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
@@ -99,21 +114,35 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kDescriptionRows;
+    return (blockchainModel == nil) ? 1 : kDescriptionRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *const DescriptionNames[kDescriptionRows] = {
-        Localize(@"1"),
-        Localize(@"2"),
-        Localize(@"3"),
-        Localize(@"4"),
-        Localize(@"5"),
-        Localize(@"6"),
-        Localize(@"7"),
-        Localize(@"8"),
-        Localize(@"9")
+    NSString *const Descriptions[kDescriptionRows] = {
+        Localize(@"exchange.blockchain.hash"),
+        Localize(@"exchange.blockchain.date"),
+        Localize(@"exchange.blockchain.confirm"),
+        Localize(@"exchange.blockchain.block"),
+        Localize(@"exchange.blockchain.height"),
+        Localize(@"exchange.blockchain.sender"),
+        Localize(@"exchange.blockchain.asset"),
+        Localize(@"exchange.blockchain.quantity"),
+        Localize(@"exchange.blockchain.url")
+    };
+    
+    UIColor *dark = [UIColor colorWithHexString:kMainDarkElementsColor];
+    UIColor *colored = [UIColor colorWithHexString:kMainElementsColor];
+    UIColor *const Colors[kDescriptionRows] = {
+        dark,
+        dark,
+        dark,
+        dark,
+        dark,
+        colored,
+        colored,
+        dark,
+        colored
     };
     
     NSString *identifier = DescriptionIdentifiers[indexPath.row];
@@ -126,8 +155,9 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     // show information cells
     else {
         LWAssetBlockchainTableViewCell *blockchainCell = (LWAssetBlockchainTableViewCell *)cell;
-        blockchainCell.titleLabel.text = DescriptionNames[indexPath.row];
-        blockchainCell.detailLabel.text = DescriptionNames[indexPath.row];
+        blockchainCell.titleLabel.text = Descriptions[indexPath.row - 1];
+        blockchainCell.detailLabel.text = [self dataByCellRow:indexPath.row - 1];
+        blockchainCell.detailLabel.textColor = Colors[indexPath.row - 1];
     }
     return cell;
 }
@@ -140,7 +170,53 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
         return kAssetBlockchainIconTableViewCellHeight;
     }
     
-    return 50.0;
+    NSString *text = [self dataByCellRow:indexPath.row - 1];
+    return [self calculateRowHeightForText:text];
+}
+
+
+#pragma mark - Utils
+
+- (NSString *)stringFromData:(NSString *)data {
+    if (data == nil || [data isKindOfClass:[NSNull class]]) {
+        return @" - ";
+    }
+    
+    return data;
+}
+
+- (CGFloat)calculateRowHeightForText:(NSString *)text {
+    
+    CGFloat const kTopBottomPadding = 8.0;
+    CGFloat const kLeftRightPadding = 20.0 * 2.0;
+    CGFloat const kTitleWidth = 100.0;
+    CGFloat const kDescriptionWidth = self.tableView.frame.size.width - kLeftRightPadding - kTitleWidth;
+    
+    UIFont *font = [UIFont fontWithName:kFontRegular size:kAssetDetailsFontSize];
+    CGSize const size = CGSizeMake(kDescriptionWidth, CGFLOAT_MAX);
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName:font}
+                                     context:nil];
+    
+    CGFloat const kDefaultRowHeight = 50.0;
+    CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
+    return cellHeight;
+}
+
+- (NSString *)dataByCellRow:(NSInteger)row {
+    NSString *const values[kDescriptionRows] = {
+        [self stringFromData:blockchainModel.identity],
+        [self stringFromData:blockchainModel.date],
+        [LWMath makeStringByNumber:blockchainModel.confirmations withPrecision:0],
+        [self stringFromData:blockchainModel.block],
+        [LWMath makeStringByNumber:blockchainModel.height withPrecision:0],
+        [self stringFromData:blockchainModel.senderId],
+        [self stringFromData:blockchainModel.assetId],
+        [LWMath makeStringByNumber:blockchainModel.quantity withPrecision:0],
+        [self stringFromData:blockchainModel.url]
+    };
+    return values[row];
 }
 
 @end

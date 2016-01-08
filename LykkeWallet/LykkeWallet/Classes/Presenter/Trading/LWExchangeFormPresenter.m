@@ -31,12 +31,22 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *dealButton;
 
+
+#pragma mark - Utils
+
+- (void)updateRate:(LWAssetPairRateModel *)rate;
+
+- (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row;
+
+- (CGFloat)calculateRowHeightForText:(NSString *)text;
+
 @end
 
 
 @implementation LWExchangeFormPresenter
 
 
+CGFloat const kDefaultRowHeight = 50.0;
 static NSInteger const kDescriptionRows = 6;
 
 static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
@@ -124,8 +134,6 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CGFloat const kDefaultRowHeight = 50.0;
-
     if (assetDetails == nil) {
         return 0;
     }
@@ -137,20 +145,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     // calculate height just for text cells
     if (indexPath.row != 1) {
-        CGFloat const kTopBottomPadding = 8.0;
-        CGFloat const kLeftRightPadding = 26.0 * 2.0;
-        CGFloat const kTitleWidth = 116.0;
-        CGFloat const kDescriptionWidth = self.tableView.frame.size.width - kLeftRightPadding - kTitleWidth;
-
-        UIFont *font = [UIFont fontWithName:kFontRegular size:kAssetDetailsFontSize];
-        CGSize const size = CGSizeMake(kDescriptionWidth, CGFLOAT_MAX);
-        CGRect rect = [text boundingRectWithSize:size
-                                         options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:@{NSFontAttributeName:font}
-                                         context:nil];
-
-        CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
-        return cellHeight;
+        return [self calculateRowHeightForText:text];
     }
     
     return kDefaultRowHeight;
@@ -235,6 +230,23 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
             break;
     }
     return text;
+}
+
+- (CGFloat)calculateRowHeightForText:(NSString *)text {
+    CGFloat const kTopBottomPadding = 8.0;
+    CGFloat const kLeftRightPadding = 26.0 * 2.0;
+    CGFloat const kTitleWidth = 116.0;
+    CGFloat const kDescriptionWidth = self.tableView.frame.size.width - kLeftRightPadding - kTitleWidth;
+    
+    UIFont *font = [UIFont fontWithName:kFontRegular size:kAssetDetailsFontSize];
+    CGSize const size = CGSizeMake(kDescriptionWidth, CGFLOAT_MAX);
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName:font}
+                                     context:nil];
+    
+    CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
+    return cellHeight;
 }
 
 @end

@@ -110,6 +110,15 @@
 "exchange.assets.result.share" = "SHARE";
 "exchange.blockchain.close" = "CLOSE";
 "exchange.blockchain.title" = "BLOCKCHAIN EXPLORER";
+"exchange.blockchain.hash" = "Hash";
+"exchange.blockchain.date" = "Date";
+"exchange.blockchain.confirm" = "Confirm.";
+"exchange.blockchain.block" = "Block";
+"exchange.blockchain.height" = "Height";
+"exchange.blockchain.sender" = "Sender ID";
+"exchange.blockchain.asset" = "Asset ID";
+"exchange.blockchain.quantity" = "Quantity";
+"exchange.blockchain.url" = "URL";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
