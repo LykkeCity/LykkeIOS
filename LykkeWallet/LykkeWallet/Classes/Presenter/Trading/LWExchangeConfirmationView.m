@@ -13,9 +13,8 @@
 #import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
+#import "LWFingerprintHelper.h"
 #import "Macro.h"
-
-#import <LocalAuthentication/LocalAuthentication.h>
 
 
 @interface LWExchangeConfirmationView () <UITableViewDataSource> {
@@ -42,7 +41,6 @@
 
 - (void)requestOperation;
 - (void)validateUser;
-- (BOOL)isFingerprintAvailable;
 - (void)updateView;
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
 
@@ -91,34 +89,18 @@ static int const kDescriptionRows = 3;
 }
 
 - (void)validateUser {
-    if ([self isFingerprintAvailable]) {
-        LAContext *laContext = [[LAContext alloc] init];
-        NSString *reasonString = Localize(@"exchange.assets.modal.fingerpring");
-        [laContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                  localizedReason:reasonString
-                            reply:^(BOOL success, NSError *error) {
-                                if (success) {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        [self requestOperation];
-                                    });
-                                } else {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        [self cancelClicked:self.placeOrderButton];
-                                    });
-                                }
-                            }];
-    } else {
-        // fingerprint unavailable - do nothing
-    }
-}
-
-- (BOOL)isFingerprintAvailable {
-    LAContext *laContext = [[LAContext alloc] init];
-    NSError *authError = nil;
-    if ([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
-        return (authError == nil);
-    }
-    return NO;
+    
+    [LWFingerprintHelper
+     validateFingerprintTitle:Localize(@"exchange.assets.modal.fingerpring")
+     ok:^(void) {
+         [self requestOperation];
+     }
+     bad:^(void) {
+         [self cancelClicked:self.placeOrderButton];
+     }
+     unavailable:^(void) {
+         // do nothing
+     }];
 }
 
 - (void)updateView {
@@ -142,7 +124,7 @@ static int const kDescriptionRows = 3;
                                 forState:UIControlStateNormal];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
-    self.placeOrderButton.hidden = [self isFingerprintAvailable];
+    self.placeOrderButton.hidden = [LWFingerprintHelper isFingerprintAvailable];
     
     [self registerCellWithIdentifier:kDetailTableViewCellIdentifier
                                 name:kDetailTableViewCell];

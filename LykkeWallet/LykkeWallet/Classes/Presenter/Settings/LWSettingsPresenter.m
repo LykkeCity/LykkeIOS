@@ -7,6 +7,7 @@
 //
 
 #import "LWSettingsPresenter.h"
+#import "LWSettingsConfirmationPresenter.h"
 #import "LWAssetsTablePresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWKeychainManager.h"
@@ -14,11 +15,19 @@
 #import "LWSettingsAssetTableViewCell.h"
 #import "LWSettingsLogOutTableViewCell.h"
 #import "LWRadioTableViewCell.h"
+#import "LWCache.h"
+#import "LWFingerprintHelper.h"
+#import "UIViewController+Loading.h"
 
 
-@interface LWSettingsPresenter () {
+@interface LWSettingsPresenter () <LWRadioTableViewCellDelegate, LWSettingsConfirmationPresenter> {
     LWAssetModel *baseAsset;
 }
+
+
+#pragma mark - Utils
+
+- (void)updateSignStatus;
 
 @end
 
@@ -101,9 +110,20 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
 - (void)authManager:(LWAuthManager *)manager didGetBaseAsset:(LWAssetModel *)asset {
     baseAsset = asset;
     
+    [self setLoading:NO];
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
     [self configureCell:cell indexPath:path];
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject];
+    [self updateSignStatus];
+}
+
+- (void)authManagerDidSetSignOrders:(LWAuthManager *)manager {
+    [self setLoading:NO];
+    [self updateSignStatus];
 }
 
 
@@ -119,6 +139,7 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     }
     else if (indexPath.row == 1) {
         LWRadioTableViewCell *radioCell = (LWRadioTableViewCell *)cell;
+        radioCell.delegate = self;
         radioCell.titleLabel.text = Localize(@"settings.cell.pin.title");
     }
     else if (indexPath.row == 2) {
@@ -126,6 +147,36 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
         NSString *logout = [NSString stringWithFormat:@"%@ %@", Localize(@"settings.cell.logout.title"), [LWKeychainManager instance].login];
         logoutCell.logoutLabel.text = logout;
     }
+}
+
+
+#pragma mark - LWRadioTableViewCellDelegate
+
+- (void)switcherChanged:(BOOL)isOn {
+    LWSettingsConfirmationPresenter *validator = [LWSettingsConfirmationPresenter new];
+    validator.delegate = self;
+    validator.isOn = isOn;
+    [self.navigationController pushViewController:validator animated:YES];
+}
+
+
+#pragma mark - LWSettingsConfirmationPresenter
+
+- (void)operationConfirmed:(LWSettingsConfirmationPresenter *)presenter {
+    [self setLoading:YES];
+    [[LWAuthManager instance] requestSignOrders:presenter.isOn];
+}
+
+- (void)operationRejected {
+    [self updateSignStatus];
+}
+
+
+#pragma mark - Utils
+
+- (void)updateSignStatus {
+    LWRadioTableViewCell *radioCell = (LWRadioTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    [radioCell setSwitcherOn:[LWCache instance].shouldSignOrder];
 }
 
 @end

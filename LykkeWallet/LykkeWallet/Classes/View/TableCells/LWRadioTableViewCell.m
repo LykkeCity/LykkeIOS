@@ -11,4 +11,20 @@
 
 @implementation LWRadioTableViewCell
 
+
+#pragma mark - Actions
+
+- (IBAction)switchChanged:(id)sender {
+    if (self.delegate) {
+        [self.delegate switcherChanged:[sender isOn]];
+    }
+}
+
+
+#pragma mark - General
+
+- (void)setSwitcherOn:(BOOL)isOn {
+    [self.radioSwitch setOn:isOn];
+}
+
 @end

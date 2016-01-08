@@ -104,12 +104,14 @@
 "exchange.assets.result.commission" = "Commission paid";
 "exchange.assets.result.cost" = "Total cost";
 "exchange.assets.result.blockchain" = "Blockchain settlement";
+"exchange.assets.result.blockchain.progress" = "In progress";
 "exchange.assets.result.position" = "Position";
 "exchange.assets.result.close" = "CLOSE";
 "exchange.assets.result.share" = "SHARE";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
+"settings.cell.pin.change.title" = "Please scan your fingerprint to validate your identity to complete request.";
 "settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";
 

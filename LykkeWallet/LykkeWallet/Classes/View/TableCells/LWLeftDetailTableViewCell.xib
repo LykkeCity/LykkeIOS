@@ -22,13 +22,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhR-cH-OcT">
-                        <rect key="frame" x="26" y="8" width="126" height="33"/>
+                        <rect key="frame" x="20" y="8" width="136" height="33"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 871,8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndX-JW-Nc7">
-                        <rect key="frame" x="168" y="8" width="126" height="33"/>
+                        <rect key="frame" x="164" y="8" width="136" height="33"/>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,17 +36,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ndX-JW-Nc7" firstAttribute="top" secondItem="P6s-ux-8A4" secondAttribute="topMargin" id="4AD-sk-jCT"/>
-                    <constraint firstItem="ndX-JW-Nc7" firstAttribute="leading" secondItem="rhR-cH-OcT" secondAttribute="trailing" constant="16" id="4UX-vO-f6n"/>
+                    <constraint firstItem="ndX-JW-Nc7" firstAttribute="leading" secondItem="rhR-cH-OcT" secondAttribute="trailing" constant="8" id="4UX-vO-f6n"/>
                     <constraint firstItem="ndX-JW-Nc7" firstAttribute="bottom" secondItem="P6s-ux-8A4" secondAttribute="bottomMargin" id="67X-9E-1Im"/>
                     <constraint firstItem="ndX-JW-Nc7" firstAttribute="width" secondItem="rhR-cH-OcT" secondAttribute="width" id="6TO-s2-RzX"/>
                     <constraint firstItem="rhR-cH-OcT" firstAttribute="top" secondItem="P6s-ux-8A4" secondAttribute="topMargin" id="Ek4-m9-uiW"/>
-                    <constraint firstItem="rhR-cH-OcT" firstAttribute="leading" secondItem="P6s-ux-8A4" secondAttribute="leadingMargin" constant="18" id="Up0-OY-mlf"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ndX-JW-Nc7" secondAttribute="trailing" constant="18" id="bdQ-7j-mLw"/>
+                    <constraint firstItem="rhR-cH-OcT" firstAttribute="leading" secondItem="P6s-ux-8A4" secondAttribute="leadingMargin" constant="12" id="Up0-OY-mlf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ndX-JW-Nc7" secondAttribute="trailing" constant="12" id="bdQ-7j-mLw"/>
                     <constraint firstItem="rhR-cH-OcT" firstAttribute="bottom" secondItem="P6s-ux-8A4" secondAttribute="bottomMargin" id="l5x-Nv-R4L"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <inset key="separatorInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+            <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
             <connections>
                 <outlet property="detailLabel" destination="ndX-JW-Nc7" id="KkP-J8-C3v"/>
                 <outlet property="titleLabel" destination="rhR-cH-OcT" id="3Vd-FS-OnV"/>

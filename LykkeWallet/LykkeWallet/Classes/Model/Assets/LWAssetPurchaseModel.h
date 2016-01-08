@@ -22,5 +22,10 @@
 @property (readonly, nonatomic) NSNumber *price;
 @property (readonly, nonatomic) NSString *baseAsset;
 @property (readonly, nonatomic) NSString *assetPair;
+@property (readonly, nonatomic) NSString *blockchainId;
+@property (readonly, nonatomic) BOOL      blockchainSettled;
+@property (readonly, nonatomic) NSNumber *totalCost;
+@property (readonly, nonatomic) NSNumber *commission;
+@property (readonly, nonatomic) NSNumber *position;
 
 @end

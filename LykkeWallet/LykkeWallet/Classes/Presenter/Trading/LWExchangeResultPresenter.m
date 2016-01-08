@@ -122,15 +122,27 @@ static int const kNumberOfRows = 7;
     NSString *rate = [LWMath makeStringByNumber:self.purchase.price
                                   withPrecision:self.assetPair.accuracy.integerValue];
     
-#warning TODO: waiting data from server
+    NSString *volume = [LWMath makeStringByNumber:self.purchase.volume
+                                    withPrecision:0];
+    
+    NSString *commission = [LWMath makeStringByNumber:self.purchase.commission withPrecision:2];
+    
+    NSString *total = [LWMath makeStringByNumber:self.purchase.totalCost withPrecision:2];
+    
+    NSString *position = [LWMath makeStringByNumber:self.purchase.position withPrecision:0];
+    
+    NSString *blockchain = self.purchase.blockchainSettled
+        ? self.purchase.blockchainId
+        : Localize(@"exchange.assets.result.blockchain.progress");
+    
     NSString *const values[kNumberOfRows] = {
         self.purchase.assetPair,
-        [self.purchase.volume stringValue],
+        volume,
         rate,
-        @" - ",
-        @" - ",
-        @" - ",
-        @" - "
+        commission,
+        total,
+        blockchain,
+        position
     };
     
     cell.detailLabel.text = values[row];

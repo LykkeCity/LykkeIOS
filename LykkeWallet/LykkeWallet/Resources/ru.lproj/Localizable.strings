@@ -104,12 +104,14 @@
 "exchange.assets.result.commission" = "Комиссия";
 "exchange.assets.result.cost" = "Общая стоимость";
 "exchange.assets.result.blockchain" = "Blockchain";
+"exchange.assets.result.blockchain.progress" = "В обработке";
 "exchange.assets.result.position" = "Позиция";
 "exchange.assets.result.close" = "ЗАКРЫТЬ";
 "exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";
+"settings.cell.pin.change.title" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
 "settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";
 

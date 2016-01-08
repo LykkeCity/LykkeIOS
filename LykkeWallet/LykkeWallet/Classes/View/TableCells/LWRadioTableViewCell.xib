@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEO-XD-L8a">
-                        <rect key="frame" x="18" y="8" width="211" height="33"/>
+                        <rect key="frame" x="20" y="8" width="215" height="33"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="kel-zF-HU7"/>
                         </constraints>
@@ -35,7 +35,10 @@
                         </variation>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-93-aBO">
-                        <rect key="frame" x="245" y="9" width="51" height="31"/>
+                        <rect key="frame" x="251" y="9" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchChanged:" destination="uCr-Rq-Qqi" eventType="valueChanged" id="aYi-TI-s5V"/>
+                        </connections>
                     </switch>
                 </subviews>
                 <constraints>
@@ -43,8 +46,8 @@
                     <constraint firstItem="Kab-93-aBO" firstAttribute="leading" secondItem="hEO-XD-L8a" secondAttribute="trailing" constant="16" id="X8b-Cr-TTB"/>
                     <constraint firstItem="hEO-XD-L8a" firstAttribute="top" secondItem="57o-rA-l3m" secondAttribute="topMargin" id="e4C-x8-T2h"/>
                     <constraint firstItem="Kab-93-aBO" firstAttribute="centerY" secondItem="57o-rA-l3m" secondAttribute="centerY" id="hO1-4W-2EA"/>
-                    <constraint firstItem="hEO-XD-L8a" firstAttribute="leading" secondItem="57o-rA-l3m" secondAttribute="leadingMargin" constant="10" id="pKr-Tu-yjM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Kab-93-aBO" secondAttribute="trailing" constant="18" id="xsk-Jc-u9W"/>
+                    <constraint firstItem="hEO-XD-L8a" firstAttribute="leading" secondItem="57o-rA-l3m" secondAttribute="leadingMargin" constant="12" id="pKr-Tu-yjM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Kab-93-aBO" secondAttribute="trailing" constant="12" id="xsk-Jc-u9W"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
