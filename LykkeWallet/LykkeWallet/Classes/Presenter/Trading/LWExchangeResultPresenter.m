@@ -7,9 +7,11 @@
 //
 
 #import "LWExchangeResultPresenter.h"
+#import "LWExchangeBlockchainPresenter.h"
 #import "LWLeftDetailTableViewCell.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPurchaseModel.h"
+#import "LWConstants.h"
 #import "LWMath.h"
 #import "TKButton.h"
 
@@ -38,6 +40,7 @@
 
 
 static int const kNumberOfRows = 7;
+static int const kBlockchainRow = 5;
 
 
 #pragma mark - Lifecycle
@@ -63,6 +66,8 @@ static int const kNumberOfRows = 7;
                       forState:UIControlStateNormal];
     
     [self.closeButton setGrayPalette];
+    
+    [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
 
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
@@ -146,6 +151,25 @@ static int const kNumberOfRows = 7;
     };
     
     cell.detailLabel.text = values[row];
+    if (kBlockchainRow == row) {
+        UIColor *blockchainColor = self.purchase.blockchainSettled
+        ? [UIColor colorWithHexString:kMainElementsColor]
+        : [UIColor colorWithHexString:kMainDarkElementsColor];
+        [cell.detailLabel setTextColor:blockchainColor];
+    }
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.row == kBlockchainRow && self.purchase
+        && self.assetPair && self.purchase.blockchainSettled) {
+        LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
+        controller.orderId = self.purchase.identity;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 @end

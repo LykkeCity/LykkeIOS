@@ -32,12 +32,14 @@
 #import "LWPacketAssetDescription.h"
 #import "LWPacketPurchaseAsset.h"
 #import "LWPacketSettingSignOrder.h"
+#import "LWPacketBlockchainTransaction.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
 #import "LWAssetPurchaseModel.h"
+#import "LWAssetBlockchainModel.h"
 
 
 @interface LWAuthManager () {
@@ -248,6 +250,14 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestBlockchainTransaction:(NSString *)orderId {
+    LWPacketBlockchainTransaction *pack = [LWPacketBlockchainTransaction new];
+    pack.orderId = orderId;
+    
+    [self sendPacket:pack];
+}
+
+
 #pragma mark - Observing
 
 - (void)observeGDXNetAdapterDidReceiveResponseNotification:(NSNotification *)notification {
@@ -417,6 +427,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketSettingSignOrder.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSetSignOrders:)]) {
             [self.delegate authManagerDidSetSignOrders:self];
+        }
+    }
+    else if (pack.class == LWPacketBlockchainTransaction.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetBlockchainTransaction:)]) {
+            [self.delegate authManager:self didGetBlockchainTransaction:((LWPacketBlockchainTransaction *)pack).blockchain];
         }
     }
 }

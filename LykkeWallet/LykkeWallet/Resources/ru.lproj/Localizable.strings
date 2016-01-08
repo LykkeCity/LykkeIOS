@@ -108,6 +108,8 @@
 "exchange.assets.result.position" = "Позиция";
 "exchange.assets.result.close" = "ЗАКРЫТЬ";
 "exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
+"exchange.blockchain.close" = "ЗАКРЫТЬ";
+"exchange.blockchain.title" = "ОБОЗРЕВАТЕЛЬ BLOCKCHAIN";
 
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";

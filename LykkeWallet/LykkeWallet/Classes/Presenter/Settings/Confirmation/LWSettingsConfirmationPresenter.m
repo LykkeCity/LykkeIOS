@@ -163,10 +163,7 @@ static int const kAllowedAttempts = 3;
             [self.navigationController popViewControllerAnimated:NO];
         }];
     } bad:^{
-        [pinController dismissViewControllerAnimated:NO completion:^{
-            [self.delegate operationRejected];
-            [self.navigationController popViewControllerAnimated:NO];
-        }];
+        // continue working with pin
     } unavailable:^{
         // do nothing - input pin
     }];

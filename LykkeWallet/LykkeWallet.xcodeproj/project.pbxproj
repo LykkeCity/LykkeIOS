@@ -121,6 +121,14 @@
 		EC3CE8A81C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8A71C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib */; };
 		EC3CE8AC1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */; };
 		EC3CE8AD1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */; };
+		EC3CE8B11C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8AF1C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m */; };
+		EC3CE8B21C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8B01C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib */; };
+		EC3CE8B51C401CD200CAC3FE /* LWAssetBlockchainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8B41C401CD200CAC3FE /* LWAssetBlockchainModel.m */; };
+		EC3CE8B81C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8B71C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m */; };
+		EC3CE8BB1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8BA1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m */; };
+		EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8BC1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib */; };
+		EC3CE8C01C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */; };
+		EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -411,6 +419,19 @@
 		EC3CE8A91C3FE26C00CAC3FE /* LWExchangePinConfirmation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangePinConfirmation.h; sourceTree = "<group>"; };
 		EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangePinConfirmation.m; sourceTree = "<group>"; };
 		EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangePinConfirmation.xib; sourceTree = "<group>"; };
+		EC3CE8AE1C4014D600CAC3FE /* LWExchangeBlockchainPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeBlockchainPresenter.h; sourceTree = "<group>"; };
+		EC3CE8AF1C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeBlockchainPresenter.m; sourceTree = "<group>"; };
+		EC3CE8B01C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeBlockchainPresenter.xib; sourceTree = "<group>"; };
+		EC3CE8B31C401CD200CAC3FE /* LWAssetBlockchainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBlockchainModel.h; path = Assets/LWAssetBlockchainModel.h; sourceTree = "<group>"; };
+		EC3CE8B41C401CD200CAC3FE /* LWAssetBlockchainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBlockchainModel.m; path = Assets/LWAssetBlockchainModel.m; sourceTree = "<group>"; };
+		EC3CE8B61C401E2E00CAC3FE /* LWPacketBlockchainTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketBlockchainTransaction.h; sourceTree = "<group>"; };
+		EC3CE8B71C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketBlockchainTransaction.m; sourceTree = "<group>"; };
+		EC3CE8B91C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBlockchainTableViewCell.h; path = Assets/LWAssetBlockchainTableViewCell.h; sourceTree = "<group>"; };
+		EC3CE8BA1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBlockchainTableViewCell.m; path = Assets/LWAssetBlockchainTableViewCell.m; sourceTree = "<group>"; };
+		EC3CE8BC1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetBlockchainTableViewCell.xib; path = Assets/LWAssetBlockchainTableViewCell.xib; sourceTree = "<group>"; };
+		EC3CE8BE1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBlockchainIconTableViewCell.h; path = Assets/LWAssetBlockchainIconTableViewCell.h; sourceTree = "<group>"; };
+		EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBlockchainIconTableViewCell.m; path = Assets/LWAssetBlockchainIconTableViewCell.m; sourceTree = "<group>"; };
+		EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetBlockchainIconTableViewCell.xib; path = Assets/LWAssetBlockchainIconTableViewCell.xib; sourceTree = "<group>"; };
 		EC51D1911C30514200550EF2 /* LWLykkeWalletsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeWalletsData.h; path = Wallets/LWLykkeWalletsData.h; sourceTree = "<group>"; };
 		EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeWalletsData.m; path = Wallets/LWLykkeWalletsData.m; sourceTree = "<group>"; };
 		EC51D1941C3054AA00550EF2 /* LWJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWJSONObject.h; sourceTree = "<group>"; };
@@ -841,6 +862,9 @@
 				EC3CE8A91C3FE26C00CAC3FE /* LWExchangePinConfirmation.h */,
 				EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */,
 				EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */,
+				EC3CE8AE1C4014D600CAC3FE /* LWExchangeBlockchainPresenter.h */,
+				EC3CE8AF1C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m */,
+				EC3CE8B01C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -1033,6 +1057,8 @@
 				EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */,
 				EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */,
 				EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */,
+				EC3CE8B61C401E2E00CAC3FE /* LWPacketBlockchainTransaction.h */,
+				EC3CE8B71C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1222,6 +1248,8 @@
 				EC57F44F1C3C377300E31746 /* LWAssetDescriptionModel.m */,
 				EC3CE89C1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.h */,
 				EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */,
+				EC3CE8B31C401CD200CAC3FE /* LWAssetBlockchainModel.h */,
+				EC3CE8B41C401CD200CAC3FE /* LWAssetBlockchainModel.m */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1326,6 +1354,12 @@
 				EC57F4781C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.h */,
 				EC57F4791C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m */,
 				EC57F47B1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib */,
+				EC3CE8B91C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.h */,
+				EC3CE8BA1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m */,
+				EC3CE8BC1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib */,
+				EC3CE8BE1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.h */,
+				EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */,
+				EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1427,6 +1461,7 @@
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
+				EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */,
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
 				CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */,
 				ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */,
@@ -1448,10 +1483,12 @@
 				EC7A45D81C309A6200926BB4 /* LWLykkeTableViewCell.xib in Resources */,
 				EC57F4721C3D520600E31746 /* LWAssetBuySumTableViewCell.xib in Resources */,
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
+				EC3CE8B21C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib in Resources */,
 				EC7519B41C3733FD00CDDF5B /* LWSettingsAssetTableViewCell.xib in Resources */,
 				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
 				EC57F46A1C3D400600E31746 /* LWExchangeBuyFormPresenter.xib in Resources */,
 				EC7519B91C37351C00CDDF5B /* LWAssetsTablePresenter.xib in Resources */,
+				EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */,
 				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
 				CFF7583D1C202C6500BC7658 /* LWKYCPendingPresenter.xib in Resources */,
 				EC7A45E01C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib in Resources */,
@@ -1588,6 +1625,7 @@
 				EC57F47F1C3D8A6400E31746 /* UITextField+Validation.m in Sources */,
 				ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */,
 				CFF2AAE21C1F893000320FF9 /* LWRegisterCameraPresenter.m in Sources */,
+				EC3CE8B81C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m in Sources */,
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
@@ -1638,6 +1676,7 @@
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
+				EC3CE8BB1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m in Sources */,
 				EC7519D01C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m in Sources */,
 				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,
 				CF6F69D21C2413F70016CFC5 /* ABPadLockScreenView.m in Sources */,
@@ -1653,6 +1692,7 @@
 				EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */,
 				ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */,
 				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
+				EC3CE8B11C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m in Sources */,
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */,
 				EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */,
@@ -1676,6 +1716,8 @@
 				ECD1E90B1C3BDEA70064AAB3 /* LWAssetTableViewCell.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */,
+				EC3CE8C01C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m in Sources */,
+				EC3CE8B51C401CD200CAC3FE /* LWAssetBlockchainModel.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
 				ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */,
 				ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */,

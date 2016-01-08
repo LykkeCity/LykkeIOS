@@ -108,6 +108,8 @@
 "exchange.assets.result.position" = "Position";
 "exchange.assets.result.close" = "CLOSE";
 "exchange.assets.result.share" = "SHARE";
+"exchange.blockchain.close" = "CLOSE";
+"exchange.blockchain.title" = "BLOCKCHAIN EXPLORER";
 
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
