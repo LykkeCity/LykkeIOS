@@ -115,6 +115,7 @@
 		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */; };
 		EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37ED191C3A817D002379DD /* LWStringUtils.m */; };
+		EC3CE89E1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -395,6 +396,8 @@
 		EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocumentBin.m; sourceTree = "<group>"; };
 		EC37ED181C3A817D002379DD /* LWStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStringUtils.h; sourceTree = "<group>"; };
 		EC37ED191C3A817D002379DD /* LWStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStringUtils.m; sourceTree = "<group>"; };
+		EC3CE89C1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPurchaseModel.h; path = Assets/LWAssetPurchaseModel.h; sourceTree = "<group>"; };
+		EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPurchaseModel.m; path = Assets/LWAssetPurchaseModel.m; sourceTree = "<group>"; };
 		EC51D1911C30514200550EF2 /* LWLykkeWalletsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeWalletsData.h; path = Wallets/LWLykkeWalletsData.h; sourceTree = "<group>"; };
 		EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeWalletsData.m; path = Wallets/LWLykkeWalletsData.m; sourceTree = "<group>"; };
 		EC51D1941C3054AA00550EF2 /* LWJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWJSONObject.h; sourceTree = "<group>"; };
@@ -1188,6 +1191,8 @@
 				ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */,
 				EC57F44E1C3C377300E31746 /* LWAssetDescriptionModel.h */,
 				EC57F44F1C3C377300E31746 /* LWAssetDescriptionModel.m */,
+				EC3CE89C1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.h */,
+				EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1617,6 +1622,7 @@
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */,
 				EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */,
+				EC3CE89E1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m in Sources */,
 				ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,

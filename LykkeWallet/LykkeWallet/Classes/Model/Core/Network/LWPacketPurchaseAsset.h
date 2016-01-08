@@ -9,6 +9,9 @@
 #import "LWAuthorizePacket.h"
 
 
+@class LWAssetPurchaseModel;
+
+
 @interface LWPacketPurchaseAsset : LWAuthorizePacket {
     
 }
@@ -18,6 +21,6 @@
 @property (copy, nonatomic) NSNumber *volume;
 @property (copy, nonatomic) NSNumber *rate;
 // out
-@property (readonly, nonatomic) NSString *orderId;
+@property (readonly, nonatomic) LWAssetPurchaseModel *purchase;
 
 @end

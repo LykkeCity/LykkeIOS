@@ -219,7 +219,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
             text = model.assetClass;
             break;
         case 1:
-            text = (model.popIndex == nil) ? @"" : [NSString stringWithFormat:@"%@", model.popIndex];
+            text = (model.popIndex == nil) ? @"" : [model.popIndex stringValue];
             break;
         case 2:
             text = model.details;

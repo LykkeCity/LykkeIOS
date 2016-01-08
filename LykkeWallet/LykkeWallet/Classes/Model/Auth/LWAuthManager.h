@@ -19,6 +19,7 @@
 @class LWAssetPairRateModel;
 @class LWAppSettingsModel;
 @class LWAssetDescriptionModel;
+@class LWAssetPurchaseModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -47,7 +48,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRates:(NSArray *)assetPairRates;
 - (void)authManager:(LWAuthManager *)manager didGetAssetDescription:(LWAssetDescriptionModel *)assetDescription;
 - (void)authManager:(LWAuthManager *)manager didGetAppSettings:(LWAppSettingsModel *)appSettings;
-- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(NSString *)orderId;
+- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(LWAssetPurchaseModel *)purchase;
 - (void)authManagerDidSetSignOrders:(LWAuthManager *)manager;
 
 @end

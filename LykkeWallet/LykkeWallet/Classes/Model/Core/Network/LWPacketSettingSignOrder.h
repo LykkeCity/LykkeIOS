@@ -14,5 +14,7 @@
 }
 // in
 @property (assign, nonatomic) BOOL shouldSignOrder;
+// out
+@property (readonly, nonatomic) BOOL signOrderBeforeGo;
 
 @end

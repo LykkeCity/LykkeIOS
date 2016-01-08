@@ -22,6 +22,6 @@
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality;
 
-- (UIImage *)correctImageOrientation:(UIImage *)image;
+- (UIImage *)correctImageOrientation;
 
 @end

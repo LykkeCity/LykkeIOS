@@ -37,6 +37,7 @@
 #import "LWBankCardsAdd.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
+#import "LWAssetPurchaseModel.h"
 
 
 @interface LWAuthManager () {
@@ -410,7 +411,7 @@ SINGLETON_INIT {
     }
     else if (pack.class == LWPacketPurchaseAsset.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceivePurchaseResponse:)]) {
-            [self.delegate authManager:self didReceivePurchaseResponse:((LWPacketPurchaseAsset *)pack).orderId];
+            [self.delegate authManager:self didReceivePurchaseResponse:((LWPacketPurchaseAsset *)pack).purchase];
         }
     }
     else if (pack.class == LWPacketSettingSignOrder.class) {

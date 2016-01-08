@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketPurchaseAsset.h"
+#import "LWAssetPurchaseModel.h"
 
 
 @implementation LWPacketPurchaseAsset
@@ -20,7 +21,7 @@
     if (self.isRejected) {
         return;
     }
-    _orderId = result[@"OrderId"];
+    _purchase = [[LWAssetPurchaseModel alloc] initWithJSON:result[@"Order"]];
 }
 
 - (NSString *)urlRelative {

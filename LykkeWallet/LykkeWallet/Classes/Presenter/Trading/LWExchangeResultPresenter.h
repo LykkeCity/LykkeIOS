@@ -9,8 +9,18 @@
 #import "LWAuthComplexPresenter.h"
 
 
+@class LWAssetPairModel;
+@class LWAssetPurchaseModel;
+
+
 @interface LWExchangeResultPresenter : LWAuthComplexPresenter {
     
 }
+
+
+#pragma mark - Properties
+
+@property (strong, nonatomic) LWAssetPairModel     *assetPair;
+@property (strong, nonatomic) LWAssetPurchaseModel *purchase;
 
 @end

@@ -8,6 +8,9 @@
 
 #import "LWExchangeResultPresenter.h"
 #import "LWLeftDetailTableViewCell.h"
+#import "LWAssetPairModel.h"
+#import "LWAssetPurchaseModel.h"
+#import "LWMath.h"
 #import "TKButton.h"
 
 
@@ -49,9 +52,9 @@ static int const kNumberOfRows = 7;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-#warning TODO: asset localization
     self.titleLabel.text = [NSString stringWithFormat:@"%@%@",
-                            @"EUR / USD", Localize(@"exchange.assets.result.title")];
+                            self.purchase.assetPair,
+                            Localize(@"exchange.assets.result.title")];
     
     [self.closeButton setTitle:Localize(@"exchange.assets.result.close")
                       forState:UIControlStateNormal];
@@ -115,14 +118,19 @@ static int const kNumberOfRows = 7;
 }
 
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
+    
+    NSString *rate = [LWMath makeStringByNumber:self.purchase.price
+                                  withPrecision:self.assetPair.accuracy.integerValue];
+    
+#warning TODO: waiting data from server
     NSString *const values[kNumberOfRows] = {
-        @"1",
-        @"2",
-        @"3",
-        @"4",
-        @"5",
-        @"6",
-        @"7"
+        self.purchase.assetPair,
+        [self.purchase.volume stringValue],
+        rate,
+        @" - ",
+        @" - ",
+        @" - ",
+        @" - "
     };
     
     cell.detailLabel.text = values[row];

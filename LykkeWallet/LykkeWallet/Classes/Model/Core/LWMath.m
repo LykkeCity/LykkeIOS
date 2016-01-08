@@ -94,6 +94,17 @@
     return @"1";
 }
 
++ (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision {
+    if (!number || [number isKindOfClass:[NSNull class]]) {
+        return @" - ";
+    }
+    
+    NSDecimalNumber *decimalRate = [NSDecimalNumber
+                                    decimalNumberWithDecimal:number.decimalValue];
+    NSString *result = [LWMath makeStringByDecimal:decimalRate withPrecision:precision];
+    return result;
+}
+
 + (NSString *)makeStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision
 {
     NSLocale *locale = [NSLocale currentLocale];

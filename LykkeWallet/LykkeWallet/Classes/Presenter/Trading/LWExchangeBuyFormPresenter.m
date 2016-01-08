@@ -183,11 +183,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
     });
 }
 
-- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(NSString *)orderId {
+- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(LWAssetPurchaseModel *)purchase {
     if (confirmationView) {
         [confirmationView setLoading:NO];
         [confirmationView removeFromSuperview];
         LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
+        controller.purchase = purchase;
+        controller.assetPair = self.assetPair;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

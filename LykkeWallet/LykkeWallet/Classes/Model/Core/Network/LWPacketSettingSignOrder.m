@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketSettingSignOrder.h"
+#import "LWCache.h"
 
 
 @implementation LWPacketSettingSignOrder
@@ -20,6 +21,9 @@
     if (self.isRejected) {
         return;
     }
+    _signOrderBeforeGo = [result[@"SignOrderBeforeGo"] boolValue];
+
+    [LWCache instance].shouldSignOrder = _signOrderBeforeGo;
 }
 
 - (NSString *)urlRelative {

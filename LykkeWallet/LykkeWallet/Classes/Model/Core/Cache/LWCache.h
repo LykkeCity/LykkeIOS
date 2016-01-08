@@ -21,5 +21,6 @@ SINGLETON_DECLARE
 
 @property (copy, nonatomic) NSNumber *refreshTimer;
 @property (copy, nonatomic) NSString *baseAssetId;
+@property (assign, nonatomic) BOOL shouldSignOrder;
 
 @end

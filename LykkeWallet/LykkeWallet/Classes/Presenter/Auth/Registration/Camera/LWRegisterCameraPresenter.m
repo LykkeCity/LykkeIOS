@@ -25,7 +25,7 @@
 
 - (void)checkButtonsState;
 - (void)showCameraView;
-- (void)setupImageFromInfo:(NSDictionary *)info;
+- (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage;
 
 @end
 
@@ -155,18 +155,29 @@
     [self checkButtonsState];
 }
 
-- (void)setupImageFromInfo:(NSDictionary *)info {
-    
-    photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-    photo = [photo correctImageOrientation:photo];
+- (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage {
+    photo = image;
+    photo = [photo correctImageOrientation];
 
     CGFloat const width = 1024.0;
-    CGSize size = photo.size;
-    CGFloat coeff = width / photo.size.width;
-    size.width = width;
-    size.height = size.height * coeff;
     
-    photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
+#warning TODO: crop image
+    if (shouldCropImage) {
+        //CGSize size = self.photoImageView.frame.size;
+        //CGFloat coeff = width / size.width;
+        //size.width = width;
+        //size.height = size.height * coeff;
+        CGRect rect = self.photoImageView.frame;
+        photo = [photo croppedImage:rect];
+    }
+    else {
+        CGSize size = photo.size;
+        CGFloat coeff = width / photo.size.width;
+        size.width = width;
+        size.height = size.height * coeff;
+        photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
+    }
+    
     self.photoImageView.image = photo;
 }
 
@@ -181,7 +192,9 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [self setupImageFromInfo:info];
+
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self setupImage:image shouldCropImage:YES];
 
     [picker dismissViewControllerAnimated:NO completion:nil];
     
@@ -207,7 +220,8 @@
 #pragma mark - LWCameraOverlayDelegate
 
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
-    [self setupImageFromInfo:info];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self setupImage:image shouldCropImage:NO];
     
     if (self.imagePickerController) {
         [self.imagePickerController dismissViewControllerAnimated:NO completion:nil];

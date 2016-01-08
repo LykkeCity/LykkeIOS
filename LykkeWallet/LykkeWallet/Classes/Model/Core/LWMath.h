@@ -20,6 +20,7 @@
 + (BOOL)isDoubleEqualToZero:(double)value;
 + (BOOL)isDecimalEqualToZero:(NSDecimalNumber *)number;
 
++ (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeCurrencyPrice:(NSDecimalNumber *)number;
