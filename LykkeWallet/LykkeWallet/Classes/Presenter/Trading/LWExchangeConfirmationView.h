@@ -18,6 +18,7 @@
 @required
 - (void)cancelClicked;
 - (void)requestOperation;
+- (void)validatePin;
 
 @end
 
@@ -42,6 +43,7 @@
 
 #pragma mark - Utils
 
+- (void)requestOperation;
 - (void)setLoading:(BOOL)loading;
 
 @end

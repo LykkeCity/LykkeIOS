@@ -12,6 +12,7 @@
 #import "LWAssetBuyPriceTableViewCell.h"
 #import "LWAssetBuyTotalTableViewCell.h"
 #import "LWExchangeConfirmationView.h"
+#import "LWExchangePinConfirmation.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWCache.h"
@@ -24,7 +25,7 @@
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate> {
+@interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate> {
 
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
@@ -246,6 +247,24 @@ static NSString *const FormIdentifiers[kFormRows] = {
                                               rate:self.assetRate.ask];
 }
 
+- (void)validatePin {
+    LWExchangePinConfirmation *validator = [LWExchangePinConfirmation new];
+    validator.delegate = self;
+    [self.navigationController pushViewController:validator animated:YES];
+}
+
+
+#pragma mark - LWExchangePinConfirmationDelegate
+
+- (void)pinConfirmed {
+    if (confirmationView) {
+        [confirmationView requestOperation];
+    }
+}
+
+- (void)pinRejected {
+    // do nothing - pin incorrect
+}
 
 #pragma mark - Utils
 

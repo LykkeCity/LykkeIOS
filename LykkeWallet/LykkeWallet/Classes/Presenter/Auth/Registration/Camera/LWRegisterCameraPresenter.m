@@ -102,12 +102,10 @@
 
 - (void)checkButtonsState {
     if (photo) {
-        self.cancelButton.hidden = NO;
         [self.okButton setTitle:[Localize(@"register.camera.photo.ok") uppercaseString]
                        forState:UIControlStateNormal];
     }
     else {
-        self.cancelButton.hidden = YES;
         [self.okButton setTitle:[Localize(@"register.camera.photo.take") uppercaseString]
                        forState:UIControlStateNormal];
     }
@@ -158,24 +156,19 @@
 - (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage {
     photo = image;
     photo = [photo correctImageOrientation];
-
-    CGFloat const width = 1024.0;
     
-#warning TODO: crop image
+    // resize to our view
+    CGFloat coeff = self.view.frame.size.width / photo.size.width;
+    CGSize size = CGSizeMake(photo.size.width * coeff, photo.size.height * coeff);
+    photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
+
+    // crop image for selfie
     if (shouldCropImage) {
-        //CGSize size = self.photoImageView.frame.size;
-        //CGFloat coeff = width / size.width;
-        //size.width = width;
-        //size.height = size.height * coeff;
-        CGRect rect = self.photoImageView.frame;
-        photo = [photo croppedImage:rect];
-    }
-    else {
-        CGSize size = photo.size;
-        CGFloat coeff = width / photo.size.width;
-        size.width = width;
-        size.height = size.height * coeff;
-        photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
+        CGRect cropRect = self.photoImageView.frame;
+        // hidden navigation bar
+        CGFloat const navHeight = 56;
+        cropRect.origin.y += navHeight;
+        photo = [photo croppedImage:cropRect];
     }
     
     self.photoImageView.image = photo;
@@ -194,9 +187,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    [self setupImage:image shouldCropImage:YES];
-
-    [picker dismissViewControllerAnimated:NO completion:nil];
+    [picker dismissViewControllerAnimated:NO completion:^{
+        [self setupImage:image shouldCropImage:YES];
+    }];
     
     [[LWAuthManager instance] requestSendLog:@"Camera image selected"];
     [self checkButtonsState];
@@ -221,10 +214,11 @@
 
 - (void)fileChoosen:(NSDictionary<NSString *,id> *)info {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    [self setupImage:image shouldCropImage:NO];
     
     if (self.imagePickerController) {
-        [self.imagePickerController dismissViewControllerAnimated:NO completion:nil];
+        [self.imagePickerController dismissViewControllerAnimated:NO completion:^{
+            [self setupImage:image shouldCropImage:NO];
+        }];
     }
     
     [[LWAuthManager instance] requestSendLog:@"Camera file choosen"];

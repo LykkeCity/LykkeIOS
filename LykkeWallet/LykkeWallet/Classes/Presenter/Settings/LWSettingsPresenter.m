@@ -141,6 +141,7 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
         LWRadioTableViewCell *radioCell = (LWRadioTableViewCell *)cell;
         radioCell.delegate = self;
         radioCell.titleLabel.text = Localize(@"settings.cell.pin.title");
+        [radioCell setSwitcherOn:[LWCache instance].shouldSignOrder];
     }
     else if (indexPath.row == 2) {
         LWSettingsLogOutTableViewCell *logoutCell = (LWSettingsLogOutTableViewCell *)cell;

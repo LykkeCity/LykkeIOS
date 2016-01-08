@@ -13,6 +13,7 @@
 #import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
+#import "LWCache.h"
 #import "LWFingerprintHelper.h"
 #import "Macro.h"
 
@@ -39,7 +40,6 @@
 
 #pragma mark - Utils
 
-- (void)requestOperation;
 - (void)validateUser;
 - (void)updateView;
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
@@ -77,7 +77,13 @@ static int const kDescriptionRows = 3;
 }
 
 - (IBAction)confirmClicked:(id)sender {
-    [self requestOperation];
+    // goes just if fingerpint unavailable
+    if ([LWCache instance].shouldSignOrder) {
+        [self.delegate validatePin];
+    }
+    else {
+        [self requestOperation];
+    }
 }
 
 
@@ -135,7 +141,9 @@ static int const kDescriptionRows = 3;
     [self setLoading:NO];
     
     // if fingerprint available - show confirmation view
-    [self validateUser];
+    if ([LWCache instance].shouldSignOrder) {
+        [self validateUser];
+    }
 }
 
 - (void)setLoading:(BOOL)loading {

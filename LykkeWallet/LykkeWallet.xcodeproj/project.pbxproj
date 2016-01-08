@@ -119,6 +119,8 @@
 		EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8A01C3FBF6F00CAC3FE /* LWFingerprintHelper.m */; };
 		EC3CE8A61C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8A51C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m */; };
 		EC3CE8A81C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8A71C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib */; };
+		EC3CE8AC1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */; };
+		EC3CE8AD1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -406,6 +408,9 @@
 		EC3CE8A41C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWSettingsConfirmationPresenter.h; path = Confirmation/LWSettingsConfirmationPresenter.h; sourceTree = "<group>"; };
 		EC3CE8A51C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWSettingsConfirmationPresenter.m; path = Confirmation/LWSettingsConfirmationPresenter.m; sourceTree = "<group>"; };
 		EC3CE8A71C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWSettingsConfirmationPresenter.xib; path = Confirmation/LWSettingsConfirmationPresenter.xib; sourceTree = "<group>"; };
+		EC3CE8A91C3FE26C00CAC3FE /* LWExchangePinConfirmation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangePinConfirmation.h; sourceTree = "<group>"; };
+		EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangePinConfirmation.m; sourceTree = "<group>"; };
+		EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangePinConfirmation.xib; sourceTree = "<group>"; };
 		EC51D1911C30514200550EF2 /* LWLykkeWalletsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeWalletsData.h; path = Wallets/LWLykkeWalletsData.h; sourceTree = "<group>"; };
 		EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeWalletsData.m; path = Wallets/LWLykkeWalletsData.m; sourceTree = "<group>"; };
 		EC51D1941C3054AA00550EF2 /* LWJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWJSONObject.h; sourceTree = "<group>"; };
@@ -833,6 +838,9 @@
 				EC7F05051C3EC54B0079ECD0 /* LWExchangeResultPresenter.h */,
 				EC7F05061C3EC54B0079ECD0 /* LWExchangeResultPresenter.m */,
 				EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */,
+				EC3CE8A91C3FE26C00CAC3FE /* LWExchangePinConfirmation.h */,
+				EC3CE8AA1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m */,
+				EC3CE8AB1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -1432,6 +1440,7 @@
 				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
 				EC24CC7A1C39786C00C2FDAA /* LWWalletConfirmPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
+				EC3CE8AD1C3FE26C00CAC3FE /* LWExchangePinConfirmation.xib in Resources */,
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
@@ -1557,6 +1566,7 @@
 				ECD1E8F81C3B17090064AAB3 /* LWAppSettingsModel.m in Sources */,
 				ECDA15E11C31C6F0003C071C /* LWPacketLog.m in Sources */,
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
+				EC3CE8AC1C3FE26C00CAC3FE /* LWExchangePinConfirmation.m in Sources */,
 				CD10AAA61C1E0C560086634B /* LWAuthenticationData.m in Sources */,
 				CDA69FDB1C281A5500BE4DCA /* LWPacketRegistrationGet.m in Sources */,
 				EC7519C91C3742B800CDDF5B /* LWPacketBaseAssetSet.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "LWAppSettingsModel.h"
 #import "LWAssetModel.h"
+#import "LWCache.h"
 
 
 @implementation LWAppSettingsModel
@@ -19,7 +20,10 @@
     self = [super initWithJSON:json];
     if (self) {
         _rateRefreshPeriod = [json objectForKey:@"RateRefreshPeriod"];
-        _baseAsset = [[LWAssetModel alloc] initWithJSON:json[@"BaseAsset"]];
+        _baseAsset         = [[LWAssetModel alloc] initWithJSON:json[@"BaseAsset"]];
+        _shouldSignOrders  = [[json objectForKey:@"SignOrder"] boolValue];
+        
+        [LWCache instance].shouldSignOrder = _shouldSignOrders;
     }
     return self;
 }
