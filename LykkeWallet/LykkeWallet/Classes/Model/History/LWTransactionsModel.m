@@ -7,7 +7,7 @@
 //
 
 #import "LWTransactionsModel.h"
-#import "LWAssetPurchaseModel.h"
+#import "LWTransactionMarketOrderModel.h"
 #import "LWTransactionCashInOutModel.h"
 
 
@@ -22,7 +22,7 @@
         // market orders
         NSMutableArray *market = [NSMutableArray new];
         for (NSDictionary *item in json[@"MarketOrders"]) {
-            [market addObject:[[LWAssetPurchaseModel alloc] initWithJSON:item]];
+            [market addObject:[[LWTransactionMarketOrderModel alloc] initWithJSON:item]];
         }
         _marketOrders = market;
         

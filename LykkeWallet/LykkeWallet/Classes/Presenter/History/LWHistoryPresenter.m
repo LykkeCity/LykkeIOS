@@ -10,6 +10,10 @@
 #import "LWHistoryTableViewCell.h"
 #import "LWAuthManager.h"
 #import "LWTransactionsModel.h"
+#import "LWHistoryManager.h"
+#import "LWBaseHistoryItemType.h"
+#import "LWMarketHistoryItemType.h"
+#import "LWCashInOutHistoryItemType.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
 
@@ -21,7 +25,12 @@
 
 #pragma mark - Properties
 
-@property (readonly, nonatomic) LWTransactionsModel *data;
+@property (readonly, nonatomic) NSDictionary *operations;
+
+
+#pragma mark - Utils
+
+- (void)updateCell:(LWHistoryTableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -34,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"history.title");
+    self.title = Localize(@"tab.history");
     
     [self registerCellWithIdentifier:kHistoryTableViewCellIdentifier
                              forName:kHistoryTableViewCell];
@@ -55,16 +64,20 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.operations ? self.operations.count : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    NSString *key = [[self.operations allKeys] objectAtIndex:section];
+    NSInteger const result = [self.operations[key] count];
+    return result;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
+    LWHistoryTableViewCell *cell = (LWHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kHistoryTableViewCellIdentifier];
+    [self updateCell:cell indexPath:indexPath];
+    
     return cell;
 }
 
@@ -72,7 +85,7 @@
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions {
-    _data = transactions;
+    _operations = [LWHistoryManager convertNetworkModel:transactions];
     
     [self setLoading:NO];
     [self.tableView reloadData];
@@ -80,6 +93,33 @@
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     [self showReject:reject];
+}
+
+
+#pragma mark - Utils
+
+- (void)updateCell:(LWHistoryTableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
+    NSString *key = [[self.operations allKeys] objectAtIndex:indexPath.section];
+    if (cell && key) {
+        NSSet *items = self.operations[key];
+        LWBaseHistoryItemType *item = (LWBaseHistoryItemType *)([[items allObjects] objectAtIndex:indexPath.row]);
+        if (item) {
+#warning TODO: get image from server
+            if (item.historyType == LWHistoryItemTypeMarket) {
+                LWMarketHistoryItemType *market = (LWMarketHistoryItemType *)item;
+                cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
+                cell.typeLabel.text = market.orderType;
+            }
+            else {
+                LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
+                cell.operationImageView.image = [UIImage imageNamed:@"WalletBanks"];
+                cell.typeLabel.text = @"Cash";
+            }
+            
+            cell.dateLabel.text = item.dateTime;
+            cell.valueLabel.text = @"2";
+        }
+    }
 }
 
 @end
