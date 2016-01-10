@@ -222,6 +222,11 @@
 		ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */; };
 		ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C31C354FA500F52971 /* LWPacketBankCards.m */; };
 		ECE902C71C35504200F52971 /* LWBankCardsAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C61C35504200F52971 /* LWBankCardsAdd.m */; };
+		ECEC40B61C4298CF00B22BEE /* LWHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40B51C4298CF00B22BEE /* LWHistoryTableViewCell.m */; };
+		ECEC40B81C4298DC00B22BEE /* LWHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEC40B71C4298DC00B22BEE /* LWHistoryTableViewCell.xib */; };
+		ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */; };
+		ECEC40BF1C42B2EB00B22BEE /* LWTransactionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */; };
+		ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -590,6 +595,15 @@
 		ECE902C31C354FA500F52971 /* LWPacketBankCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketBankCards.m; sourceTree = "<group>"; };
 		ECE902C51C35504200F52971 /* LWBankCardsAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWBankCardsAdd.h; path = Wallets/LWBankCardsAdd.h; sourceTree = "<group>"; };
 		ECE902C61C35504200F52971 /* LWBankCardsAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBankCardsAdd.m; path = Wallets/LWBankCardsAdd.m; sourceTree = "<group>"; };
+		ECEC40B41C4298CF00B22BEE /* LWHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWHistoryTableViewCell.h; path = History/LWHistoryTableViewCell.h; sourceTree = "<group>"; };
+		ECEC40B51C4298CF00B22BEE /* LWHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWHistoryTableViewCell.m; path = History/LWHistoryTableViewCell.m; sourceTree = "<group>"; };
+		ECEC40B71C4298DC00B22BEE /* LWHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWHistoryTableViewCell.xib; path = History/LWHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		ECEC40B91C42B06700B22BEE /* LWPacketTransactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketTransactions.h; sourceTree = "<group>"; };
+		ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketTransactions.m; sourceTree = "<group>"; };
+		ECEC40BD1C42B2EB00B22BEE /* LWTransactionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionsModel.h; path = History/LWTransactionsModel.h; sourceTree = "<group>"; };
+		ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionsModel.m; path = History/LWTransactionsModel.m; sourceTree = "<group>"; };
+		ECEC40C61C42B38100B22BEE /* LWTransactionCashInOutModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionCashInOutModel.h; path = History/LWTransactionCashInOutModel.h; sourceTree = "<group>"; };
+		ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionCashInOutModel.m; path = History/LWTransactionCashInOutModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -720,6 +734,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECEC40BC1C42B2C400B22BEE /* History */,
 				ECD1E8F51C3B16E40064AAB3 /* Settings */,
 				EC7519C31C373A1900CDDF5B /* Assets */,
 				EC51D1901C3050E100550EF2 /* Wallets */,
@@ -747,6 +762,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECEC40B31C4298AB00B22BEE /* History */,
 				EC7F04FF1C3EA8340079ECD0 /* TableCells */,
 				ECD1E9081C3BDE700064AAB3 /* Assets */,
 				EC24CC6F1C3937C600C2FDAA /* TextFields */,
@@ -1059,6 +1075,8 @@
 				EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */,
 				EC3CE8B61C401E2E00CAC3FE /* LWPacketBlockchainTransaction.h */,
 				EC3CE8B71C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m */,
+				ECEC40B91C42B06700B22BEE /* LWPacketTransactions.h */,
+				ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1374,6 +1392,27 @@
 			name = WalletForm;
 			sourceTree = "<group>";
 		};
+		ECEC40B31C4298AB00B22BEE /* History */ = {
+			isa = PBXGroup;
+			children = (
+				ECEC40B41C4298CF00B22BEE /* LWHistoryTableViewCell.h */,
+				ECEC40B51C4298CF00B22BEE /* LWHistoryTableViewCell.m */,
+				ECEC40B71C4298DC00B22BEE /* LWHistoryTableViewCell.xib */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		ECEC40BC1C42B2C400B22BEE /* History */ = {
+			isa = PBXGroup;
+			children = (
+				ECEC40BD1C42B2EB00B22BEE /* LWTransactionsModel.h */,
+				ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */,
+				ECEC40C61C42B38100B22BEE /* LWTransactionCashInOutModel.h */,
+				ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1481,6 +1520,7 @@
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
 				EC7A45D81C309A6200926BB4 /* LWLykkeTableViewCell.xib in Resources */,
+				ECEC40B81C4298DC00B22BEE /* LWHistoryTableViewCell.xib in Resources */,
 				EC57F4721C3D520600E31746 /* LWAssetBuySumTableViewCell.xib in Resources */,
 				CF21DC8E1C17590E00D2399E /* LaunchScreen.storyboard in Resources */,
 				EC3CE8B21C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib in Resources */,
@@ -1636,6 +1676,7 @@
 				CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */,
 				CFF7584B1C202D1100BC7658 /* LWKYCSuccessPresenter.m in Sources */,
 				CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */,
+				ECEC40B61C4298CF00B22BEE /* LWHistoryTableViewCell.m in Sources */,
 				EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */,
 				EC7519C61C373A4900CDDF5B /* LWAssetModel.m in Sources */,
 				CF68775A1C234A9800E7A7D9 /* LWAuthPINEnterPresenter.m in Sources */,
@@ -1664,6 +1705,7 @@
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
+				ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */,
 				ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */,
@@ -1688,6 +1730,7 @@
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
+				ECEC40BF1C42B2EB00B22BEE /* LWTransactionsModel.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
 				EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */,
 				ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */,
@@ -1706,6 +1749,7 @@
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				EC7A45D11C309A2B00926BB4 /* LWBanksTableViewCell.m in Sources */,
 				EC57F44A1C3C18EA00E31746 /* LWCache.m in Sources */,
+				ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				EC57F44D1C3C35B100E31746 /* LWPacketAssetDescription.m in Sources */,
 				EC24CC851C399A8600C2FDAA /* LWWalletPagePresenter.m in Sources */,

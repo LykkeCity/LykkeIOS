@@ -7,6 +7,7 @@
 //
 
 #import "LWWalletsPresenter.h"
+#import "LWHistoryPresenter.h"
 #import "LWAuthManager.h"
 #import "LWLykkeWalletsData.h"
 #import "LWLykkeData.h"
@@ -35,6 +36,12 @@ static NSInteger const kSectionBankCards    = 1;
 #pragma mark - Properties
 
 @property (readonly, nonatomic) LWLykkeWalletsData *data;
+
+
+#pragma mark - Utils
+
+- (void)expandTable:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+- (NSString *)assetIdentifyForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -186,11 +193,45 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    // react just for headers
+    // show history for selected asset
     if (indexPath.row != 0) {
-        return;
+        
+        LWHistoryPresenter *history = [LWHistoryPresenter new];
+        history.assetId = [self assetIdentifyForIndexPath:indexPath];
+        history.shouldGoBack = YES;
+        [self.navigationController pushViewController:history animated:YES];
     }
+    // expand / close wallet
+    else {
+        [self expandTable:tableView indexPath:indexPath];
+    }
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data {
+    _data = data;
     
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - LWBanksTableViewCellDelegate
+
+- (void)addWalletClicked:(LWBanksTableViewCell *)cell {
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    if (path && path.section == kSectionBankCards) {
+        LWWalletFormPresenter *form = [LWWalletFormPresenter new];
+        form.bankCards = self.data.bankCards;
+        [self.navigationController pushViewController:form animated:YES];
+    }
+}
+
+
+#pragma mark - Utils
+
+- (void)expandTable:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     // only first row toggles exapand/collapse
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -230,25 +271,33 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     }
 }
 
-
-#pragma mark - LWAuthManagerDelegate
-
-- (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data {
-    _data = data;
-    
-    [self.tableView reloadData];
-}
-
-
-#pragma mark - LWBanksTableViewCellDelegate
-
-- (void)addWalletClicked:(LWBanksTableViewCell *)cell {
-    NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    if (path && path.section == kSectionBankCards) {
-        LWWalletFormPresenter *form = [LWWalletFormPresenter new];
-        form.bankCards = self.data.bankCards;
-        [self.navigationController pushViewController:form animated:YES];
+- (NSString *)assetIdentifyForIndexPath:(NSIndexPath *)indexPath {
+    // Lykke cells
+    if (indexPath.section == kSectionLykkeWallets) {
+        if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
+            if (self.data.lykkeData.assets.count > 0) {
+                LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+                return asset.identity;
+            }
+            else {
+                return nil;
+            }
+        }
     }
+    // Banks cells
+    else if (indexPath.section == kSectionBankCards) {
+        if (self.data && self.data.bankCards) {
+            // Show Banks Wallets
+            if (self.data.bankCards.count > 0) {
+                LWBankCardsData *card = (LWBankCardsData *)self.data.bankCards[indexPath.row - 1];
+                return card.identity;
+            }
+            else {
+                return nil;
+            }
+        }
+    }
+    return nil;
 }
 
 @end

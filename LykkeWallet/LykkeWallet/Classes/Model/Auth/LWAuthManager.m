@@ -33,6 +33,7 @@
 #import "LWPacketPurchaseAsset.h"
 #import "LWPacketSettingSignOrder.h"
 #import "LWPacketBlockchainTransaction.h"
+#import "LWPacketTransactions.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -257,6 +258,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestTransactions:(NSString *)assetId {
+    LWPacketTransactions *pack = [LWPacketTransactions new];
+    pack.assetId = assetId;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -432,6 +440,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketBlockchainTransaction.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didGetBlockchainTransaction:)]) {
             [self.delegate authManager:self didGetBlockchainTransaction:((LWPacketBlockchainTransaction *)pack).blockchain];
+        }
+    }
+    else if (pack.class == LWPacketTransactions.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveTransactions:)]) {
+            [self.delegate authManager:self didReceiveTransactions:((LWPacketTransactions *)pack).model];
         }
     }
 }

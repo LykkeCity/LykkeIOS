@@ -126,6 +126,8 @@
 "settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";
 
+"history.title" = "История операций";
+
 "ABPadLockScreen.pin.enter" = "Введите PIN";
 "ABPadLockScreen.pin.setup" = "Задайте новый PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Повторно введите PIN";

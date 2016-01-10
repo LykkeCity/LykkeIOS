@@ -7,11 +7,21 @@
 //
 
 #import "LWHistoryPresenter.h"
+#import "LWHistoryTableViewCell.h"
+#import "LWAuthManager.h"
+#import "LWTransactionsModel.h"
+#import "UIViewController+Loading.h"
+#import "UIViewController+Navigation.h"
 
 
 @interface LWHistoryPresenter () {
     
 }
+
+
+#pragma mark - Properties
+
+@property (readonly, nonatomic) LWTransactionsModel *data;
 
 @end
 
@@ -24,29 +34,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"tab.history");
+    self.title = Localize(@"history.title");
+    
+    [self registerCellWithIdentifier:kHistoryTableViewCellIdentifier
+                             forName:kHistoryTableViewCell];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.shouldGoBack) {
+        [self setBackButton];
+    }
+    
+    [self setLoading:YES];
+    [[LWAuthManager instance] requestTransactions:self.assetId];
 }
 
 
-#pragma mark - Just for demo
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"test";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:cellIdentifier];
-        [cell.textLabel setText:@"History"];
-    }
-    
+    UITableViewCell *cell = nil;
     return cell;
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions {
+    _data = transactions;
+    
+    [self setLoading:NO];
+    [self.tableView reloadData];
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject];
 }
 
 @end

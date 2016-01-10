@@ -126,6 +126,8 @@
 "settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";
 
+"history.title" = "HISTORY OF TRANSACTIONS";
+
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Re-enter PIN";

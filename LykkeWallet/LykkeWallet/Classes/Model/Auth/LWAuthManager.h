@@ -21,6 +21,7 @@
 @class LWAssetDescriptionModel;
 @class LWAssetPurchaseModel;
 @class LWAssetBlockchainModel;
+@class LWTransactionsModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -52,6 +53,7 @@
 - (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(LWAssetPurchaseModel *)purchase;
 - (void)authManagerDidSetSignOrders:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain;
+- (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions;
 
 @end
 
@@ -98,6 +100,7 @@ SINGLETON_DECLARE
 - (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
 - (void)requestSignOrders:(BOOL)shouldSignOrders;
 - (void)requestBlockchainTransaction:(NSString *)orderId;
+- (void)requestTransactions:(NSString *)assetId;
 
 
 #pragma mark - Static methods

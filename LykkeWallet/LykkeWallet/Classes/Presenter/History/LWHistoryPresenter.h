@@ -13,4 +13,10 @@
     
 }
 
+
+#pragma mark - Properties
+
+@property (copy,   nonatomic) NSString *assetId;
+@property (assign, nonatomic) BOOL shouldGoBack;
+
 @end
