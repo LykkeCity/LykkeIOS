@@ -127,6 +127,10 @@
 "settings.cell.asset.title" = "Базовая валюта";
 
 "history.title" = "История операций";
+"history.market.buy" = "Попкупка";
+"history.market.sell" = "Продажа";
+"history.cash.in" = "Пополнение";
+"history.cash.out" = "Снятие";
 
 "ABPadLockScreen.pin.enter" = "Введите PIN";
 "ABPadLockScreen.pin.setup" = "Задайте новый PIN";

@@ -13,6 +13,7 @@
 #import "LWMarketHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
 
+
 @implementation LWHistoryManager
 
 // nsdictionary:
@@ -25,7 +26,7 @@
     if (model && model.marketOrders) {
         for (LWTransactionMarketOrderModel *marketOperation in model.marketOrders) {
             if (![result objectForKey:marketOperation.dateTime]) {
-                result[marketOperation.dateTime] = [NSMutableSet new];
+                result[marketOperation.dateTime] = [NSMutableArray new];
             }
             LWMarketHistoryItemType *item = [LWMarketHistoryItemType convertFromNetworkModel:marketOperation];
             [result[marketOperation.dateTime] addObject:item];
@@ -36,17 +37,23 @@
     if (model && model.cashInOut) {
         for (LWTransactionCashInOutModel *cashInOutOperations in model.cashInOut) {
             if (![result objectForKey:cashInOutOperations.dateTime]) {
-                result[cashInOutOperations.dateTime] = [NSMutableSet new];
+                result[cashInOutOperations.dateTime] = [NSMutableArray new];
             }
             LWCashInOutHistoryItemType *item = [LWCashInOutHistoryItemType convertFromNetworkModel:cashInOutOperations];
             [result[cashInOutOperations.dateTime] addObject:item];
         }
     }
     
-    // sorting
-#warning TODO: sorting
-    
     return result;
+}
+
++ (NSArray *)sortKeys:(NSDictionary *)dictionary {
+    // sorting
+    NSArray *sortedKeys = [[dictionary allKeys] sortedArrayUsingComparator:
+                           ^(NSDate *d1, NSDate *d2) {
+                               return [d2 compare:d1];
+                           }];
+    return sortedKeys;
 }
 
 @end

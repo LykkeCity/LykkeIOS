@@ -13,6 +13,6 @@
     
 }
 
-@property (readonly, nonatomic) NSString *dateTime;
+@property (readonly, nonatomic) NSDate *dateTime;
 
 @end

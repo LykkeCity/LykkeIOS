@@ -17,5 +17,6 @@
 }
 
 + (NSDictionary *)convertNetworkModel:(LWTransactionsModel *)model;
++ (NSArray *)sortKeys:(NSDictionary *)dictionary;
 
 @end

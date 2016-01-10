@@ -127,6 +127,10 @@
 "settings.cell.asset.title" = "Base asset";
 
 "history.title" = "HISTORY OF TRANSACTIONS";
+"history.market.buy" = "Buy trade";
+"history.market.sell" = "Sell trade";
+"history.cash.in" = "Wallet cash in";
+"history.cash.out" = "Wallet cash out";
 
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";

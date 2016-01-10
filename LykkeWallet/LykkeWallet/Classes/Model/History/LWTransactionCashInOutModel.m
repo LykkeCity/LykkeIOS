@@ -7,6 +7,7 @@
 //
 
 #import "LWTransactionCashInOutModel.h"
+#import "NSString+Date.h"
 
 
 @implementation LWTransactionCashInOutModel
@@ -19,7 +20,8 @@
     if (self) {
         _identity = [json objectForKey:@"Id"];
         _amount   = [json objectForKey:@"Amount"];
-        _dateTime = [json objectForKey:@"DateTime"];
+        NSString *date = [json objectForKey:@"DateTime"];
+        _dateTime = [date toDate];
     }
     return self;
 }

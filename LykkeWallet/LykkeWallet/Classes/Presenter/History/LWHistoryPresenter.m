@@ -14,8 +14,12 @@
 #import "LWBaseHistoryItemType.h"
 #import "LWMarketHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
+#import "LWConstants.h"
+#import "LWMath.h"
+#import "LWCache.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
+#import "NSDate+String.h"
 
 
 @interface LWHistoryPresenter () {
@@ -26,7 +30,7 @@
 #pragma mark - Properties
 
 @property (readonly, nonatomic) NSDictionary *operations;
-
+@property (readonly, nonatomic) NSArray      *sortedKeys;
 
 #pragma mark - Utils
 
@@ -64,11 +68,11 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.operations ? self.operations.count : 0;
+    return self.sortedKeys ? self.sortedKeys.count : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *key = [[self.operations allKeys] objectAtIndex:section];
+    NSString *key = [self.sortedKeys objectAtIndex:section];
     NSInteger const result = [self.operations[key] count];
     return result;
 }
@@ -86,6 +90,7 @@
 
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions {
     _operations = [LWHistoryManager convertNetworkModel:transactions];
+    _sortedKeys = [LWHistoryManager sortKeys:_operations];
     
     [self setLoading:NO];
     [self.tableView reloadData];
@@ -99,25 +104,43 @@
 #pragma mark - Utils
 
 - (void)updateCell:(LWHistoryTableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
-    NSString *key = [[self.operations allKeys] objectAtIndex:indexPath.section];
+    NSString *key = [self.sortedKeys objectAtIndex:indexPath.section];
     if (cell && key) {
-        NSSet *items = self.operations[key];
-        LWBaseHistoryItemType *item = (LWBaseHistoryItemType *)([[items allObjects] objectAtIndex:indexPath.row]);
+        NSArray *items = self.operations[key];
+        LWBaseHistoryItemType *item = (LWBaseHistoryItemType *)([items objectAtIndex:indexPath.row]);
         if (item) {
+            NSNumber *volume = [NSNumber numberWithInt:0];
+            NSString *operation = @"";
 #warning TODO: get image from server
             if (item.historyType == LWHistoryItemTypeMarket) {
                 LWMarketHistoryItemType *market = (LWMarketHistoryItemType *)item;
                 cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
-                cell.typeLabel.text = market.orderType;
+                volume = market.volume;
+                operation = (volume.intValue >= 0
+                             ? Localize(@"history.market.sell")
+                             : Localize(@"history.market.buy"));
             }
             else {
                 LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
                 cell.operationImageView.image = [UIImage imageNamed:@"WalletBanks"];
-                cell.typeLabel.text = @"Cash";
+                volume = cash.amount;
+                operation = (volume.intValue >= 0
+                             ? Localize(@"history.cash.in")
+                             : Localize(@"history.cash.out"));
             }
+
+            // prepare value label
+            NSString *sign = (volume.doubleValue >= 0.0) ? @"+" : @"";
+            NSString *changeString = [LWMath priceString:volume precision:[NSNumber numberWithInt:0] withPrefix:sign];
             
-            cell.dateLabel.text = item.dateTime;
-            cell.valueLabel.text = @"2";
+            UIColor *changeColor = (volume.doubleValue >= 0.0)
+            ? [UIColor colorWithHexString:kAssetChangePlusColor]
+            : [UIColor colorWithHexString:kAssetChangeMinusColor];
+            cell.valueLabel.textColor = changeColor;
+            cell.valueLabel.text = changeString;
+            
+            cell.typeLabel.text = operation;
+            cell.dateLabel.text = [item.dateTime toShortFormat];
         }
     }
 }

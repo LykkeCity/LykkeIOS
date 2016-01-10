@@ -24,6 +24,6 @@ typedef NS_ENUM(NSInteger, LWHistoryItemType) {
 
 @property (assign, nonatomic) LWHistoryItemType  historyType;
 @property (copy,   nonatomic) NSString          *identity;
-@property (copy,   nonatomic) NSString          *dateTime;
+@property (copy,   nonatomic) NSDate            *dateTime;
 
 @end
