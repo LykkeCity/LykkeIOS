@@ -7,7 +7,7 @@
 //
 
 #import "LWPacketMarketOrder.h"
-#import "LWAssetPurchaseModel.h"
+#import "LWAssetDealModel.h"
 
 
 @implementation LWPacketMarketOrder
@@ -21,7 +21,7 @@
     if (self.isRejected) {
         return;
     }
-    _model = [[LWAssetPurchaseModel alloc] initWithJSON:result[@"MarketOrder"]];
+    _model = [[LWAssetDealModel alloc] initWithJSON:result[@"MarketOrder"]];
 }
 
 - (NSString *)urlRelative {

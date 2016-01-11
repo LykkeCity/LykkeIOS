@@ -50,6 +50,7 @@ static float     const kButtonFontSize  = 15.0;
 static NSString *const kButtonFontName  = kFontSemibold;
 static NSString *const kDisabledButtonFontColor = @"D6D6D6";
 static NSString *const kEnabledButtonFontColor = @"FFFFFF";
+static NSString *const kSellAssetButtonColor = @"FF3E2E";
 
 
 #pragma mark - Text Field Constants

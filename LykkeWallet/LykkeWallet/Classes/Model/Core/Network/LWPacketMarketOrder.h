@@ -9,7 +9,7 @@
 #import "LWAuthorizePacket.h"
 
 
-@class LWAssetPurchaseModel;
+@class LWAssetDealModel;
 
 
 @interface LWPacketMarketOrder : LWAuthorizePacket {
@@ -18,6 +18,6 @@
 // in
 @property (assign, nonatomic) NSString *orderId;
 // out
-@property (readonly, nonatomic) LWAssetPurchaseModel* model;
+@property (readonly, nonatomic) LWAssetDealModel* model;
 
 @end

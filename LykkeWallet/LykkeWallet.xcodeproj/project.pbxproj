@@ -115,7 +115,7 @@
 		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */; };
 		EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37ED191C3A817D002379DD /* LWStringUtils.m */; };
-		EC3CE89E1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */; };
+		EC3CE89E1C3FB6CC00CAC3FE /* LWAssetDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE89D1C3FB6CC00CAC3FE /* LWAssetDealModel.m */; };
 		EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8A01C3FBF6F00CAC3FE /* LWFingerprintHelper.m */; };
 		EC3CE8A61C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8A51C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m */; };
 		EC3CE8A81C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8A71C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib */; };
@@ -180,7 +180,7 @@
 		EC7A45E01C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */; };
 		EC7F04F91C3E75CA0079ECD0 /* LWExchangeConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */; };
 		EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */; };
-		EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */; };
+		EC7F04FE1C3E86760079ECD0 /* LWPacketBuySellAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F04FD1C3E86760079ECD0 /* LWPacketBuySellAsset.m */; };
 		EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05011C3EA8810079ECD0 /* LWDetailTableViewCell.m */; };
 		EC7F05041C3EA8950079ECD0 /* LWDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */; };
 		EC7F05081C3EC54B0079ECD0 /* LWExchangeResultPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05061C3EC54B0079ECD0 /* LWExchangeResultPresenter.m */; };
@@ -422,8 +422,8 @@
 		EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocumentBin.m; sourceTree = "<group>"; };
 		EC37ED181C3A817D002379DD /* LWStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStringUtils.h; sourceTree = "<group>"; };
 		EC37ED191C3A817D002379DD /* LWStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStringUtils.m; sourceTree = "<group>"; };
-		EC3CE89C1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPurchaseModel.h; path = Assets/LWAssetPurchaseModel.h; sourceTree = "<group>"; };
-		EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPurchaseModel.m; path = Assets/LWAssetPurchaseModel.m; sourceTree = "<group>"; };
+		EC3CE89C1C3FB6CC00CAC3FE /* LWAssetDealModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetDealModel.h; path = Assets/LWAssetDealModel.h; sourceTree = "<group>"; };
+		EC3CE89D1C3FB6CC00CAC3FE /* LWAssetDealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetDealModel.m; path = Assets/LWAssetDealModel.m; sourceTree = "<group>"; };
 		EC3CE89F1C3FBF6F00CAC3FE /* LWFingerprintHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWFingerprintHelper.h; path = Security/LWFingerprintHelper.h; sourceTree = "<group>"; };
 		EC3CE8A01C3FBF6F00CAC3FE /* LWFingerprintHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWFingerprintHelper.m; path = Security/LWFingerprintHelper.m; sourceTree = "<group>"; };
 		EC3CE8A41C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWSettingsConfirmationPresenter.h; path = Confirmation/LWSettingsConfirmationPresenter.h; sourceTree = "<group>"; };
@@ -530,8 +530,8 @@
 		EC7F04F71C3E75CA0079ECD0 /* LWExchangeConfirmationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeConfirmationView.h; sourceTree = "<group>"; };
 		EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeConfirmationView.m; sourceTree = "<group>"; };
 		EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeConfirmationView.xib; sourceTree = "<group>"; };
-		EC7F04FC1C3E86760079ECD0 /* LWPacketPurchaseAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPurchaseAsset.h; sourceTree = "<group>"; };
-		EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPurchaseAsset.m; sourceTree = "<group>"; };
+		EC7F04FC1C3E86760079ECD0 /* LWPacketBuySellAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketBuySellAsset.h; sourceTree = "<group>"; };
+		EC7F04FD1C3E86760079ECD0 /* LWPacketBuySellAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketBuySellAsset.m; sourceTree = "<group>"; };
 		EC7F05001C3EA8810079ECD0 /* LWDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWDetailTableViewCell.h; path = TableCells/LWDetailTableViewCell.h; sourceTree = "<group>"; };
 		EC7F05011C3EA8810079ECD0 /* LWDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWDetailTableViewCell.m; path = TableCells/LWDetailTableViewCell.m; sourceTree = "<group>"; };
 		EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWDetailTableViewCell.xib; path = TableCells/LWDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -1094,8 +1094,8 @@
 				ECD1E8FA1C3B181F0064AAB3 /* LWPacketAppSettings.m */,
 				EC57F44B1C3C35B000E31746 /* LWPacketAssetDescription.h */,
 				EC57F44C1C3C35B000E31746 /* LWPacketAssetDescription.m */,
-				EC7F04FC1C3E86760079ECD0 /* LWPacketPurchaseAsset.h */,
-				EC7F04FD1C3E86760079ECD0 /* LWPacketPurchaseAsset.m */,
+				EC7F04FC1C3E86760079ECD0 /* LWPacketBuySellAsset.h */,
+				EC7F04FD1C3E86760079ECD0 /* LWPacketBuySellAsset.m */,
 				EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */,
 				EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */,
 				EC3CE8B61C401E2E00CAC3FE /* LWPacketBlockchainTransaction.h */,
@@ -1291,8 +1291,8 @@
 				ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */,
 				EC57F44E1C3C377300E31746 /* LWAssetDescriptionModel.h */,
 				EC57F44F1C3C377300E31746 /* LWAssetDescriptionModel.m */,
-				EC3CE89C1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.h */,
-				EC3CE89D1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m */,
+				EC3CE89C1C3FB6CC00CAC3FE /* LWAssetDealModel.h */,
+				EC3CE89D1C3FB6CC00CAC3FE /* LWAssetDealModel.m */,
 				EC3CE8B31C401CD200CAC3FE /* LWAssetBlockchainModel.h */,
 				EC3CE8B41C401CD200CAC3FE /* LWAssetBlockchainModel.m */,
 			);
@@ -1791,8 +1791,8 @@
 				EC3CE8B11C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m in Sources */,
 				CDCD5B131C26C92A007BAD78 /* LWRegisterPhonePresenter.m in Sources */,
 				EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */,
-				EC7F04FE1C3E86760079ECD0 /* LWPacketPurchaseAsset.m in Sources */,
-				EC3CE89E1C3FB6CC00CAC3FE /* LWAssetPurchaseModel.m in Sources */,
+				EC7F04FE1C3E86760079ECD0 /* LWPacketBuySellAsset.m in Sources */,
+				EC3CE89E1C3FB6CC00CAC3FE /* LWAssetDealModel.m in Sources */,
 				ECD1E8FB1C3B181F0064AAB3 /* LWPacketAppSettings.m in Sources */,
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,

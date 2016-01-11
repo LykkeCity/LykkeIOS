@@ -1,5 +1,5 @@
 //
-//  LWPacketPurchaseAsset.h
+//  LWPacketBuySellAsset.h
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 07.01.16.
@@ -9,10 +9,10 @@
 #import "LWAuthorizePacket.h"
 
 
-@class LWAssetPurchaseModel;
+@class LWAssetDealModel;
 
 
-@interface LWPacketPurchaseAsset : LWAuthorizePacket {
+@interface LWPacketBuySellAsset : LWAuthorizePacket {
     
 }
 // in
@@ -21,6 +21,6 @@
 @property (copy, nonatomic) NSNumber *volume;
 @property (copy, nonatomic) NSNumber *rate;
 // out
-@property (readonly, nonatomic) LWAssetPurchaseModel *purchase;
+@property (readonly, nonatomic) LWAssetDealModel *deal;
 
 @end

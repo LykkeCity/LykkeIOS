@@ -184,7 +184,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     });
 }
 
-- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(LWAssetPurchaseModel *)purchase {
+- (void)authManager:(LWAuthManager *)manager didReceiveDealResponse:(LWAssetDealModel *)purchase {
     if (confirmationView) {
         [confirmationView setLoading:NO];
         [confirmationView removeFromSuperview];

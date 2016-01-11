@@ -6,13 +6,11 @@
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWAssetPurchaseModel.h"
+#import "LWAssetDealModel.h"
 
 
-@interface LWTransactionMarketOrderModel : LWAssetPurchaseModel {
+@interface LWTransactionMarketOrderModel : LWAssetDealModel {
     
 }
-
-@property (readonly, nonatomic) NSDate *dateTime;
 
 @end

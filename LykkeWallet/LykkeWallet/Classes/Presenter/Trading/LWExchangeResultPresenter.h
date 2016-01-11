@@ -10,7 +10,7 @@
 
 
 @class LWAssetPairModel;
-@class LWAssetPurchaseModel;
+@class LWAssetDealModel;
 
 
 @interface LWExchangeResultPresenter : LWAuthComplexPresenter {
@@ -20,7 +20,7 @@
 
 #pragma mark - Properties
 
-@property (strong, nonatomic) LWAssetPairModel     *assetPair;
-@property (strong, nonatomic) LWAssetPurchaseModel *purchase;
+@property (strong, nonatomic) LWAssetPairModel *assetPair;
+@property (strong, nonatomic) LWAssetDealModel *purchase;
 
 @end

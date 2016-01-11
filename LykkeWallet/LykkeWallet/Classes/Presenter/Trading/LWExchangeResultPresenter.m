@@ -10,7 +10,7 @@
 #import "LWExchangeBlockchainPresenter.h"
 #import "LWLeftDetailTableViewCell.h"
 #import "LWAssetPairModel.h"
-#import "LWAssetPurchaseModel.h"
+#import "LWAssetDealModel.h"
 #import "LWConstants.h"
 #import "LWMath.h"
 #import "LWAuthManager.h"
@@ -193,7 +193,7 @@ static int const kBlockchainRow = 5;
     [self updateStatus];
 }
 
-- (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetPurchaseModel *)purchase {
+- (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)purchase {
     self.purchase = purchase;
     
     [self updateStatus];

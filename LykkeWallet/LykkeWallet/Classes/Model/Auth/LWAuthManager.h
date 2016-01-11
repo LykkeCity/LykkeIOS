@@ -19,7 +19,7 @@
 @class LWAssetPairRateModel;
 @class LWAppSettingsModel;
 @class LWAssetDescriptionModel;
-@class LWAssetPurchaseModel;
+@class LWAssetDealModel;
 @class LWAssetBlockchainModel;
 @class LWTransactionsModel;
 @class LWTransactionMarketOrderModel;
@@ -51,11 +51,11 @@
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRates:(NSArray *)assetPairRates;
 - (void)authManager:(LWAuthManager *)manager didGetAssetDescription:(LWAssetDescriptionModel *)assetDescription;
 - (void)authManager:(LWAuthManager *)manager didGetAppSettings:(LWAppSettingsModel *)appSettings;
-- (void)authManager:(LWAuthManager *)manager didReceivePurchaseResponse:(LWAssetPurchaseModel *)purchase;
+- (void)authManager:(LWAuthManager *)manager didReceiveDealResponse:(LWAssetDealModel *)purchase;
 - (void)authManagerDidSetSignOrders:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions;
-- (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetPurchaseModel *)marketOrder;
+- (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)marketOrder;
 
 @end
 
@@ -100,6 +100,7 @@ SINGLETON_DECLARE
 - (void)requestAssetDescription:(NSString *)assetId;
 - (void)requestAppSettings;
 - (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
+- (void)requestSellAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
 - (void)requestSignOrders:(BOOL)shouldSignOrders;
 - (void)requestBlockchainTransaction:(NSString *)orderId;
 - (void)requestTransactions:(NSString *)assetId;

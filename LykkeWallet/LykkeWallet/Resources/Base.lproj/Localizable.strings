@@ -63,6 +63,7 @@
 "utils.ok" = "OK";
 "utils.error" = "Error";
 
+"wallets.general.sell" = "Sell";
 "wallets.cardform.title" = "ADDED CARDS";
 "wallets.cardform.card.number.placeholder" = "Card number";
 "wallets.cardform.card.expire.placeholder" = "M/Y";

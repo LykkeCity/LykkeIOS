@@ -63,6 +63,7 @@
 "utils.ok" = "OK";
 "utils.error" = "Ошибка";
 
+"wallets.general.sell" = "Продать";
 "wallets.cardform.title" = "ДОБАВЛЕННЫЕ КАРТЫ";
 "wallets.cardform.card.number.placeholder" = "Номер карты";
 "wallets.cardform.card.expire.placeholder" = "М/Г";

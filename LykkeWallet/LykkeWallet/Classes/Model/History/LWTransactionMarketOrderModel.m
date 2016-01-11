@@ -7,7 +7,6 @@
 //
 
 #import "LWTransactionMarketOrderModel.h"
-#import "NSString+Date.h"
 
 
 @implementation LWTransactionMarketOrderModel
@@ -18,8 +17,6 @@
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self) {
-        NSString *date = [json objectForKey:@"DateTime"];
-        _dateTime = [date toDate];
     }
     return self;
 }

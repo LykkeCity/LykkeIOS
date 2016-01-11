@@ -30,7 +30,7 @@
 #import "LWPacketAssetPairRates.h"
 #import "LWPacketAppSettings.h"
 #import "LWPacketAssetDescription.h"
-#import "LWPacketPurchaseAsset.h"
+#import "LWPacketBuySellAsset.h"
 #import "LWPacketSettingSignOrder.h"
 #import "LWPacketBlockchainTransaction.h"
 #import "LWPacketTransactions.h"
@@ -40,7 +40,7 @@
 #import "LWBankCardsAdd.h"
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
-#import "LWAssetPurchaseModel.h"
+#import "LWAssetDealModel.h"
 #import "LWAssetBlockchainModel.h"
 
 
@@ -236,13 +236,17 @@ SINGLETON_INIT {
 }
 
 - (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate {
-    LWPacketPurchaseAsset *pack = [LWPacketPurchaseAsset new];
+    LWPacketBuySellAsset *pack = [LWPacketBuySellAsset new];
     pack.baseAsset = asset;
     pack.assetPair = assetPair;
     pack.volume    = volume;
     pack.rate      = rate;
     
     [self sendPacket:pack];
+}
+
+- (void)requestSellAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate {
+    
 }
 
 - (void)requestSignOrders:(BOOL)shouldSignOrders {
@@ -435,9 +439,9 @@ SINGLETON_INIT {
             [self.delegate authManager:self didGetAppSettings:((LWPacketAppSettings *)pack).appSettings];
         }
     }
-    else if (pack.class == LWPacketPurchaseAsset.class) {
-        if ([self.delegate respondsToSelector:@selector(authManager:didReceivePurchaseResponse:)]) {
-            [self.delegate authManager:self didReceivePurchaseResponse:((LWPacketPurchaseAsset *)pack).purchase];
+    else if (pack.class == LWPacketBuySellAsset.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveDealResponse:)]) {
+            [self.delegate authManager:self didReceiveDealResponse:((LWPacketBuySellAsset *)pack).deal];
         }
     }
     else if (pack.class == LWPacketSettingSignOrder.class) {

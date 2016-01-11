@@ -18,6 +18,7 @@
 #import "LWBanksTableViewCell.h"
 #import "LWAuthNavigationController.h"
 #import "LWWalletFormPresenter.h"
+#import "LWConstants.h"
 
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
@@ -205,6 +206,34 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     else {
         [self expandTable:tableView indexPath:indexPath];
     }
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *sell = [UITableViewRowAction
+                                  rowActionWithStyle:UITableViewRowActionStyleDefault
+                                  title:Localize(@"wallets.general.sell")
+                                  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+#warning TODO:
+                                      // Respond to the action.
+                                  }];
+    sell.backgroundColor = [UIColor colorWithHexString:kSellAssetButtonColor];
+    return @[sell];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row != 0) {
+        if (indexPath.section == kSectionLykkeWallets) {
+            return (self.data.lykkeData.assets.count > 0);
+        }
+        else if (indexPath.section == kSectionBankCards) {
+            return (self.data.bankCards.count > 0);
+        }
+    }
+    return NO;
 }
 
 

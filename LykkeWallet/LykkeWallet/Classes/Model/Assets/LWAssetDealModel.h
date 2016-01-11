@@ -1,5 +1,5 @@
 //
-//  LWAssetPurchaseModel.h
+//  LWAssetDealModel.h
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 08.01.16.
@@ -9,7 +9,7 @@
 #import "LWJSONObject.h"
 
 
-@interface LWAssetPurchaseModel : LWJSONObject {
+@interface LWAssetDealModel : LWJSONObject {
     
 }
 
@@ -17,6 +17,7 @@
 #pragma mark - Properties
 
 @property (readonly, nonatomic) NSString *identity;
+@property (readonly, nonatomic) NSDate   *dateTime;
 @property (readonly, nonatomic) NSString *orderType;
 @property (readonly, nonatomic) NSNumber *volume;
 @property (readonly, nonatomic) NSNumber *price;

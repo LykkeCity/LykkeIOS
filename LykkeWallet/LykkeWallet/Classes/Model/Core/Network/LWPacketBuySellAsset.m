@@ -1,16 +1,16 @@
 //
-//  LWPacketPurchaseAsset.m
+//  LWPacketBuySellAsset.m
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 07.01.16.
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWPacketPurchaseAsset.h"
-#import "LWAssetPurchaseModel.h"
+#import "LWPacketBuySellAsset.h"
+#import "LWAssetDealModel.h"
 
 
-@implementation LWPacketPurchaseAsset
+@implementation LWPacketBuySellAsset
 
 
 #pragma mark - LWPacket
@@ -21,7 +21,7 @@
     if (self.isRejected) {
         return;
     }
-    _purchase = [[LWAssetPurchaseModel alloc] initWithJSON:result[@"Order"]];
+    _deal = [[LWAssetDealModel alloc] initWithJSON:result[@"Order"]];
 }
 
 - (NSString *)urlRelative {
