@@ -234,6 +234,7 @@
 		ECEC40D71C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */; };
 		ECEC40DE1C430FE200B22BEE /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40DD1C430FE200B22BEE /* NSString+Date.m */; };
 		ECEC40E11C4316D100B22BEE /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E01C4316D100B22BEE /* NSDate+String.m */; };
+		ECEC40E41C44253D00B22BEE /* LWPacketMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -625,6 +626,8 @@
 		ECEC40DD1C430FE200B22BEE /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Date.m"; path = "Date/NSString+Date.m"; sourceTree = "<group>"; };
 		ECEC40DF1C4316D100B22BEE /* NSDate+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+String.h"; path = "Date/NSDate+String.h"; sourceTree = "<group>"; };
 		ECEC40E01C4316D100B22BEE /* NSDate+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+String.m"; path = "Date/NSDate+String.m"; sourceTree = "<group>"; };
+		ECEC40E21C44253D00B22BEE /* LWPacketMarketOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketMarketOrder.h; sourceTree = "<group>"; };
+		ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketMarketOrder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1099,6 +1102,8 @@
 				EC3CE8B71C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m */,
 				ECEC40B91C42B06700B22BEE /* LWPacketTransactions.h */,
 				ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */,
+				ECEC40E21C44253D00B22BEE /* LWPacketMarketOrder.h */,
+				ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1804,6 +1809,7 @@
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				EC57F4751C3D527400E31746 /* LWAssetBuyPriceTableViewCell.m in Sources */,
 				CDA69FDF1C281E1C00BE4DCA /* LWAuthValidationPresenter.m in Sources */,
+				ECEC40E41C44253D00B22BEE /* LWPacketMarketOrder.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				ECD1E90B1C3BDEA70064AAB3 /* LWAssetTableViewCell.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,

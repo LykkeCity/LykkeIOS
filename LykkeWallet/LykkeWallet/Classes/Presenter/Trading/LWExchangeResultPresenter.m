@@ -13,6 +13,7 @@
 #import "LWAssetPurchaseModel.h"
 #import "LWConstants.h"
 #import "LWMath.h"
+#import "LWAuthManager.h"
 #import "TKButton.h"
 
 
@@ -32,6 +33,7 @@
 
 - (void)updateTitleCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
+- (void)updateStatus;
 
 @end
 
@@ -70,6 +72,8 @@ static int const kBlockchainRow = 5;
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
 
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    [self updateStatus];
 }
 
 
@@ -159,6 +163,16 @@ static int const kBlockchainRow = 5;
     }
 }
 
+- (void)updateStatus {
+    // if blockchain is already received - finish requesting
+    if (!self.purchase.blockchainSettled) {
+        const NSInteger repeatSeconds = 5;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[LWAuthManager instance] requestMarketOrder:self.purchase.identity];
+        });
+    }
+}
+
 
 #pragma mark - UITableViewDelegate
 
@@ -170,6 +184,19 @@ static int const kBlockchainRow = 5;
         controller.orderId = self.purchase.identity;
         [self.navigationController pushViewController:controller animated:YES];
     }
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self updateStatus];
+}
+
+- (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetPurchaseModel *)purchase {
+    self.purchase = purchase;
+    
+    [self updateStatus];
 }
 
 @end

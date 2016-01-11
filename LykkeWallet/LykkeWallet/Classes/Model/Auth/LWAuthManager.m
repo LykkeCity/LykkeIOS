@@ -34,6 +34,7 @@
 #import "LWPacketSettingSignOrder.h"
 #import "LWPacketBlockchainTransaction.h"
 #import "LWPacketTransactions.h"
+#import "LWPacketMarketOrder.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -265,6 +266,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestMarketOrder:(NSString *)orderId {
+    LWPacketMarketOrder *pack = [LWPacketMarketOrder new];
+    pack.orderId = orderId;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -445,6 +453,12 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketTransactions.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveTransactions:)]) {
             [self.delegate authManager:self didReceiveTransactions:((LWPacketTransactions *)pack).model];
+        }
+    }
+    else if (pack.class == LWPacketMarketOrder.class) {
+        // receiving market order info
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveMarketOrder:)]) {
+            [self.delegate authManager:self didReceiveMarketOrder:((LWPacketMarketOrder *)pack).model];
         }
     }
 }
