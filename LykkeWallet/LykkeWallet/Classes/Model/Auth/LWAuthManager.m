@@ -25,6 +25,7 @@
 #import "LWPacketBaseAssets.h"
 #import "LWPacketBaseAssetGet.h"
 #import "LWPacketBaseAssetSet.h"
+#import "LWPacketAssetPair.h"
 #import "LWPacketAssetPairs.h"
 #import "LWPacketAssetPairRate.h"
 #import "LWPacketAssetPairRates.h"
@@ -199,6 +200,13 @@ SINGLETON_INIT {
 - (void)requestBaseAssetSet:(NSString *)assetId {
     LWPacketBaseAssetSet *pack = [LWPacketBaseAssetSet new];
     pack.identity = assetId;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestAssetPair:(NSString *)pairId {
+    LWPacketAssetPair *pack = [LWPacketAssetPair new];
+    pack.identity = pairId;
     
     [self sendPacket:pack];
 }
@@ -408,6 +416,12 @@ SINGLETON_INIT {
         // receiving base asset set confirmation
         if ([self.delegate respondsToSelector:@selector(authManagerDidSetAsset:)]) {
             [self.delegate authManagerDidSetAsset:self];
+        }
+    }
+    else if (pack.class == LWPacketAssetPair.class) {
+        // receiving asset pair by id
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetAssetPair:)]) {
+            [self.delegate authManager:self didGetAssetPair:((LWPacketAssetPair *)pack).assetPair];
         }
     }
     else if (pack.class == LWPacketAssetPairs.class) {

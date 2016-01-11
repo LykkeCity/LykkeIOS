@@ -1,5 +1,5 @@
 //
-//  LWExchangeBuyFormPresenter.h
+//  LWExchangeDealFormPresenter.h
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 06.01.16.
@@ -13,7 +13,7 @@
 @class LWAssetPairRateModel;
 
 
-@interface LWExchangeBuyFormPresenter : LWAuthComplexPresenter {
+@interface LWExchangeDealFormPresenter : LWAuthComplexPresenter {
     
 }
 

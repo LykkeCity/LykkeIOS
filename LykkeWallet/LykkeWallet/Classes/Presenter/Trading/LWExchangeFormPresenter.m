@@ -7,7 +7,7 @@
 //
 
 #import "LWExchangeFormPresenter.h"
-#import "LWExchangeBuyFormPresenter.h"
+#import "LWExchangeDealFormPresenter.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAssetDescriptionModel.h"
@@ -180,7 +180,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 - (IBAction)buyClicked:(id)sender {
     if (self.assetPair && self.assetRate) {
-        LWExchangeBuyFormPresenter *controller = [LWExchangeBuyFormPresenter new];
+        LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
         controller.assetPair = self.assetPair;
         controller.assetRate = self.assetRate;
         [self.navigationController pushViewController:controller animated:YES];

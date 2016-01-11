@@ -1,12 +1,12 @@
 //
-//  LWExchangeBuyFormPresenter.m
+//  LWExchangeDealFormPresenter.m
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 06.01.16.
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWExchangeBuyFormPresenter.h"
+#import "LWExchangeDealFormPresenter.h"
 #import "LWExchangeResultPresenter.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAssetBuyPriceTableViewCell.h"
@@ -25,7 +25,7 @@
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeBuyFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate> {
+@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate> {
 
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
@@ -46,7 +46,7 @@
 @end
 
 
-@implementation LWExchangeBuyFormPresenter
+@implementation LWExchangeDealFormPresenter
 
 
 static NSInteger const kFormRows = 3;

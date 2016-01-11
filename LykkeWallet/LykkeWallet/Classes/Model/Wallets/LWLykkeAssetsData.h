@@ -17,5 +17,6 @@
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSString *symbol;
 @property (readonly, nonatomic) NSNumber *balance;
+@property (readonly, nonatomic) NSString *assetPairId;
 
 @end

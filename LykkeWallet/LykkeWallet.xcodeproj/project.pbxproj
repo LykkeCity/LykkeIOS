@@ -145,8 +145,8 @@
 		EC57F4601C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F45F1C3C55D700E31746 /* LWAssetInfoIconTableViewCell.m */; };
 		EC57F4621C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4611C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib */; };
 		EC57F4651C3D197900E31746 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F4641C3D197900E31746 /* NSString+Utils.m */; };
-		EC57F4681C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F4671C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m */; };
-		EC57F46A1C3D400600E31746 /* LWExchangeBuyFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4691C3D400600E31746 /* LWExchangeBuyFormPresenter.xib */; };
+		EC57F4681C3D3FF900E31746 /* LWExchangeDealFormPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F4671C3D3FF900E31746 /* LWExchangeDealFormPresenter.m */; };
+		EC57F46A1C3D400600E31746 /* LWExchangeDealFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4691C3D400600E31746 /* LWExchangeDealFormPresenter.xib */; };
 		EC57F46D1C3D452300E31746 /* LWAuthComplexPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F46C1C3D452300E31746 /* LWAuthComplexPresenter.m */; };
 		EC57F4701C3D51F900E31746 /* LWAssetBuySumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC57F46F1C3D51F900E31746 /* LWAssetBuySumTableViewCell.m */; };
 		EC57F4721C3D520600E31746 /* LWAssetBuySumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4711C3D520600E31746 /* LWAssetBuySumTableViewCell.xib */; };
@@ -235,6 +235,7 @@
 		ECEC40DE1C430FE200B22BEE /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40DD1C430FE200B22BEE /* NSString+Date.m */; };
 		ECEC40E11C4316D100B22BEE /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E01C4316D100B22BEE /* NSDate+String.m */; };
 		ECEC40E41C44253D00B22BEE /* LWPacketMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */; };
+		ECEC40EA1C44585800B22BEE /* LWPacketAssetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -474,9 +475,9 @@
 		EC57F4611C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetInfoIconTableViewCell.xib; path = Assets/LWAssetInfoIconTableViewCell.xib; sourceTree = "<group>"; };
 		EC57F4631C3D197800E31746 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
 		EC57F4641C3D197900E31746 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
-		EC57F4661C3D3FF900E31746 /* LWExchangeBuyFormPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeBuyFormPresenter.h; sourceTree = "<group>"; };
-		EC57F4671C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeBuyFormPresenter.m; sourceTree = "<group>"; };
-		EC57F4691C3D400600E31746 /* LWExchangeBuyFormPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeBuyFormPresenter.xib; sourceTree = "<group>"; };
+		EC57F4661C3D3FF900E31746 /* LWExchangeDealFormPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeDealFormPresenter.h; sourceTree = "<group>"; };
+		EC57F4671C3D3FF900E31746 /* LWExchangeDealFormPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeDealFormPresenter.m; sourceTree = "<group>"; };
+		EC57F4691C3D400600E31746 /* LWExchangeDealFormPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeDealFormPresenter.xib; sourceTree = "<group>"; };
 		EC57F46B1C3D452300E31746 /* LWAuthComplexPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAuthComplexPresenter.h; sourceTree = "<group>"; };
 		EC57F46C1C3D452300E31746 /* LWAuthComplexPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthComplexPresenter.m; sourceTree = "<group>"; };
 		EC57F46E1C3D51F900E31746 /* LWAssetBuySumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBuySumTableViewCell.h; path = Assets/LWAssetBuySumTableViewCell.h; sourceTree = "<group>"; };
@@ -628,6 +629,8 @@
 		ECEC40E01C4316D100B22BEE /* NSDate+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+String.m"; path = "Date/NSDate+String.m"; sourceTree = "<group>"; };
 		ECEC40E21C44253D00B22BEE /* LWPacketMarketOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketMarketOrder.h; sourceTree = "<group>"; };
 		ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketMarketOrder.m; sourceTree = "<group>"; };
+		ECEC40E81C44585800B22BEE /* LWPacketAssetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPair.h; sourceTree = "<group>"; };
+		ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAssetPair.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,9 +893,9 @@
 				EC57F4511C3C3DD900E31746 /* LWExchangeFormPresenter.h */,
 				EC57F4521C3C3DD900E31746 /* LWExchangeFormPresenter.m */,
 				EC57F4531C3C3DD900E31746 /* LWExchangeFormPresenter.xib */,
-				EC57F4661C3D3FF900E31746 /* LWExchangeBuyFormPresenter.h */,
-				EC57F4671C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m */,
-				EC57F4691C3D400600E31746 /* LWExchangeBuyFormPresenter.xib */,
+				EC57F4661C3D3FF900E31746 /* LWExchangeDealFormPresenter.h */,
+				EC57F4671C3D3FF900E31746 /* LWExchangeDealFormPresenter.m */,
+				EC57F4691C3D400600E31746 /* LWExchangeDealFormPresenter.xib */,
 				EC7F04F71C3E75CA0079ECD0 /* LWExchangeConfirmationView.h */,
 				EC7F04F81C3E75CA0079ECD0 /* LWExchangeConfirmationView.m */,
 				EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */,
@@ -1084,6 +1087,8 @@
 				EC7519C11C3739D300CDDF5B /* LWPacketBaseAssetGet.m */,
 				EC7519C71C3742B700CDDF5B /* LWPacketBaseAssetSet.h */,
 				EC7519C81C3742B800CDDF5B /* LWPacketBaseAssetSet.m */,
+				ECEC40E81C44585800B22BEE /* LWPacketAssetPair.h */,
+				ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */,
 				ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */,
 				ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */,
 				ECD1E8F21C3B10AE0064AAB3 /* LWPacketAssetPairRate.h */,
@@ -1574,7 +1579,7 @@
 				EC3CE8B21C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib in Resources */,
 				EC7519B41C3733FD00CDDF5B /* LWSettingsAssetTableViewCell.xib in Resources */,
 				CF6632471C175B54004353F5 /* Assets.xcassets in Resources */,
-				EC57F46A1C3D400600E31746 /* LWExchangeBuyFormPresenter.xib in Resources */,
+				EC57F46A1C3D400600E31746 /* LWExchangeDealFormPresenter.xib in Resources */,
 				EC7519B91C37351C00CDDF5B /* LWAssetsTablePresenter.xib in Resources */,
 				EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */,
 				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
@@ -1762,7 +1767,7 @@
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */,
 				EC57F4701C3D51F900E31746 /* LWAssetBuySumTableViewCell.m in Sources */,
-				EC57F4681C3D3FF900E31746 /* LWExchangeBuyFormPresenter.m in Sources */,
+				EC57F4681C3D3FF900E31746 /* LWExchangeDealFormPresenter.m in Sources */,
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
@@ -1772,6 +1777,7 @@
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				EC3CE8BB1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m in Sources */,
+				ECEC40EA1C44585800B22BEE /* LWPacketAssetPair.m in Sources */,
 				EC7519D01C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m in Sources */,
 				CF8252B81C1CE2D400D6A4BD /* LWPacketKYCStatusGet.m in Sources */,
 				CF6F69D21C2413F70016CFC5 /* ABPadLockScreenView.m in Sources */,

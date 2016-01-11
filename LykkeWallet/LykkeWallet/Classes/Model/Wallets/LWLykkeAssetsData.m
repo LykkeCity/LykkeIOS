@@ -19,10 +19,11 @@
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self) {
-        _identity = [json objectForKey:@"Id"];
-        _name     = [json objectForKey:@"Name"];
-        _symbol   = [json objectForKey:@"Symbol"];
-        _balance  = [json objectForKey:@"Balance"];
+        _identity    = [json objectForKey:@"Id"];
+        _name        = [json objectForKey:@"Name"];
+        _symbol      = [json objectForKey:@"Symbol"];
+        _balance     = [json objectForKey:@"Balance"];
+        _assetPairId = [json objectForKey:@"AssetPairId"];
     }
     return self;
 }

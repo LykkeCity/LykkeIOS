@@ -18,7 +18,10 @@
 #import "LWBanksTableViewCell.h"
 #import "LWAuthNavigationController.h"
 #import "LWWalletFormPresenter.h"
+#import "LWExchangeDealFormPresenter.h"
 #import "LWConstants.h"
+#import "LWCache.h"
+#import "UIViewController+Loading.h"
 
 
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
@@ -43,6 +46,8 @@ static NSInteger const kSectionBankCards    = 1;
 
 - (void)expandTable:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 - (NSString *)assetIdentifyForIndexPath:(NSIndexPath *)indexPath;
+- (LWLykkeAssetsData *)assetDataForIndexPath:(NSIndexPath *)indexPath;
+- (void)showDealFormForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -152,7 +157,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 if (self.data.lykkeData.assets.count > 0) {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
-                    LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+                    LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
                     lykke.walletNameLabel.text = asset.name;
                     lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
                 }
@@ -213,9 +218,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     UITableViewRowAction *sell = [UITableViewRowAction
                                   rowActionWithStyle:UITableViewRowActionStyleDefault
                                   title:Localize(@"wallets.general.sell")
-                                  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-#warning TODO:
-                                      // Respond to the action.
+                                  handler:^(UITableViewRowAction *action,
+                                            NSIndexPath *indexPath) {
+                                      return [self showDealFormForIndexPath:indexPath];
                                   }];
     sell.backgroundColor = [UIColor colorWithHexString:kSellAssetButtonColor];
     return @[sell];
@@ -225,12 +230,15 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row != 0) {
-        if (indexPath.section == kSectionLykkeWallets) {
-            return (self.data.lykkeData.assets.count > 0);
-        }
-        else if (indexPath.section == kSectionBankCards) {
-            return (self.data.bankCards.count > 0);
+    // validate for assets
+    if (indexPath.section == kSectionLykkeWallets) {
+        LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
+        if (data) {
+            // validate for base asset and balance
+            if (![data.identity isEqualToString:[LWCache instance].baseAssetId] &&
+                data.balance.doubleValue > 0.0) {
+                return YES;
+            }
         }
     }
     return NO;
@@ -242,6 +250,19 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data {
     _data = data;
     
+    [self.tableView reloadData];
+}
+
+- (void)authManager:(LWAuthManager *)manager didGetAssetPair:(LWAssetPairModel *)assetPair {
+    [self setLoading:NO];
+    
+    LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
+    controller.assetPair = assetPair;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject];
     [self.tableView reloadData];
 }
 
@@ -303,15 +324,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (NSString *)assetIdentifyForIndexPath:(NSIndexPath *)indexPath {
     // Lykke cells
     if (indexPath.section == kSectionLykkeWallets) {
-        if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
-            if (self.data.lykkeData.assets.count > 0) {
-                LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
-                return asset.identity;
-            }
-            else {
-                return nil;
-            }
-        }
+        LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
+        return (data ? data.identity : nil);
     }
     // Banks cells
     else if (indexPath.section == kSectionBankCards) {
@@ -327,6 +341,24 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         }
     }
     return nil;
+}
+
+- (LWLykkeAssetsData *)assetDataForIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == kSectionLykkeWallets) {
+        if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
+            if (self.data.lykkeData.assets.count > 0) {
+                LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+                return asset;
+            }
+        }
+    }
+    return nil;
+}
+
+- (void)showDealFormForIndexPath:(NSIndexPath *)indexPath {
+    [self setLoading:YES];
+    LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
+    [[LWAuthManager instance] requestAssetPair:data.assetPairId];
 }
 
 @end

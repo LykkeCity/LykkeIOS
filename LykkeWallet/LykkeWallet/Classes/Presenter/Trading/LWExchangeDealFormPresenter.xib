@@ -10,7 +10,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeBuyFormPresenter">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeDealFormPresenter">
             <connections>
                 <outlet property="bottomConstraint" destination="XkC-8I-p2j" id="EuG-1c-CwZ"/>
                 <outlet property="buyButton" destination="HyZ-P4-Rki" id="sqv-y2-fmy"/>
