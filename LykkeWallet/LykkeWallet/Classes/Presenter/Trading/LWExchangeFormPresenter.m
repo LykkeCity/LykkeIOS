@@ -183,6 +183,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
         LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
         controller.assetPair = self.assetPair;
         controller.assetRate = self.assetRate;
+        controller.assetDealType = LWAssetDealTypeBuy;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

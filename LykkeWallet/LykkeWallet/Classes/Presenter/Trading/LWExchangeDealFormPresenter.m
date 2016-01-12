@@ -63,7 +63,12 @@ static NSString *const FormIdentifiers[kFormRows] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"%@%@", Localize(@"exchange.assets.buy.title"), self.assetPair.name];
+    NSAssert(self.assetDealType != LWAssetDealTypeUnknown, @"Incorrect deal type!");
+    
+    NSString *title = (self.assetDealType == LWAssetDealTypeBuy)
+                       ? Localize(@"exchange.assets.buy.title")
+                       : Localize(@"exchange.assets.sell.title");
+    self.title = [NSString stringWithFormat:@"%@%@", title, self.assetPair.name];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
@@ -241,10 +246,18 @@ static NSString *const FormIdentifiers[kFormRows] = {
 - (void)requestOperation {
     [self.view endEditing:YES];
     
-    [[LWAuthManager instance] requestPurchaseAsset:[LWCache instance].baseAssetId
+    if (self.assetDealType == LWAssetDealTypeBuy) {
+        [[LWAuthManager instance] requestPurchaseAsset:[LWCache instance].baseAssetId
+                                             assetPair:self.assetPair.identity
+                                                volume:[self volumeFromField]
+                                                  rate:self.assetRate.ask];
+    }
+    else {
+        [[LWAuthManager instance] requestSellAsset:[LWCache instance].baseAssetId
                                          assetPair:self.assetPair.identity
                                             volume:[self volumeFromField]
                                               rate:self.assetRate.ask];
+    }
 }
 
 - (void)validatePin {
@@ -298,7 +311,10 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 - (NSNumber *)volumeFromField {
     NSDecimalNumber *volume = [sumTextField.text isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:sumTextField.text];
-    return [NSNumber numberWithInt:volume.intValue];
+    
+    int const result = self.assetDealType == LWAssetDealTypeBuy ? volume.intValue : -volume.intValue;
+    
+    return [NSNumber numberWithInt:result];
 }
 
 @end

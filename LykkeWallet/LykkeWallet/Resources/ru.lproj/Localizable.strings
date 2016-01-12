@@ -88,6 +88,7 @@
 "exchange.assets.form.capitalization" = "Капитализация рынка";
 "exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
 "exchange.assets.buy.title" = "КУПИТЬ ";
+"exchange.assets.sell.title" = "ПРОДАТЬ ";
 "exchange.assets.buy.sum" = "Объем";
 "exchange.assets.buy.placeholder" = "Введите объем";
 "exchange.assets.buy.price" = "Цена";

@@ -7,6 +7,7 @@
 //
 
 #import "LWAuthComplexPresenter.h"
+#import "LWPacketBuySellAsset.h"
 
 
 @class LWAssetPairModel;
@@ -22,5 +23,6 @@
 
 @property (strong, nonatomic) LWAssetPairModel     *assetPair;
 @property (strong, nonatomic) LWAssetPairRateModel *assetRate;
+@property (assign, nonatomic) LWAssetDealType       assetDealType;
 
 @end

@@ -254,7 +254,13 @@ SINGLETON_INIT {
 }
 
 - (void)requestSellAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate {
+    LWPacketBuySellAsset *pack = [LWPacketBuySellAsset new];
+    pack.baseAsset = asset;
+    pack.assetPair = assetPair;
+    pack.volume    = volume;
+    pack.rate      = rate;
     
+    [self sendPacket:pack];
 }
 
 - (void)requestSignOrders:(BOOL)shouldSignOrders {

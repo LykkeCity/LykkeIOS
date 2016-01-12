@@ -258,6 +258,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
     controller.assetPair = assetPair;
+    controller.assetDealType = LWAssetDealTypeSell;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -346,7 +347,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (LWLykkeAssetsData *)assetDataForIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kSectionLykkeWallets) {
         if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
-            if (self.data.lykkeData.assets.count > 0) {
+            if (self.data.lykkeData.assets.count > 0 && indexPath.row > 0) {
                 LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
                 return asset;
             }

@@ -88,6 +88,7 @@
 "exchange.assets.form.capitalization" = "Market capitalization";
 "exchange.assets.form.button" = "BUY AT PRICE $ ";
 "exchange.assets.buy.title" = "BUY ";
+"exchange.assets.sell.title" = "SELL ";
 "exchange.assets.buy.sum" = "Volume";
 "exchange.assets.buy.placeholder" = "Input amount";
 "exchange.assets.buy.price" = "Price";

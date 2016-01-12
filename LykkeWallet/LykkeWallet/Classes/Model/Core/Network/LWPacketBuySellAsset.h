@@ -12,6 +12,13 @@
 @class LWAssetDealModel;
 
 
+typedef NS_ENUM(NSInteger, LWAssetDealType) {
+    LWAssetDealTypeUnknown = 0,
+    LWAssetDealTypeSell,
+    LWAssetDealTypeBuy
+};
+
+
 @interface LWPacketBuySellAsset : LWAuthorizePacket {
     
 }
@@ -22,5 +29,8 @@
 @property (copy, nonatomic) NSNumber *rate;
 // out
 @property (readonly, nonatomic) LWAssetDealModel *deal;
+
+// general
+//@property (assign, nonatomic) LWAssetDealType dealType;
 
 @end
