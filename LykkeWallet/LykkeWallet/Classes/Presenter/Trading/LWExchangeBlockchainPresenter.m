@@ -24,14 +24,16 @@
 #pragma mark - Outlets
 
 @property (weak, nonatomic) IBOutlet TKButton *closeButton;
+@property (weak, nonatomic) IBOutlet UILabel  *extraTitleLabel;
+@property (weak, nonatomic) IBOutlet UIView   *fakeView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *extraHeightConstraint;
 
 
 #pragma mark - Utils
 
 - (NSString *)stringFromData:(NSString *)data;
-
+- (void)updateViewWithOffset:(CGPoint)offset;
 - (CGFloat)calculateRowHeightForText:(NSString *)text;
-
 - (NSString *)dataByCellRow:(NSInteger)row;
 
 @end
@@ -76,8 +78,12 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
                       forState:UIControlStateNormal];
     [self.closeButton setGrayPalette];
     
+    self.extraTitleLabel.text = Localize(@"exchange.blockchain.title");
+    
     [self.tableView
      setBackgroundColor:[UIColor colorWithHexString:kMainGrayElementsColor]];
+    
+    [self updateViewWithOffset:CGPointMake(0, 0)];
     
     // request blockchain data
     [self setLoading:YES];
@@ -174,6 +180,11 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     return [self calculateRowHeightForText:text];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self updateViewWithOffset:scrollView.contentOffset];
+}
+
 
 #pragma mark - Utils
 
@@ -183,6 +194,19 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     }
     
     return data;
+}
+
+- (void)updateViewWithOffset:(CGPoint)offset {
+    int const kBlockchainCellHeight = 245;
+    int const kFakeViewHeight = 100;
+    if (offset.y >= kBlockchainCellHeight) {
+        [self.fakeView setHidden:NO];
+        self.extraHeightConstraint.constant = kFakeViewHeight;
+    }
+    else {
+        [self.fakeView setHidden:YES];
+        self.extraHeightConstraint.constant = 0;
+    }
 }
 
 - (CGFloat)calculateRowHeightForText:(NSString *)text {
