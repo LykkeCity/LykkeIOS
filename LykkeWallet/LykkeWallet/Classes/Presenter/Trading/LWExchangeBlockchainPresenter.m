@@ -202,10 +202,12 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     if (offset.y >= kBlockchainCellHeight) {
         [self.fakeView setHidden:NO];
         self.extraHeightConstraint.constant = kFakeViewHeight;
+        self.tableView.backgroundColor = [UIColor whiteColor];
     }
     else {
         [self.fakeView setHidden:YES];
         self.extraHeightConstraint.constant = 0;
+        self.tableView.backgroundColor = [UIColor colorWithHexString:kMainGrayElementsColor];
     }
 }
 
