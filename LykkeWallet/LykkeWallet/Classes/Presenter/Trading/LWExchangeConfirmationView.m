@@ -102,7 +102,7 @@ static int const kDescriptionRows = 3;
          [self requestOperation];
      }
      bad:^(void) {
-         [self cancelClicked:self.placeOrderButton];
+         // try enter pin
      }
      unavailable:^(void) {
          // do nothing

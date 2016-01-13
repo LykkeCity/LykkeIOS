@@ -26,19 +26,19 @@
         case 6:
         case 7:
         case 8:
-            output = [NSString stringWithFormat:@"%@-%@", [input substringToIndex:4], [input substringFromIndex:4]];
+            output = [NSString stringWithFormat:@"%@ %@", [input substringToIndex:4], [input substringFromIndex:4]];
             break;
         case 9:
         case 10:
         case 11:
         case 12:
-            output = [NSString stringWithFormat:@"%@-%@-%@", [input substringToIndex:4], [input substringWithRange:NSMakeRange(4, 4)], [input substringFromIndex:8]];
+            output = [NSString stringWithFormat:@"%@ %@ %@", [input substringToIndex:4], [input substringWithRange:NSMakeRange(4, 4)], [input substringFromIndex:8]];
             break;
         case 13:
         case 14:
         case 15:
         case 16:
-            output = [NSString stringWithFormat:@"%@-%@-%@-%@", [input substringToIndex:4], [input substringWithRange:NSMakeRange(4, 4)], [input substringWithRange:NSMakeRange(8, 4)], [input substringFromIndex:12]];
+            output = [NSString stringWithFormat:@"%@ %@ %@ %@", [input substringToIndex:4], [input substringWithRange:NSMakeRange(4, 4)], [input substringWithRange:NSMakeRange(8, 4)], [input substringFromIndex:12]];
             break;
         default:
             output = @"";

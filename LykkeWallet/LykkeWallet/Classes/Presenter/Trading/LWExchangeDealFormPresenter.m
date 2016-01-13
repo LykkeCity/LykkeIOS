@@ -276,7 +276,10 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (void)pinRejected {
-    // do nothing - pin incorrect
+    if (confirmationView) {
+        [confirmationView setLoading:NO];
+        [confirmationView removeFromSuperview];
+    }
 }
 
 #pragma mark - Utils

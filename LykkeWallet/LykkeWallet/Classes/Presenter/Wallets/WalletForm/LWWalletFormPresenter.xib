@@ -57,18 +57,18 @@
                             <rect key="frame" x="0.0" y="217" width="320" height="64"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4t-O9-BAb" customClass="TKContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="235" height="64"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="jTX-8A-SOL"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxO-eQ-VTN" customClass="TKContainer">
-                                    <rect key="frame" x="240" y="0.0" width="80" height="64"/>
+                                    <rect key="frame" x="235" y="0.0" width="85" height="64"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="AeS-ur-Lue"/>
-                                        <constraint firstAttribute="width" constant="80" id="DNf-Sv-wBf"/>
+                                        <constraint firstAttribute="width" constant="85" id="DNf-Sv-wBf"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -87,17 +87,17 @@
                             <rect key="frame" x="0.0" y="281" width="320" height="64"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiR-XD-JdP" customClass="TKContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="235" height="64"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="DfN-gQ-iJ9"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8W-SD-JYX" customClass="TKContainer">
-                                    <rect key="frame" x="240" y="0.0" width="80" height="64"/>
+                                    <rect key="frame" x="235" y="0.0" width="85" height="64"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="80" id="RC5-EL-8Eg"/>
+                                        <constraint firstAttribute="width" constant="85" id="RC5-EL-8Eg"/>
                                         <constraint firstAttribute="height" constant="64" id="uTh-0x-NwL"/>
                                     </constraints>
                                 </view>

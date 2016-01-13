@@ -34,6 +34,8 @@
 @property (assign, nonatomic) UIKeyboardType keyboardType;
 @property (assign, nonatomic) UITextAutocapitalizationType autocapitalizationType;
 @property (assign, nonatomic) UITextFieldViewMode viewMode;
+@property (assign, nonatomic) NSInteger leftOffset;
+@property (assign, nonatomic) NSInteger rightOffset;
 
 @property (assign, nonatomic, getter=isSecure)  BOOL secure;
 @property (assign, nonatomic, getter=isEnabled) BOOL enabled;

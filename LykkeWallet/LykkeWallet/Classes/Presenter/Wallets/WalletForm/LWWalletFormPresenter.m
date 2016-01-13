@@ -253,11 +253,14 @@ static CGFloat const kBanksHeight = 190.0;
 }
 
 - (void)createTextFields {
+    int const kDefaultRightOffset = 10;
+    
     // card number
     cardNumberTextField = [LWTextField
                            createTextFieldForContainer:self.cardNumberContainer withPlaceholder:Localize(@"wallets.cardform.card.number.placeholder")];
     cardNumberTextField.keyboardType = UIKeyboardTypeNumberPad;
     cardNumberTextField.delegate = self;
+    cardNumberTextField.rightOffset = kDefaultRightOffset;
     [cardNumberTextField addSelector:@selector(creditCardNumberFormatter:) targer:self];
     
     // card expiration date
@@ -266,12 +269,14 @@ static CGFloat const kBanksHeight = 190.0;
     cardExpireTextField.keyboardType = UIKeyboardTypeNumberPad;
     cardExpireTextField.viewMode = UITextFieldViewModeNever;
     cardExpireTextField.delegate = self;
+    cardExpireTextField.rightOffset = kDefaultRightOffset;
     [cardExpireTextField addSelector:@selector(creditCardExpiryFormatter:) targer:self];
     
     // card owner name
     cardOwnerTextField = [LWTextField
                           createTextFieldForContainer:self.cardOwnerContainer withPlaceholder:Localize(@"wallets.cardform.card.owner.placeholder")];
     cardOwnerTextField.keyboardType = UIKeyboardTypeASCIICapable;
+    cardOwnerTextField.rightOffset = kDefaultRightOffset;
     cardOwnerTextField.delegate = self;
     
     // cvc card code
@@ -281,6 +286,7 @@ static CGFloat const kBanksHeight = 190.0;
     cardCodeTextField.viewMode = UITextFieldViewModeNever;
     cardCodeTextField.secure = YES;
     cardCodeTextField.maxLength = 3;
+    cardCodeTextField.rightOffset = kDefaultRightOffset;
     cardCodeTextField.delegate = self;
 }
 

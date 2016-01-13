@@ -50,6 +50,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundImageView" destination="GMX-FZ-W06" id="ekj-oD-9ez"/>
+                <outlet property="leftConstraint" destination="8Fh-5S-NFY" id="YP7-dG-gYj"/>
+                <outlet property="rightConstraint" destination="Rbe-xq-iOZ" id="dTA-nt-iJE"/>
                 <outlet property="textField" destination="HX3-YM-s5D" id="HgS-pi-n5x"/>
                 <outlet property="validImageView" destination="sTd-UW-FWs" id="6GH-Uk-ee8"/>
             </connections>

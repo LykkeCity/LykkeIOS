@@ -13,6 +13,9 @@
 #import "UITextField+Validation.h"
 
 
+#define kDefaultLeftRigthTextFieldOffset 20
+
+
 @interface LWTextField ()<UITextFieldDelegate> {
     
 }
@@ -20,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *validImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraint;
 
 
 #pragma mark - Observing
@@ -45,6 +50,8 @@
     UIImage *background = [[UIImage imageNamed:@"TextField"]
                            resizableImageWithCapInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.backgroundImageView.image = background;
+    [self setLeftOffset:kDefaultLeftRigthTextFieldOffset];
+    [self setRightOffset:kDefaultLeftRigthTextFieldOffset];
 }
 
 - (void)dealloc {
@@ -130,6 +137,16 @@
     _viewMode = viewMode;
     
     [self.textField setClearButtonMode:self.viewMode];
+}
+
+- (void)setLeftOffset:(NSInteger)leftOffset {
+    _leftOffset = leftOffset;
+    self.leftConstraint.constant = leftOffset;
+}
+
+- (void)setRightOffset:(NSInteger)rightOffset {
+    _rightOffset = rightOffset;
+    self.rightConstraint.constant = rightOffset;
 }
 
 - (void)setValid:(BOOL)valid {

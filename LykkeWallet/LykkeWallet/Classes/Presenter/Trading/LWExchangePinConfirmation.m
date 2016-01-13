@@ -36,7 +36,7 @@ static int const kAllowedAttempts = 3;
     if (!pinController) {
         pinController = [[ABPadLockScreenViewController alloc] initWithDelegate:self
                                                                      complexPin:NO];
-        [pinController cancelButtonDisabled:YES];
+        [pinController cancelButtonDisabled:NO];
         [pinController setAllowedAttempts:kAllowedAttempts];
         
         pinController.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -127,15 +127,15 @@ static int const kAllowedAttempts = 3;
 }
 
 - (void)unlockWasCancelledForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    [self.delegate pinRejected];
     [pinController dismissViewControllerAnimated:NO completion:^{
-        [self.delegate pinRejected];
         [self.navigationController popViewControllerAnimated:NO];
     }];
 }
 
 - (void)attemptsExpiredForPadLockScreenViewController:(ABPadLockScreenViewController *)padLockScreenViewController {
+    [self.delegate pinRejected];
     [pinController dismissViewControllerAnimated:NO completion:^{
-        [self.delegate pinRejected];
         [self.navigationController popViewControllerAnimated:NO];
     }];
 }

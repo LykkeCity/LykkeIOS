@@ -48,7 +48,7 @@ static int const PasswordLength = 6;
 }
 
 + (BOOL)validateCardNumber:(NSString *)input {
-    NSString *cardNumberRegex = @"^(\\d{4}(?:-)){3}\\d{4}$";
+    NSString *cardNumberRegex = @"^(\\d{4}(?: )){3}\\d{4}$";
     NSPredicate *cardNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", cardNumberRegex];
     
     return [cardNumberTest evaluateWithObject:input];
