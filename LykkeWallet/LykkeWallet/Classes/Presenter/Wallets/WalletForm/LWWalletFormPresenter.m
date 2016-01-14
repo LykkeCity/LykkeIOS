@@ -170,14 +170,20 @@ static CGFloat const kBanksHeight = 190.0;
 - (BOOL)textField:(LWTextField *)textField shouldChangeCharsInRange:(NSRange)range replacementString:(NSString *)string {
     
     if ([string isEqualToString:@""]) {
+        if (textField == cardExpireTextField) {
+            textField.willRemoveText = YES;
+        }
         return YES;
     }
     if (textField == cardNumberTextField) {
-        if (textField.text.length > 18)
+        if (textField.text.length > 18) {
             return NO;
+        }
     } else if (textField == cardExpireTextField) {
-        if (textField.text.length > 4)
+        textField.willRemoveText = NO;
+        if (textField.text.length > 4) {
             return NO;
+        }
     } else if (textField == cardCodeTextField) {
         if (textField.text.length > 2) {
             return NO;
@@ -377,7 +383,7 @@ static CGFloat const kBanksHeight = 190.0;
 }
 
 - (void)creditCardExpiryFormatter:(id)sender {
-    NSString *formattedText = [LWStringUtils formatCreditCardExpiry:cardExpireTextField.text];
+    NSString *formattedText = [LWStringUtils formatCreditCardExpiry:cardExpireTextField.rawText shouldRemoveText:cardExpireTextField.willRemoveText];
     if (![formattedText isEqualToString:cardExpireTextField.text]) {
         cardExpireTextField.text = formattedText;
     }

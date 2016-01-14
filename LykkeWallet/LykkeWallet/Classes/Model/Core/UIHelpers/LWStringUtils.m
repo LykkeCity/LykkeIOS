@@ -7,6 +7,7 @@
 //
 
 #import "LWStringUtils.h"
+#import "LWMath.h"
 
 
 @implementation LWStringUtils
@@ -47,15 +48,32 @@
     return output;
 }
 
-+ (NSString *)formatCreditCardExpiry:(NSString *)input
++ (NSString *)formatCreditCardExpiry:(NSString *)input shouldRemoveText:(BOOL)shouldRemoveText
 {
     input = [[self class] trimSpecialCharacters:input];
     NSString *output;
     switch (input.length) {
         case 1:
-        case 2:
-            output = [NSString stringWithFormat:@"%@", [input substringToIndex:input.length]];
+        {
+            NSNumber *value = [LWMath number:input];
+            if (value.intValue > 2) {
+                output = [NSString stringWithFormat:@"0%@/", value];
+            }
+            else {
+                output = input;
+            }
             break;
+        }
+        case 2:
+        {
+            if (shouldRemoveText) {
+                output = [NSString stringWithFormat:@"%@", [input substringToIndex:2]];
+            }
+            else {
+                output = [NSString stringWithFormat:@"%@/", [input substringToIndex:input.length]];
+            }
+            break;
+        }
         case 3:
         case 4:
             output = [NSString stringWithFormat:@"%@/%@", [input substringToIndex:2], [input substringFromIndex:2]];

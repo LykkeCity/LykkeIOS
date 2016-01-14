@@ -101,6 +101,14 @@
     self.textField.text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
+- (NSString *)rawText {
+    return self.textField.text;
+}
+
+- (void)setRawText:(NSString *)rawText {
+    self.textField.text = rawText;
+}
+
 - (NSString *)placeholder {
     return self.textField.placeholder;
 }

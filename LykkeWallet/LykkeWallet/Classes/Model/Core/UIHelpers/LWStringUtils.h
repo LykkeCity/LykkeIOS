@@ -14,7 +14,7 @@
 }
 
 + (NSString *)formatCreditCard:(NSString *)input;
-+ (NSString *)formatCreditCardExpiry:(NSString *)input;
++ (NSString *)formatCreditCardExpiry:(NSString *)input shouldRemoveText:(BOOL)shouldRemoveText;
 + (NSString *)trimSpecialCharacters:(NSString *)input;
 + (NSNumber *)monthFromExpiration:(NSString *)input;
 + (NSNumber *)yearFromExpiration:(NSString *)input;

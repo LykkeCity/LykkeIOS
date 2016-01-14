@@ -13,6 +13,7 @@
     
 }
 
++ (NSNumber *)number:(NSString *)stringNumber;
 + (NSDecimalNumber *)numberWithString:(NSString *)stringNumber;
 + (NSDecimalNumber *)roundNumber:(NSDecimalNumber *)number withDigits:(NSInteger)digits;
 + (NSDecimalNumber *)abs:(NSDecimalNumber *)number;

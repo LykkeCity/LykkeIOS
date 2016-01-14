@@ -11,13 +11,18 @@
 
 @implementation LWMath
 
-+ (NSDecimalNumber *)numberWithString:(NSString *)stringNumber
-{
++ (NSNumber *)number:(NSString *)stringNumber {
     NSLocale *locale = [NSLocale currentLocale];
     NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
     [frm setNumberStyle:NSNumberFormatterDecimalStyle];
     [frm setLocale:locale];
     NSNumber *number = [frm numberFromString:stringNumber];
+    return number;
+}
+
++ (NSDecimalNumber *)numberWithString:(NSString *)stringNumber
+{
+    NSNumber *number = [LWMath number:stringNumber];
     NSDecimalNumber *result = [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
     
     if ([LWMath isDecimalEqualToZero:result])
