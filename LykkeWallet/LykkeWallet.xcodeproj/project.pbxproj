@@ -114,6 +114,8 @@
 		EC25A6921C331F0B00F223FF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */; };
 		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */; };
+		EC370B221C47BD7F00175786 /* LWKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC370B211C47BD7F00175786 /* LWKeyboardToolbar.m */; };
+		EC370B241C47BEE300175786 /* LWKeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */; };
 		EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37ED191C3A817D002379DD /* LWStringUtils.m */; };
 		EC3CE89E1C3FB6CC00CAC3FE /* LWAssetDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE89D1C3FB6CC00CAC3FE /* LWAssetDealModel.m */; };
 		EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8A01C3FBF6F00CAC3FE /* LWFingerprintHelper.m */; };
@@ -421,6 +423,9 @@
 		EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		EC2813ED1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketKYCSendDocumentBin.h; sourceTree = "<group>"; };
 		EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocumentBin.m; sourceTree = "<group>"; };
+		EC370B201C47BD7F00175786 /* LWKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWKeyboardToolbar.h; path = Toolbars/LWKeyboardToolbar.h; sourceTree = "<group>"; };
+		EC370B211C47BD7F00175786 /* LWKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWKeyboardToolbar.m; path = Toolbars/LWKeyboardToolbar.m; sourceTree = "<group>"; };
+		EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWKeyboardToolbar.xib; path = Toolbars/LWKeyboardToolbar.xib; sourceTree = "<group>"; };
 		EC37ED181C3A817D002379DD /* LWStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStringUtils.h; sourceTree = "<group>"; };
 		EC37ED191C3A817D002379DD /* LWStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStringUtils.m; sourceTree = "<group>"; };
 		EC3CE89C1C3FB6CC00CAC3FE /* LWAssetDealModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetDealModel.h; path = Assets/LWAssetDealModel.h; sourceTree = "<group>"; };
@@ -789,6 +794,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC370B1F1C47BD5600175786 /* Toolbars */,
 				ECEC40B31C4298AB00B22BEE /* History */,
 				EC7F04FF1C3EA8340079ECD0 /* TableCells */,
 				ECD1E9081C3BDE700064AAB3 /* Assets */,
@@ -1225,6 +1231,16 @@
 			name = WalletPage;
 			sourceTree = "<group>";
 		};
+		EC370B1F1C47BD5600175786 /* Toolbars */ = {
+			isa = PBXGroup;
+			children = (
+				EC370B201C47BD7F00175786 /* LWKeyboardToolbar.h */,
+				EC370B211C47BD7F00175786 /* LWKeyboardToolbar.m */,
+				EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */,
+			);
+			name = Toolbars;
+			sourceTree = "<group>";
+		};
 		EC3CE8A31C3FCD8300CAC3FE /* Confirmation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1538,6 +1554,7 @@
 				ECE902BE1C3537B700F52971 /* LWWalletFormPresenter.xib in Resources */,
 				CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */,
 				EC57F4621C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib in Resources */,
+				EC370B241C47BEE300175786 /* LWKeyboardToolbar.xib in Resources */,
 				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
 				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
 				CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */,
@@ -1818,6 +1835,7 @@
 				ECEC40E41C44253D00B22BEE /* LWPacketMarketOrder.m in Sources */,
 				CF66326F1C175DF0004353F5 /* TKImageView.m in Sources */,
 				ECD1E90B1C3BDEA70064AAB3 /* LWAssetTableViewCell.m in Sources */,
+				EC370B221C47BD7F00175786 /* LWKeyboardToolbar.m in Sources */,
 				CDCD5B101C26C92A007BAD78 /* LWRegisterBasePresenter.m in Sources */,
 				ECEC40E11C4316D100B22BEE /* NSDate+String.m in Sources */,
 				EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */,

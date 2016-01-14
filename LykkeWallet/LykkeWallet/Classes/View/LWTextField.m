@@ -83,6 +83,10 @@
              forControlEvents:UIControlEventEditingChanged];
 }
 
+- (void)setupAccessoryView:(UIView *)accessoryView {
+    [self.textField setInputAccessoryView:accessoryView];
+}
+
 
 #pragma mark - Observing
 
@@ -173,6 +177,12 @@
     }
     else {
         return [textField shouldChangeCharactersInRange:range replacementString:string forMaxLength:self.maxLength];
+    }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]) {
+        [self.delegate textFieldDidBeginEditing:self];
     }
 }
 

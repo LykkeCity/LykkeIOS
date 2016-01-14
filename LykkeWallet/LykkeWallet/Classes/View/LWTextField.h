@@ -19,6 +19,7 @@
 
 @optional
 - (BOOL)textField:(LWTextField *)textField shouldChangeCharsInRange:(NSRange)range replacementString:(NSString *)string;
+- (void)textFieldDidBeginEditing:(LWTextField *)textField;
 
 @end
 
@@ -47,5 +48,6 @@
 + (LWTextField *)createTextFieldForContainer:(TKContainer *)container withPlaceholder:(NSString *)placeholder;
 
 - (void)addSelector:(SEL)selector targer:(id)target;
+- (void)setupAccessoryView:(UIView *)accessoryView;
 
 @end

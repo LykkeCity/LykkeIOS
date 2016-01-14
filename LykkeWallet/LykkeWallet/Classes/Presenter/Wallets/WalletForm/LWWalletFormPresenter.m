@@ -16,17 +16,21 @@
 #import "LWConstants.h"
 #import "LWBankCardsAdd.h"
 #import "LWBankCardsData.h"
+#import "LWKeyboardToolbar.h"
 #import "UIColor+Generic.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
 
 
-@interface LWWalletFormPresenter ()<LWAuthManagerDelegate, LWTextFieldDelegate, UIPageViewControllerDataSource> {
+@interface LWWalletFormPresenter ()<LWAuthManagerDelegate, LWTextFieldDelegate, LWKeyboardToolbarDelegate, UIPageViewControllerDataSource> {
     UIColor *navigationTintColor;
     LWTextField *cardNumberTextField;
     LWTextField *cardExpireTextField;
     LWTextField *cardOwnerTextField;
     LWTextField *cardCodeTextField;
+    
+    LWTextField       *activeField;
+    LWKeyboardToolbar *keyboardToolbar;
     
     UIPageViewController *pageController;
 }
@@ -366,6 +370,50 @@ static CGFloat const kBanksHeight = 190.0;
 
 - (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
     [self updateInsetsWithHeight:self.view.frame.size.height];
+}
+
+- (void)textFieldDidBeginEditing:(LWTextField *)textField
+{
+    activeField = textField;
+    
+    if (!keyboardToolbar)
+    {
+        keyboardToolbar = [LWKeyboardToolbar toolbarWithDelegate:self];
+    }
+    [textField setupAccessoryView:keyboardToolbar];
+}
+
+
+#pragma mark - LWKeyboardToolbarDelegate
+
+- (void)prevClicked {
+    if (activeField == cardNumberTextField) {
+        
+    }
+    else if (activeField == cardExpireTextField) {
+        
+    }
+    else if (activeField == cardOwnerTextField) {
+        
+    }
+    else if (activeField == cardCodeTextField) {
+        
+    }
+}
+
+- (void)nextClicked {
+    if (activeField == cardNumberTextField) {
+        
+    }
+    else if (activeField == cardExpireTextField) {
+        
+    }
+    else if (activeField == cardOwnerTextField) {
+        
+    }
+    else if (activeField == cardCodeTextField) {
+        
+    }
 }
 
 

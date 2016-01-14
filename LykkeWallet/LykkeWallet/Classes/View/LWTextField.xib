@@ -42,7 +42,6 @@
                 <constraint firstItem="GMX-FZ-W06" firstAttribute="leading" secondItem="rmj-KL-MWv" secondAttribute="leading" constant="8" id="SOx-zz-QF6"/>
                 <constraint firstAttribute="trailing" secondItem="GMX-FZ-W06" secondAttribute="trailing" constant="8" id="Z0m-c0-lJA"/>
                 <constraint firstItem="sTd-UW-FWs" firstAttribute="top" secondItem="rmj-KL-MWv" secondAttribute="top" constant="3" id="lKy-h5-1Uk"/>
-                <constraint firstItem="HX3-YM-s5D" firstAttribute="centerX" secondItem="rmj-KL-MWv" secondAttribute="centerX" id="mCV-Uq-gEK"/>
                 <constraint firstItem="HX3-YM-s5D" firstAttribute="centerY" secondItem="rmj-KL-MWv" secondAttribute="centerY" id="sIW-oA-0mn"/>
                 <constraint firstAttribute="bottom" secondItem="GMX-FZ-W06" secondAttribute="bottom" constant="9" id="zkj-u5-9VW"/>
             </constraints>
