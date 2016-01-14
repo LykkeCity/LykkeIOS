@@ -87,6 +87,10 @@
     [self.textField setInputAccessoryView:accessoryView];
 }
 
+- (void)showKeyboard {
+    [self.textField becomeFirstResponder];
+}
+
 
 #pragma mark - Observing
 

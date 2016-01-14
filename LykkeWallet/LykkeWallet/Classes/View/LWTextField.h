@@ -49,5 +49,6 @@
 
 - (void)addSelector:(SEL)selector targer:(id)target;
 - (void)setupAccessoryView:(UIView *)accessoryView;
+- (void)showKeyboard;
 
 @end

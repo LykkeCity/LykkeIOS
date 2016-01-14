@@ -388,31 +388,31 @@ static CGFloat const kBanksHeight = 190.0;
 
 - (void)prevClicked {
     if (activeField == cardNumberTextField) {
-        
+        [cardCodeTextField showKeyboard];
     }
     else if (activeField == cardExpireTextField) {
-        
+        [cardNumberTextField showKeyboard];
     }
     else if (activeField == cardOwnerTextField) {
-        
+        [cardExpireTextField showKeyboard];
     }
     else if (activeField == cardCodeTextField) {
-        
+        [cardOwnerTextField showKeyboard];
     }
 }
 
 - (void)nextClicked {
     if (activeField == cardNumberTextField) {
-        
+        [cardExpireTextField showKeyboard];
     }
     else if (activeField == cardExpireTextField) {
-        
+        [cardOwnerTextField showKeyboard];
     }
     else if (activeField == cardOwnerTextField) {
-        
+        [cardCodeTextField showKeyboard];
     }
     else if (activeField == cardCodeTextField) {
-        
+        [cardNumberTextField showKeyboard];
     }
 }
 
