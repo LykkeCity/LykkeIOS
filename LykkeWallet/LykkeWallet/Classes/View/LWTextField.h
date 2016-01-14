@@ -20,6 +20,7 @@
 @optional
 - (BOOL)textField:(LWTextField *)textField shouldChangeCharsInRange:(NSRange)range replacementString:(NSString *)string;
 - (void)textFieldDidBeginEditing:(LWTextField *)textField;
+- (void)textFieldDidEndEditing:(LWTextField *)textField;
 
 @end
 

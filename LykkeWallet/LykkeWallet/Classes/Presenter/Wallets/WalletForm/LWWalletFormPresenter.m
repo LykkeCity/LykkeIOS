@@ -71,8 +71,9 @@
 
 #pragma mark - Constants
 
-static CGFloat const kBanksHeight = 190.0;
-
+static CGFloat const kBanksHeight   = 190.0;
+static CGFloat const kContentFullscreenHeight = 560.0;
+static CGFloat const kContentKeyboardHeight = 500.0;
 
 #pragma mark - Lifecycle
 
@@ -89,7 +90,7 @@ static CGFloat const kBanksHeight = 190.0;
     [self setBackButton];
     
     self.bankCardHeightConstraint.constant = [self isCardsExists] ? kBanksHeight : 0.0;
-
+    
     // check button state
     [LWValidator setButton:self.submitButton enabled:self.canProceed];
 
@@ -100,7 +101,7 @@ static CGFloat const kBanksHeight = 190.0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self updateInsetsWithHeight:self.view.frame.size.height];
+    [self updateInsetsWithHeight:0.0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -219,20 +220,13 @@ static CGFloat const kBanksHeight = 190.0;
 #pragma mark - Utils
 
 - (void)updateInsetsWithHeight:(CGFloat)height {
-    const CGFloat bottomMargin = 20;
-    CGFloat bottomX = (self.scrollView.frame.origin.y
-                       + self.descriptionLabel.frame.origin.y
-                       + self.descriptionLabel.frame.size.height
-                       + bottomMargin);
-    if (bottomX > height) {
-        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - height, 0);
-        self.scrollView.contentOffset = CGPointMake(0, 0);
+    if (height > 0) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, height, 0);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, kContentKeyboardHeight);
     }
     else {
-        //self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomX - height, 0);
         self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        //self.scrollView.contentOffset = CGPointMake(0, self.scrollView.contentInset.bottom);
-        self.scrollView.contentOffset = CGPointMake(0, 0);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, kContentFullscreenHeight);
     }
 }
 
@@ -298,6 +292,8 @@ static CGFloat const kBanksHeight = 190.0;
     cardCodeTextField.maxLength = 3;
     cardCodeTextField.rightOffset = kDefaultRightOffset;
     cardCodeTextField.delegate = self;
+    
+    keyboardToolbar = [LWKeyboardToolbar toolbarWithDelegate:self];
 }
 
 - (BOOL)isCardsExists {
@@ -364,22 +360,18 @@ static CGFloat const kBanksHeight = 190.0;
 
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
     CGRect rect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    [self updateInsetsWithHeight:rect.size.height];
+    CGFloat const offset = 35.0;
+    CGFloat const height = rect.size.height + keyboardToolbar.frame.size.height + offset;
+    [self updateInsetsWithHeight:height];
 }
 
 - (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
-    [self updateInsetsWithHeight:self.view.frame.size.height];
+    [self updateInsetsWithHeight:0.0];
 }
 
 - (void)textFieldDidBeginEditing:(LWTextField *)textField
 {
     activeField = textField;
-    
-    if (!keyboardToolbar)
-    {
-        keyboardToolbar = [LWKeyboardToolbar toolbarWithDelegate:self];
-    }
     [textField setupAccessoryView:keyboardToolbar];
 }
 

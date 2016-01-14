@@ -190,4 +190,10 @@
     }
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
+        [self.delegate textFieldDidEndEditing:self];
+    }
+}
+
 @end
