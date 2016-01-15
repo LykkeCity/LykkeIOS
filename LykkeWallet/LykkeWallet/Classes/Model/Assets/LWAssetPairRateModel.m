@@ -17,11 +17,12 @@
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self && ![json isKindOfClass:[NSNull class]]) {
-        _identity   = [json objectForKey:@"Id"];
-        _bid        = [json objectForKey:@"Bid"];
-        _ask        = [json objectForKey:@"Ask"];
-        _pchng      = [json objectForKey:@"PChng"];
-        _expTimeout = [json objectForKey:@"ExpTimeOut"];
+        _identity    = [json objectForKey:@"Id"];
+        _bid         = [json objectForKey:@"Bid"];
+        _ask         = [json objectForKey:@"Ask"];
+        _pchng       = [json objectForKey:@"PChng"];
+        _expTimeout  = [json objectForKey:@"ExpTimeOut"];
+        _lastChanges = [json objectForKey:@"ChngGrph"];
     }
     return self;
 }

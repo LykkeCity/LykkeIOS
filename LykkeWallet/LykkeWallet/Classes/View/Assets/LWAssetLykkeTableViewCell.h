@@ -13,6 +13,14 @@
 @class LWAssetPairRateModel;
 
 
+#warning TODO: move to other file when keyboard will be done
+@interface LWAssetLykkeTableChangeView : UIView {
+    
+}
+
+@end
+
+
 @interface LWAssetLykkeTableViewCell : TKTableViewCell {
     
 }
@@ -29,5 +37,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *assetPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *assetChangeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *assetPriceImageView;
+@property (weak, nonatomic) IBOutlet LWAssetLykkeTableChangeView *assetChangeView;
 
 @end

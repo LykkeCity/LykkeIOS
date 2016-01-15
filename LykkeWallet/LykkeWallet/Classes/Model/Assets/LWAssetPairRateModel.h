@@ -21,5 +21,6 @@
 @property (readonly, nonatomic) NSNumber *ask;
 @property (readonly, nonatomic) NSNumber *pchng;
 @property (readonly, nonatomic) NSNumber *expTimeout;
+@property (readonly, nonatomic) NSArray  *lastChanges;
 
 @end
