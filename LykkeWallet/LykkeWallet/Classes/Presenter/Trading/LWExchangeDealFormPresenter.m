@@ -23,10 +23,12 @@
 #import "UIViewController+Loading.h"
 #import "UITextField+Validation.h"
 #import "NSString+Utils.h"
+#import "LWMathKeyboardView.h"
 
 
-@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate> {
-
+@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate, LWMathKeyboardViewDelegate> {
+    LWMathKeyboardView *mathKeyboardView;
+    
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
 }
@@ -71,6 +73,9 @@ static NSString *const FormIdentifiers[kFormRows] = {
     self.title = [NSString stringWithFormat:@"%@%@", title, self.assetPair.name];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+    
+    mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
+    mathKeyboardView.delegate = self;
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
                                 name:@"LWAssetBuySumTableViewCell"];
@@ -141,6 +146,8 @@ static NSString *const FormIdentifiers[kFormRows] = {
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
+        sumTextField.inputView = mathKeyboardView;
+        mathKeyboardView.targetTextField = sumTextField;
         //[sumTextField becomeFirstResponder];
         [sumTextField setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
         [sumTextField addTarget:self
@@ -281,6 +288,26 @@ static NSString *const FormIdentifiers[kFormRows] = {
         [confirmationView removeFromSuperview];
     }
 }
+
+
+#pragma mark - LWMathKeyboardViewDelegate
+
+- (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
+    UIAlertController *ctrl = [UIAlertController
+                               alertControllerWithTitle:@"Error"
+                               message:@"Invalid math expression."
+                               preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         [ctrl dismissViewControllerAnimated:YES
+                                                                                  completion:nil];
+                                                     }];
+    [ctrl addAction:actionOK];
+    
+    [self presentViewController:ctrl animated:YES completion:nil];
+}
+
 
 #pragma mark - Utils
 

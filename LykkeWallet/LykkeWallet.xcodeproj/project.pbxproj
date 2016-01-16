@@ -91,7 +91,11 @@
 		CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8F71C17C3D200F742A6 /* LWAuthStepPresenter.m */; };
 		CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC8FB1C17C6AD00F742A6 /* LWAuthManager.m */; };
 		CF9EC90E1C17C6C100F742A6 /* UIColor+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */; };
+		CFA29F301C4840FB007E6674 /* LWMathKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA29F2F1C4840FB007E6674 /* LWMathKeyboardView.m */; };
+		CFA29F321C484110007E6674 /* LWMathKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFA29F311C484110007E6674 /* LWMathKeyboardView.xib */; };
 		CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */; };
+		CFB1E7661C4A59AD002428E0 /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1E7631C4A59AD002428E0 /* GCMathParser.m */; };
+		CFB1E7671C4A59AD002428E0 /* ZExpParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = CFB1E7651C4A59AD002428E0 /* ZExpParser.mm */; };
 		CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC9FE1C1C1CE87C001F1974 /* LWNetAccessor.m */; };
 		CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD60E561C18C80C000BF83C /* LWTipsView.m */; };
 		CFD60E591C18C813000BF83C /* LWTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD60E581C18C813000BF83C /* LWTipsView.xib */; };
@@ -385,8 +389,15 @@
 		CF9EC9071C17C6C100F742A6 /* UIColor+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Generic.h"; sourceTree = "<group>"; };
 		CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Generic.m"; sourceTree = "<group>"; };
 		CF9EC90B1C17C6C100F742A6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		CFA29F2E1C4840FB007E6674 /* LWMathKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWMathKeyboardView.h; path = Wallets/LWMathKeyboardView.h; sourceTree = "<group>"; };
+		CFA29F2F1C4840FB007E6674 /* LWMathKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWMathKeyboardView.m; path = Wallets/LWMathKeyboardView.m; sourceTree = "<group>"; };
+		CFA29F311C484110007E6674 /* LWMathKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWMathKeyboardView.xib; path = Wallets/LWMathKeyboardView.xib; sourceTree = "<group>"; };
 		CFAD8A8B1C1D5E4B00185CD1 /* LWDocumentsStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDocumentsStatus.h; sourceTree = "<group>"; };
 		CFAD8A8C1C1D5E4B00185CD1 /* LWDocumentsStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDocumentsStatus.m; sourceTree = "<group>"; };
+		CFB1E7621C4A59AD002428E0 /* GCMathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMathParser.h; sourceTree = "<group>"; };
+		CFB1E7631C4A59AD002428E0 /* GCMathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMathParser.m; sourceTree = "<group>"; };
+		CFB1E7641C4A59AD002428E0 /* ZExpParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZExpParser.h; sourceTree = "<group>"; };
+		CFB1E7651C4A59AD002428E0 /* ZExpParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZExpParser.mm; sourceTree = "<group>"; };
 		CFC9FE1B1C1CE87C001F1974 /* LWNetAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWNetAccessor.h; sourceTree = "<group>"; };
 		CFC9FE1C1C1CE87C001F1974 /* LWNetAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWNetAccessor.m; sourceTree = "<group>"; };
 		CFD60E551C18C80C000BF83C /* LWTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTipsView.h; sourceTree = "<group>"; };
@@ -958,6 +969,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6F69C11C2413F70016CFC5 /* ABPadLockScreen */,
+				CFB1E7611C4A59AD002428E0 /* GCMathParser */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1142,6 +1154,17 @@
 				CF9EC9081C17C6C100F742A6 /* UIColor+Generic.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		CFB1E7611C4A59AD002428E0 /* GCMathParser */ = {
+			isa = PBXGroup;
+			children = (
+				CFB1E7621C4A59AD002428E0 /* GCMathParser.h */,
+				CFB1E7631C4A59AD002428E0 /* GCMathParser.m */,
+				CFB1E7641C4A59AD002428E0 /* ZExpParser.h */,
+				CFB1E7651C4A59AD002428E0 /* ZExpParser.mm */,
+			);
+			path = GCMathParser;
 			sourceTree = "<group>";
 		};
 		CFD60E541C18C7F3000BF83C /* Auth */ = {
@@ -1345,6 +1368,9 @@
 				EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */,
 				EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */,
 				EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */,
+				CFA29F2E1C4840FB007E6674 /* LWMathKeyboardView.h */,
+				CFA29F2F1C4840FB007E6674 /* LWMathKeyboardView.m */,
+				CFA29F311C484110007E6674 /* LWMathKeyboardView.xib */,
 			);
 			name = Wallets;
 			sourceTree = "<group>";
@@ -1566,6 +1592,7 @@
 				ECD1E9071C3BCAF60064AAB3 /* LWExchangePresenter.xib in Resources */,
 				EC3CE8A81C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib in Resources */,
 				ECD1E90D1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib in Resources */,
+				CFA29F321C484110007E6674 /* LWMathKeyboardView.xib in Resources */,
 				EC57F45D1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib in Resources */,
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
@@ -1693,6 +1720,7 @@
 				EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */,
 				CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */,
 				ECD76BCD1C2EC50700E1D3DA /* LWPacketLykkeWallet.m in Sources */,
+				CFA29F301C4840FB007E6674 /* LWMathKeyboardView.m in Sources */,
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				EC7F050C1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m in Sources */,
@@ -1721,6 +1749,7 @@
 				CDA69FDB1C281A5500BE4DCA /* LWPacketRegistrationGet.m in Sources */,
 				EC7519C91C3742B800CDDF5B /* LWPacketBaseAssetSet.m in Sources */,
 				CF66326E1C175DF0004353F5 /* TKContainer.m in Sources */,
+				CFB1E7671C4A59AD002428E0 /* ZExpParser.mm in Sources */,
 				CDCD5AEF1C259662007BAD78 /* LWSettingsPresenter.m in Sources */,
 				EC57F45B1C3C556B00E31746 /* LWAssetInfoTextTableViewCell.m in Sources */,
 				EC24CC791C39786C00C2FDAA /* LWWalletConfirmPresenter.m in Sources */,
@@ -1843,6 +1872,7 @@
 				EC3CE8B51C401CD200CAC3FE /* LWAssetBlockchainModel.m in Sources */,
 				ECEC40DE1C430FE200B22BEE /* NSString+Date.m in Sources */,
 				CD10AAA91C1E10E40086634B /* LWPacketPinSecurityGet.m in Sources */,
+				CFB1E7661C4A59AD002428E0 /* GCMathParser.m in Sources */,
 				ECD76BC71C2EB63500E1D3DA /* LWPersonalData.m in Sources */,
 				ECD76BC41C2EA81100E1D3DA /* LWPacketPersonalData.m in Sources */,
 				CF86B3781C1B6566006D5488 /* LWRegistrationData.m in Sources */,
