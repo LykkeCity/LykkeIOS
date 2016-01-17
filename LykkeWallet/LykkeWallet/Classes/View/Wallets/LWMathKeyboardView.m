@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     
 }
 
+@property (weak, nonatomic) IBOutlet UIButton *delimiterButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *snippetButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numpadButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *signButtons;
@@ -47,6 +48,11 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 - (IBAction)snippetButtonClick:(UIButton *)sender;
 - (IBAction)numpadButtonClick:(UIButton *)sender;
 - (IBAction)signButtonClick:(UIButton *)sender;
+
+
+#pragma mark - Utils
+
+- (NSString *)decimalSeparator;
 
 @end
 
@@ -94,6 +100,9 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
                                   wNumpad,
                                   hNumpad);
     }
+    
+    [self.delimiterButton setTitle:[self decimalSeparator]
+                          forState:UIControlStateNormal];
 }
 
 
@@ -147,6 +156,10 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             equals = YES;
             break;
         }
+        case LWMathKeyboardViewNumpadDot: {
+            str = [self decimalSeparator];
+            break;
+        }
     }
     if (!equals) {
         self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
@@ -161,6 +174,15 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             [self.delegate mathKeyboardViewDidRaiseMathException:self];
         }
     }
+}
+
+
+#pragma mark - Utils
+
+- (NSString *)decimalSeparator {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString *decimalSymbol = [formatter decimalSeparator];
+    return decimalSymbol;
 }
 
 @end
