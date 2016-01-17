@@ -12,6 +12,7 @@
 
 @protocol LWMathKeyboardViewDelegate
 @required
+- (void)volumeChanged:(NSString *)volume;
 - (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view;
 
 @end

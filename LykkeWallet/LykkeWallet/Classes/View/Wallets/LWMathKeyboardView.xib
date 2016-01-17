@@ -180,7 +180,7 @@
                         <action selector="numpadButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="LtX-9F-dDH"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yex-mW-dV2">
+                <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yex-mW-dV2">
                     <rect key="frame" x="0.0" y="189" width="79" height="50"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="ProximaNovaT-Thin" family="Proxima Nova" pointSize="40"/>

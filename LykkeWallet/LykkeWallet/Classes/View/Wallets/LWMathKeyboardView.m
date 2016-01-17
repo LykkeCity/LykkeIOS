@@ -7,6 +7,7 @@
 //
 
 #import "LWMathKeyboardView.h"
+#import "LWMath.h"
 #import "GCMathParser.h"
 
 typedef NS_ENUM(NSInteger, LWMathKeyboardViewNumpad) {
@@ -53,6 +54,8 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 #pragma mark - Utils
 
 - (NSString *)decimalSeparator;
+- (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate;
+- (BOOL)isSymbolsExists:(NSString *)symbols forString:(NSString *)string;
 
 @end
 
@@ -112,6 +115,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     NSString *str = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
+    [self calculate:NO shouldValidate:YES];
 }
 
 - (IBAction)numpadButtonClick:(UIButton *)sender {
@@ -122,12 +126,14 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
                 self.targetTextField.text = [self.targetTextField.text
                                              stringByReplacingCharactersInRange:range
                                              withString:@""];
+                [self calculate:NO shouldValidate:YES];
             }
             break;
         }
         default: {
             self.targetTextField.text = [self.targetTextField.text
                                          stringByAppendingString:sender.titleLabel.text];
+            [self calculate:NO shouldValidate:YES];
         }
     }
 }
@@ -163,16 +169,10 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     }
     if (!equals) {
         self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
+        [self calculate:NO shouldValidate:YES];
     }
     else {
-        // calculate
-        @try {
-            self.targetTextField.text = [NSString stringWithFormat:@"%f",
-                                         [self.targetTextField.text evaluateMath]];
-        }
-        @catch (NSException *exception) {
-            [self.delegate mathKeyboardViewDidRaiseMathException:self];
-        }
+        [self calculate:YES shouldValidate:NO];
     }
 }
 
@@ -183,6 +183,38 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSString *decimalSymbol = [formatter decimalSeparator];
     return decimalSymbol;
+}
+
+- (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate {
+    // calculate
+    @try {
+        NSString *text = self.targetTextField.text;
+        if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
+            return;
+        }
+        
+        double evaluation = [text evaluateMath];
+        NSNumber *number = [NSNumber numberWithDouble:evaluation];
+        NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithDecimal:number.decimalValue];
+        NSString *result = [LWMath makeEditStringByDecimal:decimal withPrecision:0];
+        
+        self.targetTextField.text = result;
+        [self.delegate volumeChanged:result];
+    }
+    @catch (NSException *exception) {
+        if (shouldRaiseException) {
+            [self.delegate mathKeyboardViewDidRaiseMathException:self];
+        }
+    }
+}
+
+- (BOOL)isSymbolsExists:(NSString *)symbols forString:(NSString *)string {
+    NSCharacterSet *cset = [NSCharacterSet characterSetWithCharactersInString:symbols];
+    NSRange range = [string rangeOfCharacterFromSet:cset];
+    if (range.location == NSNotFound) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

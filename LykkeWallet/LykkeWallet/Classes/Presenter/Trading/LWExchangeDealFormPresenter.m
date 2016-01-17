@@ -31,6 +31,8 @@
     
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
+    
+    NSString *volumeString;
 }
 
 
@@ -76,6 +78,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     
     mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
     mathKeyboardView.delegate = self;
+    volumeString = @"";
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
                                 name:@"LWAssetBuySumTableViewCell"];
@@ -308,6 +311,11 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [self presentViewController:ctrl animated:YES completion:nil];
 }
 
+- (void)volumeChanged:(NSString *)volume {
+    volumeString = volume;
+    [self updatePrice];
+}
+
 
 #pragma mark - Utils
 
@@ -325,7 +333,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     // update total cell
     LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
-    NSDecimalNumber *volume = [sumTextField.text isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:sumTextField.text];
+    NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     NSString *volumeText = [LWMath makeStringByDecimal:volume withPrecision:0];
     
     NSDecimalNumber *result = [decimalPrice decimalNumberByMultiplyingBy:volume];
@@ -340,7 +348,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (NSNumber *)volumeFromField {
-    NSDecimalNumber *volume = [sumTextField.text isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:sumTextField.text];
+    NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     
     int const result = self.assetDealType == LWAssetDealTypeBuy ? volume.intValue : -volume.intValue;
     
