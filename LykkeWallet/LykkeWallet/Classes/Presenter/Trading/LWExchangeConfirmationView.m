@@ -8,6 +8,7 @@
 
 #import "LWExchangeConfirmationView.h"
 #import "LWDetailTableViewCell.h"
+#import "LWPinKeyboardView.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAuthManager.h"
@@ -18,19 +19,23 @@
 #import "Macro.h"
 
 
-@interface LWExchangeConfirmationView () <UITableViewDataSource> {
-    BOOL isRequested;
+@interface LWExchangeConfirmationView () <UITableViewDataSource, LWPinKeyboardViewDelegate> {
+    LWPinKeyboardView *pinKeyboardView;
+    BOOL               isRequested;
 }
 
 #pragma mark - Outlets
 
 @property (weak, nonatomic) IBOutlet UIView           *topView;
+@property (weak, nonatomic) IBOutlet UIView           *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView      *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationBar  *navigationBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton         *placeOrderButton;
 @property (weak, nonatomic) IBOutlet UILabel          *waitingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView      *waitingImageView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
 
 
 #pragma mark - Properties
@@ -40,6 +45,8 @@
 
 #pragma mark - Utils
 
+- (void)requestOperation;
+- (void)cancelOperation;
 - (void)validateUser;
 - (void)updateView;
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
@@ -51,6 +58,8 @@
 
 
 static int const kDescriptionRows = 3;
+static float const kPinProtectionHeight = 488;
+static float const kNoPinProtectionHeight = 300;
 
 
 #pragma mark - General
@@ -72,26 +81,31 @@ static int const kDescriptionRows = 3;
 #pragma mark - Actions
 
 - (void)cancelClicked:(id)sender {
-    [self.delegate cancelClicked];
-    [self removeFromSuperview];
+    [self cancelOperation];
 }
 
 - (IBAction)confirmClicked:(id)sender {
-    // goes just if fingerpint unavailable
-    if ([LWCache instance].shouldSignOrder) {
-        [self.delegate validatePin];
-    }
-    else {
-        [self requestOperation];
-    }
+    [self requestOperation];
 }
 
 
 #pragma mark - Utils
 
 - (void)requestOperation {
-    [self setLoading:YES];
+    [self setLoading:YES withReason:Localize(@"exchange.assets.modal.waiting")];
     [self.delegate requestOperation];
+}
+
+- (void)pinRejected {
+    [self setLoading:NO withReason:@""];
+    if (pinKeyboardView) {
+        [pinKeyboardView pinRejected];
+    }
+}
+
+- (void)cancelOperation {
+    [self.delegate cancelClicked];
+    [self removeFromSuperview];
 }
 
 - (void)validateUser {
@@ -117,6 +131,24 @@ static int const kDescriptionRows = 3;
     self.topView.backgroundColor = [UIColor whiteColor];
     self.topView.opaque = NO;
     
+    BOOL const shouldSignOrder = [LWCache instance].shouldSignOrder;
+    if (shouldSignOrder) {
+        pinKeyboardView = [LWPinKeyboardView new];
+        pinKeyboardView.delegate = self;
+        pinKeyboardView.hidden = !shouldSignOrder;
+        [pinKeyboardView updateView];
+        [self.bottomView addSubview:pinKeyboardView];
+    }
+    else {
+        if (pinKeyboardView) {
+            [pinKeyboardView removeFromSuperview];
+            pinKeyboardView = nil;
+        }
+    }
+    
+    self.topViewHeightConstraint.constant = (shouldSignOrder ? kPinProtectionHeight : kNoPinProtectionHeight);
+    self.placeOrderButton.hidden = shouldSignOrder;
+    
     self.waitingLabel.text = Localize(@"exchange.assets.modal.waiting");
     [self.navigationItem setTitle:Localize(@"exchange.assets.modal.title")];
     [self.placeOrderButton setTitle:Localize(@"exchange.assets.modal.button")
@@ -138,15 +170,15 @@ static int const kDescriptionRows = 3;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self setLoading:NO];
+    [self setLoading:NO withReason:@""];
     
     // if fingerprint available - show confirmation view
-    if ([LWCache instance].shouldSignOrder) {
+    if (shouldSignOrder) {
         [self validateUser];
     }
 }
 
-- (void)setLoading:(BOOL)loading {
+- (void)setLoading:(BOOL)loading withReason:(NSString *)reason {
     isRequested = loading;
     
     // update values
@@ -157,6 +189,11 @@ static int const kDescriptionRows = 3;
     self.placeOrderButton.hidden = loading;
     self.waitingLabel.hidden = !loading;
     self.waitingImageView.hidden = !loading;
+    self.waitingLabel.text = reason;
+    
+    if (pinKeyboardView) {
+        pinKeyboardView.hidden = loading;
+    }
 }
 
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name {
@@ -223,6 +260,23 @@ static int const kDescriptionRows = 3;
         LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
         cell.detailLabel.text = totalString;
     }
+}
+
+
+#pragma mark - LWPinKeyboardViewDelegate
+
+- (void)pinEntered:(NSString *)pin {
+    [self.delegate checkPin:pin];
+}
+
+- (void)pinCanceled {
+    [self removeFromSuperview];
+    [self.delegate cancelClicked];
+}
+
+- (void)pinAttemptEnds {
+    [self removeFromSuperview];
+    [self.delegate noAttemptsForPin];
 }
 
 @end

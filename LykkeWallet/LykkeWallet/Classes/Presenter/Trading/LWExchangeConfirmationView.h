@@ -18,7 +18,8 @@
 @required
 - (void)cancelClicked;
 - (void)requestOperation;
-- (void)validatePin;
+- (void)checkPin:(NSString *)pin;
+- (void)noAttemptsForPin;
 
 @end
 
@@ -44,6 +45,7 @@
 #pragma mark - Utils
 
 - (void)requestOperation;
-- (void)setLoading:(BOOL)loading;
+- (void)pinRejected;
+- (void)setLoading:(BOOL)loading withReason:(NSString *)reason;
 
 @end

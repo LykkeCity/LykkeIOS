@@ -7,12 +7,14 @@
 //
 
 #import "LWExchangeDealFormPresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWExchangeResultPresenter.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAssetBuyPriceTableViewCell.h"
 #import "LWAssetBuyTotalTableViewCell.h"
 #import "LWExchangeConfirmationView.h"
-#import "LWExchangePinConfirmation.h"
+#import "LWPacketPinSecurityGet.h"
+#import "LWMathKeyboardView.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWCache.h"
@@ -23,10 +25,9 @@
 #import "UIViewController+Loading.h"
 #import "UITextField+Validation.h"
 #import "NSString+Utils.h"
-#import "LWMathKeyboardView.h"
 
 
-@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWExchangePinConfirmationDelegate, LWMathKeyboardViewDelegate> {
+@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWMathKeyboardViewDelegate> {
     LWMathKeyboardView *mathKeyboardView;
     
     LWExchangeConfirmationView *confirmationView;
@@ -201,7 +202,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 - (void)authManager:(LWAuthManager *)manager didReceiveDealResponse:(LWAssetDealModel *)purchase {
     if (confirmationView) {
-        [confirmationView setLoading:NO];
+        [confirmationView setLoading:NO withReason:@""];
         [confirmationView removeFromSuperview];
         LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
         controller.purchase = purchase;
@@ -210,9 +211,21 @@ static NSString *const FormIdentifiers[kFormRows] = {
     }
 }
 
-- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+- (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid {
     if (confirmationView) {
-        [confirmationView setLoading:NO];
+        if (isValid) {
+            [confirmationView requestOperation];
+        }
+        else {
+            [confirmationView pinRejected];
+        }
+    }
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    
+    if (confirmationView) {
+        [confirmationView setLoading:NO withReason:@""];
         [self showReject:reject];
         [confirmationView removeFromSuperview];
     }
@@ -246,6 +259,17 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 #pragma mark - LWExchangeConfirmationViewDelegate
 
+- (void)checkPin:(NSString *)pin {
+    if (confirmationView) {
+        [confirmationView setLoading:YES withReason:Localize(@"exchange.assets.modal.validatepin")];
+        [[LWAuthManager instance] requestPinSecurityGet:pin];
+    }
+}
+
+- (void)noAttemptsForPin {
+    [(LWAuthNavigationController *)self.navigationController logout];
+}
+
 - (void)cancelClicked {
     if (sumTextField) {
         [sumTextField becomeFirstResponder];
@@ -267,28 +291,6 @@ static NSString *const FormIdentifiers[kFormRows] = {
                                          assetPair:self.assetPair.identity
                                             volume:[self volumeFromField]
                                               rate:self.assetRate.ask];
-    }
-}
-
-- (void)validatePin {
-    LWExchangePinConfirmation *validator = [LWExchangePinConfirmation new];
-    validator.delegate = self;
-    [self.navigationController pushViewController:validator animated:YES];
-}
-
-
-#pragma mark - LWExchangePinConfirmationDelegate
-
-- (void)pinConfirmed {
-    if (confirmationView) {
-        [confirmationView requestOperation];
-    }
-}
-
-- (void)pinRejected {
-    if (confirmationView) {
-        [confirmationView setLoading:NO];
-        [confirmationView removeFromSuperview];
     }
 }
 

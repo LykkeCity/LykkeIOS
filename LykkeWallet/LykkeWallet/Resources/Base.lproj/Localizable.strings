@@ -98,6 +98,7 @@
 "exchange.assets.modal.button" = "PLACE AN ORDER";
 "exchange.assets.modal.cancel" = "CANCEL";
 "exchange.assets.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
+"exchange.assets.modal.validatepin" = "PIN validation ...";
 "exchange.assets.modal.waiting" = "Sending the order ...";
 "exchange.assets.result.title" = " PURCHASED!";
 "exchange.assets.result.assetname" = "Asset name";
