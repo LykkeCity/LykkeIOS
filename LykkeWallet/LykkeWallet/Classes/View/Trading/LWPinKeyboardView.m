@@ -14,7 +14,7 @@
 
 @interface LWPinKeyboardView () {
     NSString *pin;
-    NSInteger attemptsRemaining;
+    int       attemptsRemaining;
 }
 
 
@@ -98,7 +98,7 @@ static NSInteger const kAttemptsAvailable = 3;
 
 - (IBAction)numpadButtonClick:(UIButton *)sender {
     NSString *number = sender.titleLabel.text;
-    if (number && pin.length < 4) {
+    if (number && pin.length < kPinLength) {
         pin = [pin stringByAppendingString:number];
         [self updatePinStatus];
     }
