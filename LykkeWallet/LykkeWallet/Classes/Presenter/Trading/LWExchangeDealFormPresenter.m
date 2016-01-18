@@ -41,12 +41,14 @@
 
 @property (weak, nonatomic) IBOutlet UIButton           *buyButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomHeightConstraint;
 
 
 #pragma mark - Utils
 
 - (void)updatePrice;
 - (NSNumber *)volumeFromField;
+- (void)updateKeyboardFrame;
 
 @end
 
@@ -61,6 +63,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
     @"LWAssetBuyPriceTableViewCellIdentifier",
     @"LWAssetBuyTotalTableViewCellIdentifier"
 };
+
+CGFloat const iPhone4Height      = 480;
+CGFloat const iPhone5Height      = 568;
+float const kSmallHeightKeyboard = 239.0;
+float const kBigHeightKeyboard   = 290.0;
+float const kBottomSmallHeight   = 65.0;
+float const kBottomBigHeight     = 105.0;
 
 
 #pragma mark - Lifecycle
@@ -79,6 +88,8 @@ static NSString *const FormIdentifiers[kFormRows] = {
     
     mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
     mathKeyboardView.delegate = self;
+    [self updateKeyboardFrame];
+    
     volumeString = @"";
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
@@ -151,7 +162,10 @@ static NSString *const FormIdentifiers[kFormRows] = {
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
         sumTextField.inputView = mathKeyboardView;
+        //sumTextField.inputView.autoresizingMask = UIViewAutoresizingNone;
+        
         mathKeyboardView.targetTextField = sumTextField;
+        
         //[sumTextField becomeFirstResponder];
         [sumTextField setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
         [sumTextField addTarget:self
@@ -355,6 +369,16 @@ static NSString *const FormIdentifiers[kFormRows] = {
     int const result = self.assetDealType == LWAssetDealTypeBuy ? volume.intValue : -volume.intValue;
     
     return [NSNumber numberWithInt:result];
+}
+
+- (void)updateKeyboardFrame {
+    CGFloat const height = [[UIScreen mainScreen] bounds].size.height;
+    CGRect rect = mathKeyboardView.frame;
+    rect.size.height = (height > iPhone4Height) ? kBigHeightKeyboard : kSmallHeightKeyboard;
+    mathKeyboardView.frame = rect;
+    mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.bottomHeightConstraint.constant = (height > iPhone5Height) ? kBottomBigHeight : kBottomSmallHeight;
 }
 
 @end

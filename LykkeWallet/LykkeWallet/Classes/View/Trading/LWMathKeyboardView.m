@@ -130,6 +130,13 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             }
             break;
         }
+        case LWMathKeyboardViewNumpadDot: {
+            NSString *separator = [self decimalSeparator];
+            self.targetTextField.text = [self.targetTextField.text
+                                         stringByAppendingString:separator];
+            //[self calculate:NO shouldValidate:YES];
+            break;
+        }
         default: {
             self.targetTextField.text = [self.targetTextField.text
                                          stringByAppendingString:sender.titleLabel.text];
@@ -196,7 +203,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         double evaluation = [text evaluateMath];
         NSNumber *number = [NSNumber numberWithDouble:evaluation];
         NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithDecimal:number.decimalValue];
-        NSString *result = [LWMath makeEditStringByDecimal:decimal withPrecision:0];
+        NSString *result = [LWMath makeEditStringByDecimal:decimal];
         
         self.targetTextField.text = result;
         [self.delegate volumeChanged:result];

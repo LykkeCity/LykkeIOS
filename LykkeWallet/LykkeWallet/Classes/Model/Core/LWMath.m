@@ -122,6 +122,16 @@
     return result;
 }
 
++ (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
+    [frm setNumberStyle:NSNumberFormatterDecimalStyle];
+    [frm setLocale:locale];
+    [frm setUsesGroupingSeparator:NO];
+    NSString *result = [frm stringFromNumber:[NSNumber numberWithDouble:number.doubleValue]];
+    return result;
+}
+
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision
 {
     NSLocale *locale = [NSLocale currentLocale];

@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base asset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHw-gr-DK8">
-                        <rect key="frame" x="18" y="8" width="120" height="33"/>
+                        <rect key="frame" x="18" y="8" width="133" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="Hap-Yg-mW2"/>
                             <constraint firstAttribute="width" constant="120" id="gpD-mQ-tmv"/>
@@ -33,11 +33,15 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Hap-Yg-mW2"/>
+                                <exclude reference="gpD-mQ-tmv"/>
                             </mask>
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWn-xD-hwQ">
-                        <rect key="frame" x="146" y="8" width="133" height="33"/>
+                        <rect key="frame" x="159" y="8" width="120" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="oxd-cF-gnA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

@@ -123,6 +123,10 @@
 "exchange.blockchain.quantity" = "Количество";
 "exchange.blockchain.url" = "URL";
 
+"settings.push.title" = "PUSH-УВЕДОМЛЕНИЯ";
+"settings.cell.push.title" = "Push-уведомления";
+"settings.cell.push.order.title" = "Исполнение ордера";
+"settings.cell.push.asset.title" = "Новый ассет";
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";
 "settings.cell.pin.change.title" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeDealFormPresenter">
             <connections>
                 <outlet property="bottomConstraint" destination="XkC-8I-p2j" id="EuG-1c-CwZ"/>
+                <outlet property="bottomHeightConstraint" destination="dxV-at-3Un" id="VQU-i1-RGe"/>
                 <outlet property="buyButton" destination="HyZ-P4-Rki" id="sqv-y2-fmy"/>
                 <outlet property="tableView" destination="6Zr-pj-cQY" id="M9T-iD-CxW"/>
                 <outlet property="view" destination="f80-ui-nvh" id="ApD-75-uQM"/>
@@ -23,15 +24,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-pj-cQY">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-pj-cQY">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="463"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdD-wI-RCw">
-                    <rect key="frame" x="0.0" y="503" width="320" height="65"/>
+                    <rect key="frame" x="0.0" y="463" width="320" height="105"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyZ-P4-Rki" customClass="TKButton">
-                            <rect key="frame" x="8" y="10" width="304" height="45"/>
+                            <rect key="frame" x="8" y="30" width="304" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="SJa-ct-Iqm"/>
                                 <constraint firstAttribute="width" constant="304" id="c9W-Mq-0t2"/>
@@ -47,9 +48,9 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="HyZ-P4-Rki" firstAttribute="centerY" secondItem="kdD-wI-RCw" secondAttribute="centerY" id="18q-ba-wml"/>
                         <constraint firstItem="HyZ-P4-Rki" firstAttribute="centerX" secondItem="kdD-wI-RCw" secondAttribute="centerX" id="OvP-kn-nKX"/>
-                        <constraint firstItem="HyZ-P4-Rki" firstAttribute="centerY" secondItem="kdD-wI-RCw" secondAttribute="centerY" id="PU3-Nq-3dQ"/>
-                        <constraint firstAttribute="height" constant="65" id="dxV-at-3Un"/>
+                        <constraint firstAttribute="height" constant="105" id="dxV-at-3Un"/>
                     </constraints>
                 </view>
             </subviews>

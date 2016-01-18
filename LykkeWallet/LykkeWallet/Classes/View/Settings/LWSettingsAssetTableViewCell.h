@@ -9,6 +9,10 @@
 #import "TKTableViewCell.h"
 
 
+#define kSettingsAssetTableViewCell           @"LWSettingsAssetTableViewCell"
+#define kSettingsAssetTableViewCellIdentifier @"LWSettingsAssetTableViewCellIdentifier"
+
+
 @interface LWSettingsAssetTableViewCell : TKTableViewCell {
     
 }

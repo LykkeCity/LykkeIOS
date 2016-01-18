@@ -196,6 +196,8 @@
 		EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */; };
 		EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */; };
 		EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */; };
+		EC8F48381C4D8A710087DF1F /* LWNotificationSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */; };
+		EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -563,6 +565,9 @@
 		EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRadioTableViewCell.xib; path = TableCells/LWRadioTableViewCell.xib; sourceTree = "<group>"; };
 		EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketSettingSignOrder.h; sourceTree = "<group>"; };
 		EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketSettingSignOrder.m; sourceTree = "<group>"; };
+		EC8F48351C4D8A710087DF1F /* LWNotificationSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWNotificationSettingsPresenter.h; path = Notifications/LWNotificationSettingsPresenter.h; sourceTree = "<group>"; };
+		EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWNotificationSettingsPresenter.m; path = Notifications/LWNotificationSettingsPresenter.m; sourceTree = "<group>"; };
+		EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWNotificationSettingsPresenter.xib; path = Notifications/LWNotificationSettingsPresenter.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -893,6 +898,7 @@
 		CF6632801C176A63004353F5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				EC8F48341C4D8A350087DF1F /* Notifications */,
 				EC3CE8A31C3FCD8300CAC3FE /* Confirmation */,
 				EC7519BA1C37352200CDDF5B /* Assets */,
 				CDCD5AEC1C259662007BAD78 /* LWSettingsPresenter.h */,
@@ -1399,6 +1405,16 @@
 			name = TableCells;
 			sourceTree = "<group>";
 		};
+		EC8F48341C4D8A350087DF1F /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				EC8F48351C4D8A710087DF1F /* LWNotificationSettingsPresenter.h */,
+				EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */,
+				EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
 		ECA80B611C2E0E38001C4E8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1605,6 +1621,7 @@
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
+				EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */,
 				EC31444E1C4C01ED00DEA50B /* LWPinKeyboardView.xib in Resources */,
 				EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */,
 				CF9EC8B61C17B66700F742A6 /* LWTextField.xib in Resources */,
@@ -1802,6 +1819,7 @@
 				EC7A45CC1C3099F900926BB4 /* LWLykkeTableViewCell.m in Sources */,
 				CD10AAA31C1E0B530086634B /* LWPacketAuthentication.m in Sources */,
 				EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */,
+				EC8F48381C4D8A710087DF1F /* LWNotificationSettingsPresenter.m in Sources */,
 				EC57F4541C3C3DD900E31746 /* LWExchangeFormPresenter.m in Sources */,
 				ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */,
 				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,

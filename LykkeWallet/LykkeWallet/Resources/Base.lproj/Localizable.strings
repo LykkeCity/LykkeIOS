@@ -123,6 +123,10 @@
 "exchange.blockchain.quantity" = "Quantity";
 "exchange.blockchain.url" = "URL";
 
+"settings.push.title" = "PUSH NOTIFICATIONS";
+"settings.cell.push.title" = "Push notifications";
+"settings.cell.push.order.title" = "Order confirmation alert";
+"settings.cell.push.asset.title" = "New asset alert";
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
 "settings.cell.pin.change.title" = "Please scan your fingerprint to validate your identity to complete request.";

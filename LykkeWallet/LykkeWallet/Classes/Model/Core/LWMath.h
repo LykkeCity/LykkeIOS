@@ -23,6 +23,7 @@
 
 + (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
++ (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number;
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeCurrencyPrice:(NSDecimalNumber *)number;
 + (NSString *)makeRateFromDebit:(NSDecimalNumber *)debit andCredit:(NSDecimalNumber *)credit;
