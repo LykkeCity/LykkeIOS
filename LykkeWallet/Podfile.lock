@@ -14,15 +14,15 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - Crashlytics (3.4.1):
-    - Fabric (~> 1.6.0)
-  - Fabric (1.6.1)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.3)
   - GDXNet (1.1.4):
     - AFNetworking
   - GDXObserver (1.0.1)
   - MBProgressHUD (0.9.2)
   - UIDeviceIdentifier (1.0.1)
-  - Valet (2.0.6)
+  - Valet (2.0.7)
 
 DEPENDENCIES:
   - Crashlytics
@@ -35,12 +35,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
-  Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  Fabric: cbe0ca6c9531bba17910052f6f105fcbc5fa7f67
   GDXNet: 9c6bb3511239e09b360d37118dc75431160e5902
   GDXObserver: a0d1d614eb40a78f56fa2739ae2bdef529b9642b
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   UIDeviceIdentifier: 0baf4b37264b56f45f547eecb6f438824e1a691f
-  Valet: 435ce71d7514ed407764a44b77591f7b0e43e122
+  Valet: a46a1e8dd6ba326ccb8f591fb3c4f42d2710b1fb
 
 COCOAPODS: 0.39.0
