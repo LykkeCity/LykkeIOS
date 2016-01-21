@@ -139,7 +139,8 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     }
     
     NSString *text = [self description:assetDetails forRow:indexPath.row];
-    if ([text isEmpty]) {
+    if (text == nil || [text isKindOfClass:[NSNull class]]
+        || [text isEqualToString:@""]) {
         return 0;
     }
     

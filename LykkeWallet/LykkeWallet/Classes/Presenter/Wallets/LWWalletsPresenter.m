@@ -33,7 +33,7 @@ static NSInteger const kSectionBankCards    = 1;
 @interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate> {
     
     NSMutableIndexSet *expandedSections;
-    
+    UIRefreshControl  *refreshControl;
 }
 
 
@@ -48,6 +48,8 @@ static NSInteger const kSectionBankCards    = 1;
 - (NSString *)assetIdentifyForIndexPath:(NSIndexPath *)indexPath;
 - (LWLykkeAssetsData *)assetDataForIndexPath:(NSIndexPath *)indexPath;
 - (void)showDealFormForIndexPath:(NSIndexPath *)indexPath;
+- (void)setRefreshControl;
+- (void)reloadWallets;
 
 @end
 
@@ -95,6 +97,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
+    
+    [self setRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -248,8 +252,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data {
+    [refreshControl endRefreshing];
+
     _data = data;
-    
     [self.tableView reloadData];
 }
 
@@ -263,6 +268,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [refreshControl endRefreshing];
+    
     [self showReject:reject];
     [self.tableView reloadData];
 }
@@ -360,6 +367,23 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [self setLoading:YES];
     LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
     [[LWAuthManager instance] requestAssetPair:data.assetPairId];
+}
+
+- (void)setRefreshControl
+{
+    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
+    [self.tableView insertSubview:refreshView atIndex:0];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor blackColor];
+    [refreshControl addTarget:self action:@selector(reloadWallets)
+             forControlEvents:UIControlEventValueChanged];
+    [refreshView addSubview:refreshControl];
+}
+
+- (void)reloadWallets
+{
+    [[LWAuthManager instance] requestLykkeWallets];
 }
 
 @end
