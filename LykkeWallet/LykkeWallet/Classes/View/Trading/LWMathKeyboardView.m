@@ -195,7 +195,11 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 - (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate {
     // calculate
     @try {
+        NSString *separator = [self decimalSeparator];
         NSString *text = self.targetTextField.text;
+        // set '.' as decimal separator
+        text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
+        // will not calculate if have extra symbols
         if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
             return;
         }

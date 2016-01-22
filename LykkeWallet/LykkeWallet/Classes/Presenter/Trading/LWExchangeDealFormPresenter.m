@@ -313,9 +313,10 @@ float const kBottomBigHeight     = 105.0;
 #pragma mark - LWMathKeyboardViewDelegate
 
 - (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
+#warning TODO: localize
     UIAlertController *ctrl = [UIAlertController
                                alertControllerWithTitle:@"Error"
-                               message:@"Invalid math expression."
+                               message:@"Invalid volume."
                                preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
