@@ -123,6 +123,16 @@
 "exchange.blockchain.quantity" = "Quantity";
 "exchange.blockchain.url" = "URL";
 
+"personal.data.close" = "CLOSE";
+"personal.data.title" = "PERSONAL DATA";
+"personal.data.fullname" = "Full Name";
+"personal.data.email" = "Email";
+"personal.data.phone" = "Contact Phone";
+"personal.data.country" = "Country";
+"personal.data.zip" = "Zip";
+"personal.data.city" = "City";
+"personal.data.address" = "Address";
+
 "settings.push.title" = "PUSH NOTIFICATIONS";
 "settings.cell.push.title" = "Push notifications";
 "settings.cell.push.order.title" = "Order confirmation alert";
@@ -130,6 +140,7 @@
 "settings.assets.title" = "BASE ASSET";
 "settings.cell.pin.title" = "Sign orders with PIN/Touch ID";
 "settings.cell.pin.change.title" = "Please scan your fingerprint to validate your identity to complete request.";
+"settings.cell.kyc.title" = "View Personal Data";
 "settings.cell.logout.title" = "Log out from";
 "settings.cell.asset.title" = "Base asset";
 

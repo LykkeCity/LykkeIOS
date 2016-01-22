@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketPersonalData.h"
+#import "LWPersonalDataModel.h"
 
 
 @implementation LWPacketPersonalData
@@ -20,9 +21,8 @@
     if (self.isRejected) {
         return;
     }
-    _fullName = result[@"FullName"];
-    _email = result[@"Email"];
-    _phone = result[@"Phone"];
+    
+    _data = [[LWPersonalDataModel alloc] initWithJSON:result];
 }
 
 - (NSString *)urlRelative {

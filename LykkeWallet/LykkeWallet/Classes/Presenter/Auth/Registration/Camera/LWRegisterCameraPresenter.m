@@ -14,6 +14,9 @@
 #import "UIViewController+Loading.h"
 #import "UIImage+Resize.h"
 
+#import <AFNetworking/AFNetworking.h>
+
+
 @interface LWRegisterCameraPresenter ()<LWAuthManagerDelegate, LWCameraOverlayDelegate> {
     LWCameraOverlayPresenter *cameraOverlayPresenter;
 }

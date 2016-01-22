@@ -123,6 +123,16 @@
 "exchange.blockchain.quantity" = "Количество";
 "exchange.blockchain.url" = "URL";
 
+"personal.data.close" = "ЗАКРЫТЬ";
+"personal.data.title" = "ПЕРСОНАЛЬНЫЕ ДАННЫЕ";
+"personal.data.fullname" = "Имя Фамилия";
+"personal.data.email" = "Email";
+"personal.data.phone" = "Телефон";
+"personal.data.country" = "Страна";
+"personal.data.zip" = "Zip";
+"personal.data.city" = "Город";
+"personal.data.address" = "Адрес";
+
 "settings.push.title" = "PUSH-УВЕДОМЛЕНИЯ";
 "settings.cell.push.title" = "Push-уведомления";
 "settings.cell.push.order.title" = "Исполнение ордера";
@@ -130,6 +140,7 @@
 "settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
 "settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";
 "settings.cell.pin.change.title" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
+"settings.cell.kyc.title" = "Персональные данные";
 "settings.cell.logout.title" = "Выйти из-под";
 "settings.cell.asset.title" = "Базовая валюта";
 

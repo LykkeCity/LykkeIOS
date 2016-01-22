@@ -42,6 +42,7 @@
 #import "LWPacketLykkeWallet.h"
 #import "LWKeychainManager.h"
 #import "LWAssetDealModel.h"
+#import "LWPersonalDataModel.h"
 #import "LWAssetBlockchainModel.h"
 
 
@@ -340,11 +341,8 @@ SINGLETON_INIT {
     }
     else if (pack.class == LWPacketPersonalData.class) {
         // call delegate
-        if ([self.delegate respondsToSelector:@selector(authManager:didReceivePersonalFullName:phone:email:)]) {
-            LWPacketPersonalData *user = (LWPacketPersonalData *)pack;
-            [self.delegate authManager:self didReceivePersonalFullName:user.fullName
-                                 phone:user.phone
-                                 email:user.email];
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceivePersonalData:)]) {
+            [self.delegate authManager:self didReceivePersonalData:((LWPacketPersonalData *)pack).data];
         }
     }
     else if (pack.class == LWPacketCheckDocumentsToUpload.class) {

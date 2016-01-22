@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base asset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHw-gr-DK8">
-                        <rect key="frame" x="18" y="8" width="133" height="33"/>
+                        <rect key="frame" x="18" y="8" width="173" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="Hap-Yg-mW2"/>
                             <constraint firstAttribute="width" constant="120" id="gpD-mQ-tmv"/>
@@ -38,9 +38,9 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWn-xD-hwQ">
-                        <rect key="frame" x="159" y="8" width="120" height="33"/>
+                        <rect key="frame" x="199" y="8" width="80" height="33"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="120" id="oxd-cF-gnA"/>
+                            <constraint firstAttribute="width" constant="80" id="oxd-cF-gnA"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,6 +53,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="ZWn-xD-hwQ" secondAttribute="trailing" id="MsK-Uz-uHb"/>
                     <constraint firstItem="ZWn-xD-hwQ" firstAttribute="bottom" secondItem="CZi-Ts-Qzb" secondAttribute="bottomMargin" id="Zks-AZ-B6E"/>
                     <constraint firstItem="ZWn-xD-hwQ" firstAttribute="top" secondItem="CZi-Ts-Qzb" secondAttribute="topMargin" id="bZz-FI-95b"/>
+                    <constraint firstItem="yHw-gr-DK8" firstAttribute="centerY" secondItem="CZi-Ts-Qzb" secondAttribute="centerY" id="eNs-nT-umU"/>
                     <constraint firstItem="yHw-gr-DK8" firstAttribute="bottom" secondItem="CZi-Ts-Qzb" secondAttribute="bottomMargin" id="lqi-cJ-WGy"/>
                     <constraint firstItem="yHw-gr-DK8" firstAttribute="top" secondItem="CZi-Ts-Qzb" secondAttribute="topMargin" id="xYt-fz-9dG"/>
                 </constraints>

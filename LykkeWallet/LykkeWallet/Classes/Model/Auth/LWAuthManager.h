@@ -23,6 +23,7 @@
 @class LWAssetDealModel;
 @class LWAssetBlockchainModel;
 @class LWTransactionsModel;
+@class LWPersonalDataModel;
 @class LWTransactionMarketOrderModel;
 
 
@@ -40,7 +41,7 @@
 - (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid;
 - (void)authManagerDidSetPin:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didReceiveRestrictedCountries:(NSArray *)countries;
-- (void)authManager:(LWAuthManager *)manager didReceivePersonalFullName:(NSString *)fullName phone:(NSString *)phone email:(NSString *)email;
+- (void)authManager:(LWAuthManager *)manager didReceivePersonalData:(LWPersonalDataModel *)data;
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data;
 - (void)authManagerDidNotAuthorized:(LWAuthManager *)manager;
 - (void)authManagerDidCardAdd:(LWAuthManager *)manager;

@@ -159,13 +159,12 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     assetDetails = assetDescription;
  
     [self.tableView reloadData];
+    [self setLoading:NO];
+    
     [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
 }
 
 - (void)authManager:(LWAuthManager *)manager didGetAssetPairRate:(LWAssetPairRateModel *)assetPairRate {
-    
-    [self setLoading:NO];
-
     [self updateRate:assetPairRate];
 
     const NSInteger repeatSeconds = [LWCache instance].refreshTimer.integerValue / 1000;

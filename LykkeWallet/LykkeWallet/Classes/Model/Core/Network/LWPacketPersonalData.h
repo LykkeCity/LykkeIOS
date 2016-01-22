@@ -9,12 +9,13 @@
 #import "LWAuthorizePacket.h"
 
 
+@class LWPersonalDataModel;
+
+
 @interface LWPacketPersonalData : LWAuthorizePacket {
     
 }
 // out
-@property (readonly, nonatomic) NSString *fullName;
-@property (readonly, nonatomic) NSString *email;
-@property (readonly, nonatomic) NSString *phone;
+@property (copy, nonatomic) LWPersonalDataModel *data;
 
 @end
