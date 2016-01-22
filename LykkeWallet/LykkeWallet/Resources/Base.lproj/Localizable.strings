@@ -36,6 +36,7 @@
 "register.camera.photo.take" = "Nice, Submit";
 "register.camera.photo.cancel" = "Not good, reshoot";
 "register.camera.photo.ok" = "Nice, submit";
+"register.camera.hud.title" = "Tap to cancel the upload operation";
 "register.kyc.pending" = "Dear %@, your information is being reviewed by our KYC team. It may take up to 15-20 minutes.";
 
 "register.kyc.restricted.header" = "OOPS!";
