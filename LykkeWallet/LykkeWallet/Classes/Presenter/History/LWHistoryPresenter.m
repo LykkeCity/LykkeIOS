@@ -23,7 +23,7 @@
 
 
 @interface LWHistoryPresenter () {
-    
+    UIRefreshControl *refreshControl;
 }
 
 
@@ -35,6 +35,8 @@
 #pragma mark - Utils
 
 - (void)updateCell:(LWHistoryTableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
+- (void)setRefreshControl;
+- (void)reloadHistory;
 
 @end
 
@@ -51,6 +53,8 @@
     
     [self registerCellWithIdentifier:kHistoryTableViewCellIdentifier
                              forName:kHistoryTableViewCell];
+    
+    [self setRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,11 +96,15 @@
     _operations = [LWHistoryManager convertNetworkModel:transactions];
     _sortedKeys = [LWHistoryManager sortKeys:_operations];
     
+    [refreshControl endRefreshing];
+
     [self setLoading:NO];
     [self.tableView reloadData];
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [refreshControl endRefreshing];
+    
     [self showReject:reject];
 }
 
@@ -144,5 +152,21 @@
         }
     }
 }
+
+- (void)setRefreshControl {
+    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
+    [self.tableView insertSubview:refreshView atIndex:0];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor blackColor];
+    [refreshControl addTarget:self action:@selector(reloadHistory)
+             forControlEvents:UIControlEventValueChanged];
+    [refreshView addSubview:refreshControl];
+}
+
+- (void)reloadHistory {
+    [[LWAuthManager instance] requestTransactions:self.assetId];
+}
+
 
 @end
