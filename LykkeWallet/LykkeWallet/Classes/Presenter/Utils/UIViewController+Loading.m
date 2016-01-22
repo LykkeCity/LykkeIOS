@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+Loading.h"
+#import "UIView+Toast.h"
 #import "Macro.h"
 
 #warning TODO: temporary
@@ -59,6 +60,19 @@
                                                      }];
     [ctrl addAction:actionOK];
     [self presentViewController:ctrl animated:YES completion:nil];
+}
+
+- (void)showReject:(NSDictionary *)reject code:(NSInteger)code willNotify:(BOOL)willNotify {
+    if (code == NSURLErrorNotConnectedToInternet) {
+        [self setLoading:NO];
+        
+        if (willNotify) {
+            [self.navigationController.view makeToast:Localize(@"errors.network.connection")];
+        }
+    }
+    else {
+        [self showReject:reject];
+    }
 }
 
 

@@ -151,6 +151,8 @@
 "history.cash.in" = "Пополнение";
 "history.cash.out" = "Снятие";
 
+"errors.network.connection" = "Проблемы с интернет-соединением";
+
 "ABPadLockScreen.pin.enter" = "Введите PIN";
 "ABPadLockScreen.pin.setup" = "Задайте новый PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Повторно введите PIN";

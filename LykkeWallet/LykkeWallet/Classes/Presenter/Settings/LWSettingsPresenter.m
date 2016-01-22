@@ -137,7 +137,8 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self showReject:reject];
+    [self showReject:reject code:context.error.code willNotify:YES];
+    
     [self updateSignStatus];
 }
 

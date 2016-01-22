@@ -240,7 +240,8 @@ float const kBottomBigHeight     = 105.0;
     
     if (confirmationView) {
         [confirmationView setLoading:NO withReason:@""];
-        [self showReject:reject];
+        [self showReject:reject code:context.error.code willNotify:YES];
+        
         [confirmationView removeFromSuperview];
     }
 }

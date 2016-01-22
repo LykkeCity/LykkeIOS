@@ -34,6 +34,8 @@ static NSInteger const kSectionBankCards    = 1;
     
     NSMutableIndexSet *expandedSections;
     UIRefreshControl  *refreshControl;
+    
+    BOOL               shouldShowError;
 }
 
 
@@ -97,6 +99,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    self.tableView.contentInset = insets;
+    self.tableView.scrollIndicatorInsets = insets;
+    
+    shouldShowError = NO;
     
     [self setRefreshControl];
 }
@@ -254,12 +262,14 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)authManager:(LWAuthManager *)manager didReceiveLykkeData:(LWLykkeWalletsData *)data {
     [refreshControl endRefreshing];
 
+    shouldShowError = NO;
     _data = data;
     [self.tableView reloadData];
 }
 
 - (void)authManager:(LWAuthManager *)manager didGetAssetPair:(LWAssetPairModel *)assetPair {
     [self setLoading:NO];
+    shouldShowError = NO;
     
     LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
     controller.assetPair = assetPair;
@@ -269,8 +279,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     [refreshControl endRefreshing];
+    shouldShowError = NO;
     
-    [self showReject:reject];
+    [self showReject:reject code:context.error.code willNotify:shouldShowError];
     [self.tableView reloadData];
 }
 
@@ -383,6 +394,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (void)reloadWallets
 {
+    shouldShowError = YES;
     [[LWAuthManager instance] requestLykkeWallets];
 }
 

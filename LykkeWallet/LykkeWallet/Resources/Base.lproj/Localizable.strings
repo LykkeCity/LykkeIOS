@@ -151,6 +151,8 @@
 "history.cash.in" = "Wallet cash in";
 "history.cash.out" = "Wallet cash out";
 
+"errors.network.connection" = "Internet connection problem";
+
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";
 "ABPadLockScreen.pin.setup.confirm" = "Re-enter PIN";

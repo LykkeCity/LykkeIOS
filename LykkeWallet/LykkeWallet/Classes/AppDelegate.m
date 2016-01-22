@@ -14,6 +14,7 @@
 #import "TKButton.h"
 #import "LWConstants.h"
 #import "UIColor+Generic.h"
+#import "UIView+Toast.h"
 
 
 @interface AppDelegate () {
@@ -49,6 +50,8 @@
     [self customizeTextField];
     [self customizePageControl];
     [self customizeSwitcher];
+    
+    [CSToastManager setQueueEnabled:NO];
 
     // init main controller
     self.mainController = [LWAuthNavigationController new];

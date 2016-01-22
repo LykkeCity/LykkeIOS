@@ -15,5 +15,6 @@
 - (void)setLoading:(BOOL)loading;
 - (MBProgressHUD *)hud;
 - (void)showReject:(NSDictionary *)reject;
+- (void)showReject:(NSDictionary *)reject code:(NSInteger)code willNotify:(BOOL)willNotify;
 
 @end
