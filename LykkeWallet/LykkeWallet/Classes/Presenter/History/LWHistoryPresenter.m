@@ -10,6 +10,7 @@
 #import "LWHistoryTableViewCell.h"
 #import "LWAuthManager.h"
 #import "LWTransactionsModel.h"
+#import "LWAssetModel.h"
 #import "LWHistoryManager.h"
 #import "LWBaseHistoryItemType.h"
 #import "LWMarketHistoryItemType.h"
@@ -124,9 +125,16 @@
                 LWMarketHistoryItemType *market = (LWMarketHistoryItemType *)item;
                 cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
                 volume = market.volume;
-                operation = (volume.intValue >= 0
+                
+                NSString *base = [LWAssetModel
+                                  assetByIdentity:market.baseAsset
+                                  fromList:[LWCache instance].baseAssets];
+                
+                NSString *type = (volume.intValue >= 0
                              ? Localize(@"history.market.sell")
                              : Localize(@"history.market.buy"));
+                
+                operation = [NSString stringWithFormat:@"%@ %@", base, type];
             }
             else {
                 LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;

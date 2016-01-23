@@ -11,6 +11,7 @@
 #import "LWAuthManager.h"
 #import "LWAssetModel.h"
 #import "LWConstants.h"
+#import "LWCache.h"
 
 #import "UIColor+Generic.h"
 #import "UIViewController+Loading.h"
@@ -21,7 +22,7 @@
     
 }
 
-@property (readonly, nonatomic) NSArray *assets;
+@property (copy, nonatomic) NSArray *assets;
 
 @end
 
@@ -45,7 +46,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self setLoading:YES];
+    self.assets = [[LWCache instance].baseAssets copy];
+    if (!self.assets || self.assets.count == 0) {
+        [self setLoading:YES];
+    }
+    
     [[LWAuthManager instance] requestBaseAssets];
 }
 
@@ -55,7 +60,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetBaseAssets:(NSArray *)assets {
     [self setLoading:NO];
     
-    _assets = assets;
+    self.assets = [assets copy];
     [self.tableView reloadData];
 }
 
@@ -79,15 +84,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"LWChooseAssetTableViewCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:cellIdentifier];
-    }
-    
+    NSString *identifier = @"LWChooseAssetTableViewCellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     [self configureCell:cell indexPath:indexPath];
     
     return cell;

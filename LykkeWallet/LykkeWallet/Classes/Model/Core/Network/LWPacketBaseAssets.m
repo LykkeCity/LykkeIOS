@@ -8,6 +8,7 @@
 
 #import "LWPacketBaseAssets.h"
 #import "LWAssetModel.h"
+#import "LWCache.h"
 
 
 @implementation LWPacketBaseAssets
@@ -27,6 +28,8 @@
         [list addObject:[[LWAssetModel alloc] initWithJSON:item]];
     }
     _assets = list;
+
+    [LWCache instance].baseAssets = _assets;
 }
 
 - (NSString *)urlRelative {

@@ -12,6 +12,20 @@
 @implementation LWAssetModel
 
 
+#pragma mark - Root
+
++ (NSString *)assetByIdentity:(NSString *)identity fromList:(NSArray *)list {
+    if (list && list.count > 0) {
+        for (LWAssetModel *item in list) {
+            if ([item.identity isEqualToString:identity]) {
+                return item.name;
+            }
+        }
+    }
+    return @"";
+}
+
+
 #pragma mark - LWJSONObject
 
 - (instancetype)initWithJSON:(id)json {

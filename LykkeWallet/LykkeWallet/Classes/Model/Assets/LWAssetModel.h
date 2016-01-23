@@ -19,4 +19,9 @@
 @property (readonly, nonatomic) NSString *identity;
 @property (readonly, nonatomic) NSString *name;
 
+
+#pragma mark - Root
+
++ (NSString *)assetByIdentity:(NSString *)identity fromList:(NSArray *)list;
+
 @end
