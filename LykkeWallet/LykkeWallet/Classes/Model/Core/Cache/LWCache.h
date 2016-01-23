@@ -22,6 +22,7 @@ SINGLETON_DECLARE
 @property (copy, nonatomic) NSNumber *refreshTimer;
 @property (copy, nonatomic) NSString *baseAssetId;
 @property (copy, nonatomic) NSString *baseAssetSymbol;
+@property (copy, nonatomic) NSArray  *baseAssets; // Array of LWAssetModel items
 @property (assign, nonatomic) BOOL shouldSignOrder;
 
 @end
