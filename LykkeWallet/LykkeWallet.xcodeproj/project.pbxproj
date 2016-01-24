@@ -2005,7 +2005,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "ce4b1e1c-dfef-4135-984e-0289bc814664";
+				PROVISIONING_PROFILE = "2bbc218d-b6fe-4755-9424-c1e3e26b8c26";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2016,13 +2016,13 @@
 			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce4b1e1c-dfef-4135-984e-0289bc814664";
+				PROVISIONING_PROFILE = "";
 			};
 			name = AdHoc;
 		};
@@ -2066,7 +2066,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e2e4dbf7-3b7b-4de4-8420-66427fe4e3fa";
+				PROVISIONING_PROFILE = "9286ab14-09da-4257-86cd-b6a3c9f440dd";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2113,13 +2113,13 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrey Migin (9KYRE6V24Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrey Migin (9KYRE6V24Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e2e4dbf7-3b7b-4de4-8420-66427fe4e3fa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
