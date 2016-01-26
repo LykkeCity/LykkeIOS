@@ -11,6 +11,7 @@
 #import "LWTransactionMarketOrderModel.h"
 #import "LWTransactionCashInOutModel.h"
 #import "LWMarketHistoryItemType.h"
+#import "LWTradeHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
 
 
@@ -23,15 +24,16 @@
     NSMutableDictionary *result = [NSMutableDictionary new];
     
     // mapping market operations
-    if (model && model.marketOrders) {
-        for (LWTransactionMarketOrderModel *marketOperation in model.marketOrders) {
-            if (![result objectForKey:marketOperation.dateTime]) {
-                result[marketOperation.dateTime] = [NSMutableArray new];
-            }
-            LWMarketHistoryItemType *item = [LWMarketHistoryItemType convertFromNetworkModel:marketOperation];
-            [result[marketOperation.dateTime] addObject:item];
-        }
-    }
+#warning TODO: remove after review IPHONELW-91
+    //if (model && model.marketOrders) {
+        //for (LWTransactionMarketOrderModel *marketOperation in model.marketOrders) {
+            //if (![result objectForKey:marketOperation.dateTime]) {
+            //    result[marketOperation.dateTime] = [NSMutableArray new];
+            //}
+            //LWMarketHistoryItemType *item = [LWMarketHistoryItemType convertFromNetworkModel:marketOperation];
+            //[result[marketOperation.dateTime] addObject:item];
+        //}
+    //}
     
     // mapping cash in/out operations
     if (model && model.cashInOut) {

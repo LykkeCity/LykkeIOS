@@ -33,10 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-#warning TODO: as request by customer (temporarly)
-    self.navigationItem.hidesBackButton = YES;
-    
     self.title = Localize(@"register.kyc.submit.title");
 }
 

@@ -8,7 +8,8 @@
 
 #import "LWBaseHistoryItemType.h"
 
-
+#warning TODO: remove after review
+/*
 @class LWTransactionMarketOrderModel;
 
 
@@ -30,3 +31,4 @@
 + (LWMarketHistoryItemType *)convertFromNetworkModel:(LWTransactionMarketOrderModel *)model;
 
 @end
+ */

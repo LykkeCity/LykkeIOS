@@ -9,7 +9,8 @@
 #import "LWMarketHistoryItemType.h"
 #import "LWTransactionMarketOrderModel.h"
 
-
+#warning TODO: remove after review
+/*
 @implementation LWMarketHistoryItemType
 
 
@@ -33,3 +34,4 @@
 }
 
 @end
+*/
