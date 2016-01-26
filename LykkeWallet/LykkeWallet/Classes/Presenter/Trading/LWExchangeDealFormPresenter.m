@@ -313,17 +313,11 @@ float const kBottomBigHeight     = 105.0;
 #pragma mark - LWMathKeyboardViewDelegate
 
 - (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
-#warning TODO: localize
-    UIAlertController *ctrl = [UIAlertController
-                               alertControllerWithTitle:@"Error"
-                               message:@"Invalid volume."
-                               preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"OK"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         [ctrl dismissViewControllerAnimated:YES
-                                                                                  completion:nil];
-                                                     }];
+    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"exchange.assets.modal.error") message:Localize(@"exchange.assets.modal.error.volume") preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"exchange.assets.modal.error.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [ctrl dismissViewControllerAnimated:YES completion:nil];
+        }];
     [ctrl addAction:actionOK];
     
     [self presentViewController:ctrl animated:YES completion:nil];

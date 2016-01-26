@@ -7,7 +7,6 @@
 //
 
 #import "LWTransactionsModel.h"
-#import "LWTransactionMarketOrderModel.h"
 #import "LWTransactionCashInOutModel.h"
 #import "LWTransactionTradeModel.h"
 
@@ -20,15 +19,7 @@
 - (instancetype)initWithJSON:(id)json {
     self = [super initWithJSON:json];
     if (self) {
-#warning TODO: remove after review IPHONELW-91
-        // market orders
-        //NSMutableArray *market = [NSMutableArray new];
-        //for (NSDictionary *item in json[@"MarketOrders"]) {
-        //    [market addObject:[[LWTransactionMarketOrderModel alloc] initWithJSON:item]];
-        //}
-        //_marketOrders = market;
-        
-        
+
         // trades
         NSMutableArray *trades = [NSMutableArray new];
         for (NSDictionary *item in json[@"Trades"]) {

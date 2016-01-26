@@ -8,10 +8,8 @@
 
 #import "LWHistoryManager.h"
 #import "LWTransactionsModel.h"
-#import "LWTransactionMarketOrderModel.h"
 #import "LWTransactionCashInOutModel.h"
 #import "LWTransactionTradeModel.h"
-#import "LWMarketHistoryItemType.h"
 #import "LWTradeHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
 
@@ -23,19 +21,6 @@
 // value - set of operations for the selected date time
 + (NSDictionary *)convertNetworkModel:(LWTransactionsModel *)model {
     NSMutableDictionary *result = [NSMutableDictionary new];
-    
-    // mapping market operations
-#warning TODO: remove after review IPHONELW-91
-    //if (model && model.marketOrders) {
-        //for (LWTransactionMarketOrderModel *marketOperation in model.marketOrders) {
-            //if (![result objectForKey:marketOperation.dateTime]) {
-            //    result[marketOperation.dateTime] = [NSMutableArray new];
-            //}
-            //LWMarketHistoryItemType *item = [LWMarketHistoryItemType convertFromNetworkModel:marketOperation];
-            //[result[marketOperation.dateTime] addObject:item];
-        //}
-    //}
-    
     
     // mapping trades
     if (model && model.trades) {
