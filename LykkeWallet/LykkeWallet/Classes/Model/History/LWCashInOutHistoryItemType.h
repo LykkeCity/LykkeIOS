@@ -17,6 +17,7 @@
 }
 
 @property (copy, nonatomic) NSNumber *amount;
+@property (copy, nonatomic) NSString *asset;
 
 + (LWCashInOutHistoryItemType *)convertFromNetworkModel:(LWTransactionCashInOutModel *)model;
 
