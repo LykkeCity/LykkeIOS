@@ -15,7 +15,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
     [dateFormatter setTimeZone:gmt];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.zzz"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     NSDate *dateFromString = [[NSDate alloc] init];
     dateFromString = [dateFormatter dateFromString:self];
     return dateFromString;
