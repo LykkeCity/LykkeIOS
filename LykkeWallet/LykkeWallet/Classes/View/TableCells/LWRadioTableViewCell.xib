@@ -36,6 +36,10 @@
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-93-aBO">
                         <rect key="frame" x="251" y="9" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="ckE-2V-ZAG"/>
+                            <constraint firstAttribute="width" constant="49" id="jf2-Qv-tdV"/>
+                        </constraints>
                         <connections>
                             <action selector="switchChanged:" destination="uCr-Rq-Qqi" eventType="valueChanged" id="aYi-TI-s5V"/>
                         </connections>
@@ -43,11 +47,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hEO-XD-L8a" firstAttribute="bottom" secondItem="57o-rA-l3m" secondAttribute="bottomMargin" id="41k-fP-rvz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Kab-93-aBO" secondAttribute="trailing" constant="12" id="Aqo-2q-ITC"/>
                     <constraint firstItem="Kab-93-aBO" firstAttribute="leading" secondItem="hEO-XD-L8a" secondAttribute="trailing" constant="16" id="X8b-Cr-TTB"/>
                     <constraint firstItem="hEO-XD-L8a" firstAttribute="top" secondItem="57o-rA-l3m" secondAttribute="topMargin" id="e4C-x8-T2h"/>
                     <constraint firstItem="Kab-93-aBO" firstAttribute="centerY" secondItem="57o-rA-l3m" secondAttribute="centerY" id="hO1-4W-2EA"/>
                     <constraint firstItem="hEO-XD-L8a" firstAttribute="leading" secondItem="57o-rA-l3m" secondAttribute="leadingMargin" constant="12" id="pKr-Tu-yjM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Kab-93-aBO" secondAttribute="trailing" constant="12" id="xsk-Jc-u9W"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
