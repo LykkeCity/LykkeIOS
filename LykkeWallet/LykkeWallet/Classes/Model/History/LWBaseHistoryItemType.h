@@ -10,7 +10,8 @@
 
 
 typedef NS_ENUM(NSInteger, LWHistoryItemType) {
-    LWHistoryItemTypeMarket,
+    //LWHistoryItemTypeMarket,
+    LWHistoryItemTypeTrade,
     LWHistoryItemTypeCashInOut
 };
 

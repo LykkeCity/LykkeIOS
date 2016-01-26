@@ -208,6 +208,8 @@
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
 		ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */; };
 		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
+		ECA8E9CD1C573618000F53EC /* LWTransactionTradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */; };
+		ECA8E9D01C5736F5000F53EC /* LWTradeHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -589,6 +591,10 @@
 		ECA80B621C2E0E47001C4E8F /* LWCameraOverlayPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCameraOverlayPresenter.h; path = Utils/LWCameraOverlayPresenter.h; sourceTree = "<group>"; };
 		ECA80B631C2E0E47001C4E8F /* LWCameraOverlayPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCameraOverlayPresenter.m; path = Utils/LWCameraOverlayPresenter.m; sourceTree = "<group>"; };
 		ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCameraOverlayPresenter.xib; path = Utils/LWCameraOverlayPresenter.xib; sourceTree = "<group>"; };
+		ECA8E9CB1C573618000F53EC /* LWTransactionTradeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionTradeModel.h; path = History/LWTransactionTradeModel.h; sourceTree = "<group>"; };
+		ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionTradeModel.m; path = History/LWTransactionTradeModel.m; sourceTree = "<group>"; };
+		ECA8E9CE1C5736F5000F53EC /* LWTradeHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTradeHistoryItemType.h; path = History/LWTradeHistoryItemType.h; sourceTree = "<group>"; };
+		ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTradeHistoryItemType.m; path = History/LWTradeHistoryItemType.m; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1546,12 +1552,16 @@
 				ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */,
 				ECEC40CF1C42D35F00B22BEE /* LWTransactionMarketOrderModel.h */,
 				ECEC40D01C42D35F00B22BEE /* LWTransactionMarketOrderModel.m */,
+				ECA8E9CB1C573618000F53EC /* LWTransactionTradeModel.h */,
+				ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */,
 				ECEC40C91C42CA7B00B22BEE /* LWHistoryManager.h */,
 				ECEC40CA1C42CA7B00B22BEE /* LWHistoryManager.m */,
 				ECEC40CC1C42CB5800B22BEE /* LWBaseHistoryItemType.h */,
 				ECEC40CD1C42CB5800B22BEE /* LWBaseHistoryItemType.m */,
 				ECEC40D21C42D4BB00B22BEE /* LWMarketHistoryItemType.h */,
 				ECEC40D31C42D4BB00B22BEE /* LWMarketHistoryItemType.m */,
+				ECA8E9CE1C5736F5000F53EC /* LWTradeHistoryItemType.h */,
+				ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */,
 				ECEC40D51C42D4CF00B22BEE /* LWCashInOutHistoryItemType.h */,
 				ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */,
 			);
@@ -1787,6 +1797,7 @@
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
 				EC7F050C1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m in Sources */,
+				ECA8E9CD1C573618000F53EC /* LWTransactionTradeModel.m in Sources */,
 				CF6A9CDA1C18EDB900B69F53 /* LWPacketAccountExist.m in Sources */,
 				EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */,
 				EC57F4651C3D197900E31746 /* NSString+Utils.m in Sources */,
@@ -1923,6 +1934,7 @@
 				ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				EC57F44D1C3C35B100E31746 /* LWPacketAssetDescription.m in Sources */,
+				ECA8E9D01C5736F5000F53EC /* LWTradeHistoryItemType.m in Sources */,
 				EC24CC851C399A8600C2FDAA /* LWWalletPagePresenter.m in Sources */,
 				CFD9B7061C1C945C00F717FE /* LWPacketKYCSendDocument.m in Sources */,
 				EC3144481C4C01B500DEA50B /* LWMathKeyboardView.m in Sources */,

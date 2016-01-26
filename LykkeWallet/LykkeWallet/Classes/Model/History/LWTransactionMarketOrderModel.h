@@ -8,9 +8,11 @@
 
 #import "LWAssetDealModel.h"
 
-
+#warning TODO: remove after review IPHONELW-91
+/*
 @interface LWTransactionMarketOrderModel : LWAssetDealModel {
     
 }
 
 @end
+*/

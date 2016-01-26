@@ -15,6 +15,7 @@
 #import "LWBaseHistoryItemType.h"
 #import "LWMarketHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
+#import "LWTradeHistoryItemType.h"
 #import "LWConstants.h"
 #import "LWMath.h"
 #import "LWCache.h"
@@ -121,7 +122,8 @@
             NSNumber *volume = [NSNumber numberWithInt:0];
             NSString *operation = @"";
 #warning TODO: get image from server
-            if (item.historyType == LWHistoryItemTypeMarket) {
+#warning TODO: remove after review IPHONELW-91
+            /*if (item.historyType == LWHistoryItemTypeMarket) {
                 LWMarketHistoryItemType *market = (LWMarketHistoryItemType *)item;
                 cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
                 volume = market.volume;
@@ -133,6 +135,23 @@
                 NSString *type = (volume.intValue >= 0
                              ? Localize(@"history.market.sell")
                              : Localize(@"history.market.buy"));
+                
+                operation = [NSString stringWithFormat:@"%@ %@", base, type];
+            }*/
+            if (item.historyType == LWHistoryItemTypeTrade) {
+#warning TODO: get image from server
+                LWTradeHistoryItemType *trade = (LWTradeHistoryItemType *)item;
+                cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
+
+                volume = trade.volume;
+                
+                NSString *base = [LWAssetModel
+                                  assetByIdentity:trade.asset
+                                  fromList:[LWCache instance].baseAssets];
+                
+                NSString *type = (volume.intValue >= 0
+                                  ? Localize(@"history.market.sell")
+                                  : Localize(@"history.market.buy"));
                 
                 operation = [NSString stringWithFormat:@"%@ %@", base, type];
             }

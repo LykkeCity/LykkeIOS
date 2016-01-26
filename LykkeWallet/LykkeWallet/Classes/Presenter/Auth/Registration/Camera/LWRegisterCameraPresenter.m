@@ -57,9 +57,6 @@
     UIColor *cancelColor = [UIColor colorWithHexString:kMainDarkElementsColor];
     [self.cancelButton setTitleColor:cancelColor forState:UIControlStateNormal];
     
-#warning TODO: as request by customer (temporarly)
-    self.navigationItem.hidesBackButton = YES;
-    
     // hide back button if necessary
     if (self.shouldHideBackButton) {
         self.navigationItem.hidesBackButton = YES;
