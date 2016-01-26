@@ -34,8 +34,12 @@
 }
 
 - (NSString *)urlBase {
-    //return @"https://lykke-api.azurewebsites.net/api/";
-    return @"https://lykke-api-dev.azurewebsites.net/api/";
+#ifdef RELEASEADDR
+    NSString *addr = @"https://lykke-api.azurewebsites.net/api/";
+#else
+    NSString *addr = @"https://lykke-api-dev.azurewebsites.net/api/";
+#endif
+    return addr;
 }
 
 - (NSString *)urlRelative {
