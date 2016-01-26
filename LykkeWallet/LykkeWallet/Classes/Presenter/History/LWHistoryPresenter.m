@@ -132,8 +132,8 @@
                                   fromList:[LWCache instance].baseAssets];
                 
                 NSString *type = (volume.intValue >= 0
-                                  ? Localize(@"history.market.sell")
-                                  : Localize(@"history.market.buy"));
+                                  ? Localize(@"history.market.buy")
+                                  : Localize(@"history.market.sell"));
                 
                 operation = [NSString stringWithFormat:@"%@ %@", base, type];
             }
@@ -147,8 +147,8 @@
                                   fromList:[LWCache instance].baseAssets];
                 
                 NSString *type = (volume.intValue >= 0
-                                  ? Localize(@"history.cash.in")
-                                  : Localize(@"history.cash.out"));
+                                  ? Localize(@"history.cash.out")
+                                  : Localize(@"history.cash.in"));
                 
                 operation = [NSString stringWithFormat:@"%@ %@", base, type];
             }
