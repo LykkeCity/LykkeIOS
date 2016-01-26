@@ -244,8 +244,6 @@
 		ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */; };
 		ECEC40CB1C42CA7B00B22BEE /* LWHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40CA1C42CA7B00B22BEE /* LWHistoryManager.m */; };
 		ECEC40CE1C42CB5800B22BEE /* LWBaseHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40CD1C42CB5800B22BEE /* LWBaseHistoryItemType.m */; };
-		ECEC40D11C42D36000B22BEE /* LWTransactionMarketOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40D01C42D35F00B22BEE /* LWTransactionMarketOrderModel.m */; };
-		ECEC40D41C42D4BB00B22BEE /* LWMarketHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40D31C42D4BB00B22BEE /* LWMarketHistoryItemType.m */; };
 		ECEC40D71C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */; };
 		ECEC40DE1C430FE200B22BEE /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40DD1C430FE200B22BEE /* NSString+Date.m */; };
 		ECEC40E11C4316D100B22BEE /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E01C4316D100B22BEE /* NSDate+String.m */; };
@@ -657,10 +655,6 @@
 		ECEC40CA1C42CA7B00B22BEE /* LWHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWHistoryManager.m; path = History/LWHistoryManager.m; sourceTree = "<group>"; };
 		ECEC40CC1C42CB5800B22BEE /* LWBaseHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWBaseHistoryItemType.h; path = History/LWBaseHistoryItemType.h; sourceTree = "<group>"; };
 		ECEC40CD1C42CB5800B22BEE /* LWBaseHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBaseHistoryItemType.m; path = History/LWBaseHistoryItemType.m; sourceTree = "<group>"; };
-		ECEC40CF1C42D35F00B22BEE /* LWTransactionMarketOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionMarketOrderModel.h; path = History/LWTransactionMarketOrderModel.h; sourceTree = "<group>"; };
-		ECEC40D01C42D35F00B22BEE /* LWTransactionMarketOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionMarketOrderModel.m; path = History/LWTransactionMarketOrderModel.m; sourceTree = "<group>"; };
-		ECEC40D21C42D4BB00B22BEE /* LWMarketHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWMarketHistoryItemType.h; path = History/LWMarketHistoryItemType.h; sourceTree = "<group>"; };
-		ECEC40D31C42D4BB00B22BEE /* LWMarketHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWMarketHistoryItemType.m; path = History/LWMarketHistoryItemType.m; sourceTree = "<group>"; };
 		ECEC40D51C42D4CF00B22BEE /* LWCashInOutHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCashInOutHistoryItemType.h; path = History/LWCashInOutHistoryItemType.h; sourceTree = "<group>"; };
 		ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCashInOutHistoryItemType.m; path = History/LWCashInOutHistoryItemType.m; sourceTree = "<group>"; };
 		ECEC40DC1C430FE200B22BEE /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Date.h"; path = "Date/NSString+Date.h"; sourceTree = "<group>"; };
@@ -1550,16 +1544,12 @@
 				ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */,
 				ECEC40C61C42B38100B22BEE /* LWTransactionCashInOutModel.h */,
 				ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */,
-				ECEC40CF1C42D35F00B22BEE /* LWTransactionMarketOrderModel.h */,
-				ECEC40D01C42D35F00B22BEE /* LWTransactionMarketOrderModel.m */,
 				ECA8E9CB1C573618000F53EC /* LWTransactionTradeModel.h */,
 				ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */,
 				ECEC40C91C42CA7B00B22BEE /* LWHistoryManager.h */,
 				ECEC40CA1C42CA7B00B22BEE /* LWHistoryManager.m */,
 				ECEC40CC1C42CB5800B22BEE /* LWBaseHistoryItemType.h */,
 				ECEC40CD1C42CB5800B22BEE /* LWBaseHistoryItemType.m */,
-				ECEC40D21C42D4BB00B22BEE /* LWMarketHistoryItemType.h */,
-				ECEC40D31C42D4BB00B22BEE /* LWMarketHistoryItemType.m */,
 				ECA8E9CE1C5736F5000F53EC /* LWTradeHistoryItemType.h */,
 				ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */,
 				ECEC40D51C42D4CF00B22BEE /* LWCashInOutHistoryItemType.h */,
@@ -1833,7 +1823,6 @@
 				ECD1E9151C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m in Sources */,
 				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
 				ECD1E9101C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m in Sources */,
-				ECEC40D41C42D4BB00B22BEE /* LWMarketHistoryItemType.m in Sources */,
 				EC3CE8A61C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m in Sources */,
 				CF6632701C175DF0004353F5 /* TKTableViewCell.m in Sources */,
 				CDCE884F1C26F6630039798B /* LWAuthenticationPresenter.m in Sources */,
@@ -1894,7 +1883,6 @@
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
-				ECEC40D11C42D36000B22BEE /* LWTransactionMarketOrderModel.m in Sources */,
 				ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */,
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,

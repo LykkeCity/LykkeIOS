@@ -101,6 +101,9 @@
 "exchange.assets.modal.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
 "exchange.assets.modal.validatepin" = "Проверка PIN ...";
 "exchange.assets.modal.waiting" = "Выполняем операцию ...";
+"exchange.assets.modal.error" = "Сообщение";
+"exchange.assets.modal.error.volume" = "Неверный объем сделки.";
+"exchange.assets.modal.error.ok" = "ОК";
 "exchange.assets.result.title" = " ПРИОБРЕТЕН!";
 "exchange.assets.result.assetname" = "Ассет";
 "exchange.assets.result.units" = "Количество";
@@ -146,8 +149,8 @@
 "settings.cell.asset.title" = "Базовая валюта";
 
 "history.title" = "История операций";
-"history.market.buy" = "Попкупка";
-"history.market.sell" = "Продажа";
+"history.market.buy" = "покупка";
+"history.market.sell" = "продажа";
 "history.cash.in" = "Пополнение";
 "history.cash.out" = "Снятие";
 

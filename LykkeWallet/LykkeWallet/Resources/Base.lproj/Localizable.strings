@@ -101,6 +101,9 @@
 "exchange.assets.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
 "exchange.assets.modal.validatepin" = "PIN validation ...";
 "exchange.assets.modal.waiting" = "Sending the order ...";
+"exchange.assets.modal.error" = "Message";
+"exchange.assets.modal.error.volume" = "Volume is invalid.";
+"exchange.assets.modal.error.ok" = "OK";
 "exchange.assets.result.title" = " PURCHASED!";
 "exchange.assets.result.assetname" = "Asset name";
 "exchange.assets.result.units" = "Units purchased";
@@ -146,8 +149,8 @@
 "settings.cell.asset.title" = "Base asset";
 
 "history.title" = "HISTORY OF TRANSACTIONS";
-"history.market.buy" = "Buy trade";
-"history.market.sell" = "Sell trade";
+"history.market.buy" = "buy trade";
+"history.market.sell" = "sell trade";
 "history.cash.in" = "Wallet cash in";
 "history.cash.out" = "Wallet cash out";
 
