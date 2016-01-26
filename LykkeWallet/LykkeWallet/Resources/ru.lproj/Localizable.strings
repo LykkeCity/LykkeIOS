@@ -146,8 +146,8 @@
 "settings.cell.asset.title" = "Базовая валюта";
 
 "history.title" = "История операций";
-"history.market.buy" = "Попкупка";
-"history.market.sell" = "Продажа";
+"history.market.buy" = "покупка";
+"history.market.sell" = "продажа";
 "history.cash.in" = "Пополнение";
 "history.cash.out" = "Снятие";
 

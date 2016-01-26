@@ -10,6 +10,7 @@
 #import "LWTransactionsModel.h"
 #import "LWTransactionMarketOrderModel.h"
 #import "LWTransactionCashInOutModel.h"
+#import "LWTransactionTradeModel.h"
 #import "LWMarketHistoryItemType.h"
 #import "LWTradeHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
@@ -34,6 +35,18 @@
             //[result[marketOperation.dateTime] addObject:item];
         //}
     //}
+    
+    
+    // mapping trades
+    if (model && model.trades) {
+        for (LWTransactionTradeModel *tradeOperation in model.trades) {
+            if (![result objectForKey:tradeOperation.dateTime]) {
+                result[tradeOperation.dateTime] = [NSMutableArray new];
+            }
+            LWTradeHistoryItemType *item = [LWTradeHistoryItemType convertFromNetworkModel:tradeOperation];
+            [result[tradeOperation.dateTime] addObject:item];
+        }
+    }
     
     // mapping cash in/out operations
     if (model && model.cashInOut) {
