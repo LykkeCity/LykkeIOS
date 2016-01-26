@@ -22,7 +22,7 @@
             }
         }
     }
-    return @"";
+    return identity; // requirement - if not found - show identity
 }
 
 

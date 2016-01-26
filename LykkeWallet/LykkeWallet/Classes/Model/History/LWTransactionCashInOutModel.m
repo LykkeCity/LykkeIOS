@@ -22,6 +22,7 @@
         _amount   = [json objectForKey:@"Amount"];
         NSString *date = [json objectForKey:@"DateTime"];
         _dateTime = [date toDate];
+        _asset    = [json objectForKey:@"Asset"];
     }
     return self;
 }

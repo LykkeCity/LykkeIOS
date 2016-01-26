@@ -141,9 +141,16 @@
                 LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
                 cell.operationImageView.image = [UIImage imageNamed:@"WalletBanks"];
                 volume = cash.amount;
-                operation = (volume.intValue >= 0
-                             ? Localize(@"history.cash.in")
-                             : Localize(@"history.cash.out"));
+                
+                NSString *base = [LWAssetModel
+                                  assetByIdentity:cash.asset
+                                  fromList:[LWCache instance].baseAssets];
+                
+                NSString *type = (volume.intValue >= 0
+                                  ? Localize(@"history.cash.in")
+                                  : Localize(@"history.cash.out"));
+                
+                operation = [NSString stringWithFormat:@"%@ %@", base, type];
             }
 
             // prepare value label

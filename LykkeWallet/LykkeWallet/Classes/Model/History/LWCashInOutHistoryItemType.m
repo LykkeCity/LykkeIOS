@@ -18,6 +18,7 @@
     result.dateTime    = model.dateTime;
     result.identity    = model.identity;
     result.amount      = model.amount;
+    result.asset       = model.asset;
     result.historyType = LWHistoryItemTypeCashInOut;
     
     return result;
