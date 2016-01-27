@@ -16,6 +16,7 @@
 #import "LWWalletTableViewCell.h"
 #import "LWLykkeTableViewCell.h"
 #import "LWBanksTableViewCell.h"
+#import "LWWalletsLoadingTableViewCell.h"
 #import "LWAuthNavigationController.h"
 #import "LWWalletFormPresenter.h"
 #import "LWExchangeDealFormPresenter.h"
@@ -100,6 +101,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
     
+    [self registerCellWithIdentifier:kLoadingTableViewCellIdentifier
+                             forName:kLoadingTableViewCell];
+    
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
     self.tableView.contentInset = insets;
     self.tableView.scrollIndicatorInsets = insets;
@@ -124,18 +128,26 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if ([expandedSections containsIndex:section] && self.data)
+    if ([expandedSections containsIndex:section])
     {
-        int const rowCell = 1;
-        if (section == kSectionLykkeWallets &&
-            self.data.lykkeData && self.data.lykkeData.assets) {
-            return MAX(1, self.data.lykkeData.assets.count) + rowCell;
-        }
-        else if (section == kSectionBankCards && self.data.bankCards) {
-            return MAX(1, self.data.bankCards.count) + rowCell;
+        if (self.data) {
+            int const rowCell = 1;
+            if (section == kSectionLykkeWallets &&
+                self.data.lykkeData && self.data.lykkeData.assets) {
+                return MAX(1, self.data.lykkeData.assets.count) + rowCell;
+            }
+            else if (section == kSectionBankCards && self.data.bankCards) {
+                return MAX(1, self.data.bankCards.count) + rowCell;
+            }
+            else {
+                return 2; // general + empty
+            }
         }
         else {
-            return 2; // general + empty
+            // loading indicator cell
+            if (section == kSectionLykkeWallets || section == kSectionBankCards) {
+                return 2;
+            }
         }
     }
     return 1;
@@ -178,6 +190,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
                 }
             }
+            else {
+                // loading indicator cell
+                cell = [tableView dequeueReusableCellWithIdentifier:kLoadingTableViewCellIdentifier];
+            }
         }
         // Banks cells
         else if (indexPath.section == kSectionBankCards) {
@@ -195,6 +211,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 else {
                     cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
                 }
+            }
+            else {
+                // loading indicator cell
+                cell = [tableView dequeueReusableCellWithIdentifier:kLoadingTableViewCellIdentifier];
             }
         }
         // Show empty cells
