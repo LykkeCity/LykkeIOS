@@ -249,6 +249,8 @@
 		ECEC40E11C4316D100B22BEE /* NSDate+String.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E01C4316D100B22BEE /* NSDate+String.m */; };
 		ECEC40E41C44253D00B22BEE /* LWPacketMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */; };
 		ECEC40EA1C44585800B22BEE /* LWPacketAssetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */; };
+		ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */; };
+		ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -665,6 +667,9 @@
 		ECEC40E31C44253D00B22BEE /* LWPacketMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketMarketOrder.m; sourceTree = "<group>"; };
 		ECEC40E81C44585800B22BEE /* LWPacketAssetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPair.h; sourceTree = "<group>"; };
 		ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketAssetPair.m; sourceTree = "<group>"; };
+		ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletsLoadingTableViewCell.h; path = Wallets/LWWalletsLoadingTableViewCell.h; sourceTree = "<group>"; };
+		ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletsLoadingTableViewCell.m; path = Wallets/LWWalletsLoadingTableViewCell.m; sourceTree = "<group>"; };
+		ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletsLoadingTableViewCell.xib; path = Wallets/LWWalletsLoadingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1420,6 +1425,9 @@
 				EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */,
 				EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */,
 				EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */,
+				ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */,
+				ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */,
+				ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */,
 			);
 			name = Wallets;
 			sourceTree = "<group>";
@@ -1659,6 +1667,7 @@
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				EC168F0C1C51362800AF8DD5 /* LWPersonalDataPresenter.xib in Resources */,
+				ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */,
 				EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */,
 				EC31444E1C4C01ED00DEA50B /* LWPinKeyboardView.xib in Resources */,
 				EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */,
@@ -1819,6 +1828,7 @@
 				EC24CC791C39786C00C2FDAA /* LWWalletConfirmPresenter.m in Sources */,
 				EC57F4581C3C41E600E31746 /* UIViewController+Navigation.m in Sources */,
 				EC31444C1C4C01DD00DEA50B /* LWPinKeyboardView.m in Sources */,
+				ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */,
 				EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */,
 				ECD1E9151C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m in Sources */,
 				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
