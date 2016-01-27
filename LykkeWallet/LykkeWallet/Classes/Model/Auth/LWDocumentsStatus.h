@@ -29,9 +29,15 @@ typedef NS_ENUM(NSInteger, KYCDocumentType) {
 @property (readonly, nonatomic) BOOL isPOAUploaded;
 @property (readonly, nonatomic) NSNumber *documentTypeRequired;
 
+// image copy for already upload validation
+@property (copy, nonatomic) UIImage *selfieLastImage;
+@property (copy, nonatomic) UIImage *idCardLastImage;
+@property (copy, nonatomic) UIImage *poaLastImage;
 
 #pragma mark - Utils
 
-- (void)setTypeUploaded:(KYCDocumentType)type;
+- (void)setTypeUploaded:(KYCDocumentType)type withImage:(UIImage *)image;
+- (UIImage *)lastUploadedImageForType:(KYCDocumentType)type;
+- (void)resetTypeUploaded:(KYCDocumentType)type;
 
 @end

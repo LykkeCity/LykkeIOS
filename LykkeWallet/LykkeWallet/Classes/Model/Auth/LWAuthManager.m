@@ -357,7 +357,8 @@ SINGLETON_INIT {
              pack.class == LWPacketKYCSendDocumentBin.class) {
         KYCDocumentType docType = ((LWPacketKYCSendDocument *)pack).docType;
         // modify self documents status
-        [self.documentsStatus setTypeUploaded:docType];
+#warning TODO: is nil enough?
+        [self.documentsStatus setTypeUploaded:docType withImage:nil];
         // call delegate
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendDocument:ofType:)]) {
             [self.delegate authManagerDidSendDocument:self ofType:docType];
