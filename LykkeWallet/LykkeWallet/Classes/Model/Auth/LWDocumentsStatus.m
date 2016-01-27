@@ -32,18 +32,53 @@
 
 #pragma mark - Utils
 
-- (void)setTypeUploaded:(KYCDocumentType)type {
+- (void)setTypeUploaded:(KYCDocumentType)type withImage:(UIImage *)image {
     switch (type) {
         case KYCDocumentTypeSelfie: {
             _isSelfieUploaded = YES;
+            self.selfieLastImage = [image copy];
             break;
         }
         case KYCDocumentTypeIdCard: {
             _isIdCardUploaded = YES;
+            self.idCardLastImage = [image copy];
             break;
         }
         case KYCDocumentTypeProofOfAddress: {
             _isPOAUploaded = YES;
+            self.poaLastImage = [image copy];
+            break;
+        }
+    }
+}
+
+- (UIImage *)lastUploadedImageForType:(KYCDocumentType)type {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            return _selfieLastImage;
+        }
+        case KYCDocumentTypeIdCard: {
+            return _idCardLastImage;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            return _poaLastImage;
+        }
+    }
+    return nil;
+}
+
+- (void)resetTypeUploaded:(KYCDocumentType)type {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            _isSelfieUploaded = NO;
+            break;
+        }
+        case KYCDocumentTypeIdCard: {
+            _isIdCardUploaded = NO;
+            break;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            _isPOAUploaded = NO;
             break;
         }
     }
