@@ -19,6 +19,7 @@ SINGLETON_DECLARE
 
 @property (readonly, nonatomic) NSString *login;
 @property (readonly, nonatomic) NSString *token;
+@property (readonly, nonatomic) NSString *address;
 @property (readonly, nonatomic) BOOL     isAuthenticated;
 
 
@@ -26,6 +27,7 @@ SINGLETON_DECLARE
 
 - (void)saveLogin:(NSString *)login token:(NSString *)token;
 - (void)savePersonalData:(LWPersonalData *)personalData;
+- (void)saveAddress:(NSString *)address;
 - (void)clear;
 
 
