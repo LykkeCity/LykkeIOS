@@ -7,6 +7,7 @@
 //
 
 #import "LWPacket.h"
+#import "LWKeychainManager.h"
 
 
 @implementation LWPacket
@@ -34,11 +35,8 @@
 }
 
 - (NSString *)urlBase {
-#ifdef RELEASEADDR
-    NSString *addr = @"https://lykke-api.azurewebsites.net/api/";
-#else
-    NSString *addr = @"https://lykke-api-dev.azurewebsites.net/api/";
-#endif
+    NSString *address = [LWKeychainManager instance].address;
+    NSString *addr = [NSString stringWithFormat:@"https://%@/api/", address];
     return addr;
 }
 

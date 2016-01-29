@@ -15,6 +15,7 @@ static NSString *const kKeychainManagerToken    = @"Token";
 static NSString *const kKeychainManagerLogin    = @"Login";
 static NSString *const kKeychainManagerPhone    = @"Phone";
 static NSString *const kKeychainManagerFullName = @"FullName";
+static NSString *const kKeychainManagerAddress  = @"Address";
 
 
 @interface LWKeychainManager () {
@@ -59,6 +60,10 @@ SINGLETON_INIT {
     }
 }
 
+- (void)saveAddress:(NSString *)address {
+    [valet setString:address forKey:kKeychainManagerAddress];
+}
+
 - (void)clear {
     [valet removeObjectForKey:kKeychainManagerToken];
     [valet removeObjectForKey:kKeychainManagerLogin];
@@ -75,6 +80,14 @@ SINGLETON_INIT {
 
 - (NSString *)token {
     return [valet stringForKey:kKeychainManagerToken];
+}
+
+- (NSString *)address {
+    NSString *result = [valet stringForKey:kKeychainManagerAddress];
+    if (!result || [result isEqualToString:@""]) {
+        return @"lykke-api.azurewebsites.net";
+    }
+    return result;
 }
 
 - (BOOL)isAuthenticated {

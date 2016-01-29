@@ -50,6 +50,7 @@
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="detailLabel" destination="ye9-O8-AxR" id="4Ig-GR-6Xb"/>
+                <outlet property="titleConstraint" destination="Ufk-ce-san" id="OM5-XU-Lqx"/>
                 <outlet property="titleLabel" destination="LhM-Dk-6bV" id="Yej-Fl-33L"/>
             </connections>
             <point key="canvasLocation" x="169" y="182"/>

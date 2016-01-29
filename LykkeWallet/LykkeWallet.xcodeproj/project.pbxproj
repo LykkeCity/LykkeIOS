@@ -251,6 +251,8 @@
 		ECEC40EA1C44585800B22BEE /* LWPacketAssetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40E91C44585800B22BEE /* LWPacketAssetPair.m */; };
 		ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */; };
 		ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
+		ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */; };
+		ECF9D11A1C5BEC060025FC36 /* LWUrlAddressPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -670,6 +672,9 @@
 		ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletsLoadingTableViewCell.h; path = Wallets/LWWalletsLoadingTableViewCell.h; sourceTree = "<group>"; };
 		ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletsLoadingTableViewCell.m; path = Wallets/LWWalletsLoadingTableViewCell.m; sourceTree = "<group>"; };
 		ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletsLoadingTableViewCell.xib; path = Wallets/LWWalletsLoadingTableViewCell.xib; sourceTree = "<group>"; };
+		ECF9D1161C5BEC060025FC36 /* LWUrlAddressPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWUrlAddressPresenter.h; path = UrlAddress/LWUrlAddressPresenter.h; sourceTree = "<group>"; };
+		ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWUrlAddressPresenter.m; path = UrlAddress/LWUrlAddressPresenter.m; sourceTree = "<group>"; };
+		ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWUrlAddressPresenter.xib; path = UrlAddress/LWUrlAddressPresenter.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -916,6 +921,7 @@
 		CF6632801C176A63004353F5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				ECF9D1151C5BEBC00025FC36 /* UrlAddress */,
 				EC168F071C5135BA00AF8DD5 /* PersonalData */,
 				EC8F48341C4D8A350087DF1F /* Notifications */,
 				EC3CE8A31C3FCD8300CAC3FE /* Confirmation */,
@@ -1577,6 +1583,16 @@
 			name = Date;
 			sourceTree = "<group>";
 		};
+		ECF9D1151C5BEBC00025FC36 /* UrlAddress */ = {
+			isa = PBXGroup;
+			children = (
+				ECF9D1161C5BEC060025FC36 /* LWUrlAddressPresenter.h */,
+				ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */,
+				ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */,
+			);
+			name = UrlAddress;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1665,6 +1681,7 @@
 				EC57F45D1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib in Resources */,
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
+				ECF9D11A1C5BEC060025FC36 /* LWUrlAddressPresenter.xib in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				EC168F0C1C51362800AF8DD5 /* LWPersonalDataPresenter.xib in Resources */,
 				ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */,
@@ -1883,6 +1900,7 @@
 				EC7519C21C3739D300CDDF5B /* LWPacketBaseAssetGet.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
+				ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
 				ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */,
 				ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */,
