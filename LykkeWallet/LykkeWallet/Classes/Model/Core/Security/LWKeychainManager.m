@@ -85,7 +85,7 @@ SINGLETON_INIT {
 - (NSString *)address {
     NSString *result = [valet stringForKey:kKeychainManagerAddress];
     if (!result || [result isEqualToString:@""]) {
-        return @"lykke-api.azurewebsites.net";
+        return @"api.lykkex.com";
     }
     return result;
 }
