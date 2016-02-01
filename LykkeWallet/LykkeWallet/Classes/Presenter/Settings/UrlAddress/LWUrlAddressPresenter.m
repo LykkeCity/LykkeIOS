@@ -22,8 +22,8 @@
 
 static NSInteger const kAddressesCount = 2;
 static NSString *const addresses[kAddressesCount] = {
-    @"lykke-api.azurewebsites.net",
-    @"lykke-api-dev.azurewebsites.net"
+    @"api.lykkex.com",
+    @"api-dev.lykkex.com"
 };
 
 - (void)viewDidLoad {
