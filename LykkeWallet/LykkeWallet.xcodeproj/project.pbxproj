@@ -140,6 +140,8 @@
 		EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8BC1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib */; };
 		EC3CE8C01C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */; };
 		EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */; };
+		EC4754A71C614EAF0037614D /* LWWalletDepositPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4754A51C614EAF0037614D /* LWWalletDepositPresenter.m */; };
+		EC4754A81C614EAF0037614D /* LWWalletDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -481,6 +483,9 @@
 		EC3CE8BE1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBlockchainIconTableViewCell.h; path = Assets/LWAssetBlockchainIconTableViewCell.h; sourceTree = "<group>"; };
 		EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBlockchainIconTableViewCell.m; path = Assets/LWAssetBlockchainIconTableViewCell.m; sourceTree = "<group>"; };
 		EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetBlockchainIconTableViewCell.xib; path = Assets/LWAssetBlockchainIconTableViewCell.xib; sourceTree = "<group>"; };
+		EC4754A41C614EAF0037614D /* LWWalletDepositPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletDepositPresenter.h; path = WalletDeposit/LWWalletDepositPresenter.h; sourceTree = "<group>"; };
+		EC4754A51C614EAF0037614D /* LWWalletDepositPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletDepositPresenter.m; path = WalletDeposit/LWWalletDepositPresenter.m; sourceTree = "<group>"; };
+		EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletDepositPresenter.xib; path = WalletDeposit/LWWalletDepositPresenter.xib; sourceTree = "<group>"; };
 		EC51D1911C30514200550EF2 /* LWLykkeWalletsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeWalletsData.h; path = Wallets/LWLykkeWalletsData.h; sourceTree = "<group>"; };
 		EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeWalletsData.m; path = Wallets/LWLykkeWalletsData.m; sourceTree = "<group>"; };
 		EC51D1941C3054AA00550EF2 /* LWJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWJSONObject.h; sourceTree = "<group>"; };
@@ -961,6 +966,7 @@
 		CF6632821C176A63004353F5 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				EC4754A31C614E600037614D /* WalletDeposit */,
 				EC24CC811C399A6C00C2FDAA /* WalletPage */,
 				EC24CC751C3977C500C2FDAA /* WalletConfirm */,
 				ECE902B91C35368800F52971 /* WalletForm */,
@@ -1336,6 +1342,16 @@
 			name = Confirmation;
 			sourceTree = "<group>";
 		};
+		EC4754A31C614E600037614D /* WalletDeposit */ = {
+			isa = PBXGroup;
+			children = (
+				EC4754A41C614EAF0037614D /* LWWalletDepositPresenter.h */,
+				EC4754A51C614EAF0037614D /* LWWalletDepositPresenter.m */,
+				EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */,
+			);
+			name = WalletDeposit;
+			sourceTree = "<group>";
+		};
 		EC51D1901C3050E100550EF2 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1682,6 +1698,7 @@
 				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
 				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				ECF9D11A1C5BEC060025FC36 /* LWUrlAddressPresenter.xib in Resources */,
+				EC4754A81C614EAF0037614D /* LWWalletDepositPresenter.xib in Resources */,
 				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				EC168F0C1C51362800AF8DD5 /* LWPersonalDataPresenter.xib in Resources */,
 				ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */,
@@ -1900,6 +1917,7 @@
 				EC7519C21C3739D300CDDF5B /* LWPacketBaseAssetGet.m in Sources */,
 				CF9EC8BB1C17C02F00F742A6 /* LWAuthEntryPointPresenter.m in Sources */,
 				CFF7583C1C202C6500BC7658 /* LWKYCPendingPresenter.m in Sources */,
+				EC4754A71C614EAF0037614D /* LWWalletDepositPresenter.m in Sources */,
 				ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
 				ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */,

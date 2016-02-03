@@ -8,6 +8,7 @@
 
 #import "LWKeychainManager.h"
 #import "LWPersonalData.h"
+#import "LWConstants.h"
 #import <Valet/Valet.h>
 
 static NSString *const kKeychainManagerAppId    = @"LykkeWallet";
@@ -84,8 +85,15 @@ SINGLETON_INIT {
 
 - (NSString *)address {
     NSString *result = [valet stringForKey:kKeychainManagerAddress];
+    // validate for nil, empty or non-existing addresses
     if (!result || [result isEqualToString:@""]) {
-        return @"api.lykkex.com";
+        [self saveAddress:kProductionServer];
+        return kProductionServer;
+    }
+    else if (![result isEqualToString:kProductionServer] &&
+             ![result isEqualToString:kDevelopmentServer]) {
+        [self saveAddress:kProductionServer];
+        return kProductionServer;
     }
     return result;
 }

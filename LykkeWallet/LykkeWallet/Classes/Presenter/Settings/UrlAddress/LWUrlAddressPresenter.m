@@ -11,6 +11,7 @@
 #import "LWAuthNavigationController.h"
 #import "UIViewController+Navigation.h"
 #import "LWKeychainManager.h"
+#import "LWConstants.h"
 
 
 @interface LWUrlAddressPresenter ()
@@ -22,8 +23,8 @@
 
 static NSInteger const kAddressesCount = 2;
 static NSString *const addresses[kAddressesCount] = {
-    @"api.lykkex.com",
-    @"api-dev.lykkex.com"
+    kProductionServer,
+    kDevelopmentServer
 };
 
 - (void)viewDidLoad {

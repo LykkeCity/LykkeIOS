@@ -8,6 +8,9 @@
 
 #import "LWWalletsPresenter.h"
 #import "LWHistoryPresenter.h"
+#import "LWWalletFormPresenter.h"
+#import "LWExchangeDealFormPresenter.h"
+#import "LWWalletDepositPresenter.h"
 #import "LWAuthManager.h"
 #import "LWLykkeWalletsData.h"
 #import "LWLykkeData.h"
@@ -18,8 +21,6 @@
 #import "LWBanksTableViewCell.h"
 #import "LWWalletsLoadingTableViewCell.h"
 #import "LWAuthNavigationController.h"
-#import "LWWalletFormPresenter.h"
-#import "LWExchangeDealFormPresenter.h"
 #import "LWConstants.h"
 #import "LWCache.h"
 #import "UIViewController+Loading.h"
@@ -234,10 +235,15 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     // show history for selected asset
     if (indexPath.row != 0) {
         
-        LWHistoryPresenter *history = [LWHistoryPresenter new];
-        history.assetId = [self assetIdentifyForIndexPath:indexPath];
-        history.shouldGoBack = YES;
-        [self.navigationController pushViewController:history animated:YES];
+        NSString *assetId = [self assetIdentifyForIndexPath:indexPath];
+        //LWHistoryPresenter *history = [LWHistoryPresenter new];
+        //history.assetId = assetId;
+        //history.shouldGoBack = YES;
+        //[self.navigationController pushViewController:history animated:YES];
+        LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
+        NSString *depositUrl = [LWCache instance].depositUrl;
+        deposit.url = [NSString stringWithFormat:@"%@?AssetId=%@", depositUrl, assetId];
+        [self.navigationController pushViewController:deposit animated:YES];
     }
     // expand / close wallet
     else {
