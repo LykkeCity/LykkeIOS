@@ -22,8 +22,10 @@
         _rateRefreshPeriod = [json objectForKey:@"RateRefreshPeriod"];
         _baseAsset         = [[LWAssetModel alloc] initWithJSON:json[@"BaseAsset"]];
         _shouldSignOrders  = [[json objectForKey:@"SignOrder"] boolValue];
+        _depositUrl        = [json objectForKey:@"DepositUrl"];
         
         [LWCache instance].shouldSignOrder = _shouldSignOrders;
+        [LWCache instance].depositUrl = _depositUrl;
     }
     return self;
 }

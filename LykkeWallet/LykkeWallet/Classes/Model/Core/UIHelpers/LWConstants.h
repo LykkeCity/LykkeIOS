@@ -26,6 +26,13 @@
  ProximaNova-ThinIt
  */
 
+
+#pragma mark - Server Constants
+
+#define kProductionServer  @"api.lykkex.com"
+#define kDevelopmentServer @"api-dev.lykkex.com"
+
+
 #pragma mark - General Constants
 
 #define kFontBold @"ProximaNova-Bold"

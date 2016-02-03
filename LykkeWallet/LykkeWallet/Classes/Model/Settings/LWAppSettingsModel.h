@@ -19,6 +19,7 @@
 
 #pragma mark - Properties
 
+@property (readonly, nonatomic) NSString     *depositUrl;
 @property (readonly, nonatomic) NSNumber     *rateRefreshPeriod;
 @property (readonly, nonatomic) LWAssetModel *baseAsset;
 @property (readonly, nonatomic) BOOL          shouldSignOrders;

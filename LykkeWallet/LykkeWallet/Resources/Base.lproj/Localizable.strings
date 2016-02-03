@@ -76,6 +76,7 @@
 "wallets.confirm.title" = "CARD SUCCESSFULLY LINKED";
 "wallets.confirm.description" = "You can change your credit card information at any time";
 "wallets.confirm.continue" = "CONTINUE";
+"wallets.funds.title" = "Deposit Us Dollar wallet";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";
