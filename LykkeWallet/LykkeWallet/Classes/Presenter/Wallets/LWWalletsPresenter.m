@@ -54,6 +54,7 @@ static NSInteger const kSectionBankCards    = 1;
 - (void)showDealFormForIndexPath:(NSIndexPath *)indexPath;
 - (void)setRefreshControl;
 - (void)reloadWallets;
+- (void)showDepositPage:(NSIndexPath *)indexPath;
 
 @end
 
@@ -234,16 +235,20 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
     // show history for selected asset
     if (indexPath.row != 0) {
-        
-        NSString *assetId = [self assetIdentifyForIndexPath:indexPath];
-        //LWHistoryPresenter *history = [LWHistoryPresenter new];
-        //history.assetId = assetId;
-        //history.shouldGoBack = YES;
-        //[self.navigationController pushViewController:history animated:YES];
-        LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
-        NSString *depositUrl = [LWCache instance].depositUrl;
-        deposit.url = [NSString stringWithFormat:@"%@?AssetId=%@", depositUrl, assetId];
-        [self.navigationController pushViewController:deposit animated:YES];
+        if (indexPath.section == kSectionBankCards) {
+            if (self.data && self.data.bankCards) {
+                if (self.data.bankCards.count > 0) {
+                    [self showDepositPage:indexPath];
+                }
+            }
+        }
+        else if (indexPath.section == kSectionLykkeWallets) {
+            if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
+                if (self.data.lykkeData.assets.count > 0) {
+                    [self showDepositPage:indexPath];
+                }
+            }
+        }
     }
     // expand / close wallet
     else {
@@ -422,6 +427,19 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 {
     shouldShowError = YES;
     [[LWAuthManager instance] requestLykkeWallets];
+}
+
+- (void)showDepositPage:(NSIndexPath *)indexPath {
+    //LWHistoryPresenter *history = [LWHistoryPresenter new];
+    //history.assetId = assetId;
+    //history.shouldGoBack = YES;
+    //[self.navigationController pushViewController:history animated:YES];
+
+    NSString *assetId = [self assetIdentifyForIndexPath:indexPath];
+    LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
+    NSString *depositUrl = [LWCache instance].depositUrl;
+    deposit.url = [NSString stringWithFormat:@"%@?AssetId=%@", depositUrl, assetId];
+    [self.navigationController pushViewController:deposit animated:YES];
 }
 
 @end
