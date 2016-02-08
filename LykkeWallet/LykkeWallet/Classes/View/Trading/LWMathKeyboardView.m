@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 #pragma mark - Utils
 
 - (NSString *)decimalSeparator;
+- (NSString *)groupSeparator;
 - (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate;
 - (BOOL)isSymbolsExists:(NSString *)symbols forString:(NSString *)string;
 
@@ -64,6 +65,17 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 
 
 #pragma mark - Root
+
+- (void)updateView {
+    NSInteger const SnippedValues[] = { 100, 1000, 10000 };
+    
+    int item = 0;
+    for (UIButton *button in self.snippetButtons) {
+        NSString *value = [LWMath stringWithInteger:SnippedValues[item]];
+        [button setTitle:value forState:UIControlStateNormal];
+        ++item;
+    }
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -112,9 +124,10 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 #pragma mark - Actions
 
 - (IBAction)snippetButtonClick:(UIButton *)sender {
-    NSString *str = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
+    //NSString *str = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
+    NSString *str = sender.titleLabel.text;
+    self.targetTextField.text = str;
     [self calculate:NO shouldValidate:YES];
 }
 
@@ -192,13 +205,23 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     return decimalSymbol;
 }
 
+- (NSString *)groupSeparator {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString *groupingSymbol = [formatter groupingSeparator];
+    return groupingSymbol;
+}
+
 - (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate {
     // calculate
     @try {
         NSString *separator = [self decimalSeparator];
+        NSString *groupSeparator = [self groupSeparator];
         NSString *text = self.targetTextField.text;
         // set '.' as decimal separator
         text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
+        // remove group separator
+        text = [text stringByReplacingOccurrencesOfString:groupSeparator withString:@""];
+        
         // will not calculate if have extra symbols
         if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
             return;

@@ -25,4 +25,6 @@
 @property (weak, nonatomic) UITextField *targetTextField;
 @property (weak, nonatomic) id<LWMathKeyboardViewDelegate> delegate;
 
+- (void)updateView;
+
 @end

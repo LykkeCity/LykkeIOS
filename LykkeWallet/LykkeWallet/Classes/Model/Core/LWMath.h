@@ -21,6 +21,7 @@
 + (BOOL)isDoubleEqualToZero:(double)value;
 + (BOOL)isDecimalEqualToZero:(NSDecimalNumber *)number;
 
++ (NSString *)stringWithInteger:(NSInteger)value;
 + (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number;
