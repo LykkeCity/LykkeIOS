@@ -30,7 +30,7 @@ static NSString *const addresses[kAddressesCount] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Server addresses";
+    self.navigationItem.title = @"Server addresses";
     [self setBackButton];
     
     [self registerCellWithIdentifier:kDetailTableViewCellIdentifier

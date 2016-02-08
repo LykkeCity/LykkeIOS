@@ -87,7 +87,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"tab.wallets");
+    self.navigationItem.title = Localize(@"tab.wallets");
     
     expandedSections = [[NSMutableIndexSet alloc] init];
     
