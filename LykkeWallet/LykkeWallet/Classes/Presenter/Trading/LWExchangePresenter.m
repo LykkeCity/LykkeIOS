@@ -67,6 +67,8 @@ static NSString *const AssetIcons[kNumberOfSections] = {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationItem.title = Localize(@"tab.trading");
     
     expandedSections = [NSMutableIndexSet new];
     pairRates = [NSMutableDictionary new];
@@ -81,14 +83,14 @@ static NSString *const AssetIcons[kNumberOfSections] = {
                              name:@"LWAssetEmptyTableViewCell"];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
-    
-    self.title = Localize(@"tab.trading");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.tabBarController.title = self.title;
+    if (self.tabBarController && self.navigationItem) {
+        self.tabBarController.title = [self.navigationItem.title uppercaseString];
+    }
     
     [[LWAuthManager instance] requestAssetPairs];
 }

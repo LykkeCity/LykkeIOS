@@ -50,7 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"tab.history");
+    self.navigationItem.title = Localize(@"tab.history");
     
     [self registerCellWithIdentifier:kHistoryTableViewCellIdentifier
                              forName:kHistoryTableViewCell];

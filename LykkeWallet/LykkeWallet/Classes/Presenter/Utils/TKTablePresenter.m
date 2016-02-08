@@ -25,8 +25,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (self.tabBarController) {
-        self.tabBarController.title = self.title;
+    if (self.tabBarController && self.navigationItem) {
+        self.tabBarController.title = [self.navigationItem.title uppercaseString];
     }
 }
 
