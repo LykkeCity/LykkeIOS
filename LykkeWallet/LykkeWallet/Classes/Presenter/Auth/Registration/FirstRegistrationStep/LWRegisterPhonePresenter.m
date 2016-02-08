@@ -34,6 +34,10 @@
     return [LWValidator validatePhone:input];
 }
 
+- (void)configureTextField:(LWTextField *)textField {
+    textField.keyboardType = UIKeyboardTypePhonePad;
+}
+
 
 #pragma mark - LWAuthStepPresenter
 
