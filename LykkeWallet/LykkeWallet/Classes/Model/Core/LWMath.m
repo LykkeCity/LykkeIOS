@@ -99,6 +99,16 @@
     return @"1";
 }
 
++ (NSString *)stringWithInteger:(NSInteger)value {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
+    [frm setNumberStyle:NSNumberFormatterNoStyle];
+    [frm setLocale:locale];
+    [frm setUsesGroupingSeparator:YES];
+    NSString *result = [frm stringFromNumber:[NSNumber numberWithInteger:value]];
+    return result;
+}
+
 + (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision {
     if (!number || [number isKindOfClass:[NSNull class]]) {
         return @" - ";

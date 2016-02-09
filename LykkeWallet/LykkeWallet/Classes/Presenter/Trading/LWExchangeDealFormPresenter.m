@@ -88,6 +88,7 @@ float const kBottomBigHeight     = 105.0;
     
     mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
     mathKeyboardView.delegate = self;
+    [mathKeyboardView updateView];
     [self updateKeyboardFrame];
     
     volumeString = @"";
