@@ -440,7 +440,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
     NSString *depositUrl = [LWCache instance].depositUrl;
     NSString *email = [LWKeychainManager instance].login;
+    deposit.assetId = assetId;
     deposit.url = [NSString stringWithFormat:@"%@?Email=%@&AssetId=%@", depositUrl, email, assetId];
+
     [self.navigationController pushViewController:deposit animated:YES];
 }
 

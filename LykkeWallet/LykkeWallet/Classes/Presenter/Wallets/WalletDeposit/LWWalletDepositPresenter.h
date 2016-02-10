@@ -13,6 +13,7 @@
     
 }
 
+@property (copy, nonatomic) NSString *assetId;
 @property (copy, nonatomic) NSString *url;
 
 @end

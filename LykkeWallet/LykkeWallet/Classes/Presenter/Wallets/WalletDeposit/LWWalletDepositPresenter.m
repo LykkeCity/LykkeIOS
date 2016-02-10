@@ -7,6 +7,9 @@
 //
 
 #import "LWWalletDepositPresenter.h"
+#import "LWAssetModel.h"
+#import "LWCache.h"
+#import "UIViewController+Navigation.h"
 
 
 @interface LWWalletDepositPresenter () <UIWebViewDelegate> {
@@ -29,7 +32,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"wallets.funds.title");
+    NSString *assetName = [LWAssetModel
+                           assetByIdentity:self.assetId
+                           fromList:[LWCache instance].baseAssets];
+    
+    NSString *title = [NSString stringWithFormat:Localize(@"wallets.funds.title"), assetName];
+    self.title = title;
+    
+    [self setBackButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,7 +53,7 @@
 #pragma mark - Root
 
 - (void)loadNews {
-    NSLog(@"Url: %@", self.url);
+    //NSLog(@"Url: %@", self.url);
     NSURL* nsUrl = [NSURL URLWithString:self.url];
     
     NSURLRequest* request = [NSURLRequest requestWithURL:nsUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
