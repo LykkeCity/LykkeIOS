@@ -21,6 +21,7 @@
 #import "LWBanksTableViewCell.h"
 #import "LWWalletsLoadingTableViewCell.h"
 #import "LWAuthNavigationController.h"
+#import "LWKeychainManager.h"
 #import "LWConstants.h"
 #import "LWCache.h"
 #import "UIViewController+Loading.h"
@@ -438,7 +439,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     NSString *assetId = [self assetIdentifyForIndexPath:indexPath];
     LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
     NSString *depositUrl = [LWCache instance].depositUrl;
-    deposit.url = [NSString stringWithFormat:@"%@?AssetId=%@", depositUrl, assetId];
+    NSString *email = [LWKeychainManager instance].login;
+    deposit.url = [NSString stringWithFormat:@"%@?Email=%@&AssetId=%@", depositUrl, email, assetId];
     [self.navigationController pushViewController:deposit animated:YES];
 }
 
