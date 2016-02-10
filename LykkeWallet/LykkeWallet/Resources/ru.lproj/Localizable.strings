@@ -76,7 +76,7 @@
 "wallets.confirm.title" = "КАРТА УСПЕШНО ПОДКЛЮЧЕНА";
 "wallets.confirm.description" = "Вы можете изменить данные о карте в любой момент.";
 "wallets.confirm.continue" = "ПРОДОЛЖИТЬ";
-"wallets.funds.title" = "Deposit Us Dollar wallet";
+"wallets.funds.title" = "Deposit %@ wallet";
 
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "Издатель/Ассет";
