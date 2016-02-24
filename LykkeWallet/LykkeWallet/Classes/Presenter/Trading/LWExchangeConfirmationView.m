@@ -15,7 +15,6 @@
 #import "LWConstants.h"
 #import "LWValidator.h"
 #import "LWCache.h"
-#import "LWFingerprintHelper.h"
 #import "Macro.h"
 
 
@@ -47,7 +46,6 @@
 
 - (void)requestOperation;
 - (void)cancelOperation;
-- (void)validateUser;
 - (void)updateView;
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
 
@@ -93,7 +91,7 @@ static float const kNoPinProtectionHeight = 300;
 
 - (void)requestOperation {
     [self setLoading:YES withReason:Localize(@"exchange.assets.modal.waiting")];
-    [self.delegate requestOperation];
+    [self.delegate requestOperationWithHud:NO];
 }
 
 - (void)pinRejected {
@@ -106,21 +104,6 @@ static float const kNoPinProtectionHeight = 300;
 - (void)cancelOperation {
     [self.delegate cancelClicked];
     [self removeFromSuperview];
-}
-
-- (void)validateUser {
-    
-    [LWFingerprintHelper
-     validateFingerprintTitle:Localize(@"exchange.assets.modal.fingerpring")
-     ok:^(void) {
-         [self requestOperation];
-     }
-     bad:^(void) {
-         // try enter pin
-     }
-     unavailable:^(void) {
-         // do nothing
-     }];
 }
 
 - (void)updateView {
@@ -162,7 +145,7 @@ static float const kNoPinProtectionHeight = 300;
                                 forState:UIControlStateNormal];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
-    self.placeOrderButton.hidden = [LWFingerprintHelper isFingerprintAvailable];
+    self.placeOrderButton.hidden = NO;
     
     [self registerCellWithIdentifier:kDetailTableViewCellIdentifier
                                 name:kDetailTableViewCell];
@@ -171,11 +154,6 @@ static float const kNoPinProtectionHeight = 300;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self setLoading:NO withReason:@""];
-    
-    // if fingerprint available - show confirmation view
-    if (shouldSignOrder) {
-        [self validateUser];
-    }
 }
 
 - (void)setLoading:(BOOL)loading withReason:(NSString *)reason {
