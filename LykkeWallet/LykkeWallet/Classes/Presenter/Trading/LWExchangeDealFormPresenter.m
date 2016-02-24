@@ -225,11 +225,12 @@ float const kBottomBigHeight     = 105.0;
     if (confirmationView) {
         [confirmationView setLoading:NO withReason:@""];
         [confirmationView removeFromSuperview];
-        LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
-        controller.purchase = purchase;
-        controller.assetPair = self.assetPair;
-        [self.navigationController pushViewController:controller animated:YES];
     }
+
+    LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
+    controller.purchase = purchase;
+    controller.assetPair = self.assetPair;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid {
@@ -297,7 +298,7 @@ float const kBottomBigHeight     = 105.0;
     [self.view endEditing:YES];
     
     if (isHudActivated) {
-        [self setLoading:YES];        
+        [self setLoading:YES];
     }
     
     if (self.assetDealType == LWAssetDealTypeBuy) {
