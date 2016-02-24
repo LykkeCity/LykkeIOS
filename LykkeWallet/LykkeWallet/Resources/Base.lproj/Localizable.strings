@@ -150,8 +150,8 @@
 "settings.cell.asset.title" = "Base asset";
 
 "history.title" = "HISTORY OF TRANSACTIONS";
-"history.market.buy" = "buy trade";
-"history.market.sell" = "sell trade";
+"history.market.buy" = "buy";
+"history.market.sell" = "sell";
 "history.cash.in" = "Wallet cash in";
 "history.cash.out" = "Wallet cash out";
 

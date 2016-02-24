@@ -30,8 +30,8 @@
 #define emptyCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
 
 
-static NSInteger const kSectionLykkeWallets = 0;
-static NSInteger const kSectionBankCards    = 1;
+static NSInteger const kSectionBankCards    = 0;
+static NSInteger const kSectionLykkeWallets = 1;
 
 @interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate> {
     
@@ -62,24 +62,24 @@ static NSInteger const kSectionBankCards    = 1;
 
 @implementation LWWalletsPresenter
 
-static NSInteger const kNumberOfSections = 6;
+static NSInteger const kNumberOfSections = 2;//6;
 static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
 
 static NSString *const WalletIdentifiers[kNumberOfSections] = {
-    @"LWLykkeTableViewCellIdentifier", @"LWBanksTableViewCellIdentifier",
-    
+    @"LWBanksTableViewCellIdentifier",
+    @"LWLykkeTableViewCellIdentifier"/*,
     emptyCellIdentifier,
     emptyCellIdentifier,
     emptyCellIdentifier,
-    emptyCellIdentifier
+    emptyCellIdentifier*/
 };
 
 static NSString *const WalletNames[kNumberOfSections] = {
-    @"LYKKE", @"VISA/MASTERCARD", @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"
+    @"VISA/MASTERCARD", @"LYKKE"/*, @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"*/
 };
 
 static NSString *const WalletIcons[kNumberOfSections] = {
-    @"WalletLykke", @"WalletBanks", @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"
+    @"WalletBanks", @"WalletLykke"/*, @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"*/
 };
 
 
@@ -96,10 +96,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                              forName:@"LWWalletTableViewCell"];
     
     [self registerCellWithIdentifier:WalletIdentifiers[0]
-                             forName:@"LWLykkeTableViewCell"];
+                             forName:@"LWBanksTableViewCell"];
     
     [self registerCellWithIdentifier:WalletIdentifiers[1]
-                             forName:@"LWBanksTableViewCell"];
+                             forName:@"LWLykkeTableViewCell"];
     
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];

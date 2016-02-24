@@ -59,6 +59,7 @@
 "register.kyc.submit.submitButton" = "Начать проверку";
 
 "register.validation.label" = "Устанавливаем соединение.\nПожалуйста, подождите ...";
+"register.check.documents.label" = "Проверка документов.\nПожалуйста, подождите ...";
 
 "utils.tip" = "Что мне нужно знать?";
 "utils.ok" = "OK";
