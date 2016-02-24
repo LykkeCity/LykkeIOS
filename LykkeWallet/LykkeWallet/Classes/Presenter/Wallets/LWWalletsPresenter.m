@@ -20,6 +20,7 @@
 #import "LWLykkeTableViewCell.h"
 #import "LWBanksTableViewCell.h"
 #import "LWWalletsLoadingTableViewCell.h"
+#import "LWWalletEmptyTableViewCell.h"
 #import "LWAuthNavigationController.h"
 #import "LWKeychainManager.h"
 #import "LWConstants.h"
@@ -45,6 +46,7 @@ static NSInteger const kSectionLykkeWallets = 1;
 #pragma mark - Properties
 
 @property (readonly, nonatomic) LWLykkeWalletsData *data;
+@property (readonly, nonatomic) NSMutableArray     *dataAssets;
 
 
 #pragma mark - Utils
@@ -90,6 +92,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     self.navigationItem.title = Localize(@"tab.wallets");
     
+    _dataAssets = [NSMutableArray array];
     expandedSections = [[NSMutableIndexSet alloc] init];
     
     [self registerCellWithIdentifier:cellIdentifier
@@ -135,9 +138,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     {
         if (self.data) {
             int const rowCell = 1;
-            if (section == kSectionLykkeWallets &&
-                self.data.lykkeData && self.data.lykkeData.assets) {
-                return MAX(1, self.data.lykkeData.assets.count) + rowCell;
+            if (section == kSectionLykkeWallets) {
+                return MAX(1, self.dataAssets.count) + rowCell;
             }
             else if (section == kSectionBankCards && self.data.bankCards) {
                 return MAX(1, self.data.bankCards.count) + rowCell;
@@ -179,9 +181,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         NSString *identifier = WalletIdentifiers[indexPath.section];
         // Lykke cells
         if (indexPath.section == kSectionLykkeWallets) {
-            if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
+            if (self.data) {
                 // Show Lykke Wallets
-                if (self.data.lykkeData.assets.count > 0) {
+                if (self.dataAssets.count > 0) {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
@@ -191,6 +193,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 // Show Empty
                 else {
                     cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
+                    LWWalletEmptyTableViewCell *emptyCell = (LWWalletEmptyTableViewCell *)cell;
+                    emptyCell.titleLabel.text = Localize(@"wallets.lykke.empty");
                 }
             }
             else {
@@ -213,6 +217,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 // Show Empty
                 else {
                     cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
+                    LWWalletEmptyTableViewCell *emptyCell = (LWWalletEmptyTableViewCell *)cell;
+                    emptyCell.titleLabel.text = Localize(@"wallets.cards.empty");
                 }
             }
             else {
@@ -244,10 +250,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             }
         }
         else if (indexPath.section == kSectionLykkeWallets) {
-            if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
-                if (self.data.lykkeData.assets.count > 0) {
-                    [self showDepositPage:indexPath];
-                }
+            if (self.data && self.dataAssets.count > 0) {
+                [self showDepositPage:indexPath];
             }
         }
     }
@@ -295,7 +299,14 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [refreshControl endRefreshing];
 
     shouldShowError = NO;
+
     _data = data;
+    _dataAssets = [NSMutableArray array];
+    for (LWLykkeAssetsData *asset in data.lykkeData.assets) {
+        if (asset.balance.doubleValue > 0.0) {
+            [_dataAssets addObject:asset];
+        }
+    }
     [self.tableView reloadData];
 }
 
@@ -326,6 +337,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         LWWalletFormPresenter *form = [LWWalletFormPresenter new];
         form.bankCards = self.data.bankCards;
         [self.navigationController pushViewController:form animated:YES];
+    }
+    else if (path && path.section == kSectionLykkeWallets) {
+        NSInteger const tradingTabIndex = 1;
+        self.tabBarController.selectedIndex = tradingTabIndex;
     }
 }
 
@@ -396,9 +411,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (LWLykkeAssetsData *)assetDataForIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kSectionLykkeWallets) {
-        if (self.data && self.data.lykkeData && self.data.lykkeData.assets) {
-            if (self.data.lykkeData.assets.count > 0 && indexPath.row > 0) {
-                LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.data.lykkeData.assets[indexPath.row - 1];
+        if (self.data) {
+            if (self.dataAssets.count > 0 && indexPath.row > 0) {
+                LWLykkeAssetsData *asset = (LWLykkeAssetsData *)self.dataAssets[indexPath.row - 1];
                 return asset;
             }
         }

@@ -78,6 +78,8 @@
 "wallets.confirm.description" = "Вы можете изменить данные о карте в любой момент.";
 "wallets.confirm.continue" = "ПРОДОЛЖИТЬ";
 "wallets.funds.title" = "Deposit %@ wallet";
+"wallets.lykke.empty" = "Кошельки не добавлены";
+"wallets.cards.empty" = "Карты не добавлены";
 
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "Издатель/Ассет";
