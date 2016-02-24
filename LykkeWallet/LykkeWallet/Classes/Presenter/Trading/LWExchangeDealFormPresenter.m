@@ -20,6 +20,7 @@
 #import "LWCache.h"
 #import "LWMath.h"
 #import "LWConstants.h"
+#import "LWFingerprintHelper.h"
 #import "UIColor+Generic.h"
 #import "UIViewController+Navigation.h"
 #import "UIViewController+Loading.h"
@@ -49,6 +50,8 @@
 - (void)updatePrice;
 - (NSNumber *)volumeFromField;
 - (void)updateKeyboardFrame;
+- (void)validateUser;
+- (void)showConfirmationView;
 
 @end
 
@@ -216,6 +219,9 @@ float const kBottomBigHeight     = 105.0;
 }
 
 - (void)authManager:(LWAuthManager *)manager didReceiveDealResponse:(LWAssetDealModel *)purchase {
+    
+    [self setLoading:NO];
+    
     if (confirmationView) {
         [confirmationView setLoading:NO withReason:@""];
         [confirmationView removeFromSuperview];
@@ -239,6 +245,8 @@ float const kBottomBigHeight     = 105.0;
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     
+    [self setLoading:NO];
+    
     if (confirmationView) {
         [confirmationView setLoading:NO withReason:@""];
         [self showReject:reject code:context.error.code willNotify:YES];
@@ -254,22 +262,14 @@ float const kBottomBigHeight     = 105.0;
     
     [self.view endEditing:YES];
     
-    // preparing modal view
-    confirmationView = [LWExchangeConfirmationView modalViewWithDelegate:self];
-    confirmationView.assetPair = self.assetPair;
-    [confirmationView setFrame:self.navigationController.view.bounds];
-    
-    // animation
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.5;
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [confirmationView.layer addAnimation:transition forKey:nil];
-    
-    // showing modal view
-    [self.navigationController.view addSubview:confirmationView];
-    [self updatePrice];
+    // if fingerprint available - show confirmation view
+    BOOL const shouldSignOrder = [LWCache instance].shouldSignOrder;
+    if (shouldSignOrder) {
+        [self validateUser];
+    }
+    else {
+        [self showConfirmationView];
+    }
 }
 
 
@@ -293,8 +293,12 @@ float const kBottomBigHeight     = 105.0;
     confirmationView = nil;
 }
 
-- (void)requestOperation {
+- (void)requestOperationWithHud:(BOOL)isHudActivated {
     [self.view endEditing:YES];
+    
+    if (isHudActivated) {
+        [self setLoading:YES];        
+    }
     
     if (self.assetDealType == LWAssetDealTypeBuy) {
         [[LWAuthManager instance] requestPurchaseAsset:[LWCache instance].baseAssetId
@@ -376,6 +380,40 @@ float const kBottomBigHeight     = 105.0;
     mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
     
     self.bottomHeightConstraint.constant = (height > iPhone5Height) ? kBottomBigHeight : kBottomSmallHeight;
+}
+
+- (void)validateUser {
+    
+    [LWFingerprintHelper
+     validateFingerprintTitle:Localize(@"exchange.assets.modal.fingerpring")
+     ok:^(void) {
+         [self requestOperationWithHud:YES];
+     }
+     bad:^(void) {
+         [self showConfirmationView];
+     }
+     unavailable:^(void) {
+         [self showConfirmationView];
+     }];
+}
+
+- (void)showConfirmationView {
+    // preparing modal view
+    confirmationView = [LWExchangeConfirmationView modalViewWithDelegate:self];
+    confirmationView.assetPair = self.assetPair;
+    [confirmationView setFrame:self.navigationController.view.bounds];
+    
+    // animation
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [confirmationView.layer addAnimation:transition forKey:nil];
+    
+    // showing modal view
+    [self.navigationController.view addSubview:confirmationView];
+    [self updatePrice];
 }
 
 @end

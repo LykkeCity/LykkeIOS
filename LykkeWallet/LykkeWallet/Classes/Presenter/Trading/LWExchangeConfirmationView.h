@@ -17,7 +17,7 @@
 
 @required
 - (void)cancelClicked;
-- (void)requestOperation;
+- (void)requestOperationWithHud:(BOOL)isHudActivated;
 - (void)checkPin:(NSString *)pin;
 - (void)noAttemptsForPin;
 
