@@ -83,6 +83,11 @@ static NSString *const AssetIcons[kNumberOfSections] = {
                              name:@"LWAssetEmptyTableViewCell"];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+    
+    // Expand cells if needed
+    if (![expandedSections containsIndex:0]) {
+        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
