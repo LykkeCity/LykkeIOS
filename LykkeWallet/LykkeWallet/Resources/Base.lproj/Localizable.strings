@@ -77,6 +77,8 @@
 "wallets.confirm.description" = "You can change your credit card information at any time";
 "wallets.confirm.continue" = "CONTINUE";
 "wallets.funds.title" = "Deposit %@ wallet";
+"wallets.lykke.empty" = "Coins not added";
+"wallets.cards.empty" = "Cards not added";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";
