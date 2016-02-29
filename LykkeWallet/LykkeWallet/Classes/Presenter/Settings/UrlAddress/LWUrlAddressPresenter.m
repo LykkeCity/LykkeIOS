@@ -21,11 +21,12 @@
 
 @implementation LWUrlAddressPresenter
 
-static NSInteger const kAddressesCount = 3;
+static NSInteger const kAddressesCount = 4;
 static NSString *const addresses[kAddressesCount] = {
     kStagingTestServer,
     kDevelopTestServer,
-    kDemoTestServer
+    kDemoTestServer,
+    kTempTestServer
 };
 
 

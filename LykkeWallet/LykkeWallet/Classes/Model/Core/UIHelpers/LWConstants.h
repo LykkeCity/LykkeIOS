@@ -34,6 +34,7 @@
 #define kStagingTestServer @"lykke-api-test.azurewebsites.net"
 #define kDevelopTestServer @"lykke-api-dev.azurewebsites.net"
 #define kDemoTestServer    @"lykke-api-demo.azurewebsites.net"
+#define kTempTestServer    @"api-dev.lykkex.com"
 
 
 #pragma mark - General Constants
