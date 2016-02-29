@@ -60,10 +60,13 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${BUILT_PRODUCTS_DIR}/test.bundle"
 fi
+if [[ "$CONFIGURATION" == "Debug.Test" ]]; then
+  install_resource "${BUILT_PRODUCTS_DIR}/test.bundle"
+fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${BUILT_PRODUCTS_DIR}/test.bundle"
 fi
-if [[ "$CONFIGURATION" == "AdHoc" ]]; then
+if [[ "$CONFIGURATION" == "Release.Test" ]]; then
   install_resource "${BUILT_PRODUCTS_DIR}/test.bundle"
 fi
 

@@ -11,7 +11,6 @@
 #import "LWNotificationSettingsPresenter.h"
 #import "LWPersonalDataPresenter.h"
 #import "LWAssetsTablePresenter.h"
-#import "LWUrlAddressPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWKeychainManager.h"
 #import "LWAssetModel.h"
@@ -38,22 +37,20 @@
 @implementation LWSettingsPresenter
 
 
-static NSInteger const kNumberOfRows = 6;
+static NSInteger const kNumberOfRows = 5;
 // cell identifiers
 static NSInteger const kKYCCellId    = 0;
 static NSInteger const kPINCellId    = 1;
 static NSInteger const kPushCellId   = 2;
 static NSInteger const kAssetCellId  = 3;
 static NSInteger const kLogoutCellId = 4;
-static NSInteger const kAddressCellId= 5;
 
 static NSString *const SettingsCells[kNumberOfRows] = {
     kSettingsAssetTableViewCell,
     kRadioTableViewCell,
     kSettingsAssetTableViewCell,
     kSettingsAssetTableViewCell,
-    @"LWSettingsLogOutTableViewCell",
-    kSettingsAssetTableViewCell
+    @"LWSettingsLogOutTableViewCell"
 };
 
 static NSString *const SettingsIdentifiers[kNumberOfRows] = {
@@ -61,8 +58,7 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     kRadioTableViewCellIdentifier,
     kSettingsAssetTableViewCellIdentifier,
     kSettingsAssetTableViewCellIdentifier,
-    @"LWSettingsLogOutTableViewCellIdentifier",
-    kSettingsAssetTableViewCellIdentifier
+    @"LWSettingsLogOutTableViewCellIdentifier"
 };
 
 
@@ -126,10 +122,6 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     else if (indexPath.row == kLogoutCellId) {
         [(LWAuthNavigationController *)self.navigationController logout];
     }
-    else if (indexPath.row == kAddressCellId) {
-        LWUrlAddressPresenter *address = [LWUrlAddressPresenter new];
-        [self.navigationController pushViewController:address animated:YES];
-    }
 }
 
 
@@ -186,11 +178,6 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
         LWSettingsLogOutTableViewCell *logoutCell = (LWSettingsLogOutTableViewCell *)cell;
         NSString *logout = [NSString stringWithFormat:@"%@ %@", Localize(@"settings.cell.logout.title"), [LWKeychainManager instance].login];
         logoutCell.logoutLabel.text = logout;
-    }
-    else if (indexPath.row == kAddressCellId) {
-        LWSettingsAssetTableViewCell *assetCell = (LWSettingsAssetTableViewCell *)cell;
-        assetCell.titleLabel.text = @"Host list";
-        assetCell.assetLabel.text = @"";
     }
 }
 

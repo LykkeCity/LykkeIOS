@@ -14,6 +14,7 @@
 #import "LWAuthManager.h"
 #import "LWRegisterBasePresenter.h"
 #import "LWAuthenticationPresenter.h"
+#import "LWUrlAddressPresenter.h"
 #import "ABPadLockScreen.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
@@ -36,6 +37,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 @property (weak, nonatomic) IBOutlet TKContainer *emailTextFieldContainer;
 @property (weak, nonatomic) IBOutlet UIButton    *proceedButton;
+@property (weak, nonatomic) IBOutlet UIButton    *chooseServerButton;
 @property (weak, nonatomic) IBOutlet TKContainer *tipsContainer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tipsBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
@@ -75,6 +77,12 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     self.observeKeyboardEvents = YES;
     // check button state
     [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
+    
+#ifdef TEST
+    self.chooseServerButton.hidden = NO;
+#else
+    self.chooseServerButton.hidden = YES;
+#endif
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -139,6 +147,11 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
             break;
         }
     }
+}
+
+- (IBAction)proceedChooseServerClick:(id)sender {
+    LWUrlAddressPresenter *address = [LWUrlAddressPresenter new];
+    [self.navigationController pushViewController:address animated:YES];
 }
 
 
