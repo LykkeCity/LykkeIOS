@@ -21,11 +21,13 @@
 
 @implementation LWUrlAddressPresenter
 
-static NSInteger const kAddressesCount = 2;
+static NSInteger const kAddressesCount = 3;
 static NSString *const addresses[kAddressesCount] = {
-    kProductionServer,
-    kDevelopmentServer
+    kStagingTestServer,
+    kDevelopTestServer,
+    kDemoTestServer
 };
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,7 +77,7 @@ static NSString *const addresses[kAddressesCount] = {
         NSString *address = [LWKeychainManager instance].address;
         itemCell.titleLabel.text = addresses[indexPath.row];
         itemCell.detailLabel.text = @"";
-        itemCell.titleConstraint.constant = 240;
+        itemCell.titleConstraint.constant = 200;
         
         // set checkmark for selected item
         if ([addresses[indexPath.row] isEqualToString:address]) {

@@ -84,18 +84,23 @@ SINGLETON_INIT {
 }
 
 - (NSString *)address {
+#ifdef TEST
     NSString *result = [valet stringForKey:kKeychainManagerAddress];
     // validate for nil, empty or non-existing addresses
     if (!result || [result isEqualToString:@""]) {
-        [self saveAddress:kProductionServer];
-        return kProductionServer;
+        [self saveAddress:kDemoTestServer];
+        return kDemoTestServer;
     }
-    else if (![result isEqualToString:kProductionServer] &&
-             ![result isEqualToString:kDevelopmentServer]) {
-        [self saveAddress:kProductionServer];
-        return kProductionServer;
+    else if (![result isEqualToString:kDemoTestServer] &&
+             ![result isEqualToString:kDevelopTestServer] &&
+             ![result isEqualToString:kStagingTestServer]) {
+        [self saveAddress:kDemoTestServer];
+        return kDemoTestServer;
     }
     return result;
+#else
+    return kProductionServer;
+#endif
 }
 
 - (BOOL)isAuthenticated {
