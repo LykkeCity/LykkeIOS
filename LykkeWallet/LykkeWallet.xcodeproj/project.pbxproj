@@ -2102,7 +2102,7 @@
 				ICON_SUFFIX = "-release";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "2e3d5f2e-a634-4fd1-aab2-e54523f279b1";
+				PROVISIONING_PROFILE = "46dcd6bf-b9b7-49a5-8084-5f22ce389e5a";
 				SDKROOT = iphoneos;
 				TEST_ENVIRONMENT = NO;
 				VALIDATE_PRODUCT = YES;
@@ -2143,7 +2143,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2e3d5f2e-a634-4fd1-aab2-e54523f279b1";
+				PROVISIONING_PROFILE = "46dcd6bf-b9b7-49a5-8084-5f22ce389e5a";
 			};
 			name = Release;
 		};
@@ -2209,7 +2209,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
 				PROVISIONING_PROFILE = "5ac09039-a9cd-4f71-ae0c-e47076f79a3f";
 			};
@@ -2251,7 +2251,7 @@
 				ICON_SUFFIX = "-test";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6d6b02e7-76a5-484c-96b2-522774ca8d72";
+				PROVISIONING_PROFILE = "d93548cf-42fb-42b2-a99a-aee38116c124";
 				SDKROOT = iphoneos;
 				TEST_ENVIRONMENT = YES;
 				VALIDATE_PRODUCT = YES;
@@ -2271,9 +2271,9 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/LykkeWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
-				PROVISIONING_PROFILE = "6d6b02e7-76a5-484c-96b2-522774ca8d72";
+				PROVISIONING_PROFILE = "d93548cf-42fb-42b2-a99a-aee38116c124";
 			};
 			name = Release.Test;
 		};
