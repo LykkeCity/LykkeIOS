@@ -47,8 +47,8 @@
     NSString *email = [[LWKeychainManager instance] login];
     NSString *time = [self currentUTC];
     
-    if ([LWAuthManager isInternalServerError:response]) {
-        message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", @"123"];
+    if (response && [LWAuthManager isInternalServerError:response]) {
+        message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", [response URL].absoluteString];
         code = [NSNumber numberWithInt:500];
     }
     NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
