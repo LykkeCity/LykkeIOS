@@ -324,7 +324,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [refreshControl endRefreshing];
     shouldShowError = NO;
     
-    [self showReject:reject code:context.error.code willNotify:shouldShowError];
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:shouldShowError];
     [self.tableView reloadData];
 }
 

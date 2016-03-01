@@ -61,7 +61,7 @@
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     if (reject) {
-        [self showReject:reject];
+        [self showReject:reject response:context.task.response];
     } else {
         [self setLoading:NO];
     }

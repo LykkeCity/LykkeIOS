@@ -84,7 +84,7 @@ static int const kAllowedAttempts = 3;
                     if (![LWAuthManager isAuthneticationFailed:operation.response]) {
                         NSMutableDictionary *errorInfo = [[NSMutableDictionary alloc]
                                                           initWithObjects:@[ error.localizedDescription, [NSNumber numberWithInt:-1]] forKeys:@[ @"Message", @"Code" ]];
-                        [mainController showReject:errorInfo];
+                        [mainController showReject:errorInfo response:operation.response];
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), ^{

@@ -70,7 +70,7 @@
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self showReject:reject code:context.error.code willNotify:YES];
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 
     [self.navigationController popViewControllerAnimated:YES];
 }

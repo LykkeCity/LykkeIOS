@@ -522,4 +522,13 @@ SINGLETON_INIT {
     return NO;
 }
 
++ (BOOL)isInternalServerError:(NSURLResponse *)response {
+    NSHTTPURLResponse* urlResponse = (NSHTTPURLResponse*)response;
+    NSInteger const InternalServerError = 500;
+    if (urlResponse && urlResponse.statusCode == InternalServerError) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

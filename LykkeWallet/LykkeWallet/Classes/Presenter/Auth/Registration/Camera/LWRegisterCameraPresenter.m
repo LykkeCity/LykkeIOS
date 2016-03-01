@@ -256,7 +256,7 @@
                                    
                                    if (error && error.code != NSURLErrorCancelled) {
                                        NSMutableDictionary *errorInfo = [[NSMutableDictionary alloc] initWithObjects:@[ error.localizedDescription, [NSNumber numberWithInt:-1]] forKeys:@[ @"Message", @"Code" ]];
-                                       [mainController showReject:errorInfo];
+                                       [mainController showReject:errorInfo response:operation.response];
                                    }
                                });
                            }];
