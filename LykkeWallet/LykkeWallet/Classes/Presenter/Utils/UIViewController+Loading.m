@@ -12,6 +12,7 @@
 
 #warning TODO: temporary
 #import "LWKeychainManager.h"
+#import "LWAuthManager.h"
 
 @implementation UIViewController (Loading)
 
@@ -36,7 +37,7 @@
     return [MBProgressHUD HUDForView:self.navigationController.view];
 }
 
-- (void)showReject:(NSDictionary *)reject {
+- (void)showReject:(NSDictionary *)reject response:(NSURLResponse *)response {
     [self setLoading:NO];
     
     NSString *message = [reject objectForKey:@"Message"];
@@ -46,6 +47,10 @@
     NSString *email = [[LWKeychainManager instance] login];
     NSString *time = [self currentUTC];
     
+    if ([LWAuthManager isInternalServerError:response]) {
+        message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", @"123"];
+        code = [NSNumber numberWithInt:500];
+    }
     NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
     
     UIAlertController *ctrl = [UIAlertController
@@ -62,7 +67,7 @@
     [self presentViewController:ctrl animated:YES completion:nil];
 }
 
-- (void)showReject:(NSDictionary *)reject code:(NSInteger)code willNotify:(BOOL)willNotify {
+- (void)showReject:(NSDictionary *)reject response:(NSURLResponse *)response code:(NSInteger)code willNotify:(BOOL)willNotify {
     if (code == NSURLErrorNotConnectedToInternet) {
         [self setLoading:NO];
         
@@ -71,7 +76,7 @@
         }
     }
     else {
-        [self showReject:reject];
+        [self showReject:reject response:response];
     }
 }
 

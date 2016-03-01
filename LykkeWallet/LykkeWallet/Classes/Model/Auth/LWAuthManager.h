@@ -114,5 +114,6 @@ SINGLETON_DECLARE
 #pragma mark - Static methods
 
 + (BOOL)isAuthneticationFailed:(NSURLResponse *)response;
++ (BOOL)isInternalServerError:(NSURLResponse *)response;
 
 @end

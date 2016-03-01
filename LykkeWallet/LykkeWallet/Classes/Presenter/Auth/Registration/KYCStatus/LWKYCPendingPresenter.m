@@ -52,7 +52,7 @@
     GDXNetPacket *pack = context.packet;
     
     if (reject) {
-        [self showReject:reject];
+        [self showReject:reject response:context.task.response];
     }
     else {
         // some server error? Then just repeat request after some delay

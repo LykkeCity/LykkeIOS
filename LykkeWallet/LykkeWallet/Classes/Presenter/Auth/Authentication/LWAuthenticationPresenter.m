@@ -111,7 +111,7 @@
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self showReject:reject];
+    [self showReject:reject response:context.task.response];
 }
 
 @end

@@ -108,7 +108,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self showReject:reject code:context.error.code willNotify:YES];
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
     
     [self closeClicked:self.closeButton];
 }
