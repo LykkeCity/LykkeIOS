@@ -19,11 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
-	<string>56</string>
-=======
 	<string>57</string>
->>>>>>> 4322f998b0f154f296385d3fc1dc100df1b6357b
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -45,11 +41,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-<<<<<<< HEAD
-=======
 	<key>TestEnvironmentDefinition</key>
 	<string>$(TEST_ENVIRONMENT)</string>
->>>>>>> 4322f998b0f154f296385d3fc1dc100df1b6357b
 	<key>UIAppFonts</key>
 	<array>
 		<string>Proxima Nova Black Italic.otf</string>
