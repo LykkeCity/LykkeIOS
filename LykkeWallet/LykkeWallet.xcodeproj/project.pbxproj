@@ -855,6 +855,8 @@
 		ECA8E9CE1C5736F5000F53EC /* LWTradeHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTradeHistoryItemType.h; path = History/LWTradeHistoryItemType.h; sourceTree = "<group>"; };
 		ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTradeHistoryItemType.m; path = History/LWTradeHistoryItemType.m; sourceTree = "<group>"; };
 		ECBF52411C877FBE008E0C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LykkeWallet/Base.lproj/LaunchScreenIATA.storyboard; sourceTree = SOURCE_ROOT; };
+		ECBF52441C878372008E0C0D /* LWConstantsLykke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsLykke.h; sourceTree = "<group>"; };
+		ECBF52451C878382008E0C0D /* LWConstantsIATA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsIATA.h; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1444,6 +1446,8 @@
 				EC37ED181C3A817D002379DD /* LWStringUtils.h */,
 				EC37ED191C3A817D002379DD /* LWStringUtils.m */,
 				CF9EC90B1C17C6C100F742A6 /* Macro.h */,
+				ECBF52441C878372008E0C0D /* LWConstantsLykke.h */,
+				ECBF52451C878382008E0C0D /* LWConstantsIATA.h */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -2905,6 +2909,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"PROJECT_IATA=1",
 				);
 				INFOPLIST_FILE = "LykkeWallet copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2924,6 +2929,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"PROJECT_IATA=1",
 				);
 				INFOPLIST_FILE = "LykkeWallet copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2943,6 +2949,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"PROJECT_IATA=1",
 				);
 				INFOPLIST_FILE = "LykkeWallet copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2962,6 +2969,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"PROJECT_IATA=1",
 				);
 				INFOPLIST_FILE = "LykkeWallet copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
