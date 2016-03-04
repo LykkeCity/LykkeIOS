@@ -53,9 +53,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-#ifdef PROJECT_IATA
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-#endif
     [LWValidator setButton:self.loginButton enabled:[self canProceed]];
     
     // load email

@@ -15,20 +15,10 @@
 		CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAAE1C1E14800086634B /* LWPacketRestrictedCountries.m */; };
 		CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */; };
 		CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */; };
-		CD73627A1C2C26FF00924077 /* Proxima Nova Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */; };
-		CD73627B1C2C26FF00924077 /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */; };
-		CD73627C1C2C26FF00924077 /* Proxima Nova Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */; };
 		CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */; };
-		CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */; };
-		CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */; };
-		CD7362801C2C26FF00924077 /* Proxima Nova Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */; };
 		CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */; };
-		CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */; };
 		CD7362831C2C26FF00924077 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */; };
-		CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */; };
 		CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */; };
-		CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */; };
-		CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */; };
 		CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */; };
 		CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
 		CDA69FDB1C281A5500BE4DCA /* LWPacketRegistrationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA69FDA1C281A5500BE4DCA /* LWPacketRegistrationGet.m */; };
@@ -305,33 +295,19 @@
 		EC4D921B1C8778DF006EE7C8 /* LWRegistrationData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86B3771C1B6566006D5488 /* LWRegistrationData.m */; };
 		EC4D921D1C8778DF006EE7C8 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */; };
 		EC4D921E1C8778DF006EE7C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20FEBD41AE93CA79087B5 /* libPods.a */; };
-		EC4D92201C8778DF006EE7C8 /* Proxima Nova Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */; };
-		EC4D92211C8778DF006EE7C8 /* Proxima Nova Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */; };
-		EC4D92221C8778DF006EE7C8 /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */; };
-		EC4D92231C8778DF006EE7C8 /* Proxima Nova Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */; };
 		EC4D92241C8778DF006EE7C8 /* LWExchangeFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4531C3C3DD900E31746 /* LWExchangeFormPresenter.xib */; };
 		EC4D92251C8778DF006EE7C8 /* LWWalletFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE902BC1C3537B700F52971 /* LWWalletFormPresenter.xib */; };
-		EC4D92261C8778DF006EE7C8 /* Proxima Nova Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */; };
 		EC4D92271C8778DF006EE7C8 /* LWAssetInfoIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F4611C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib */; };
 		EC4D92281C8778DF006EE7C8 /* LWKeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */; };
-		EC4D92291C8778DF006EE7C8 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */; };
-		EC4D922A1C8778DF006EE7C8 /* Proxima Nova Thin Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */; };
-		EC4D922B1C8778DF006EE7C8 /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */; };
 		EC4D922C1C8778DF006EE7C8 /* LWExchangeResultPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */; };
 		EC4D922D1C8778DF006EE7C8 /* LWAssetEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E9161C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib */; };
-		EC4D922E1C8778DF006EE7C8 /* Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */; };
-		EC4D922F1C8778DF006EE7C8 /* Proxima Nova Regular Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */; };
-		EC4D92301C8778DF006EE7C8 /* Proxima Nova Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */; };
 		EC4D92311C8778DF006EE7C8 /* LWExchangePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E9061C3BCAF60064AAB3 /* LWExchangePresenter.xib */; };
 		EC4D92321C8778DF006EE7C8 /* LWSettingsConfirmationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8A71C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib */; };
 		EC4D92331C8778DF006EE7C8 /* LWAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1E90C1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib */; };
 		EC4D92341C8778DF006EE7C8 /* LWMathKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */; };
 		EC4D92351C8778DF006EE7C8 /* LWAssetInfoTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC57F45C1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib */; };
-		EC4D92361C8778DF006EE7C8 /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */; };
-		EC4D92371C8778DF006EE7C8 /* Proxima Nova Semibold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */; };
 		EC4D92381C8778DF006EE7C8 /* LWUrlAddressPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */; };
 		EC4D92391C8778DF006EE7C8 /* LWWalletDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */; };
-		EC4D923A1C8778DF006EE7C8 /* Proxima Nova Extrabold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */; };
 		EC4D923B1C8778DF006EE7C8 /* LWPersonalDataPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC168F0B1C51362800AF8DD5 /* LWPersonalDataPresenter.xib */; };
 		EC4D923C1C8778DF006EE7C8 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
 		EC4D923D1C8778DF006EE7C8 /* LWNotificationSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */; };
@@ -446,7 +422,6 @@
 		EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94751C898F9F006FD46B /* Assets.xcassets */; };
 		EC9C947D1C899019006FD46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9C947C1C899019006FD46B /* LaunchScreen.storyboard */; };
 		EC9C94851C89A71F006FD46B /* LWAuthEntryPointPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94831C89A6EC006FD46B /* LWAuthEntryPointPresenter.xib */; };
-		EC9C948A1C89C7E0006FD46B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94891C89C7E0006FD46B /* Info.plist */; };
 		EC9C94921C89C82E006FD46B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC9C948E1C89C815006FD46B /* Localizable.strings */; };
 		EC9C94971C89C89E006FD46B /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9C94951C89C89E006FD46B /* LWTextField.m */; };
 		EC9C94981C89C89E006FD46B /* LWTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94961C89C89E006FD46B /* LWTextField.xib */; };
@@ -454,6 +429,10 @@
 		EC9C949D1C89CD0F006FD46B /* LWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9C94951C89C89E006FD46B /* LWTextField.m */; };
 		EC9C94A11C89CDAE006FD46B /* LWTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9C949E1C89CD3D006FD46B /* LWTextField.xib */; };
 		EC9C94A71C89D6E6006FD46B /* LWAuthenticationPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94A61C89D6E6006FD46B /* LWAuthenticationPresenter.xib */; };
+		EC9C94B31C89F584006FD46B /* GothaProBol.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94AB1C89F455006FD46B /* GothaProBol.otf */; };
+		EC9C94B41C89F588006FD46B /* GothaProLig.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94AC1C89F455006FD46B /* GothaProLig.otf */; };
+		EC9C94B51C89F58B006FD46B /* GothaProMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94AD1C89F455006FD46B /* GothaProMed.otf */; };
+		EC9C94B61C89F58F006FD46B /* GothaProReg.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94AE1C89F455006FD46B /* GothaProReg.otf */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -524,20 +503,10 @@
 		CD10AAB11C1E16260086634B /* LWAuthorizePacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAuthorizePacket.m; sourceTree = "<group>"; };
 		CD3CCDDB1C2B3DD400DDCE46 /* LWDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDeviceInfo.h; sourceTree = "<group>"; };
 		CD3CCDDC1C2B3DD400DDCE46 /* LWDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDeviceInfo.m; sourceTree = "<group>"; };
-		CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Black Italic.otf"; path = "Fonts/Proxima Nova Black Italic.otf"; sourceTree = "<group>"; };
-		CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Black.otf"; path = "Fonts/Proxima Nova Black.otf"; sourceTree = "<group>"; };
-		CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold Italic.otf"; path = "Fonts/Proxima Nova Bold Italic.otf"; sourceTree = "<group>"; };
 		CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold.otf"; path = "Fonts/Proxima Nova Bold.otf"; sourceTree = "<group>"; };
-		CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Extrabold Italic.otf"; path = "Fonts/Proxima Nova Extrabold Italic.otf"; sourceTree = "<group>"; };
-		CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Extrabold.otf"; path = "Fonts/Proxima Nova Extrabold.otf"; sourceTree = "<group>"; };
-		CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Light Italic.otf"; path = "Fonts/Proxima Nova Light Italic.otf"; sourceTree = "<group>"; };
 		CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Light.otf"; path = "Fonts/Proxima Nova Light.otf"; sourceTree = "<group>"; };
-		CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Regular Italic.otf"; path = "Fonts/Proxima Nova Regular Italic.otf"; sourceTree = "<group>"; };
 		CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Regular.otf"; path = "Fonts/Proxima Nova Regular.otf"; sourceTree = "<group>"; };
-		CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Semibold Italic.otf"; path = "Fonts/Proxima Nova Semibold Italic.otf"; sourceTree = "<group>"; };
 		CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Semibold.otf"; path = "Fonts/Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
-		CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Thin Italic.otf"; path = "Fonts/Proxima Nova Thin Italic.otf"; sourceTree = "<group>"; };
-		CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Thin.otf"; path = "Fonts/Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		CDA69FCB1C275C3800BE4DCA /* LWKYCSubmitPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKYCSubmitPresenter.h; sourceTree = "<group>"; };
 		CDA69FCC1C275C3800BE4DCA /* LWKYCSubmitPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKYCSubmitPresenter.m; sourceTree = "<group>"; };
 		CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKYCSubmitPresenter.xib; sourceTree = "<group>"; };
@@ -848,6 +817,10 @@
 		EC9C949A1C89C92F006FD46B /* LWTipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTipsView.xib; path = IATA/Classes/View/Auth/LWTipsView.xib; sourceTree = SOURCE_ROOT; };
 		EC9C949E1C89CD3D006FD46B /* LWTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTextField.xib; path = IATA/Classes/View/TextFields/LWTextField.xib; sourceTree = SOURCE_ROOT; };
 		EC9C94A61C89D6E6006FD46B /* LWAuthenticationPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAuthenticationPresenter.xib; path = IATA/Classes/Presenter/Auth/LWAuthenticationPresenter.xib; sourceTree = SOURCE_ROOT; };
+		EC9C94AB1C89F455006FD46B /* GothaProBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothaProBol.otf; path = IATA/Resources/Fonts/GothaProBol.otf; sourceTree = SOURCE_ROOT; };
+		EC9C94AC1C89F455006FD46B /* GothaProLig.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothaProLig.otf; path = IATA/Resources/Fonts/GothaProLig.otf; sourceTree = SOURCE_ROOT; };
+		EC9C94AD1C89F455006FD46B /* GothaProMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothaProMed.otf; path = IATA/Resources/Fonts/GothaProMed.otf; sourceTree = SOURCE_ROOT; };
+		EC9C94AE1C89F455006FD46B /* GothaProReg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothaProReg.otf; path = IATA/Resources/Fonts/GothaProReg.otf; sourceTree = SOURCE_ROOT; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -976,20 +949,10 @@
 		CD73626B1C2C26BE00924077 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CD73626C1C2C26FF00924077 /* Proxima Nova Black Italic.otf */,
-				CD73626D1C2C26FF00924077 /* Proxima Nova Black.otf */,
-				CD73626E1C2C26FF00924077 /* Proxima Nova Bold Italic.otf */,
 				CD73626F1C2C26FF00924077 /* Proxima Nova Bold.otf */,
-				CD7362701C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf */,
-				CD7362711C2C26FF00924077 /* Proxima Nova Extrabold.otf */,
-				CD7362721C2C26FF00924077 /* Proxima Nova Light Italic.otf */,
 				CD7362731C2C26FF00924077 /* Proxima Nova Light.otf */,
-				CD7362741C2C26FF00924077 /* Proxima Nova Regular Italic.otf */,
 				CD7362751C2C26FF00924077 /* Proxima Nova Regular.otf */,
-				CD7362761C2C26FF00924077 /* Proxima Nova Semibold Italic.otf */,
 				CD7362771C2C26FF00924077 /* Proxima Nova Semibold.otf */,
-				CD7362781C2C26FF00924077 /* Proxima Nova Thin Italic.otf */,
-				CD7362791C2C26FF00924077 /* Proxima Nova Thin.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -1128,11 +1091,11 @@
 			isa = PBXGroup;
 			children = (
 				CD73626B1C2C26BE00924077 /* Fonts */,
+				CF66327D1C1768B0004353F5 /* Localizable.strings */,
 				CF6632431C175B54004353F5 /* Assets.xcassets */,
 				EC9C947C1C899019006FD46B /* LaunchScreen.storyboard */,
 				CF6632441C175B54004353F5 /* Info.plist */,
 				CF6632451C175B54004353F5 /* main.m */,
-				CF66327D1C1768B0004353F5 /* Localizable.strings */,
 			);
 			name = Resources_Lykke;
 			path = Resources;
@@ -1761,10 +1724,11 @@
 		EC9C94721C898F74006FD46B /* Resources_IATA */ = {
 			isa = PBXGroup;
 			children = (
+				EC9C94AA1C89F38C006FD46B /* Fonts */,
 				EC9C948E1C89C815006FD46B /* Localizable.strings */,
-				EC9C94891C89C7E0006FD46B /* Info.plist */,
 				EC9C94751C898F9F006FD46B /* Assets.xcassets */,
 				EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */,
+				EC9C94891C89C7E0006FD46B /* Info.plist */,
 			);
 			name = Resources_IATA;
 			sourceTree = "<group>";
@@ -1831,6 +1795,17 @@
 				EC9C94A61C89D6E6006FD46B /* LWAuthenticationPresenter.xib */,
 			);
 			name = IATA;
+			sourceTree = "<group>";
+		};
+		EC9C94AA1C89F38C006FD46B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EC9C94AB1C89F455006FD46B /* GothaProBol.otf */,
+				EC9C94AC1C89F455006FD46B /* GothaProLig.otf */,
+				EC9C94AD1C89F455006FD46B /* GothaProMed.otf */,
+				EC9C94AE1C89F455006FD46B /* GothaProReg.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		ECA80B611C2E0E38001C4E8F /* Utils */ = {
@@ -2051,35 +2026,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD7362801C2C26FF00924077 /* Proxima Nova Light Italic.otf in Resources */,
-				CD73627C1C2C26FF00924077 /* Proxima Nova Bold Italic.otf in Resources */,
-				CD73627B1C2C26FF00924077 /* Proxima Nova Black.otf in Resources */,
-				CD73627A1C2C26FF00924077 /* Proxima Nova Black Italic.otf in Resources */,
 				EC57F4551C3C3DD900E31746 /* LWExchangeFormPresenter.xib in Resources */,
 				ECE902BE1C3537B700F52971 /* LWWalletFormPresenter.xib in Resources */,
-				CD73627F1C2C26FF00924077 /* Proxima Nova Extrabold.otf in Resources */,
 				EC57F4621C3C55FB00E31746 /* LWAssetInfoIconTableViewCell.xib in Resources */,
 				EC370B241C47BEE300175786 /* LWKeyboardToolbar.xib in Resources */,
 				CD73627D1C2C26FF00924077 /* Proxima Nova Bold.otf in Resources */,
-				CD7362861C2C26FF00924077 /* Proxima Nova Thin Italic.otf in Resources */,
 				CD7362811C2C26FF00924077 /* Proxima Nova Light.otf in Resources */,
 				EC7F05091C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib in Resources */,
 				ECD1E9171C3BE4050064AAB3 /* LWAssetEmptyTableViewCell.xib in Resources */,
 				EC9C947A1C899003006FD46B /* Assets.xcassets in Resources */,
 				CD7362851C2C26FF00924077 /* Proxima Nova Semibold.otf in Resources */,
-				CD7362821C2C26FF00924077 /* Proxima Nova Regular Italic.otf in Resources */,
 				CD7362831C2C26FF00924077 /* Proxima Nova Regular.otf in Resources */,
 				ECD1E9071C3BCAF60064AAB3 /* LWExchangePresenter.xib in Resources */,
 				EC3CE8A81C3FCE6B00CAC3FE /* LWSettingsConfirmationPresenter.xib in Resources */,
-				EC9C948A1C89C7E0006FD46B /* Info.plist in Resources */,
 				ECD1E90D1C3BDEB60064AAB3 /* LWAssetTableViewCell.xib in Resources */,
 				EC3144491C4C01B500DEA50B /* LWMathKeyboardView.xib in Resources */,
 				EC57F45D1C3C557E00E31746 /* LWAssetInfoTextTableViewCell.xib in Resources */,
-				CD7362871C2C26FF00924077 /* Proxima Nova Thin.otf in Resources */,
-				CD7362841C2C26FF00924077 /* Proxima Nova Semibold Italic.otf in Resources */,
 				ECF9D11A1C5BEC060025FC36 /* LWUrlAddressPresenter.xib in Resources */,
 				EC4754A81C614EAF0037614D /* LWWalletDepositPresenter.xib in Resources */,
-				CD73627E1C2C26FF00924077 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				EC168F0C1C51362800AF8DD5 /* LWPersonalDataPresenter.xib in Resources */,
 				ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */,
 				EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */,
@@ -2139,39 +2103,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4D92201C8778DF006EE7C8 /* Proxima Nova Light Italic.otf in Resources */,
-				EC4D92211C8778DF006EE7C8 /* Proxima Nova Bold Italic.otf in Resources */,
-				EC4D92221C8778DF006EE7C8 /* Proxima Nova Black.otf in Resources */,
-				EC4D92231C8778DF006EE7C8 /* Proxima Nova Black Italic.otf in Resources */,
 				EC4D92241C8778DF006EE7C8 /* LWExchangeFormPresenter.xib in Resources */,
 				EC4D92251C8778DF006EE7C8 /* LWWalletFormPresenter.xib in Resources */,
-				EC4D92261C8778DF006EE7C8 /* Proxima Nova Extrabold.otf in Resources */,
 				EC9C94851C89A71F006FD46B /* LWAuthEntryPointPresenter.xib in Resources */,
 				EC4D92271C8778DF006EE7C8 /* LWAssetInfoIconTableViewCell.xib in Resources */,
 				EC4D92281C8778DF006EE7C8 /* LWKeyboardToolbar.xib in Resources */,
-				EC4D92291C8778DF006EE7C8 /* Proxima Nova Bold.otf in Resources */,
-				EC4D922A1C8778DF006EE7C8 /* Proxima Nova Thin Italic.otf in Resources */,
-				EC4D922B1C8778DF006EE7C8 /* Proxima Nova Light.otf in Resources */,
 				EC4D922C1C8778DF006EE7C8 /* LWExchangeResultPresenter.xib in Resources */,
 				EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */,
 				EC4D922D1C8778DF006EE7C8 /* LWAssetEmptyTableViewCell.xib in Resources */,
-				EC4D922E1C8778DF006EE7C8 /* Proxima Nova Semibold.otf in Resources */,
-				EC4D922F1C8778DF006EE7C8 /* Proxima Nova Regular Italic.otf in Resources */,
-				EC4D92301C8778DF006EE7C8 /* Proxima Nova Regular.otf in Resources */,
 				EC9C949C1C89CCD6006FD46B /* LWTipsView.xib in Resources */,
 				EC4D92311C8778DF006EE7C8 /* LWExchangePresenter.xib in Resources */,
 				EC4D92321C8778DF006EE7C8 /* LWSettingsConfirmationPresenter.xib in Resources */,
 				EC4D92331C8778DF006EE7C8 /* LWAssetTableViewCell.xib in Resources */,
 				EC4D92341C8778DF006EE7C8 /* LWMathKeyboardView.xib in Resources */,
 				EC4D92351C8778DF006EE7C8 /* LWAssetInfoTextTableViewCell.xib in Resources */,
-				EC4D92361C8778DF006EE7C8 /* Proxima Nova Thin.otf in Resources */,
-				EC4D92371C8778DF006EE7C8 /* Proxima Nova Semibold Italic.otf in Resources */,
 				EC4D92381C8778DF006EE7C8 /* LWUrlAddressPresenter.xib in Resources */,
 				EC4D92391C8778DF006EE7C8 /* LWWalletDepositPresenter.xib in Resources */,
-				EC4D923A1C8778DF006EE7C8 /* Proxima Nova Extrabold Italic.otf in Resources */,
 				EC4D923B1C8778DF006EE7C8 /* LWPersonalDataPresenter.xib in Resources */,
 				EC4D923C1C8778DF006EE7C8 /* LWWalletsLoadingTableViewCell.xib in Resources */,
 				EC4D923D1C8778DF006EE7C8 /* LWNotificationSettingsPresenter.xib in Resources */,
+				EC9C94B51C89F58B006FD46B /* GothaProMed.otf in Resources */,
 				EC4D923E1C8778DF006EE7C8 /* LWPinKeyboardView.xib in Resources */,
 				EC4D923F1C8778DF006EE7C8 /* LWAssetBlockchainIconTableViewCell.xib in Resources */,
 				EC4D92421C8778DF006EE7C8 /* LWCameraOverlayPresenter.xib in Resources */,
@@ -2186,11 +2137,14 @@
 				EC4D924B1C8778DF006EE7C8 /* LWWalletConfirmPresenter.xib in Resources */,
 				EC9C94921C89C82E006FD46B /* Localizable.strings in Resources */,
 				EC4D924C1C8778DF006EE7C8 /* LWWalletsPresenter.xib in Resources */,
+				EC9C94B61C89F58F006FD46B /* GothaProReg.otf in Resources */,
 				EC4D924D1C8778DF006EE7C8 /* LWRegisterPasswordPresenter.xib in Resources */,
+				EC9C94B41C89F588006FD46B /* GothaProLig.otf in Resources */,
 				EC4D924E1C8778DF006EE7C8 /* LWKYCCheckDocumentsPresenter.xib in Resources */,
 				EC4D924F1C8778DF006EE7C8 /* LWHistoryPresenter.xib in Resources */,
 				EC4D92511C8778DF006EE7C8 /* LWLykkeTableViewCell.xib in Resources */,
 				EC4D92521C8778DF006EE7C8 /* LWHistoryTableViewCell.xib in Resources */,
+				EC9C94B31C89F584006FD46B /* GothaProBol.otf in Resources */,
 				EC4D92531C8778DF006EE7C8 /* LWAssetBuySumTableViewCell.xib in Resources */,
 				EC4D92551C8778DF006EE7C8 /* LWExchangeBlockchainPresenter.xib in Resources */,
 				EC4D92561C8778DF006EE7C8 /* LWSettingsAssetTableViewCell.xib in Resources */,

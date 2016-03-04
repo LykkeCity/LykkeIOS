@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNeedsStatusBarAppearanceUpdate];
     
     [LWAuthManager instance].delegate = self;
 }

@@ -9,21 +9,11 @@
 #import <Foundation/Foundation.h>
 
 /*
- List of Proxima Fonts
- ProximaNova-Semibold
- ProximaNova-Black
- ProximaNova-Regular
- ProximaNova-LightIt
- ProximaNova-SemiboldIt
- ProximaNova-Extrabld
- ProximaNova-RegularIt
- ProximaNovaT-Thin
- ProximaNova-Light
- ProximaNova-ExtrabldIt
- ProximaNova-Bold
- ProximaNova-BlackIt
- ProximaNova-BoldIt
- ProximaNova-ThinIt
+ List of Gotham Fonts
+ GothamPro-Medium
+ GothamPro
+ GothamPro-Light
+ GothamPro-Bold
  */
 
 
@@ -38,15 +28,21 @@
 
 #pragma mark - General Constants
 
-#define kFontBold @"ProximaNova-Bold"
-#define kFontLight @"ProximaNova-Light"
-#define kFontRegular @"ProximaNova-Regular"
-#define kFontSemibold @"ProximaNova-Semibold"
+#define kFontBold @"GothamPro-Bold"
+#define kFontLight @"GothamPro-Light"
+#define kFontRegular @"GothamPro"
+#define kFontSemibold @"GothamPro-Medium"
 
-#define kMainElementsColor @"AB00FF"
+#define kMainElementsColor @"00B6E0"
 #define kMainWhiteElementsColor @"FFFFFF"
 #define kMainDarkElementsColor @"00B6E0"
 #define kMainGrayElementsColor @"EAEDEF"
+
+
+#pragma mark - ABPadView
+
+static NSString *const kABPadBorderColor   = @"D3D6DB";
+static NSString *const kABPadSelectedColor = @"00B6E0";
 
 
 #pragma mark - Button Constants
@@ -72,6 +68,13 @@ static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
 static NSString *const kTextFieldFontName  = kFontRegular;
 
 
+#pragma mark - Tab Bar Constants
+
+static NSString *const kTabBarBackgroundColor   = @"134475";
+static NSString *const kTabBarTintColor         = @"2E7597";
+static NSString *const kTabBarSelectedTintColor = @"FFFFFF";
+
+
 #pragma mark - Navigation Bar Constants
 
 static NSString *const kNavigationTintColor     = @"134475";
@@ -79,7 +82,7 @@ static NSString *const kNavigationBarTintColor  = @"FFFFFF";
 static NSString *const kNavigationBarGrayColor  = kMainGrayElementsColor;
 static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
 
-static float     const kNavigationBarFontSize   = 17.0;
+static float     const kNavigationBarFontSize   = 21.0;
 static NSString *const kNavigationBarFontColor  = @"FFFFFF";
 static NSString *const kNavigationBarFontName   = kFontSemibold;
 

@@ -22,9 +22,21 @@
 
 #pragma mark - Lifecycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
+
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+#endif
 
 - (void)setTitle:(NSString *)title {
     [super setTitle:[title uppercaseString]];

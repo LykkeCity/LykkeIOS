@@ -57,6 +57,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // init email field
     emailTextField = [LWTextField new];
     emailTextField.delegate = self;
@@ -85,17 +86,17 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 #endif
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self textFieldDidChangeValue:emailTextField];
-}
-
 #ifdef PROJECT_IATA
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleDefault;
 }
 #endif
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self textFieldDidChangeValue:emailTextField];
+}
 
 - (void)localize {
     [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]

@@ -11,19 +11,9 @@
 /*
  List of Proxima Fonts
  ProximaNova-Semibold
- ProximaNova-Black
  ProximaNova-Regular
- ProximaNova-LightIt
- ProximaNova-SemiboldIt
- ProximaNova-Extrabld
- ProximaNova-RegularIt
- ProximaNovaT-Thin
  ProximaNova-Light
- ProximaNova-ExtrabldIt
  ProximaNova-Bold
- ProximaNova-BlackIt
- ProximaNova-BoldIt
- ProximaNova-ThinIt
  */
 
 
@@ -49,6 +39,12 @@
 #define kMainGrayElementsColor @"EAEDEF"
 
 
+#pragma mark - ABPadView
+
+static NSString *const kABPadBorderColor   = @"D3D6DB";
+static NSString *const kABPadSelectedColor = @"AB00FF";
+
+
 #pragma mark - Button Constants
 
 static NSString *const kLabelFontColor = kMainDarkElementsColor;
@@ -70,6 +66,13 @@ static NSString *const kSellAssetButtonColor = @"FF3E2E";
 static float     const kTextFieldFontSize  = 17.0;
 static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
 static NSString *const kTextFieldFontName  = kFontRegular;
+
+
+#pragma mark - Tab Bar Constants
+
+static NSString *const kTabBarBackgroundColor   = @"FFFFFF";
+static NSString *const kTabBarTintColor         = @"D3D6DB";
+static NSString *const kTabBarSelectedTintColor = @"AB00FF";
 
 
 #pragma mark - Navigation Bar Constants

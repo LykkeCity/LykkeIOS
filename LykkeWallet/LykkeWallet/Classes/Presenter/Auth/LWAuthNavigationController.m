@@ -36,6 +36,8 @@
 #import "LWSettingsPresenter.h"
 
 #import "LWKeychainManager.h"
+#import "LWConstants.h"
+#import "UIImage+Resize.h"
 
 
 @interface LWAuthNavigationController () {
@@ -220,7 +222,7 @@
                                                  withImage:@"SettingsTab"];    
     // init tab controller
     tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
-    tab.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+    tab.tabBar.translucent = NO;
     
     [self setViewControllers:@[tab] animated:NO];
 }
@@ -229,9 +231,12 @@
 #pragma mark - Utils
 
 - (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
-    return [[UITabBarItem alloc] initWithTitle:Localize(title)
-                                         image:[UIImage imageNamed:image]
-                                 selectedImage:nil];
+    UIImage *unselected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UITabBarItem *result = [[UITabBarItem alloc] initWithTitle:Localize(title)
+                                                         image:unselected
+                                                 selectedImage:selected];
+    return result;
 }
 
 
