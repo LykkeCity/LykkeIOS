@@ -109,6 +109,13 @@ static int const kAllowedAttempts = 3;
     }];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 - (void)localize {
 }
 

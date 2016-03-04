@@ -60,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ArrowDown" width="41" height="10"/>
+        <image name="ArrowDown" width="10" height="10"/>
     </resources>
 </document>

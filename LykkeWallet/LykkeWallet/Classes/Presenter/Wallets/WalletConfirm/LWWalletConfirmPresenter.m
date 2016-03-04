@@ -37,6 +37,13 @@
     self.continueButton.titleLabel.text = Localize(@"wallets.confirm.continue");
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 - (IBAction)continueClicked:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

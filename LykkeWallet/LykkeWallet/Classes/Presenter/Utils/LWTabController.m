@@ -24,6 +24,9 @@
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     [LWAuthManager instance].delegate = self;
 }
 

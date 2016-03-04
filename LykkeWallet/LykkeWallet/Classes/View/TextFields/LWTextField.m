@@ -7,13 +7,11 @@
 //
 
 #import "LWTextField.h"
+#import "LWConstants.h"
 #import "TKContainer.h"
 #import "LWStringUtils.h"
 #import "NSObject+GDXObserver.h"
 #import "UITextField+Validation.h"
-
-
-#define kDefaultLeftRigthTextFieldOffset 20
 
 
 @interface LWTextField ()<UITextFieldDelegate> {
@@ -50,8 +48,8 @@
     UIImage *background = [[UIImage imageNamed:@"TextField"]
                            resizableImageWithCapInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.backgroundImageView.image = background;
-    [self setLeftOffset:kDefaultLeftRigthTextFieldOffset];
-    [self setRightOffset:kDefaultLeftRigthTextFieldOffset];
+    [self setLeftOffset:kDefaultLeftTextFieldOffset];
+    [self setRightOffset:kDefaultRigthTextFieldOffset];
 }
 
 - (void)dealloc {

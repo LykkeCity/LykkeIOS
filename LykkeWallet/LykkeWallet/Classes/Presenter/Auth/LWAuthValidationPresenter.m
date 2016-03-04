@@ -39,6 +39,13 @@
     return LWAuthStepValidation;
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 - (void)localize {
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.validation.label")];
 }

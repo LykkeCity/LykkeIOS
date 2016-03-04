@@ -90,6 +90,13 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     [[LWAuthManager instance] requestBlockchainTransaction:self.orderId];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 
 #pragma mark - Actions
 

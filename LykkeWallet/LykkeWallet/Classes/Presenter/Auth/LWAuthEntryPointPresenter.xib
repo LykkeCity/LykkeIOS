@@ -99,8 +99,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ButtonOK" width="315" height="45"/>
-        <image name="ButtonOKInactive" width="316" height="46"/>
-        <image name="IconLogo" width="57" height="53"/>
+        <image name="ButtonOK" width="320" height="51"/>
+        <image name="ButtonOKInactive" width="320" height="51"/>
+        <image name="IconLogo" width="95" height="60"/>
     </resources>
 </document>

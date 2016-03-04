@@ -76,6 +76,13 @@ static int const kBlockchainRow = 5;
     [self updateStatus];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 
 #pragma mark - Actions
 

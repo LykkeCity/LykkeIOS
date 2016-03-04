@@ -90,6 +90,13 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     [self textFieldDidChangeValue:emailTextField];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 - (void)localize {
     [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]
                         forState:UIControlStateNormal];

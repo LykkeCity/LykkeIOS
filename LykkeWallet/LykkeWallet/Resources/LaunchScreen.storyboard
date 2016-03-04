@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoSplash" width="171" height="53"/>
+        <image name="LogoSplash" width="205" height="135"/>
     </resources>
 </document>

@@ -1,0 +1,172 @@
+/* 
+  Localizable.strings
+  LykkeWallet
+
+  Created by Георгий Малюков on 08.12.15.
+  Copyright © 2015 Lykkex. All rights reserved.
+*/
+
+"tab.wallets" = "Кошельки";
+"tab.trading" = "Обмен";
+"tab.history" = "История";
+"tab.settings" = "Настройки";
+
+"title.register" = "Регистрация";
+"title.authentication" = "Вход";
+
+"auth.login" = "Войти";
+"auth.signup" = "Зарегистрироваться";
+"auth.email" = "Email";
+"auth.password" = "Пароль (мин 6 символов)";
+"auth.validation.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения Вашей учетной записи.";
+
+"register.title" = "Регистрация";
+"register.step1.prompt" = "Заполните ваш профиль";
+"register.email" = "Email";
+"register.firstName" = "Имя";
+"register.firstName" = "Имя Фамилия";
+"register.fullName" = "Имя Фамилия";
+"register.lastName" = "Фамилия";
+"register.phone" = "Телефон";
+"register.password" = "Пароль (мин 6 символов)";
+"register.passwordConfirm" = "Подтвердите пароль (мин 6 символов)";
+"register.submit" = "Отправить";
+"register.camera.title.selfie" = "Сделайте селфи";
+"register.camera.title.idCard" = "Сделайте фото паспорта";
+"register.camera.title.proofOfAddress" = "Сделайте фото вида на жительство";
+"register.camera.photo.take" = "Отлично, продолжить";
+"register.camera.photo.cancel" = "Нет, переснять";
+"register.camera.photo.ok" = "ОК, отправить";
+"register.camera.hud.title" = "Кликните здесь для отмены операции";
+"register.kyc.pending" = "Уважаемый %@, ваша информация проверяется нашей службой безопасности. Это может занять 15-20 минут.";
+
+"register.kyc.restricted.header" = "Упс!";
+"register.kyc.restricted" = "Уважаемый %@, мы очень сожалеем, но Lykke Wallet не может быть создан на основе KYC-информации, которую Вы предоставили.";
+
+"register.kyc.invalidDocuments.header" = "Упс!";
+"register.kyc.invalidDocuments" = "Уважаемый %@, приносим свои извинения, но мы не смогли принять часть Ваших докмуентов. Пожалуйста, загрузите их снова.";
+"register.kyc.invalidDocuments.okButton" = "Ок, я понимаю";
+"register.kyc.success.header" = "Lykke Wallet был успешно создан!";
+"register.kyc.success" = "Уважаемый %@, спасибо за ожидание. С документами все в порядке. Переходим к вопросам безопасности.";
+"register.kyc.success.okButton" = "Продолжить";
+"register.pin.setup.ok.title" = "Поздравляем!";
+"register.pin.setup.ok.okButton" = "OK";
+"register.pin.setup.ok.text" = "Ваш приватный ключ сгенерирован.\nВы почти готовы к торговле, мы лишь зададим несколько дополнительных вопросов.\n\nЭто займет 1-2 минуты. Пожалуйста, держите рядом Ваши паспорт и вид на жительство.";
+
+"register.kyc.submit.title" = "Отправить документы";
+"register.kyc.submit.header" = "Процедура утверждения.";
+"register.kyc.submit" = "Уважаемый %@, ваша информация будет проверяется нашей службой безопасности.\nЭто может занять до 15-20 минут.";
+"register.kyc.submit.submitButton" = "Начать проверку";
+
+"register.validation.label" = "Устанавливаем соединение.\nПожалуйста, подождите ...";
+"register.check.documents.label" = "Проверка документов.\nПожалуйста, подождите ...";
+
+"utils.tip" = "Что мне нужно знать?";
+"utils.ok" = "OK";
+"utils.error" = "Ошибка";
+
+"wallets.general.sell" = "Продать";
+"wallets.cardform.title" = "ДОБАВЛЕННЫЕ КАРТЫ";
+"wallets.cardform.card.number.placeholder" = "Номер карты";
+"wallets.cardform.card.expire.placeholder" = "М/Г";
+"wallets.cardform.card.owner.placeholder" = "Имя владельца";
+"wallets.cardform.card.code.placeholder" = "CVC";
+"wallets.cardform.card.submitButton" = "СОЗДАТЬ";
+"wallets.cardform.card.description" = "Средства с данной карты будут списаны только при проведении транзакции";
+
+"wallets.confirm.title" = "КАРТА УСПЕШНО ПОДКЛЮЧЕНА";
+"wallets.confirm.description" = "Вы можете изменить данные о карте в любой момент.";
+"wallets.confirm.continue" = "ПРОДОЛЖИТЬ";
+"wallets.funds.title" = "Deposit %@ wallet";
+"wallets.lykke.empty" = "Кошельки не добавлены";
+"wallets.cards.empty" = "Карты не добавлены";
+
+"exchange.assets.selection" = "Выберите ассет";
+"exchange.assets.header.issuer" = "Издатель/Ассет";
+"exchange.assets.header.price" = "Цена";
+"exchange.assets.header.change" = "Изменение";
+"exchange.assets.form.assetclass" = "Класс ассета";
+"exchange.assets.form.popularity" = "Индекс популярности";
+"exchange.assets.form.description" = "Описание";
+"exchange.assets.form.issuername" = "Издатель";
+"exchange.assets.form.coinsnumber" = "Валюты выпущено";
+"exchange.assets.form.capitalization" = "Капитализация рынка";
+"exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
+"exchange.assets.buy.title" = "КУПИТЬ ";
+"exchange.assets.sell.title" = "ПРОДАТЬ ";
+"exchange.assets.buy.sum" = "Объем";
+"exchange.assets.buy.placeholder" = "Введите объем";
+"exchange.assets.buy.price" = "Цена";
+"exchange.assets.buy.total" = "Результат";
+"exchange.assets.buy.checkout" = "ОФОРМИТЬ";
+"exchange.assets.modal.title" = "ИНФОРМАЦИЯ";
+"exchange.assets.modal.button" = "УСТАНОВИТЬ ОРДЕР";
+"exchange.assets.modal.cancel" = "ОТМЕНИТЬ";
+"exchange.assets.modal.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
+"exchange.assets.modal.validatepin" = "Проверка PIN ...";
+"exchange.assets.modal.waiting" = "Выполняем операцию ...";
+"exchange.assets.modal.error" = "Сообщение";
+"exchange.assets.modal.error.volume" = "Неверный объем сделки.";
+"exchange.assets.modal.error.ok" = "ОК";
+"exchange.assets.result.title" = " ПРИОБРЕТЕН!";
+"exchange.assets.result.assetname" = "Ассет";
+"exchange.assets.result.units" = "Количество";
+"exchange.assets.result.price" = "Цена";
+"exchange.assets.result.commission" = "Комиссия";
+"exchange.assets.result.cost" = "Общая стоимость";
+"exchange.assets.result.blockchain" = "Blockchain";
+"exchange.assets.result.blockchain.progress" = "В обработке";
+"exchange.assets.result.position" = "Позиция";
+"exchange.assets.result.close" = "ЗАКРЫТЬ";
+"exchange.assets.result.share" = "ПОДЕЛИТЬСЯ";
+"exchange.blockchain.close" = "ЗАКРЫТЬ";
+"exchange.blockchain.title" = "ОБОЗРЕВАТЕЛЬ BLOCKCHAIN";
+"exchange.blockchain.hash" = "Hash";
+"exchange.blockchain.date" = "Дата";
+"exchange.blockchain.confirm" = "Confirm.";
+"exchange.blockchain.block" = "Block";
+"exchange.blockchain.height" = "Height";
+"exchange.blockchain.sender" = "Sender ID";
+"exchange.blockchain.asset" = "Asset ID";
+"exchange.blockchain.quantity" = "Количество";
+"exchange.blockchain.url" = "URL";
+
+"personal.data.close" = "ЗАКРЫТЬ";
+"personal.data.title" = "ПЕРСОНАЛЬНЫЕ ДАННЫЕ";
+"personal.data.fullname" = "Имя Фамилия";
+"personal.data.email" = "Email";
+"personal.data.phone" = "Телефон";
+"personal.data.country" = "Страна";
+"personal.data.zip" = "Zip";
+"personal.data.city" = "Город";
+"personal.data.address" = "Адрес";
+
+"settings.push.title" = "PUSH-УВЕДОМЛЕНИЯ";
+"settings.cell.push.title" = "Push-уведомления";
+"settings.cell.push.order.title" = "Исполнение ордера";
+"settings.cell.push.asset.title" = "Новый ассет";
+"settings.assets.title" = "БАЗОВАЯ ВАЛЮТА";
+"settings.cell.pin.title" = "Проверять сделки через PIN/Touch ID";
+"settings.cell.pin.change.title" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения выполнения операции.";
+"settings.cell.kyc.title" = "Персональные данные";
+"settings.cell.logout.title" = "Выйти из-под";
+"settings.cell.asset.title" = "Базовая валюта";
+
+"history.title" = "История операций";
+"history.market.buy" = "покупка";
+"history.market.sell" = "продажа";
+"history.cash.in" = "Пополнение";
+"history.cash.out" = "Снятие";
+
+"errors.network.connection" = "Проблемы с интернет-соединением";
+
+"ABPadLockScreen.pin.enter" = "Введите PIN";
+"ABPadLockScreen.pin.setup" = "Задайте новый PIN";
+"ABPadLockScreen.pin.setup.confirm" = "Повторно введите PIN";
+"ABPadLockScreen.pin.matchError" = "PIN-коды не совпадают!";
+"ABPadLockScreen.pin.attempts.left.none" = "Попытки закончились. Приложение заблокировано.";
+"ABPadLockScreen.pin.attempts.left.one" = "попытка осталась";
+"ABPadLockScreen.pin.attempts.left.several" = "попыток осталось";
+"ABPadLockScreen.cancel" = "Отмена";
+"ABPadLockScreen.delete" = "Стереть";
+"ABPadLockScreen.ok" = "ОК";

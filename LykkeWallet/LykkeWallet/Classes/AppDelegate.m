@@ -100,7 +100,7 @@
                                 nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:kNavigationTintColor]];
     [[UINavigationBar appearance] setTintColor:
      [UIColor colorWithHexString:kNavigationBarTintColor]];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];

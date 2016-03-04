@@ -34,7 +34,6 @@
 #define kStagingTestServer @"lykke-api-test.azurewebsites.net"
 #define kDevelopTestServer @"lykke-api-dev.azurewebsites.net"
 #define kDemoTestServer    @"lykke-api-demo.azurewebsites.net"
-#define kTempTestServer    @"api-dev.lykkex.com"
 
 
 #pragma mark - General Constants
@@ -66,6 +65,8 @@ static NSString *const kSellAssetButtonColor = @"FF3E2E";
 
 #pragma mark - Text Field Constants
 
+#define kDefaultLeftTextFieldOffset  20
+#define kDefaultRigthTextFieldOffset 20
 static float     const kTextFieldFontSize  = 17.0;
 static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
 static NSString *const kTextFieldFontName  = kFontRegular;
@@ -73,7 +74,8 @@ static NSString *const kTextFieldFontName  = kFontRegular;
 
 #pragma mark - Navigation Bar Constants
 
-static NSString *const kNavigationBarTintColor  = kMainElementsColor;
+static NSString *const kNavigationTintColor     = @"FFFFFF";
+static NSString *const kNavigationBarTintColor  = @"AB00FF";
 static NSString *const kNavigationBarGrayColor  = kMainGrayElementsColor;
 static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
 
@@ -88,7 +90,7 @@ static NSString *const kModalNavBarFontName     = kFontRegular;
 #pragma mark - Page Control Constants
 
 static NSString *const kPageControlDotColor       = @"D3D6DB";
-static NSString *const kPageControlActiveDotColor = kMainElementsColor;
+static NSString *const kPageControlActiveDotColor = @"AB00FF";
 
 
 #pragma mark - Asset Colors

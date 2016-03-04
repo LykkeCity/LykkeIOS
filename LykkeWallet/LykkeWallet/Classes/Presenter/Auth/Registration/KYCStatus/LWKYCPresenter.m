@@ -27,4 +27,11 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 @end

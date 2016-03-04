@@ -111,6 +111,14 @@ static int const kAllowedAttempts = 3;
                                             }];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
+
 #pragma mark - ABPadLockScreenViewControllerDelegate
 
 - (BOOL)padLockScreenViewController:(ABPadLockScreenViewController *)controller validatePin:(NSString*)pin {

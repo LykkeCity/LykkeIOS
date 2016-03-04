@@ -34,7 +34,6 @@
 #define kStagingTestServer @"lykke-api-test.azurewebsites.net"
 #define kDevelopTestServer @"lykke-api-dev.azurewebsites.net"
 #define kDemoTestServer    @"lykke-api-demo.azurewebsites.net"
-#define kTempTestServer    @"api-dev.lykkex.com"
 
 
 #pragma mark - General Constants
@@ -46,7 +45,7 @@
 
 #define kMainElementsColor @"AB00FF"
 #define kMainWhiteElementsColor @"FFFFFF"
-#define kMainDarkElementsColor @"3F4D60"
+#define kMainDarkElementsColor @"00B6E0"
 #define kMainGrayElementsColor @"EAEDEF"
 
 
@@ -59,13 +58,15 @@ static NSString *const kLabelFontColor = kMainDarkElementsColor;
 
 static float     const kButtonFontSize  = 15.0;
 static NSString *const kButtonFontName  = kFontSemibold;
-static NSString *const kDisabledButtonFontColor = @"D6D6D6";
+static NSString *const kDisabledButtonFontColor = @"FFFFFF";
 static NSString *const kEnabledButtonFontColor = @"FFFFFF";
 static NSString *const kSellAssetButtonColor = @"FF3E2E";
 
 
 #pragma mark - Text Field Constants
 
+#define kDefaultLeftTextFieldOffset  10
+#define kDefaultRigthTextFieldOffset 30
 static float     const kTextFieldFontSize  = 17.0;
 static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
 static NSString *const kTextFieldFontName  = kFontRegular;
@@ -73,12 +74,13 @@ static NSString *const kTextFieldFontName  = kFontRegular;
 
 #pragma mark - Navigation Bar Constants
 
-static NSString *const kNavigationBarTintColor  = kMainElementsColor;
+static NSString *const kNavigationTintColor     = @"134475";
+static NSString *const kNavigationBarTintColor  = @"FFFFFF";
 static NSString *const kNavigationBarGrayColor  = kMainGrayElementsColor;
 static NSString *const kNavigationBarWhiteColor = kMainWhiteElementsColor;
 
 static float     const kNavigationBarFontSize   = 17.0;
-static NSString *const kNavigationBarFontColor  = kMainDarkElementsColor;
+static NSString *const kNavigationBarFontColor  = @"FFFFFF";
 static NSString *const kNavigationBarFontName   = kFontSemibold;
 
 static float     const kModalNavBarFontSize     = 15.0;
@@ -88,7 +90,7 @@ static NSString *const kModalNavBarFontName     = kFontRegular;
 #pragma mark - Page Control Constants
 
 static NSString *const kPageControlDotColor       = @"D3D6DB";
-static NSString *const kPageControlActiveDotColor = kMainElementsColor;
+static NSString *const kPageControlActiveDotColor = @"134475";
 
 
 #pragma mark - Asset Colors

@@ -60,7 +60,7 @@
 "register.validation.label" = "Connection to server.\nPlease wait...";
 "register.check.documents.label" = "Documents validation.\nPlease wait...";
 
-"utils.tip" = "What should I know?";
+"utils.tip" = "WHAT SHOULD I KNOW?";
 "utils.ok" = "OK";
 "utils.error" = "Error";
 
