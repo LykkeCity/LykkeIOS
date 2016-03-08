@@ -64,16 +64,36 @@ static NSInteger const kSectionLykkeWallets = 1;
 
 @implementation LWWalletsPresenter
 
+#ifdef PROJECT_IATA
+
+static NSInteger const kNumberOfSections = 2;
+static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
+
+static NSString *const WalletIdentifiers[kNumberOfSections] = {
+    @"LWBanksTableViewCellIdentifier",
+    @"LWLykkeTableViewCellIdentifier"
+};
+static NSString *const WalletNames[kNumberOfSections] = {
+    @"IATA WALLET",
+    @"SWIFT"
+};
+static NSString *const WalletIcons[kNumberOfSections] = {
+    @"IATAWallet",
+    @"SwiftWallet"
+};
+
+#else
+
 static NSInteger const kNumberOfSections = 2;//6;
 static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
 
 static NSString *const WalletIdentifiers[kNumberOfSections] = {
     @"LWBanksTableViewCellIdentifier",
     @"LWLykkeTableViewCellIdentifier"/*,
-    emptyCellIdentifier,
-    emptyCellIdentifier,
-    emptyCellIdentifier,
-    emptyCellIdentifier*/
+                                      emptyCellIdentifier,
+                                      emptyCellIdentifier,
+                                      emptyCellIdentifier,
+                                      emptyCellIdentifier*/
 };
 
 static NSString *const WalletNames[kNumberOfSections] = {
@@ -83,6 +103,9 @@ static NSString *const WalletNames[kNumberOfSections] = {
 static NSString *const WalletIcons[kNumberOfSections] = {
     @"WalletBanks", @"WalletLykke"/*, @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"*/
 };
+
+#endif
+
 
 
 #pragma mark - Lifecycle

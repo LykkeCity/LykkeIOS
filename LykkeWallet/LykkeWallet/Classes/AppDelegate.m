@@ -111,7 +111,10 @@
 }
 
 - (void)customizeLabel {
+#ifdef PROJECT_IATA
+#else
     [[UILabel appearance] setTextColor: [UIColor colorWithHexString:kLabelFontColor]];
+#endif
 }
 
 - (void)customizeButton {

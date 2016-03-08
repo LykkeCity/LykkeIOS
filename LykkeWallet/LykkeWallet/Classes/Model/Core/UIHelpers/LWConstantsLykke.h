@@ -38,6 +38,9 @@
 #define kMainDarkElementsColor @"3F4D60"
 #define kMainGrayElementsColor @"EAEDEF"
 
+#define kAssetEnabledItemColor  @"AB00FF"
+#define kAssetDisabledItemColor @"3F4D60"
+
 
 #pragma mark - ABPadView
 
@@ -45,7 +48,7 @@ static NSString *const kABPadBorderColor   = @"D3D6DB";
 static NSString *const kABPadSelectedColor = @"AB00FF";
 
 
-#pragma mark - Button Constants
+#pragma mark - Label Constants
 
 static NSString *const kLabelFontColor = kMainDarkElementsColor;
 

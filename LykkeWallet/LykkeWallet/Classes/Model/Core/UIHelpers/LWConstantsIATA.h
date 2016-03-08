@@ -38,6 +38,9 @@
 #define kMainDarkElementsColor @"00B6E0"
 #define kMainGrayElementsColor @"EAEDEF"
 
+#define kAssetEnabledItemColor  @"FFFFFF"
+#define kAssetDisabledItemColor @"FFFFFF"
+
 
 #pragma mark - ABPadView
 
@@ -45,9 +48,9 @@ static NSString *const kABPadBorderColor   = @"D3D6DB";
 static NSString *const kABPadSelectedColor = @"00B6E0";
 
 
-#pragma mark - Button Constants
+#pragma mark - Label Constants
 
-static NSString *const kLabelFontColor = kMainDarkElementsColor;
+static NSString *const kLabelFontColor = @"3F4D60";
 
 
 #pragma mark - Button Constants
@@ -99,8 +102,8 @@ static NSString *const kPageControlActiveDotColor = @"134475";
 #pragma mark - Asset Colors
 
 static float     const kAssetDetailsFontSize      = 17.0;
-static NSString *const kAssetChangePlusColor      = @"53AA00";
-static NSString *const kAssetChangeMinusColor     = @"FF2E2E";
+static NSString *const kAssetChangePlusColor      = @"2DB700";
+static NSString *const kAssetChangeMinusColor     = @"FF434D";
 
 
 #pragma mark - Table Cells

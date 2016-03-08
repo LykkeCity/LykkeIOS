@@ -82,9 +82,9 @@
 "wallets.cards.empty" = "Карты не добавлены";
 
 "exchange.assets.selection" = "Выберите ассет";
-"exchange.assets.header.issuer" = "Издатель/Ассет";
-"exchange.assets.header.price" = "Цена";
-"exchange.assets.header.change" = "Изменение";
+"exchange.assets.header.issuer" = "ИЗДАТЕЛЬ/АССЕТ";
+"exchange.assets.header.price" = "ЦЕНА";
+"exchange.assets.header.change" = "ИЗМЕНЕНИЕ";
 "exchange.assets.form.assetclass" = "Класс ассета";
 "exchange.assets.form.popularity" = "Индекс популярности";
 "exchange.assets.form.description" = "Описание";

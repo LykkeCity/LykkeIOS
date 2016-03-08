@@ -81,9 +81,9 @@
 "wallets.cards.empty" = "Cards not added";
 
 "exchange.assets.selection" = "Select an asset";
-"exchange.assets.header.issuer" = "Issuer/Asset";
-"exchange.assets.header.price" = "Price";
-"exchange.assets.header.change" = "Change";
+"exchange.assets.header.issuer" = "ISSUER/ASSET";
+"exchange.assets.header.price" = "PRICE";
+"exchange.assets.header.change" = "CHANGE";
 "exchange.assets.form.assetclass" = "Asset class";
 "exchange.assets.form.popularity" = "Popularity index";
 "exchange.assets.form.description" = "Description";
