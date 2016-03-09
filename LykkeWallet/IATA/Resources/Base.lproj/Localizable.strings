@@ -8,6 +8,7 @@
 
 "tab.wallets" = "Wallets";
 "tab.trading" = "Exchange";
+"tab.transfer" = "Transfer";
 "tab.history" = "History";
 "tab.settings" = "Settings";
 
@@ -129,6 +130,8 @@
 "exchange.blockchain.asset" = "Asset ID";
 "exchange.blockchain.quantity" = "Quantity";
 "exchange.blockchain.url" = "URL";
+
+"transfer.recipient" = "Select an recipient";
 
 "personal.data.close" = "CLOSE";
 "personal.data.title" = "PERSONAL DATA";

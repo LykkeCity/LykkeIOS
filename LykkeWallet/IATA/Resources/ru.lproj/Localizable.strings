@@ -8,6 +8,7 @@
 
 "tab.wallets" = "Кошельки";
 "tab.trading" = "Обмен";
+"tab.transfer" = "Перевод";
 "tab.history" = "История";
 "tab.settings" = "Настройки";
 
@@ -130,6 +131,8 @@
 "exchange.blockchain.asset" = "Asset ID";
 "exchange.blockchain.quantity" = "Количество";
 "exchange.blockchain.url" = "URL";
+
+"transfer.recipient" = "Выбрать получателя";
 
 "personal.data.close" = "ЗАКРЫТЬ";
 "personal.data.title" = "ПЕРСОНАЛЬНЫЕ ДАННЫЕ";

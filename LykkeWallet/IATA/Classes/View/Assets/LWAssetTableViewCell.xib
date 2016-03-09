@@ -38,18 +38,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="V9I-1g-CZi" firstAttribute="trailing" secondItem="uVn-5I-2PA" secondAttribute="trailingMargin" id="2bi-Yn-Gen"/>
                     <constraint firstAttribute="trailingMargin" secondItem="V9I-1g-CZi" secondAttribute="trailing" constant="18" id="C09-FP-SJo"/>
                     <constraint firstItem="8FZ-Vq-3ph" firstAttribute="leading" secondItem="uVn-5I-2PA" secondAttribute="leadingMargin" constant="18" id="iBU-qu-u9h"/>
                     <constraint firstItem="8FZ-Vq-3ph" firstAttribute="centerY" secondItem="uVn-5I-2PA" secondAttribute="centerY" id="nak-2Z-PSp"/>
                     <constraint firstItem="V9I-1g-CZi" firstAttribute="leading" secondItem="8FZ-Vq-3ph" secondAttribute="trailing" constant="12" id="qrY-EZ-WEx"/>
                     <constraint firstItem="V9I-1g-CZi" firstAttribute="centerY" secondItem="uVn-5I-2PA" secondAttribute="centerY" id="sSi-TC-4wR"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="2bi-Yn-Gen"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="assetImageView" destination="8FZ-Vq-3ph" id="hLF-X4-h0l"/>

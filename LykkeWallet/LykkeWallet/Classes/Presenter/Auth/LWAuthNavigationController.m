@@ -35,6 +35,10 @@
 #import "LWHistoryPresenter.h"
 #import "LWSettingsPresenter.h"
 
+#ifdef PROJECT_IATA
+#import "LWTransferPresenter.h"
+#endif
+
 #import "LWKeychainManager.h"
 #import "LWConstants.h"
 #import "UIImage+Resize.h"
@@ -219,9 +223,18 @@
                                                 withImage:@"HistoryTab"];
     LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
     pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
-                                                 withImage:@"SettingsTab"];    
-    // init tab controller
+                                                 withImage:@"SettingsTab"];
+
+#ifdef PROJECT_IATA
+    LWTransferPresenter *pTransfer = [LWTransferPresenter new];
+    pTransfer.tabBarItem = [self createTabBarItemWithTitle:@"tab.transfer"
+                                                 withImage:@"TransferTab"];
+    tab.viewControllers = @[pWallets, pTransfer, pTrading, pHistory, pSettings];
+#else
     tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
+#endif
+
+    // init tab controller
     tab.tabBar.translucent = NO;
     
     [self setViewControllers:@[tab] animated:NO];

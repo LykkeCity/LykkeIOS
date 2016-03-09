@@ -435,6 +435,10 @@
 		EC9EC2691C8EF58700C986DD /* LWAssetInfoTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9EC25F1C8EF58700C986DD /* LWAssetInfoTextTableViewCell.xib */; };
 		EC9EC26A1C8EF58700C986DD /* LWAssetLykkeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9EC2601C8EF58700C986DD /* LWAssetLykkeTableViewCell.xib */; };
 		EC9EC26B1C8EF58700C986DD /* LWAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9EC2611C8EF58700C986DD /* LWAssetTableViewCell.xib */; };
+		EC9F3F541C9070B800DC1F87 /* LWTransferPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F3F531C9070B800DC1F87 /* LWTransferPresenter.m */; };
+		EC9F3F561C9070F500DC1F87 /* LWTransferPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F551C9070F500DC1F87 /* LWTransferPresenter.xib */; };
+		EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell.xib */; };
+		EC9F3F5E1C9083A900DC1F87 /* LWTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -850,6 +854,12 @@
 		EC9EC25F1C8EF58700C986DD /* LWAssetInfoTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetInfoTextTableViewCell.xib; path = IATA/Classes/View/Assets/LWAssetInfoTextTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		EC9EC2601C8EF58700C986DD /* LWAssetLykkeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetLykkeTableViewCell.xib; path = IATA/Classes/View/Assets/LWAssetLykkeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		EC9EC2611C8EF58700C986DD /* LWAssetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetTableViewCell.xib; path = IATA/Classes/View/Assets/LWAssetTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC9F3F521C9070B800DC1F87 /* LWTransferPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferPresenter.h; path = Transfer/LWTransferPresenter.h; sourceTree = "<group>"; };
+		EC9F3F531C9070B800DC1F87 /* LWTransferPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferPresenter.m; path = Transfer/LWTransferPresenter.m; sourceTree = "<group>"; };
+		EC9F3F551C9070F500DC1F87 /* LWTransferPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTransferPresenter.xib; path = IATA/Classes/Presenter/Transfer/LWTransferPresenter.xib; sourceTree = SOURCE_ROOT; };
+		EC9F3F591C90837300DC1F87 /* LWTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferTableViewCell.h; path = Transfer/LWTransferTableViewCell.h; sourceTree = "<group>"; };
+		EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferTableViewCell.m; path = Transfer/LWTransferTableViewCell.m; sourceTree = "<group>"; };
+		EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTransferTableViewCell.xib; path = IATA/Classes/View/Transfer/LWTransferTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -1089,6 +1099,7 @@
 		CF6632401C175B54004353F5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				EC9F3F511C90706A00DC1F87 /* Transfer */,
 				CF9EC8B71C17C00A00F742A6 /* Auth */,
 				CF6632821C176A63004353F5 /* Wallets */,
 				CF66327F1C176A63004353F5 /* History */,
@@ -1102,6 +1113,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC9F3F581C90833D00DC1F87 /* Transfer */,
 				EC3144441C4C010000DEA50B /* Trading */,
 				EC370B1F1C47BD5600175786 /* Toolbars */,
 				ECEC40B31C4298AB00B22BEE /* History */,
@@ -1968,6 +1980,34 @@
 			name = IATA;
 			sourceTree = "<group>";
 		};
+		EC9F3F511C90706A00DC1F87 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				EC9F3F571C90724000DC1F87 /* IATA */,
+				EC9F3F521C9070B800DC1F87 /* LWTransferPresenter.h */,
+				EC9F3F531C9070B800DC1F87 /* LWTransferPresenter.m */,
+			);
+			name = Transfer;
+			sourceTree = "<group>";
+		};
+		EC9F3F571C90724000DC1F87 /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC9F3F551C9070F500DC1F87 /* LWTransferPresenter.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
+		EC9F3F581C90833D00DC1F87 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				EC9F3F591C90837300DC1F87 /* LWTransferTableViewCell.h */,
+				EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */,
+				EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell.xib */,
+			);
+			name = Transfer;
+			sourceTree = "<group>";
+		};
 		ECA80B611C2E0E38001C4E8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -2314,9 +2354,11 @@
 				EC0E84451C8EC7EB00FE128C /* LWWalletTableViewCell.xib in Resources */,
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
+				EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell.xib in Resources */,
 				EC302FF11C90221A003A1F5F /* LWMathKeyboardView.xib in Resources */,
 				EC302FFC1C903440003A1F5F /* LWLeftDetailTableViewCell.xib in Resources */,
 				EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */,
+				EC9F3F561C9070F500DC1F87 /* LWTransferPresenter.xib in Resources */,
 				EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */,
 				EC0E84411C8EC7EB00FE128C /* LWBanksTableViewCell.xib in Resources */,
 				EC4D926A1C8778DF006EE7C8 /* LWPersonalItemTableViewCell.xib in Resources */,
@@ -2636,6 +2678,7 @@
 				EC4D917A1C8778DF006EE7C8 /* LWAuthStepPresenter.m in Sources */,
 				EC4D917B1C8778DF006EE7C8 /* LWLeftDetailTableViewCell.m in Sources */,
 				EC4D917C1C8778DF006EE7C8 /* LWTransactionTradeModel.m in Sources */,
+				EC9F3F5E1C9083A900DC1F87 /* LWTransferTableViewCell.m in Sources */,
 				EC4D917D1C8778DF006EE7C8 /* LWPacketAccountExist.m in Sources */,
 				EC4D917E1C8778DF006EE7C8 /* LWSettingsAssetTableViewCell.m in Sources */,
 				EC4D917F1C8778DF006EE7C8 /* NSString+Utils.m in Sources */,
@@ -2650,6 +2693,7 @@
 				EC4D91881C8778DF006EE7C8 /* LWPacketCheckDocumentsToUpload.m in Sources */,
 				EC4D918A1C8778DF006EE7C8 /* LWColorizer.m in Sources */,
 				EC4D918B1C8778DF006EE7C8 /* LWAppSettingsModel.m in Sources */,
+				EC9F3F541C9070B800DC1F87 /* LWTransferPresenter.m in Sources */,
 				EC4D918C1C8778DF006EE7C8 /* LWPacketLog.m in Sources */,
 				EC4D918D1C8778DF006EE7C8 /* AppDelegate.m in Sources */,
 				EC4D918E1C8778DF006EE7C8 /* LWCashInOutHistoryItemType.m in Sources */,
