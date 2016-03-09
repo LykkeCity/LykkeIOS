@@ -71,8 +71,13 @@ CGFloat const iPhone4Height      = 480;
 CGFloat const iPhone5Height      = 568;
 float const kSmallHeightKeyboard = 239.0;
 float const kBigHeightKeyboard   = 290.0;
+#ifdef PROJECT_IATA
+float const kBottomSmallHeight   = 45.0;
+float const kBottomBigHeight     = 45.0;
+#else
 float const kBottomSmallHeight   = 65.0;
 float const kBottomBigHeight     = 105.0;
+#endif
 
 
 #pragma mark - Lifecycle
@@ -171,7 +176,7 @@ float const kBottomBigHeight     = 105.0;
         mathKeyboardView.targetTextField = sumTextField;
         
         //[sumTextField becomeFirstResponder];
-        [sumTextField setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
+        [sumTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
         [sumTextField addTarget:self
                          action:@selector(textFieldDidChange:)
                forControlEvents:UIControlEventEditingChanged];

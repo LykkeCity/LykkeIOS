@@ -28,7 +28,7 @@
                     <constraint firstItem="WQu-3v-KGI" firstAttribute="centerX" secondItem="O27-RL-eVu" secondAttribute="centerX" id="e8n-gQ-UPo"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="253" y="136"/>
         </tableViewCell>
     </objects>

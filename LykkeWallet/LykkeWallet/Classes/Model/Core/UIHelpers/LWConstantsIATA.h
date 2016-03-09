@@ -66,8 +66,9 @@ static NSString *const kSellAssetButtonColor = @"FF3E2E";
 
 #define kDefaultLeftTextFieldOffset  10
 #define kDefaultRigthTextFieldOffset 30
+#define kDefaultTextFieldPlaceholder @"3F4D60"
 static float     const kTextFieldFontSize  = 17.0;
-static NSString *const kTextFieldFontColor = kMainDarkElementsColor;
+static NSString *const kTextFieldFontColor = @"3F4D60";
 static NSString *const kTextFieldFontName  = kFontRegular;
 
 

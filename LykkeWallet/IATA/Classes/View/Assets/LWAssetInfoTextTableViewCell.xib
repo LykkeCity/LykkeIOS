@@ -6,9 +6,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Regular.otf">
-            <string>ProximaNova-Regular</string>
-            <string>ProximaNova-Regular</string>
+        <mutableArray key="GothaProReg.otf">
+            <string>GothamPro</string>
+            <string>GothamPro</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -26,13 +26,13 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="lyj-xI-eNx"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR/USD currency pair; ccEUR, ccUSD are backed with collateral locked at Credit Swiss bank" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-2s-4GZ">
                         <rect key="frame" x="142" y="0.0" width="152" height="49"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -6,9 +6,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Regular.otf">
-            <string>ProximaNova-Regular</string>
-            <string>ProximaNova-Regular</string>
+        <mutableArray key="GothaProReg.otf">
+            <string>GothamPro</string>
+            <string>GothamPro</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -26,13 +26,13 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="j3D-aU-uqe"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
-                        <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.69019607843137254" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 871,8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4S-Uw-dg8">
                         <rect key="frame" x="142" y="8" width="152" height="33"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="22"/>
+                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -47,7 +47,7 @@
                     <constraint firstItem="lct-Bk-4Px" firstAttribute="top" secondItem="Xta-5o-j73" secondAttribute="topMargin" id="nj5-x3-rB3"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="titleLabel" destination="lct-Bk-4Px" id="kUw-bd-NYC"/>
                 <outlet property="totalLabel" destination="V4S-Uw-dg8" id="0Fc-NB-2eG"/>

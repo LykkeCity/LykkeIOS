@@ -44,7 +44,7 @@
                     <constraint firstItem="zaM-ra-h9w" firstAttribute="leading" secondItem="fZM-Di-o6u" secondAttribute="leadingMargin" constant="10" id="oaa-3l-lrG"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <point key="canvasLocation" x="202" y="190"/>
         </tableViewCell>

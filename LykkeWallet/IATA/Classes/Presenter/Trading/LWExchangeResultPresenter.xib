@@ -5,17 +5,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Semibold.otf">
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
+        <mutableArray key="GothaProMed.otf">
+            <string>GothamPro-Medium</string>
+            <string>GothamPro-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeResultPresenter">
             <connections>
                 <outlet property="closeButton" destination="HW4-kP-Mu2" id="mT1-cj-8pJ"/>
-                <outlet property="shareButton" destination="Lyi-cW-qh7" id="kPQ-RM-bn8"/>
                 <outlet property="tableView" destination="MXX-wE-dld" id="wp2-c4-nkJ"/>
                 <outlet property="titleLabel" destination="FMt-CD-OOy" id="V2r-AA-EEv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,12 +33,12 @@
                                 <constraint firstAttribute="width" constant="304" id="iyd-sl-cD4"/>
                                 <constraint firstAttribute="height" constant="30" id="l9B-Mr-HEM"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
-                            <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="21"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.074509803921568626" green="0.26666666666666666" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="FMt-CD-OOy" firstAttribute="centerX" secondItem="x8R-7a-0Ao" secondAttribute="centerX" id="5Dp-e6-L4N"/>
                         <constraint firstAttribute="height" constant="81" id="aKc-uU-klm"/>
@@ -48,45 +46,32 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-eP-zU8">
-                    <rect key="frame" x="0.0" y="463" width="320" height="105"/>
+                    <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW4-kP-Mu2" customClass="TKButton">
-                            <rect key="frame" x="20" y="30" width="130" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="dcj-UH-TcF"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                            <state key="normal" title="CLOSE" backgroundImage="ButtonOKInactive">
-                                <color key="titleColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="16"/>
+                            <state key="normal" title="CLOSE" backgroundImage="ButtonOK">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="oBT-a7-pUF"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyi-cW-qh7" customClass="TKButton">
-                            <rect key="frame" x="170" y="30" width="130" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="45" id="Jce-1D-lNS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                            <state key="normal" title="SHARE" backgroundImage="ButtonShare">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Lyi-cW-qh7" firstAttribute="width" secondItem="HW4-kP-Mu2" secondAttribute="width" id="3jf-0o-0e9"/>
-                        <constraint firstItem="Lyi-cW-qh7" firstAttribute="centerY" secondItem="XYe-eP-zU8" secondAttribute="centerY" id="9yc-GZ-Cc9"/>
-                        <constraint firstItem="Lyi-cW-qh7" firstAttribute="leading" secondItem="HW4-kP-Mu2" secondAttribute="trailing" constant="20" id="Evi-kI-qtF"/>
-                        <constraint firstAttribute="height" constant="105" id="OLd-pX-4V2"/>
-                        <constraint firstAttribute="trailing" secondItem="Lyi-cW-qh7" secondAttribute="trailing" constant="20" id="Oza-SF-LuN"/>
-                        <constraint firstItem="HW4-kP-Mu2" firstAttribute="leading" secondItem="XYe-eP-zU8" secondAttribute="leading" constant="20" id="t8g-xA-GPl"/>
+                        <constraint firstItem="HW4-kP-Mu2" firstAttribute="leading" secondItem="XYe-eP-zU8" secondAttribute="leading" id="Fqr-2N-zml"/>
+                        <constraint firstAttribute="height" constant="45" id="OLd-pX-4V2"/>
                         <constraint firstItem="HW4-kP-Mu2" firstAttribute="centerY" secondItem="XYe-eP-zU8" secondAttribute="centerY" id="t8x-rm-NWz"/>
+                        <constraint firstAttribute="trailing" secondItem="HW4-kP-Mu2" secondAttribute="trailing" id="xDW-sw-xRq"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-wE-dld">
-                    <rect key="frame" x="0.0" y="81" width="320" height="382"/>
+                    <rect key="frame" x="0.0" y="81" width="320" height="442"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
@@ -107,7 +92,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ButtonOKInactive" width="320" height="51"/>
-        <image name="ButtonShare" width="130" height="45"/>
+        <image name="ButtonOK" width="320" height="51"/>
     </resources>
 </document>

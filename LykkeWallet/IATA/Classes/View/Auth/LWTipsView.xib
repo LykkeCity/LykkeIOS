@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Regular.otf">
-            <string>ProximaNova-Regular</string>
+        <mutableArray key="GothaProReg.otf">
+            <string>GothamPro</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -25,7 +25,7 @@
                                 <constraint firstAttribute="width" constant="170" id="h2x-Qj-wZ1"/>
                                 <constraint firstAttribute="height" constant="30" id="qz2-Pz-6W6"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.71372549019607845" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

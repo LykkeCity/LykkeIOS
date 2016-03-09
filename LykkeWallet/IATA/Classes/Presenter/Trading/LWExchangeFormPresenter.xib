@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Semibold.otf">
-            <string>ProximaNova-Semibold</string>
+        <mutableArray key="GothaProMed.otf">
+            <string>GothamPro-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -23,19 +23,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-Ih-6ZR">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="463"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXH-wZ-W1e">
-                    <rect key="frame" x="0.0" y="463" width="320" height="105"/>
+                    <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnQ-NH-i6e" customClass="TKButton">
-                            <rect key="frame" x="8" y="30" width="304" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="QZB-j7-t12"/>
-                                <constraint firstAttribute="width" constant="304" id="hdY-Gg-lVk"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="16"/>
                             <state key="normal" title=". . ." backgroundImage="ButtonOKGreen">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -46,9 +45,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="105" id="9jD-sD-etI"/>
+                        <constraint firstAttribute="height" constant="45" id="9jD-sD-etI"/>
                         <constraint firstItem="CnQ-NH-i6e" firstAttribute="centerY" secondItem="lXH-wZ-W1e" secondAttribute="centerY" id="Zwm-Su-AuP"/>
                         <constraint firstItem="CnQ-NH-i6e" firstAttribute="centerX" secondItem="lXH-wZ-W1e" secondAttribute="centerX" id="hn3-NI-Bak"/>
+                        <constraint firstItem="CnQ-NH-i6e" firstAttribute="leading" secondItem="lXH-wZ-W1e" secondAttribute="leading" id="mqw-5p-hKC"/>
+                        <constraint firstAttribute="trailing" secondItem="CnQ-NH-i6e" secondAttribute="trailing" id="mv7-wV-Irt"/>
                     </constraints>
                 </view>
             </subviews>
@@ -66,6 +67,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ButtonOKGreen" width="304" height="45"/>
+        <image name="ButtonOKGreen" width="320" height="51"/>
     </resources>
 </document>

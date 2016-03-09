@@ -53,7 +53,7 @@
                     <constraint firstItem="d4w-q4-Lxs" firstAttribute="bottom" secondItem="uqr-Sn-gXo" secondAttribute="bottomMargin" id="yti-ys-hcy"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="walletBalanceLabel" destination="g8y-cH-1pm" id="mc2-RP-r84"/>

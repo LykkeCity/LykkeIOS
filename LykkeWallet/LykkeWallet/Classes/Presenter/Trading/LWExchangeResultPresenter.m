@@ -67,7 +67,10 @@ static int const kBlockchainRow = 5;
     [self.shareButton setTitle:Localize(@"exchange.assets.result.share")
                       forState:UIControlStateNormal];
     
+#ifdef PROJECT_IATA
+#else
     [self.closeButton setGrayPalette];
+#endif
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
 
@@ -79,7 +82,7 @@ static int const kBlockchainRow = 5;
 #ifdef PROJECT_IATA
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleDefault;
+    return UIStatusBarStyleLightContent;
 }
 #endif
 

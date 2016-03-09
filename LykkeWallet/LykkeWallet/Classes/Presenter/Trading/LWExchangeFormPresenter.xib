@@ -66,6 +66,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ButtonOKGreen" width="304" height="45"/>
+        <image name="ButtonOKGreen" width="320" height="51"/>
     </resources>
 </document>

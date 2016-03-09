@@ -76,7 +76,11 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     [self.closeButton setTitle:Localize(@"exchange.blockchain.close")
                       forState:UIControlStateNormal];
+    
+#ifdef PROJECT_IATA
+#else
     [self.closeButton setGrayPalette];
+#endif
     
     self.extraTitleLabel.text = Localize(@"exchange.blockchain.title");
     

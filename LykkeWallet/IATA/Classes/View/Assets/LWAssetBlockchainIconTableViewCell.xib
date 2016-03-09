@@ -6,8 +6,8 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Proxima Nova Semibold.otf">
-            <string>ProximaNova-Semibold</string>
+        <mutableArray key="GothaProMed.otf">
+            <string>GothamPro-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -33,7 +33,7 @@
                             <constraint firstAttribute="height" constant="30" id="Xyh-d5-0Uz"/>
                             <constraint firstAttribute="width" constant="178" id="rDJ-c6-1PZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="16"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">

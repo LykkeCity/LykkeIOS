@@ -112,6 +112,11 @@
 		EC25A6921C331F0B00F223FF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */; };
 		EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */; };
 		EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */; };
+		EC302FF11C90221A003A1F5F /* LWMathKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC302FEF1C902219003A1F5F /* LWMathKeyboardView.xib */; };
+		EC302FF21C90221A003A1F5F /* LWPinKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC302FF01C902219003A1F5F /* LWPinKeyboardView.xib */; };
+		EC302FFB1C90343C003A1F5F /* LWDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC302FF51C903439003A1F5F /* LWDetailTableViewCell.xib */; };
+		EC302FFC1C903440003A1F5F /* LWLeftDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC302FF61C903439003A1F5F /* LWLeftDetailTableViewCell.xib */; };
+		EC302FFD1C903444003A1F5F /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC302FF71C903439003A1F5F /* LWRadioTableViewCell.xib */; };
 		EC3144481C4C01B500DEA50B /* LWMathKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144461C4C01B500DEA50B /* LWMathKeyboardView.m */; };
 		EC3144491C4C01B500DEA50B /* LWMathKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */; };
 		EC31444C1C4C01DD00DEA50B /* LWPinKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31444B1C4C01DD00DEA50B /* LWPinKeyboardView.m */; };
@@ -325,16 +330,13 @@
 		EC4D925C1C8778DF006EE7C8 /* LWKYCPendingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7583B1C202C6500BC7658 /* LWKYCPendingPresenter.xib */; };
 		EC4D925E1C8778DF006EE7C8 /* LWRegisterPINSetupPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF68774F1C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib */; };
 		EC4D92601C8778DF006EE7C8 /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
-		EC4D92611C8778DF006EE7C8 /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */; };
 		EC4D92621C8778DF006EE7C8 /* LWChooseAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */; };
 		EC4D92631C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */; };
 		EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */; };
 		EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
 		EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6877591C234A9800E7A7D9 /* LWAuthPINEnterPresenter.xib */; };
 		EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC24CC841C399A8600C2FDAA /* LWWalletPagePresenter.xib */; };
-		EC4D92691C8778DF006EE7C8 /* LWLeftDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */; };
 		EC4D926A1C8778DF006EE7C8 /* LWPersonalItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC168F161C51410500AF8DD5 /* LWPersonalItemTableViewCell.xib */; };
-		EC4D926C1C8778DF006EE7C8 /* LWDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */; };
 		EC4D926D1C8778DF006EE7C8 /* LWKYCRestrictedPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF758451C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib */; };
 		EC4D926F1C8778DF006EE7C8 /* LWSettingsLogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519BE1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
@@ -670,6 +672,11 @@
 		EC2813EB1C343CE9009BE680 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		EC2813ED1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketKYCSendDocumentBin.h; sourceTree = "<group>"; };
 		EC2813EE1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketKYCSendDocumentBin.m; sourceTree = "<group>"; };
+		EC302FEF1C902219003A1F5F /* LWMathKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWMathKeyboardView.xib; path = IATA/Classes/View/Trading/LWMathKeyboardView.xib; sourceTree = SOURCE_ROOT; };
+		EC302FF01C902219003A1F5F /* LWPinKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWPinKeyboardView.xib; path = IATA/Classes/View/Trading/LWPinKeyboardView.xib; sourceTree = SOURCE_ROOT; };
+		EC302FF51C903439003A1F5F /* LWDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWDetailTableViewCell.xib; path = IATA/Classes/View/TableCells/LWDetailTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC302FF61C903439003A1F5F /* LWLeftDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWLeftDetailTableViewCell.xib; path = IATA/Classes/View/TableCells/LWLeftDetailTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC302FF71C903439003A1F5F /* LWRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRadioTableViewCell.xib; path = IATA/Classes/View/TableCells/LWRadioTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		EC3144451C4C01B500DEA50B /* LWMathKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWMathKeyboardView.h; path = Trading/LWMathKeyboardView.h; sourceTree = "<group>"; };
 		EC3144461C4C01B500DEA50B /* LWMathKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWMathKeyboardView.m; path = Trading/LWMathKeyboardView.m; sourceTree = "<group>"; };
 		EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWMathKeyboardView.xib; path = Trading/LWMathKeyboardView.xib; sourceTree = "<group>"; };
@@ -1593,15 +1600,53 @@
 			name = WalletPage;
 			sourceTree = "<group>";
 		};
+		EC302FED1C902169003A1F5F /* Lykke */ = {
+			isa = PBXGroup;
+			children = (
+				EC31444D1C4C01ED00DEA50B /* LWPinKeyboardView.xib */,
+				EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */,
+			);
+			name = Lykke;
+			sourceTree = "<group>";
+		};
+		EC302FEE1C902172003A1F5F /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC302FEF1C902219003A1F5F /* LWMathKeyboardView.xib */,
+				EC302FF01C902219003A1F5F /* LWPinKeyboardView.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
+		EC302FF31C9033E7003A1F5F /* Lykke */ = {
+			isa = PBXGroup;
+			children = (
+				EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */,
+				EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */,
+				EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */,
+			);
+			name = Lykke;
+			sourceTree = "<group>";
+		};
+		EC302FF41C9033EF003A1F5F /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC302FF51C903439003A1F5F /* LWDetailTableViewCell.xib */,
+				EC302FF61C903439003A1F5F /* LWLeftDetailTableViewCell.xib */,
+				EC302FF71C903439003A1F5F /* LWRadioTableViewCell.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
 		EC3144441C4C010000DEA50B /* Trading */ = {
 			isa = PBXGroup;
 			children = (
+				EC302FEE1C902172003A1F5F /* IATA */,
+				EC302FED1C902169003A1F5F /* Lykke */,
 				EC3144451C4C01B500DEA50B /* LWMathKeyboardView.h */,
 				EC3144461C4C01B500DEA50B /* LWMathKeyboardView.m */,
-				EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */,
 				EC31444A1C4C01DD00DEA50B /* LWPinKeyboardView.h */,
 				EC31444B1C4C01DD00DEA50B /* LWPinKeyboardView.m */,
-				EC31444D1C4C01ED00DEA50B /* LWPinKeyboardView.xib */,
 			);
 			name = Trading;
 			sourceTree = "<group>";
@@ -1738,15 +1783,14 @@
 		EC7F04FF1C3EA8340079ECD0 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				EC302FF41C9033EF003A1F5F /* IATA */,
+				EC302FF31C9033E7003A1F5F /* Lykke */,
 				EC7F05001C3EA8810079ECD0 /* LWDetailTableViewCell.h */,
 				EC7F05011C3EA8810079ECD0 /* LWDetailTableViewCell.m */,
-				EC7F05031C3EA8950079ECD0 /* LWDetailTableViewCell.xib */,
 				EC7F050A1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.h */,
 				EC7F050B1C3ED21C0079ECD0 /* LWLeftDetailTableViewCell.m */,
-				EC7F050D1C3ED2290079ECD0 /* LWLeftDetailTableViewCell.xib */,
 				EC7F050F1C3EE5290079ECD0 /* LWRadioTableViewCell.h */,
 				EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */,
-				EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -1884,8 +1928,8 @@
 				EC57F4531C3C3DD900E31746 /* LWExchangeFormPresenter.xib */,
 				EC57F4691C3D400600E31746 /* LWExchangeDealFormPresenter.xib */,
 				EC7F04FA1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib */,
-				EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */,
 				EC3CE8B01C4014D600CAC3FE /* LWExchangeBlockchainPresenter.xib */,
+				EC7F05071C3EC54B0079ECD0 /* LWExchangeResultPresenter.xib */,
 			);
 			name = Lykke;
 			sourceTree = "<group>";
@@ -2262,7 +2306,7 @@
 				EC4D925E1C8778DF006EE7C8 /* LWRegisterPINSetupPresenter.xib in Resources */,
 				EC4D92601C8778DF006EE7C8 /* LWKYCSubmitPresenter.xib in Resources */,
 				EC9EC26A1C8EF58700C986DD /* LWAssetLykkeTableViewCell.xib in Resources */,
-				EC4D92611C8778DF006EE7C8 /* LWRadioTableViewCell.xib in Resources */,
+				EC302FF21C90221A003A1F5F /* LWPinKeyboardView.xib in Resources */,
 				EC4D92621C8778DF006EE7C8 /* LWChooseAssetTableViewCell.xib in Resources */,
 				EC9EC2531C8EE66C00C986DD /* LWExchangeFormPresenter.xib in Resources */,
 				EC4D92631C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
@@ -2270,17 +2314,19 @@
 				EC0E84451C8EC7EB00FE128C /* LWWalletTableViewCell.xib in Resources */,
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
+				EC302FF11C90221A003A1F5F /* LWMathKeyboardView.xib in Resources */,
+				EC302FFC1C903440003A1F5F /* LWLeftDetailTableViewCell.xib in Resources */,
 				EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */,
 				EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */,
 				EC0E84411C8EC7EB00FE128C /* LWBanksTableViewCell.xib in Resources */,
-				EC4D92691C8778DF006EE7C8 /* LWLeftDetailTableViewCell.xib in Resources */,
 				EC4D926A1C8778DF006EE7C8 /* LWPersonalItemTableViewCell.xib in Resources */,
 				EC9EC2511C8EE66000C986DD /* LWExchangeConfirmationView.xib in Resources */,
 				EC9C94A71C89D6E6006FD46B /* LWAuthenticationPresenter.xib in Resources */,
-				EC4D926C1C8778DF006EE7C8 /* LWDetailTableViewCell.xib in Resources */,
 				EC4D926D1C8778DF006EE7C8 /* LWKYCRestrictedPresenter.xib in Resources */,
 				EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */,
 				EC4D926F1C8778DF006EE7C8 /* LWSettingsLogOutTableViewCell.xib in Resources */,
+				EC302FFD1C903444003A1F5F /* LWRadioTableViewCell.xib in Resources */,
+				EC302FFB1C90343C003A1F5F /* LWDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
