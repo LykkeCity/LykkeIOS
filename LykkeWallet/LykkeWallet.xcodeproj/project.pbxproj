@@ -136,6 +136,11 @@
 		EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8BC1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib */; };
 		EC3CE8C01C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */; };
 		EC3CE8C21C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */; };
+		EC3EDB9D1C92F8870044AA6B /* LWSettingsAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3EDB951C92F84E0044AA6B /* LWSettingsAssetTableViewCell.xib */; };
+		EC3EDB9E1C92F88B0044AA6B /* LWSettingsLogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3EDB961C92F84E0044AA6B /* LWSettingsLogOutTableViewCell.xib */; };
+		EC3EDB9F1C92F8940044AA6B /* LWPersonalItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3EDB991C92F8670044AA6B /* LWPersonalItemTableViewCell.xib */; };
+		EC3EDBA01C92F89F0044AA6B /* LWChooseAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3EDB9B1C92F87F0044AA6B /* LWChooseAssetTableViewCell.xib */; };
+		EC3EDBA11C92F8A40044AA6B /* LWChooseAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */; };
 		EC4754A71C614EAF0037614D /* LWWalletDepositPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4754A51C614EAF0037614D /* LWWalletDepositPresenter.m */; };
 		EC4754A81C614EAF0037614D /* LWWalletDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */; };
 		EC4D91761C8778DF006EE7C8 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
@@ -325,20 +330,16 @@
 		EC4D924E1C8778DF006EE7C8 /* LWKYCCheckDocumentsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC59526B1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib */; };
 		EC4D924F1C8778DF006EE7C8 /* LWHistoryPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5AE91C259629007BAD78 /* LWHistoryPresenter.xib */; };
 		EC4D92521C8778DF006EE7C8 /* LWHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEC40B71C4298DC00B22BEE /* LWHistoryTableViewCell.xib */; };
-		EC4D92561C8778DF006EE7C8 /* LWSettingsAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519B31C3733FD00CDDF5B /* LWSettingsAssetTableViewCell.xib */; };
 		EC4D92591C8778DF006EE7C8 /* LWAssetsTablePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519B71C37351C00CDDF5B /* LWAssetsTablePresenter.xib */; };
 		EC4D925C1C8778DF006EE7C8 /* LWKYCPendingPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7583B1C202C6500BC7658 /* LWKYCPendingPresenter.xib */; };
 		EC4D925E1C8778DF006EE7C8 /* LWRegisterPINSetupPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF68774F1C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib */; };
 		EC4D92601C8778DF006EE7C8 /* LWKYCSubmitPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA69FCD1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib */; };
-		EC4D92621C8778DF006EE7C8 /* LWChooseAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */; };
 		EC4D92631C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */; };
 		EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */; };
 		EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7584A1C202D1100BC7658 /* LWKYCSuccessPresenter.xib */; };
 		EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6877591C234A9800E7A7D9 /* LWAuthPINEnterPresenter.xib */; };
 		EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC24CC841C399A8600C2FDAA /* LWWalletPagePresenter.xib */; };
-		EC4D926A1C8778DF006EE7C8 /* LWPersonalItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC168F161C51410500AF8DD5 /* LWPersonalItemTableViewCell.xib */; };
 		EC4D926D1C8778DF006EE7C8 /* LWKYCRestrictedPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF758451C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib */; };
-		EC4D926F1C8778DF006EE7C8 /* LWSettingsLogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519BE1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib */; };
 		EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1921C30514200550EF2 /* LWLykkeWalletsData.m */; };
 		EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1951C3054AA00550EF2 /* LWJSONObject.m */; };
 		EC51D1991C30573200550EF2 /* LWLykkeData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC51D1981C30573200550EF2 /* LWLykkeData.m */; };
@@ -378,7 +379,6 @@
 		EC7519C91C3742B800CDDF5B /* LWPacketBaseAssetSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7519C81C3742B800CDDF5B /* LWPacketBaseAssetSet.m */; };
 		EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7519CB1C37430900CDDF5B /* LWPacketBaseAssets.m */; };
 		EC7519D01C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7519CF1C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m */; };
-		EC7519D21C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */; };
 		EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45C31C30650C00926BB4 /* LWWalletTableViewCell.m */; };
 		EC7A45C91C3083CE00926BB4 /* LWAuthSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45C81C3083CE00926BB4 /* LWAuthSteps.m */; };
 		EC7A45CC1C3099F900926BB4 /* LWLykkeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A45CB1C3099F900926BB4 /* LWLykkeTableViewCell.m */; };
@@ -712,6 +712,10 @@
 		EC3CE8BE1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetBlockchainIconTableViewCell.h; path = Assets/LWAssetBlockchainIconTableViewCell.h; sourceTree = "<group>"; };
 		EC3CE8BF1C402FE400CAC3FE /* LWAssetBlockchainIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetBlockchainIconTableViewCell.m; path = Assets/LWAssetBlockchainIconTableViewCell.m; sourceTree = "<group>"; };
 		EC3CE8C11C402FF000CAC3FE /* LWAssetBlockchainIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWAssetBlockchainIconTableViewCell.xib; path = Assets/LWAssetBlockchainIconTableViewCell.xib; sourceTree = "<group>"; };
+		EC3EDB951C92F84E0044AA6B /* LWSettingsAssetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWSettingsAssetTableViewCell.xib; path = IATA/Classes/View/Settings/LWSettingsAssetTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC3EDB961C92F84E0044AA6B /* LWSettingsLogOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWSettingsLogOutTableViewCell.xib; path = IATA/Classes/View/Settings/LWSettingsLogOutTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC3EDB991C92F8670044AA6B /* LWPersonalItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWPersonalItemTableViewCell.xib; path = IATA/Classes/View/Settings/PersonalData/LWPersonalItemTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		EC3EDB9B1C92F87F0044AA6B /* LWChooseAssetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWChooseAssetTableViewCell.xib; path = IATA/Classes/View/Settings/Assets/LWChooseAssetTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		EC4754A41C614EAF0037614D /* LWWalletDepositPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletDepositPresenter.h; path = WalletDeposit/LWWalletDepositPresenter.h; sourceTree = "<group>"; };
 		EC4754A51C614EAF0037614D /* LWWalletDepositPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletDepositPresenter.m; path = WalletDeposit/LWWalletDepositPresenter.m; sourceTree = "<group>"; };
 		EC4754A61C614EAF0037614D /* LWWalletDepositPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletDepositPresenter.xib; path = WalletDeposit/LWWalletDepositPresenter.xib; sourceTree = "<group>"; };
@@ -1574,9 +1578,10 @@
 		EC168F0D1C51403000AF8DD5 /* PersonalData */ = {
 			isa = PBXGroup;
 			children = (
+				EC3EDB901C92F79A0044AA6B /* IATA */,
+				EC3EDB8F1C92F7920044AA6B /* Lykke */,
 				EC168F131C5140F000AF8DD5 /* LWPersonalItemTableViewCell.h */,
 				EC168F141C5140F000AF8DD5 /* LWPersonalItemTableViewCell.m */,
-				EC168F161C51410500AF8DD5 /* LWPersonalItemTableViewCell.xib */,
 			);
 			name = PersonalData;
 			sourceTree = "<group>";
@@ -1683,6 +1688,56 @@
 			name = Confirmation;
 			sourceTree = "<group>";
 		};
+		EC3EDB8F1C92F7920044AA6B /* Lykke */ = {
+			isa = PBXGroup;
+			children = (
+				EC168F161C51410500AF8DD5 /* LWPersonalItemTableViewCell.xib */,
+			);
+			name = Lykke;
+			sourceTree = "<group>";
+		};
+		EC3EDB901C92F79A0044AA6B /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC3EDB991C92F8670044AA6B /* LWPersonalItemTableViewCell.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
+		EC3EDB911C92F7A10044AA6B /* Lykke */ = {
+			isa = PBXGroup;
+			children = (
+				EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */,
+			);
+			name = Lykke;
+			sourceTree = "<group>";
+		};
+		EC3EDB921C92F7A70044AA6B /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC3EDB9B1C92F87F0044AA6B /* LWChooseAssetTableViewCell.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
+		EC3EDB931C92F7AF0044AA6B /* Lykke */ = {
+			isa = PBXGroup;
+			children = (
+				EC7519B31C3733FD00CDDF5B /* LWSettingsAssetTableViewCell.xib */,
+				EC7519BE1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib */,
+			);
+			name = Lykke;
+			sourceTree = "<group>";
+		};
+		EC3EDB941C92F7B40044AA6B /* IATA */ = {
+			isa = PBXGroup;
+			children = (
+				EC3EDB951C92F84E0044AA6B /* LWSettingsAssetTableViewCell.xib */,
+				EC3EDB961C92F84E0044AA6B /* LWSettingsLogOutTableViewCell.xib */,
+			);
+			name = IATA;
+			sourceTree = "<group>";
+		};
 		EC4754A31C614E600037614D /* WalletDeposit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1722,14 +1777,14 @@
 		EC7519AD1C3732E600CDDF5B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				EC3EDB941C92F7B40044AA6B /* IATA */,
+				EC3EDB931C92F7AF0044AA6B /* Lykke */,
 				EC168F0D1C51403000AF8DD5 /* PersonalData */,
 				EC7519CD1C374B3300CDDF5B /* Assets */,
 				EC7519AE1C37338000CDDF5B /* LWSettingsAssetTableViewCell.h */,
 				EC7519AF1C37338000CDDF5B /* LWSettingsAssetTableViewCell.m */,
-				EC7519B31C3733FD00CDDF5B /* LWSettingsAssetTableViewCell.xib */,
 				EC7519BB1C3735CA00CDDF5B /* LWSettingsLogOutTableViewCell.h */,
 				EC7519BC1C3735CA00CDDF5B /* LWSettingsLogOutTableViewCell.m */,
-				EC7519BE1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1766,9 +1821,10 @@
 		EC7519CD1C374B3300CDDF5B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EC3EDB921C92F7A70044AA6B /* IATA */,
+				EC3EDB911C92F7A10044AA6B /* Lykke */,
 				EC7519CE1C374B6C00CDDF5B /* LWChooseAssetTableViewCell.h */,
 				EC7519CF1C374B6C00CDDF5B /* LWChooseAssetTableViewCell.m */,
-				EC7519D11C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -2248,6 +2304,7 @@
 				CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */,
 				EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */,
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
+				EC3EDBA11C92F8A40044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
 				EC57F47C1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib in Resources */,
 				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
@@ -2273,7 +2330,6 @@
 				EC7A45D71C309A6200926BB4 /* LWBanksTableViewCell.xib in Resources */,
 				CDA69FCF1C275C3800BE4DCA /* LWKYCSubmitPresenter.xib in Resources */,
 				EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */,
-				EC7519D21C374B7C00CDDF5B /* LWChooseAssetTableViewCell.xib in Resources */,
 				CDCD5B1E1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
 				CDCE88501C26F6630039798B /* LWAuthenticationPresenter.xib in Resources */,
 				CDCD5B141C26C92A007BAD78 /* LWRegisterPhonePresenter.xib in Resources */,
@@ -2335,11 +2391,12 @@
 				EC0E84421C8EC7EB00FE128C /* LWLykkeTableViewCell.xib in Resources */,
 				EC4D92521C8778DF006EE7C8 /* LWHistoryTableViewCell.xib in Resources */,
 				EC9C94B31C89F584006FD46B /* GothaProBol.otf in Resources */,
-				EC4D92561C8778DF006EE7C8 /* LWSettingsAssetTableViewCell.xib in Resources */,
+				EC3EDBA01C92F89F0044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
 				EC9EC2631C8EF58700C986DD /* LWAssetBlockchainTableViewCell.xib in Resources */,
 				EC9EC2521C8EE66700C986DD /* LWExchangeDealFormPresenter.xib in Resources */,
 				EC4D92591C8778DF006EE7C8 /* LWAssetsTablePresenter.xib in Resources */,
 				EC9EC2681C8EF58700C986DD /* LWAssetInfoIconTableViewCell.xib in Resources */,
+				EC3EDB9D1C92F8870044AA6B /* LWSettingsAssetTableViewCell.xib in Resources */,
 				EC4D925C1C8778DF006EE7C8 /* LWKYCPendingPresenter.xib in Resources */,
 				EC9EC2411C8EE09E00C986DD /* LWAuthValidationPresenter.xib in Resources */,
 				EC9C94A11C89CDAE006FD46B /* LWTextField.xib in Resources */,
@@ -2347,7 +2404,6 @@
 				EC4D92601C8778DF006EE7C8 /* LWKYCSubmitPresenter.xib in Resources */,
 				EC9EC26A1C8EF58700C986DD /* LWAssetLykkeTableViewCell.xib in Resources */,
 				EC302FF21C90221A003A1F5F /* LWPinKeyboardView.xib in Resources */,
-				EC4D92621C8778DF006EE7C8 /* LWChooseAssetTableViewCell.xib in Resources */,
 				EC9EC2531C8EE66C00C986DD /* LWExchangeFormPresenter.xib in Resources */,
 				EC4D92631C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
 				EC0E84441C8EC7EB00FE128C /* LWWalletsLoadingTableViewCell.xib in Resources */,
@@ -2355,18 +2411,18 @@
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
 				EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell.xib in Resources */,
+				EC3EDB9E1C92F88B0044AA6B /* LWSettingsLogOutTableViewCell.xib in Resources */,
 				EC302FF11C90221A003A1F5F /* LWMathKeyboardView.xib in Resources */,
+				EC3EDB9F1C92F8940044AA6B /* LWPersonalItemTableViewCell.xib in Resources */,
 				EC302FFC1C903440003A1F5F /* LWLeftDetailTableViewCell.xib in Resources */,
 				EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */,
 				EC9F3F561C9070F500DC1F87 /* LWTransferPresenter.xib in Resources */,
 				EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */,
 				EC0E84411C8EC7EB00FE128C /* LWBanksTableViewCell.xib in Resources */,
-				EC4D926A1C8778DF006EE7C8 /* LWPersonalItemTableViewCell.xib in Resources */,
 				EC9EC2511C8EE66000C986DD /* LWExchangeConfirmationView.xib in Resources */,
 				EC9C94A71C89D6E6006FD46B /* LWAuthenticationPresenter.xib in Resources */,
 				EC4D926D1C8778DF006EE7C8 /* LWKYCRestrictedPresenter.xib in Resources */,
 				EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */,
-				EC4D926F1C8778DF006EE7C8 /* LWSettingsLogOutTableViewCell.xib in Resources */,
 				EC302FFD1C903444003A1F5F /* LWRadioTableViewCell.xib in Resources */,
 				EC302FFB1C90343C003A1F5F /* LWDetailTableViewCell.xib in Resources */,
 			);

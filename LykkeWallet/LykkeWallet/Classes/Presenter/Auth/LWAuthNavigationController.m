@@ -244,11 +244,20 @@
 #pragma mark - Utils
 
 - (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
+#ifdef PROJECT_IATA
     UIImage *unselected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
     UITabBarItem *result = [[UITabBarItem alloc] initWithTitle:Localize(title)
                                                          image:unselected
                                                  selectedImage:selected];
+#else
+    UIImage *selectedImage = [UIImage imageNamed:image];
+    UITabBarItem *result = [[UITabBarItem alloc] initWithTitle:Localize(title)
+                                                         image:selectedImage
+                                                 selectedImage:selectedImage];
+#endif
+
     return result;
 }
 
