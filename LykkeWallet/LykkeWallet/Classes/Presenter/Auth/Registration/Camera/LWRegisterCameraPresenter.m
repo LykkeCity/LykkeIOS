@@ -24,6 +24,9 @@
     MBProgressHUD        *hud;
     NSURLSessionDataTask *uploadTask;
     
+    UIImage *serverImage;
+    UIImage *previewImage;
+    
     //UIImage *lastUploadedImage;
 }
 
@@ -34,6 +37,8 @@
 
 - (void)checkButtonsState;
 - (void)showCameraView;
+- (void)setupServerImage;
+- (void)setupPreviewImageFromServerImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage;
 - (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage;
 - (void)uploadImage:(UIImage *)image docType:(KYCDocumentType)docType;
 
@@ -66,15 +71,14 @@
     
     // if show camera view - reset flag for uploads
     KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
-    photo = [[LWAuthManager instance].documentsStatus lastUploadedImageForType:type];
+    BOOL const croppedStatus = [[LWAuthManager instance].documentsStatus croppedStatus:type];
+    serverImage = [[LWAuthManager instance].documentsStatus lastUploadedImageForType:type];
+    [self setupPreviewImageFromServerImage:serverImage shouldCropImage:croppedStatus];
 
     [[LWAuthManager instance].documentsStatus resetTypeUploaded:type];
     
-    if (self.showCameraImmediately && photo == nil) {
+    if (self.showCameraImmediately && previewImage == nil) {
         [self showCameraView];
-    }
-    else {
-        self.photoImageView.image = photo;
     }
 }
 
@@ -95,10 +99,10 @@
 }
 
 - (IBAction)okButtonClick:(id)sender {
-    if (photo) {
+    if (serverImage) {
         // send photo
         KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
-        [self uploadImage:photo docType:type];
+        [self uploadImage:serverImage docType:type];
     }
     else {
         [self showCameraView];
@@ -109,12 +113,13 @@
 #pragma mark - Utils
 
 - (void)clearImage {
-    photo = nil;
+    previewImage = nil;
+    serverImage = nil;
     self.photoImageView.image = nil;
 }
 
 - (void)checkButtonsState {
-    if (photo) {
+    if (serverImage) {
         [self.okButton setTitle:[Localize(@"register.camera.photo.ok") uppercaseString]
                        forState:UIControlStateNormal];
     }
@@ -166,34 +171,86 @@
     [self checkButtonsState];
 }
 
-- (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage {
-    photo = image;
-    photo = [photo correctImageOrientation];
+- (void)setupServerImage {
+    if (serverImage == nil) {
+        return;
+    }
+    
+    serverImage = [serverImage correctImageOrientation];
+    
+    NSInteger const maxSize = MAX((NSInteger)serverImage.size.height, (NSInteger)serverImage.size.width);
+    // validate if image is too large
+    if (maxSize > kMaxImageServerSize) {
+        // calculate coefficient
+        if (maxSize == (NSInteger)serverImage.size.height) {
+            CGFloat coeff = serverImage.size.height / kMaxImageServerSize;
+            CGSize size = CGSizeMake(serverImage.size.width / coeff, kMaxImageServerSize);
+            serverImage = [serverImage resizedImage:size interpolationQuality:kCGInterpolationDefault];
+        }
+        else if (maxSize == (NSInteger)serverImage.size.width) {
+            CGFloat coeff = serverImage.size.width / kMaxImageServerSize;
+            CGSize size = CGSizeMake(kMaxImageServerSize, serverImage.size.height / coeff);
+            serverImage = [serverImage resizedImage:size interpolationQuality:kCGInterpolationDefault];
+        }
+    }
+    
+    NSInteger imageSize = 0;
+    double compression = 1.0;
+    do {
+        compression -= 0.1;
+        NSData *imageData = UIImageJPEGRepresentation(serverImage, compression);
+        imageSize = imageData.length;
+    }
+    while (imageSize > kMaxImageServerBytes);
+    
+    // update cropping status (to restore and show image correctly)
+    KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
+    [[LWAuthManager instance].documentsStatus setDocumentType:type compression:compression];
+}
+
+- (void)setupPreviewImageFromServerImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage {
+
+    if (image == nil) {
+        self.photoImageView.image = nil;
+        return;
+    }
     
     // resize to our view
-    CGFloat coeff = self.view.frame.size.width / photo.size.width;
-    CGSize size = CGSizeMake(photo.size.width * coeff, photo.size.height * coeff);
-    photo = [photo resizedImage:size interpolationQuality:kCGInterpolationDefault];
-
+    previewImage = [serverImage copy];
+    CGFloat coeff = self.view.frame.size.width / previewImage.size.width;
+    CGSize size = CGSizeMake(previewImage.size.width * coeff, previewImage.size.height * coeff);
+    previewImage = [previewImage resizedImage:size interpolationQuality:kCGInterpolationDefault];
+    
     // crop image for selfie
     if (shouldCropImage) {
         CGRect cropRect = self.photoImageView.frame;
         // hidden navigation bar
         CGFloat const navHeight = 56;
         cropRect.origin.y += navHeight;
-        photo = [photo croppedImage:cropRect];
+        previewImage = [previewImage croppedImage:cropRect];
     }
     
-    self.photoImageView.image = photo;
+    self.photoImageView.image = previewImage;
+}
+
+- (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage {
+    serverImage = image;
+    
+    [self setupServerImage];
+
+    // update cropping status (to restore and show image correctly)
+    KYCDocumentType type = [LWAuthSteps getDocumentTypeByStep:self.stepId];
+    [[LWAuthManager instance].documentsStatus setCroppedStatus:type withCropped:shouldCropImage];
+    
+    [self setupPreviewImageFromServerImage:serverImage shouldCropImage:shouldCropImage];
 }
 
 - (void)uploadImage:(UIImage *)image docType:(KYCDocumentType)docType {
     
     UIImage *lastImage = [[LWAuthManager instance].documentsStatus lastUploadedImageForType:docType];
-    if (lastImage == photo) {
+    if (lastImage == serverImage) {
         // modify self documents status
-        [[LWAuthManager instance].documentsStatus setTypeUploaded:docType
-                                                        withImage:image];
+        [[LWAuthManager instance].documentsStatus setTypeUploaded:docType withImage:image];
         
         // navigate to next step
         LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
@@ -204,8 +261,10 @@
         
         LWPacketKYCSendDocument *pack = [LWPacketKYCSendDocument new];
         pack.docType = docType;
-        // 20% compression
-        pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f);
+
+        // set document compression
+        double const compression = [[LWAuthManager instance].documentsStatus compression:docType];
+        pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, compression);
         
         NSURL *url = [NSURL URLWithString:pack.urlBase];
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]
@@ -243,7 +302,7 @@
                                    
                                    // modify self documents status
                                    KYCDocumentType docType = ((LWPacketKYCSendDocument *)pack).docType;
-                                   [[LWAuthManager instance].documentsStatus setTypeUploaded:docType withImage:photo];
+                                   [[LWAuthManager instance].documentsStatus setTypeUploaded:docType withImage:serverImage];
                                    
                                    // navigate to next step
                                    LWAuthNavigationController *navController = (LWAuthNavigationController *)mainController.navigationController;

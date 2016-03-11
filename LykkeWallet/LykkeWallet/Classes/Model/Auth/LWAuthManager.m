@@ -113,8 +113,10 @@ SINGLETON_INIT {
 - (void)requestSendDocument:(KYCDocumentType)docType image:(UIImage *)image {
     LWPacketKYCSendDocument *pack = [LWPacketKYCSendDocument new];
     pack.docType = docType;
-    // 20% compression
-    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f);
+    
+    // set document compression
+    double const compression = [[LWAuthManager instance].documentsStatus compression:docType];
+    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, compression);
     
     [self sendPacket:pack];
 }
@@ -122,8 +124,10 @@ SINGLETON_INIT {
 - (void)requestSendDocumentBin:(KYCDocumentType)docType image:(UIImage *)image {
     LWPacketKYCSendDocumentBin *pack = [LWPacketKYCSendDocumentBin new];
     pack.docType = docType;
-    // 20% compression
-    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, 0.8f);
+
+    // set document compression
+    double const compression = [[LWAuthManager instance].documentsStatus compression:docType];
+    pack.imageJPEGRepresentation = UIImageJPEGRepresentation(image, compression);
     
     [self sendPacket:pack];
 }
@@ -357,8 +361,8 @@ SINGLETON_INIT {
              pack.class == LWPacketKYCSendDocumentBin.class) {
         KYCDocumentType docType = ((LWPacketKYCSendDocument *)pack).docType;
         // modify self documents status
-#warning TODO: is nil enough?
         [self.documentsStatus setTypeUploaded:docType withImage:nil];
+        [self.documentsStatus setCroppedStatus:docType withCropped:NO];
         // call delegate
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendDocument:ofType:)]) {
             [self.delegate authManagerDidSendDocument:self ofType:docType];

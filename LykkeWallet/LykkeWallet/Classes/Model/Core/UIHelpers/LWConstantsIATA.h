@@ -41,6 +41,9 @@
 #define kAssetEnabledItemColor  @"FFFFFF"
 #define kAssetDisabledItemColor @"FFFFFF"
 
+#define kMaxImageServerSize 1980
+#define kMaxImageServerBytes 3145728
+
 
 #pragma mark - ABPadView
 

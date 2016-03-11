@@ -14,7 +14,6 @@
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate
 > {
-    UIImage *photo;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel     *promptLabel;
