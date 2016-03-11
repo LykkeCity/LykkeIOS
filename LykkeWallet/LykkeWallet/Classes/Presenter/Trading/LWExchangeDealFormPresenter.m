@@ -20,6 +20,7 @@
 #import "LWCache.h"
 #import "LWMath.h"
 #import "LWConstants.h"
+#import "LWValidator.h"
 #import "LWFingerprintHelper.h"
 #import "UIColor+Generic.h"
 #import "UIViewController+Navigation.h"
@@ -100,6 +101,7 @@ float const kBottomBigHeight     = 105.0;
     [self updateKeyboardFrame];
     
     volumeString = @"";
+    [self volumeChanged:volumeString withValidState:NO];
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
                                 name:@"LWAssetBuySumTableViewCell"];
@@ -334,9 +336,13 @@ float const kBottomBigHeight     = 105.0;
     [self presentViewController:ctrl animated:YES completion:nil];
 }
 
-- (void)volumeChanged:(NSString *)volume {
-    volumeString = volume;
-    [self updatePrice];
+- (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid {
+    if (isValid) {
+        volumeString = volume;
+        [self updatePrice];
+    }
+    
+    [LWValidator setButton:self.buyButton enabled:isValid];
 }
 
 

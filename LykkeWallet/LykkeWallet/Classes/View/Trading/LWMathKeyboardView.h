@@ -12,7 +12,7 @@
 
 @protocol LWMathKeyboardViewDelegate
 @required
-- (void)volumeChanged:(NSString *)volume;
+- (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid;
 - (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view;
 
 @end

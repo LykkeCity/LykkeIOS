@@ -224,6 +224,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         
         // will not calculate if have extra symbols
         if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
+            [self.delegate volumeChanged:@"" withValidState:NO];
             return;
         }
         
@@ -233,12 +234,13 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         NSString *result = [LWMath makeEditStringByDecimal:decimal];
         
         self.targetTextField.text = result;
-        [self.delegate volumeChanged:result];
+        [self.delegate volumeChanged:result withValidState:evaluation > 0.0];
     }
     @catch (NSException *exception) {
         if (shouldRaiseException) {
             [self.delegate mathKeyboardViewDidRaiseMathException:self];
         }
+        [self.delegate volumeChanged:@"" withValidState:NO];
     }
 }
 
