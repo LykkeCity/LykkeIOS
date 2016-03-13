@@ -31,6 +31,7 @@
 - (void)customizeTextField;
 - (void)customizePageControl;
 - (void)customizeSwitcher;
+- (void)customizeTabBar;
 
 @end
 
@@ -50,6 +51,7 @@
     [self customizeTextField];
     [self customizePageControl];
     [self customizeSwitcher];
+    [self customizeTabBar];
     
     [CSToastManager setQueueEnabled:NO];
 
@@ -85,10 +87,10 @@
     [[ABPadLockScreenView appearance] setBackgroundColor:[UIColor whiteColor]];
     [[ABPadLockScreenView appearance] setLabelColor:[UIColor blackColor]];
     [[ABPadButton appearance] setBackgroundColor:[UIColor clearColor]];
-    [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:BORDER_COLOR]];
+    [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:kABPadBorderColor]];
     [[ABPadButton appearance] setSelectedColor:[UIColor lightGrayColor]];
     [[ABPadButton appearance] setTextColor:[UIColor blackColor]];
-    [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:MAIN_COLOR]];
+    [[ABPinSelectionView appearance] setSelectedColor:[UIColor colorWithHexString:kABPadSelectedColor]];
 }
 
 - (void)customizeNavigationBar {
@@ -100,7 +102,7 @@
                                 nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:kNavigationTintColor]];
     [[UINavigationBar appearance] setTintColor:
      [UIColor colorWithHexString:kNavigationBarTintColor]];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
@@ -109,7 +111,10 @@
 }
 
 - (void)customizeLabel {
+#ifdef PROJECT_IATA
+#else
     [[UILabel appearance] setTextColor: [UIColor colorWithHexString:kLabelFontColor]];
+#endif
 }
 
 - (void)customizeButton {
@@ -137,6 +142,15 @@
 - (void)customizeSwitcher {
     [[UISwitch appearance] setOnTintColor:[UIColor colorWithHexString:kMainElementsColor]];
     [[UISwitch appearance] setTintColor:[UIColor colorWithHexString:kMainElementsColor]];
+}
+
+- (void)customizeTabBar {
+    [[UITabBarItem appearance] setTitleTextAttributes: @{ NSForegroundColorAttributeName : [UIColor colorWithHexString:kTabBarTintColor] } forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes: @{ NSForegroundColorAttributeName : [UIColor colorWithHexString:kTabBarSelectedTintColor] } forState:UIControlStateSelected];
+    
+    [[UITabBar appearance] setTintColor:[UIColor colorWithHexString:kTabBarSelectedTintColor]];
+    
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithHexString:kTabBarBackgroundColor]];
 }
 
 @end

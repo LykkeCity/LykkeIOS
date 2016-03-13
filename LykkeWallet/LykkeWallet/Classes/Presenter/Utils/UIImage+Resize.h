@@ -24,4 +24,8 @@
 
 - (UIImage *)correctImageOrientation;
 
+- (UIImage *)imageWithTint:(UIColor *)tintColor;
+
++ (UIImage *)fromColor:(UIColor *)color;
+
 @end

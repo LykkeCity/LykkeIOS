@@ -35,7 +35,13 @@
 #import "LWHistoryPresenter.h"
 #import "LWSettingsPresenter.h"
 
+#ifdef PROJECT_IATA
+#import "LWTransferPresenter.h"
+#endif
+
 #import "LWKeychainManager.h"
+#import "LWConstants.h"
+#import "UIImage+Resize.h"
 
 
 @interface LWAuthNavigationController () {
@@ -217,10 +223,19 @@
                                                 withImage:@"HistoryTab"];
     LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
     pSettings.tabBarItem = [self createTabBarItemWithTitle:@"tab.settings"
-                                                 withImage:@"SettingsTab"];    
-    // init tab controller
+                                                 withImage:@"SettingsTab"];
+
+#ifdef PROJECT_IATA
+    LWTransferPresenter *pTransfer = [LWTransferPresenter new];
+    pTransfer.tabBarItem = [self createTabBarItemWithTitle:@"tab.transfer"
+                                                 withImage:@"TransferTab"];
+    tab.viewControllers = @[pWallets, pTransfer, pTrading, pHistory, pSettings];
+#else
     tab.viewControllers = @[pWallets, pTrading, pHistory, pSettings];
-    tab.tabBar.tintColor = [UIColor colorWithHexString:MAIN_COLOR];
+#endif
+
+    // init tab controller
+    tab.tabBar.translucent = NO;
     
     [self setViewControllers:@[tab] animated:NO];
 }
@@ -229,9 +244,21 @@
 #pragma mark - Utils
 
 - (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title withImage:(NSString *)image {
-    return [[UITabBarItem alloc] initWithTitle:Localize(title)
-                                         image:[UIImage imageNamed:image]
-                                 selectedImage:nil];
+#ifdef PROJECT_IATA
+    UIImage *unselected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selected = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    UITabBarItem *result = [[UITabBarItem alloc] initWithTitle:Localize(title)
+                                                         image:unselected
+                                                 selectedImage:selected];
+#else
+    UIImage *selectedImage = [UIImage imageNamed:image];
+    UITabBarItem *result = [[UITabBarItem alloc] initWithTitle:Localize(title)
+                                                         image:selectedImage
+                                                 selectedImage:selectedImage];
+#endif
+
+    return result;
 }
 
 

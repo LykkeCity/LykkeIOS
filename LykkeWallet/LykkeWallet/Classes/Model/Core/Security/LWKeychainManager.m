@@ -93,8 +93,7 @@ SINGLETON_INIT {
     }
     else if (![result isEqualToString:kDemoTestServer] &&
              ![result isEqualToString:kDevelopTestServer] &&
-             ![result isEqualToString:kStagingTestServer] &&
-             ![result isEqualToString:kTempTestServer]) {
+             ![result isEqualToString:kStagingTestServer]) {
         [self saveAddress:kDemoTestServer];
         return kDemoTestServer;
     }

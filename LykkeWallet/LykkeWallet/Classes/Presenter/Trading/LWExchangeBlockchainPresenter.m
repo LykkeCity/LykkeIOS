@@ -76,7 +76,11 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     [self.closeButton setTitle:Localize(@"exchange.blockchain.close")
                       forState:UIControlStateNormal];
+    
+#ifdef PROJECT_IATA
+#else
     [self.closeButton setGrayPalette];
+#endif
     
     self.extraTitleLabel.text = Localize(@"exchange.blockchain.title");
     
@@ -89,6 +93,13 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     [self setLoading:YES];
     [[LWAuthManager instance] requestBlockchainTransaction:self.orderId];
 }
+
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
 
 
 #pragma mark - Actions

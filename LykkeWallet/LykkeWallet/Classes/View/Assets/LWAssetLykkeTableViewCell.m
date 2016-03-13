@@ -86,7 +86,7 @@
         // price section
         NSString *priceString = [LWMath priceString:rate.ask precision:self.pair.accuracy withPrefix:@"$ "];
         self.assetPriceLabel.text = priceString;
-        self.assetPriceLabel.textColor = [UIColor colorWithHexString:kMainElementsColor];
+        self.assetPriceLabel.textColor = [UIColor colorWithHexString:kAssetEnabledItemColor];
 
         // change section
         NSString *sign = (rate.pchng.doubleValue >= 0.0) ? @"+" : @"";
@@ -102,7 +102,7 @@
     }
     else {
         self.assetPriceLabel.text = @". . .";
-        self.assetPriceLabel.textColor = [UIColor colorWithHexString:kMainDarkElementsColor];
+        self.assetPriceLabel.textColor = [UIColor colorWithHexString:kAssetDisabledItemColor];
         self.assetChangeLabel.text = @". . .";
         self.assetChangeLabel.textColor = [UIColor colorWithHexString:kMainDarkElementsColor];
         self.assetPriceImageView.image = [UIImage imageNamed:@"AssetPriceDisabledArea"];

@@ -21,6 +21,10 @@
         _idCard         = [json[@"IdCard"] boolValue];
         _proofOfAddress = [json[@"ProofOfAddress"] boolValue];
         
+        _selfieCompression = 1.0;
+        _idCardCompression = 1.0;
+        _poaCompression = 1.0;
+        
         // check which documents already uploaded
         _isSelfieUploaded = !_selfie;
         _isIdCardUploaded = !_idCard;
@@ -50,6 +54,38 @@
             break;
         }
     }
+}
+
+- (void)setCroppedStatus:(KYCDocumentType)type withCropped:(BOOL)isCropped {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            _isSelfieCropped = isCropped;
+            break;
+        }
+        case KYCDocumentTypeIdCard: {
+            _isIdCardCropped = isCropped;
+            break;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            _isPOACropped = isCropped;
+            break;
+        }
+    }
+}
+
+- (BOOL)croppedStatus:(KYCDocumentType)type {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            return _isSelfieCropped;
+        }
+        case KYCDocumentTypeIdCard: {
+            return _isIdCardCropped;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            return _isPOACropped;
+        }
+    }
+    return NO;
 }
 
 - (UIImage *)lastUploadedImageForType:(KYCDocumentType)type {
@@ -82,6 +118,38 @@
             break;
         }
     }
+}
+
+- (void)setDocumentType:(KYCDocumentType)type compression:(double)compression {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            _selfieCompression = compression;
+            break;
+        }
+        case KYCDocumentTypeIdCard: {
+            _idCardCompression = compression;
+            break;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            _poaCompression = compression;
+            break;
+        }
+    }
+}
+
+- (double)compression:(KYCDocumentType)type {
+    switch (type) {
+        case KYCDocumentTypeSelfie: {
+            return _selfieCompression;
+        }
+        case KYCDocumentTypeIdCard: {
+            return _idCardCompression;
+        }
+        case KYCDocumentTypeProofOfAddress: {
+            return _poaCompression;
+        }
+    }
+    return 1.0;
 }
 
 

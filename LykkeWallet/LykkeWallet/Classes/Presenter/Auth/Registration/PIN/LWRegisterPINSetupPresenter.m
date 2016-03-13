@@ -61,6 +61,13 @@
     return LWAuthStepRegisterPINSetup;
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 
 #pragma mark - Actions
 

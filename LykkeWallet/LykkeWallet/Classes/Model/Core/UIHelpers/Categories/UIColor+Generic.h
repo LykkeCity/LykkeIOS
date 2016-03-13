@@ -5,8 +5,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-static NSString *const BORDER_COLOR = @"D3D6DB";
-static NSString *const MAIN_COLOR = @"AB00FF";
 
 @interface HSBColor : NSObject {
     

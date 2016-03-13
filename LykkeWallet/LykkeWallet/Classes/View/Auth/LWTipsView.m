@@ -30,7 +30,7 @@
 #pragma mark - TKView
 
 - (void)awakeFromNib {
-    self.titleLabel.text = [Localize(@"utils.tip") uppercaseString];
+    self.titleLabel.text = Localize(@"utils.tip");
 }
 
 

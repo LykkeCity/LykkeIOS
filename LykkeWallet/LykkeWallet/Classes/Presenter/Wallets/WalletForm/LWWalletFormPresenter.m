@@ -122,13 +122,16 @@ static CGFloat const kContentKeyboardHeight = 500.0;
 
 - (void)colorize {
     // detect color depends on bank cards list
+    navigationTintColor = self.navigationController.navigationBar.barTintColor;
+
+#ifdef PROJECT_IATA
+#else
     UIColor *color = ([self isCardsExists]
                       ? [UIColor colorWithHexString:kMainGrayElementsColor]
                       : [UIColor colorWithHexString:kMainWhiteElementsColor]);
-    
-    navigationTintColor = self.navigationController.navigationBar.barTintColor;
     [self.navigationController.navigationBar setBarTintColor:color];
     self.bankCardsView.backgroundColor = color;
+#endif
     
     self.warningLabel.textColor = [UIColor redColor];
 }

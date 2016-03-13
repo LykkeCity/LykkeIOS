@@ -46,6 +46,24 @@
 @implementation LWExchangePresenter
 
 
+#ifdef PROJECT_IATA
+static NSInteger const kNumberOfSections = 1;
+static NSInteger const kSectionLykkeAssets = 0;
+
+static NSString *cellIdentifier = @"LWAssetTableViewCellIdentifier";
+
+static NSString *const AssetIdentifiers[kNumberOfSections] = {
+    @"LWAssetLykkeTableViewCellIdentifier"
+};
+
+static NSString *const AssetNames[kNumberOfSections] = {
+    @"IATA"
+};
+
+static NSString *const AssetIcons[kNumberOfSections] = {
+    @"IATAWallet"
+};
+#else
 static NSInteger const kNumberOfSections = 1;
 static NSInteger const kSectionLykkeAssets = 0;
 
@@ -62,6 +80,7 @@ static NSString *const AssetNames[kNumberOfSections] = {
 static NSString *const AssetIcons[kNumberOfSections] = {
     @"WalletLykke"
 };
+#endif
 
 #pragma mark - Lifecycle
 
@@ -96,6 +115,10 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     if (self.tabBarController && self.navigationItem) {
         self.tabBarController.title = [self.navigationItem.title uppercaseString];
     }
+    
+#ifdef PROJECT_IATA
+    self.headerView.backgroundColor = self.navigationController.navigationBar.barTintColor;
+#endif
     
     [[LWAuthManager instance] requestAssetPairs];
 }
@@ -239,6 +262,19 @@ static NSString *const AssetIcons[kNumberOfSections] = {
         }
     }
 }
+
+#ifdef PROJECT_IATA
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+#endif
 
 
 #pragma mark - LWAuthManagerDelegate

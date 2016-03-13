@@ -24,6 +24,8 @@
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [LWAuthManager instance].delegate = self;
 }
 

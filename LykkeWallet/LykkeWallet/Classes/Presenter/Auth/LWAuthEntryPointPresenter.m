@@ -57,6 +57,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // init email field
     emailTextField = [LWTextField new];
     emailTextField.delegate = self;
@@ -84,6 +85,13 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     self.chooseServerButton.hidden = YES;
 #endif
 }
+
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

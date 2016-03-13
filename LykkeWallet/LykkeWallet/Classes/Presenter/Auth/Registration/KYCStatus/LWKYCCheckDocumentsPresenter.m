@@ -40,6 +40,13 @@
     self.textLabel.text = [NSString stringWithFormat:Localize(@"register.check.documents.label")];
 }
 
+#ifdef PROJECT_IATA
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+#endif
+
 
 #pragma mark - LWAuthManagerDelegate
 
