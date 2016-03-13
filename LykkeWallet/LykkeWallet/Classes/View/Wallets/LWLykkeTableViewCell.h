@@ -6,12 +6,17 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "TKTableViewCell.h"
+#import "SWTableViewCell.h"
 
 
-@interface LWLykkeTableViewCell : TKTableViewCell {
+@interface LWLykkeTableViewCell : SWTableViewCell {
     
 }
+
+#pragma mark - Identity
+
++ (NSString *)reuseIdentifier;
++ (UINib *)nib;
 
 
 #pragma mark - Outlets

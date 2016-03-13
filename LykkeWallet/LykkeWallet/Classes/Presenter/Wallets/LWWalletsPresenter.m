@@ -34,7 +34,7 @@
 static NSInteger const kSectionBankCards    = 0;
 static NSInteger const kSectionLykkeWallets = 1;
 
-@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate> {
+@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate, SWTableViewCellDelegate> {
     
     NSMutableIndexSet *expandedSections;
     UIRefreshControl  *refreshControl;
@@ -58,6 +58,7 @@ static NSInteger const kSectionLykkeWallets = 1;
 - (void)setRefreshControl;
 - (void)reloadWallets;
 - (void)showDepositPage:(NSIndexPath *)indexPath;
+- (UIButton *)createUtilsButton;
 
 @end
 
@@ -212,6 +213,18 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
                     lykke.walletNameLabel.text = asset.name;
                     lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
+                    
+                    // validate for base asset and balance
+                    if (![asset.identity isEqualToString:[LWCache instance].baseAssetId] &&
+                        asset.balance.doubleValue > 0.0) {
+                        CGFloat const buttonWidth = 150.0;
+                        UIColor *color = [UIColor colorWithHexString:kSellAssetButtonColor];
+                        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+                        [rightUtilityButtons sw_addUtilityButton:[self createUtilsButton]];
+                        [rightUtilityButtons sw_addUtilityButtonWithColor:color title:@""]; // fake
+                        [lykke setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
+                        lykke.delegate = self;
+                    }
                 }
                 // Show Empty
                 else {
@@ -284,35 +297,19 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     }
 }
 
-- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewRowAction *sell = [UITableViewRowAction
-                                  rowActionWithStyle:UITableViewRowActionStyleDefault
-                                  title:Localize(@"wallets.general.sell")
-                                  handler:^(UITableViewRowAction *action,
-                                            NSIndexPath *indexPath) {
-                                      return [self showDealFormForIndexPath:indexPath];
-                                  }];
-    sell.backgroundColor = [UIColor colorWithHexString:kSellAssetButtonColor];
-    return @[sell];
-}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-}
+#pragma mark - SWTableViewDelegate
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // validate for assets
-    if (indexPath.section == kSectionLykkeWallets) {
-        LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
-        if (data) {
-            // validate for base asset and balance
-            if (![data.identity isEqualToString:[LWCache instance].baseAssetId] &&
-                data.balance.doubleValue > 0.0) {
-                return YES;
-            }
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0: {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            [self showDealFormForIndexPath:indexPath];
+            break;
         }
+        default:
+            break;
     }
-    return NO;
 }
 
 
@@ -482,6 +479,25 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     deposit.url = [NSString stringWithFormat:@"%@?Email=%@&AssetId=%@", depositUrl, email, assetId];
 
     [self.navigationController pushViewController:deposit animated:YES];
+}
+
+- (UIButton *)createUtilsButton {
+    UIColor *color = [UIColor colorWithHexString:kSellAssetButtonColor];
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundColor:color];
+    [button setTitle:Localize(@"wallets.general.sell") forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont fontWithName:kFontSemibold size:17.0];
+    //[button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [button setImage:[UIImage imageNamed:@"SellWalletIcon"] forState:UIControlStateNormal];
+    
+    CGFloat const padding = 10.0f;
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, padding, 0, 0)];
+    [button setContentEdgeInsets:UIEdgeInsetsMake(0, padding, 0, 0)];
+    [button sizeToFit];
+
+    return button;
 }
 
 @end
