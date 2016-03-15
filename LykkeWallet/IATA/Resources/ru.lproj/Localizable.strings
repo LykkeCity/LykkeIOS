@@ -81,6 +81,7 @@
 "wallets.funds.title" = "Deposit %@ wallet";
 "wallets.lykke.empty" = "Кошельки не добавлены";
 "wallets.cards.empty" = "Карты не добавлены";
+"wallets.bitcoin.deposit" = "ПОПОЛНИТЬ BITCOINS";
 
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "ИЗДАТЕЛЬ/АССЕТ";

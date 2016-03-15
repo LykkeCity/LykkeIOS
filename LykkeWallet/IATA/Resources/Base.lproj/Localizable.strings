@@ -80,6 +80,7 @@
 "wallets.funds.title" = "Deposit %@ wallet";
 "wallets.lykke.empty" = "Coins not added";
 "wallets.cards.empty" = "Cards not added";
+"wallets.bitcoin.deposit" = "DEPOSIT BITCOINS";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "ISSUER/ASSET";

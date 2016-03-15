@@ -492,6 +492,10 @@
 		ECECAB491C98A0FA0020E050 /* LWBitcoinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB481C98A0FA0020E050 /* LWBitcoinTableViewCell.m */; };
 		ECECAB4A1C98A0FA0020E050 /* LWBitcoinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB481C98A0FA0020E050 /* LWBitcoinTableViewCell.m */; };
 		ECECAB4C1C98A1200020E050 /* LWBitcoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB4B1C98A1200020E050 /* LWBitcoinTableViewCell.xib */; };
+		ECECAB511C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB4F1C98ACF30020E050 /* LWBitcoinDepositPresenter.m */; };
+		ECECAB521C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB4F1C98ACF30020E050 /* LWBitcoinDepositPresenter.m */; };
+		ECECAB531C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */; };
+		ECECAB541C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */; };
 		ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */; };
 		ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
 		ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */; };
@@ -963,6 +967,9 @@
 		ECECAB471C98A0FA0020E050 /* LWBitcoinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWBitcoinTableViewCell.h; path = Wallets/LWBitcoinTableViewCell.h; sourceTree = "<group>"; };
 		ECECAB481C98A0FA0020E050 /* LWBitcoinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBitcoinTableViewCell.m; path = Wallets/LWBitcoinTableViewCell.m; sourceTree = "<group>"; };
 		ECECAB4B1C98A1200020E050 /* LWBitcoinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWBitcoinTableViewCell.xib; path = Wallets/LWBitcoinTableViewCell.xib; sourceTree = "<group>"; };
+		ECECAB4E1C98ACF30020E050 /* LWBitcoinDepositPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWBitcoinDepositPresenter.h; path = BitcoinDeposit/LWBitcoinDepositPresenter.h; sourceTree = "<group>"; };
+		ECECAB4F1C98ACF30020E050 /* LWBitcoinDepositPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWBitcoinDepositPresenter.m; path = BitcoinDeposit/LWBitcoinDepositPresenter.m; sourceTree = "<group>"; };
+		ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWBitcoinDepositPresenter.xib; path = BitcoinDeposit/LWBitcoinDepositPresenter.xib; sourceTree = "<group>"; };
 		ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletsLoadingTableViewCell.h; path = Wallets/LWWalletsLoadingTableViewCell.h; sourceTree = "<group>"; };
 		ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletsLoadingTableViewCell.m; path = Wallets/LWWalletsLoadingTableViewCell.m; sourceTree = "<group>"; };
 		ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletsLoadingTableViewCell.xib; path = Wallets/LWWalletsLoadingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1259,6 +1266,7 @@
 		CF6632821C176A63004353F5 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				ECECAB4D1C98ACA30020E050 /* BitcoinDeposit */,
 				EC4754A31C614E600037614D /* WalletDeposit */,
 				EC24CC811C399A6C00C2FDAA /* WalletPage */,
 				EC24CC751C3977C500C2FDAA /* WalletConfirm */,
@@ -2194,6 +2202,16 @@
 			name = Date;
 			sourceTree = "<group>";
 		};
+		ECECAB4D1C98ACA30020E050 /* BitcoinDeposit */ = {
+			isa = PBXGroup;
+			children = (
+				ECECAB4E1C98ACF30020E050 /* LWBitcoinDepositPresenter.h */,
+				ECECAB4F1C98ACF30020E050 /* LWBitcoinDepositPresenter.m */,
+				ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */,
+			);
+			name = BitcoinDeposit;
+			sourceTree = "<group>";
+		};
 		ECF9D1151C5BEBC00025FC36 /* UrlAddress */ = {
 			isa = PBXGroup;
 			children = (
@@ -2324,6 +2342,7 @@
 				EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */,
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
 				EC3EDBA11C92F8A40044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
+				ECECAB531C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
 				EC57F47C1C3D52A800E31746 /* LWAssetBuyTotalTableViewCell.xib in Resources */,
 				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
@@ -2437,6 +2456,7 @@
 				EC3EDB9F1C92F8940044AA6B /* LWPersonalItemTableViewCell.xib in Resources */,
 				EC302FFC1C903440003A1F5F /* LWLeftDetailTableViewCell.xib in Resources */,
 				EC4D92671C8778DF006EE7C8 /* LWAuthPINEnterPresenter.xib in Resources */,
+				ECECAB541C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */,
 				EC9F3F561C9070F500DC1F87 /* LWTransferPresenter.xib in Resources */,
 				EC4D92681C8778DF006EE7C8 /* LWWalletPagePresenter.xib in Resources */,
 				EC0E84411C8EC7EB00FE128C /* LWBanksTableViewCell.xib in Resources */,
@@ -2578,6 +2598,7 @@
 			files = (
 				EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */,
 				CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */,
+				ECECAB511C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */,
 				ECD76BCD1C2EC50700E1D3DA /* LWPacketLykkeWallet.m in Sources */,
 				CF6632861C176A63004353F5 /* LWWalletsPresenter.m in Sources */,
 				CF9EC8F81C17C3D200F742A6 /* LWAuthStepPresenter.m in Sources */,
@@ -2871,6 +2892,7 @@
 				EC4D91E71C8778DF006EE7C8 /* ABPadLockScreenView.m in Sources */,
 				EC4D91E81C8778DF006EE7C8 /* LWAssetsTablePresenter.m in Sources */,
 				EC4D91E91C8778DF006EE7C8 /* ABPadLockScreenViewController.m in Sources */,
+				ECECAB521C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */,
 				EC4D91EA1C8778DF006EE7C8 /* LWRegisterPasswordPresenter.m in Sources */,
 				EC4D91EB1C8778DF006EE7C8 /* LWAuthManager.m in Sources */,
 				EC4D91EC1C8778DF006EE7C8 /* LWRadioTableViewCell.m in Sources */,

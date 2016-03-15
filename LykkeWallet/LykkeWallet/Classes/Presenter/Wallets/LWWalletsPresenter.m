@@ -11,6 +11,7 @@
 #import "LWWalletFormPresenter.h"
 #import "LWExchangeDealFormPresenter.h"
 #import "LWWalletDepositPresenter.h"
+#import "LWBitcoinDepositPresenter.h"
 #import "LWAuthManager.h"
 #import "LWLykkeWalletsData.h"
 #import "LWLykkeData.h"
@@ -408,11 +409,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)addBitcoinClicked:(LWBitcoinTableViewCell *)cell {
     NSIndexPath *path = [self.tableView indexPathForCell:cell];
     if (path && path.section == kSectionBitcoin) {
-        NSLog(@"TODO");
-#warning TODO:
-        //LWWalletFormPresenter *form = [LWWalletFormPresenter new];
-        //form.bankCards = self.data.bankCards;
-        //[self.navigationController pushViewController:form animated:YES];
+        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+        [self.navigationController pushViewController:presenter animated:YES];
     }
 }
 
