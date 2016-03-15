@@ -25,7 +25,16 @@
 }
 
 - (NSString *)urlRelative {
-    return [NSString stringWithFormat:@"BlockchainTransaction?orderId=%@", self.orderId];
+    if (self.orderId && ![self.orderId isEqualToString:@""]) {
+        return [NSString stringWithFormat:@"BlockchainTransaction?orderId=%@", self.orderId];
+    }
+    else if (self.cashOperationId && ![self.cashOperationId isEqualToString:@""]) {
+        return [NSString stringWithFormat:@"BlockchainTransaction?cashOperationId=%@", self.cashOperationId];
+    }
+    else if (self.exchangeOperationId && ![self.exchangeOperationId isEqualToString:@""]) {
+        return [NSString stringWithFormat:@"BlockchainTransaction?exchangeOperationId=%@", self.exchangeOperationId];
+    }
+    return @"BlockchainTransaction";
 }
 
 - (GDXRESTPacketType)type {
