@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "TKPresenter.h"
+#import "LWAuthPresenter.h"
 
 
-@interface LWBitcoinDepositPresenter : TKPresenter {
+@interface LWBitcoinDepositPresenter : LWAuthPresenter {
     
 }
 

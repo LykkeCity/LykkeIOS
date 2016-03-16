@@ -7,9 +7,12 @@
 //
 
 #import "LWBitcoinDepositPresenter.h"
+#import "LWAuthManager.h"
 #import "TKButton.h"
 #import "LWConstants.h"
 #import "UIViewController+Navigation.h"
+#import "UIViewController+Loading.h"
+#import "UIView+Toast.h"
 
 
 @interface LWBitcoinDepositPresenter () {
@@ -34,9 +37,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 #ifdef PROJECT_IATA
 #else
     [self.copyingButton setGrayPalette];
+    [self.bitcoinHashLabel setTextColor:[UIColor colorWithHexString:kMainElementsColor]];
 #endif
 }
 
@@ -54,6 +59,34 @@
     self.navigationController.navigationBar.barTintColor = navigationTintColor;
     
     [super viewWillDisappear:animated];
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)copyClicked:(id)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.bitcoinHashLabel.text;
+    
+    [self.navigationController.view makeToast:Localize(@"wallets.bitcoin.copytoast")];
+}
+
+- (IBAction)emailClicked:(id)sender {
+    [self setLoading:YES];
+    [[LWAuthManager instance] requestEmailBlockchain];
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
+}
+
+- (void)authManagerDidSendBlockchainEmail:(LWAuthManager *)manager {
+    [self setLoading:NO];
+
+    [self.navigationController.view makeToast:Localize(@"wallets.bitcoin.sendemail")];
 }
 
 @end

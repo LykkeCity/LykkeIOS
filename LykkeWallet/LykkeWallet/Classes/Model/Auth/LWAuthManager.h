@@ -59,6 +59,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions;
 - (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)marketOrder;
+- (void)authManagerDidSendBlockchainEmail:(LWAuthManager *)manager;
 
 @end
 
@@ -109,7 +110,7 @@ SINGLETON_DECLARE
 - (void)requestBlockchainTransaction:(NSString *)orderId;
 - (void)requestTransactions:(NSString *)assetId;
 - (void)requestMarketOrder:(NSString *)orderId;
-
+- (void)requestEmailBlockchain;
 
 #pragma mark - Static methods
 
