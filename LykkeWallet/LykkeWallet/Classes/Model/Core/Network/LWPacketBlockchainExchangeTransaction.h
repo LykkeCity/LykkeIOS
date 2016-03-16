@@ -1,8 +1,8 @@
 //
-//  LWPacketBlockchainTransaction.h
+//  LWPacketBlockchainExchangeTransaction.h
 //  LykkeWallet
 //
-//  Created by Alexander Pukhov on 08.01.16.
+//  Created by Alexander Pukhov on 16.03.16.
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 @class LWAssetBlockchainModel;
 
 
-@interface LWPacketBlockchainTransaction : LWAuthorizePacket {
+@interface LWPacketBlockchainExchangeTransaction : LWAuthorizePacket {
     
 }
 // in
-@property (assign, nonatomic) NSString *orderId;
+@property (assign, nonatomic) NSString *exchangeOperationId;
 // out
 @property (readonly, nonatomic) LWAssetBlockchainModel* blockchain;
 

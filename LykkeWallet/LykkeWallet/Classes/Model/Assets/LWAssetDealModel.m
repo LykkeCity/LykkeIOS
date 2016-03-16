@@ -32,8 +32,29 @@
         _totalCost         = [json objectForKey:@"TotalCost"];
         _commission        = [json objectForKey:@"Comission"];
         _position          = [json objectForKey:@"Position"];
+        _accuracy          = [json objectForKey:@"Accuracy"];
     }
     return self;
+}
+
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    LWAssetDealModel* data = [[[self class] allocWithZone:zone] init];
+    data.identity = [self.identity copy];
+    data.dateTime = [self.dateTime copy];
+    data.orderType = [self.orderType copy];
+    data.volume = [self.volume copy];
+    data.price = [self.price copy];
+    data.baseAsset = [self.baseAsset copy];
+    data.assetPair = [self.assetPair copy];
+    data.blockchainId = [self.blockchainId copy];
+    data.blockchainSettled = self.blockchainSettled;
+    data.totalCost = [self.totalCost copy];
+    data.commission = [self.commission copy];
+    data.position = [self.position copy];
+    data.accuracy = [self.accuracy copy];
+    
+    return data;
 }
 
 @end

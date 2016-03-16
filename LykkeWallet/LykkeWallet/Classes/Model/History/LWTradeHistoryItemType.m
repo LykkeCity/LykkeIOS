@@ -23,4 +23,12 @@
     return result;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    LWTradeHistoryItemType* data = [super copyWithZone:zone];
+    data.volume = [self.volume copy];
+    data.asset = [self.asset copy];
+    return data;
+}
+
 @end

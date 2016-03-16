@@ -236,7 +236,6 @@ float const kBottomBigHeight     = 105.0;
 
     LWExchangeResultPresenter *controller = [LWExchangeResultPresenter new];
     controller.purchase = purchase;
-    controller.assetPair = self.assetPair;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

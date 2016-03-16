@@ -24,4 +24,12 @@
     return result;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    LWCashInOutHistoryItemType* data = [super copyWithZone:zone];
+    data.amount = [self.amount copy];
+    data.asset = [self.asset copy];
+    return data;
+}
+
 @end

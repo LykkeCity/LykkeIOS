@@ -9,24 +9,25 @@
 #import "LWJSONObject.h"
 
 
-@interface LWAssetDealModel : LWJSONObject {
+@interface LWAssetDealModel : LWJSONObject<NSCopying> {
     
 }
 
 
 #pragma mark - Properties
 
-@property (readonly, nonatomic) NSString *identity;
-@property (readonly, nonatomic) NSDate   *dateTime;
-@property (readonly, nonatomic) NSString *orderType;
-@property (readonly, nonatomic) NSNumber *volume;
-@property (readonly, nonatomic) NSNumber *price;
-@property (readonly, nonatomic) NSString *baseAsset;
-@property (readonly, nonatomic) NSString *assetPair;
-@property (readonly, nonatomic) NSString *blockchainId;
-@property (readonly, nonatomic) BOOL      blockchainSettled;
-@property (readonly, nonatomic) NSNumber *totalCost;
-@property (readonly, nonatomic) NSNumber *commission;
-@property (readonly, nonatomic) NSNumber *position;
+@property (copy,   nonatomic) NSString *identity;
+@property (copy,   nonatomic) NSDate   *dateTime;
+@property (copy,   nonatomic) NSString *orderType;
+@property (copy,   nonatomic) NSNumber *volume;
+@property (copy,   nonatomic) NSNumber *price;
+@property (copy,   nonatomic) NSString *baseAsset;
+@property (copy,   nonatomic) NSString *assetPair;
+@property (copy,   nonatomic) NSString *blockchainId;
+@property (assign, nonatomic) BOOL      blockchainSettled;
+@property (copy,   nonatomic) NSNumber *totalCost;
+@property (copy,   nonatomic) NSNumber *commission;
+@property (copy,   nonatomic) NSNumber *position;
+@property (copy,   nonatomic) NSNumber *accuracy;
 
 @end

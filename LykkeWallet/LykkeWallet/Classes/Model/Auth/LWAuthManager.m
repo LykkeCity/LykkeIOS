@@ -34,9 +34,12 @@
 #import "LWPacketBuySellAsset.h"
 #import "LWPacketSettingSignOrder.h"
 #import "LWPacketBlockchainTransaction.h"
+#import "LWPacketBlockchainCashTransaction.h"
+#import "LWPacketBlockchainExchangeTransaction.h"
 #import "LWPacketTransactions.h"
 #import "LWPacketMarketOrder.h"
 #import "LWPacketSendBlockchainEmail.h"
+#import "LWPacketExchangeInfoGet.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -45,6 +48,7 @@
 #import "LWAssetDealModel.h"
 #import "LWPersonalDataModel.h"
 #import "LWAssetBlockchainModel.h"
+#import "LWExchangeInfoModel.h"
 
 
 @interface LWAuthManager () {
@@ -276,9 +280,23 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
-- (void)requestBlockchainTransaction:(NSString *)orderId {
+- (void)requestBlockchainOrderTransaction:(NSString *)orderId {
     LWPacketBlockchainTransaction *pack = [LWPacketBlockchainTransaction new];
     pack.orderId = orderId;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestBlockchainCashTransaction:(NSString *)cashOperationId {
+    LWPacketBlockchainCashTransaction *pack = [LWPacketBlockchainCashTransaction new];
+    pack.cashOperationId = cashOperationId;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestBlockchainExchangeTransaction:(NSString *)exchnageOperationId {
+    LWPacketBlockchainExchangeTransaction *pack = [LWPacketBlockchainExchangeTransaction new];
+    pack.exchangeOperationId = exchnageOperationId;
     
     [self sendPacket:pack];
 }
@@ -299,6 +317,13 @@ SINGLETON_INIT {
 
 - (void)requestEmailBlockchain {
     LWPacketSendBlockchainEmail *pack = [LWPacketSendBlockchainEmail new];
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestExchangeInfo:(NSString *)exchangeId {
+    LWPacketExchangeInfoGet *pack = [LWPacketExchangeInfoGet new];
+    pack.exchangeId = exchangeId;
     
     [self sendPacket:pack];
 }
@@ -484,6 +509,16 @@ SINGLETON_INIT {
             [self.delegate authManager:self didGetBlockchainTransaction:((LWPacketBlockchainTransaction *)pack).blockchain];
         }
     }
+    else if (pack.class == LWPacketBlockchainCashTransaction.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager: didGetBlockchainCashTransaction:)]) {
+            [self.delegate authManager:self didGetBlockchainCashTransaction:((LWPacketBlockchainCashTransaction *)pack).blockchain];
+        }
+    }
+    else if (pack.class == LWPacketBlockchainExchangeTransaction.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager: didGetBlockchainExchangeTransaction:)]) {
+            [self.delegate authManager:self didGetBlockchainExchangeTransaction:((LWPacketBlockchainExchangeTransaction *)pack).blockchain];
+        }
+    }
     else if (pack.class == LWPacketTransactions.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveTransactions:)]) {
             [self.delegate authManager:self didReceiveTransactions:((LWPacketTransactions *)pack).model];
@@ -498,6 +533,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketSendBlockchainEmail.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendBlockchainEmail:)]) {
             [self.delegate authManagerDidSendBlockchainEmail:self];
+        }
+    }
+    else if (pack.class == LWPacketExchangeInfoGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didReceiveExchangeInfo:)]) {
+            [self.delegate authManager:self didReceiveExchangeInfo:((LWPacketExchangeInfoGet *)pack).model];
         }
     }
 }
