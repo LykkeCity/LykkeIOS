@@ -37,19 +37,32 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8y-cH-1pm">
-                        <rect key="frame" x="146" y="8" width="156" height="33"/>
+                        <rect key="frame" x="146" y="8" width="112" height="33"/>
                         <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYe-5q-oNh">
+                        <rect key="frame" x="268" y="8" width="34" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="1q5-ee-WiQ"/>
+                            <constraint firstAttribute="width" constant="34" id="qcg-6b-4le"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="AddWalletIcon"/>
+                        <connections>
+                            <action selector="addItemClicked:" destination="UlG-dd-2Ok" eventType="touchUpInside" id="Uir-wR-vWz"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d4w-q4-Lxs" firstAttribute="top" secondItem="uqr-Sn-gXo" secondAttribute="topMargin" id="8pC-MA-wR2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JYe-5q-oNh" secondAttribute="trailing" constant="10" id="9hP-CN-3D4"/>
                     <constraint firstItem="g8y-cH-1pm" firstAttribute="bottom" secondItem="uqr-Sn-gXo" secondAttribute="bottomMargin" id="MJV-Ku-CRr"/>
                     <constraint firstItem="g8y-cH-1pm" firstAttribute="leading" secondItem="d4w-q4-Lxs" secondAttribute="trailing" constant="8" id="Pgi-s7-yv1"/>
                     <constraint firstItem="d4w-q4-Lxs" firstAttribute="leading" secondItem="uqr-Sn-gXo" secondAttribute="leadingMargin" constant="10" id="TlU-hm-gEN"/>
                     <constraint firstItem="g8y-cH-1pm" firstAttribute="top" secondItem="uqr-Sn-gXo" secondAttribute="topMargin" id="ghX-ET-PMa"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="g8y-cH-1pm" secondAttribute="trailing" constant="10" id="kh0-y6-ptX"/>
+                    <constraint firstItem="JYe-5q-oNh" firstAttribute="leading" secondItem="g8y-cH-1pm" secondAttribute="trailing" constant="10" id="jMt-rX-k5N"/>
+                    <constraint firstItem="JYe-5q-oNh" firstAttribute="centerY" secondItem="uqr-Sn-gXo" secondAttribute="centerY" id="sRK-XK-UNE"/>
                     <constraint firstItem="d4w-q4-Lxs" firstAttribute="bottom" secondItem="uqr-Sn-gXo" secondAttribute="bottomMargin" id="yti-ys-hcy"/>
                 </constraints>
             </tableViewCellContentView>
@@ -62,4 +75,7 @@
             <point key="canvasLocation" x="202" y="190"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="AddWalletIcon" width="34" height="34"/>
+    </resources>
 </document>

@@ -498,6 +498,10 @@
 		ECECAB541C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */; };
 		ECECAB571C9972840020E050 /* LWPacketSendBlockchainEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB561C9972840020E050 /* LWPacketSendBlockchainEmail.m */; };
 		ECECAB581C9972840020E050 /* LWPacketSendBlockchainEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB561C9972840020E050 /* LWPacketSendBlockchainEmail.m */; };
+		ECECAB5B1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB5A1C998C530020E050 /* LWLykkeEmptyTableViewCell.m */; };
+		ECECAB5C1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECECAB5A1C998C530020E050 /* LWLykkeEmptyTableViewCell.m */; };
+		ECECAB5E1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB5D1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib */; };
+		ECECAB601C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAB5F1C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib */; };
 		ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */; };
 		ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
 		ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */; };
@@ -974,6 +978,10 @@
 		ECECAB501C98ACF30020E050 /* LWBitcoinDepositPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWBitcoinDepositPresenter.xib; path = BitcoinDeposit/LWBitcoinDepositPresenter.xib; sourceTree = "<group>"; };
 		ECECAB551C9972840020E050 /* LWPacketSendBlockchainEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketSendBlockchainEmail.h; sourceTree = "<group>"; };
 		ECECAB561C9972840020E050 /* LWPacketSendBlockchainEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketSendBlockchainEmail.m; sourceTree = "<group>"; };
+		ECECAB591C998C530020E050 /* LWLykkeEmptyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLykkeEmptyTableViewCell.h; path = Wallets/LWLykkeEmptyTableViewCell.h; sourceTree = "<group>"; };
+		ECECAB5A1C998C530020E050 /* LWLykkeEmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLykkeEmptyTableViewCell.m; path = Wallets/LWLykkeEmptyTableViewCell.m; sourceTree = "<group>"; };
+		ECECAB5D1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWLykkeEmptyTableViewCell.xib; path = Wallets/LWLykkeEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		ECECAB5F1C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWLykkeEmptyTableViewCell.xib; path = IATA/Classes/View/Wallets/LWLykkeEmptyTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWalletsLoadingTableViewCell.h; path = Wallets/LWWalletsLoadingTableViewCell.h; sourceTree = "<group>"; };
 		ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWalletsLoadingTableViewCell.m; path = Wallets/LWWalletsLoadingTableViewCell.m; sourceTree = "<group>"; };
 		ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWalletsLoadingTableViewCell.xib; path = Wallets/LWWalletsLoadingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1580,6 +1588,7 @@
 				EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */,
 				ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */,
 				ECECAB4B1C98A1200020E050 /* LWBitcoinTableViewCell.xib */,
+				ECECAB5D1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib */,
 			);
 			name = Lykke;
 			sourceTree = "<group>";
@@ -1592,6 +1601,7 @@
 				EC0E843C1C8EC7EA00FE128C /* LWBanksTableViewCell.xib */,
 				EC0E84401C8EC7EA00FE128C /* LWWalletTableViewCell.xib */,
 				EC0E843F1C8EC7EA00FE128C /* LWWalletsLoadingTableViewCell.xib */,
+				ECECAB5F1C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib */,
 			);
 			name = IATA;
 			sourceTree = "<group>";
@@ -1875,6 +1885,8 @@
 				ECECAB481C98A0FA0020E050 /* LWBitcoinTableViewCell.m */,
 				EC7A45DA1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.h */,
 				EC7A45DB1C309A9F00926BB4 /* LWWalletEmptyTableViewCell.m */,
+				ECECAB591C998C530020E050 /* LWLykkeEmptyTableViewCell.h */,
+				ECECAB5A1C998C530020E050 /* LWLykkeEmptyTableViewCell.m */,
 				ECF55EA01C5961F2006FE254 /* LWWalletsLoadingTableViewCell.h */,
 				ECF55EA11C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m */,
 			);
@@ -2390,6 +2402,7 @@
 				CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */,
 				CDA69FE01C281E1C00BE4DCA /* LWAuthValidationPresenter.xib in Resources */,
 				EC7519BF1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib in Resources */,
+				ECECAB5E1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2456,6 +2469,7 @@
 				EC0E84451C8EC7EB00FE128C /* LWWalletTableViewCell.xib in Resources */,
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
+				ECECAB601C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */,
 				EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell.xib in Resources */,
 				EC3EDB9E1C92F88B0044AA6B /* LWSettingsLogOutTableViewCell.xib in Resources */,
 				EC302FF11C90221A003A1F5F /* LWMathKeyboardView.xib in Resources */,
@@ -2712,6 +2726,7 @@
 				ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */,
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
 				ECECAB431C9897300020E050 /* LWCacheHistoryPresenter.m in Sources */,
+				ECECAB5B1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */,
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				EC3CE8BB1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m in Sources */,
@@ -2820,6 +2835,7 @@
 				EC4D91971C8778DF006EE7C8 /* LWSettingsPresenter.m in Sources */,
 				EC4D91981C8778DF006EE7C8 /* LWAssetInfoTextTableViewCell.m in Sources */,
 				EC4D91991C8778DF006EE7C8 /* LWWalletConfirmPresenter.m in Sources */,
+				ECECAB5C1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */,
 				EC4D919A1C8778DF006EE7C8 /* UIViewController+Navigation.m in Sources */,
 				EC4D919B1C8778DF006EE7C8 /* LWPinKeyboardView.m in Sources */,
 				EC4D919C1C8778DF006EE7C8 /* LWWalletsLoadingTableViewCell.m in Sources */,

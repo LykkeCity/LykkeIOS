@@ -9,6 +9,10 @@
 #import "TKTableViewCell.h"
 
 
+#define kWalletEmptyTableViewCell           @"LWWalletEmptyTableViewCell"
+#define kWalletEmptyTableViewCellIdentifier @"LWWalletEmptyTableViewCellIdentifier"
+
+
 @interface LWWalletEmptyTableViewCell : TKTableViewCell {
     
 }

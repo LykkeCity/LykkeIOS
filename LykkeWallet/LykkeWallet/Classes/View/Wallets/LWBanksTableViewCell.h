@@ -9,6 +9,10 @@
 #import "TKTableViewCell.h"
 
 
+#define kBanksTableViewCell           @"LWBanksTableViewCell"
+#define kBanksTableViewCellIdentifier @"LWBanksTableViewCellIdentifier"
+
+
 @interface LWBanksTableViewCell : TKTableViewCell {
     
 }

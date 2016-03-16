@@ -24,6 +24,7 @@ SINGLETON_DECLARE
 @property (copy, nonatomic) NSString *baseAssetSymbol;
 @property (copy, nonatomic) NSArray  *baseAssets; // Array of LWAssetModel items
 @property (copy, nonatomic) NSString *depositUrl;
+@property (copy, nonatomic) NSString *multiSig;
 @property (assign, nonatomic) BOOL shouldSignOrder;
 
 @end

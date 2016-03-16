@@ -8,6 +8,7 @@
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsData.h"
+#import "LWCache.h"
 
 
 @implementation LWLykkeWalletsData {
@@ -27,6 +28,10 @@
             [list addObject:[[LWBankCardsData alloc] initWithJSON:item]];
         }
         _bankCards = list;
+        
+        _multiSig = [json objectForKey:@"MultiSig"];
+        
+        [LWCache instance].multiSig = [_multiSig copy];
     }
     return self;
 }
