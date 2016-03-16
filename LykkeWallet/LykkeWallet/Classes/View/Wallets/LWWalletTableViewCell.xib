@@ -28,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WALLETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-ZZ-34n">
-                        <rect key="frame" x="64" y="7" width="192" height="34"/>
+                        <rect key="frame" x="64" y="7" width="188" height="34"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="VTw-gL-7Bb"/>
                         </constraints>
@@ -36,23 +36,23 @@
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-g7-jr5">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-g7-jr5">
                         <rect key="frame" x="268" y="7" width="34" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="34" id="8VL-Jp-dLf"/>
                             <constraint firstAttribute="height" constant="34" id="Tmf-1M-XGJ"/>
                         </constraints>
-                        <state key="normal" backgroundImage="AddWalletIcon"/>
+                        <state key="normal" image="AddWalletIcon"/>
                         <connections>
                             <action selector="plusClicked:" destination="C4z-vr-b1d" eventType="touchUpInside" id="PMA-6l-dKM"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="QcT-ZZ-34n" firstAttribute="trailing" secondItem="ZoO-ZD-LeT" secondAttribute="trailingMargin" constant="-60" id="1j4-F3-XPZ"/>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="4Hs-YQ-5QJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MJG-g7-jr5" secondAttribute="trailing" constant="10" id="4UW-ps-mzg"/>
                     <constraint firstItem="MJG-g7-jr5" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="BhV-BZ-BaV"/>
-                    <constraint firstItem="MJG-g7-jr5" firstAttribute="leading" secondItem="QcT-ZZ-34n" secondAttribute="trailing" constant="12" id="Nsd-ox-IR0"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="leading" secondItem="ZoO-ZD-LeT" secondAttribute="leadingMargin" constant="10" id="Opi-CZ-Prc"/>
                     <constraint firstItem="jmG-fB-2ha" firstAttribute="centerY" secondItem="ZoO-ZD-LeT" secondAttribute="centerY" id="pfu-qf-qUn"/>
                     <constraint firstItem="QcT-ZZ-34n" firstAttribute="leading" secondItem="jmG-fB-2ha" secondAttribute="trailing" constant="12" id="rwD-tD-uE3"/>

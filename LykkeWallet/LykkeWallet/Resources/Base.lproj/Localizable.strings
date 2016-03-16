@@ -159,6 +159,10 @@
 "history.market.sell" = "sell";
 "history.cash.in" = "Wallet cash in";
 "history.cash.out" = "Wallet cash out";
+"history.cash.asset" = "Asset";
+"history.cash.amount" = "Amount";
+"history.cash.blockchain" = "Blockchain settlement";
+"history.cash.progress" = "In progress";
 
 "errors.network.connection" = "Internet connection problem";
 

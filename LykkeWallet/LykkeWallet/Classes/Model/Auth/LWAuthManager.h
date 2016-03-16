@@ -25,6 +25,7 @@
 @class LWTransactionsModel;
 @class LWPersonalDataModel;
 @class LWTransactionMarketOrderModel;
+@class LWExchangeInfoModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -57,9 +58,12 @@
 - (void)authManager:(LWAuthManager *)manager didReceiveDealResponse:(LWAssetDealModel *)purchase;
 - (void)authManagerDidSetSignOrders:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain;
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainCashTransaction:(LWAssetBlockchainModel *)blockchain;
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainExchangeTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions;
 - (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)marketOrder;
 - (void)authManagerDidSendBlockchainEmail:(LWAuthManager *)manager;
+- (void)authManager:(LWAuthManager *)manager didReceiveExchangeInfo:(LWExchangeInfoModel *)exchangeInfo;
 
 @end
 
@@ -107,10 +111,13 @@ SINGLETON_DECLARE
 - (void)requestPurchaseAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
 - (void)requestSellAsset:(NSString *)asset assetPair:(NSString *)assetPair volume:(NSNumber *)volume rate:(NSNumber *)rate;
 - (void)requestSignOrders:(BOOL)shouldSignOrders;
-- (void)requestBlockchainTransaction:(NSString *)orderId;
+- (void)requestBlockchainOrderTransaction:(NSString *)orderId;
+- (void)requestBlockchainCashTransaction:(NSString *)cashOperationId;
+- (void)requestBlockchainExchangeTransaction:(NSString *)exchnageOperationId;
 - (void)requestTransactions:(NSString *)assetId;
 - (void)requestMarketOrder:(NSString *)orderId;
 - (void)requestEmailBlockchain;
+- (void)requestExchangeInfo:(NSString *)exchangeId;
 
 #pragma mark - Static methods
 

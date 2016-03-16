@@ -11,7 +11,7 @@
 
 @implementation LWRegistrationData
 
--(instancetype)copyWithZone:(NSZone *)zone
+- (instancetype)copyWithZone:(NSZone *)zone
 {
     LWRegistrationData* data = [[LWRegistrationData allocWithZone:zone] init];
     data.email = [self.email copy];

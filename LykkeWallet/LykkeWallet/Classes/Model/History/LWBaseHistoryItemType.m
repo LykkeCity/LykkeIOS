@@ -8,6 +8,16 @@
 
 #import "LWBaseHistoryItemType.h"
 
+
 @implementation LWBaseHistoryItemType
+
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    LWBaseHistoryItemType* data = [[[self class] allocWithZone:zone] init];
+    data.historyType = self.historyType;
+    data.identity = [self.identity copy];
+    data.dateTime = [self.dateTime copy];
+    return data;
+}
 
 @end

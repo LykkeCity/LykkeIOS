@@ -1,16 +1,16 @@
 //
-//  LWPacketBlockchainTransaction.m
+//  LWPacketBlockchainCashTransaction.m
 //  LykkeWallet
 //
-//  Created by Alexander Pukhov on 08.01.16.
+//  Created by Alexander Pukhov on 16.03.16.
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWPacketBlockchainTransaction.h"
+#import "LWPacketBlockchainCashTransaction.h"
 #import "LWAssetBlockchainModel.h"
 
 
-@implementation LWPacketBlockchainTransaction
+@implementation LWPacketBlockchainCashTransaction
 
 
 #pragma mark - LWPacket
@@ -21,9 +21,9 @@
     if (self.isRejected) {
         return;
     }
-
-    _blockchain = nil;
     
+    _blockchain = nil;
+
     id object = [result objectForKey:@"Transaction"];
     if (object && ![object isKindOfClass:[NSNull class]]) {
         _blockchain = [[LWAssetBlockchainModel alloc] initWithJSON:object];
@@ -31,7 +31,7 @@
 }
 
 - (NSString *)urlRelative {
-    return [NSString stringWithFormat:@"BlockchainTransaction?orderId=%@", self.orderId];
+    return [NSString stringWithFormat:@"BcnTransactionByCashOperation?id=%@", self.cashOperationId];
 }
 
 - (GDXRESTPacketType)type {

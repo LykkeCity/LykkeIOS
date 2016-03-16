@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, LWHistoryItemType) {
 };
 
 
-@interface LWBaseHistoryItemType : NSObject {
+@interface LWBaseHistoryItemType : NSObject<NSCopying> {
     
 }
 

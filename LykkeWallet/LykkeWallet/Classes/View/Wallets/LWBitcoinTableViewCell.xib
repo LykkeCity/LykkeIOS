@@ -22,28 +22,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trading Wallet Multisig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zp-Mx-J9r">
-                        <rect key="frame" x="20" y="8" width="170" height="33"/>
+                        <rect key="frame" x="20" y="8" width="180" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="170" id="eEX-R5-27W"/>
-                            <constraint firstAttribute="height" constant="34" id="uxd-Xy-d29"/>
+                            <constraint firstAttribute="width" constant="180" id="eEX-R5-27W"/>
+                            <constraint firstAttribute="height" constant="34" id="f9g-vb-z3k"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="uxd-Xy-d29"/>
-                            </mask>
-                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voH-U4-iRY">
-                        <rect key="frame" x="198" y="8" width="60" height="33"/>
+                        <rect key="frame" x="208" y="8" width="50" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="gq2-25-X0K"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P89-9q-sIb">
-                        <rect key="frame" x="268" y="7" width="34" height="34"/>
+                        <rect key="frame" x="268" y="8" width="34" height="34"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="Iko-J1-Ili"/>
                             <constraint firstAttribute="width" constant="34" id="l1G-e7-ew5"/>
@@ -55,15 +53,13 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4zp-Mx-J9r" firstAttribute="top" secondItem="j4v-Db-1yR" secondAttribute="topMargin" id="0QC-qC-UKg"/>
                     <constraint firstItem="4zp-Mx-J9r" firstAttribute="leading" secondItem="j4v-Db-1yR" secondAttribute="leadingMargin" constant="12" id="9Vt-p1-lMl"/>
-                    <constraint firstItem="voH-U4-iRY" firstAttribute="bottom" secondItem="j4v-Db-1yR" secondAttribute="bottomMargin" id="9wS-aK-RTu"/>
                     <constraint firstItem="voH-U4-iRY" firstAttribute="leading" secondItem="4zp-Mx-J9r" secondAttribute="trailing" constant="8" id="D1e-8e-iXQ"/>
+                    <constraint firstItem="4zp-Mx-J9r" firstAttribute="centerY" secondItem="j4v-Db-1yR" secondAttribute="centerY" id="Owo-c9-rsG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="P89-9q-sIb" secondAttribute="trailing" constant="10" id="Plc-Rw-LUS"/>
-                    <constraint firstItem="voH-U4-iRY" firstAttribute="top" secondItem="j4v-Db-1yR" secondAttribute="topMargin" id="bS7-w2-39G"/>
                     <constraint firstItem="P89-9q-sIb" firstAttribute="leading" secondItem="voH-U4-iRY" secondAttribute="trailing" constant="10" id="lfJ-7v-lbz"/>
+                    <constraint firstItem="voH-U4-iRY" firstAttribute="centerY" secondItem="j4v-Db-1yR" secondAttribute="centerY" id="mmk-9i-JSZ"/>
                     <constraint firstItem="P89-9q-sIb" firstAttribute="centerY" secondItem="j4v-Db-1yR" secondAttribute="centerY" id="nxP-JX-nZQ"/>
-                    <constraint firstItem="4zp-Mx-J9r" firstAttribute="bottom" secondItem="j4v-Db-1yR" secondAttribute="bottomMargin" id="t3F-d8-L1T"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>

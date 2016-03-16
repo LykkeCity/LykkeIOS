@@ -91,7 +91,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     // request blockchain data
     [self setLoading:YES];
-    [[LWAuthManager instance] requestBlockchainTransaction:self.orderId];
+    [[LWAuthManager instance] requestBlockchainOrderTransaction:self.orderId];
 }
 
 #ifdef PROJECT_IATA
