@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWBitcoinDepositPresenter">
             <connections>
                 <outlet property="bitcoinHashLabel" destination="9TK-9N-G3l" id="0J5-Id-ZZA"/>
+                <outlet property="bitcoinQRImageView" destination="ElN-PC-wgO" id="IyL-Vr-0VH"/>
                 <outlet property="copyingButton" destination="csA-C2-jDR" id="UrW-br-eJS"/>
                 <outlet property="emailButton" destination="TGR-9h-rM6" id="bql-QR-Bcg"/>
                 <outlet property="titleLabel" destination="2Ph-9Z-syT" id="0GE-29-EXA"/>
@@ -46,7 +47,8 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="hVp-Zr-Wk0"/>
                             </constraints>
-                            <string key="text">1CsawdTDfZEvJJVtDWsAqxnvJfzWN6cH2</string>
+                            <string key="text">1CsawdTDfZEvJJVtDWsAqx
+nvJfzWN6cH2</string>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                             <color key="textColor" red="0.6705882352941176" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>

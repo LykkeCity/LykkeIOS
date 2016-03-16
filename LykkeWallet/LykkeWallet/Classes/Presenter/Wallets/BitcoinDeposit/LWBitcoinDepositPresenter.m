@@ -13,6 +13,7 @@
 #import "UIViewController+Navigation.h"
 #import "UIViewController+Loading.h"
 #import "UIView+Toast.h"
+#import "UIImage+Resize.h"
 
 
 @interface LWBitcoinDepositPresenter () {
@@ -21,6 +22,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *bitcoinHashLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *bitcoinQRImageView;
 @property (nonatomic, weak) IBOutlet TKButton *copyingButton;
 @property (nonatomic, weak) IBOutlet TKButton *emailButton;
 
@@ -33,6 +35,7 @@
     
     self.title = Localize(@"wallets.bitcoin.deposit");
     
+    [self setupQRCode];
     [self setBackButton];
 }
 
@@ -87,6 +90,35 @@
     [self setLoading:NO];
 
     [self.navigationController.view makeToast:Localize(@"wallets.bitcoin.sendemail")];
+}
+
+
+#pragma mark - Private
+
+- (void)setupQRCode {
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setDefaults];
+    
+    NSString *bitcoinHash = @"1CsawdTDfZEvJJVtDWsAqxnvJfzWN6cH2";
+    NSString *qrCodeString = [NSString stringWithFormat:@"%@%@", @"bitcoin:", bitcoinHash];
+    NSData *data = [qrCodeString dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    CIImage *outputImage = [filter outputImage];
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    
+    UIImage *image = [UIImage imageWithCGImage:cgImage scale:1.0 orientation:UIImageOrientationUp];
+    
+    // Resize without interpolating
+    CGSize const imageViewSize = self.bitcoinQRImageView.frame.size;
+    UIImage *qrImage = [image resizedImage:imageViewSize
+                      interpolationQuality:kCGInterpolationNone];
+    
+    self.bitcoinQRImageView.image = qrImage;
+    
+    CGImageRelease(cgImage);
 }
 
 @end
