@@ -210,7 +210,6 @@ static CGFloat const kContentKeyboardHeight = 500.0;
     LWBankCardsAdd *data = [LWBankCardsAdd new];
     data.bankNumber = cardNumberTextField.text;
     data.name = cardOwnerTextField.text;
-#warning TODO:
     data.type = @"Visa";
     data.monthTo = [LWStringUtils monthFromExpiration:cardExpireTextField.text];
     data.yearTo = [LWStringUtils yearFromExpiration:cardExpireTextField.text];

@@ -274,7 +274,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWBanksTableViewCell *lykke = (LWBanksTableViewCell *)cell;
                     LWBankCardsData *card = (LWBankCardsData *)self.data.bankCards[indexPath.row - 1];
-#warning TODO: show card type
                     lykke.cardNameLabel.text = @"Visa";
                     lykke.cardDigitsLabel.text = [NSString stringWithFormat:@".... %@", card.lastDigits];
                 }

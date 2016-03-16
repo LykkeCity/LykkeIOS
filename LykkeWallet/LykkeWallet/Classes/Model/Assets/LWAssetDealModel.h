@@ -28,5 +28,6 @@
 @property (copy,   nonatomic) NSNumber *totalCost;
 @property (copy,   nonatomic) NSNumber *commission;
 @property (copy,   nonatomic) NSNumber *position;
+@property (copy,   nonatomic) NSNumber *accuracy;
 
 @end

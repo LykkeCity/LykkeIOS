@@ -16,7 +16,7 @@
 #import "UIViewController+Navigation.h"
 
 @interface LWExchangeEmptyBlockchainPresenter () {
-    
+    UIRefreshControl *refreshControl;
 }
 
 #pragma mark - Utils
@@ -49,12 +49,25 @@ static int const kBlockchainRow = 5;
                                 name:kLeftDetailTableViewCell];
     
     [self setBackButton];
+    [self setRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+}
+
+- (void)setRefreshControl
+{
+    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
+    [self.tableView insertSubview:refreshView atIndex:0];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor blackColor];
+    [refreshControl addTarget:self action:@selector(updateStatus)
+             forControlEvents:UIControlEventValueChanged];
+    [refreshView addSubview:refreshControl];
 }
 
 
@@ -101,10 +114,8 @@ static int const kBlockchainRow = 5;
 }
 
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
-    
-#warning TODO: extend ExchangeInfo packet with asset pair accuracy
     NSString *rate = [LWMath makeStringByNumber:self.model.price
-                                  withPrecision:5];
+                                  withPrecision:self.model.accuracy.integerValue];
     
     NSString *volume = [LWMath makeStringByNumber:self.model.volume
                                     withPrecision:0];
@@ -136,6 +147,19 @@ static int const kBlockchainRow = 5;
         : [UIColor colorWithHexString:kMainDarkElementsColor];
         [cell.detailLabel setTextColor:blockchainColor];
     }
+}
+
+- (void)updateStatus {
+#warning TODO:
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [refreshControl endRefreshing];
+    
+    //[self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 }
 
 @end

@@ -139,7 +139,7 @@ static int const kBlockchainRow = 5;
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
     
     NSString *rate = [LWMath makeStringByNumber:self.purchase.price
-                                  withPrecision:self.assetPair.accuracy.integerValue];
+                                  withPrecision:self.purchase.accuracy.integerValue];
     
     NSString *volume = [LWMath makeStringByNumber:self.purchase.volume
                                     withPrecision:0];
@@ -189,7 +189,7 @@ static int const kBlockchainRow = 5;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.row == kBlockchainRow && self.purchase
-        && self.assetPair && self.purchase.blockchainSettled) {
+        && self.purchase.blockchainSettled) {
         LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
         controller.orderId = self.purchase.identity;
         [self.navigationController pushViewController:controller animated:YES];

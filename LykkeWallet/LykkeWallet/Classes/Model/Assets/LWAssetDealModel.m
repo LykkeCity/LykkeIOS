@@ -32,6 +32,7 @@
         _totalCost         = [json objectForKey:@"TotalCost"];
         _commission        = [json objectForKey:@"Comission"];
         _position          = [json objectForKey:@"Position"];
+        _accuracy          = [json objectForKey:@"Accuracy"];
     }
     return self;
 }
@@ -51,6 +52,7 @@
     data.totalCost = [self.totalCost copy];
     data.commission = [self.commission copy];
     data.position = [self.position copy];
+    data.accuracy = [self.accuracy copy];
     
     return data;
 }

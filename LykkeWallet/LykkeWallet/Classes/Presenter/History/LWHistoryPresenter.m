@@ -198,7 +198,6 @@
     NSNumber *volume = [NSNumber numberWithInt:0];
     NSString *operation = @"";
     if (item.historyType == LWHistoryItemTypeTrade) {
-#warning TODO: get image from server
         LWTradeHistoryItemType *trade = (LWTradeHistoryItemType *)item;
         cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
         

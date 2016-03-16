@@ -19,7 +19,7 @@
 
 
 @interface LWCashEmptyBlockchainPresenter () {
-    
+    UIRefreshControl *refreshControl;
 }
 
 @end
@@ -46,12 +46,25 @@ static int const kNumberOfRows = 3;
     self.title = [NSString stringWithFormat:@"%@ %@", base, type];
     
     [self setBackButton];
+    [self setRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+}
+
+- (void)setRefreshControl
+{
+    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
+    [self.tableView insertSubview:refreshView atIndex:0];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor blackColor];
+    [refreshControl addTarget:self action:@selector(updateStatus)
+             forControlEvents:UIControlEventValueChanged];
+    [refreshView addSubview:refreshControl];
 }
 
 
@@ -108,6 +121,19 @@ static int const kNumberOfRows = 3;
     
     cell.detailLabel.text = values[row];
     [cell.detailLabel setTextColor:[UIColor colorWithHexString:kMainDarkElementsColor]];
+}
+
+- (void)updateStatus {
+#warning TODO:
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [refreshControl endRefreshing];
+    
+    //[self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 }
 
 @end

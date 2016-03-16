@@ -13,9 +13,8 @@
 @class LWAssetPairRateModel;
 
 
-#warning TODO: move to other file when keyboard will be done
 @interface LWAssetLykkeTableChangeView : UIView {
-    
+
 }
 
 @end
