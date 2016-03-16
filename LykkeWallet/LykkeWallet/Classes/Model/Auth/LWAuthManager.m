@@ -36,6 +36,7 @@
 #import "LWPacketBlockchainTransaction.h"
 #import "LWPacketTransactions.h"
 #import "LWPacketMarketOrder.h"
+#import "LWPacketSendBlockchainEmail.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -296,6 +297,12 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestEmailBlockchain {
+    LWPacketSendBlockchainEmail *pack = [LWPacketSendBlockchainEmail new];
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -486,6 +493,11 @@ SINGLETON_INIT {
         // receiving market order info
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveMarketOrder:)]) {
             [self.delegate authManager:self didReceiveMarketOrder:((LWPacketMarketOrder *)pack).model];
+        }
+    }
+    else if (pack.class == LWPacketSendBlockchainEmail.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSendBlockchainEmail:)]) {
+            [self.delegate authManagerDidSendBlockchainEmail:self];
         }
     }
 }

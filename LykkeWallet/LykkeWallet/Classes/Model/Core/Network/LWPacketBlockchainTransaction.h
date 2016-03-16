@@ -17,6 +17,8 @@
 }
 // in
 @property (assign, nonatomic) NSString *orderId;
+@property (assign, nonatomic) NSString *cashOperationId;
+@property (assign, nonatomic) NSString *exchangeOperationId;
 // out
 @property (readonly, nonatomic) LWAssetBlockchainModel* blockchain;
 

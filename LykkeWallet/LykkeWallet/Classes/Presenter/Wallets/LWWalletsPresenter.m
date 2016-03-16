@@ -11,6 +11,7 @@
 #import "LWWalletFormPresenter.h"
 #import "LWExchangeDealFormPresenter.h"
 #import "LWWalletDepositPresenter.h"
+#import "LWBitcoinDepositPresenter.h"
 #import "LWAuthManager.h"
 #import "LWLykkeWalletsData.h"
 #import "LWLykkeData.h"
@@ -19,6 +20,7 @@
 #import "LWWalletTableViewCell.h"
 #import "LWLykkeTableViewCell.h"
 #import "LWBanksTableViewCell.h"
+#import "LWBitcoinTableViewCell.h"
 #import "LWWalletsLoadingTableViewCell.h"
 #import "LWWalletEmptyTableViewCell.h"
 #import "LWAuthNavigationController.h"
@@ -32,9 +34,10 @@
 
 
 static NSInteger const kSectionBankCards    = 0;
-static NSInteger const kSectionLykkeWallets = 1;
+static NSInteger const kSectionBitcoin      = 1;
+static NSInteger const kSectionLykkeWallets = 2;
 
-@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate, SWTableViewCellDelegate> {
+@interface LWWalletsPresenter ()<UITableViewDelegate, UITableViewDataSource, LWWalletTableViewCellDelegate, LWBitcoinTableViewCellDelegate, SWTableViewCellDelegate> {
     
     NSMutableIndexSet *expandedSections;
     UIRefreshControl  *refreshControl;
@@ -85,24 +88,31 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 #else
 
-static NSInteger const kNumberOfSections = 2;//6;
+static NSInteger const kNumberOfSections = 3;//6;
 static NSString *cellIdentifier = @"LWWalletTableViewCellIdentifier";
 
 static NSString *const WalletIdentifiers[kNumberOfSections] = {
     @"LWBanksTableViewCellIdentifier",
-    @"LWLykkeTableViewCellIdentifier"/*,
-                                      emptyCellIdentifier,
-                                      emptyCellIdentifier,
-                                      emptyCellIdentifier,
-                                      emptyCellIdentifier*/
+    kBitcoinTableViewCellIdentifier,
+    @"LWLykkeTableViewCellIdentifier"
+    /*, emptyCellIdentifier,
+        emptyCellIdentifier,
+        emptyCellIdentifier,
+        emptyCellIdentifier */
 };
 
 static NSString *const WalletNames[kNumberOfSections] = {
-    @"VISA/MASTERCARD", @"LYKKE"/*, @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"*/
+    @"VISA/MASTERCARD",
+    @"BITCOIN",
+    @"LYKKE"
+    /*, @"PAYPAL", @"WEBMONEY", @"MONETAS", @"QIWI"*/
 };
 
 static NSString *const WalletIcons[kNumberOfSections] = {
-    @"WalletBanks", @"WalletLykke"/*, @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"*/
+    @"WalletBanks",
+    @"WalletBitcoin",
+    @"WalletLykke"
+    /*, @"WalletPaypal", @"WalletWebmoney", @"WalletMonetas", @"WalletQiwi"*/
 };
 
 #endif
@@ -130,6 +140,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     
     [self registerCellWithIdentifier:emptyCellIdentifier
                              forName:@"LWWalletEmptyTableViewCell"];
+
+#ifdef PROJECT_IATA
+#else
+    [self registerCellWithIdentifier:kBitcoinTableViewCellIdentifier
+                             forName:kBitcoinTableViewCell];
+#endif
     
     [self registerCellWithIdentifier:kLoadingTableViewCellIdentifier
                              forName:kLoadingTableViewCell];
@@ -168,6 +184,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             else if (section == kSectionBankCards && self.data.bankCards) {
                 return MAX(1, self.data.bankCards.count) + rowCell;
             }
+            else if (section == kSectionBitcoin) {
+                return 2;
+            }
             else {
                 return 2; // general + empty
             }
@@ -199,6 +218,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         wallet.delegate = self;
         wallet.walletLabel.text = WalletNames[indexPath.section];
         wallet.walletImageView.image = [UIImage imageNamed:WalletIcons[indexPath.section]];
+        
+        // Hide plus button for bitcoin
+        wallet.addWalletButton.hidden = (indexPath.section == kSectionBitcoin);
     }
     // Show wallets for category
     else {
@@ -262,6 +284,11 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 cell = [tableView dequeueReusableCellWithIdentifier:kLoadingTableViewCellIdentifier];
             }
         }
+        else if (indexPath.section == kSectionBitcoin) {
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            LWBitcoinTableViewCell *bitcoin = (LWBitcoinTableViewCell *)cell;
+            bitcoin.delegate = self;
+        }
         // Show empty cells
         else {
             cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier];
@@ -295,6 +322,18 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     else {
         [self expandTable:tableView indexPath:indexPath];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat const kStandardHeight = 50.0;
+#ifdef PROJECT_IATA
+    return kStandardHeight;
+#else
+    if (indexPath.section == kSectionBankCards) {
+        return 0.0;
+    }
+    return kStandardHeight;
+#endif
 }
 
 
@@ -361,6 +400,17 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     else if (path && path.section == kSectionLykkeWallets) {
         NSInteger const tradingTabIndex = 1;
         self.tabBarController.selectedIndex = tradingTabIndex;
+    }
+}
+
+
+#pragma mark - LWBitcoinTableViewCellDelegate
+
+- (void)addBitcoinClicked:(LWBitcoinTableViewCell *)cell {
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    if (path && path.section == kSectionBitcoin) {
+        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+        [self.navigationController pushViewController:presenter animated:YES];
     }
 }
 
