@@ -9,6 +9,21 @@
 #import "SWTableViewCell.h"
 
 
+#define kLykkeTableViewCell           @"LWLykkeTableViewCell"
+#define kLykkeTableViewCellIdentifier @"LWLykkeTableViewCellIdentifier"
+
+
+@class LWLykkeTableViewCell;
+
+
+@protocol LWLykkeTableViewCellDelegate<NSObject>
+
+@required
+- (void)addLykkeItemClicked:(LWLykkeTableViewCell *)cell;
+
+@end
+
+
 @interface LWLykkeTableViewCell : SWTableViewCell {
     
 }
@@ -17,6 +32,11 @@
 
 + (NSString *)reuseIdentifier;
 + (UINib *)nib;
+
+
+#pragma mark - Properties
+
+@property (weak, nonatomic) id<LWLykkeTableViewCellDelegate> cellDelegate;
 
 
 #pragma mark - Outlets

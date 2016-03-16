@@ -8,8 +8,9 @@
 
 #import "LWBitcoinDepositPresenter.h"
 #import "LWAuthManager.h"
-#import "TKButton.h"
 #import "LWConstants.h"
+#import "LWCache.h"
+#import "TKButton.h"
 #import "UIViewController+Navigation.h"
 #import "UIViewController+Loading.h"
 #import "UIView+Toast.h"
@@ -99,7 +100,7 @@
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     
-    NSString *bitcoinHash = @"1CsawdTDfZEvJJVtDWsAqxnvJfzWN6cH2";
+    NSString *bitcoinHash = [LWCache instance].multiSig;
     NSString *qrCodeString = [NSString stringWithFormat:@"%@%@", @"bitcoin:", bitcoinHash];
     NSData *data = [qrCodeString dataUsingEncoding:NSUTF8StringEncoding];
     [filter setValue:data forKey:@"inputMessage"];

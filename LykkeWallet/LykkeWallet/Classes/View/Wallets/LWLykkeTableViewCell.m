@@ -24,4 +24,8 @@
     return [UINib nibWithNibName:[self.class reuseIdentifier] bundle:[NSBundle mainBundle]];
 }
 
+- (IBAction)addItemClicked:(id)sender {
+    [self.cellDelegate addLykkeItemClicked:self];
+}
+
 @end
