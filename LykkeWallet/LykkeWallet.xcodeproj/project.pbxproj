@@ -450,6 +450,10 @@
 		ECAB1BBD1C99D45300A64A20 /* LWPacketExchangeInfoGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */; };
 		ECAB1BC21C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC11C99D67700A64A20 /* LWExchangeInfoModel.m */; };
 		ECAB1BC31C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC11C99D67700A64A20 /* LWExchangeInfoModel.m */; };
+		ECAB1BC71C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */; };
+		ECAB1BC81C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */; };
+		ECAB1BC91C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
+		ECAB1BCA1C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -905,6 +909,9 @@
 		ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketExchangeInfoGet.m; sourceTree = "<group>"; };
 		ECAB1BC01C99D67700A64A20 /* LWExchangeInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWExchangeInfoModel.h; path = ExchangeInfo/LWExchangeInfoModel.h; sourceTree = "<group>"; };
 		ECAB1BC11C99D67700A64A20 /* LWExchangeInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWExchangeInfoModel.m; path = ExchangeInfo/LWExchangeInfoModel.m; sourceTree = "<group>"; };
+		ECAB1BC41C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeEmptyBlockchainPresenter.h; sourceTree = "<group>"; };
+		ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeEmptyBlockchainPresenter.m; sourceTree = "<group>"; };
+		ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeEmptyBlockchainPresenter.xib; sourceTree = "<group>"; };
 		ECBF52441C878372008E0C0D /* LWConstantsLykke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsLykke.h; sourceTree = "<group>"; };
 		ECBF52451C878382008E0C0D /* LWConstantsIATA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsIATA.h; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
@@ -1252,6 +1259,9 @@
 				ECECAB401C98972F0020E050 /* LWCashEmptyBlockchainPresenter.h */,
 				ECECAB411C9897300020E050 /* LWCashEmptyBlockchainPresenter.m */,
 				ECECAB421C9897300020E050 /* LWCashEmptyBlockchainPresenter.xib */,
+				ECAB1BC41C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.h */,
+				ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */,
+				ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -2390,6 +2400,7 @@
 				CDCD5B121C26C92A007BAD78 /* LWRegisterFullNamePresenter.xib in Resources */,
 				CDCD5AF01C259662007BAD78 /* LWSettingsPresenter.xib in Resources */,
 				EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */,
+				ECAB1BC91C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */,
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
 				EC3EDBA11C92F8A40044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
 				ECECAB531C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */,
@@ -2498,6 +2509,7 @@
 				EC9EC2531C8EE66C00C986DD /* LWExchangeFormPresenter.xib in Resources */,
 				EC4D92631C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.xib in Resources */,
 				EC0E84441C8EC7EB00FE128C /* LWWalletsLoadingTableViewCell.xib in Resources */,
+				ECAB1BCA1C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */,
 				EC0E84451C8EC7EB00FE128C /* LWWalletTableViewCell.xib in Resources */,
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
@@ -2674,6 +2686,7 @@
 				CF6632461C175B54004353F5 /* AppDelegate.m in Sources */,
 				ECEC40D71C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m in Sources */,
 				EC168F151C5140F000AF8DD5 /* LWPersonalItemTableViewCell.m in Sources */,
+				ECAB1BC71C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */,
 				ECEC40CE1C42CB5800B22BEE /* LWBaseHistoryItemType.m in Sources */,
 				EC9C94971C89C89E006FD46B /* LWTextField.m in Sources */,
 				ECEC40CB1C42CA7B00B22BEE /* LWHistoryManager.m in Sources */,
@@ -2906,6 +2919,7 @@
 				EC4D91B81C8778DF006EE7C8 /* LWAuthPINEnterPresenter.m in Sources */,
 				EC4D91B91C8778DF006EE7C8 /* LWPacketPinSecuritySet.m in Sources */,
 				ECECAB641C99A9360020E050 /* LWPacketBlockchainCashTransaction.m in Sources */,
+				ECAB1BC81C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */,
 				EC4D91BA1C8778DF006EE7C8 /* LWWalletFormPresenter.m in Sources */,
 				EC4D91BB1C8778DF006EE7C8 /* LWKYCInvalidDocumentsPresenter.m in Sources */,
 				EC4D91BC1C8778DF006EE7C8 /* LWAuthSteps.m in Sources */,

@@ -19,4 +19,10 @@
     return self;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    LWExchangeInfoModel* data = [super copyWithZone:zone];
+    return data;
+}
+
 @end

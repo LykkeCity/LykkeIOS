@@ -8,6 +8,7 @@
 
 #import "LWHistoryPresenter.h"
 #import "LWCashEmptyBlockchainPresenter.h"
+#import "LWExchangeEmptyBlockchainPresenter.h"
 #import "LWHistoryTableViewCell.h"
 #import "LWAuthManager.h"
 #import "LWTransactionsModel.h"
@@ -146,7 +147,16 @@
 
 - (void)authManager:(LWAuthManager *)manager didReceiveExchangeInfo:(LWExchangeInfoModel *)exchangeInfo {
     [self setLoading:NO];
-#warning TODO:
+
+    // need extra data - request
+    LWBaseHistoryItemType *item = [self getHistoryItemByIndexPath:self.loadedElement];
+    if (item) {
+        LWTradeHistoryItemType *trade = (LWTradeHistoryItemType *)item;
+        LWExchangeEmptyBlockchainPresenter *presenter = [LWExchangeEmptyBlockchainPresenter new];
+        presenter.model = [exchangeInfo copy];
+        presenter.asset = trade.asset;
+        [self.navigationController pushViewController:presenter animated:YES];
+    }
 }
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
