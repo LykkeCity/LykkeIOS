@@ -1619,9 +1619,9 @@
 				EC7A45D61C309A6200926BB4 /* LWWalletTableViewCell.xib */,
 				EC7A45D41C309A6200926BB4 /* LWBanksTableViewCell.xib */,
 				EC7A45DF1C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib */,
-				ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */,
 				ECECAB4B1C98A1200020E050 /* LWBitcoinTableViewCell.xib */,
 				ECECAB5D1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib */,
+				ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */,
 			);
 			name = Lykke;
 			sourceTree = "<group>";
@@ -1908,10 +1908,10 @@
 			children = (
 				EC0E843B1C8EC77F00FE128C /* IATA */,
 				EC0E843A1C8EC77500FE128C /* Lykke */,
-				EC7A45C21C30650C00926BB4 /* LWWalletTableViewCell.h */,
-				EC7A45C31C30650C00926BB4 /* LWWalletTableViewCell.m */,
 				EC7A45CA1C3099F900926BB4 /* LWLykkeTableViewCell.h */,
 				EC7A45CB1C3099F900926BB4 /* LWLykkeTableViewCell.m */,
+				EC7A45C21C30650C00926BB4 /* LWWalletTableViewCell.h */,
+				EC7A45C31C30650C00926BB4 /* LWWalletTableViewCell.m */,
 				EC7A45CF1C309A2B00926BB4 /* LWBanksTableViewCell.h */,
 				EC7A45D01C309A2B00926BB4 /* LWBanksTableViewCell.m */,
 				ECECAB471C98A0FA0020E050 /* LWBitcoinTableViewCell.h */,

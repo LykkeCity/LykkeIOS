@@ -239,16 +239,18 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
                     lykke.walletNameLabel.text = asset.name;
                     lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
+                    lykke.addWalletButton.hidden = ![[LWCache instance] isMultisigAvailable];
                     
                     // validate for base asset and balance
-                    if (![asset.identity isEqualToString:[LWCache instance].baseAssetId]/* &&
-                        asset.balance.doubleValue > 0.0*/) {
+                    if (![asset.identity isEqualToString:[LWCache instance].baseAssetId] &&
+                        asset.balance.doubleValue > 0.0) {
                         CGFloat const buttonWidth = 150.0;
                         UIColor *color = [UIColor colorWithHexString:kSellAssetButtonColor];
                         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
                         [rightUtilityButtons sw_addUtilityButton:[self createUtilsButton]];
                         [rightUtilityButtons sw_addUtilityButtonWithColor:color title:@""]; // fake
                         [lykke setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
+
                         lykke.delegate = self;
                         lykke.cellDelegate = self;
                     }
@@ -259,6 +261,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     LWLykkeEmptyTableViewCell *emptyCell = (LWLykkeEmptyTableViewCell *)cell;
                     emptyCell.titleLabel.text = Localize(@"wallets.lykke.empty");
                     emptyCell.delegate = self;
+                    emptyCell.addWalletButton.hidden = ![[LWCache instance] isMultisigAvailable];
                 }
             }
             else {
@@ -292,6 +295,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         else if (indexPath.section == kSectionBitcoin) {
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             LWBitcoinTableViewCell *bitcoin = (LWBitcoinTableViewCell *)cell;
+            bitcoin.bitcoinAddButton.hidden = ![[LWCache instance] isMultisigAvailable];
             bitcoin.delegate = self;
         }
         // Show empty cells
@@ -367,9 +371,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     _data = data;
     _dataAssets = [NSMutableArray array];
     for (LWLykkeAssetsData *asset in data.lykkeData.assets) {
-        //if (asset.balance.doubleValue > 0.0) {
+        if (asset.balance.doubleValue > 0.0) {
             [_dataAssets addObject:asset];
-        //}
+        }
     }
     [self.tableView reloadData];
 }

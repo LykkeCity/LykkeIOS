@@ -27,4 +27,6 @@ SINGLETON_DECLARE
 @property (copy, nonatomic) NSString *multiSig;
 @property (assign, nonatomic) BOOL shouldSignOrder;
 
+- (BOOL)isMultisigAvailable;
+
 @end
