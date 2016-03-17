@@ -64,6 +64,7 @@
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="addWalletButton" destination="QLN-9I-2ba" id="sBu-TA-9eL"/>
                 <outlet property="titleLabel" destination="5l4-1A-UO4" id="Vi5-QQ-Kdi"/>
             </connections>
             <point key="canvasLocation" x="202" y="190"/>

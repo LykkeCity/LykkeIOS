@@ -22,4 +22,8 @@ SINGLETON_INIT {
     return self;
 }
 
+- (BOOL)isMultisigAvailable {
+    return (self.multiSig != nil && ![self.multiSig isEqualToString:@""]);
+}
+
 @end

@@ -199,7 +199,7 @@
     NSString *operation = @"";
     if (item.historyType == LWHistoryItemTypeTrade) {
         LWTradeHistoryItemType *trade = (LWTradeHistoryItemType *)item;
-        cell.operationImageView.image = [UIImage imageNamed:@"WalletLykke"];
+        cell.operationImageView.image = [UIImage imageNamed:@"WalletBitcoin"];
         
         volume = trade.volume;
         
@@ -215,7 +215,7 @@
     }
     else {
         LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
-        cell.operationImageView.image = [UIImage imageNamed:@"WalletBanks"];
+        cell.operationImageView.image = [UIImage imageNamed:@"WalletBitcoin"];
         volume = cash.amount;
         
         NSString *base = [LWAssetModel

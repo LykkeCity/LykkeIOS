@@ -81,7 +81,7 @@
 "wallets.cards.empty" = "Cards not added";
 "wallets.bitcoin.deposit" = "DEPOSIT BITCOINS";
 "wallets.bitcoin.copytoast" = "Copied.";
-"wallets.bitcoin.sendemail" = "Email sended.";
+"wallets.bitcoin.sendemail" = "Email sent.";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";

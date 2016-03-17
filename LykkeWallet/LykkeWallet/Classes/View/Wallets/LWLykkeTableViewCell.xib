@@ -69,6 +69,7 @@
             <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="addWalletButton" destination="sPd-7L-1A7" id="Uig-Hu-cBU"/>
                 <outlet property="walletBalanceLabel" destination="g8y-cH-1pm" id="mc2-RP-r84"/>
                 <outlet property="walletNameLabel" destination="d4w-q4-Lxs" id="fWg-lW-fGG"/>
             </connections>
