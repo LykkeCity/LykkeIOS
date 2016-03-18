@@ -121,6 +121,14 @@ static int const kBlockchainRow = 5;
 {
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *text = [self dataByCellRow:indexPath.row];
+    if (text) {
+        return kLeftDetailTableViewCellHeight;
+    }
+    return 0.0;
+}
+
 
 #pragma mark - Utils
 
@@ -138,40 +146,27 @@ static int const kBlockchainRow = 5;
 }
 
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
-    
-    NSString *rate = [LWMath makeStringByNumber:self.purchase.price
-                                  withPrecision:self.purchase.accuracy.integerValue];
-    
-    NSString *volume = [LWMath makeStringByNumber:self.purchase.volume
-                                    withPrecision:0];
-    
-    NSString *commission = [LWMath makeStringByNumber:self.purchase.commission withPrecision:2];
-    
-    NSString *total = [LWMath makeStringByNumber:self.purchase.totalCost withPrecision:2];
-    
-    NSString *position = [LWMath makeStringByNumber:self.purchase.position withPrecision:0];
-    
-    NSString *blockchain = self.purchase.blockchainSettled
-        ? self.purchase.blockchainId
-        : Localize(@"exchange.assets.result.blockchain.progress");
-    
-    NSString *const values[kNumberOfRows] = {
-        self.purchase.assetPair,
-        volume,
-        rate,
-        commission,
-        total,
-        blockchain,
-        position
-    };
-    
-    cell.detailLabel.text = values[row];
+    cell.detailLabel.text = [self dataByCellRow:row];
     if (kBlockchainRow == row) {
         UIColor *blockchainColor = self.purchase.blockchainSettled
         ? [UIColor colorWithHexString:kMainElementsColor]
         : [UIColor colorWithHexString:kMainDarkElementsColor];
         [cell.detailLabel setTextColor:blockchainColor];
     }
+}
+
+- (NSString *)dataByCellRow:(NSInteger)row {
+    NSString *const values[kNumberOfRows] = {
+        self.purchase.assetPair,
+        [LWMath makeStringByNumber:self.purchase.volume withPrecision:0],
+        [LWMath makeStringByNumber:self.purchase.price withPrecision:self.purchase.accuracy.integerValue],
+        [LWMath makeStringByNumber:self.purchase.commission withPrecision:2],
+        [LWMath makeStringByNumber:self.purchase.totalCost withPrecision:2],
+        self.purchase.blockchainSettled ? self.purchase.blockchainId : Localize(@"exchange.assets.result.blockchain.progress"),
+        [LWMath makeStringByNumber:self.purchase.position withPrecision:0]
+    };
+    
+    return values[row];
 }
 
 - (void)startRefreshControl {

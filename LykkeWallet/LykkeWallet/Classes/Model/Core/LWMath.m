@@ -111,7 +111,7 @@
 
 + (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision {
     if (!number || [number isKindOfClass:[NSNull class]]) {
-        return @" - ";
+        return nil;
     }
     
     NSDecimalNumber *decimalRate = [NSDecimalNumber

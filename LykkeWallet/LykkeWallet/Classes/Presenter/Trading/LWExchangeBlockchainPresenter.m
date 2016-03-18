@@ -178,7 +178,10 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     }
     
     NSString *text = [self dataByCellRow:indexPath.row - 1];
-    return [self calculateRowHeightForText:text];
+    if (text) {
+        return [self calculateRowHeightForText:text];
+    }
+    return 0.0;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -191,7 +194,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 - (NSString *)stringFromData:(NSString *)data {
     if (data == nil || [data isKindOfClass:[NSNull class]]) {
-        return @" - ";
+        return nil;
     }
     
     return data;
