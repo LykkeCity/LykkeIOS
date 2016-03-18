@@ -16,9 +16,9 @@
     
 }
 
-@property (copy,   nonatomic) NSNumber *volume;
-@property (copy,   nonatomic) NSString *asset;
-
+@property (copy, nonatomic) NSNumber *volume;
+@property (copy, nonatomic) NSString *asset;
+@property (copy, nonatomic) NSString *iconId;
 
 + (LWTradeHistoryItemType *)convertFromNetworkModel:(LWTransactionTradeModel *)model;
 

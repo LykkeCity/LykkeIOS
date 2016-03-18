@@ -23,6 +23,7 @@
         NSString *date = [json objectForKey:@"DateTime"];
         _dateTime = [date toDate];
         _asset    = [json objectForKey:@"Asset"];
+        _iconId   = [json objectForKey:@"IconId"];
     }
     return self;
 }

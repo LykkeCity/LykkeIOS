@@ -19,6 +19,7 @@
     result.identity    = model.identity;
     result.amount      = model.amount;
     result.asset       = model.asset;
+    result.iconId      = model.iconId;
     result.historyType = LWHistoryItemTypeCashInOut;
     
     return result;
@@ -29,6 +30,7 @@
     LWCashInOutHistoryItemType* data = [super copyWithZone:zone];
     data.amount = [self.amount copy];
     data.asset = [self.asset copy];
+    data.asset = [self.iconId copy];
     return data;
 }
 

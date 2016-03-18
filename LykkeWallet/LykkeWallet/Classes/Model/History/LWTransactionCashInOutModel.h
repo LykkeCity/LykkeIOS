@@ -17,5 +17,6 @@
 @property (readonly, nonatomic) NSNumber *amount;
 @property (readonly, nonatomic) NSDate   *dateTime;
 @property (readonly, nonatomic) NSString *asset;
+@property (readonly, nonatomic) NSString *iconId;
 
 @end
