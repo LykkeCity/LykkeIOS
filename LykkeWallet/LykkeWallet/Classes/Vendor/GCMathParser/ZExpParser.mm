@@ -125,15 +125,15 @@ static const char yytranslate[] = {     0,
     11
 };
 
-static const short yyrline[] = {     0,
+/*static const short yyrline[] = {     0,
     74,    75,    76,    79,    80,    81,    82,    83,    84,    85,
     86,    87,    88,    89,    90
-};
+};*/
 
-static const char * const yytname[] = {     0,
+/*static const char * const yytname[] = {     0,
 "error","$illegal.","NUMBER","FUNCTION","VAR","'='","'-'","'+'","'*'","'/'",
 "NEG","';'","'^'","'%'","'\\n'","'('","')'","line"
-};
+};*/
 
 static const short yyr1[] = {     0,
     18,    18,    18,    19,    19,    19,    19,    19,    19,    19,
@@ -845,7 +845,7 @@ yyerrpop:   /* pop the current state because it cannot handle the error token */
 
 // error function
 
-void yyerror ( char* errStr )
+void yyerror ( const char* errStr )
 {
 	//FailOSErr( kExpParseErr );
 	

@@ -17,7 +17,7 @@
 
 
 @interface LWExchangeBlockchainPresenter () {
-    LWAssetBlockchainModel *blockchainModel;
+    
 }
 
 
@@ -88,10 +88,6 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
      setBackgroundColor:[UIColor colorWithHexString:kMainGrayElementsColor]];
     
     [self updateViewWithOffset:CGPointMake(0, 0)];
-    
-    // request blockchain data
-    [self setLoading:YES];
-    [[LWAuthManager instance] requestBlockchainOrderTransaction:self.orderId];
 }
 
 #ifdef PROJECT_IATA
@@ -111,13 +107,6 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain {
-    blockchainModel = blockchain;
-    [self setLoading:NO];
-    
-    [self.tableView reloadData];
-}
-
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
     
@@ -132,7 +121,7 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (blockchainModel == nil) ? 1 : kDescriptionRows;
+    return (self.blockchainModel == nil) ? 1 : kDescriptionRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -244,15 +233,15 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 - (NSString *)dataByCellRow:(NSInteger)row {
     NSString *const values[kDescriptionRows] = {
-        [self stringFromData:blockchainModel.identity],
-        [self stringFromData:blockchainModel.date],
-        [LWMath makeStringByNumber:blockchainModel.confirmations withPrecision:0],
-        [self stringFromData:blockchainModel.block],
-        [LWMath makeStringByNumber:blockchainModel.height withPrecision:0],
-        [self stringFromData:blockchainModel.senderId],
-        [self stringFromData:blockchainModel.assetId],
-        [LWMath makeStringByNumber:blockchainModel.quantity withPrecision:0],
-        [self stringFromData:blockchainModel.url]
+        [self stringFromData:self.blockchainModel.identity],
+        [self stringFromData:self.blockchainModel.date],
+        [LWMath makeStringByNumber:self.blockchainModel.confirmations withPrecision:0],
+        [self stringFromData:self.blockchainModel.block],
+        [LWMath makeStringByNumber:self.blockchainModel.height withPrecision:0],
+        [self stringFromData:self.blockchainModel.senderId],
+        [self stringFromData:self.blockchainModel.assetId],
+        [LWMath makeStringByNumber:self.blockchainModel.quantity withPrecision:0],
+        [self stringFromData:self.blockchainModel.url]
     };
     return values[row];
 }

@@ -27,7 +27,7 @@
 @end
 
 
-#warning TODO: copy-paste from LWAuthPINEnterPresenter with small modifications
+#warning TODO: refactoring because of copying LWAuthPINEnterPresenter
 @implementation LWSettingsConfirmationPresenter
 
 

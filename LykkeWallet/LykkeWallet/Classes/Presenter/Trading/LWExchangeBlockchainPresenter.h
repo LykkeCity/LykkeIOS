@@ -16,6 +16,6 @@
 
 #pragma mark - Properties
 
-@property (copy, nonatomic) NSString *orderId;
+@property (strong, nonatomic) LWAssetBlockchainModel *blockchainModel;
 
 @end

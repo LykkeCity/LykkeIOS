@@ -7,16 +7,20 @@
 //
 
 #import "LWExchangeEmptyBlockchainPresenter.h"
+#import "LWExchangeBlockchainPresenter.h"
 #import "LWLeftDetailTableViewCell.h"
 #import "LWExchangeInfoModel.h"
 #import "LWAssetModel.h"
+#import "LWAssetBlockchainModel.h"
 #import "LWConstants.h"
 #import "LWCache.h"
 #import "LWMath.h"
+#import "LWAuthManager.h"
 #import "UIViewController+Navigation.h"
+#import "UIViewController+Loading.h"
 
 @interface LWExchangeEmptyBlockchainPresenter () {
-    UIRefreshControl *refreshControl;
+
 }
 
 #pragma mark - Utils
@@ -27,6 +31,7 @@
 @end
 
 
+#warning TODO: refactoring because of copying LWExchangeResultPresenter
 @implementation LWExchangeEmptyBlockchainPresenter
 
 static int const kNumberOfRows = 7;
@@ -56,18 +61,6 @@ static int const kBlockchainRow = 5;
     [super viewWillAppear:animated];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
-}
-
-- (void)setRefreshControl
-{
-    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
-    [self.tableView insertSubview:refreshView atIndex:0];
-    
-    refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.tintColor = [UIColor blackColor];
-    [refreshControl addTarget:self action:@selector(updateStatus)
-             forControlEvents:UIControlEventValueChanged];
-    [refreshView addSubview:refreshControl];
 }
 
 
@@ -149,17 +142,29 @@ static int const kBlockchainRow = 5;
     }
 }
 
-- (void)updateStatus {
-#warning TODO:
+- (void)startRefreshControl {
+    [super startRefreshControl];
+
+    [[LWAuthManager instance] requestBlockchainExchangeTransaction:self.model.identity];
 }
 
 
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [refreshControl endRefreshing];
-    
-    //[self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
+    [self stopRefreshControl];
+
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
+}
+
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainExchangeTransaction:(LWAssetBlockchainModel *)blockchain {
+    [self stopRefreshControl];
+
+    if (blockchain) {
+        LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
+        controller.blockchainModel = blockchain;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 @end
