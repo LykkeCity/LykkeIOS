@@ -7,19 +7,67 @@
 //
 
 #import "LWTradingGraphPresenter.h"
+#import "LWExchangeDealFormPresenter.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAssetPairModel.h"
 #import "LWCache.h"
 #import "LWLeftDetailTableViewCell.h"
 #import "LWValidator.h"
+#import "LWConstants.h"
 #import "LWMath.h"
 #import "TKButton.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
 
+#import <stockchart/stockchart.h>
+
+
+
+
+@interface LWGenPointStockAdapter : NSObject <SCHSeriesPointAdapter>
+@property NSArray *generatedPoints;
+@property SCHStockPoint *point;
+
+- (instancetype)initWithGeneratedPoints:(NSArray *)points;
+- (NSInteger)getPointCount;
+- (SCHAbstractPoint *)getPointAt:(NSInteger)i;
+
+@end
+
+@implementation LWGenPointStockAdapter
+
+- (instancetype)initWithGeneratedPoints:(NSArray *)points
+{
+    self = [super init];
+    
+    if(self)
+    {
+        _generatedPoints = points;
+        _point = [[SCHStockPoint alloc] init];
+    }
+    
+    return self;
+}
+
+- (NSInteger)getPointCount
+{
+    return [self.generatedPoints count];
+}
+
+- (SCHAbstractPoint *)getPointAt:(NSInteger)i
+{
+    SCHStockDataPoint *p = self.generatedPoints[i];
+    [self.point setValuesWithOpen:p.o High:p.h Low:p.l Close:p.c];
+    return self.point;
+}
+
+@end
+
+
+
 
 @interface LWTradingGraphPresenter () {
-    
+
 }
 
 @property (assign, nonatomic) BOOL isValid;
@@ -27,7 +75,9 @@
 
 @property (weak, nonatomic) IBOutlet TKButton *sellButton;
 @property (weak, nonatomic) IBOutlet TKButton *buyButton;
-
+@property (weak, nonatomic) IBOutlet UIView   *graphView;
+@property (weak, nonatomic) IBOutlet UIView   *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *graphHeightConstraint;
 
 #pragma mark - Utils
 - (void)updateTitleCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
@@ -35,6 +85,7 @@
 - (void)requestPrices;
 - (void)updatePrices;
 - (void)invalidPrices;
+- (void)setupChart;
 
 @end
 
@@ -54,13 +105,21 @@ static int const kNumberOfRows = 3;
     [self registerCellWithIdentifier:kLeftDetailTableViewCellIdentifier
                                 name:kLeftDetailTableViewCell];
     
+    [self setupChart];
     [self setBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     [[LWAuthManager instance] requestAssetPairRate:self.asset.identity];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGFloat const graphHeight = self.view.bounds.size.height - self.tableView.frame.size.height - self.bottomView.frame.size.height;
+    self.graphHeightConstraint.constant = graphHeight;
 }
 
 
@@ -108,11 +167,10 @@ static int const kNumberOfRows = 3;
         values[0] = @"4:30 PM EST";
         values[1] = [LWMath makeStringByNumber:self.pairRateModel.ask
                                  withPrecision:self.asset.accuracy.integerValue];
-        values[2] = @"<x> <x>%";
+        values[2] = @"-21,06 -1,08%";
     }
 
     cell.detailLabel.text = values[row];
-    //[cell.detailLabel setTextColor:[UIColor colorWithHexString:kMainDarkElementsColor]];
 }
 
 - (void)requestPrices {
@@ -125,8 +183,8 @@ static int const kNumberOfRows = 3;
 }
 
 - (void)updatePrices {
-    [LWValidator setBuyButton:self.buyButton enabled:YES];
-    [LWValidator setSellButton:self.sellButton enabled:YES];
+    [LWValidator setBuyButton:self.buyButton enabled:self.isValid];
+    [LWValidator setSellButton:self.sellButton enabled:self.isValid];
     
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
@@ -148,6 +206,42 @@ static int const kNumberOfRows = 3;
     [self.tableView reloadData];
 }
 
+- (void)setupChart {
+    SCHStockChartViewPro *chart = [[SCHStockChartViewPro alloc]
+                                   initWithFrame:self.graphView.bounds];
+    [self.graphView addSubview:chart];
+    
+    // Customize area
+    SCHArea *chartArea = [chart addArea];
+    [chartArea setHeightInPercents:90];
+    [chartArea setAxesVisibleLeft:NO Top:NO Right:YES Bottom:YES];
+    [chartArea.areaAppearance setOutlineWidth:0.0];
+#warning TODO: set correct colors
+    chartArea.plot.plotAppearance.outlineColor = [UIColor lightGrayColor];
+    
+    SCHSeries *price = [chart addSeries:chartArea];
+    SCHCandlestickStockRenderer *renderer = [[SCHCandlestickStockRenderer alloc] init];
+    UIColor *riseColor = [UIColor colorWithHexString:kAssetChangePlusColor];
+    UIColor *fallColor = [UIColor colorWithHexString:kAssetChangeMinusColor];
+    renderer.riseAppearance.primaryFillColor = riseColor;
+    renderer.riseAppearance.outlineColor = riseColor;
+    renderer.riseAppearance.gradient = SCHAppearanceGradientNone;
+    renderer.fallAppearance.primaryFillColor = fallColor;
+    renderer.fallAppearance.outlineColor = fallColor;
+    renderer.fallAppearance.gradient = SCHAppearanceGradientNone;
+    
+    [price setRenderer:renderer];
+    price.name = @"price";
+    price.yAxisSide = SCHAxisSideRight;
+    SCHStockDataGenerator *gen = [[SCHStockDataGenerator alloc] init];
+    NSArray *points = [gen getNext:20];
+    price.pointAdapter = [[LWGenPointStockAdapter alloc] initWithGeneratedPoints:points];
+    
+    [chart setAutoresizingMask:(UIViewAutoresizingFlexibleWidth
+                                | UIViewAutoresizingFlexibleHeight)];
+    [self.graphView setAutoresizesSubviews:YES];
+}
+
 
 #pragma mark - LWAuthManagerDelegate
 
@@ -164,6 +258,23 @@ static int const kNumberOfRows = 3;
     
     [self invalidPrices];
     [self requestPrices];
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)sellClicked:(id)sender {
+    LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
+    controller.assetPair = self.asset;
+    controller.assetDealType = LWAssetDealTypeSell;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (IBAction)buyClicked:(id)sender {
+    LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
+    controller.assetPair = self.asset;
+    controller.assetDealType = LWAssetDealTypeBuy;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
