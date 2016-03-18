@@ -11,10 +11,12 @@
 #import "LWLeftDetailTableViewCell.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetDealModel.h"
+#import "LWAssetBlockchainModel.h"
 #import "LWConstants.h"
 #import "LWMath.h"
 #import "LWAuthManager.h"
 #import "TKButton.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWExchangeResultPresenter () {
@@ -33,7 +35,6 @@
 
 - (void)updateTitleCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
-- (void)updateStatus;
 
 @end
 
@@ -52,6 +53,8 @@ static int const kBlockchainRow = 5;
     
     [self registerCellWithIdentifier:kLeftDetailTableViewCellIdentifier
                                 name:kLeftDetailTableViewCell];
+    
+    [self setRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -75,8 +78,6 @@ static int const kBlockchainRow = 5;
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
 
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    [self updateStatus];
 }
 
 #ifdef PROJECT_IATA
@@ -173,13 +174,10 @@ static int const kBlockchainRow = 5;
     }
 }
 
-- (void)updateStatus {
-    // if blockchain is already received - finish requesting
-    if (!self.purchase.blockchainSettled) {
-        const NSInteger repeatSeconds = 5;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[LWAuthManager instance] requestMarketOrder:self.purchase.identity];
-        });
+- (void)startRefreshControl {
+    if (!self.purchase || !self.purchase.blockchainSettled) {
+        [super startRefreshControl];
+        [[LWAuthManager instance] requestMarketOrder:self.purchase.identity];
     }
 }
 
@@ -190,9 +188,8 @@ static int const kBlockchainRow = 5;
 
     if (indexPath.row == kBlockchainRow && self.purchase
         && self.purchase.blockchainSettled) {
-        LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
-        controller.orderId = self.purchase.identity;
-        [self.navigationController pushViewController:controller animated:YES];
+        [self setLoading:YES];
+        [[LWAuthManager instance] requestBlockchainOrderTransaction:self.purchase.identity];
     }
 }
 
@@ -200,13 +197,26 @@ static int const kBlockchainRow = 5;
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
-    [self updateStatus];
+    [self stopRefreshControl];
+    
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 }
 
 - (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)purchase {
-    self.purchase = purchase;
+    [self stopRefreshControl];
+    [self setLoading:NO];
     
-    [self updateStatus];
+    self.purchase = purchase;
+    [self.tableView reloadData];
+}
+
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain {
+    [self stopRefreshControl];
+    [self setLoading:NO];
+
+    LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
+    controller.blockchainModel = blockchain;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

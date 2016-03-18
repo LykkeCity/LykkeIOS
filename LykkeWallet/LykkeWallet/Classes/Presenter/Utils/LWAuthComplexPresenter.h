@@ -23,5 +23,8 @@
 
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
 - (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
+- (void)setRefreshControl;
+- (void)startRefreshControl;
+- (void)stopRefreshControl;
 
 @end

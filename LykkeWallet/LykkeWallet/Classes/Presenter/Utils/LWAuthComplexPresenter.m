@@ -10,7 +10,7 @@
 
 
 @interface LWAuthComplexPresenter () <UITableViewDataSource, UITableViewDelegate> {
-    
+    UIRefreshControl *refreshControl;
 }
 
 @end
@@ -68,6 +68,32 @@
 
 - (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (void)setRefreshControl
+{
+    if (self.tableView) {
+        UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 0, 0)];
+        [self.tableView insertSubview:refreshView atIndex:0];
+        
+        refreshControl = [[UIRefreshControl alloc] init];
+        refreshControl.tintColor = [UIColor blackColor];
+        [refreshControl addTarget:self action:@selector(startRefreshControl)
+                 forControlEvents:UIControlEventValueChanged];
+        [refreshView addSubview:refreshControl];
+    }
+}
+
+- (void)stopRefreshControl {
+    if (refreshControl) {
+        [refreshControl endRefreshing];
+    }
+}
+
+- (void)startRefreshControl {
+    if (refreshControl) {
+        [refreshControl beginRefreshing];
+    }
 }
 
 @end

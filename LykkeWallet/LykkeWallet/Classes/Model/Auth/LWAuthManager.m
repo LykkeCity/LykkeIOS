@@ -43,7 +43,7 @@
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
-#import "LWPacketLykkeWallet.h"
+#import "LWPacketWallets.h"
 #import "LWKeychainManager.h"
 #import "LWAssetDealModel.h"
 #import "LWPersonalDataModel.h"
@@ -176,7 +176,7 @@ SINGLETON_INIT {
 }
 
 - (void)requestLykkeWallets {
-    LWPacketLykkeWallet *pack = [LWPacketLykkeWallet new];
+    LWPacketWallets *pack = [LWPacketWallets new];
     
     [self sendPacket:pack];
 }
@@ -426,10 +426,10 @@ SINGLETON_INIT {
          didReceiveRestrictedCountries:((LWPacketRestrictedCountries *)pack).countries];
         }
     }
-    else if (pack.class == LWPacketLykkeWallet.class) {
+    else if (pack.class == LWPacketWallets.class) {
         // recieved data with all wallets
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveLykkeData:)]) {
-            [self.delegate authManager:self didReceiveLykkeData:((LWPacketLykkeWallet *)pack).data];
+            [self.delegate authManager:self didReceiveLykkeData:((LWPacketWallets *)pack).data];
         }
     }
     else if (pack.class == LWPacketLog.class) {

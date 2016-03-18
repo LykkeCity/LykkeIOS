@@ -9,6 +9,7 @@
 #import "LWHistoryPresenter.h"
 #import "LWCashEmptyBlockchainPresenter.h"
 #import "LWExchangeEmptyBlockchainPresenter.h"
+#import "LWExchangeBlockchainPresenter.h"
 #import "LWHistoryTableViewCell.h"
 #import "LWAuthManager.h"
 #import "LWTransactionsModel.h"
@@ -44,6 +45,7 @@
 - (void)setRefreshControl;
 - (void)reloadHistory;
 - (LWBaseHistoryItemType *)getHistoryItemByIndexPath:(NSIndexPath *)indexPath;
+- (void)showBlockchainView:(LWAssetBlockchainModel *)blockchain;
 
 @end
 
@@ -114,7 +116,7 @@
     [self setLoading:NO];
     
     if (blockchain) {
-#warning TODO:
+        [self showBlockchainView:blockchain];
     }
     else {
         // need extra data - request
@@ -131,7 +133,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainExchangeTransaction:(LWAssetBlockchainModel *)blockchain {
     if (blockchain) {
         [self setLoading:NO];
-#warning TODO:
+        [self showBlockchainView:blockchain];
     }
     else {
         // need extra data - request
@@ -268,6 +270,12 @@
         }
     }
     return nil;
+}
+
+- (void)showBlockchainView:(LWAssetBlockchainModel *)blockchain {
+    LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
+    controller.blockchainModel = blockchain;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
