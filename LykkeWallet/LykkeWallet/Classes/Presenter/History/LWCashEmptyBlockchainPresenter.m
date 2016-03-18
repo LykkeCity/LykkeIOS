@@ -26,6 +26,11 @@
 
 }
 
+
+#pragma mark - Utils
+- (void)updateTitleCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
+- (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row;
+
 @end
 
 

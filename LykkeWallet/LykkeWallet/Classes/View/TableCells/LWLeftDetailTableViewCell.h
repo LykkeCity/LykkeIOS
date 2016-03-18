@@ -11,6 +11,7 @@
 
 #define kLeftDetailTableViewCell           @"LWLeftDetailTableViewCell"
 #define kLeftDetailTableViewCellIdentifier @"LWLeftDetailTableViewCellIdentifier"
+#define kLeftDetailTableViewCellHeight     50
 
 
 @interface LWLeftDetailTableViewCell : TKTableViewCell {

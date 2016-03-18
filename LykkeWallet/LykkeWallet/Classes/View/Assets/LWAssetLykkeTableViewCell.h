@@ -7,15 +7,18 @@
 //
 
 #import "TKTableViewCell.h"
+#import "LWAssetLykkeTableChangeView.h"
 
 
 @class LWAssetPairModel;
 @class LWAssetPairRateModel;
+@class LWAssetLykkeTableViewCell;
 
 
-@interface LWAssetLykkeTableChangeView : UIView {
+@protocol LWAssetLykkeTableViewCellDelegate<NSObject>
 
-}
+@required
+- (void)graphClicked:(LWAssetLykkeTableViewCell *)cell;
 
 @end
 
@@ -28,6 +31,7 @@
 
 @property (strong, nonatomic) LWAssetPairModel     *pair;
 @property (strong, nonatomic) LWAssetPairRateModel *rate;
+@property (weak, nonatomic)   id<LWAssetLykkeTableViewCellDelegate> delegate;
 
 
 #pragma mark - Outlets
