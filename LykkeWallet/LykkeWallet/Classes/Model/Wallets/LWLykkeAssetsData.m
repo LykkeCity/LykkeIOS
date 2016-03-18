@@ -24,6 +24,8 @@
         _symbol      = [json objectForKey:@"Symbol"];
         _balance     = [json objectForKey:@"Balance"];
         _assetPairId = [json objectForKey:@"AssetPairId"];
+        _issuerId    = [json objectForKey:@"IssuerId"];
+        _hideIfZero  = [[json objectForKey:@"HideIfZero"] boolValue];
     }
     return self;
 }

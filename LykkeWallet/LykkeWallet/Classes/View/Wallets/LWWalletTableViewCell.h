@@ -35,7 +35,7 @@
 
 #pragma mark - Outlets
 
-@property (weak, nonatomic) IBOutlet UILabel *walletLabel;
+@property (weak, nonatomic) IBOutlet UILabel     *walletLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *walletImageView;
 @property (weak, nonatomic) IBOutlet UIButton    *addWalletButton;
 

@@ -1,5 +1,5 @@
 //
-//  LWPacketLykkeWallet.h
+//  LWPacketWallets.h
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 26.12.15.
@@ -10,7 +10,7 @@
 #import "LWLykkeWalletsData.h"
 
 
-@interface LWPacketLykkeWallet : LWAuthorizePacket {
+@interface LWPacketWallets : LWAuthorizePacket {
     
 }
 // out

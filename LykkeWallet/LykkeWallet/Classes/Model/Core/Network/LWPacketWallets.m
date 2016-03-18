@@ -1,15 +1,15 @@
 //
-//  LWPacketLykkeWallet.m
+//  LWPacketWallets.m
 //  LykkeWallet
 //
 //  Created by Alexander Pukhov on 26.12.15.
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWPacketLykkeWallet.h"
+#import "LWPacketWallets.h"
 
 
-@implementation LWPacketLykkeWallet
+@implementation LWPacketWallets
 
 
 #pragma mark - LWPacket
@@ -25,7 +25,7 @@
 }
 
 - (NSString *)urlRelative {
-    return @"LykkeWallet";
+    return @"Wallets";
 }
 
 - (GDXRESTPacketType)type {

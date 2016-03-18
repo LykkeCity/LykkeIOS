@@ -6,7 +6,7 @@
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "TKTableViewCell.h"
+#import "SWTableViewCell.h"
 
 
 #define kBitcoinTableViewCell           @"LWBitcoinTableViewCell"
@@ -23,13 +23,18 @@
 @end
 
 
-@interface LWBitcoinTableViewCell : TKTableViewCell {
+@interface LWBitcoinTableViewCell : SWTableViewCell {
     
 }
 
+#pragma mark - Identity
+
++ (NSString *)reuseIdentifier;
++ (UINib *)nib;
+
 #pragma mark - Properties
 
-@property (weak, nonatomic) id<LWBitcoinTableViewCellDelegate> delegate;
+@property (weak, nonatomic) id<LWBitcoinTableViewCellDelegate> cellDelegate;
 
 #pragma mark - Outlets
 

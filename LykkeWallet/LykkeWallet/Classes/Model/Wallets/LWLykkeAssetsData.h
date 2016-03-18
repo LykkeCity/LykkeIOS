@@ -18,5 +18,7 @@
 @property (readonly, nonatomic) NSString *symbol;
 @property (readonly, nonatomic) NSNumber *balance;
 @property (readonly, nonatomic) NSString *assetPairId;
+@property (readonly, nonatomic) NSString *issuerId;
+@property (readonly, assign)    BOOL      hideIfZero;
 
 @end
