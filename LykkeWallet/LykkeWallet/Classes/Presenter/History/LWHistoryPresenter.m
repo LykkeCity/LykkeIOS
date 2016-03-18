@@ -46,6 +46,7 @@
 - (void)reloadHistory;
 - (LWBaseHistoryItemType *)getHistoryItemByIndexPath:(NSIndexPath *)indexPath;
 - (void)showBlockchainView:(LWAssetBlockchainModel *)blockchain;
+- (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView;
 
 @end
 
@@ -201,7 +202,7 @@
     NSString *operation = @"";
     if (item.historyType == LWHistoryItemTypeTrade) {
         LWTradeHistoryItemType *trade = (LWTradeHistoryItemType *)item;
-        cell.operationImageView.image = [UIImage imageNamed:@"WalletBitcoin"];
+        [self setImageType:trade.iconId forImageView:cell.operationImageView];
         
         volume = trade.volume;
         
@@ -217,7 +218,7 @@
     }
     else {
         LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
-        cell.operationImageView.image = [UIImage imageNamed:@"WalletBitcoin"];
+        [self setImageType:cash.iconId forImageView:cell.operationImageView];
         volume = cash.amount;
         
         NSString *base = [LWAssetModel
@@ -276,6 +277,23 @@
     LWExchangeBlockchainPresenter *controller = [LWExchangeBlockchainPresenter new];
     controller.blockchainModel = blockchain;
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView {
+    if (imageType) {
+        if ([imageType isEqualToString:@"BTC"]) {
+            imageView.image = [UIImage imageNamed:@"WalletBitcoin"];
+        }
+        else if ([imageType isEqualToString:@"LKE"]) {
+            imageView.image = [UIImage imageNamed:@"WalletLykke"];
+        }
+        else {
+            imageView.image = nil;
+        }
+    }
+    else {
+        imageView.image = nil;
+    }
 }
 
 @end

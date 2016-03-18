@@ -18,6 +18,7 @@
     result.identity    = model.identity;
     result.volume      = model.volume;
     result.asset       = model.asset;
+    result.iconId      = model.iconId;
     result.historyType = LWHistoryItemTypeTrade;
     
     return result;
@@ -28,6 +29,7 @@
     LWTradeHistoryItemType* data = [super copyWithZone:zone];
     data.volume = [self.volume copy];
     data.asset = [self.asset copy];
+    data.iconId = [self.iconId copy];
     return data;
 }
 

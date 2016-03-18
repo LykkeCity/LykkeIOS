@@ -24,6 +24,7 @@
         _dateTime = [date toDate];
         _volume   = [json objectForKey:@"Volume"];
         _asset    = [json objectForKey:@"Asset"];
+        _iconId   = [json objectForKey:@"IconId"];
     }
     return self;
 }
