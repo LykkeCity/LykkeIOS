@@ -168,6 +168,12 @@
 "history.cash.blockchain" = "Blockchain settlement";
 "history.cash.progress" = "In progress";
 
+"graph.cell.time"   = "Fixing time";
+"graph.cell.price"  = "Last price";
+"graph.cell.change" = "Change";
+"graph.button.buy"  = "BUY AT PRICE $ ";
+"graph.button.sell" = "SELL AT PRICE $ ";
+
 "errors.network.connection" = "Проблемы с интернет-соединением";
 
 "ABPadLockScreen.pin.enter" = "Введите PIN";

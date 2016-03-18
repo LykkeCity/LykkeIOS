@@ -8,6 +8,7 @@
 
 #import "LWExchangePresenter.h"
 #import "LWExchangeFormPresenter.h"
+#import "LWTradingGraphPresenter.h"
 #import "LWAssetTableViewCell.h"
 #import "LWAssetLykkeTableViewCell.h"
 #import "LWAssetEmptyTableViewCell.h"
@@ -19,7 +20,7 @@
 #define emptyCellIdentifier @"LWAssetEmptyTableViewCellIdentifier"
 
 
-@interface LWExchangePresenter () {
+@interface LWExchangePresenter () <LWAssetLykkeTableViewCellDelegate> {
     NSMutableIndexSet   *expandedSections;
     NSMutableDictionary *pairRates;
 }
@@ -185,6 +186,7 @@ static NSString *const AssetIcons[kNumberOfSections] = {
                     LWAssetPairModel *assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
                     asset.pair = assetPair;
                     asset.rate = pairRates[assetPair.identity];
+                    asset.delegate = self;
                 }
                 // Show Empty
                 else {
@@ -298,6 +300,19 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[LWAuthManager instance] requestAssetPairRates];
     });
+}
+
+
+#pragma mark - LWAssetLykkeTableViewCellDelegate
+
+- (void)graphClicked:(LWAssetLykkeTableViewCell *)cell {
+    LWTradingGraphPresenter *presenter = [LWTradingGraphPresenter new];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    LWAssetPairModel *assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
+    if (assetPair) {
+        presenter.asset = assetPair;
+        [self.navigationController pushViewController:presenter animated:YES];
+    }
 }
 
 @end

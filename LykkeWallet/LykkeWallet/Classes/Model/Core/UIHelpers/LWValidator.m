@@ -10,6 +10,17 @@
 #import <UIKit/UIImage.h>
 
 
+@interface LWValidator () {
+    
+}
+
+
+#pragma mark - Utils
++ (void)updateButton:(UIButton *)button activeImage:(NSString *)activeImage inactiveImage:(NSString *)inactiveImage enabled:(BOOL)enabled;
+
+@end
+
+
 @implementation LWValidator
 
 static int const MinTextLength = 1;
@@ -73,16 +84,38 @@ static int const PasswordLength = 6;
 }
 
 + (void)setButton:(UIButton *)button enabled:(BOOL)enabled {
-    NSString *proceedImage = (enabled) ? @"ButtonOK" : @"ButtonOKInactive";
-    UIColor *proceedColor = (enabled) ? [UIColor whiteColor] : [UIColor lightGrayColor];
-    
-    [button setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];
-    [button setTitleColor:proceedColor forState:UIControlStateNormal];
-    button.enabled = enabled;
+    [LWValidator updateButton:button
+                  activeImage:@"ButtonOK"
+                inactiveImage:@"ButtonOKInactive"
+                      enabled:enabled];
 }
 
 + (void)setPriceButton:(UIButton *)button enabled:(BOOL)enabled {
-    NSString *proceedImage = (enabled) ? @"ButtonOKGreen" : @"ButtonOKInactive";
+    [LWValidator updateButton:button
+                  activeImage:@"ButtonOKGreen"
+                inactiveImage:@"ButtonOKInactive"
+                      enabled:enabled];
+}
+
++ (void)setSellButton:(UIButton *)button enabled:(BOOL)enabled {
+    [LWValidator updateButton:button
+                  activeImage:@"ButtonOKRed"
+                inactiveImage:@"ButtonOKInactive"
+                      enabled:enabled];
+}
+
++ (void)setBuyButton:(UIButton *)button enabled:(BOOL)enabled {
+    [LWValidator updateButton:button
+                  activeImage:@"ButtonOKGreen"
+                inactiveImage:@"ButtonOKInactive"
+                      enabled:enabled];
+}
+
+
+#pragma mark - Utils
+
++ (void)updateButton:(UIButton *)button activeImage:(NSString *)activeImage inactiveImage:(NSString *)inactiveImage enabled:(BOOL)enabled {
+    NSString *proceedImage = (enabled) ? activeImage : inactiveImage;
     UIColor *proceedColor = (enabled) ? [UIColor whiteColor] : [UIColor lightGrayColor];
     
     [button setBackgroundImage:[UIImage imageNamed:proceedImage] forState:UIControlStateNormal];

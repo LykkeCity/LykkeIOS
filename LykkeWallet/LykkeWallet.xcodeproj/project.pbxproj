@@ -454,6 +454,14 @@
 		ECAB1BC81C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */; };
 		ECAB1BC91C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
 		ECAB1BCA1C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
+		ECC526FA1C9C1EC800022382 /* stockchart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC526F91C9C1EC800022382 /* stockchart.framework */; };
+		ECC526FB1C9C1ECC00022382 /* stockchart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC526F91C9C1EC800022382 /* stockchart.framework */; };
+		ECC527001C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC526FE1C9C1F3700022382 /* LWTradingGraphPresenter.m */; };
+		ECC527011C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC526FE1C9C1F3700022382 /* LWTradingGraphPresenter.m */; };
+		ECC527021C9C1F3700022382 /* LWTradingGraphPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC526FF1C9C1F3700022382 /* LWTradingGraphPresenter.xib */; };
+		ECC527031C9C1F3700022382 /* LWTradingGraphPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC526FF1C9C1F3700022382 /* LWTradingGraphPresenter.xib */; };
+		ECC527061C9C23BD00022382 /* LWAssetLykkeTableChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC527051C9C23BD00022382 /* LWAssetLykkeTableChangeView.m */; };
+		ECC527071C9C23BD00022382 /* LWAssetLykkeTableChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC527051C9C23BD00022382 /* LWAssetLykkeTableChangeView.m */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -914,6 +922,12 @@
 		ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeEmptyBlockchainPresenter.xib; sourceTree = "<group>"; };
 		ECBF52441C878372008E0C0D /* LWConstantsLykke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsLykke.h; sourceTree = "<group>"; };
 		ECBF52451C878382008E0C0D /* LWConstantsIATA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsIATA.h; sourceTree = "<group>"; };
+		ECC526F91C9C1EC800022382 /* stockchart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = stockchart.framework; sourceTree = "<group>"; };
+		ECC526FD1C9C1F3700022382 /* LWTradingGraphPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTradingGraphPresenter.h; path = TradingGraph/LWTradingGraphPresenter.h; sourceTree = "<group>"; };
+		ECC526FE1C9C1F3700022382 /* LWTradingGraphPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTradingGraphPresenter.m; path = TradingGraph/LWTradingGraphPresenter.m; sourceTree = "<group>"; };
+		ECC526FF1C9C1F3700022382 /* LWTradingGraphPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTradingGraphPresenter.xib; path = TradingGraph/LWTradingGraphPresenter.xib; sourceTree = "<group>"; };
+		ECC527041C9C23BD00022382 /* LWAssetLykkeTableChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetLykkeTableChangeView.h; path = Assets/LWAssetLykkeTableChangeView.h; sourceTree = "<group>"; };
+		ECC527051C9C23BD00022382 /* LWAssetLykkeTableChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetLykkeTableChangeView.m; path = Assets/LWAssetLykkeTableChangeView.m; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1019,6 +1033,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC25A6921C331F0B00F223FF /* LocalAuthentication.framework in Frameworks */,
+				ECC526FA1C9C1EC800022382 /* stockchart.framework in Frameworks */,
 				A87C81BA1C7356E1D9BA3A28 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1043,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC4D921D1C8778DF006EE7C8 /* LocalAuthentication.framework in Frameworks */,
+				ECC526FB1C9C1ECC00022382 /* stockchart.framework in Frameworks */,
 				EC4D921E1C8778DF006EE7C8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1159,6 +1175,7 @@
 		CF6632401C175B54004353F5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				ECC526FC1C9C1F0100022382 /* TradingGraph */,
 				EC9F3F511C90706A00DC1F87 /* Transfer */,
 				CF9EC8B71C17C00A00F742A6 /* Auth */,
 				CF6632821C176A63004353F5 /* Wallets */,
@@ -1606,6 +1623,7 @@
 		D19F0116617E74EB428F44A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECC526F91C9C1EC800022382 /* stockchart.framework */,
 				EC25A6911C331F0B00F223FF /* LocalAuthentication.framework */,
 				B1A20FEBD41AE93CA79087B5 /* libPods.a */,
 			);
@@ -2161,6 +2179,16 @@
 			name = ExchangeInfo;
 			sourceTree = "<group>";
 		};
+		ECC526FC1C9C1F0100022382 /* TradingGraph */ = {
+			isa = PBXGroup;
+			children = (
+				ECC526FD1C9C1F3700022382 /* LWTradingGraphPresenter.h */,
+				ECC526FE1C9C1F3700022382 /* LWTradingGraphPresenter.m */,
+				ECC526FF1C9C1F3700022382 /* LWTradingGraphPresenter.xib */,
+			);
+			name = TradingGraph;
+			sourceTree = "<group>";
+		};
 		ECD1E8F51C3B16E40064AAB3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2190,6 +2218,8 @@
 				ECD1E90A1C3BDEA70064AAB3 /* LWAssetTableViewCell.m */,
 				ECD1E90E1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.h */,
 				ECD1E90F1C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m */,
+				ECC527041C9C23BD00022382 /* LWAssetLykkeTableChangeView.h */,
+				ECC527051C9C23BD00022382 /* LWAssetLykkeTableChangeView.m */,
 				ECD1E9131C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.h */,
 				ECD1E9141C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m */,
 				EC57F4591C3C556B00E31746 /* LWAssetInfoTextTableViewCell.h */,
@@ -2425,6 +2455,7 @@
 				EC3CE8BD1C4028F400CAC3FE /* LWAssetBlockchainTableViewCell.xib in Resources */,
 				CF9EC8BC1C17C02F00F742A6 /* LWAuthEntryPointPresenter.xib in Resources */,
 				CFF7583D1C202C6500BC7658 /* LWKYCPendingPresenter.xib in Resources */,
+				ECC527021C9C1F3700022382 /* LWTradingGraphPresenter.xib in Resources */,
 				EC7A45E01C309ACD00926BB4 /* LWWalletEmptyTableViewCell.xib in Resources */,
 				ECECAB451C9897300020E050 /* LWCashEmptyBlockchainPresenter.xib in Resources */,
 				CF6877511C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.xib in Resources */,
@@ -2527,6 +2558,7 @@
 				EC9EC2511C8EE66000C986DD /* LWExchangeConfirmationView.xib in Resources */,
 				EC9C94A71C89D6E6006FD46B /* LWAuthenticationPresenter.xib in Resources */,
 				ECECAB461C9897300020E050 /* LWCashEmptyBlockchainPresenter.xib in Resources */,
+				ECC527031C9C1F3700022382 /* LWTradingGraphPresenter.xib in Resources */,
 				EC4D926D1C8778DF006EE7C8 /* LWKYCRestrictedPresenter.xib in Resources */,
 				EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */,
 				EC302FFD1C903444003A1F5F /* LWRadioTableViewCell.xib in Resources */,
@@ -2764,6 +2796,7 @@
 				CF6632491C175B54004353F5 /* main.m in Sources */,
 				EC3CE8A11C3FBF6F00CAC3FE /* LWFingerprintHelper.m in Sources */,
 				EC57F4701C3D51F900E31746 /* LWAssetBuySumTableViewCell.m in Sources */,
+				ECC527061C9C23BD00022382 /* LWAssetLykkeTableChangeView.m in Sources */,
 				EC57F4681C3D3FF900E31746 /* LWExchangeDealFormPresenter.m in Sources */,
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */,
@@ -2788,6 +2821,7 @@
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
+				ECC527001C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */,
 				ECEC40BF1C42B2EB00B22BEE /* LWTransactionsModel.m in Sources */,
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
 				EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */,
@@ -2971,6 +3005,7 @@
 				EC4D91E81C8778DF006EE7C8 /* LWAssetsTablePresenter.m in Sources */,
 				EC4D91E91C8778DF006EE7C8 /* ABPadLockScreenViewController.m in Sources */,
 				ECECAB521C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */,
+				ECC527071C9C23BD00022382 /* LWAssetLykkeTableChangeView.m in Sources */,
 				EC4D91EA1C8778DF006EE7C8 /* LWRegisterPasswordPresenter.m in Sources */,
 				EC4D91EB1C8778DF006EE7C8 /* LWAuthManager.m in Sources */,
 				EC4D91EC1C8778DF006EE7C8 /* LWRadioTableViewCell.m in Sources */,
@@ -2991,6 +3026,7 @@
 				EC4D91FB1C8778DF006EE7C8 /* LWDocumentsStatus.m in Sources */,
 				EC4D91FC1C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				EC4D91FD1C8778DF006EE7C8 /* ABPadLockScreenAbstractViewController.m in Sources */,
+				ECC527011C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */,
 				EC4D91FE1C8778DF006EE7C8 /* ABPadButton.m in Sources */,
 				EC4D91FF1C8778DF006EE7C8 /* LWCameraOverlayPresenter.m in Sources */,
 				EC4D92001C8778DF006EE7C8 /* LWTipsView.m in Sources */,
@@ -3146,6 +3182,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${ICON_SUFFIX}";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3165,6 +3205,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${ICON_SUFFIX}";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3233,6 +3277,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${ICON_SUFFIX}";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3295,6 +3343,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${ICON_SUFFIX}";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3314,6 +3366,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3335,6 +3391,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3355,6 +3415,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -3376,6 +3440,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
