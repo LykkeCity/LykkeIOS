@@ -60,6 +60,7 @@ static NSInteger const kSectionLykkeWallets   = 2;
 - (void)setRefreshControl;
 - (void)reloadWallets;
 - (void)showDepositPage:(NSIndexPath *)indexPath;
+- (void)showNewDepositPage;
 - (UIButton *)createUtilsButton;
 
 @end
@@ -241,6 +242,8 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 if (self.lkeWallets.count > 0) {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWLykkeTableViewCell *lykke = (LWLykkeTableViewCell *)cell;
+                    lykke.cellDelegate = self;
+                    
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
                     lykke.walletNameLabel.text = asset.name;
                     lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
@@ -256,7 +259,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                         [lykke setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
 
                         lykke.delegate = self;
-                        lykke.cellDelegate = self;
                     }
                 }
                 // Show Empty
@@ -280,6 +282,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 if (self.btcWallets.count > 0) {
                     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                     LWBitcoinTableViewCell *bitcoin = (LWBitcoinTableViewCell *)cell;
+                    bitcoin.cellDelegate = self;
                     
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
                     bitcoin.bitcoinLabel.text = asset.name;
@@ -296,7 +299,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                         [bitcoin setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
                         
                         bitcoin.delegate = self;
-                        bitcoin.cellDelegate = self;
                     }
                 }
                 // Show Empty
@@ -355,18 +357,18 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         if (indexPath.section == kSectionBankCards) {
             if (self.data && self.data.bankCards) {
                 if (self.data.bankCards.count > 0) {
-                    [self showDepositPage:indexPath];
+                    [self showNewDepositPage];
                 }
             }
         }
         else if (indexPath.section == kSectionLykkeWallets) {
             if (self.data && self.lkeWallets.count > 0) {
-                [self showDepositPage:indexPath];
+                [self showNewDepositPage];
             }
         }
         else if (indexPath.section == kSectionBitcoinWallets) {
             if (self.data && self.lkeWallets.count > 0) {
-                [self showDepositPage:indexPath];
+                [self showNewDepositPage];
             }
         }
     }
@@ -468,33 +470,21 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 #pragma mark - LWLykkeTableViewCellDelegate
 
 - (void)addLykkeItemClicked:(LWLykkeTableViewCell *)cell {
-    NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    if (path && path.section == kSectionLykkeWallets) {
-        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
-        [self.navigationController pushViewController:presenter animated:YES];
-    }
+    [self showNewDepositPage];
 }
 
 
 #pragma mark - LWLykkeEmptyTableViewCellDelegate
 
 - (void)addLykkeClicked:(LWLykkeEmptyTableViewCell *)cell {
-    NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    if (path && path.section == kSectionLykkeWallets) {
-        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
-        [self.navigationController pushViewController:presenter animated:YES];
-    }
+    [self showNewDepositPage];
 }
 
 
 #pragma mark - LWBitcoinTableViewCellDelegate
 
 - (void)addBitcoinClicked:(LWBitcoinTableViewCell *)cell {
-    NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    if (path && path.section == kSectionBitcoinWallets) {
-        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
-        [self.navigationController pushViewController:presenter animated:YES];
-    }
+    [self showNewDepositPage];
 }
 
 
@@ -607,11 +597,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 }
 
 - (void)showDepositPage:(NSIndexPath *)indexPath {
-    //LWHistoryPresenter *history = [LWHistoryPresenter new];
-    //history.assetId = assetId;
-    //history.shouldGoBack = YES;
-    //[self.navigationController pushViewController:history animated:YES];
-
     NSString *assetId = [self assetIdentifyForIndexPath:indexPath];
     LWWalletDepositPresenter *deposit = [LWWalletDepositPresenter new];
     NSString *depositUrl = [LWCache instance].depositUrl;
@@ -620,6 +605,11 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     deposit.url = [NSString stringWithFormat:@"%@?Email=%@&AssetId=%@", depositUrl, email, assetId];
 
     [self.navigationController pushViewController:deposit animated:YES];
+}
+
+- (void)showNewDepositPage {
+    LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 - (UIButton *)createUtilsButton {
