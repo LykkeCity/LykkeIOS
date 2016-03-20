@@ -7,12 +7,12 @@
 //
 
 #import "UIViewController+Loading.h"
-#import "UIView+Toast.h"
-#import "Macro.h"
-
-#warning TODO: temporary
 #import "LWKeychainManager.h"
 #import "LWAuthManager.h"
+#import "LWCache.h"
+#import "Macro.h"
+#import "UIView+Toast.h"
+
 
 @implementation UIViewController (Loading)
 
@@ -40,31 +40,12 @@
 - (void)showReject:(NSDictionary *)reject response:(NSURLResponse *)response {
     [self setLoading:NO];
     
-    NSString *message = [reject objectForKey:@"Message"];
-#warning TODO: as request by customer (temporarly)
-    NSNumber *code = [reject objectForKey:@"Code"];
-#warning TODO: temporary keychain email
-    NSString *email = [[LWKeychainManager instance] login];
-    NSString *time = [self currentUTC];
-    
-    if (response && [LWAuthManager isInternalServerError:response]) {
-        message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", [response URL].absoluteString];
-        code = [NSNumber numberWithInt:500];
+    if ([LWCache instance].debugMode) {
+        [self showDebugError:reject response:response];
     }
-    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
-    
-    UIAlertController *ctrl = [UIAlertController
-                               alertControllerWithTitle:Localize(@"utils.error")
-                               message:error
-                               preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         [ctrl dismissViewControllerAnimated:YES
-                                                                                  completion:nil];
-                                                     }];
-    [ctrl addAction:actionOK];
-    [self presentViewController:ctrl animated:YES completion:nil];
+    else {
+        [self showReleaseError:reject response:response];
+    }
 }
 
 - (void)showReject:(NSDictionary *)reject response:(NSURLResponse *)response code:(NSInteger)code willNotify:(BOOL)willNotify {
@@ -94,6 +75,38 @@
     NSDate *now = [NSDate date];
     NSString *result = [formatter stringFromDate:now];
     return result;
+}
+
+- (void)showDebugError:(NSDictionary *)reject response:(NSURLResponse *)response {
+    NSString *message = [reject objectForKey:kErrorMessage];
+    NSNumber *code = [reject objectForKey:kErrorCode];
+    NSString *email = [[LWKeychainManager instance] login];
+    NSString *time = [self currentUTC];
+    
+    if (response && [LWAuthManager isInternalServerError:response]) {
+        message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", [response URL].absoluteString];
+        code = [NSNumber numberWithInt:500];
+    }
+    
+    NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
+    
+    UIAlertController *ctrl = [UIAlertController
+                               alertControllerWithTitle:Localize(@"utils.error")
+                               message:error
+                               preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"utils.ok")
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         [ctrl dismissViewControllerAnimated:YES
+                                                                                  completion:nil];
+                                                     }];
+    [ctrl addAction:actionOK];
+    [self presentViewController:ctrl animated:YES completion:nil];
+}
+
+- (void)showReleaseError:(NSDictionary *)reject response:(NSURLResponse *)response{
+#warning TODO:
+    [self showDebugError:reject response:response];
 }
 
 @end

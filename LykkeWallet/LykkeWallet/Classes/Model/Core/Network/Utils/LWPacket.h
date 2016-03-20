@@ -9,6 +9,10 @@
 #import <GDXNet/GDXNet.h>
 
 
+#define kErrorMessage @"Message"
+#define kErrorCode    @"Code"
+
+
 @interface LWPacket : GDXNetPacket<GDXRESTPacket> {
     NSDictionary *result;
 }

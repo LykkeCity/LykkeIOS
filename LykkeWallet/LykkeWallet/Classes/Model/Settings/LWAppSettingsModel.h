@@ -23,5 +23,6 @@
 @property (readonly, nonatomic) NSNumber     *rateRefreshPeriod;
 @property (readonly, nonatomic) LWAssetModel *baseAsset;
 @property (readonly, nonatomic) BOOL          shouldSignOrders;
+@property (readonly, nonatomic) BOOL          debugMode;
 
 @end

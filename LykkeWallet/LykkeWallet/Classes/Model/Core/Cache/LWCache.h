@@ -26,6 +26,7 @@ SINGLETON_DECLARE
 @property (copy, nonatomic) NSString *depositUrl;
 @property (copy, nonatomic) NSString *multiSig;
 @property (assign, nonatomic) BOOL shouldSignOrder;
+@property (assign, nonatomic) BOOL debugMode;
 
 - (BOOL)isMultisigAvailable;
 
