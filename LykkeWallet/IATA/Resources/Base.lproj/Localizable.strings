@@ -174,6 +174,7 @@
 "graph.button.sell" = "SELL AT PRICE $ ";
 
 "errors.network.connection" = "Internet connection problem";
+"errors.server.problems"    = "Technical problems.";
 
 "ABPadLockScreen.pin.enter" = "Enter PIN";
 "ABPadLockScreen.pin.setup" = "Setup your new PIN";

@@ -10,6 +10,7 @@
 #import "LWKeychainManager.h"
 #import "LWAuthManager.h"
 #import "LWCache.h"
+#import "LWErrorView.h"
 #import "Macro.h"
 #import "UIView+Toast.h"
 
@@ -104,9 +105,26 @@
     [self presentViewController:ctrl animated:YES completion:nil];
 }
 
-- (void)showReleaseError:(NSDictionary *)reject response:(NSURLResponse *)response{
-#warning TODO:
-    [self showDebugError:reject response:response];
+- (void)showReleaseError:(NSDictionary *)reject response:(NSURLResponse *)response {
+    NSString *message = [reject objectForKey:kErrorMessage];
+    
+    if (response && [LWAuthManager isInternalServerError:response]) {
+        message = [NSString stringWithFormat:Localize(@"errors.server.problems")];
+    }
+    
+    LWErrorView *errorView = [LWErrorView modalViewWithDescription:message];
+    [errorView setFrame:self.navigationController.view.bounds];
+    
+    // animation
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [errorView.layer addAnimation:transition forKey:nil];
+    
+    // showing modal view
+    [self.navigationController.view addSubview:errorView];
 }
 
 @end
