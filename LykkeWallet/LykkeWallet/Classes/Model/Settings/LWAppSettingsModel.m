@@ -23,9 +23,11 @@
         _baseAsset         = [[LWAssetModel alloc] initWithJSON:json[@"BaseAsset"]];
         _shouldSignOrders  = [[json objectForKey:@"SignOrder"] boolValue];
         _depositUrl        = [json objectForKey:@"DepositUrl"];
+        _debugMode         = [[json objectForKey:@"DebugMode"] boolValue];
         
         [LWCache instance].shouldSignOrder = _shouldSignOrders;
-        [LWCache instance].depositUrl = _depositUrl;
+        [LWCache instance].depositUrl      = _depositUrl;
+        [LWCache instance].debugMode       = _debugMode;
     }
     return self;
 }

@@ -41,6 +41,8 @@
 #define kAssetEnabledItemColor  @"FFFFFF"
 #define kAssetDisabledItemColor @"FFFFFF"
 
+#define kErrorTextColor         @"FF2E2E"
+
 #define kMaxImageServerSize 1980
 #define kMaxImageServerBytes 3145728
 

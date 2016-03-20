@@ -216,8 +216,7 @@ static int const kNumberOfRows = 3;
     [chartArea setHeightInPercents:90];
     [chartArea setAxesVisibleLeft:NO Top:NO Right:YES Bottom:YES];
     [chartArea.areaAppearance setOutlineWidth:0.0];
-#warning TODO: set correct colors
-    chartArea.plot.plotAppearance.outlineColor = [UIColor lightGrayColor];
+    chartArea.plot.plotAppearance.outlineColor = [UIColor colorWithHexString:kMainGrayElementsColor];
     
     SCHSeries *price = [chart addSeries:chartArea];
     SCHCandlestickStockRenderer *renderer = [[SCHCandlestickStockRenderer alloc] init];

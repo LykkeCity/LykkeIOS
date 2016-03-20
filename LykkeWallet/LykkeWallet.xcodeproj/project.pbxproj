@@ -446,6 +446,10 @@
 		ECA80B661C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B641C2E0E47001C4E8F /* LWCameraOverlayPresenter.xib */; };
 		ECA8E9CD1C573618000F53EC /* LWTransactionTradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */; };
 		ECA8E9D01C5736F5000F53EC /* LWTradeHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */; };
+		ECAACF351C9F3B7A000227E0 /* LWErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAACF341C9F3B7A000227E0 /* LWErrorView.m */; };
+		ECAACF361C9F3B7A000227E0 /* LWErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAACF341C9F3B7A000227E0 /* LWErrorView.m */; };
+		ECAACF381C9F3BCD000227E0 /* LWErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAACF371C9F3BCD000227E0 /* LWErrorView.xib */; };
+		ECAACF391C9F3BCD000227E0 /* LWErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAACF371C9F3BCD000227E0 /* LWErrorView.xib */; };
 		ECAB1BBC1C99D45300A64A20 /* LWPacketExchangeInfoGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */; };
 		ECAB1BBD1C99D45300A64A20 /* LWPacketExchangeInfoGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */; };
 		ECAB1BC21C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC11C99D67700A64A20 /* LWExchangeInfoModel.m */; };
@@ -913,6 +917,9 @@
 		ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionTradeModel.m; path = History/LWTransactionTradeModel.m; sourceTree = "<group>"; };
 		ECA8E9CE1C5736F5000F53EC /* LWTradeHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTradeHistoryItemType.h; path = History/LWTradeHistoryItemType.h; sourceTree = "<group>"; };
 		ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTradeHistoryItemType.m; path = History/LWTradeHistoryItemType.m; sourceTree = "<group>"; };
+		ECAACF331C9F3B7A000227E0 /* LWErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWErrorView.h; sourceTree = "<group>"; };
+		ECAACF341C9F3B7A000227E0 /* LWErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWErrorView.m; sourceTree = "<group>"; };
+		ECAACF371C9F3BCD000227E0 /* LWErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWErrorView.xib; sourceTree = "<group>"; };
 		ECAB1BBA1C99D45300A64A20 /* LWPacketExchangeInfoGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketExchangeInfoGet.h; sourceTree = "<group>"; };
 		ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketExchangeInfoGet.m; sourceTree = "<group>"; };
 		ECAB1BC01C99D67700A64A20 /* LWExchangeInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWExchangeInfoModel.h; path = ExchangeInfo/LWExchangeInfoModel.h; sourceTree = "<group>"; };
@@ -1246,6 +1253,9 @@
 				ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */,
 				CF6632881C176AB1004353F5 /* LWTabController.h */,
 				CF6632891C176AB1004353F5 /* LWTabController.m */,
+				ECAACF331C9F3B7A000227E0 /* LWErrorView.h */,
+				ECAACF341C9F3B7A000227E0 /* LWErrorView.m */,
+				ECAACF371C9F3BCD000227E0 /* LWErrorView.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2439,6 +2449,7 @@
 				ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */,
 				EC24CC7A1C39786C00C2FDAA /* LWWalletConfirmPresenter.xib in Resources */,
 				CF6632871C176A63004353F5 /* LWWalletsPresenter.xib in Resources */,
+				ECAACF381C9F3BCD000227E0 /* LWErrorView.xib in Resources */,
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
@@ -2524,6 +2535,7 @@
 				EC0E84421C8EC7EB00FE128C /* LWLykkeTableViewCell.xib in Resources */,
 				EC4D92521C8778DF006EE7C8 /* LWHistoryTableViewCell.xib in Resources */,
 				EC9C94B31C89F584006FD46B /* GothaProBol.otf in Resources */,
+				ECAACF391C9F3BCD000227E0 /* LWErrorView.xib in Resources */,
 				EC3EDBA01C92F89F0044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
 				EC9EC2631C8EF58700C986DD /* LWAssetBlockchainTableViewCell.xib in Resources */,
 				EC9EC2521C8EE66700C986DD /* LWExchangeDealFormPresenter.xib in Resources */,
@@ -2826,6 +2838,7 @@
 				CDCD5AEA1C259629007BAD78 /* LWHistoryPresenter.m in Sources */,
 				EC7F05021C3EA8810079ECD0 /* LWDetailTableViewCell.m in Sources */,
 				ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */,
+				ECAACF351C9F3B7A000227E0 /* LWErrorView.m in Sources */,
 				ECECAB571C9972840020E050 /* LWPacketSendBlockchainEmail.m in Sources */,
 				CD3CCDDD1C2B3DD400DDCE46 /* LWDeviceInfo.m in Sources */,
 				EC3CE8B11C4014D600CAC3FE /* LWExchangeBlockchainPresenter.m in Sources */,
@@ -2930,6 +2943,7 @@
 				EC4D91A21C8778DF006EE7C8 /* TKTableViewCell.m in Sources */,
 				EC4D91A31C8778DF006EE7C8 /* LWAuthenticationPresenter.m in Sources */,
 				EC4D91A41C8778DF006EE7C8 /* ABPadLockScreenSetupViewController.m in Sources */,
+				ECAACF361C9F3B7A000227E0 /* LWErrorView.m in Sources */,
 				EC4D91A51C8778DF006EE7C8 /* LWExchangeResultPresenter.m in Sources */,
 				EC4D91A61C8778DF006EE7C8 /* LWTabController.m in Sources */,
 				EC4D91A71C8778DF006EE7C8 /* UITextField+Validation.m in Sources */,

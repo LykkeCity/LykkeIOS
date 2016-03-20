@@ -30,7 +30,6 @@
         _bankCards = list;
         
         _multiSig = [json objectForKey:@"MultiSig"];
-        
         [LWCache instance].multiSig = [_multiSig copy];
     }
     return self;

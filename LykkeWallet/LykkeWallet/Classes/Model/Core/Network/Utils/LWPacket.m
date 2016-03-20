@@ -8,6 +8,7 @@
 
 #import "LWPacket.h"
 #import "LWKeychainManager.h"
+#import "LWCache.h"
 
 
 @implementation LWPacket
@@ -23,12 +24,16 @@
     result = [response objectForKey:@"Result"];
     _reject = response[@"Error"];
     
-    if (_reject && ![_reject isKindOfClass:[NSNull class]]) {
-#warning TODO: as request by customer (temporarly)
-        _reject = [response[@"Error"] mutableCopy];
-        NSString *message = [_reject objectForKey:@"Message"];
-        NSString *temp = [NSString stringWithFormat:@"%@%@ %@", [self urlBase], [self urlRelative], message];
-        [_reject setObject:temp forKey:@"Message"];
+    if ([LWCache instance].debugMode) {
+        if (_reject && ![_reject isKindOfClass:[NSNull class]]) {
+            _reject = [response[@"Error"] mutableCopy];
+            NSString *message = [_reject objectForKey:kErrorMessage];
+            NSString *temp = [NSString stringWithFormat:@"%@%@ %@",
+                              [self urlBase],
+                              [self urlRelative],
+                              message];
+            [_reject setObject:temp forKey:kErrorMessage];
+        }
     }
     
     _isRejected = (self.reject != nil) && ![self.reject isKindOfClass:NSNull.class];
