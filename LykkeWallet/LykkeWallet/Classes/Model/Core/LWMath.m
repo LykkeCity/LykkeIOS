@@ -166,16 +166,14 @@
     return priceRateString;
 }
 
-+ (NSString *)historyPriceString:(NSNumber *)value precision:(NSNumber *)precision withPrefix:(NSString *)prefix {
-#warning TODO: todo
-    //return [LWMath priceString:value precision:precision withPrefix:prefix];
-    
++ (NSString *)historyPriceString:(NSNumber *)value precision:(NSInteger)precision withPrefix:(NSString *)prefix {
+
     NSString *priceRateString = @". . .";
     
     NSLocale *locale = [NSLocale currentLocale];
     NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
     [frm setNumberStyle:NSNumberFormatterDecimalStyle];
-    [frm setMaximumFractionDigits:precision.integerValue];
+    [frm setMaximumFractionDigits:precision];
     [frm setLocale:locale];
     NSString *priceString = [frm stringFromNumber:value];
     
