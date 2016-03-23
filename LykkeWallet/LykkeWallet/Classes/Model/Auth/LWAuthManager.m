@@ -40,6 +40,7 @@
 #import "LWPacketMarketOrder.h"
 #import "LWPacketSendBlockchainEmail.h"
 #import "LWPacketExchangeInfoGet.h"
+#import "LWPacketDicts.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -328,6 +329,12 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestDictionaries {
+    LWPacketDicts *pack = [LWPacketDicts new];
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -538,6 +545,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketExchangeInfoGet.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didReceiveExchangeInfo:)]) {
             [self.delegate authManager:self didReceiveExchangeInfo:((LWPacketExchangeInfoGet *)pack).model];
+        }
+    }
+    else if (pack.class == LWPacketDicts.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager: didReceiveAssetDicts:)]) {
+            [self.delegate authManager:self didReceiveAssetDicts:((LWPacketDicts *)pack).assetsDictionary];
         }
     }
 }

@@ -45,8 +45,8 @@ static int const kNumberOfRows = 3;
                                 name:kLeftDetailTableViewCell];
     
     NSString *type = (self.model.amount.intValue >= 0
-                      ? Localize(@"history.cash.out")
-                      : Localize(@"history.cash.in"));
+                      ? Localize(@"history.cash.in")
+                      : Localize(@"history.cash.out"));
     
     NSString *base = [LWAssetModel
                       assetByIdentity:self.model.asset

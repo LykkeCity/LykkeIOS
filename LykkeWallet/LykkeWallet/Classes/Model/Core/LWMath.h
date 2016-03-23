@@ -30,5 +30,6 @@
 + (NSString *)makeRateFromDebit:(NSDecimalNumber *)debit andCredit:(NSDecimalNumber *)credit;
 + (NSString *)makeRateFromPrice:(NSDecimalNumber *)fromPrice toPrice:(NSDecimalNumber *)toPrice;
 + (NSString *)priceString:(NSNumber *)value precision:(NSNumber *)precision withPrefix:(NSString *)prefix;
++ (NSString *)historyPriceString:(NSNumber *)value precision:(NSNumber *)precision withPrefix:(NSString *)prefix;
 
 @end

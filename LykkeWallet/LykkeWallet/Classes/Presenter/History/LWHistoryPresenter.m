@@ -15,6 +15,7 @@
 #import "LWTransactionsModel.h"
 #import "LWAssetBlockchainModel.h"
 #import "LWExchangeInfoModel.h"
+#import "LWAssetsDictionaryItem.h"
 #import "LWAssetModel.h"
 #import "LWHistoryManager.h"
 #import "LWBaseHistoryItemType.h"
@@ -226,15 +227,16 @@
                           fromList:[LWCache instance].baseAssets];
         
         NSString *type = (volume.intValue >= 0
-                          ? Localize(@"history.cash.out")
-                          : Localize(@"history.cash.in"));
+                          ? Localize(@"history.cash.in")
+                          : Localize(@"history.cash.out"));
         
         operation = [NSString stringWithFormat:@"%@ %@", base, type];
     }
     
     // prepare value label
     NSString *sign = (volume.doubleValue >= 0.0) ? @"+" : @"";
-    NSString *changeString = [LWMath priceString:volume precision:[NSNumber numberWithInt:0] withPrefix:sign];
+    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:item.asset fromList:[LWCache instance].assetsDict];
+    NSString *changeString = [LWMath historyPriceString:volume precision:[NSNumber numberWithInt:precision] withPrefix:sign];
     
     UIColor *changeColor = (volume.doubleValue >= 0.0)
     ? [UIColor colorWithHexString:kAssetChangePlusColor]

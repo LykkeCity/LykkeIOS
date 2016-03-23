@@ -402,6 +402,10 @@
 		EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */; };
 		EC8F48381C4D8A710087DF1F /* LWNotificationSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */; };
 		EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */; };
+		EC8FF6A71CA32D3400160528 /* LWPacketDicts.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */; };
+		EC8FF6A81CA32D3400160528 /* LWPacketDicts.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */; };
+		EC8FF6AC1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FF6AB1CA32DE400160528 /* LWAssetsDictionaryItem.m */; };
+		EC8FF6AD1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FF6AB1CA32DE400160528 /* LWAssetsDictionaryItem.m */; };
 		EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */; };
 		EC9C947A1C899003006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94751C898F9F006FD46B /* Assets.xcassets */; };
@@ -865,6 +869,10 @@
 		EC8F48351C4D8A710087DF1F /* LWNotificationSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWNotificationSettingsPresenter.h; path = Notifications/LWNotificationSettingsPresenter.h; sourceTree = "<group>"; };
 		EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWNotificationSettingsPresenter.m; path = Notifications/LWNotificationSettingsPresenter.m; sourceTree = "<group>"; };
 		EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWNotificationSettingsPresenter.xib; path = Notifications/LWNotificationSettingsPresenter.xib; sourceTree = "<group>"; };
+		EC8FF6A51CA32D3400160528 /* LWPacketDicts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketDicts.h; sourceTree = "<group>"; };
+		EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketDicts.m; sourceTree = "<group>"; };
+		EC8FF6AA1CA32DE400160528 /* LWAssetsDictionaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetsDictionaryItem.h; path = Dicts/LWAssetsDictionaryItem.h; sourceTree = "<group>"; };
+		EC8FF6AB1CA32DE400160528 /* LWAssetsDictionaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetsDictionaryItem.m; path = Dicts/LWAssetsDictionaryItem.m; sourceTree = "<group>"; };
 		EC9C94751C898F9F006FD46B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = IATA/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IATA/Resources/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		EC9C947C1C899019006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1166,6 +1174,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC8FF6A91CA32DC400160528 /* Dicts */,
 				ECAB1BBF1C99D64A00A64A20 /* ExchangeInfo */,
 				ECEC40BC1C42B2C400B22BEE /* History */,
 				ECD1E8F51C3B16E40064AAB3 /* Settings */,
@@ -1539,6 +1548,8 @@
 				ECECAB561C9972840020E050 /* LWPacketSendBlockchainEmail.m */,
 				ECAB1BBA1C99D45300A64A20 /* LWPacketExchangeInfoGet.h */,
 				ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */,
+				EC8FF6A51CA32D3400160528 /* LWPacketDicts.h */,
+				EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1977,6 +1988,15 @@
 				EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		EC8FF6A91CA32DC400160528 /* Dicts */ = {
+			isa = PBXGroup;
+			children = (
+				EC8FF6AA1CA32DE400160528 /* LWAssetsDictionaryItem.h */,
+				EC8FF6AB1CA32DE400160528 /* LWAssetsDictionaryItem.m */,
+			);
+			name = Dicts;
 			sourceTree = "<group>";
 		};
 		EC9C94721C898F74006FD46B /* Resources_IATA */ = {
@@ -2788,6 +2808,7 @@
 				EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */,
 				EC168F1A1C514D0800AF8DD5 /* LWPersonalDataModel.m in Sources */,
 				EC8F48381C4D8A710087DF1F /* LWNotificationSettingsPresenter.m in Sources */,
+				EC8FF6A71CA32D3400160528 /* LWPacketDicts.m in Sources */,
 				EC57F4541C3C3DD900E31746 /* LWExchangeFormPresenter.m in Sources */,
 				ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */,
 				CF6A9CD71C18ED7E00B69F53 /* LWPacket.m in Sources */,
@@ -2831,6 +2852,7 @@
 				EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */,
 				ECAB1BC21C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */,
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
+				EC8FF6AC1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
 				CF6877501C234A7200E7A7D9 /* LWRegisterPINSetupPresenter.m in Sources */,
 				ECC527001C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */,
@@ -2892,6 +2914,7 @@
 			files = (
 				EC4D91761C8778DF006EE7C8 /* LWLykkeWalletsData.m in Sources */,
 				EC4D91771C8778DF006EE7C8 /* LWRegisterFullNamePresenter.m in Sources */,
+				EC8FF6A81CA32D3400160528 /* LWPacketDicts.m in Sources */,
 				EC4D91781C8778DF006EE7C8 /* LWPacketWallets.m in Sources */,
 				EC4D91791C8778DF006EE7C8 /* LWWalletsPresenter.m in Sources */,
 				EC4D917A1C8778DF006EE7C8 /* LWAuthStepPresenter.m in Sources */,
@@ -2984,6 +3007,7 @@
 				EC4D91C71C8778DF006EE7C8 /* LWExchangeFormPresenter.m in Sources */,
 				EC4D91C81C8778DF006EE7C8 /* LWAssetPairRateModel.m in Sources */,
 				EC4D91C91C8778DF006EE7C8 /* LWPacket.m in Sources */,
+				EC8FF6AD1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */,
 				EC4D91CA1C8778DF006EE7C8 /* LWPacketRestrictedCountries.m in Sources */,
 				EC4D91CB1C8778DF006EE7C8 /* LWJSONObject.m in Sources */,
 				EC4D91CC1C8778DF006EE7C8 /* LWPersonalDataPacket.m in Sources */,
