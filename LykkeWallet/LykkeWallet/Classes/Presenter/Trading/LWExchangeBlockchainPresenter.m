@@ -188,7 +188,7 @@ static BOOL const CellsClickable[kDescriptionRows] = {
         blockchainCell.detailLabel.textColor = Colors[indexPath.row - 1];
         blockchainCell.detailLabel.tag = indexPath.row - 1;
         
-        if (CellsClickable[indexPath.row - 1]) {
+        if (CellsClickable[indexPath.row]) {
             UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnLink:)];
 
             [blockchainCell.detailLabel setUserInteractionEnabled:YES];
