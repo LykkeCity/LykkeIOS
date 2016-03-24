@@ -3234,7 +3234,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e604f871-fb6a-4126-bceb-b6e3db141568";
+				PROVISIONING_PROFILE = "23d965d4-5053-49ab-8f4b-d56fc9146bc4";
 			};
 			name = Debug;
 		};
@@ -3257,7 +3257,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8fba488b-10fe-47ff-b045-195bf1b8f525";
+				PROVISIONING_PROFILE = "fde24542-09d7-4914-b32b-08d5147ca7ae";
 			};
 			name = Release;
 		};
@@ -3330,7 +3330,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
-				PROVISIONING_PROFILE = "ab60a21f-ffad-434e-ba30-30cbaa3d5226";
+				PROVISIONING_PROFILE = "a4d04476-5cbb-4a35-9aa6-eec2cad9cd88";
 			};
 			name = Debug.Test;
 		};
@@ -3397,7 +3397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
-				PROVISIONING_PROFILE = "8c02e1d5-1d69-4ea0-bb4b-f558a13ed3c1";
+				PROVISIONING_PROFILE = "d37d5107-fc60-4050-916e-b7e4e37ddbfe";
 			};
 			name = Release.Test;
 		};
