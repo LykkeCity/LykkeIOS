@@ -14,6 +14,7 @@
 #import "LWAssetDealModel.h"
 #import "LWAssetModel.h"
 #import "LWAssetBlockchainModel.h"
+#import "LWAssetsDictionaryItem.h"
 #import "LWConstants.h"
 #import "LWCache.h"
 #import "LWMath.h"
@@ -45,8 +46,8 @@ static int const kNumberOfRows = 3;
                                 name:kLeftDetailTableViewCell];
     
     NSString *type = (self.model.amount.intValue >= 0
-                      ? Localize(@"history.cash.out")
-                      : Localize(@"history.cash.in"));
+                      ? Localize(@"history.cash.in")
+                      : Localize(@"history.cash.out"));
     
     NSString *base = [LWAssetModel
                       assetByIdentity:self.model.asset
@@ -105,9 +106,10 @@ static int const kNumberOfRows = 3;
 }
 
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
-
-    NSString *volumeString = [LWMath priceString:self.model.amount
-                                       precision:[NSNumber numberWithInt:0]
+    
+    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:self.model.asset fromList:[LWCache instance].assetsDict];
+    NSString *volumeString = [LWMath historyPriceString:self.model.amount
+                                       precision:precision
                                       withPrefix:@""];
     
     NSString *const values[kNumberOfRows] = {

@@ -57,6 +57,19 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     kAssetBlockchainTableViewCellIdentifier
 };
 
+static BOOL const CellsClickable[kDescriptionRows] = {
+    NO,
+    NO,
+    NO,
+    NO,
+    NO,
+    NO,
+    NO,
+    NO,
+    NO,
+    YES // blockchain
+};
+
 
 #pragma mark - Lifecycle
 
@@ -102,6 +115,14 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
 
 - (IBAction)closeClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)userTappedOnLink:(UIGestureRecognizer *)gestureRecognizer {
+    NSInteger const index = [gestureRecognizer.view tag];
+    if (index >= 0 && index <= kDescriptionRows - 1) {
+        NSURL *url = [NSURL URLWithString:[self dataByCellRow:index]];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 
@@ -165,7 +186,16 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
         blockchainCell.titleLabel.text = Descriptions[indexPath.row - 1];
         blockchainCell.detailLabel.text = [self dataByCellRow:indexPath.row - 1];
         blockchainCell.detailLabel.textColor = Colors[indexPath.row - 1];
+        blockchainCell.detailLabel.tag = indexPath.row - 1;
+        
+        if (CellsClickable[indexPath.row]) {
+            UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnLink:)];
+
+            [blockchainCell.detailLabel setUserInteractionEnabled:YES];
+            [blockchainCell.detailLabel addGestureRecognizer:gesture];
+        }
     }
+    
     return cell;
 }
 

@@ -166,4 +166,19 @@
     return priceRateString;
 }
 
++ (NSString *)historyPriceString:(NSNumber *)value precision:(NSInteger)precision withPrefix:(NSString *)prefix {
+
+    NSString *priceRateString = @". . .";
+    
+    NSLocale *locale = [NSLocale currentLocale];
+    NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
+    [frm setNumberStyle:NSNumberFormatterDecimalStyle];
+    [frm setMaximumFractionDigits:precision];
+    [frm setLocale:locale];
+    NSString *priceString = [frm stringFromNumber:value];
+    
+    priceRateString = [NSString stringWithFormat:@"%@%@", prefix, priceString];
+    return priceRateString;
+}
+
 @end

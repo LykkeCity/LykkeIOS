@@ -33,6 +33,7 @@
     [super viewWillAppear:animated];
  
     [[LWAuthManager instance] requestAppSettings];
+    [[LWAuthManager instance] requestDictionaries];
     [[LWAuthManager instance] requestBaseAssets];
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];

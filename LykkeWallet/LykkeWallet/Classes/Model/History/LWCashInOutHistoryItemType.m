@@ -29,7 +29,6 @@
 {
     LWCashInOutHistoryItemType* data = [super copyWithZone:zone];
     data.amount = [self.amount copy];
-    data.asset = [self.asset copy];
     data.asset = [self.iconId copy];
     return data;
 }
