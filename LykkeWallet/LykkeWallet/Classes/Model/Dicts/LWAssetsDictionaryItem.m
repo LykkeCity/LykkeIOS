@@ -7,6 +7,7 @@
 //
 
 #import "LWAssetsDictionaryItem.h"
+#import "LWCache.h"
 
 
 @implementation LWAssetsDictionaryItem
@@ -28,7 +29,8 @@
 
 #pragma mark - Root
 
-+ (NSInteger)assetAccuracyById:(NSString *)identity fromList:(NSArray *)list {
++ (NSInteger)assetAccuracyById:(NSString *)identity {
+    NSArray *list = [LWCache instance].assetsDict;
     if (list && list.count > 0) {
         for (LWAssetsDictionaryItem *item in list) {
             if ([item.identity isEqualToString:identity]) {

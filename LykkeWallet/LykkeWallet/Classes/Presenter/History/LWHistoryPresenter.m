@@ -235,7 +235,7 @@
     
     // prepare value label
     NSString *sign = (volume.doubleValue >= 0.0) ? @"+" : @"";
-    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:item.asset fromList:[LWCache instance].assetsDict];
+    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:item.asset];
     NSString *changeString = [LWMath historyPriceString:volume precision:precision withPrefix:sign];
     
     UIColor *changeColor = (volume.doubleValue >= 0.0)
