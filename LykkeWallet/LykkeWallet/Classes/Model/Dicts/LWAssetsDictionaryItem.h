@@ -24,6 +24,6 @@
 
 #pragma mark - Root
 
-+ (NSInteger)assetAccuracyById:(NSString *)identity fromList:(NSArray *)list;
++ (NSInteger)assetAccuracyById:(NSString *)identity;
 
 @end

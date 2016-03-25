@@ -107,7 +107,7 @@ static int const kNumberOfRows = 3;
 
 - (void)updateValueCell:(LWLeftDetailTableViewCell *)cell row:(NSInteger)row {
     
-    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:self.model.asset fromList:[LWCache instance].assetsDict];
+    NSInteger const precision = [LWAssetsDictionaryItem assetAccuracyById:self.model.asset];
     NSString *volumeString = [LWMath historyPriceString:self.model.amount
                                        precision:precision
                                       withPrefix:@""];

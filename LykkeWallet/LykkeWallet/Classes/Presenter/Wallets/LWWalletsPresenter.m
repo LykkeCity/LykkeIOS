@@ -25,9 +25,11 @@
 #import "LWWalletEmptyTableViewCell.h"
 #import "LWLykkeEmptyTableViewCell.h"
 #import "LWAuthNavigationController.h"
+#import "LWAssetsDictionaryItem.h"
 #import "LWKeychainManager.h"
 #import "LWConstants.h"
 #import "LWCache.h"
+#import "LWMath.h"
 #import "UIViewController+Loading.h"
 
 
@@ -245,8 +247,13 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     lykke.cellDelegate = self;
                     
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
+                    NSInteger const accuracy = [LWAssetsDictionaryItem assetAccuracyById:asset.identity];
+                    NSString *balance = [LWMath historyPriceString:asset.balance
+                                                              precision:accuracy
+                                                             withPrefix:@""];
                     lykke.walletNameLabel.text = asset.name;
-                    lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
+                    lykke.walletBalanceLabel.text = [NSString stringWithFormat:@"%@ %@",
+                                                     asset.symbol, balance];
                     lykke.addWalletButton.hidden = ![[LWCache instance] isMultisigAvailable];
                     
                     // validate for base asset and balance
@@ -285,8 +292,13 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     bitcoin.cellDelegate = self;
                     
                     LWLykkeAssetsData *asset = [self assetDataForIndexPath:indexPath];
+                    NSInteger const accuracy = [LWAssetsDictionaryItem assetAccuracyById:asset.identity];
+                    NSString *balance = [LWMath historyPriceString:asset.balance
+                                                         precision:accuracy
+                                                        withPrefix:@""];
                     bitcoin.bitcoinLabel.text = asset.name;
-                    bitcoin.bitcoinBalance.text = [NSString stringWithFormat:@"%@ %@", asset.symbol, asset.balance];
+                    bitcoin.bitcoinBalance.text = [NSString stringWithFormat:@"%@ %@",
+                                                   asset.symbol, balance];
                     bitcoin.bitcoinAddButton.hidden = ![[LWCache instance] isMultisigAvailable];
                     
                     // validate for base asset and balance
