@@ -83,6 +83,10 @@
 "wallets.bitcoin.copytoast" = "Copied.";
 "wallets.bitcoin.sendemail" = "Email sent.";
 
+"wallets.trading.title" = "TRADING WALLET";
+"wallets.trading.withdraw" = "WITHDRAW";
+"wallets.trading.deposit" = "DEPOSIT";
+
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";
 "exchange.assets.header.price" = "Price";
