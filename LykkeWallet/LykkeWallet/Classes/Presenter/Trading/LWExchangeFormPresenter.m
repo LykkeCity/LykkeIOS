@@ -29,7 +29,8 @@
 
 #pragma mark - Outlets
 
-@property (weak, nonatomic) IBOutlet UIButton *dealButton;
+@property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (weak, nonatomic) IBOutlet UIButton *sellButton;
 
 
 #pragma mark - Utils
@@ -193,6 +194,16 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     }
 }
 
+- (IBAction)sellClicked:(id)sender {
+    if (self.assetPair && self.assetRate) {
+        LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
+        controller.assetPair = self.assetPair;
+        controller.assetRate = self.assetRate;
+        controller.assetDealType = LWAssetDealTypeSell;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
 
 #pragma mark - Utils
 
@@ -200,13 +211,18 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     self.assetRate = rate;
     
-    NSString *priceRateString = @". . .";
+    [LWValidator setBuyButton:self.buyButton enabled:(rate != nil)];
+    [LWValidator setSellButton:self.sellButton enabled:(rate != nil)];
+    
+    NSString *priceSellRateString = @". . .";
+    NSString *priceBuyRateString = @". . .";
     if (rate) {
-        priceRateString = [LWMath priceString:rate.ask precision:self.assetPair.accuracy withPrefix:Localize(@"exchange.assets.form.button")];
+        priceSellRateString = [LWMath priceString:rate.ask precision:self.assetPair.accuracy withPrefix:Localize(@"graph.button.sell")];
+        priceBuyRateString = [LWMath priceString:rate.bid precision:self.assetPair.accuracy withPrefix:Localize(@"graph.button.buy")];
     }
-
-    [LWValidator setPriceButton:self.dealButton enabled:(rate != nil)];
-    [self.dealButton setTitle:priceRateString forState:UIControlStateNormal];
+    
+    [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];
+    [self.buyButton setTitle:priceBuyRateString forState:UIControlStateNormal];
 }
 
 - (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row {

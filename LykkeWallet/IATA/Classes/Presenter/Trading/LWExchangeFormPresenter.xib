@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeFormPresenter">
             <connections>
-                <outlet property="dealButton" destination="CnQ-NH-i6e" id="1xn-JA-7Sd"/>
+                <outlet property="buyButton" destination="CnQ-NH-i6e" id="Cfx-Hj-0ZA"/>
                 <outlet property="tableView" destination="ig2-Ih-6ZR" id="9nL-GC-Snj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
