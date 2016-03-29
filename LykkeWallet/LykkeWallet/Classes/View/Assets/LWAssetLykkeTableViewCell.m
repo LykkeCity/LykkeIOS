@@ -26,7 +26,7 @@
     
     if (self.rate && self.pair) {
         // price section
-        NSString *priceString = [LWMath priceString:rate.ask precision:self.pair.accuracy withPrefix:@"$ "];
+        NSString *priceString = [LWMath priceString:rate.ask precision:self.pair.accuracy withPrefix:@""];
         self.assetPriceLabel.text = priceString;
         self.assetPriceLabel.textColor = [UIColor colorWithHexString:kAssetEnabledItemColor];
 
