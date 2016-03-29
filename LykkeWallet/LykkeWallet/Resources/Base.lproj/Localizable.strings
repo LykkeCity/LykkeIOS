@@ -100,6 +100,8 @@
 "exchange.assets.form.button" = "BUY AT PRICE $ ";
 "exchange.assets.buy.title" = "BUY ";
 "exchange.assets.sell.title" = "SELL ";
+"exchange.assets.description.buy" = "I want to buy %@ %@ for %@";
+"exchange.assets.description.sell" = "I want to sell %@ %@ for %@";
 "exchange.assets.buy.sum" = "Volume";
 "exchange.assets.buy.placeholder" = "Input amount";
 "exchange.assets.buy.price" = "Price";
@@ -171,8 +173,8 @@
 "graph.cell.time"   = "Fixing time";
 "graph.cell.price"  = "Last price";
 "graph.cell.change" = "Change";
-"graph.button.buy"  = "BUY AT PRICE $ ";
-"graph.button.sell" = "SELL AT PRICE $ ";
+"graph.button.buy"  = "BUY AT PRICE ";
+"graph.button.sell" = "SELL AT PRICE ";
 
 "errors.network.connection" = "Internet connection problem";
 "errors.server.problems"    = "Technical problems.";

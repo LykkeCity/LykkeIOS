@@ -102,6 +102,8 @@
 "exchange.assets.form.button" = "КУПИТЬ ПО ЦЕНЕ $ ";
 "exchange.assets.buy.title" = "КУПИТЬ ";
 "exchange.assets.sell.title" = "ПРОДАТЬ ";
+"exchange.assets.description.buy" = "I want to buy %@ %@ for %@";
+"exchange.assets.description.sell" = "I want to sell %@ %@ for %@";
 "exchange.assets.buy.sum" = "Объем";
 "exchange.assets.buy.placeholder" = "Введите объем";
 "exchange.assets.buy.price" = "Цена";
@@ -175,8 +177,8 @@
 "graph.cell.time"   = "Fixing time";
 "graph.cell.price"  = "Last price";
 "graph.cell.change" = "Change";
-"graph.button.buy"  = "BUY AT PRICE $ ";
-"graph.button.sell" = "SELL AT PRICE $ ";
+"graph.button.buy"  = "BUY AT PRICE ";
+"graph.button.sell" = "SELL AT PRICE ";
 
 "errors.network.connection" = "Проблемы с интернет-соединением";
 "errors.server.problems"    = "Technical problems.";
