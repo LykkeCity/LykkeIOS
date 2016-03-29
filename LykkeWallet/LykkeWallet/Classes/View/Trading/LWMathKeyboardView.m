@@ -231,8 +231,12 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         double evaluation = [text evaluateMath];
         NSNumber *number = [NSNumber numberWithDouble:evaluation];
         NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithDecimal:number.decimalValue];
-        NSString *result = [LWMath makeEditStringByDecimal:decimal];
+        if ([LWMath isDecimalEqualToZero:decimal]) {
+            [self.delegate volumeChanged:text withValidState:NO];
+            return;
+        }
         
+        NSString *result = [text stringByReplacingOccurrencesOfString:@"." withString:separator];
         self.targetTextField.text = result;
         [self.delegate volumeChanged:result withValidState:evaluation > 0.0];
     }
