@@ -41,6 +41,7 @@
 - (void)setupPreviewImageFromServerImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage;
 - (void)setupImage:(UIImage *)image shouldCropImage:(BOOL)shouldCropImage;
 - (void)uploadImage:(UIImage *)image docType:(KYCDocumentType)docType;
+- (void)updateStep:(KYCDocumentType)docType;
 
 @end
 
@@ -80,6 +81,8 @@
     if (self.showCameraImmediately && previewImage == nil) {
         [self showCameraView];
     }
+    
+    [self updateStep:type];
 }
 
 - (LWAuthStep)stepId {
@@ -320,6 +323,24 @@
                                });
                            }];
     }
+}
+
+- (void)updateStep:(KYCDocumentType)docType {
+    UIImage *image = nil;
+    switch (docType) {
+        case KYCDocumentTypeSelfie:
+            image = [UIImage imageNamed:@"RegisterLineStep2"];
+            break;
+        case KYCDocumentTypeIdCard:
+            image = [UIImage imageNamed:@"RegisterLineStep3"];
+            break;
+        case KYCDocumentTypeProofOfAddress:
+            image = [UIImage imageNamed:@"RegisterLineStep4"];
+            break;
+        default:
+            break;
+    }
+    [self.stepImageView setImage:image];
 }
 
 - (void)uploadCanceled {
