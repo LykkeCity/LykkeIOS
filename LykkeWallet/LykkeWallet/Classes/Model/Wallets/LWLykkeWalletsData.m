@@ -31,6 +31,9 @@
         
         _multiSig = [json objectForKey:@"MultiSig"];
         [LWCache instance].multiSig = [_multiSig copy];
+
+        _coloredMultiSig = [json objectForKey:@"ColoredMultiSig"];
+        [LWCache instance].coloredMultiSig = [_coloredMultiSig copy];
     }
     return self;
 }

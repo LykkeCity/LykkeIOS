@@ -31,6 +31,7 @@
 #pragma mark - Properties
 
 @property (nonatomic, weak) id<LWLykkeEmptyTableViewCellDelegate> delegate;
+@property (nonatomic, strong) NSString *issuerId;
 
 
 #pragma mark - Outlets

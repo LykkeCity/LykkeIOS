@@ -17,5 +17,7 @@
 #pragma mark - Properties
 
 @property (copy,   nonatomic) NSString *assetId;
+@property (copy,   nonatomic) NSString *assetName;
+@property (copy,   nonatomic) NSString *issuerId;
 
 @end

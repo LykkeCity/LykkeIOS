@@ -63,7 +63,6 @@ static NSInteger const kSectionLykkeWallets   = 2;
 - (void)setRefreshControl;
 - (void)reloadWallets;
 - (void)showDepositPage:(NSIndexPath *)indexPath;
-- (void)showNewDepositPage;
 - (void)showTradingWallet:(NSIndexPath *)indexPath;
 - (UIButton *)createUtilsButton;
 
@@ -277,6 +276,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     emptyCell.titleLabel.text = Localize(@"wallets.lykke.empty");
                     emptyCell.delegate = self;
                     emptyCell.addWalletButton.hidden = ![[LWCache instance] isMultisigAvailable];
+                    emptyCell.issuerId = @"LKE";
                 }
             }
             else {
@@ -322,6 +322,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     emptyCell.titleLabel.text = Localize(@"wallets.lykke.empty");
                     emptyCell.delegate = self;
                     emptyCell.addWalletButton.hidden = ![[LWCache instance] isMultisigAvailable];
+                    emptyCell.issuerId = @"BTC";
                 }
             }
             else {
@@ -371,7 +372,13 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         if (indexPath.section == kSectionBankCards) {
             if (self.data && self.data.bankCards) {
                 if (self.data.bankCards.count > 0) {
-                    [self showNewDepositPage];
+                    LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+                    LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
+                    if (data) {
+                        presenter.assetName = data.name;
+                        presenter.issuerId = data.issuerId;
+                        [self.navigationController pushViewController:presenter animated:YES];
+                    }
                 }
             }
         }
@@ -484,21 +491,47 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 #pragma mark - LWLykkeTableViewCellDelegate
 
 - (void)addLykkeItemClicked:(LWLykkeTableViewCell *)cell {
-    [self showNewDepositPage];
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    LWLykkeAssetsData *data = [self assetDataForIndexPath:path];
+    if (data) {
+        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+        presenter.assetName = data.name;
+        presenter.issuerId = data.issuerId;
+        [self.navigationController pushViewController:presenter animated:YES];
+    }
 }
 
 
 #pragma mark - LWLykkeEmptyTableViewCellDelegate
 
 - (void)addLykkeClicked:(LWLykkeEmptyTableViewCell *)cell {
-    [self showNewDepositPage];
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+
+#warning TODO: logic???
+    if (path.section == kSectionLykkeWallets) {
+        presenter.assetName = @"LYKKE";
+    }
+    else if (path.section == kSectionBitcoinWallets) {
+        presenter.assetName = @"BITCOIN";
+    }
+    //presenter.assetName = data.name;
+    presenter.issuerId = cell.issuerId;
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 
 #pragma mark - LWBitcoinTableViewCellDelegate
 
 - (void)addBitcoinClicked:(LWBitcoinTableViewCell *)cell {
-    [self showNewDepositPage];
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    LWLykkeAssetsData *data = [self assetDataForIndexPath:path];
+    if (data) {
+        LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+        presenter.assetName = data.name;
+        presenter.issuerId = data.issuerId;
+        [self.navigationController pushViewController:presenter animated:YES];
+    }
 }
 
 
@@ -621,15 +654,15 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     [self.navigationController pushViewController:deposit animated:YES];
 }
 
-- (void)showNewDepositPage {
-    LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
-    [self.navigationController pushViewController:presenter animated:YES];
-}
-
 - (void)showTradingWallet:(NSIndexPath *)indexPath {
     LWTradingWalletPresenter *presenter = [LWTradingWalletPresenter new];
-    presenter.assetId = [self assetIdentifyForIndexPath:indexPath];
-    [self.navigationController pushViewController:presenter animated:YES];
+    LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
+    if (data) {
+        presenter.assetId = data.identity;
+        presenter.assetName = data.name;
+        presenter.issuerId = data.issuerId;
+        [self.navigationController pushViewController:presenter animated:YES];
+    }
 }
 
 - (UIButton *)createUtilsButton {
