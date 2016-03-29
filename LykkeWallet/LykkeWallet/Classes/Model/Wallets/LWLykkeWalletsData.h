@@ -17,5 +17,6 @@
 @property (readonly, nonatomic) LWLykkeData *lykkeData;
 @property (readonly, nonatomic) NSArray     *bankCards;
 @property (readonly, nonatomic) NSString    *multiSig;
+@property (readonly, nonatomic) NSString    *coloredMultiSig;
 
 @end

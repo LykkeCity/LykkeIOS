@@ -214,6 +214,10 @@
 
 - (IBAction)depositClicked:(id)sender {
     LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+    
+    presenter.assetName = self.assetName;
+    presenter.issuerId = self.issuerId;
+    
     [self.navigationController pushViewController:presenter animated:YES];
 }
 

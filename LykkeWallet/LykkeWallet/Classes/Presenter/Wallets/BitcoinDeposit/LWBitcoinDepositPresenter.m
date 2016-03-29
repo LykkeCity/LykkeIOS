@@ -27,6 +27,12 @@
 @property (nonatomic, weak) IBOutlet TKButton *copyingButton;
 @property (nonatomic, weak) IBOutlet TKButton *emailButton;
 
+
+#pragma mark - Utils
+
+- (void)updateView;
+- (BOOL)isColoredMultisig;
+
 @end
 
 @implementation LWBitcoinDepositPresenter
@@ -34,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = Localize(@"wallets.bitcoin.deposit");
+    self.title = [NSString stringWithFormat:Localize(@"wallets.bitcoin.deposit"), self.assetName];
     
     [self setupQRCode];
     [self setBackButton];
@@ -47,6 +53,8 @@
     [self.copyingButton setGrayPalette];
     [self.bitcoinHashLabel setTextColor:[UIColor colorWithHexString:kMainElementsColor]];
 #endif
+    
+    [self updateView];
 }
 
 - (void)colorize {
@@ -100,7 +108,9 @@
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     
-    NSString *bitcoinHash = [LWCache instance].multiSig;
+    NSString *bitcoinHash = [self isColoredMultisig]
+    ? [LWCache instance].coloredMultiSig
+    : [LWCache instance].multiSig;
     
     self.bitcoinHashLabel.text = bitcoinHash;
     
@@ -123,6 +133,23 @@
     self.bitcoinQRImageView.image = qrImage;
     
     CGImageRelease(cgImage);
+}
+
+
+#pragma mark - Utils
+
+- (void)updateView {
+    
+}
+
+- (BOOL)isColoredMultisig {
+    if ([self.issuerId isEqualToString:@"BTC"]) {
+        return NO;
+    }
+    else if ([self.issuerId isEqualToString:@"LKE"]) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
