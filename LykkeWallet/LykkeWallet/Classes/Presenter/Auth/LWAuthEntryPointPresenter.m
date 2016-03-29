@@ -15,6 +15,7 @@
 #import "LWRegisterBasePresenter.h"
 #import "LWAuthenticationPresenter.h"
 #import "LWUrlAddressPresenter.h"
+#import "TKButton.h"
 #import "ABPadLockScreen.h"
 
 typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
@@ -36,8 +37,8 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 }
 
 @property (weak, nonatomic) IBOutlet TKContainer *emailTextFieldContainer;
-@property (weak, nonatomic) IBOutlet UIButton    *proceedButton;
-@property (weak, nonatomic) IBOutlet UIButton    *chooseServerButton;
+@property (weak, nonatomic) IBOutlet TKButton    *proceedButton;
+@property (weak, nonatomic) IBOutlet TKButton    *chooseServerButton;
 @property (weak, nonatomic) IBOutlet TKContainer *tipsContainer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tipsBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
@@ -64,6 +65,12 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
     emailTextField.placeholder = Localize(@"auth.email");
     [self.emailTextFieldContainer attach:emailTextField];
+    
+#ifdef PROJECT_IATA
+#else
+    [self.chooseServerButton setGrayPalette];
+#endif
+    
     // init tips
     tipsView = [LWTipsView new];
     tipsView.delegate = self;

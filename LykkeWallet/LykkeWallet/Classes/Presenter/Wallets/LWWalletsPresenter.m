@@ -12,6 +12,7 @@
 #import "LWExchangeDealFormPresenter.h"
 #import "LWWalletDepositPresenter.h"
 #import "LWBitcoinDepositPresenter.h"
+#import "LWTradingWalletPresenter.h"
 #import "LWAuthManager.h"
 #import "LWLykkeWalletsData.h"
 #import "LWLykkeData.h"
@@ -63,6 +64,7 @@ static NSInteger const kSectionLykkeWallets   = 2;
 - (void)reloadWallets;
 - (void)showDepositPage:(NSIndexPath *)indexPath;
 - (void)showNewDepositPage;
+- (void)showTradingWallet:(NSIndexPath *)indexPath;
 - (UIButton *)createUtilsButton;
 
 @end
@@ -375,12 +377,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         }
         else if (indexPath.section == kSectionLykkeWallets) {
             if (self.data && self.lkeWallets.count > 0) {
-                [self showNewDepositPage];
+                [self showTradingWallet:indexPath];
             }
         }
         else if (indexPath.section == kSectionBitcoinWallets) {
-            if (self.data && self.lkeWallets.count > 0) {
-                [self showNewDepositPage];
+            if (self.data && self.btcWallets.count > 0) {
+                [self showTradingWallet:indexPath];
             }
         }
     }
@@ -621,6 +623,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 
 - (void)showNewDepositPage {
     LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
+    [self.navigationController pushViewController:presenter animated:YES];
+}
+
+- (void)showTradingWallet:(NSIndexPath *)indexPath {
+    LWTradingWalletPresenter *presenter = [LWTradingWalletPresenter new];
+    presenter.assetId = [self assetIdentifyForIndexPath:indexPath];
     [self.navigationController pushViewController:presenter animated:YES];
 }
 

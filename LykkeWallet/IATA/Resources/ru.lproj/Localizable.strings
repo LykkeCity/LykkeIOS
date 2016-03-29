@@ -85,6 +85,10 @@
 "wallets.bitcoin.copytoast" = "Скопировано.";
 "wallets.bitcoin.sendemail" = "Email отправлен.";
 
+"wallets.trading.title" = "TRADING WALLET";
+"wallets.trading.withdraw" = "WITHDRAW";
+"wallets.trading.deposit" = "DEPOSIT";
+
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "ИЗДАТЕЛЬ/АССЕТ";
 "exchange.assets.header.price" = "ЦЕНА";
