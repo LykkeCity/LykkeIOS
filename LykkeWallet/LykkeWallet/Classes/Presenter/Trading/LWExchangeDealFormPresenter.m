@@ -16,6 +16,7 @@
 #import "LWPacketPinSecurityGet.h"
 #import "LWMathKeyboardView.h"
 #import "LWAssetPairModel.h"
+#import "LWAssetModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWCache.h"
 #import "LWMath.h"
@@ -42,17 +43,21 @@
 #pragma mark - Outlets
 
 @property (weak, nonatomic) IBOutlet UIButton           *buyButton;
+@property (weak, nonatomic) IBOutlet UILabel            *descriptionLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomHeightConstraint;
 
 
 #pragma mark - Utils
 
+- (void)updateTitle;
+- (void)updateDescription;
 - (void)updatePrice;
 - (NSNumber *)volumeFromField;
 - (void)updateKeyboardFrame;
 - (void)validateUser;
 - (void)showConfirmationView;
+- (NSString *)assetTitle;
 
 @end
 
@@ -76,8 +81,8 @@ float const kBigHeightKeyboard   = 290.0;
 float const kBottomSmallHeight   = 45.0;
 float const kBottomBigHeight     = 45.0;
 #else
-float const kBottomSmallHeight   = 65.0;
-float const kBottomBigHeight     = 105.0;
+float const kBottomSmallHeight   = 110.0;
+float const kBottomBigHeight     = 110.0;
 #endif
 
 
@@ -88,10 +93,8 @@ float const kBottomBigHeight     = 105.0;
     
     NSAssert(self.assetDealType != LWAssetDealTypeUnknown, @"Incorrect deal type!");
     
-    NSString *title = (self.assetDealType == LWAssetDealTypeBuy)
-                       ? Localize(@"exchange.assets.buy.title")
-                       : Localize(@"exchange.assets.sell.title");
-    self.title = [NSString stringWithFormat:@"%@%@", title, self.assetPair.name];
+    [self updateTitle];
+    [self updateDescription];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
@@ -347,6 +350,46 @@ float const kBottomBigHeight     = 105.0;
 
 #pragma mark - Utils
 
+- (void)updateTitle {
+    NSString *operation = (self.assetDealType == LWAssetDealTypeBuy)
+    ? Localize(@"exchange.assets.buy.title")
+    : Localize(@"exchange.assets.sell.title");
+    
+    self.title = [NSString stringWithFormat:@"%@%@", operation, [self assetTitle]];
+}
+
+- (void)updateDescription {
+    
+    if (!volumeString || [volumeString isEqualToString:@""]) {
+        self.descriptionLabel.text = @"";
+        return;
+    }
+    
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+
+    // operation type
+    NSString *operation = (self.assetDealType == LWAssetDealTypeBuy)
+    ? Localize(@"exchange.assets.description.buy")
+    : Localize(@"exchange.assets.description.sell");
+    
+    // operation rate
+    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:self.assetRate.ask.decimalValue];
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        if (![LWMath isDecimalEqualToZero:rate]) {
+            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
+            rate = [one decimalNumberByDividingBy:rate];
+        }
+    }
+
+    NSString *rateText = [LWMath makeStringByDecimal:rate withPrecision:self.assetPair.accuracy.integerValue];
+    
+    // build description
+    NSString *description = [NSString stringWithFormat:operation,
+                             volumeString, [self assetTitle], rateText];
+    
+    self.descriptionLabel.text = description;
+}
+
 - (void)updatePrice {
     
     if (!self.assetRate) {
@@ -364,7 +407,18 @@ float const kBottomBigHeight     = 105.0;
     NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     NSString *volumeText = [LWMath makeStringByDecimal:volume withPrecision:0];
     
-    NSDecimalNumber *result = [decimalPrice decimalNumberByMultiplyingBy:volume];
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+
+    NSDecimalNumber *result = [NSDecimalNumber zero];
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        if (![LWMath isDecimalEqualToZero:decimalPrice]) {
+            result = [volume decimalNumberByDividingBy:decimalPrice];
+        }
+    }
+    else {
+        result = [volume decimalNumberByMultiplyingBy:decimalPrice];
+    }
+    
     NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:2];
     totalCell.totalLabel.text = totalText;
     
@@ -373,6 +427,8 @@ float const kBottomBigHeight     = 105.0;
         confirmationView.volumeString = volumeText;
         confirmationView.totalString = totalText;
     }
+    
+    [self updateDescription];
 }
 
 - (NSNumber *)volumeFromField {
@@ -425,6 +481,18 @@ float const kBottomBigHeight     = 105.0;
     // showing modal view
     [self.navigationController.view addSubview:confirmationView];
     [self updatePrice];
+}
+
+- (NSString *)assetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.assetPair.baseAssetId;
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        assetTitleId = self.assetPair.quotingAssetId;
+    }
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
 }
 
 @end

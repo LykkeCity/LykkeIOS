@@ -21,6 +21,8 @@
         _group    = [json objectForKey:@"Group"];
         _name     = [json objectForKey:@"Name"];
         _accuracy = [json objectForKey:@"Accuracy"];
+        _baseAssetId    = [json objectForKey:@"BaseAssetId"];
+        _quotingAssetId = [json objectForKey:@"QuotingAssetId"];
     }
     return self;
 }

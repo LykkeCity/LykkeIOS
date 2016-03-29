@@ -20,5 +20,7 @@
 @property (readonly, nonatomic) NSString *group;
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSNumber *accuracy;
+@property (readonly, nonatomic) NSString *baseAssetId;
+@property (readonly, nonatomic) NSString *quotingAssetId;
 
 @end
