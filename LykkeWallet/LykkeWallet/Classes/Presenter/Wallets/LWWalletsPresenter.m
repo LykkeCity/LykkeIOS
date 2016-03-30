@@ -259,11 +259,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     
                     // validate for base asset and balance
                     if (![asset.identity isEqualToString:[LWCache instance].baseAssetId] && asset.balance.doubleValue > 0.0) {
-                        CGFloat const buttonWidth = 150.0;
-                        UIColor *color = [UIColor colorWithHexString:kSellAssetButtonColor];
+                        CGFloat const buttonWidth = 120.0;
                         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
                         [rightUtilityButtons sw_addUtilityButton:[self createUtilsButton]];
-                        [rightUtilityButtons sw_addUtilityButtonWithColor:color title:@""]; // fake
                         [lykke setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
 
                         lykke.delegate = self;
@@ -305,11 +303,9 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                     
                     // validate for base asset and balance
                     if (![asset.identity isEqualToString:[LWCache instance].baseAssetId] && asset.balance.doubleValue > 0.0) {
-                        CGFloat const buttonWidth = 150.0;
-                        UIColor *color = [UIColor colorWithHexString:kSellAssetButtonColor];
+                        CGFloat const buttonWidth = 120.0;
                         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
                         [rightUtilityButtons sw_addUtilityButton:[self createUtilsButton]];
-                        [rightUtilityButtons sw_addUtilityButtonWithColor:color title:@""]; // fake
                         [bitcoin setRightUtilityButtons:rightUtilityButtons WithButtonWidth:buttonWidth];
                         
                         bitcoin.delegate = self;

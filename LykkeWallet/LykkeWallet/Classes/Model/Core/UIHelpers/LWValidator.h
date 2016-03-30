@@ -25,6 +25,7 @@
 + (BOOL)validateCardExpiration:(NSString *)input;
 + (BOOL)validateCardOwner:(NSString *)input;
 + (BOOL)validateCardCode:(NSString *)input;
++ (BOOL)validateQrCode:(NSString *)input;
 
 + (void)setButton:(UIButton *)button enabled:(BOOL)isValid;
 + (void)setPriceButton:(UIButton *)button enabled:(BOOL)isValid;

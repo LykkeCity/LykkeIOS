@@ -83,6 +83,10 @@ static int const PasswordLength = 6;
     return [cardCodeTest evaluateWithObject:input];
 }
 
++ (BOOL)validateQrCode:(NSString *)input {
+    return input.length > 0;
+}
+
 + (void)setButton:(UIButton *)button enabled:(BOOL)enabled {
     [LWValidator updateButton:button
                   activeImage:@"ButtonOK"

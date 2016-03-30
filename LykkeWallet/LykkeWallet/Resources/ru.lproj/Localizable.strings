@@ -88,6 +88,15 @@
 "wallets.trading.withdraw" = "WITHDRAW";
 "wallets.trading.deposit" = "DEPOSIT";
 
+"withdraw.wallet.button" = "Withdraw";
+"withdraw.funds.title" = "WITHDRAW FUNDS";
+"withdraw.funds.address" = "Enter the bitcoin address";
+"withdraw.funds.wallet" = "Bitcoin Wallet";
+"withdraw.funds.paste" = "Paste";
+"withdraw.funds.scan" = "Scan QR-code";
+"withdraw.funds.proceed" = "PROCEED";
+"withdraw.funds.info" = "The funds from this wallet will be charged only for the transaction";
+
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "Издатель/Ассет";
 "exchange.assets.header.price" = "Цена";
