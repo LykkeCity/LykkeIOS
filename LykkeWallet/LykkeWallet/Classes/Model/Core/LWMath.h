@@ -24,6 +24,7 @@
 + (NSString *)stringWithInteger:(NSInteger)value;
 + (NSString *)makeStringByNumber:(NSNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
++ (NSString *)makeEditStringByNumber:(NSNumber *)number;
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number;
 + (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number withPrecision:(NSInteger)precision;
 + (NSString *)makeCurrencyPrice:(NSDecimalNumber *)number;

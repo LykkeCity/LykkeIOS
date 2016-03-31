@@ -218,35 +218,27 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         
         // remove group separator
         text = [text stringByReplacingOccurrencesOfString:groupSeparator withString:@""];
-        
-        // set '.' as decimal separator
-        text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
-        
+
         // will not calculate if have extra symbols
         if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
             [self.delegate volumeChanged:@"" withValidState:NO];
             return;
         }
         
+        NSString *result = [text copy];
+
+        // set '.' as decimal separator for evaluation
+        text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
         double evaluation = [text evaluateMath];
         NSNumber *number = [NSNumber numberWithDouble:evaluation];
-        NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithDecimal:number.decimalValue];
-        if ([LWMath isDecimalEqualToZero:decimal]) {
+        if (number.doubleValue <= 0.0) {
             [self.delegate volumeChanged:text withValidState:NO];
             return;
         }
         
-        /*NSString *separatorValidation = [NSString stringWithFormat:@"%@%@", separator, separator];
-        NSRange range = [text rangeOfString:separatorValidation];
-        if (range.location != NSNotFound) {
-            [self.delegate volumeChanged:@"" withValidState:NO];
-            return;
-        }*/
-        
-        NSString *result = [text stringByReplacingOccurrencesOfString:@"." withString:separator];
         NSDecimalNumber *resultChecker = [LWMath numberWithString:text];
         if (resultChecker.doubleValue != evaluation) {
-            result = [number stringValue];
+            result = [LWMath makeEditStringByNumber:number];
         }
 
         self.targetTextField.text = result;
