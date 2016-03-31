@@ -12,6 +12,7 @@
 #import "LWMathKeyboardView.h"
 #import "LWFingerprintHelper.h"
 #import "LWAssetBuySumTableViewCell.h"
+#import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
 #import "LWCache.h"
@@ -39,6 +40,10 @@
 #pragma mark - Utils
 
 - (void)updateKeyboardFrame;
+- (void)validateUser;
+- (void)showConfirmationView;
+- (CGFloat)calculateRowHeightForText:(NSString *)text;
+- (NSString *)dataByCellRow:(NSInteger)row;
 
 @end
 
@@ -142,6 +147,36 @@ float const kMathHeightKeyboard = 239.0;
 
 #pragma mark - LWAuthManagerDelegate
 
+- (void)authManagerDidCashOut:(LWAuthManager *)manager {
+    [self setLoading:NO];
+    
+    if (confirmationView) {
+        [confirmationView setLoading:NO withReason:@""];
+        [confirmationView removeFromSuperview];
+    }
+    
+    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"withdraw.funds.confirm.title") message:Localize(@"withdraw.funds.confirm.desc")
+                               preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"withdraw.funds.confirm.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [ctrl dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }];
+    [ctrl addAction:actionOK];
+    [self presentViewController:ctrl animated:YES completion:nil];
+}
+
+- (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid {
+    if (confirmationView) {
+        if (isValid) {
+            [confirmationView requestOperation];
+        }
+        else {
+            [confirmationView pinRejected];
+        }
+    }
+}
+
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     
     [self setLoading:NO];
@@ -213,6 +248,12 @@ float const kMathHeightKeyboard = 239.0;
     if (isHudActivated) {
         [self setLoading:YES];
     }
+    
+    NSDecimalNumber *decimalAmount = [LWMath numberWithString:volumeString];
+    NSNumber *amount = [NSNumber numberWithDouble:decimalAmount.doubleValue];
+    [[LWAuthManager instance] requestCashOut:amount
+                                     assetId:self.assetId
+                                    multiSig:self.bitcoinString];
 }
 
 

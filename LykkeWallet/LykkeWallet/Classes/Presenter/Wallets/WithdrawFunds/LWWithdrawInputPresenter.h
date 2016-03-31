@@ -16,6 +16,7 @@
 
 #pragma mark - Properties
 
+@property (copy, nonatomic) NSString *assetId;
 @property (copy, nonatomic) NSString *bitcoinString;
 
 @end

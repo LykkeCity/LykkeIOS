@@ -430,6 +430,8 @@
 		EC9AE0731CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */; };
 		EC9AE0751CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */; };
 		EC9AE0761CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */; };
+		EC9AE0791CAD69AF0047DF0D /* LWPacketCashOut.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE0781CAD69AF0047DF0D /* LWPacketCashOut.m */; };
+		EC9AE07A1CAD69AF0047DF0D /* LWPacketCashOut.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE0781CAD69AF0047DF0D /* LWPacketCashOut.m */; };
 		EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */; };
 		EC9C947A1C899003006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94751C898F9F006FD46B /* Assets.xcassets */; };
@@ -917,6 +919,8 @@
 		EC9AE0701CAD19EE0047DF0D /* LWWithdrawConfirmationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWithdrawConfirmationView.h; path = WithdrawFunds/LWWithdrawConfirmationView.h; sourceTree = "<group>"; };
 		EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWithdrawConfirmationView.m; path = WithdrawFunds/LWWithdrawConfirmationView.m; sourceTree = "<group>"; };
 		EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWithdrawConfirmationView.xib; path = WithdrawFunds/LWWithdrawConfirmationView.xib; sourceTree = "<group>"; };
+		EC9AE0771CAD69AF0047DF0D /* LWPacketCashOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketCashOut.h; sourceTree = "<group>"; };
+		EC9AE0781CAD69AF0047DF0D /* LWPacketCashOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketCashOut.m; sourceTree = "<group>"; };
 		EC9C94751C898F9F006FD46B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = IATA/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IATA/Resources/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		EC9C947C1C899019006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1599,6 +1603,8 @@
 				ECAB1BBB1C99D45300A64A20 /* LWPacketExchangeInfoGet.m */,
 				EC8FF6A51CA32D3400160528 /* LWPacketDicts.h */,
 				EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */,
+				EC9AE0771CAD69AF0047DF0D /* LWPacketCashOut.h */,
+				EC9AE0781CAD69AF0047DF0D /* LWPacketCashOut.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2942,6 +2948,7 @@
 				EC4754A71C614EAF0037614D /* LWWalletDepositPresenter.m in Sources */,
 				ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */,
 				CFC9FE1D1C1CE87C001F1974 /* LWNetAccessor.m in Sources */,
+				EC9AE0791CAD69AF0047DF0D /* LWPacketCashOut.m in Sources */,
 				ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */,
 				ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */,
 				CF6632491C175B54004353F5 /* main.m in Sources */,
@@ -3090,6 +3097,7 @@
 				ECAACF361C9F3B7A000227E0 /* LWErrorView.m in Sources */,
 				EC4D91A51C8778DF006EE7C8 /* LWExchangeResultPresenter.m in Sources */,
 				EC4D91A61C8778DF006EE7C8 /* LWTabController.m in Sources */,
+				EC9AE07A1CAD69AF0047DF0D /* LWPacketCashOut.m in Sources */,
 				EC4D91A71C8778DF006EE7C8 /* UITextField+Validation.m in Sources */,
 				EC4D91A81C8778DF006EE7C8 /* LWAuthPresenter.m in Sources */,
 				EC9AE0621CAC79910047DF0D /* QRCodeReader.m in Sources */,

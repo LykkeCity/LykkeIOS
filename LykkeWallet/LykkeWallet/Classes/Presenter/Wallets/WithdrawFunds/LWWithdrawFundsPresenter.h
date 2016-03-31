@@ -13,4 +13,6 @@
     
 }
 
+@property (copy, nonatomic) NSString *assetId;
+
 @end

@@ -8,6 +8,14 @@
 
 #import "LWAuthorizePacket.h"
 
-@interface LWPacketCashOut : LWAuthorizePacket
+
+@interface LWPacketCashOut : LWAuthorizePacket {
+    
+}
+
+// in
+@property (assign, nonatomic) NSString *multiSig;
+@property (assign, nonatomic) NSNumber *amount;
+@property (assign, nonatomic) NSString *assetId;
 
 @end

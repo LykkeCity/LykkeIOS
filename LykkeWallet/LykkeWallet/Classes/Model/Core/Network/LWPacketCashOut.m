@@ -8,6 +8,25 @@
 
 #import "LWPacketCashOut.h"
 
+
 @implementation LWPacketCashOut
+
+
+#pragma mark - LWPacket
+
+- (void)parseResponse:(id)response error:(NSError *)error {
+    [super parseResponse:response error:error];
+}
+
+- (NSString *)urlRelative {
+    return @"CashOut";
+}
+
+- (NSDictionary *)params {
+    return @{@"MultiSig" : self.multiSig,
+             @"Amount"   : self.amount,
+             @"AssetId"  : self.assetId
+             };
+}
 
 @end

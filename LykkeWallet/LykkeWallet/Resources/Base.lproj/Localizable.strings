@@ -108,6 +108,9 @@
 "withdraw.funds.modal.cancel" = "CANCEL";
 "withdraw.funds.modal.cell.address" = "Bitcoin address";
 "withdraw.funds.modal.cell.amount" = "Amount";
+"withdraw.funds.confirm.title" = "Message";
+"withdraw.funds.confirm.desc" = "Withdraw completed";
+"withdraw.funds.confirm.ok" = "OK";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";

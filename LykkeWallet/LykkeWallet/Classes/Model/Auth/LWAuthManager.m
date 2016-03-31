@@ -41,6 +41,7 @@
 #import "LWPacketSendBlockchainEmail.h"
 #import "LWPacketExchangeInfoGet.h"
 #import "LWPacketDicts.h"
+#import "LWPacketCashOut.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -335,6 +336,15 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestCashOut:(NSNumber *)amount assetId:(NSString *)assetId multiSig:(NSString *)multiSig {
+    LWPacketCashOut *pack = [LWPacketCashOut new];
+    pack.multiSig = multiSig;
+    pack.amount = amount;
+    pack.assetId = assetId;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -550,6 +560,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketDicts.class) {
         if ([self.delegate respondsToSelector:@selector(authManager: didReceiveAssetDicts:)]) {
             [self.delegate authManager:self didReceiveAssetDicts:((LWPacketDicts *)pack).assetsDictionary];
+        }
+    }
+    else if (pack.class == LWPacketCashOut.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidCashOut:)]) {
+            [self.delegate authManagerDidCashOut:self];
         }
     }
 }

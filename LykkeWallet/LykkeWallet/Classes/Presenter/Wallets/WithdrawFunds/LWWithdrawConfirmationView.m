@@ -7,7 +7,7 @@
 //
 
 #import "LWWithdrawConfirmationView.h"
-#import "LWDetailTableViewCell.h"
+#import "LWAssetInfoTextTableViewCell.h"
 #import "LWPinKeyboardView.h"
 #import "LWAuthManager.h"
 #import "LWConstants.h"
@@ -56,7 +56,6 @@
 static int const kDescriptionRows = 2;
 static float const kPinProtectionHeight = 444;
 static float const kNoPinProtectionHeight = 356;
-
 
 #pragma mark - General
 
@@ -145,8 +144,8 @@ static float const kNoPinProtectionHeight = 356;
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.placeOrderButton.hidden = NO;
     
-    [self registerCellWithIdentifier:kDetailTableViewCellIdentifier
-                                name:kDetailTableViewCell];
+    [self registerCellWithIdentifier:@"LWAssetInfoTextTableViewCellIdentifier"
+                                name:@"LWAssetInfoTextTableViewCell"];
     
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -187,6 +186,32 @@ static float const kNoPinProtectionHeight = 356;
     [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
+- (CGFloat)calculateRowHeightForText:(NSString *)text {
+    CGFloat const kDefaultRowHeight = 50.0;
+    CGFloat const kTopBottomPadding = 8.0;
+    CGFloat const kLeftRightPadding = 26.0 * 2.0;
+    CGFloat const kTitleWidth = 116.0;
+    CGFloat const kDescriptionWidth = self.tableView.frame.size.width - kLeftRightPadding - kTitleWidth;
+    
+    UIFont *font = [UIFont fontWithName:kFontRegular size:kAssetDetailsFontSize];
+    CGSize const size = CGSizeMake(kDescriptionWidth, CGFLOAT_MAX);
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName:font}
+                                     context:nil];
+    
+    CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
+    return cellHeight;
+}
+
+- (NSString *)dataByCellRow:(NSInteger)row {
+    NSString *const values[kDescriptionRows] = {
+        self.bitcoinString,
+        self.amountString
+    };
+    return values[row];
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -210,19 +235,28 @@ static float const kNoPinProtectionHeight = 356;
         self.amountString
     };
     
-    LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kDetailTableViewCellIdentifier];
-    if (indexPath.row == kDescriptionRows - 1) {
-        [cell setRegularDetails];
-    }
-    else {
-        [cell setLightDetails];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAssetInfoTextTableViewCellIdentifier"];
     
-    [cell setWhitePalette];
-    cell.titleLabel.text = titles[indexPath.row];
-    cell.detailLabel.text = values[indexPath.row];
+    LWAssetInfoTextTableViewCell *textCell = (LWAssetInfoTextTableViewCell *)cell;
+    textCell.titleLabel.text = titles[indexPath.row];
+    textCell.descriptionLabel.text = values[indexPath.row];
+    
+    //[cell setWhitePalette];
+    //cell.titleLabel.text = titles[indexPath.row];
+    //cell.detailLabel.text = values[indexPath.row];
     
     return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *text = [self dataByCellRow:indexPath.row - 1];
+    if (text) {
+        return [self calculateRowHeightForText:text];
+    }
+    return 0.0;
 }
 
 
