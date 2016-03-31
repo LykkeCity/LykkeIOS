@@ -189,8 +189,8 @@ static int const kNumberOfRows = 3;
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
     if (self.pairRateModel) {
-        priceSellRateString = [LWMath priceString:self.pairRateModel.ask precision:self.asset.accuracy withPrefix:Localize(@"graph.button.sell")];
-        priceBuyRateString = [LWMath priceString:self.pairRateModel.bid precision:self.asset.accuracy withPrefix:Localize(@"graph.button.buy")];
+        priceSellRateString = [self priceForValue:self.pairRateModel.ask withFormat:Localize(@"graph.button.sell")];
+        priceBuyRateString = [self priceForValue:self.pairRateModel.bid withFormat:Localize(@"graph.button.buy")];
     }
     
     [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];
@@ -239,6 +239,28 @@ static int const kNumberOfRows = 3;
     [chart setAutoresizingMask:(UIViewAutoresizingFlexibleWidth
                                 | UIViewAutoresizingFlexibleHeight)];
     [self.graphView setAutoresizesSubviews:YES];
+}
+
+#warning TODO: copypaste
+- (NSString *)priceForValue:(NSNumber *)value withFormat:(NSString *)format {
+    
+    // operation rate
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
+    if ([baseAssetId isEqualToString:self.asset.baseAssetId]) {
+        if (![LWMath isDecimalEqualToZero:rate]) {
+            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
+            rate = [one decimalNumberByDividingBy:rate];
+        }
+    }
+    
+    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
+    NSString *rateString = [LWMath priceString:number
+                                     precision:self.asset.accuracy
+                                    withPrefix:@""];
+    NSString *result = [NSString stringWithFormat:format,
+                        self.asset.name, rateString];
+    return result;
 }
 
 

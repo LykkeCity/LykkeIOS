@@ -401,7 +401,8 @@ float const kBottomBigHeight     = 110.0;
     
     // update price cell
     LWAssetBuyPriceTableViewCell *priceCell = (LWAssetBuyPriceTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    NSString *priceText = [LWMath priceString:self.assetRate.ask precision:self.assetPair.accuracy withPrefix:@""];
+
+    NSString *priceText = [self priceForValue:self.assetRate.ask];
     priceCell.priceLabel.text = priceText;
     
     // update total cell
@@ -500,6 +501,26 @@ float const kBottomBigHeight     = 110.0;
     
     NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
     return totalText;
+}
+
+#warning TODO: copypaste
+- (NSString *)priceForValue:(NSNumber *)value {
+    
+    // operation rate
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        if (![LWMath isDecimalEqualToZero:rate]) {
+            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
+            rate = [one decimalNumberByDividingBy:rate];
+        }
+    }
+    
+    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
+    NSString *rateString = [LWMath priceString:number
+                                     precision:self.assetPair.accuracy
+                                    withPrefix:@""];
+    return rateString;
 }
 
 @end
