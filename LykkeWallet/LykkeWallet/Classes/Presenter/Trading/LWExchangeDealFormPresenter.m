@@ -420,7 +420,7 @@ float const kBottomBigHeight     = 110.0;
         result = [volume decimalNumberByMultiplyingBy:decimalPrice];
     }
     
-    NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:2];
+    NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
     totalCell.totalLabel.text = totalText;
     
     if (confirmationView) {
