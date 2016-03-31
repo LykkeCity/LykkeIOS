@@ -56,6 +56,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 - (NSString *)decimalSeparator;
 - (NSString *)groupSeparator;
 - (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate;
+- (void)checkSeparator;
 - (BOOL)isSymbolsExists:(NSString *)symbols forString:(NSString *)string;
 
 @end
@@ -128,7 +129,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
     //self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
     NSString *str = sender.titleLabel.text;
     self.targetTextField.text = str;
-    [self calculate:NO shouldValidate:YES];
+    [self calculate:YES shouldValidate:YES];
 }
 
 - (IBAction)numpadButtonClick:(UIButton *)sender {
@@ -147,7 +148,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             NSString *separator = [self decimalSeparator];
             self.targetTextField.text = [self.targetTextField.text
                                          stringByAppendingString:separator];
-            //[self calculate:NO shouldValidate:YES];
+            [self checkSeparator];
             break;
         }
         default: {
@@ -237,13 +238,29 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         }
         
         NSString *result = [text stringByReplacingOccurrencesOfString:@"." withString:separator];
-        self.targetTextField.text = result;
+        NSDecimalNumber *resultChecker = [LWMath numberWithString:text];
+        if (resultChecker.doubleValue != evaluation) {
+            result = [number stringValue];
+            self.targetTextField.text = result;
+        }
+
         [self.delegate volumeChanged:result withValidState:evaluation > 0.0];
     }
     @catch (NSException *exception) {
         if (shouldRaiseException) {
             [self.delegate mathKeyboardViewDidRaiseMathException:self];
         }
+        [self.delegate volumeChanged:@"" withValidState:NO];
+    }
+}
+
+- (void)checkSeparator {
+    NSString *separator = [self decimalSeparator];
+    NSString *text = self.targetTextField.text;
+    
+    NSString *separatorValidation = [NSString stringWithFormat:@"%@%@", separator, separator];
+    NSRange range = [text rangeOfString:separatorValidation];
+    if (range.location != NSNotFound) {
         [self.delegate volumeChanged:@"" withValidState:NO];
     }
 }
