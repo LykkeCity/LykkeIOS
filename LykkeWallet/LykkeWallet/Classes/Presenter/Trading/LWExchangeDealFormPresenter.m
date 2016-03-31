@@ -30,7 +30,7 @@
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWMathKeyboardViewDelegate> {
+@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWMathKeyboardViewDelegate> {
     LWMathKeyboardView *mathKeyboardView;
     
     LWExchangeConfirmationView *confirmationView;

@@ -87,6 +87,31 @@
 "wallets.trading.withdraw" = "WITHDRAW";
 "wallets.trading.deposit" = "DEPOSIT";
 
+"withdraw.wallet.button" = "Withdraw";
+"withdraw.funds.title" = "WITHDRAW FUNDS";
+"withdraw.funds.address" = "Enter the bitcoin address";
+"withdraw.funds.wallet" = "Bitcoin Wallet";
+"withdraw.funds.paste" = "Paste";
+"withdraw.funds.scan" = "Scan QR-code";
+"withdraw.funds.proceed" = "PROCEED";
+"withdraw.funds.info" = "The funds from this wallet will be charged only for the transaction";
+"withdraw.funds.amount" = "Amount";
+"withdraw.funds.placeholder" = "Input amount";
+"withdraw.funds.validatepin" = "PIN validation ...";
+"withdraw.funds.modal.error" = "Message";
+"withdraw.funds.modal.error.volume" = "Amount is invalid.";
+"withdraw.funds.modal.error.ok" = "OK";
+"withdraw.funds.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
+"withdraw.funds.modal.waiting" = "Sending the order ...";
+"withdraw.funds.modal.title" = "ORDER SUMMARY";
+"withdraw.funds.modal.button" = "PLACE AN ORDER";
+"withdraw.funds.modal.cancel" = "CANCEL";
+"withdraw.funds.modal.cell.address" = "Bitcoin address";
+"withdraw.funds.modal.cell.amount" = "Amount";
+"withdraw.funds.confirm.title" = "Message";
+"withdraw.funds.confirm.desc" = "Withdraw completed";
+"withdraw.funds.confirm.ok" = "OK";
+
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";
 "exchange.assets.header.price" = "Price";

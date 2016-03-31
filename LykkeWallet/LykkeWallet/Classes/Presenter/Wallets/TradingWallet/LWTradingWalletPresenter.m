@@ -8,6 +8,7 @@
 
 #import "LWTradingWalletPresenter.h"
 #import "LWBitcoinDepositPresenter.h"
+#import "LWWithdrawFundsPresenter.h"
 #import "LWHistoryTableViewCell.h"
 #import "LWBaseHistoryItemType.h"
 #import "LWTradeHistoryItemType.h"
@@ -209,7 +210,10 @@
 #pragma mark - Actions
 
 - (IBAction)withdrawClicked:(id)sender {
+    LWWithdrawFundsPresenter *presenter = [LWWithdrawFundsPresenter new];
+    presenter.assetId = self.assetId;
     
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 - (IBAction)depositClicked:(id)sender {

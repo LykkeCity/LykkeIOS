@@ -65,6 +65,7 @@
 - (void)authManagerDidSendBlockchainEmail:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didReceiveExchangeInfo:(LWExchangeInfoModel *)exchangeInfo;
 - (void)authManager:(LWAuthManager *)manager didReceiveAssetDicts:(NSArray *)assetDicts;
+- (void)authManagerDidCashOut:(LWAuthManager *)manager;
 
 @end
 
@@ -120,6 +121,7 @@ SINGLETON_DECLARE
 - (void)requestEmailBlockchain;
 - (void)requestExchangeInfo:(NSString *)exchangeId;
 - (void)requestDictionaries;
+- (void)requestCashOut:(NSNumber *)amount assetId:(NSString *)assetId multiSig:(NSString *)multiSig;
 
 #pragma mark - Static methods
 
