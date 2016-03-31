@@ -7,16 +7,239 @@
 //
 
 #import "LWWithdrawConfirmationView.h"
+#import "LWDetailTableViewCell.h"
+#import "LWPinKeyboardView.h"
+#import "LWAuthManager.h"
+#import "LWConstants.h"
+#import "LWValidator.h"
+#import "LWCache.h"
+#import "Macro.h"
+
+
+@interface LWWithdrawConfirmationView ()<UITableViewDataSource, LWPinKeyboardViewDelegate> {
+    LWPinKeyboardView *pinKeyboardView;
+    BOOL               isRequested;
+}
+
+
+#pragma mark - Outlets
+
+@property (weak, nonatomic) IBOutlet UIView           *topView;
+@property (weak, nonatomic) IBOutlet UIView           *bottomView;
+@property (weak, nonatomic) IBOutlet UITableView      *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationBar  *navigationBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
+@property (weak, nonatomic) IBOutlet UIButton         *placeOrderButton;
+@property (weak, nonatomic) IBOutlet UILabel          *waitingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView      *waitingImageView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
+
+
+#pragma mark - Properties
+
+@property (weak, nonatomic) id<LWWithdrawConfirmationViewDelegate> delegate;
+
+
+#pragma mark - Utils
+
+- (void)requestOperation;
+- (void)cancelOperation;
+- (void)updateView;
+- (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name;
+
+@end
 
 
 @implementation LWWithdrawConfirmationView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+static int const kDescriptionRows = 2;
+static float const kPinProtectionHeight = 444;
+static float const kNoPinProtectionHeight = 356;
+
+
+#pragma mark - General
+
++ (LWWithdrawConfirmationView *)modalViewWithDelegate:(id<LWWithdrawConfirmationViewDelegate>)delegate {
+    
+    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"LWWithdrawConfirmationView"
+                                                  owner:self options:nil] objectAtIndex:0];
+    view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [view sizeToFit];
+    
+    LWWithdrawConfirmationView *result = (LWWithdrawConfirmationView *)view;
+    [result setDelegate:delegate];
+    [result updateView];
+    return result;
 }
-*/
+
+
+#pragma mark - Actions
+
+- (void)cancelClicked:(id)sender {
+    [self cancelOperation];
+}
+
+- (IBAction)confirmClicked:(id)sender {
+    [self requestOperation];
+}
+
+
+#pragma mark - Utils
+
+- (void)requestOperation {
+    [self setLoading:YES withReason:Localize(@"withdraw.funds.modal.waiting")];
+    [self.delegate requestOperationWithHud:NO];
+}
+
+- (void)pinRejected {
+    [self setLoading:NO withReason:@""];
+    if (pinKeyboardView) {
+        [pinKeyboardView pinRejected];
+    }
+}
+
+- (void)cancelOperation {
+    [self.delegate cancelClicked];
+    [self removeFromSuperview];
+}
+
+- (void)updateView {
+    [UIView setAnimationsEnabled:NO];
+    
+    self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    
+    self.topView.backgroundColor = [UIColor whiteColor];
+    self.topView.opaque = NO;
+    
+    BOOL const shouldSignOrder = [LWCache instance].shouldSignOrder;
+    if (shouldSignOrder) {
+        pinKeyboardView = [LWPinKeyboardView new];
+        pinKeyboardView.delegate = self;
+        pinKeyboardView.hidden = !shouldSignOrder;
+        [pinKeyboardView updateView];
+        [self.bottomView addSubview:pinKeyboardView];
+    }
+    else {
+        if (pinKeyboardView) {
+            [pinKeyboardView removeFromSuperview];
+            pinKeyboardView = nil;
+        }
+    }
+    
+    self.topViewHeightConstraint.constant = (shouldSignOrder ? kPinProtectionHeight : kNoPinProtectionHeight);
+    self.placeOrderButton.hidden = shouldSignOrder;
+    
+    self.waitingLabel.text = Localize(@"withdraw.funds.modal.waiting");
+    [self.navigationItem setTitle:Localize(@"withdraw.funds.modal.title")];
+    [self.placeOrderButton setTitle:Localize(@"withdraw.funds.modal.button")
+                           forState:UIControlStateNormal];
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:Localize(@"withdraw.funds.modal.cancel") style:UIBarButtonItemStylePlain target:self action:@selector(cancelClicked:)];
+    
+    UIFont *font = [UIFont fontWithName:kModalNavBarFontName size:kModalNavBarFontSize];
+    
+    [cancelButton setTitleTextAttributes:@{NSFontAttributeName:font}
+                                forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    self.placeOrderButton.hidden = NO;
+    
+    [self registerCellWithIdentifier:kDetailTableViewCellIdentifier
+                                name:kDetailTableViewCell];
+    
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self setLoading:NO withReason:@""];
+}
+
+- (void)setLoading:(BOOL)loading withReason:(NSString *)reason {
+    isRequested = loading;
+    
+    self.navigationItem.leftBarButtonItem.enabled = !loading;
+    self.placeOrderButton.hidden = loading;
+    self.waitingLabel.hidden = !loading;
+    self.waitingImageView.hidden = !loading;
+    self.waitingLabel.text = reason;
+    
+    if (pinKeyboardView) {
+        pinKeyboardView.hidden = loading;
+    }
+    
+    if (loading) {
+        CABasicAnimation *rotation;
+        rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+        rotation.fromValue = [NSNumber numberWithFloat:0];
+        rotation.toValue = [NSNumber numberWithFloat:(2 * M_PI)];
+        rotation.duration = 1.2f;
+        rotation.repeatCount = HUGE_VALF;
+        [self.waitingImageView.layer removeAllAnimations];
+        [self.waitingImageView.layer addAnimation:rotation forKey:@"Spin"];
+    }
+    else {
+        [self.waitingImageView.layer removeAllAnimations];
+    }
+}
+
+- (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name {
+    UINib *nib = [UINib nibWithNibName:name bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
+}
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return kDescriptionRows;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *const titles[kDescriptionRows] = {
+        Localize(@"withdraw.funds.modal.cell.address"),
+        Localize(@"withdraw.funds.modal.cell.amount")
+    };
+    
+    NSString *const values[kDescriptionRows] = {
+        self.bitcoinString,
+        self.amountString
+    };
+    
+    LWDetailTableViewCell *cell = (LWDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kDetailTableViewCellIdentifier];
+    if (indexPath.row == kDescriptionRows - 1) {
+        [cell setRegularDetails];
+    }
+    else {
+        [cell setLightDetails];
+    }
+    
+    [cell setWhitePalette];
+    cell.titleLabel.text = titles[indexPath.row];
+    cell.detailLabel.text = values[indexPath.row];
+    
+    return cell;
+}
+
+
+#pragma mark - LWPinKeyboardViewDelegate
+
+- (void)pinEntered:(NSString *)pin {
+    [self.delegate checkPin:pin];
+}
+
+- (void)pinCanceled {
+    [self removeFromSuperview];
+    [self.delegate cancelClicked];
+}
+
+- (void)pinAttemptEnds {
+    [self removeFromSuperview];
+    [self.delegate noAttemptsForPin];
+}
 
 @end

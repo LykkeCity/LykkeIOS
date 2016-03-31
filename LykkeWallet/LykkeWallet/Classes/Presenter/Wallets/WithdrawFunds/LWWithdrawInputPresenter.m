@@ -15,10 +15,12 @@
 #import "LWConstants.h"
 #import "LWValidator.h"
 #import "LWCache.h"
+#import "LWMath.h"
 #import "TKButton.h"
 #import "UITextField+Validation.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
+#import "NSString+Utils.h"
 
 
 @interface LWWithdrawInputPresenter () <UITextFieldDelegate, LWMathKeyboardViewDelegate, LWWithdrawConfirmationViewDelegate> {
@@ -106,11 +108,11 @@ float const kMathHeightKeyboard = 239.0;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (indexPath.row == 0) {
         LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)cell;
-        sumCell.titleLabel.text = Localize(@"exchange.assets.buy.sum");
+        sumCell.titleLabel.text = Localize(@"withdraw.funds.amount");
         
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
-        sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
+        sumTextField.placeholder = Localize(@"withdraw.funds.placeholder");
         sumTextField.inputView = mathKeyboardView;
         
         mathKeyboardView.targetTextField = sumTextField;
@@ -185,11 +187,11 @@ float const kMathHeightKeyboard = 239.0;
 }
 
 
-#pragma mark - LWExchangeConfirmationViewDelegate
+#pragma mark - LWWithdrawConfirmationViewDelegate
 
 - (void)checkPin:(NSString *)pin {
     if (confirmationView) {
-        [confirmationView setLoading:YES withReason:Localize(@"exchange.assets.modal.validatepin")];
+        [confirmationView setLoading:YES withReason:Localize(@"withdraw.funds.validatepin")];
         [[LWAuthManager instance] requestPinSecurityGet:pin];
     }
 }
@@ -217,9 +219,9 @@ float const kMathHeightKeyboard = 239.0;
 #pragma mark - LWMathKeyboardViewDelegate
 
 - (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
-    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"exchange.assets.modal.error") message:Localize(@"exchange.assets.modal.error.volume") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"withdraw.funds.modal.error") message:Localize(@"withdraw.funds.modal.error.volume") preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"exchange.assets.modal.error.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"withdraw.funds.modal.error.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [ctrl dismissViewControllerAnimated:YES completion:nil];
     }];
     [ctrl addAction:actionOK];
@@ -248,7 +250,7 @@ float const kMathHeightKeyboard = 239.0;
 - (void)validateUser {
     
     [LWFingerprintHelper
-     validateFingerprintTitle:Localize(@"exchange.assets.modal.fingerpring")
+     validateFingerprintTitle:Localize(@"withdraw.funds.modal.fingerpring")
      ok:^(void) {
          [self requestOperationWithHud:YES];
      }
@@ -263,7 +265,12 @@ float const kMathHeightKeyboard = 239.0;
 - (void)showConfirmationView {
     // preparing modal view
     confirmationView = [LWWithdrawConfirmationView modalViewWithDelegate:self];
-    //confirmationView.assetPair = self.assetPair;
+    
+    NSDecimalNumber *amount = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
+    NSString *amountText = [LWMath makeStringByDecimal:amount withPrecision:2];
+    
+    confirmationView.bitcoinString = self.bitcoinString;
+    confirmationView.amountString = amountText;
     [confirmationView setFrame:self.navigationController.view.bounds];
     
     // animation

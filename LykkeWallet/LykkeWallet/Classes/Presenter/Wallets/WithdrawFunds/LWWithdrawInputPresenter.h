@@ -13,4 +13,9 @@
     
 }
 
+
+#pragma mark - Properties
+
+@property (copy, nonatomic) NSString *bitcoinString;
+
 @end

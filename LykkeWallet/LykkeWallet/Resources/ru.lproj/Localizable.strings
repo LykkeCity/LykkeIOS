@@ -96,6 +96,19 @@
 "withdraw.funds.scan" = "Scan QR-code";
 "withdraw.funds.proceed" = "PROCEED";
 "withdraw.funds.info" = "The funds from this wallet will be charged only for the transaction";
+"withdraw.funds.amount" = "Amount";
+"withdraw.funds.placeholder" = "Input amount";
+"withdraw.funds.validatepin" = "PIN validation ...";
+"withdraw.funds.modal.error" = "Message";
+"withdraw.funds.modal.error.volume" = "Amount is invalid.";
+"withdraw.funds.modal.error.ok" = "OK";
+"withdraw.funds.modal.fingerpring" = "Please scan your fingerprint to validate your identity to complete request.";
+"withdraw.funds.modal.waiting" = "Sending the order ...";
+"withdraw.funds.modal.title" = "ORDER SUMMARY";
+"withdraw.funds.modal.button" = "PLACE AN ORDER";
+"withdraw.funds.modal.cancel" = "CANCEL";
+"withdraw.funds.modal.cell.address" = "Bitcoin address";
+"withdraw.funds.modal.cell.amount" = "Amount";
 
 "exchange.assets.selection" = "Выберите ассет";
 "exchange.assets.header.issuer" = "Издатель/Ассет";

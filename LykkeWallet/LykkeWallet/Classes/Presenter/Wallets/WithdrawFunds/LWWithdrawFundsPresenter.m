@@ -114,6 +114,7 @@
 
 - (IBAction)proceedClicked:(id)sender {
     LWWithdrawInputPresenter *presenter = [LWWithdrawInputPresenter new];
+    presenter.bitcoinString = bitcoinTextField.text;
     [self.navigationController pushViewController:presenter animated:YES];
 }
 

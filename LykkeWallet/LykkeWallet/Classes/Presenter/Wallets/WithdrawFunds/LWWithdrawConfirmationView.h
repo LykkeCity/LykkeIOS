@@ -25,6 +25,12 @@
 }
 
 
+#pragma mark - Properties
+
+@property (copy, nonatomic) NSString *amountString;
+@property (copy, nonatomic) NSString *bitcoinString;
+
+
 #pragma mark - General
 
 + (LWWithdrawConfirmationView *)modalViewWithDelegate:(id<LWWithdrawConfirmationViewDelegate>)delegate;
