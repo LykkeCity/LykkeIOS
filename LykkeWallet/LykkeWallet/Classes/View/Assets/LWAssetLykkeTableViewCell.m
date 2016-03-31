@@ -26,12 +26,14 @@
     
     if (self.rate && self.pair) {
         // price section
+#warning TODO: price quote or base
         NSString *priceString = [LWMath priceString:rate.ask precision:self.pair.accuracy withPrefix:@""];
         self.assetPriceLabel.text = priceString;
         self.assetPriceLabel.textColor = [UIColor colorWithHexString:kAssetEnabledItemColor];
 
         // change section
         NSString *sign = (rate.pchng.doubleValue >= 0.0) ? @"+" : @"";
+#warning TODO: price quote or base
         NSString *changeString = [LWMath priceString:rate.pchng precision:[NSNumber numberWithInt:2] withPrefix:sign];
 
         UIColor *changeColor = (rate.pchng.doubleValue >= 0.0)
