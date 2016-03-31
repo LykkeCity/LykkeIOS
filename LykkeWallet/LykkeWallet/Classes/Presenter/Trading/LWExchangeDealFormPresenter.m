@@ -58,6 +58,7 @@
 - (void)validateUser;
 - (void)showConfirmationView;
 - (NSString *)assetTitle;
+- (NSString *)secondAssetTitle;
 - (NSString *)totalString;
 
 @end
@@ -388,7 +389,8 @@ float const kBottomBigHeight     = 110.0;
     NSString *description = [NSString stringWithFormat:operation,
                              volumeString,
                              [self assetTitle],
-                             [self totalString]];
+                             [self totalString],
+                             [self secondAssetTitle]];
     
     self.descriptionLabel.text = description;
 }
@@ -478,6 +480,19 @@ float const kBottomBigHeight     = 110.0;
     if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
         assetTitleId = self.assetPair.quotingAssetId;
     }
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
+}
+
+- (NSString *)secondAssetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.assetPair.quotingAssetId;
+    if (![baseAssetId isEqualToString:self.assetPair.quotingAssetId]) {
+        assetTitleId = self.assetPair.baseAssetId;
+    }
+    
     NSString *assetTitle = [LWAssetModel
                             assetByIdentity:assetTitleId
                             fromList:[LWCache instance].baseAssets];
