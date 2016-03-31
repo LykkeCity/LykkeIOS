@@ -183,11 +183,11 @@ float const kMathHeightKeyboard = 239.0;
     
     if (confirmationView) {
         [confirmationView setLoading:NO withReason:@""];
-        [self showReject:reject response:context.task.response
-                    code:context.error.code willNotify:YES];
-        
         [confirmationView removeFromSuperview];
     }
+    
+    [self showReject:reject response:context.task.response
+                code:context.error.code willNotify:YES];
 }
 
 
