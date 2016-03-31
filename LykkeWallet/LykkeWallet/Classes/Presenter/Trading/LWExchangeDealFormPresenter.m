@@ -176,7 +176,6 @@ float const kBottomBigHeight     = 110.0;
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
         sumTextField.inputView = mathKeyboardView;
-        //sumTextField.inputView.autoresizingMask = UIViewAutoresizingNone;
         
         mathKeyboardView.targetTextField = sumTextField;
         
@@ -408,7 +407,6 @@ float const kBottomBigHeight     = 110.0;
     LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
     NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
-    NSString *volumeText = [LWMath makeStringByDecimal:volume withPrecision:0];
     
     NSString *baseAssetId = [LWCache instance].baseAssetId;
 
@@ -427,7 +425,7 @@ float const kBottomBigHeight     = 110.0;
     
     if (confirmationView) {
         confirmationView.rateString = priceText;
-        confirmationView.volumeString = volumeText;
+        confirmationView.volumeString = volumeString;
         confirmationView.totalString = totalText;
     }
     
@@ -437,9 +435,9 @@ float const kBottomBigHeight     = 110.0;
 - (NSNumber *)volumeFromField {
     NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     
-    int const result = self.assetDealType == LWAssetDealTypeBuy ? volume.intValue : -volume.intValue;
+    double const result = self.assetDealType == LWAssetDealTypeBuy ? volume.doubleValue : -volume.doubleValue;
     
-    return [NSNumber numberWithInt:result];
+    return [NSNumber numberWithDouble:result];
 }
 
 - (void)updateKeyboardFrame {

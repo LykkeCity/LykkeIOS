@@ -56,7 +56,6 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 - (NSString *)decimalSeparator;
 - (NSString *)groupSeparator;
 - (void)calculate:(BOOL)shouldRaiseException shouldValidate:(BOOL)shouldValidate;
-- (void)checkSeparator;
 - (BOOL)isSymbolsExists:(NSString *)symbols forString:(NSString *)string;
 
 @end
@@ -125,11 +124,9 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
 #pragma mark - Actions
 
 - (IBAction)snippetButtonClick:(UIButton *)sender {
-    //NSString *str = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //self.targetTextField.text = [self.targetTextField.text stringByAppendingString:str];
     NSString *str = sender.titleLabel.text;
     self.targetTextField.text = str;
-    [self calculate:YES shouldValidate:YES];
+    [self calculate:NO shouldValidate:YES];
 }
 
 - (IBAction)numpadButtonClick:(UIButton *)sender {
@@ -148,7 +145,7 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             NSString *separator = [self decimalSeparator];
             self.targetTextField.text = [self.targetTextField.text
                                          stringByAppendingString:separator];
-            [self checkSeparator];
+            [self calculate:NO shouldValidate:YES];
             break;
         }
         default: {
@@ -218,10 +215,12 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
         NSString *separator = [self decimalSeparator];
         NSString *groupSeparator = [self groupSeparator];
         NSString *text = self.targetTextField.text;
-        // set '.' as decimal separator
-        text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
+        
         // remove group separator
         text = [text stringByReplacingOccurrencesOfString:groupSeparator withString:@""];
+        
+        // set '.' as decimal separator
+        text = [text stringByReplacingOccurrencesOfString:separator withString:@"."];
         
         // will not calculate if have extra symbols
         if ([self isSymbolsExists:@"+-/*" forString:text] && shouldValidate) {
@@ -237,30 +236,26 @@ typedef NS_ENUM(NSInteger, LWMathKeyboardViewSign) {
             return;
         }
         
+        /*NSString *separatorValidation = [NSString stringWithFormat:@"%@%@", separator, separator];
+        NSRange range = [text rangeOfString:separatorValidation];
+        if (range.location != NSNotFound) {
+            [self.delegate volumeChanged:@"" withValidState:NO];
+            return;
+        }*/
+        
         NSString *result = [text stringByReplacingOccurrencesOfString:@"." withString:separator];
         NSDecimalNumber *resultChecker = [LWMath numberWithString:text];
         if (resultChecker.doubleValue != evaluation) {
             result = [number stringValue];
-            self.targetTextField.text = result;
         }
 
+        self.targetTextField.text = result;
         [self.delegate volumeChanged:result withValidState:evaluation > 0.0];
     }
     @catch (NSException *exception) {
         if (shouldRaiseException) {
             [self.delegate mathKeyboardViewDidRaiseMathException:self];
         }
-        [self.delegate volumeChanged:@"" withValidState:NO];
-    }
-}
-
-- (void)checkSeparator {
-    NSString *separator = [self decimalSeparator];
-    NSString *text = self.targetTextField.text;
-    
-    NSString *separatorValidation = [NSString stringWithFormat:@"%@%@", separator, separator];
-    NSRange range = [text rangeOfString:separatorValidation];
-    if (range.location != NSNotFound) {
         [self.delegate volumeChanged:@"" withValidState:NO];
     }
 }
