@@ -79,7 +79,7 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:nil];
-
+    
 }
 
 - (IBAction)takePictureButtonClick:(id)sender {
