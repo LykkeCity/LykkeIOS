@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWWithdrawInputPresenter">
             <connections>
+                <outlet property="bottomConstraint" destination="XPS-o8-0Fx" id="aeK-Kn-VQC"/>
                 <outlet property="operationButton" destination="Z5R-Hl-Cff" id="XsC-hE-fub"/>
                 <outlet property="tableView" destination="agb-IQ-SfU" id="1xb-YS-Bcv"/>
                 <outlet property="view" destination="nvu-Pj-hzH" id="X4I-Zb-Qwp"/>

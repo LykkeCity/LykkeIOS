@@ -11,8 +11,10 @@
 #import "LWMathKeyboardView.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWConstants.h"
+#import "LWValidator.h"
 #import "LWCache.h"
 #import "TKButton.h"
+#import "UITextField+Validation.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
 
@@ -23,9 +25,16 @@
     
     //LWExchangeConfirmationView *confirmationView;
     UITextField *sumTextField;
+    NSString    *volumeString;
 }
 
 @property (weak, nonatomic) IBOutlet TKButton *operationButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+
+
+#pragma mark - Utils
+
+- (void)updateKeyboardFrame;
 
 @end
 
@@ -39,21 +48,22 @@ static NSString *const FormIdentifiers[kFormRows] = {
     @"LWAssetBuySumTableViewCellIdentifier"
 };
 
+float const kMathHeightKeyboard = 239.0;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //[self updateTitle];
-    //[self updateDescription];
+    self.title = Localize(@"withdraw.funds.title");
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
     mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
     mathKeyboardView.delegate = self;
     [mathKeyboardView updateView];
-    //[self updateKeyboardFrame];
+    [self updateKeyboardFrame];
     
-    //volumeString = @"";
-    //[self volumeChanged:volumeString withValidState:NO];
+    volumeString = @"";
+    [self volumeChanged:volumeString withValidState:NO];
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
                                 name:@"LWAssetBuySumTableViewCell"];
@@ -100,11 +110,9 @@ static NSString *const FormIdentifiers[kFormRows] = {
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
         sumTextField.inputView = mathKeyboardView;
-        //sumTextField.inputView.autoresizingMask = UIViewAutoresizingNone;
         
         mathKeyboardView.targetTextField = sumTextField;
         
-        //[sumTextField becomeFirstResponder];
         [sumTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
         [sumTextField addTarget:self
                          action:@selector(textFieldDidChange:)
@@ -118,14 +126,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
     NSInteger const maxLength = 12;
-//    return [textField shouldChangeCharactersInRange:range replacementString:string forMaxLength:maxLength];
-    return YES;
+    return [textField shouldChangeCharactersInRange:range
+                                  replacementString:string
+                                       forMaxLength:maxLength];
 }
 
 - (void)textFieldDidChange:(id)sender {
-//    [self updatePrice];
 }
 
 
@@ -141,6 +148,20 @@ static NSString *const FormIdentifiers[kFormRows] = {
         
 //        [confirmationView removeFromSuperview];
 //    }
+}
+
+
+#pragma mark - TKPresenter
+
+- (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
+    CGRect frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [self.bottomConstraint setConstant:frame.size.height];
+    [self animateConstraintChanges];
+}
+
+- (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+    [self.bottomConstraint setConstant:0];
+    [self animateConstraintChanges];
 }
 
 
@@ -205,11 +226,20 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 - (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid {
     if (isValid) {
-        //volumeString = volume;
-        //[self updatePrice];
+        volumeString = volume;
     }
     
-    //[LWValidator setButton:self.buyButton enabled:isValid];
+    [LWValidator setButton:self.operationButton enabled:isValid];
+}
+
+
+#pragma mark - Utils
+
+- (void)updateKeyboardFrame {
+    CGRect rect = mathKeyboardView.frame;
+    rect.size.height = kMathHeightKeyboard;
+    mathKeyboardView.frame = rect;
+    mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
 }
 
 

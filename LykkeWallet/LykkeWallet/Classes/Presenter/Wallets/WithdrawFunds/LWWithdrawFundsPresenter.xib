@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWWithdrawFundsPresenter">
             <connections>
                 <outlet property="infoLabel" destination="bNv-eg-p7n" id="SAF-OI-RG3"/>
+                <outlet property="pasteButton" destination="E91-c2-9oM" id="dtg-LZ-tB4"/>
                 <outlet property="proceedButton" destination="vuW-oV-4pM" id="nDd-Xc-S5o"/>
                 <outlet property="qrCodeContainer" destination="7KG-y3-dbu" id="FER-yB-TUl"/>
                 <outlet property="qrCodeLabel" destination="P5T-EI-POH" id="asD-RT-Fg6"/>
@@ -51,7 +52,7 @@
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="pasteClicked:" destination="-1" eventType="touchUpInside" id="qhF-Oa-5Nk"/>
+                                <action selector="pasteClicked:" destination="-1" eventType="touchUpInside" id="1oN-7T-jCZ"/>
                             </connections>
                         </button>
                     </subviews>

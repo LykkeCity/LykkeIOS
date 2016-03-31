@@ -7,6 +7,7 @@
 //
 
 #import "LWWithdrawFundsPresenter.h"
+#import "LWWithdrawInputPresenter.h"
 #import "LWQrCodeScannerPresenter.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
@@ -33,6 +34,7 @@
 #pragma mark - Utils
 
 - (BOOL)canProceed;
+- (void)updatePasteButtonStatus;
 
 @end
 
@@ -50,7 +52,10 @@
     bitcoinTextField.delegate = self;
     bitcoinTextField.keyboardType = UIKeyboardTypeEmailAddress;
     bitcoinTextField.placeholder = Localize(@"withdraw.funds.wallet");
+    bitcoinTextField.viewMode = UITextFieldViewModeNever;
     [self.qrCodeContainer attach:bitcoinTextField];
+
+    [self.qrCodeContainer bringSubviewToFront:self.pasteButton];
     
 #ifdef PROJECT_IATA
 #else
@@ -64,7 +69,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
+    
+    [self updatePasteButtonStatus];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (bitcoinTextField) {
+        [bitcoinTextField becomeFirstResponder];
+    }
 }
 
 - (void)localize {
@@ -92,23 +106,25 @@
         return;
     }
 
-    // check button state
-    bitcoinTextField.valid = [LWValidator validateQrCode:textField.text];
-    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
+    [self updatePasteButtonStatus];
 }
 
 
 #pragma mark - Outlets
 
 - (IBAction)proceedClicked:(id)sender {
-    
+    LWWithdrawInputPresenter *presenter = [LWWithdrawInputPresenter new];
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 - (IBAction)pasteClicked:(id)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    bitcoinTextField.text = [pasteboard string];
     
+    [self updatePasteButtonStatus];
 }
 
-- (IBAction)scanClicked:(id)sender {
+- (void)scanClicked:(id)sender {
     LWQrCodeScannerPresenter *presenter = [LWQrCodeScannerPresenter new];
     [self.navigationController pushViewController:presenter animated:YES];
 }
@@ -117,8 +133,14 @@
 #pragma mark - Utils
 
 - (BOOL)canProceed {
-    BOOL canProceed = bitcoinTextField.isValid;
+    BOOL canProceed = bitcoinTextField.text.length > 0;
     return canProceed;
+}
+
+- (void)updatePasteButtonStatus {
+    // check button state
+    [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
+    self.pasteButton.hidden = [self canProceed];
 }
 
 @end
