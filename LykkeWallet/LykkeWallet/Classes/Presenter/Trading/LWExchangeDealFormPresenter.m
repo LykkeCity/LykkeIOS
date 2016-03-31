@@ -343,6 +343,9 @@ float const kBottomBigHeight     = 110.0;
         volumeString = volume;
         [self updatePrice];
     }
+    else {
+        self.descriptionLabel.text = @"";
+    }
     
     [LWValidator setButton:self.buyButton enabled:isValid];
 }
