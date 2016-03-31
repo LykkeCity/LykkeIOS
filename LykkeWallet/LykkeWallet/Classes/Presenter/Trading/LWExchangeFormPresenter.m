@@ -13,6 +13,7 @@
 #import "LWAssetDescriptionModel.h"
 #import "LWAssetInfoTextTableViewCell.h"
 #import "LWAssetInfoIconTableViewCell.h"
+#import "LWAssetModel.h"
 #import "LWValidator.h"
 #import "LWConstants.h"
 #import "LWCache.h"
@@ -288,8 +289,38 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
                                      precision:self.assetPair.accuracy
                                     withPrefix:@""];
     NSString *result = [NSString stringWithFormat:format,
-                        self.assetPair.name, rateString];
+                        [self assetTitle], rateString, [self secondAssetTitle]];
+    
+    
+    
     return result;
+}
+
+#warning TODO: copypaste
+- (NSString *)assetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.assetPair.baseAssetId;
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        assetTitleId = self.assetPair.quotingAssetId;
+    }
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
+}
+
+#warning TODO: copypaste
+- (NSString *)secondAssetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.assetPair.quotingAssetId;
+    if (![baseAssetId isEqualToString:self.assetPair.quotingAssetId]) {
+        assetTitleId = self.assetPair.baseAssetId;
+    }
+    
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
 }
 
 @end

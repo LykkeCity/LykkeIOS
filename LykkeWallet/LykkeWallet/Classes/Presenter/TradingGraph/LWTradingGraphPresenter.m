@@ -14,6 +14,7 @@
 #import "LWLeftDetailTableViewCell.h"
 #import "LWValidator.h"
 #import "LWConstants.h"
+#import "LWAssetModel.h"
 #import "LWMath.h"
 #import "TKButton.h"
 #import "UIViewController+Loading.h"
@@ -259,8 +260,35 @@ static int const kNumberOfRows = 3;
                                      precision:self.asset.accuracy
                                     withPrefix:@""];
     NSString *result = [NSString stringWithFormat:format,
-                        self.asset.name, rateString];
+                        [self assetTitle], rateString, [self secondAssetTitle]];
     return result;
+}
+
+#warning TODO: copypaste
+- (NSString *)assetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.asset.baseAssetId;
+    if ([baseAssetId isEqualToString:self.asset.baseAssetId]) {
+        assetTitleId = self.asset.quotingAssetId;
+    }
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
+}
+
+#warning TODO: copypaste
+- (NSString *)secondAssetTitle {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSString *assetTitleId = self.asset.quotingAssetId;
+    if (![baseAssetId isEqualToString:self.asset.quotingAssetId]) {
+        assetTitleId = self.asset.baseAssetId;
+    }
+    
+    NSString *assetTitle = [LWAssetModel
+                            assetByIdentity:assetTitleId
+                            fromList:[LWCache instance].baseAssets];
+    return assetTitle;
 }
 
 

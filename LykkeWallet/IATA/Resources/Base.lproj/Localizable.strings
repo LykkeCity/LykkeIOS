@@ -201,8 +201,8 @@
 "graph.cell.time"   = "Fixing time";
 "graph.cell.price"  = "Last price";
 "graph.cell.change" = "Change";
-"graph.button.buy"  = "BUY %@ AT PRICE %@";
-"graph.button.sell" = "SELL %@ AT PRICE %@";
+"graph.button.buy"  = "BUY %@ AT PRICE %@ %@";
+"graph.button.sell" = "SELL %@ AT PRICE %@ %@";
 
 "errors.network.connection" = "Internet connection problem";
 "errors.server.problems"    = "Technical problems.";

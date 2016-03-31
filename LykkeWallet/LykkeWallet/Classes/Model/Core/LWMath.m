@@ -132,13 +132,21 @@
     return result;
 }
 
-+ (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number {
++ (NSString *)makeEditStringByNumber:(NSNumber *)number {
     NSLocale *locale = [NSLocale currentLocale];
     NSNumberFormatter *frm = [[NSNumberFormatter alloc] init];
     [frm setNumberStyle:NSNumberFormatterDecimalStyle];
     [frm setLocale:locale];
     [frm setUsesGroupingSeparator:NO];
-    NSString *result = [frm stringFromNumber:[NSNumber numberWithDouble:number.doubleValue]];
+    [frm setMaximumFractionDigits:20];
+    double const doubleValue = number.doubleValue;
+    NSString *result = [frm stringFromNumber:[NSNumber numberWithDouble:doubleValue]];
+    return result;
+}
+
++ (NSString *)makeEditStringByDecimal:(NSDecimalNumber *)number {
+    NSNumber *value = [NSNumber numberWithDouble:number.doubleValue];
+    NSString *result = [LWMath makeEditStringByNumber:value];
     return result;
 }
 
