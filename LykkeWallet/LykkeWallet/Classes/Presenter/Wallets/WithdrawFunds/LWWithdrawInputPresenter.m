@@ -8,7 +8,9 @@
 
 #import "LWWithdrawInputPresenter.h"
 #import "LWAuthNavigationController.h"
+#import "LWWithdrawConfirmationView.h"
 #import "LWMathKeyboardView.h"
+#import "LWFingerprintHelper.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
@@ -19,11 +21,11 @@
 #import "UIViewController+Navigation.h"
 
 
-@interface LWWithdrawInputPresenter () <UITextFieldDelegate, LWMathKeyboardViewDelegate> {
+@interface LWWithdrawInputPresenter () <UITextFieldDelegate, LWMathKeyboardViewDelegate, LWWithdrawConfirmationViewDelegate> {
     
     LWMathKeyboardView *mathKeyboardView;
     
-    //LWExchangeConfirmationView *confirmationView;
+    LWWithdrawConfirmationView *confirmationView;
     UITextField *sumTextField;
     NSString    *volumeString;
 }
@@ -142,12 +144,13 @@ float const kMathHeightKeyboard = 239.0;
     
     [self setLoading:NO];
     
-//    if (confirmationView) {
-//        [confirmationView setLoading:NO withReason:@""];
-        [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
+    if (confirmationView) {
+        [confirmationView setLoading:NO withReason:@""];
+        [self showReject:reject response:context.task.response
+                    code:context.error.code willNotify:YES];
         
-//        [confirmationView removeFromSuperview];
-//    }
+        [confirmationView removeFromSuperview];
+    }
 }
 
 
@@ -174,10 +177,10 @@ float const kMathHeightKeyboard = 239.0;
     // if fingerprint available - show confirmation view
     BOOL const shouldSignOrder = [LWCache instance].shouldSignOrder;
     if (shouldSignOrder) {
-//        [self validateUser];
+        [self validateUser];
     }
     else {
-//        [self showConfirmationView];
+        [self showConfirmationView];
     }
 }
 
@@ -185,10 +188,10 @@ float const kMathHeightKeyboard = 239.0;
 #pragma mark - LWExchangeConfirmationViewDelegate
 
 - (void)checkPin:(NSString *)pin {
-    //if (confirmationView) {
-    //    [confirmationView setLoading:YES withReason:Localize(@"exchange.assets.modal.validatepin")];
-    //    [[LWAuthManager instance] requestPinSecurityGet:pin];
-    //}
+    if (confirmationView) {
+        [confirmationView setLoading:YES withReason:Localize(@"exchange.assets.modal.validatepin")];
+        [[LWAuthManager instance] requestPinSecurityGet:pin];
+    }
 }
 
 - (void)noAttemptsForPin {
@@ -199,7 +202,7 @@ float const kMathHeightKeyboard = 239.0;
     if (sumTextField) {
         [sumTextField becomeFirstResponder];
     }
-    //confirmationView = nil;
+    confirmationView = nil;
 }
 
 - (void)requestOperationWithHud:(BOOL)isHudActivated {
@@ -242,5 +245,37 @@ float const kMathHeightKeyboard = 239.0;
     mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
 }
 
+- (void)validateUser {
+    
+    [LWFingerprintHelper
+     validateFingerprintTitle:Localize(@"exchange.assets.modal.fingerpring")
+     ok:^(void) {
+         [self requestOperationWithHud:YES];
+     }
+     bad:^(void) {
+         [self showConfirmationView];
+     }
+     unavailable:^(void) {
+         [self showConfirmationView];
+     }];
+}
+
+- (void)showConfirmationView {
+    // preparing modal view
+    confirmationView = [LWWithdrawConfirmationView modalViewWithDelegate:self];
+    //confirmationView.assetPair = self.assetPair;
+    [confirmationView setFrame:self.navigationController.view.bounds];
+    
+    // animation
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [confirmationView.layer addAnimation:transition forKey:nil];
+    
+    // showing modal view
+    [self.navigationController.view addSubview:confirmationView];
+}
 
 @end

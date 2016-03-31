@@ -426,6 +426,10 @@
 		EC9AE06C1CAC7C6F0047DF0D /* LWWithdrawInputPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE06A1CAC7C6F0047DF0D /* LWWithdrawInputPresenter.m */; };
 		EC9AE06E1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE06D1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib */; };
 		EC9AE06F1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE06D1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib */; };
+		EC9AE0721CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */; };
+		EC9AE0731CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */; };
+		EC9AE0751CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */; };
+		EC9AE0761CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */; };
 		EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */; };
 		EC9C947A1C899003006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6632431C175B54004353F5 /* Assets.xcassets */; };
 		EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9C94751C898F9F006FD46B /* Assets.xcassets */; };
@@ -910,6 +914,9 @@
 		EC9AE0691CAC7C6F0047DF0D /* LWWithdrawInputPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWithdrawInputPresenter.h; path = WithdrawFunds/LWWithdrawInputPresenter.h; sourceTree = "<group>"; };
 		EC9AE06A1CAC7C6F0047DF0D /* LWWithdrawInputPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWithdrawInputPresenter.m; path = WithdrawFunds/LWWithdrawInputPresenter.m; sourceTree = "<group>"; };
 		EC9AE06D1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWithdrawInputPresenter.xib; path = WithdrawFunds/LWWithdrawInputPresenter.xib; sourceTree = "<group>"; };
+		EC9AE0701CAD19EE0047DF0D /* LWWithdrawConfirmationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWWithdrawConfirmationView.h; path = WithdrawFunds/LWWithdrawConfirmationView.h; sourceTree = "<group>"; };
+		EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWWithdrawConfirmationView.m; path = WithdrawFunds/LWWithdrawConfirmationView.m; sourceTree = "<group>"; };
+		EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWWithdrawConfirmationView.xib; path = WithdrawFunds/LWWithdrawConfirmationView.xib; sourceTree = "<group>"; };
 		EC9C94751C898F9F006FD46B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = IATA/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		EC9C94771C898FF9006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IATA/Resources/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		EC9C947C1C899019006FD46B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2060,6 +2067,9 @@
 				EC9AE0691CAC7C6F0047DF0D /* LWWithdrawInputPresenter.h */,
 				EC9AE06A1CAC7C6F0047DF0D /* LWWithdrawInputPresenter.m */,
 				EC9AE06D1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib */,
+				EC9AE0701CAD19EE0047DF0D /* LWWithdrawConfirmationView.h */,
+				EC9AE0711CAD19EE0047DF0D /* LWWithdrawConfirmationView.m */,
+				EC9AE0741CAD1A070047DF0D /* LWWithdrawConfirmationView.xib */,
 			);
 			name = WithdrawFunds;
 			sourceTree = "<group>";
@@ -2569,6 +2579,7 @@
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter.xib in Resources */,
 				EC9C94981C89C89E006FD46B /* LWTextField.xib in Resources */,
+				EC9AE0751CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */,
 				CF66327B1C1768B0004353F5 /* Localizable.strings in Resources */,
 				ECECAB4C1C98A1200020E050 /* LWBitcoinTableViewCell.xib in Resources */,
 				EC7A45D81C309A6200926BB4 /* LWLykkeTableViewCell.xib in Resources */,
@@ -2675,6 +2686,7 @@
 				ECAB1BCA1C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */,
 				EC0175341CA8041800ACC675 /* LWTradingWalletPresenter.xib in Resources */,
 				EC0E84451C8EC7EB00FE128C /* LWWalletTableViewCell.xib in Resources */,
+				EC9AE0761CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */,
 				EC4D92651C8778DF006EE7C8 /* LWRegisterPhonePresenter.xib in Resources */,
 				EC4D92661C8778DF006EE7C8 /* LWKYCSuccessPresenter.xib in Resources */,
 				ECECAB601C998CD10020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */,
@@ -2886,6 +2898,7 @@
 				EC3CE8B81C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m in Sources */,
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
+				EC9AE0721CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				EC57F47A1C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m in Sources */,
 				CF6F69D41C2413F70016CFC5 /* ABPinSelectionView.m in Sources */,
@@ -3172,6 +3185,7 @@
 				EC4D91F51C8778DF006EE7C8 /* LWExchangeBlockchainPresenter.m in Sources */,
 				EC4D91F61C8778DF006EE7C8 /* LWRegisterPhonePresenter.m in Sources */,
 				EC4D91F71C8778DF006EE7C8 /* LWAssetInfoIconTableViewCell.m in Sources */,
+				EC9AE0731CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */,
 				EC4D91F81C8778DF006EE7C8 /* LWPacketBuySellAsset.m in Sources */,
 				EC4D91F91C8778DF006EE7C8 /* LWAssetDealModel.m in Sources */,
 				EC4D91FA1C8778DF006EE7C8 /* LWPacketAppSettings.m in Sources */,
