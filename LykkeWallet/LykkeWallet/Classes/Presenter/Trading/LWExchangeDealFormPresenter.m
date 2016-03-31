@@ -58,6 +58,7 @@
 - (void)validateUser;
 - (void)showConfirmationView;
 - (NSString *)assetTitle;
+- (NSString *)totalString;
 
 @end
 
@@ -383,11 +384,11 @@ float const kBottomBigHeight     = 110.0;
         }
     }
 
-    NSString *rateText = [LWMath makeStringByDecimal:rate withPrecision:self.assetPair.accuracy.integerValue];
-    
     // build description
     NSString *description = [NSString stringWithFormat:operation,
-                             volumeString, [self assetTitle], rateText];
+                             volumeString,
+                             [self assetTitle],
+                             [self totalString]];
     
     self.descriptionLabel.text = description;
 }
@@ -405,28 +406,14 @@ float const kBottomBigHeight     = 110.0;
     
     // update total cell
     LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
-    NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-
-    NSDecimalNumber *result = [NSDecimalNumber zero];
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:decimalPrice]) {
-            result = [volume decimalNumberByDividingBy:decimalPrice];
-        }
-    }
-    else {
-        result = [volume decimalNumberByMultiplyingBy:decimalPrice];
-    }
-    
-    NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
-    totalCell.totalLabel.text = totalText;
+    NSString *totalStringValue = [self totalString];
+    totalCell.totalLabel.text = totalStringValue;
     
     if (confirmationView) {
         confirmationView.rateString = priceText;
         confirmationView.volumeString = volumeString;
-        confirmationView.totalString = totalText;
+        confirmationView.totalString = totalStringValue;
     }
     
     [self updateDescription];
@@ -494,6 +481,25 @@ float const kBottomBigHeight     = 110.0;
                             assetByIdentity:assetTitleId
                             fromList:[LWCache instance].baseAssets];
     return assetTitle;
+}
+
+- (NSString *)totalString {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
+    NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
+    
+    NSDecimalNumber *result = [NSDecimalNumber zero];
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        if (![LWMath isDecimalEqualToZero:decimalPrice]) {
+            result = [volume decimalNumberByDividingBy:decimalPrice];
+        }
+    }
+    else {
+        result = [volume decimalNumberByMultiplyingBy:decimalPrice];
+    }
+    
+    NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
+    return totalText;
 }
 
 @end
