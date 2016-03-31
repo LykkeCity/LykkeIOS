@@ -28,8 +28,14 @@
 @property (weak, nonatomic) IBOutlet UIButton        *switchButton;
 @property (weak, nonatomic) IBOutlet UIButton        *libraryButton;
 @property (weak, nonatomic) IBOutlet UILabel         *subtitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView     *stepImageView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonItem;
+
+
+#pragma mark - Utils
+
+- (void)updateImage;
 
 @end
 
@@ -41,6 +47,7 @@
 
 - (void)updateView {
     [self localize];
+    [self updateImage];
     
     BOOL const isSelfie = (self.step == LWAuthStepRegisterSelfie);
     self.libraryButton.hidden = isSelfie;
@@ -101,6 +108,27 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:NO completion:nil];
+}
+
+
+#pragma mark - Utils
+
+- (void)updateImage {
+    UIImage *image = nil;
+    switch (self.step) {
+        case LWAuthStepRegisterSelfie:
+            image = [UIImage imageNamed:@"RegisterLineStep2"];
+            break;
+        case LWAuthStepRegisterIdentity:
+            image = [UIImage imageNamed:@"RegisterLineStep3"];
+            break;
+        case LWAuthStepRegisterUtilityBill:
+            image = [UIImage imageNamed:@"RegisterLineStep4"];
+            break;
+        default:
+            break;
+    }
+    [self.stepImageView setImage:image];
 }
 
 @end

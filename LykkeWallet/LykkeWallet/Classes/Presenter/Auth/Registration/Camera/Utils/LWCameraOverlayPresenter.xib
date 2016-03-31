@@ -15,6 +15,7 @@
                 <outlet property="backButtonItem" destination="TTA-aa-W3x" id="jRD-SL-vB6"/>
                 <outlet property="libraryButton" destination="HeE-xF-3j7" id="XjL-Gv-A66"/>
                 <outlet property="navigationBar" destination="DBg-VZ-Gx8" id="7C1-ZI-UO5"/>
+                <outlet property="stepImageView" destination="b6l-bG-cYA" id="IfO-fp-tsk"/>
                 <outlet property="subtitleLabel" destination="gda-Md-fwi" id="E5S-Fx-RMc"/>
                 <outlet property="switchButton" destination="X8n-c5-GD5" id="LLp-GY-Slq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,7 +33,7 @@
                     </constraints>
                     <items>
                         <navigationItem title="REGISTER" id="HhN-xZ-aQE">
-                            <barButtonItem key="leftBarButtonItem" image="19523011-2350-48EF-BDCE-AE58AB16A803" id="TTA-aa-W3x">
+                            <barButtonItem key="leftBarButtonItem" image="323B81EB-81C1-4A9B-81C0-76E39354879B" id="TTA-aa-W3x">
                                 <color key="tintColor" red="0.58431372549019611" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="closeButtonClick:" destination="-1" id="bm4-Hj-WIV"/>
@@ -136,7 +137,7 @@
         </view>
     </objects>
     <resources>
-        <image name="19523011-2350-48EF-BDCE-AE58AB16A803" width="22" height="22">
+        <image name="323B81EB-81C1-4A9B-81C0-76E39354879B" width="22" height="22">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
