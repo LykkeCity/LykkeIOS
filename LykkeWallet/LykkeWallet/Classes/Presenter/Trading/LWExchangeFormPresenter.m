@@ -217,8 +217,8 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
     if (rate) {
-        priceSellRateString = [self priceForValue:rate.ask withFormat:Localize(@"graph.button.sell")];
-        priceBuyRateString = [self priceForValue:rate.bid withFormat:Localize(@"graph.button.buy")];
+        priceSellRateString = [self priceForValue:rate.bid withFormat:Localize(@"graph.button.sell")];
+        priceBuyRateString = [self priceForValue:rate.ask withFormat:Localize(@"graph.button.buy")];
     }
     
     [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];

@@ -45,7 +45,7 @@ static int const kNumberOfRows = 3;
     [self registerCellWithIdentifier:kLeftDetailTableViewCellIdentifier
                                 name:kLeftDetailTableViewCell];
     
-    NSString *type = (self.model.amount.intValue >= 0
+    NSString *type = (self.model.amount.doubleValue >= 0
                       ? Localize(@"history.cash.in")
                       : Localize(@"history.cash.out"));
     

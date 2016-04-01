@@ -158,7 +158,7 @@ static int const kBlockchainRow = 5;
 - (NSString *)dataByCellRow:(NSInteger)row {
     NSString *const values[kNumberOfRows] = {
         self.purchase.assetPair,
-        [LWMath makeStringByNumber:self.purchase.volume withPrecision:0],
+        [LWMath makeStringByNumber:self.purchase.volume withPrecision:self.purchase.accuracy.integerValue],
         [LWMath makeStringByNumber:self.purchase.price withPrecision:self.purchase.accuracy.integerValue],
         [LWMath makeStringByNumber:self.purchase.commission withPrecision:2],
         [LWMath makeStringByNumber:self.purchase.totalCost withPrecision:2],

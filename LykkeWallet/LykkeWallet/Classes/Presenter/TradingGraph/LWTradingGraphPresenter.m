@@ -190,8 +190,8 @@ static int const kNumberOfRows = 3;
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
     if (self.pairRateModel) {
-        priceSellRateString = [self priceForValue:self.pairRateModel.ask withFormat:Localize(@"graph.button.sell")];
-        priceBuyRateString = [self priceForValue:self.pairRateModel.bid withFormat:Localize(@"graph.button.buy")];
+        priceSellRateString = [self priceForValue:self.pairRateModel.bid withFormat:Localize(@"graph.button.sell")];
+        priceBuyRateString = [self priceForValue:self.pairRateModel.ask withFormat:Localize(@"graph.button.buy")];
     }
     
     [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];
