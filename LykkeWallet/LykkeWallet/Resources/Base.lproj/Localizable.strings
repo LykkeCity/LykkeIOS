@@ -111,6 +111,7 @@
 "withdraw.funds.confirm.title" = "Message";
 "withdraw.funds.confirm.desc" = "Withdraw completed";
 "withdraw.funds.confirm.ok" = "OK";
+"withdraw.funds.qr.title" = "SCAN CODE";
 
 "exchange.assets.selection" = "Select an asset";
 "exchange.assets.header.issuer" = "Issuer/Asset";

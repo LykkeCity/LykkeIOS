@@ -10,11 +10,22 @@
 #import "QRCodeReader.h"
 
 
+@class LWQrCodeScannerPresenter;
+
+
+@protocol AMScanViewControllerDelegate <NSObject>
+
+@optional
+- (void)scanViewController:(LWQrCodeScannerPresenter *)controller didTapToFocusOnPoint:(CGPoint)point;
+- (void)scanViewController:(LWQrCodeScannerPresenter *)controller didSuccessfullyScan:(NSString *)scannedValue;
+
+@end
+
+
 @interface LWQrCodeScannerPresenter : LWAuthPresenter {
     
 }
 
-@property (strong, nonatomic, readonly) NSArray *metadataObjectTypes;
-@property (strong, nonatomic, readonly) QRCodeReader *codeReader;
+@property (weak, nonatomic) id<AMScanViewControllerDelegate> delegate;
 
 @end
