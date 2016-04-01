@@ -16,7 +16,7 @@
 #import "TKButton.h"
 
 
-@interface LWWithdrawFundsPresenter () <LWTextFieldDelegate> {
+@interface LWWithdrawFundsPresenter () <LWTextFieldDelegate, AMScanViewControllerDelegate> {
     LWTextField *bitcoinTextField;
 }
 
@@ -128,7 +128,18 @@
 
 - (void)scanClicked:(id)sender {
     LWQrCodeScannerPresenter *presenter = [LWQrCodeScannerPresenter new];
+    presenter.delegate = self;
     [self.navigationController pushViewController:presenter animated:YES];
+}
+
+
+#pragma mark - test
+
+- (void)scanViewController:(LWQrCodeScannerPresenter *)controller didSuccessfullyScan:(NSString *)scannedValue {
+    [self.navigationController popToViewController:self animated:NO];
+    
+    bitcoinTextField.text = scannedValue;
+    [self updatePasteButtonStatus];
 }
 
 
