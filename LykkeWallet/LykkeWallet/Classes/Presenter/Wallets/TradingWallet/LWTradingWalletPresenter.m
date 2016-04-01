@@ -150,7 +150,7 @@
                           assetByIdentity:trade.asset
                           fromList:[LWCache instance].baseAssets];
         
-        NSString *type = (volume.intValue >= 0
+        NSString *type = (volume.doubleValue >= 0
                           ? Localize(@"history.market.buy")
                           : Localize(@"history.market.sell"));
         
@@ -165,7 +165,7 @@
                           assetByIdentity:cash.asset
                           fromList:[LWCache instance].baseAssets];
         
-        NSString *type = (volume.intValue >= 0
+        NSString *type = (volume.doubleValue >= 0
                           ? Localize(@"history.cash.in")
                           : Localize(@"history.cash.out"));
         
