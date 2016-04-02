@@ -354,10 +354,12 @@
     _detailLabelFont = [UIFont systemFontOfSize:14];
     
     _labelColor = [UIColor whiteColor];
+    _viewColor = [UIColor blackColor];
 }
 
 - (void)prepareAppearance
 {
+    self.backgroundColor = self.viewColor;
     self.enterPasscodeLabel.textColor = self.labelColor;
     self.enterPasscodeLabel.font = self.enterPasscodeLabelFont;
     

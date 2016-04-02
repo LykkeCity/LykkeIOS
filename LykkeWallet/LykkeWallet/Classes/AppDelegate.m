@@ -84,7 +84,7 @@
 #pragma mark - Private
 
 - (void)customizePINScreen {
-    [[ABPadLockScreenView appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[ABPadLockScreenView appearance] setViewColor:[UIColor whiteColor]];
     [[ABPadLockScreenView appearance] setLabelColor:[UIColor blackColor]];
     [[ABPadButton appearance] setBackgroundColor:[UIColor clearColor]];
     [[ABPadButton appearance] setBorderColor:[UIColor colorWithHexString:kABPadBorderColor]];
