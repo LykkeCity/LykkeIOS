@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIFont *detailLabelFont UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIFont *deleteCancelLabelFont UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *labelColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *viewColor UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, strong) UIView* backgroundView;
 
