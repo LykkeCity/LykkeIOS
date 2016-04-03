@@ -17,6 +17,7 @@
 #import "LWValidator.h"
 #import "LWConstants.h"
 #import "LWCache.h"
+#import "LWUtils.h"
 #import "LWMath.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
@@ -39,7 +40,6 @@
 - (void)updateRate:(LWAssetPairRateModel *)rate;
 - (NSString *)description:(LWAssetDescriptionModel *)model forRow:(NSInteger)row;
 - (CGFloat)calculateRowHeightForText:(NSString *)text;
-- (NSString *)priceForValue:(NSNumber *)value withFormat:(NSString *)format;
 
 @end
 
@@ -217,8 +217,8 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
     if (rate) {
-        priceSellRateString = [self priceForValue:rate.bid withFormat:Localize(@"graph.button.sell")];
-        priceBuyRateString = [self priceForValue:rate.ask withFormat:Localize(@"graph.button.buy")];
+        priceSellRateString = [LWUtils priceForAsset:self.assetPair forValue:rate.bid withFormat:Localize(@"graph.button.sell")];
+        priceBuyRateString = [LWUtils priceForAsset:self.assetPair forValue:rate.ask withFormat:Localize(@"graph.button.buy")];
     }
     
     [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];
@@ -269,58 +269,6 @@ static NSString *const DescriptionIdentifiers[kDescriptionRows] = {
     
     CGFloat const cellHeight = MAX(kDefaultRowHeight, rect.size.height + kTopBottomPadding * 2.0);
     return cellHeight;
-}
-
-#warning TODO: copypaste
-- (NSString *)priceForValue:(NSNumber *)value withFormat:(NSString *)format {
-    
-    // operation rate
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:rate]) {
-            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
-            rate = [one decimalNumberByDividingBy:rate];
-        }
-    }
-    
-    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
-    NSString *rateString = [LWMath priceString:number
-                                     precision:self.assetPair.accuracy
-                                    withPrefix:@""];
-    NSString *result = [NSString stringWithFormat:format,
-                        [self assetTitle], rateString, [self secondAssetTitle]];
-    
-    
-    
-    return result;
-}
-
-#warning TODO: copypaste
-- (NSString *)assetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.assetPair.baseAssetId;
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        assetTitleId = self.assetPair.quotingAssetId;
-    }
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
-}
-
-#warning TODO: copypaste
-- (NSString *)secondAssetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.assetPair.quotingAssetId;
-    if (![baseAssetId isEqualToString:self.assetPair.quotingAssetId]) {
-        assetTitleId = self.assetPair.baseAssetId;
-    }
-    
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
 }
 
 @end

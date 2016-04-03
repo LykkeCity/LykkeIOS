@@ -310,7 +310,7 @@ static NSString *const AssetIcons[kNumberOfSections] = {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     LWAssetPairModel *assetPair = (LWAssetPairModel *)self.assetPairs[indexPath.row - 1];
     if (assetPair) {
-        presenter.asset = assetPair;
+        presenter.assetPair = assetPair;
         [self.navigationController pushViewController:presenter animated:YES];
     }
 }

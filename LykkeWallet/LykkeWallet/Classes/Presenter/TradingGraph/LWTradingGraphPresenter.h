@@ -16,6 +16,6 @@
     
 }
 
-@property (strong, nonatomic) LWAssetPairModel *asset;
+@property (strong, nonatomic) LWAssetPairModel *assetPair;
 
 @end

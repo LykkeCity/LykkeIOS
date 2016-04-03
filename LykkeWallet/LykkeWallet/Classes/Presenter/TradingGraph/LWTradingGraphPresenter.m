@@ -10,11 +10,12 @@
 #import "LWExchangeDealFormPresenter.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAssetPairModel.h"
-#import "LWCache.h"
 #import "LWLeftDetailTableViewCell.h"
 #import "LWValidator.h"
 #import "LWConstants.h"
 #import "LWAssetModel.h"
+#import "LWCache.h"
+#import "LWUtils.h"
 #import "LWMath.h"
 #import "TKButton.h"
 #import "UIViewController+Loading.h"
@@ -98,7 +99,7 @@ static int const kNumberOfRows = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.asset.name;
+    self.title = self.assetPair.name;
 
     self.isValid = NO;
     self.pairRateModel = nil;
@@ -113,7 +114,7 @@ static int const kNumberOfRows = 3;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [[LWAuthManager instance] requestAssetPairRate:self.asset.identity];
+    [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -167,7 +168,7 @@ static int const kNumberOfRows = 3;
     if (self.isValid) {
         values[0] = @"4:30 PM EST";
         values[1] = [LWMath makeStringByNumber:self.pairRateModel.ask
-                                 withPrecision:self.asset.accuracy.integerValue];
+                                 withPrecision:self.assetPair.accuracy.integerValue];
         values[2] = @"-21,06 -1,08%";
     }
 
@@ -178,7 +179,7 @@ static int const kNumberOfRows = 3;
     const NSInteger repeatSeconds = [LWCache instance].refreshTimer.integerValue / 1000;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(repeatSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (self.isVisible) {
-            [[LWAuthManager instance] requestAssetPairRate:self.asset.identity];
+            [[LWAuthManager instance] requestAssetPairRate:self.assetPair.identity];
         }
     });
 }
@@ -190,8 +191,9 @@ static int const kNumberOfRows = 3;
     NSString *priceSellRateString = @". . .";
     NSString *priceBuyRateString = @". . .";
     if (self.pairRateModel) {
-        priceSellRateString = [self priceForValue:self.pairRateModel.bid withFormat:Localize(@"graph.button.sell")];
-        priceBuyRateString = [self priceForValue:self.pairRateModel.ask withFormat:Localize(@"graph.button.buy")];
+        priceSellRateString = [LWUtils priceForAsset:self.assetPair forValue:self.pairRateModel.bid withFormat:Localize(@"graph.button.sell")];
+        
+        priceBuyRateString = [LWUtils priceForAsset:self.assetPair forValue:self.pairRateModel.ask withFormat:Localize(@"graph.button.buy")];
     }
     
     [self.sellButton setTitle:priceSellRateString forState:UIControlStateNormal];
@@ -242,55 +244,6 @@ static int const kNumberOfRows = 3;
     [self.graphView setAutoresizesSubviews:YES];
 }
 
-#warning TODO: copypaste
-- (NSString *)priceForValue:(NSNumber *)value withFormat:(NSString *)format {
-    
-    // operation rate
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
-    if ([baseAssetId isEqualToString:self.asset.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:rate]) {
-            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
-            rate = [one decimalNumberByDividingBy:rate];
-        }
-    }
-    
-    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
-    NSString *rateString = [LWMath priceString:number
-                                     precision:self.asset.accuracy
-                                    withPrefix:@""];
-    NSString *result = [NSString stringWithFormat:format,
-                        [self assetTitle], rateString, [self secondAssetTitle]];
-    return result;
-}
-
-#warning TODO: copypaste
-- (NSString *)assetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.asset.baseAssetId;
-    if ([baseAssetId isEqualToString:self.asset.baseAssetId]) {
-        assetTitleId = self.asset.quotingAssetId;
-    }
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
-}
-
-#warning TODO: copypaste
-- (NSString *)secondAssetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.asset.quotingAssetId;
-    if (![baseAssetId isEqualToString:self.asset.quotingAssetId]) {
-        assetTitleId = self.asset.baseAssetId;
-    }
-    
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
-}
-
 
 #pragma mark - LWAuthManagerDelegate
 
@@ -314,14 +267,14 @@ static int const kNumberOfRows = 3;
 
 - (IBAction)sellClicked:(id)sender {
     LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
-    controller.assetPair = self.asset;
+    controller.assetPair = self.assetPair;
     controller.assetDealType = LWAssetDealTypeSell;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)buyClicked:(id)sender {
     LWExchangeDealFormPresenter *controller = [LWExchangeDealFormPresenter new];
-    controller.assetPair = self.asset;
+    controller.assetPair = self.assetPair;
     controller.assetDealType = LWAssetDealTypeBuy;
     [self.navigationController pushViewController:controller animated:YES];
 }

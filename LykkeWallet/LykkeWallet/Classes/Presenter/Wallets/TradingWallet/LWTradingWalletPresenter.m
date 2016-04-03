@@ -19,6 +19,7 @@
 #import "LWAssetModel.h"
 #import "LWConstants.h"
 #import "LWCache.h"
+#import "LWUtils.h"
 #import "LWMath.h"
 #import "TKButton.h"
 #import "UIViewController+Loading.h"
@@ -187,23 +188,8 @@
     cell.dateLabel.text = [item.dateTime toShortFormat];
 }
 
-#warning Already two places with the same code
-// https://pp.vk.me/c628731/v628731376/3ffdb/beSmFmZaMVU.jpg
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView {
-    if (imageType) {
-        if ([imageType isEqualToString:@"BTC"]) {
-            imageView.image = [UIImage imageNamed:@"WalletBitcoin"];
-        }
-        else if ([imageType isEqualToString:@"LKE"]) {
-            imageView.image = [UIImage imageNamed:@"WalletLykke"];
-        }
-        else {
-            imageView.image = nil;
-        }
-    }
-    else {
-        imageView.image = nil;
-    }
+    imageView.image = [LWUtils imageForIssuerId:imageType];
 }
 
 
