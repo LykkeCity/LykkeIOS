@@ -24,6 +24,7 @@
 #import "LWConstants.h"
 #import "LWMath.h"
 #import "LWCache.h"
+#import "LWUtils.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+Navigation.h"
 #import "NSDate+String.h"
@@ -282,20 +283,7 @@
 }
 
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView {
-    if (imageType) {
-        if ([imageType isEqualToString:@"BTC"]) {
-            imageView.image = [UIImage imageNamed:@"WalletBitcoin"];
-        }
-        else if ([imageType isEqualToString:@"LKE"]) {
-            imageView.image = [UIImage imageNamed:@"WalletLykke"];
-        }
-        else {
-            imageView.image = nil;
-        }
-    }
-    else {
-        imageView.image = nil;
-    }
+    imageView.image = [LWUtils imageForIssuerId:imageType];
 }
 
 @end

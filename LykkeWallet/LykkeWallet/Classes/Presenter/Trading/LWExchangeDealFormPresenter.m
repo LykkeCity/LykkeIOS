@@ -19,6 +19,7 @@
 #import "LWAssetModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWCache.h"
+#import "LWUtils.h"
 #import "LWMath.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
@@ -57,8 +58,6 @@
 - (void)updateKeyboardFrame;
 - (void)validateUser;
 - (void)showConfirmationView;
-- (NSString *)assetTitle;
-- (NSString *)secondAssetTitle;
 - (NSString *)totalString;
 
 @end
@@ -173,6 +172,7 @@ float const kBottomBigHeight     = 110.0;
     if (indexPath.row == 0) {
         LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)cell;
         sumCell.titleLabel.text = Localize(@"exchange.assets.buy.sum");
+        sumCell.assetLabel.text = [LWUtils baseAssetTitle:self.assetPair];
 
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
@@ -194,6 +194,7 @@ float const kBottomBigHeight     = 110.0;
     else if (indexPath.row == 2) {
         LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)cell;
         totalCell.titleLabel.text = Localize(@"exchange.assets.buy.total");
+        totalCell.assetLabel.text = [LWUtils quotedAssetTitle:self.assetPair];
     }
     
     return cell;
@@ -359,7 +360,9 @@ float const kBottomBigHeight     = 110.0;
     ? Localize(@"exchange.assets.buy.title")
     : Localize(@"exchange.assets.sell.title");
     
-    self.title = [NSString stringWithFormat:@"%@%@", operation, [self assetTitle]];
+    self.title = [NSString stringWithFormat:@"%@%@",
+                  operation,
+                  [LWUtils baseAssetTitle:self.assetPair]];
 }
 
 - (void)updateDescription {
@@ -388,9 +391,9 @@ float const kBottomBigHeight     = 110.0;
     // build description
     NSString *description = [NSString stringWithFormat:operation,
                              volumeString,
-                             [self assetTitle],
+                             [LWUtils baseAssetTitle:self.assetPair],
                              [self totalString],
-                             [self secondAssetTitle]];
+                             [LWUtils quotedAssetTitle:self.assetPair]];
     
     self.descriptionLabel.text = description;
 }
@@ -404,7 +407,7 @@ float const kBottomBigHeight     = 110.0;
     // update price cell
     LWAssetBuyPriceTableViewCell *priceCell = (LWAssetBuyPriceTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 
-    NSString *priceText = [self priceForValue:self.assetRate.ask];
+    NSString *priceText = [LWUtils priceForAsset:self.assetPair forValue:self.assetRate.ask];
     priceCell.priceLabel.text = priceText;
     
     // update total cell
@@ -474,31 +477,6 @@ float const kBottomBigHeight     = 110.0;
     [self updatePrice];
 }
 
-- (NSString *)assetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.assetPair.baseAssetId;
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        assetTitleId = self.assetPair.quotingAssetId;
-    }
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
-}
-
-- (NSString *)secondAssetTitle {
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSString *assetTitleId = self.assetPair.quotingAssetId;
-    if (![baseAssetId isEqualToString:self.assetPair.quotingAssetId]) {
-        assetTitleId = self.assetPair.baseAssetId;
-    }
-    
-    NSString *assetTitle = [LWAssetModel
-                            assetByIdentity:assetTitleId
-                            fromList:[LWCache instance].baseAssets];
-    return assetTitle;
-}
-
 - (NSString *)totalString {
     NSString *baseAssetId = [LWCache instance].baseAssetId;
     NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
@@ -516,26 +494,6 @@ float const kBottomBigHeight     = 110.0;
     
     NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
     return totalText;
-}
-
-#warning TODO: copypaste
-- (NSString *)priceForValue:(NSNumber *)value {
-    
-    // operation rate
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:rate]) {
-            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
-            rate = [one decimalNumberByDividingBy:rate];
-        }
-    }
-    
-    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
-    NSString *rateString = [LWMath priceString:number
-                                     precision:self.assetPair.accuracy
-                                    withPrefix:@""];
-    return rateString;
 }
 
 @end

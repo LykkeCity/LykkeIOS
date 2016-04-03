@@ -560,6 +560,8 @@
 		ECF55EA41C596201006FE254 /* LWWalletsLoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF55EA31C596201006FE254 /* LWWalletsLoadingTableViewCell.xib */; };
 		ECF9D1191C5BEC060025FC36 /* LWUrlAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */; };
 		ECF9D11A1C5BEC060025FC36 /* LWUrlAddressPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */; };
+		ECFAC5B31CB11138009B1CC9 /* LWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFAC5B21CB11138009B1CC9 /* LWUtils.m */; };
+		ECFAC5B41CB11138009B1CC9 /* LWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFAC5B21CB11138009B1CC9 /* LWUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1088,6 +1090,8 @@
 		ECF9D1161C5BEC060025FC36 /* LWUrlAddressPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWUrlAddressPresenter.h; path = UrlAddress/LWUrlAddressPresenter.h; sourceTree = "<group>"; };
 		ECF9D1171C5BEC060025FC36 /* LWUrlAddressPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWUrlAddressPresenter.m; path = UrlAddress/LWUrlAddressPresenter.m; sourceTree = "<group>"; };
 		ECF9D1181C5BEC060025FC36 /* LWUrlAddressPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWUrlAddressPresenter.xib; path = UrlAddress/LWUrlAddressPresenter.xib; sourceTree = "<group>"; };
+		ECFAC5B11CB11138009B1CC9 /* LWUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWUtils.h; path = Utils/LWUtils.h; sourceTree = "<group>"; };
+		ECFAC5B21CB11138009B1CC9 /* LWUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWUtils.m; path = Utils/LWUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1222,6 +1226,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECFAC5B01CB1111C009B1CC9 /* Utils */,
 				EC9AE05E1CAC796A0047DF0D /* QrCode */,
 				EC8FF6A91CA32DC400160528 /* Dicts */,
 				ECAB1BBF1C99D64A00A64A20 /* ExchangeInfo */,
@@ -2452,6 +2457,15 @@
 			name = UrlAddress;
 			sourceTree = "<group>";
 		};
+		ECFAC5B01CB1111C009B1CC9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ECFAC5B11CB11138009B1CC9 /* LWUtils.h */,
+				ECFAC5B21CB11138009B1CC9 /* LWUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2856,6 +2870,7 @@
 				EC7519B01C37338000CDDF5B /* LWSettingsAssetTableViewCell.m in Sources */,
 				EC57F4651C3D197900E31746 /* NSString+Utils.m in Sources */,
 				CDCD5AE31C2576EB007BAD78 /* LWKeychainManager.m in Sources */,
+				ECFAC5B31CB11138009B1CC9 /* LWUtils.m in Sources */,
 				ECD1E9051C3BCAE30064AAB3 /* LWExchangePresenter.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
 				ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */,
@@ -3064,6 +3079,7 @@
 				ECECAB4A1C98A0FA0020E050 /* LWBitcoinTableViewCell.m in Sources */,
 				EC4D91871C8778DF006EE7C8 /* LWWalletEmptyTableViewCell.m in Sources */,
 				EC4D91881C8778DF006EE7C8 /* LWPacketCheckDocumentsToUpload.m in Sources */,
+				ECFAC5B41CB11138009B1CC9 /* LWUtils.m in Sources */,
 				EC4D918A1C8778DF006EE7C8 /* LWColorizer.m in Sources */,
 				EC4D918B1C8778DF006EE7C8 /* LWAppSettingsModel.m in Sources */,
 				EC9F3F541C9070B800DC1F87 /* LWTransferPresenter.m in Sources */,

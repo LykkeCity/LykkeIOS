@@ -42,8 +42,6 @@
 - (void)updateKeyboardFrame;
 - (void)validateUser;
 - (void)showConfirmationView;
-- (CGFloat)calculateRowHeightForText:(NSString *)text;
-- (NSString *)dataByCellRow:(NSInteger)row;
 
 @end
 
