@@ -172,6 +172,7 @@ float const kBottomBigHeight     = 110.0;
     if (indexPath.row == 0) {
         LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)cell;
         sumCell.titleLabel.text = Localize(@"exchange.assets.buy.sum");
+        sumCell.assetLabel.text = [LWUtils baseAssetTitle:self.assetPair];
 
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
@@ -193,6 +194,7 @@ float const kBottomBigHeight     = 110.0;
     else if (indexPath.row == 2) {
         LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)cell;
         totalCell.titleLabel.text = Localize(@"exchange.assets.buy.total");
+        totalCell.assetLabel.text = [LWUtils quotedAssetTitle:self.assetPair];
     }
     
     return cell;

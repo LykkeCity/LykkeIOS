@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel     *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *sumTextField;
+@property (weak, nonatomic) IBOutlet UILabel     *assetLabel;
 
 @end
