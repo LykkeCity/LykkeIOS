@@ -42,6 +42,7 @@
 #import "LWPacketExchangeInfoGet.h"
 #import "LWPacketDicts.h"
 #import "LWPacketCashOut.h"
+#import "LWPacketTransfer.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -345,6 +346,15 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestTransfer:(NSString *)assetId amount:(NSNumber *)amount recipient:(NSString *)recepientId {
+    LWPacketTransfer *pack = [LWPacketTransfer new];
+    pack.assetId = assetId;
+    pack.amount = amount;
+    pack.recepientId = recepientId;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -565,6 +575,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketCashOut.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidCashOut:)]) {
             [self.delegate authManagerDidCashOut:self];
+        }
+    }
+    else if (pack.class == LWPacketTransfer.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidTransfer:)]) {
+            [self.delegate authManagerDidTransfer:self];
         }
     }
 }

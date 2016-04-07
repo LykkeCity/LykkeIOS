@@ -169,6 +169,17 @@
 "exchange.blockchain.url" = "URL";
 
 "transfer.recipient" = "Выбрать получателя";
+"transfer.receiver.title" = "RECEIVER";
+"transfer.receiver.button" = "CONTINUE";
+"transfer.receiver.amount" = "Amount";
+"transfer.receiver.placeholder" = "Input amount";
+"transfer.receiver.currency" = "Currency";
+"transfer.receiver.modal.waiting" = "Sending the order ...";
+"transfer.receiver.modal.title" = "PREVIEW";
+"transfer.receiver.modal.button" = "TRANSFER";
+"transfer.receiver.modal.cancel" = "CANCEL";
+"transfer.receiver.modal.receiver" = "Receiver";
+"transfer.receiver.modal.amount" = "Amount";
 
 "personal.data.close" = "ЗАКРЫТЬ";
 "personal.data.title" = "ПЕРСОНАЛЬНЫЕ ДАННЫЕ";

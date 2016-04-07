@@ -86,10 +86,16 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     // check button state
     [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
     
+#ifdef PROJECT_IATA
+    self.chooseServerButton.hidden = YES;
+#else
+
 #ifdef TEST
     self.chooseServerButton.hidden = NO;
 #else
     self.chooseServerButton.hidden = YES;
+#endif
+    
 #endif
 }
 

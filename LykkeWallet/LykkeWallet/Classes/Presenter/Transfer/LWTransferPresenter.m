@@ -7,7 +7,9 @@
 //
 
 #import "LWTransferPresenter.h"
+#import "LWReceiverPresenter.h"
 #import "LWTransferTableViewCell.h"
+#import "LWCache.h"
 
 
 @interface LWTransferPresenter () {
@@ -29,6 +31,10 @@ static NSString *const RecipientNames[kNumberOfRows] = {
 };
 static NSString *const RecipientIcons[kNumberOfRows] = {
     @"BritishAirwaysIcon", @"LufthansaIcon", @"AirChinaIcon", @"AirAstanaIcon", @"AeroflotIcon", @"DeltaAirLinesIcon", @"AirFranceIcon"
+};
+
+static NSString *const RecipientCodes[kNumberOfRows] = {
+    @"BA", @"LH", @"CA", @"KC", @"SU", @"DL", @"AF"
 };
 
 
@@ -96,7 +102,12 @@ static NSString *const RecipientIcons[kNumberOfRows] = {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//TODO:
+    LWReceiverPresenter *presenter = [LWReceiverPresenter new];
+    presenter.recepientId = RecipientCodes[indexPath.row];
+    presenter.recepientName = RecipientNames[indexPath.row];
+    presenter.recepientImage = RecipientIcons[indexPath.row];
+    presenter.selectedAssetId = [LWCache instance].baseAssetId;
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 #ifdef PROJECT_IATA

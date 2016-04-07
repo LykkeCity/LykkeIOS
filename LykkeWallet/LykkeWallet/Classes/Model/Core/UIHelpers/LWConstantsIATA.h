@@ -98,6 +98,7 @@ static NSString *const kNavigationBarFontName   = kFontSemibold;
 static float     const kModalNavBarFontSize     = 15.0;
 static NSString *const kModalNavBarFontName     = kFontRegular;
 
+static float     const kTableCellTransferFontSize = 15.0;
 
 #pragma mark - Page Control Constants
 

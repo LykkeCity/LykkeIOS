@@ -84,6 +84,11 @@ SINGLETON_INIT {
 }
 
 - (NSString *)address {
+
+#ifdef PROJECT_IATA
+    return kDevelopTestServer;
+#else
+    
 #ifdef TEST
     NSString *result = [valet stringForKey:kKeychainManagerAddress];
     // validate for nil, empty or non-existing addresses
@@ -100,6 +105,8 @@ SINGLETON_INIT {
     return result;
 #else
     return kProductionServer;
+#endif
+    
 #endif
 }
 
