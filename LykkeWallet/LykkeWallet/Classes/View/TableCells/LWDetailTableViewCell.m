@@ -41,4 +41,10 @@
     [self.detailLabel setFont:font];
 }
 
+- (void)setNormalDetails {
+    UIFont *font = [UIFont fontWithName:kTableCellRegularFontName
+                                   size:kTableCellTransferFontSize];
+    [self.detailLabel setFont:font];
+}
+
 @end

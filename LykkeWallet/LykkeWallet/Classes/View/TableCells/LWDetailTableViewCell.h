@@ -35,5 +35,6 @@
 
 - (void)setLightDetails;
 - (void)setRegularDetails;
+- (void)setNormalDetails;
 
 @end
