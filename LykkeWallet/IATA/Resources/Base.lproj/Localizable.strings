@@ -80,6 +80,7 @@
 "wallets.funds.title" = "Deposit %@ wallet";
 "wallets.lykke.empty" = "Coins not added";
 "wallets.cards.empty" = "Cards not added";
+"wallets.swift.empty" = "No accounts";
 "wallets.bitcoin.deposit" = "DEPOSIT %@";
 "wallets.bitcoin.copytoast" = "Copied.";
 "wallets.bitcoin.sendemail" = "Email sent.";
