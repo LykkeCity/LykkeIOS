@@ -112,8 +112,14 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 }
 
 - (void)localize {
+#ifdef PROJECT_IATA
+    [self.proceedButton setTitle:[Localize(@"auth.login") uppercaseString]
+                        forState:UIControlStateNormal];
+#else
+
     [self.proceedButton setTitle:[Localize(@"auth.signup") uppercaseString]
                         forState:UIControlStateNormal];
+#endif
 }
 
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
@@ -185,6 +191,14 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
     emailTextField.valid = [LWValidator validateEmail:textField.text];
     // reset next step
     step = LWAuthEntryPointNextStepNone;
+    
+#ifdef PROJECT_IATA
+    if (emailTextField.isValid) {
+        step = LWAuthEntryPointNextStepLogin;
+        // check button state
+        [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
+    }
+#else
     // check button state
     [LWValidator setButton:self.proceedButton enabled:[self canProceed]];
     
@@ -194,6 +208,7 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
         // send request
         [[LWAuthManager instance] requestEmailValidation:emailTextField.text];
     }
+#endif
 }
 
 
