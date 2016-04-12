@@ -20,9 +20,15 @@
         if ([issuerId isEqualToString:@"BTC"]) {
             return [UIImage imageNamed:@"WalletBitcoin"];
         }
+#ifdef PROJECT_IATA
+        else if ([issuerId isEqualToString:@"LKE"]) {
+            return [UIImage imageNamed:@"IATAWallet"];
+        }        
+#else
         else if ([issuerId isEqualToString:@"LKE"]) {
             return [UIImage imageNamed:@"WalletLykke"];
         }
+#endif
     }
     return nil;
 }

@@ -480,6 +480,11 @@
 		EC9F3F561C9070F500DC1F87 /* LWTransferPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F551C9070F500DC1F87 /* LWTransferPresenter.xib */; };
 		EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell.xib */; };
 		EC9F3F5E1C9083A900DC1F87 /* LWTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */; };
+		ECA23F9C1CBD72F800B4D58D /* LWTransactionTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */; };
+		ECA23F9D1CBD733300B4D58D /* LWTransactionCashInOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */; };
+		ECA23FA01CBD748400B4D58D /* LWTransferHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */; };
+		ECA23FA11CBD753E00B4D58D /* LWTransferHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */; };
+		ECA23FA21CBD754500B4D58D /* LWTransactionTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -538,7 +543,6 @@
 		ECEC40B81C4298DC00B22BEE /* LWHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEC40B71C4298DC00B22BEE /* LWHistoryTableViewCell.xib */; };
 		ECEC40BB1C42B06700B22BEE /* LWPacketTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */; };
 		ECEC40BF1C42B2EB00B22BEE /* LWTransactionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */; };
-		ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */; };
 		ECEC40CB1C42CA7B00B22BEE /* LWHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40CA1C42CA7B00B22BEE /* LWHistoryManager.m */; };
 		ECEC40CE1C42CB5800B22BEE /* LWBaseHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40CD1C42CB5800B22BEE /* LWBaseHistoryItemType.m */; };
 		ECEC40D71C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */; };
@@ -989,6 +993,10 @@
 		EC9F3F591C90837300DC1F87 /* LWTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferTableViewCell.h; path = Transfer/LWTransferTableViewCell.h; sourceTree = "<group>"; };
 		EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferTableViewCell.m; path = Transfer/LWTransferTableViewCell.m; sourceTree = "<group>"; };
 		EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTransferTableViewCell.xib; path = IATA/Classes/View/Transfer/LWTransferTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		ECA23F9A1CBD72F800B4D58D /* LWTransactionTransferModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionTransferModel.h; path = History/LWTransactionTransferModel.h; sourceTree = "<group>"; };
+		ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionTransferModel.m; path = History/LWTransactionTransferModel.m; sourceTree = "<group>"; };
+		ECA23F9E1CBD748400B4D58D /* LWTransferHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferHistoryItemType.h; path = History/LWTransferHistoryItemType.h; sourceTree = "<group>"; };
+		ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferHistoryItemType.m; path = History/LWTransferHistoryItemType.m; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -2453,6 +2461,8 @@
 				ECEC40BE1C42B2EB00B22BEE /* LWTransactionsModel.m */,
 				ECEC40C61C42B38100B22BEE /* LWTransactionCashInOutModel.h */,
 				ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */,
+				ECA23F9A1CBD72F800B4D58D /* LWTransactionTransferModel.h */,
+				ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */,
 				ECA8E9CB1C573618000F53EC /* LWTransactionTradeModel.h */,
 				ECA8E9CC1C573618000F53EC /* LWTransactionTradeModel.m */,
 				ECEC40C91C42CA7B00B22BEE /* LWHistoryManager.h */,
@@ -2463,6 +2473,8 @@
 				ECA8E9CF1C5736F5000F53EC /* LWTradeHistoryItemType.m */,
 				ECEC40D51C42D4CF00B22BEE /* LWCashInOutHistoryItemType.h */,
 				ECEC40D61C42D4CF00B22BEE /* LWCashInOutHistoryItemType.m */,
+				ECA23F9E1CBD748400B4D58D /* LWTransferHistoryItemType.h */,
+				ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -2904,6 +2916,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA23FA21CBD754500B4D58D /* LWTransactionTransferModel.m in Sources */,
 				EC51D1931C30514200550EF2 /* LWLykkeWalletsData.m in Sources */,
 				CDCD5B111C26C92A007BAD78 /* LWRegisterFullNamePresenter.m in Sources */,
 				ECECAB511C98ACF30020E050 /* LWBitcoinDepositPresenter.m in Sources */,
@@ -2969,6 +2982,7 @@
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				EC57F47A1C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m in Sources */,
 				CF6F69D41C2413F70016CFC5 /* ABPinSelectionView.m in Sources */,
+				ECA23FA11CBD753E00B4D58D /* LWTransferHistoryItemType.m in Sources */,
 				EC7F04F91C3E75CA0079ECD0 /* LWExchangeConfirmationView.m in Sources */,
 				CD10AAB21C1E16260086634B /* LWAuthorizePacket.m in Sources */,
 				CFF758381C20233A00BC7658 /* LWKYCPresenter.m in Sources */,
@@ -3061,11 +3075,11 @@
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				CF6F69D01C2413F70016CFC5 /* ABPadLockScreenAbstractViewController.m in Sources */,
 				CF6F69CF1C2413F70016CFC5 /* ABPadButton.m in Sources */,
+				ECA23F9D1CBD733300B4D58D /* LWTransactionCashInOutModel.m in Sources */,
 				ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */,
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				EC7A45D11C309A2B00926BB4 /* LWBanksTableViewCell.m in Sources */,
 				EC57F44A1C3C18EA00E31746 /* LWCache.m in Sources */,
-				ECEC40C81C42B38100B22BEE /* LWTransactionCashInOutModel.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				ECECAB631C99A9360020E050 /* LWPacketBlockchainCashTransaction.m in Sources */,
 				EC57F44D1C3C35B100E31746 /* LWPacketAssetDescription.m in Sources */,
@@ -3120,6 +3134,7 @@
 				EC051A701CB6E12D00E31BD5 /* LWTransferConfirmationView.m in Sources */,
 				EC4D91811C8778DF006EE7C8 /* LWExchangePresenter.m in Sources */,
 				EC4D91821C8778DF006EE7C8 /* UIViewController+Loading.m in Sources */,
+				ECA23F9C1CBD72F800B4D58D /* LWTransactionTransferModel.m in Sources */,
 				EC4D91831C8778DF006EE7C8 /* LWPacketAssetPairs.m in Sources */,
 				EC4D91841C8778DF006EE7C8 /* LWPacketKYCStatusSet.m in Sources */,
 				EC4D91851C8778DF006EE7C8 /* LWAssetDescriptionModel.m in Sources */,
@@ -3153,6 +3168,7 @@
 				EC4D919C1C8778DF006EE7C8 /* LWWalletsLoadingTableViewCell.m in Sources */,
 				EC4D919D1C8778DF006EE7C8 /* LWBankCardsData.m in Sources */,
 				EC4D919E1C8778DF006EE7C8 /* LWAssetEmptyTableViewCell.m in Sources */,
+				ECA23FA01CBD748400B4D58D /* LWTransferHistoryItemType.m in Sources */,
 				EC4D919F1C8778DF006EE7C8 /* LWPacketBankCards.m in Sources */,
 				EC4D91A01C8778DF006EE7C8 /* LWAssetLykkeTableViewCell.m in Sources */,
 				EC4D91A11C8778DF006EE7C8 /* LWSettingsConfirmationPresenter.m in Sources */,
@@ -3610,8 +3626,8 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3626,7 +3642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "da60a132-0353-4d0a-92cc-8efefe8fff00";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3636,8 +3652,8 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3651,7 +3667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "da60a132-0353-4d0a-92cc-8efefe8fff00";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug.Test;
@@ -3661,8 +3677,8 @@
 			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3677,7 +3693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb5d918f-e2df-4ef6-b451-d7a9336d7607";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3687,8 +3703,8 @@
 			baseConfigurationReference = 7F99B9580B48B839D9C768D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lykke Corp (MNZ5M7YPQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3702,7 +3718,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb5d918f-e2df-4ef6-b451-d7a9336d7607";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release.Test;

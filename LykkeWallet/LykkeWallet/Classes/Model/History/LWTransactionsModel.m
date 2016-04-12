@@ -9,6 +9,7 @@
 #import "LWTransactionsModel.h"
 #import "LWTransactionCashInOutModel.h"
 #import "LWTransactionTradeModel.h"
+#import "LWTransactionTransferModel.h"
 
 
 @implementation LWTransactionsModel
@@ -33,6 +34,15 @@
             [cash addObject:[[LWTransactionCashInOutModel alloc] initWithJSON:item]];
         }
         _cashInOut = cash;
+        
+#ifdef PROJECT_IATA
+        // transfers
+        NSMutableArray *transfers = [NSMutableArray new];
+        for (NSDictionary *item in json[@"Transfers"]) {
+            [transfers addObject:[[LWTransactionTransferModel alloc] initWithJSON:item]];
+        }
+        _transfers = transfers;
+#endif
     }
     return self;
 }

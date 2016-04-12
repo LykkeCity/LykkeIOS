@@ -9,9 +9,11 @@
 #import "LWHistoryManager.h"
 #import "LWTransactionsModel.h"
 #import "LWTransactionCashInOutModel.h"
+#import "LWTransactionTransferModel.h"
 #import "LWTransactionTradeModel.h"
 #import "LWTradeHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
+#import "LWTransferHistoryItemType.h"
 
 
 @implementation LWHistoryManager
@@ -43,6 +45,19 @@
             [result[cashInOutOperations.dateTime] addObject:item];
         }
     }
+    
+#ifdef PROJECT_IATA
+    // mapping transfer operations
+    if (model && model.transfers) {
+        for (LWTransactionTransferModel *transferOperations in model.transfers) {
+            if (![result objectForKey:transferOperations.dateTime]) {
+                result[transferOperations.dateTime] = [NSMutableArray new];
+            }
+            LWTransferHistoryItemType *item = [LWTransferHistoryItemType convertFromNetworkModel:transferOperations];
+            [result[transferOperations.dateTime] addObject:item];
+        }
+    }
+#endif
     
     return result;
 }

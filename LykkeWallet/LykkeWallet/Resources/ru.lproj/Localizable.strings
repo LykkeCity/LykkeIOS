@@ -193,6 +193,8 @@
 "history.market.sell" = "продажа";
 "history.cash.in" = "Пополнение";
 "history.cash.out" = "Снятие";
+"history.transfer.in" = "Incoming transfer";
+"history.transfer.out" = "Outcoming transfer";
 "history.cash.asset" = "Asset";
 "history.cash.amount" = "Amount";
 "history.cash.blockchain" = "Blockchain settlement";

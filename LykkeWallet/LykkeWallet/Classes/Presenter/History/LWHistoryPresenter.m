@@ -21,6 +21,7 @@
 #import "LWBaseHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
 #import "LWTradeHistoryItemType.h"
+#import "LWTransferHistoryItemType.h"
 #import "LWConstants.h"
 #import "LWMath.h"
 #import "LWCache.h"
@@ -49,6 +50,7 @@
 - (LWBaseHistoryItemType *)getHistoryItemByIndexPath:(NSIndexPath *)indexPath;
 - (void)showBlockchainView:(LWAssetBlockchainModel *)blockchain;
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView;
+- (void)setImageTransfer:(NSString *)imageType forImageView:(UIImageView *)imageView;
 
 @end
 
@@ -218,7 +220,7 @@
         
         operation = [NSString stringWithFormat:@"%@ %@", base, type];
     }
-    else {
+    else if (item.historyType == LWHistoryItemTypeCashInOut) {
         LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
         [self setImageType:cash.iconId forImageView:cell.operationImageView];
         volume = cash.amount;
@@ -233,6 +235,23 @@
         
         operation = [NSString stringWithFormat:@"%@ %@", base, type];
     }
+#ifdef PROJECT_IATA
+    else if (item.historyType == LWHistoryItemTypeTransfer) {
+        LWTransferHistoryItemType *transfer = (LWTransferHistoryItemType *)item;
+        [self setImageTransfer:transfer.iconId forImageView:cell.operationImageView];
+        volume = transfer.volume;
+        
+        NSString *base = [LWAssetModel
+                          assetByIdentity:transfer.asset
+                          fromList:[LWCache instance].baseAssets];
+        
+        NSString *type = (volume.doubleValue >= 0
+                          ? Localize(@"history.transfer.in")
+                          : Localize(@"history.transfer.out"));
+        
+        operation = [NSString stringWithFormat:@"%@ %@", base, type];
+    }
+#endif
     
     // prepare value label
     NSString *sign = (volume.doubleValue >= 0.0) ? @"+" : @"";
@@ -284,6 +303,34 @@
 
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView {
     imageView.image = [LWUtils imageForIssuerId:imageType];
+}
+
+- (void)setImageTransfer:(NSString *)imageType forImageView:(UIImageView *)imageView {
+#ifdef PROJECT_IATA
+    if (imageType) {
+        if ([imageType isEqualToString:@"EK"]) {
+            imageView.image = [UIImage imageNamed:@"EmiratesIcon"];
+        }
+        else if ([imageType isEqualToString:@"QR"]) {
+            imageView.image = [UIImage imageNamed:@"QatarIcon"];
+        }
+        else if ([imageType isEqualToString:@"BA"]) {
+            imageView.image = [UIImage imageNamed:@"BritishAirwaysIcon"];
+        }
+        else if ([imageType isEqualToString:@"DL"]) {
+            imageView.image = [UIImage imageNamed:@"DeltaAirLinesIcon"];
+        }
+        else if ([imageType isEqualToString:@"IT"]) {
+            imageView.image = [UIImage imageNamed:@"IATAIcon"];
+        }
+        else {
+            imageView.image = nil;
+        }
+    }
+    else {
+        imageView.image = nil;
+    }
+#endif
 }
 
 @end
