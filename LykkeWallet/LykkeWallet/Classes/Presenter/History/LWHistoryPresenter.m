@@ -9,6 +9,7 @@
 #import "LWHistoryPresenter.h"
 #import "LWCashEmptyBlockchainPresenter.h"
 #import "LWExchangeEmptyBlockchainPresenter.h"
+#import "LWTransferEmptyBlockchainPresenter.h"
 #import "LWExchangeBlockchainPresenter.h"
 #import "LWHistoryTableViewCell.h"
 #import "LWAuthManager.h"
@@ -117,6 +118,26 @@
     [self.tableView reloadData];
 }
 
+// For IATA transfer operations
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain {
+
+    [self setLoading:NO];
+    
+    if (blockchain) {
+        [self showBlockchainView:blockchain];
+    }
+    else {
+        // need extra data - request
+        LWBaseHistoryItemType *item = [self getHistoryItemByIndexPath:self.loadedElement];
+        if (item) {
+            LWTransferEmptyBlockchainPresenter *emptyPresenter = [LWTransferEmptyBlockchainPresenter new];
+            LWTransferHistoryItemType *model = (LWTransferHistoryItemType *)item;
+            emptyPresenter.model = [model copy];
+            [self.navigationController pushViewController:emptyPresenter animated:YES];
+        }
+    }
+}
+
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainCashTransaction:(LWAssetBlockchainModel *)blockchain {
     [self setLoading:NO];
     
@@ -190,6 +211,13 @@
         [self setLoading:YES];
         self.loadedElement = indexPath;
         [[LWAuthManager instance] requestBlockchainCashTransaction:item.identity];
+    }
+    else if (item && item.historyType == LWHistoryItemTypeTransfer) {
+        if (item.identity && ![item.identity isEqualToString:@""]) {
+            [self setLoading:YES];
+            self.loadedElement = indexPath;
+            [[LWAuthManager instance] requestBlockchainOrderTransaction:item.identity];
+        }
     }
 }
 

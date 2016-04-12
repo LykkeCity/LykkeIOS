@@ -485,6 +485,8 @@
 		ECA23FA01CBD748400B4D58D /* LWTransferHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */; };
 		ECA23FA11CBD753E00B4D58D /* LWTransferHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */; };
 		ECA23FA21CBD754500B4D58D /* LWTransactionTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */; };
+		ECA23FA61CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23FA41CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m */; };
+		ECA23FA71CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA23FA51CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.xib */; };
 		ECA80B5B1C2DE1A8001C4E8F /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */; };
 		ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */; };
 		ECA80B601C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA80B5F1C2E0E2A001C4E8F /* LWRegisterCameraPresenter.xib */; };
@@ -997,6 +999,9 @@
 		ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionTransferModel.m; path = History/LWTransactionTransferModel.m; sourceTree = "<group>"; };
 		ECA23F9E1CBD748400B4D58D /* LWTransferHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferHistoryItemType.h; path = History/LWTransferHistoryItemType.h; sourceTree = "<group>"; };
 		ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferHistoryItemType.m; path = History/LWTransferHistoryItemType.m; sourceTree = "<group>"; };
+		ECA23FA31CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTransferEmptyBlockchainPresenter.h; sourceTree = "<group>"; };
+		ECA23FA41CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTransferEmptyBlockchainPresenter.m; sourceTree = "<group>"; };
+		ECA23FA51CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWTransferEmptyBlockchainPresenter.xib; sourceTree = "<group>"; };
 		ECA80B591C2DE1A8001C4E8F /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButton.h; sourceTree = "<group>"; };
 		ECA80B5A1C2DE1A8001C4E8F /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButton.m; sourceTree = "<group>"; };
 		ECA80B5C1C2E0E08001C4E8F /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
@@ -1387,6 +1392,9 @@
 				ECAB1BC41C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.h */,
 				ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */,
 				ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */,
+				ECA23FA31CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.h */,
+				ECA23FA41CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m */,
+				ECA23FA51CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -2786,6 +2794,7 @@
 				EC9C94781C898FF9006FD46B /* LaunchScreen.storyboard in Resources */,
 				EC051A721CB6E15000E31BD5 /* LWTransferConfirmationView.xib in Resources */,
 				EC302FFD1C903444003A1F5F /* LWRadioTableViewCell.xib in Resources */,
+				ECA23FA71CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.xib in Resources */,
 				EC302FFB1C90343C003A1F5F /* LWDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3240,6 +3249,7 @@
 				EC4D91D51C8778DF006EE7C8 /* LWNetAccessor.m in Sources */,
 				EC9AE0531CAC5F440047DF0D /* LWWithdrawFundsPresenter.m in Sources */,
 				EC4D91D61C8778DF006EE7C8 /* LWPacketTransactions.m in Sources */,
+				ECA23FA61CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m in Sources */,
 				EC4D91D71C8778DF006EE7C8 /* TKButton.m in Sources */,
 				EC4D91D81C8778DF006EE7C8 /* main.m in Sources */,
 				EC4D91D91C8778DF006EE7C8 /* LWFingerprintHelper.m in Sources */,

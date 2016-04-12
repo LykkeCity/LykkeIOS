@@ -5,18 +5,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWExchangeEmptyBlockchainPresenter">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWTransferEmptyBlockchainPresenter">
             <connections>
-                <outlet property="tableView" destination="jTq-hh-O6j" id="AhM-bu-UMO"/>
-                <outlet property="view" destination="jTq-hh-O6j" id="uo6-Co-jtk"/>
+                <outlet property="tableView" destination="yUt-CQ-rdY" id="1U7-26-3yO"/>
+                <outlet property="view" destination="yUt-CQ-rdY" id="tg7-F6-xZs"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jTq-hh-O6j">
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yUt-CQ-rdY">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="-69" y="-46"/>
+            <point key="canvasLocation" x="126" y="185"/>
         </tableView>
     </objects>
 </document>

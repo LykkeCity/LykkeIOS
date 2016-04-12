@@ -206,12 +206,13 @@
 "history.market.sell" = "sell";
 "history.cash.in" = "Wallet cash in";
 "history.cash.out" = "Wallet cash out";
-"history.transfer.in" = "Incoming transfer";
-"history.transfer.out" = "Outcoming transfer";
 "history.cash.asset" = "Asset";
 "history.cash.amount" = "Amount";
 "history.cash.blockchain" = "Blockchain settlement";
 "history.cash.progress" = "In progress";
+"history.transfer.in" = "Incoming transfer";
+"history.transfer.out" = "Outcoming transfer";
+"history.transfer.volume" = "Volume";
 
 "graph.cell.time"   = "Fixing time";
 "graph.cell.price"  = "Last price";

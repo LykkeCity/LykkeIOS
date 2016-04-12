@@ -31,7 +31,7 @@
 }
 
 - (NSString *)urlRelative {
-    return [NSString stringWithFormat:@"BlockchainTransaction?orderId=%@", self.orderId];
+    return [NSString stringWithFormat:@"BlockchainTransaction?blockChainHash=%@", self.orderId];
 }
 
 - (GDXRESTPacketType)type {
