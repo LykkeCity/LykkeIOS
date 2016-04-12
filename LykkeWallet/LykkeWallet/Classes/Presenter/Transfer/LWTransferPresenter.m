@@ -25,16 +25,16 @@
 @implementation LWTransferPresenter
 
 
-static NSInteger const kNumberOfRows = 7;
+static NSInteger const kNumberOfRows = 5;
 static NSString *const RecipientNames[kNumberOfRows] = {
-    @"BRITISH AIRWAYS", @"LUFTHANSA", @"AIR CHINA", @"AIR ASTANA", @"AEROFLOT", @"DELTA AIR LINES", @"AIR FRANCE"
+    @"EMIRATES", @"QATAR", @"BRITISH AIRWAYS", @"DELTA AIR LINES", @"IATA"
 };
 static NSString *const RecipientIcons[kNumberOfRows] = {
-    @"BritishAirwaysIcon", @"LufthansaIcon", @"AirChinaIcon", @"AirAstanaIcon", @"AeroflotIcon", @"DeltaAirLinesIcon", @"AirFranceIcon"
+    @"EmiratesIcon", @"QatarIcon", @"BritishAirwaysIcon", @"DeltaAirLinesIcon", @"IATAIcon"
 };
 
 static NSString *const RecipientCodes[kNumberOfRows] = {
-    @"BA", @"LH", @"CA", @"KC", @"SU", @"DL", @"AF"
+    @"EK", @"QR", @"BA", @"DL", @"IT"
 };
 
 
