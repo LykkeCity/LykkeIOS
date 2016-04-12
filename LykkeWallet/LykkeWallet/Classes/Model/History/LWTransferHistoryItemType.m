@@ -19,6 +19,7 @@
     result.volume      = model.volume;
     result.asset       = model.asset;
     result.iconId      = model.iconId;
+    result.blockchainHash = model.blockchainHash;
     result.historyType = LWHistoryItemTypeTransfer;
     
     return result;
@@ -28,7 +29,8 @@
 {
     LWTransferHistoryItemType* data = [super copyWithZone:zone];
     data.volume = [self.volume copy];
-    data.asset = [self.iconId copy];
+    data.iconId = [self.iconId copy];
+    data.blockchainHash = [self.blockchainHash copy];
     return data;
 }
 

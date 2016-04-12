@@ -216,7 +216,8 @@
         if (item.identity && ![item.identity isEqualToString:@""]) {
             [self setLoading:YES];
             self.loadedElement = indexPath;
-            [[LWAuthManager instance] requestBlockchainOrderTransaction:item.identity];
+            LWTransferHistoryItemType *transfer = (LWTransferHistoryItemType *)item;
+            [[LWAuthManager instance] requestBlockchainOrderTransaction:transfer.blockchainHash];
         }
     }
 }
@@ -334,31 +335,7 @@
 }
 
 - (void)setImageTransfer:(NSString *)imageType forImageView:(UIImageView *)imageView {
-#ifdef PROJECT_IATA
-    if (imageType) {
-        if ([imageType isEqualToString:@"EK"]) {
-            imageView.image = [UIImage imageNamed:@"EmiratesIcon"];
-        }
-        else if ([imageType isEqualToString:@"QR"]) {
-            imageView.image = [UIImage imageNamed:@"QatarIcon"];
-        }
-        else if ([imageType isEqualToString:@"BA"]) {
-            imageView.image = [UIImage imageNamed:@"BritishAirwaysIcon"];
-        }
-        else if ([imageType isEqualToString:@"DL"]) {
-            imageView.image = [UIImage imageNamed:@"DeltaAirLinesIcon"];
-        }
-        else if ([imageType isEqualToString:@"IT"]) {
-            imageView.image = [UIImage imageNamed:@"IATAIcon"];
-        }
-        else {
-            imageView.image = nil;
-        }
-    }
-    else {
-        imageView.image = nil;
-    }
-#endif
+    imageView.image = [LWUtils imageForIATAId:imageType];
 }
 
 @end

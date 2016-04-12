@@ -88,6 +88,11 @@
         message = [NSString stringWithFormat:@"Internal server error! Requested URL: %@", [response URL].absoluteString];
         code = [NSNumber numberWithInt:500];
     }
+    else if (response && [LWAuthManager isNotOk:response]) {
+        message = [NSString stringWithFormat:@"Http error! Requested URL: %@", [response URL].absoluteString];
+        NSHTTPURLResponse* urlResponse = (NSHTTPURLResponse*)response;
+        code = [NSNumber numberWithInteger:urlResponse.statusCode];
+    }
     
     NSString *error = [NSString stringWithFormat:@"Error: %@. Code: %@. Login: %@. DateTime: %@", message, code, email, time];
     

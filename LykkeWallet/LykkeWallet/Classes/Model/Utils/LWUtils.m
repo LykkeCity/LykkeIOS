@@ -33,6 +33,36 @@
     return nil;
 }
 
++ (UIImage *)imageForIATAId:(NSString *)imageType {
+#ifdef PROJECT_IATA
+    if (imageType) {
+        if ([imageType isEqualToString:@"EK"]) {
+            return [UIImage imageNamed:@"EmiratesIcon"];
+        }
+        else if ([imageType isEqualToString:@"QR"]) {
+            return [UIImage imageNamed:@"QatarIcon"];
+        }
+        else if ([imageType isEqualToString:@"BA"]) {
+            return [UIImage imageNamed:@"BritishAirwaysIcon"];
+        }
+        else if ([imageType isEqualToString:@"DL"]) {
+            return [UIImage imageNamed:@"DeltaAirLinesIcon"];
+        }
+        else if ([imageType isEqualToString:@"IT"]) {
+            return [UIImage imageNamed:@"IATAIcon"];
+        }
+        else {
+            return nil;
+        }
+    }
+    else {
+        return nil;
+    }
+#else
+    return nil;
+#endif
+}
+
 + (NSString *)baseAssetTitle:(LWAssetPairModel *)assetPair {
     NSString *baseAssetId = [LWCache instance].baseAssetId;
     NSString *assetTitleId = assetPair.baseAssetId;

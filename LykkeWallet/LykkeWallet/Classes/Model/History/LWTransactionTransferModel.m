@@ -24,6 +24,7 @@
         _dateTime = [date toDate];
         _asset    = [json objectForKey:@"Asset"];
         _iconId   = [json objectForKey:@"IconId"];
+        _blockchainHash = [json objectForKey:@"BlockChainHash"];
     }
     return self;
 }

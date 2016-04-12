@@ -31,7 +31,8 @@
 }
 
 - (NSString *)urlRelative {
-    return [NSString stringWithFormat:@"BlockchainTransaction?blockChainHash=%@", self.orderId];
+    NSString *tempUrl = [NSString stringWithFormat:@"BlockchainTransaction?blockChainHash=%@", self.orderId];
+    return tempUrl;
 }
 
 - (GDXRESTPacketType)type {

@@ -12,6 +12,7 @@
 #import "LWHistoryTableViewCell.h"
 #import "LWBaseHistoryItemType.h"
 #import "LWTradeHistoryItemType.h"
+#import "LWTransferHistoryItemType.h"
 #import "LWCashInOutHistoryItemType.h"
 #import "LWAssetsDictionaryItem.h"
 #import "LWHistoryManager.h"
@@ -49,6 +50,7 @@
 - (void)updateCell:(LWHistoryTableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
 - (LWBaseHistoryItemType *)getHistoryItemByIndexPath:(NSIndexPath *)indexPath;
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView;
+- (void)setImageTransfer:(NSString *)imageType forImageView:(UIImageView *)imageView;
 
 @end
 
@@ -157,7 +159,7 @@
         
         operation = [NSString stringWithFormat:@"%@ %@", base, type];
     }
-    else {
+    else if (item.historyType == LWHistoryItemTypeCashInOut) {
         LWCashInOutHistoryItemType *cash = (LWCashInOutHistoryItemType *)item;
         [self setImageType:cash.iconId forImageView:cell.operationImageView];
         volume = cash.amount;
@@ -172,6 +174,23 @@
         
         operation = [NSString stringWithFormat:@"%@ %@", base, type];
     }
+#ifdef PROJECT_IATA
+    else if (item.historyType == LWHistoryItemTypeTransfer) {
+        LWTransferHistoryItemType *transfer = (LWTransferHistoryItemType *)item;
+        [self setImageTransfer:transfer.iconId forImageView:cell.operationImageView];
+        volume = transfer.volume;
+        
+        NSString *base = [LWAssetModel
+                          assetByIdentity:transfer.asset
+                          fromList:[LWCache instance].baseAssets];
+        
+        NSString *type = (volume.doubleValue >= 0
+                          ? Localize(@"history.transfer.in")
+                          : Localize(@"history.transfer.out"));
+        
+        operation = [NSString stringWithFormat:@"%@ %@", base, type];
+    }
+#endif
     
     // prepare value label
     NSString *sign = (volume.doubleValue >= 0.0) ? @"+" : @"";
@@ -190,6 +209,10 @@
 
 - (void)setImageType:(NSString *)imageType forImageView:(UIImageView *)imageView {
     imageView.image = [LWUtils imageForIssuerId:imageType];
+}
+
+- (void)setImageTransfer:(NSString *)imageType forImageView:(UIImageView *)imageView {
+    imageView.image = [LWUtils imageForIATAId:imageType];
 }
 
 

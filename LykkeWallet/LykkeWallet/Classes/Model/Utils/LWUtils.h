@@ -18,6 +18,7 @@
 }
 
 + (UIImage *)imageForIssuerId:(NSString *)issuerId;
++ (UIImage *)imageForIATAId:(NSString *)imageType;
 + (NSString *)baseAssetTitle:(LWAssetPairModel *)assetPair;
 + (NSString *)quotedAssetTitle:(LWAssetPairModel *)assetPair;
 + (NSString *)priceForAsset:(LWAssetPairModel *)assetPair forValue:(NSNumber *)value;

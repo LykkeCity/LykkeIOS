@@ -620,6 +620,14 @@ SINGLETON_INIT {
     return NO;
 }
 
++ (BOOL)isNotOk:(NSURLResponse *)response {
+    NSHTTPURLResponse* urlResponse = (NSHTTPURLResponse*)response;
+    if (urlResponse && urlResponse.statusCode >= 400) {
+        return YES;
+    }
+    return NO;
+}
+
 + (BOOL)isInternalServerError:(NSURLResponse *)response {
     NSHTTPURLResponse* urlResponse = (NSHTTPURLResponse*)response;
     NSInteger const InternalServerError = 500;

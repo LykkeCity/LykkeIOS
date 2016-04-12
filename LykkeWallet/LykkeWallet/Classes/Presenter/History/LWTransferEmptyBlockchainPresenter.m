@@ -125,7 +125,7 @@ static int const kNumberOfRows = 3;
 - (void)startRefreshControl {
     [super startRefreshControl];
     
-    [[LWAuthManager instance] requestBlockchainOrderTransaction:self.model.identity];
+    [[LWAuthManager instance] requestBlockchainOrderTransaction:self.model.blockchainHash];
 }
 
 
