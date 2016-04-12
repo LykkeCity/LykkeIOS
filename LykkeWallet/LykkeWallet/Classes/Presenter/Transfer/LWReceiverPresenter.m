@@ -233,6 +233,9 @@ static NSString *const TransferIdentifiers[kTransferRows] = {
         
         [confirmationView removeFromSuperview];
     }
+    else {
+        [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
+    }
 }
 
 
