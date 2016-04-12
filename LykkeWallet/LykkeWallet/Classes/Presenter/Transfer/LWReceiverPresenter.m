@@ -282,7 +282,7 @@ static NSString *const TransferIdentifiers[kTransferRows] = {
     
     [[LWAuthManager instance] requestTransfer:self.selectedAssetId
                                        amount:[self volumeFromField]
-                                    recipient:self.selectedAssetId];
+                                    recipient:self.recepientId];
 }
 
 
