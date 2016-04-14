@@ -51,7 +51,11 @@
     bitcoinTextField = [LWTextField new];
     bitcoinTextField.delegate = self;
     bitcoinTextField.keyboardType = UIKeyboardTypeEmailAddress;
+#ifdef PROJECT_IATA
+    bitcoinTextField.placeholder = Localize(@"withdraw.funds.wallet.iata");
+#else
     bitcoinTextField.placeholder = Localize(@"withdraw.funds.wallet");
+#endif
     bitcoinTextField.viewMode = UITextFieldViewModeNever;
     [self.qrCodeContainer attach:bitcoinTextField];
 
@@ -83,8 +87,12 @@
 
 - (void)localize {
     self.infoLabel.text = Localize(@"withdraw.funds.info");
-    self.titleLabel.text = Localize(@"withdraw.funds.address");
     self.qrCodeLabel.text = Localize(@"withdraw.funds.scan");
+#ifdef PROJECT_IATA
+    self.titleLabel.text = Localize(@"withdraw.funds.address.iata");
+#else
+    self.titleLabel.text = Localize(@"withdraw.funds.address");
+#endif
     
     [self.proceedButton setTitle:Localize(@"withdraw.funds.proceed")
                         forState:UIControlStateNormal];

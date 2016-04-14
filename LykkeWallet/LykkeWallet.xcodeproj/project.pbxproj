@@ -99,7 +99,6 @@
 		EC0175321CA8041800ACC675 /* LWTradingWalletPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC01752F1CA8041800ACC675 /* LWTradingWalletPresenter.m */; };
 		EC0175331CA8041800ACC675 /* LWTradingWalletPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0175301CA8041800ACC675 /* LWTradingWalletPresenter.xib */; };
 		EC0175341CA8041800ACC675 /* LWTradingWalletPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0175301CA8041800ACC675 /* LWTradingWalletPresenter.xib */; };
-		EC01D3F21CBC4CB90036766F /* LWAuthEntryPointPresenter~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC01D3F11CBC4CB90036766F /* LWAuthEntryPointPresenter~ipad.xib */; };
 		EC051A701CB6E12D00E31BD5 /* LWTransferConfirmationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC051A6F1CB6E12D00E31BD5 /* LWTransferConfirmationView.m */; };
 		EC051A721CB6E15000E31BD5 /* LWTransferConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC051A711CB6E15000E31BD5 /* LWTransferConfirmationView.xib */; };
 		EC051A751CB6EE1300E31BD5 /* LWTransferAssetPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC051A741CB6EE1300E31BD5 /* LWTransferAssetPresenter.m */; };
@@ -745,7 +744,7 @@
 		EC01752E1CA8041800ACC675 /* LWTradingWalletPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTradingWalletPresenter.h; path = TradingWallet/LWTradingWalletPresenter.h; sourceTree = "<group>"; };
 		EC01752F1CA8041800ACC675 /* LWTradingWalletPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTradingWalletPresenter.m; path = TradingWallet/LWTradingWalletPresenter.m; sourceTree = "<group>"; };
 		EC0175301CA8041800ACC675 /* LWTradingWalletPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTradingWalletPresenter.xib; path = TradingWallet/LWTradingWalletPresenter.xib; sourceTree = "<group>"; };
-		EC01D3F11CBC4CB90036766F /* LWAuthEntryPointPresenter~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LWAuthEntryPointPresenter~ipad.xib"; path = "IATA/Classes/Presenter/Auth/LWAuthEntryPointPresenter~ipad.xib"; sourceTree = SOURCE_ROOT; };
+		EC01D3F11CBC4CB90036766F /* LWAuthEntryPointPresenter~_ipad_.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LWAuthEntryPointPresenter~_ipad_.xib"; path = "IATA/Classes/Presenter/Auth/LWAuthEntryPointPresenter~_ipad_.xib"; sourceTree = SOURCE_ROOT; };
 		EC051A6E1CB6E12D00E31BD5 /* LWTransferConfirmationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferConfirmationView.h; path = Transfer/LWTransferConfirmationView.h; sourceTree = "<group>"; };
 		EC051A6F1CB6E12D00E31BD5 /* LWTransferConfirmationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferConfirmationView.m; path = Transfer/LWTransferConfirmationView.m; sourceTree = "<group>"; };
 		EC051A711CB6E15000E31BD5 /* LWTransferConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWTransferConfirmationView.xib; path = IATA/Classes/Presenter/Transfer/LWTransferConfirmationView.xib; sourceTree = SOURCE_ROOT; };
@@ -2206,7 +2205,6 @@
 			isa = PBXGroup;
 			children = (
 				CF9EC8BA1C17C02F00F742A6 /* LWAuthEntryPointPresenter~iphone.xib */,
-				EC01D3F11CBC4CB90036766F /* LWAuthEntryPointPresenter~ipad.xib */,
 			);
 			name = Lykke;
 			sourceTree = "<group>";
@@ -2214,6 +2212,7 @@
 		EC9C94A31C89CED3006FD46B /* IATA */ = {
 			isa = PBXGroup;
 			children = (
+				EC01D3F11CBC4CB90036766F /* LWAuthEntryPointPresenter~_ipad_.xib */,
 				EC9C94831C89A6EC006FD46B /* LWAuthEntryPointPresenter.xib */,
 			);
 			name = IATA;
@@ -2709,7 +2708,6 @@
 				EC4D92251C8778DF006EE7C8 /* LWWalletFormPresenter.xib in Resources */,
 				EC9C94851C89A71F006FD46B /* LWAuthEntryPointPresenter.xib in Resources */,
 				EC9EC2501C8EE65900C986DD /* LWExchangeBlockchainPresenter.xib in Resources */,
-				EC01D3F21CBC4CB90036766F /* LWAuthEntryPointPresenter~ipad.xib in Resources */,
 				EC9EC2691C8EF58700C986DD /* LWAssetInfoTextTableViewCell.xib in Resources */,
 				EC4D92281C8778DF006EE7C8 /* LWKeyboardToolbar.xib in Resources */,
 				EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */,
@@ -3464,7 +3462,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23d965d4-5053-49ab-8f4b-d56fc9146bc4";
+				PROVISIONING_PROFILE = "bbd06202-9fd6-450c-9e36-5a622e53b051";
 			};
 			name = Debug;
 		};
@@ -3487,7 +3485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fde24542-09d7-4914-b32b-08d5147ca7ae";
+				PROVISIONING_PROFILE = "531780e9-f033-436f-aa22-f926ead055d3";
 			};
 			name = Release;
 		};
@@ -3560,7 +3558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
-				PROVISIONING_PROFILE = "a4d04476-5cbb-4a35-9aa6-eec2cad9cd88";
+				PROVISIONING_PROFILE = "154d76b8-8070-41f4-bfb9-ad67a44f09bf";
 			};
 			name = Debug.Test;
 		};
@@ -3627,7 +3625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lykkex.Lykke-Wallet-test";
 				PRODUCT_NAME = "$(TARGET_NAME).Test";
-				PROVISIONING_PROFILE = "d37d5107-fc60-4050-916e-b7e4e37ddbfe";
+				PROVISIONING_PROFILE = "0fb05d44-0b16-4733-8c9c-03dc40e9f4e7";
 			};
 			name = Release.Test;
 		};
@@ -3636,8 +3634,8 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3652,8 +3650,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4b096328-2b50-4b30-9c30-cc660d8dd5a9";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "6aa75d29-42cb-4879-ab4e-087fa47e4371";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3662,8 +3660,8 @@
 			baseConfigurationReference = 68CD54781D3AB2AD7AAA8023 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Pukhov (KY5GT47DEL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3677,8 +3675,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4b096328-2b50-4b30-9c30-cc660d8dd5a9";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "6aa75d29-42cb-4879-ab4e-087fa47e4371";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug.Test;
 		};
@@ -3703,8 +3701,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6a6a0e38-33d6-46b0-bd49-5ae240221ccb";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "3d947a81-2792-44b9-b233-92ca862076ee";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -3728,8 +3726,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lykkex.iata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6a6a0e38-33d6-46b0-bd49-5ae240221ccb";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "3d947a81-2792-44b9-b233-92ca862076ee";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release.Test;
 		};

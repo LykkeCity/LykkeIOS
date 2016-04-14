@@ -92,7 +92,9 @@
 "withdraw.wallet.button" = "Withdraw";
 "withdraw.funds.title" = "WITHDRAW FUNDS";
 "withdraw.funds.address" = "Enter the bitcoin address";
+"withdraw.funds.address.iata" = "Enter the bank account";
 "withdraw.funds.wallet" = "Bitcoin Wallet";
+"withdraw.funds.wallet.iata" = "Bank Account";
 "withdraw.funds.paste" = "Paste";
 "withdraw.funds.scan" = "Scan QR-code";
 "withdraw.funds.proceed" = "PROCEED";
