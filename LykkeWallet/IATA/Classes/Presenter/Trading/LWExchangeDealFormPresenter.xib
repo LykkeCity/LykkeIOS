@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GothaProMed.otf">
@@ -25,15 +25,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-pj-cQY">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="463"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdD-wI-RCw">
-                    <rect key="frame" x="0.0" y="463" width="320" height="105"/>
+                    <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyZ-P4-Rki" customClass="TKButton">
-                            <rect key="frame" x="0.0" y="30" width="320" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="SJa-ct-Iqm"/>
                             </constraints>
@@ -50,7 +50,7 @@
                     <constraints>
                         <constraint firstItem="HyZ-P4-Rki" firstAttribute="centerY" secondItem="kdD-wI-RCw" secondAttribute="centerY" id="18q-ba-wml"/>
                         <constraint firstItem="HyZ-P4-Rki" firstAttribute="centerX" secondItem="kdD-wI-RCw" secondAttribute="centerX" id="OvP-kn-nKX"/>
-                        <constraint firstAttribute="height" constant="105" id="dxV-at-3Un"/>
+                        <constraint firstAttribute="height" constant="45" id="dxV-at-3Un"/>
                         <constraint firstAttribute="trailing" secondItem="HyZ-P4-Rki" secondAttribute="trailing" id="kp4-7M-HXI"/>
                         <constraint firstItem="HyZ-P4-Rki" firstAttribute="leading" secondItem="kdD-wI-RCw" secondAttribute="leading" id="td3-Fx-fuN"/>
                     </constraints>

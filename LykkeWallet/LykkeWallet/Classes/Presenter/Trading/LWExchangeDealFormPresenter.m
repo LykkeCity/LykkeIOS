@@ -14,7 +14,6 @@
 #import "LWAssetBuyTotalTableViewCell.h"
 #import "LWExchangeConfirmationView.h"
 #import "LWPacketPinSecurityGet.h"
-#import "LWMathKeyboardView.h"
 #import "LWAssetPairModel.h"
 #import "LWAssetModel.h"
 #import "LWAssetPairRateModel.h"
@@ -31,12 +30,12 @@
 #import "NSString+Utils.h"
 
 
-@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, LWExchangeConfirmationViewDelegate, LWMathKeyboardViewDelegate> {
-    LWMathKeyboardView *mathKeyboardView;
+@interface LWExchangeDealFormPresenter () <UITextFieldDelegate, LWExchangeConfirmationViewDelegate> {
     
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
     
+    BOOL      isVolumeValid;
     NSString *volumeString;
 }
 
@@ -55,7 +54,6 @@
 - (void)updateDescription;
 - (void)updatePrice;
 - (NSNumber *)volumeFromField;
-- (void)updateKeyboardFrame;
 - (void)validateUser;
 - (void)showConfirmationView;
 - (NSString *)totalString;
@@ -74,19 +72,6 @@ static NSString *const FormIdentifiers[kFormRows] = {
     @"LWAssetBuyTotalTableViewCellIdentifier"
 };
 
-CGFloat const iPhone4Height      = 480;
-CGFloat const iPhone5Height      = 568;
-float const kSmallHeightKeyboard = 239.0;
-float const kBigHeightKeyboard   = 290.0;
-#ifdef PROJECT_IATA
-float const kBottomSmallHeight   = 45.0;
-float const kBottomBigHeight     = 45.0;
-#else
-float const kBottomSmallHeight   = 110.0;
-float const kBottomBigHeight     = 110.0;
-#endif
-
-
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
@@ -98,11 +83,6 @@ float const kBottomBigHeight     = 110.0;
     [self updateDescription];
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
-    
-    mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
-    mathKeyboardView.delegate = self;
-    [mathKeyboardView updateView];
-    [self updateKeyboardFrame];
     
     volumeString = @"";
     [self volumeChanged:volumeString withValidState:NO];
@@ -177,11 +157,8 @@ float const kBottomBigHeight     = 110.0;
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
-        sumTextField.inputView = mathKeyboardView;
-        
-        mathKeyboardView.targetTextField = sumTextField;
-        
-        //[sumTextField becomeFirstResponder];
+        sumTextField.keyboardType = UIKeyboardTypeDecimalPad;
+
         [sumTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
         [sumTextField addTarget:self
                          action:@selector(textFieldDidChange:)
@@ -204,12 +181,11 @@ float const kBottomBigHeight     = 110.0;
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-
-    NSInteger const maxLength = 12;
-    return [textField shouldChangeCharactersInRange:range replacementString:string forMaxLength:maxLength];
+    return [textField isNumberValidForRange:range replacementString:string];
 }
 
-- (void)textFieldDidChange:(id)sender {
+- (void)textFieldDidChange:(UITextField *)sender {
+    [self volumeChanged:sender.text withValidState:[sender isNumberValid]];
     [self updatePrice];
 }
 
@@ -326,22 +302,9 @@ float const kBottomBigHeight     = 110.0;
     }
 }
 
-
-#pragma mark - LWMathKeyboardViewDelegate
-
-- (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
-    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"exchange.assets.modal.error") message:Localize(@"exchange.assets.modal.error.volume") preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"exchange.assets.modal.error.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [ctrl dismissViewControllerAnimated:YES completion:nil];
-        }];
-    [ctrl addAction:actionOK];
-    
-    [self presentViewController:ctrl animated:YES completion:nil];
-}
-
 - (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid {
-    if (isValid) {
+    isVolumeValid = isValid;
+    if (isVolumeValid) {
         volumeString = volume;
         [self updatePrice];
     }
@@ -368,6 +331,10 @@ float const kBottomBigHeight     = 110.0;
 - (void)updateDescription {
     
     if (!volumeString || [volumeString isEqualToString:@""]) {
+        self.descriptionLabel.text = @"";
+        return;
+    }
+    else if (!isVolumeValid) {
         self.descriptionLabel.text = @"";
         return;
     }
@@ -431,16 +398,6 @@ float const kBottomBigHeight     = 110.0;
     double const result = self.assetDealType == LWAssetDealTypeBuy ? volume.doubleValue : -volume.doubleValue;
     
     return [NSNumber numberWithDouble:result];
-}
-
-- (void)updateKeyboardFrame {
-    CGFloat const height = [[UIScreen mainScreen] bounds].size.height;
-    CGRect rect = mathKeyboardView.frame;
-    rect.size.height = (height > iPhone4Height) ? kBigHeightKeyboard : kSmallHeightKeyboard;
-    mathKeyboardView.frame = rect;
-    mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
-    
-    self.bottomHeightConstraint.constant = (height > iPhone5Height) ? kBottomBigHeight : kBottomSmallHeight;
 }
 
 - (void)validateUser {

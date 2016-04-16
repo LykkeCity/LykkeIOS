@@ -9,7 +9,6 @@
 #import "LWWithdrawInputPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWWithdrawConfirmationView.h"
-#import "LWMathKeyboardView.h"
 #import "LWFingerprintHelper.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAuthManager.h"
@@ -24,9 +23,7 @@
 #import "NSString+Utils.h"
 
 
-@interface LWWithdrawInputPresenter () <UITextFieldDelegate, LWMathKeyboardViewDelegate, LWWithdrawConfirmationViewDelegate> {
-    
-    LWMathKeyboardView *mathKeyboardView;
+@interface LWWithdrawInputPresenter () <UITextFieldDelegate, LWWithdrawConfirmationViewDelegate> {
     
     LWWithdrawConfirmationView *confirmationView;
     UITextField *sumTextField;
@@ -39,7 +36,6 @@
 
 #pragma mark - Utils
 
-- (void)updateKeyboardFrame;
 - (void)validateUser;
 - (void)showConfirmationView;
 
@@ -63,11 +59,6 @@ float const kMathHeightKeyboard = 239.0;
     self.title = Localize(@"withdraw.funds.title");
     
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
-    
-    mathKeyboardView = [LWMathKeyboardView new]; // init math numpad
-    mathKeyboardView.delegate = self;
-    [mathKeyboardView updateView];
-    [self updateKeyboardFrame];
     
     volumeString = @"";
     [self volumeChanged:volumeString withValidState:NO];
@@ -116,9 +107,7 @@ float const kMathHeightKeyboard = 239.0;
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;
         sumTextField.placeholder = Localize(@"withdraw.funds.placeholder");
-        sumTextField.inputView = mathKeyboardView;
-        
-        mathKeyboardView.targetTextField = sumTextField;
+        sumTextField.keyboardType = UIKeyboardTypeDecimalPad;
         
         [sumTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
         [sumTextField addTarget:self
@@ -133,13 +122,11 @@ float const kMathHeightKeyboard = 239.0;
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSInteger const maxLength = 12;
-    return [textField shouldChangeCharactersInRange:range
-                                  replacementString:string
-                                       forMaxLength:maxLength];
+    return [textField isNumberValidForRange:range replacementString:string];
 }
 
-- (void)textFieldDidChange:(id)sender {
+- (void)textFieldDidChange:(UITextField *)sender {
+    [self volumeChanged:sender.text withValidState:[sender isNumberValid]];
 }
 
 
@@ -254,36 +241,12 @@ float const kMathHeightKeyboard = 239.0;
                                     multiSig:self.bitcoinString];
 }
 
-
-#pragma mark - LWMathKeyboardViewDelegate
-
-- (void)mathKeyboardViewDidRaiseMathException:(LWMathKeyboardView *)view {
-    UIAlertController *ctrl = [UIAlertController alertControllerWithTitle:Localize(@"withdraw.funds.modal.error") message:Localize(@"withdraw.funds.modal.error.volume") preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:Localize(@"withdraw.funds.modal.error.ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ctrl dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [ctrl addAction:actionOK];
-    
-    [self presentViewController:ctrl animated:YES completion:nil];
-}
-
 - (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid {
     if (isValid) {
         volumeString = volume;
     }
     
     [LWValidator setButton:self.operationButton enabled:isValid];
-}
-
-
-#pragma mark - Utils
-
-- (void)updateKeyboardFrame {
-    CGRect rect = mathKeyboardView.frame;
-    rect.size.height = kMathHeightKeyboard;
-    mathKeyboardView.frame = rect;
-    mathKeyboardView.autoresizingMask = UIViewAutoresizingNone;
 }
 
 - (void)validateUser {
