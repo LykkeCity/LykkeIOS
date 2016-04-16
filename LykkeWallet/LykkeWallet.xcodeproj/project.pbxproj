@@ -414,6 +414,8 @@
 		EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */; };
 		EC7F05131C3EE5360079ECD0 /* LWRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */; };
 		EC7F05161C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */; };
+		EC8923041CC24A0D00201BE7 /* LWLoadingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8923031CC24A0D00201BE7 /* LWLoadingIndicatorView.m */; };
+		EC8923051CC24A0D00201BE7 /* LWLoadingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8923031CC24A0D00201BE7 /* LWLoadingIndicatorView.m */; };
 		EC8F48381C4D8A710087DF1F /* LWNotificationSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */; };
 		EC8F48391C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */; };
 		EC8FF6A71CA32D3400160528 /* LWPacketDicts.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FF6A61CA32D3400160528 /* LWPacketDicts.m */; };
@@ -535,6 +537,7 @@
 		ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BC91C2EBE9C00E1D3DA /* LWPersonalDataPacket.m */; };
 		ECD76BCD1C2EC50700E1D3DA /* LWPacketWallets.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD76BCC1C2EC50700E1D3DA /* LWPacketWallets.m */; };
 		ECDA15E11C31C6F0003C071C /* LWPacketLog.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDA15E01C31C6F0003C071C /* LWPacketLog.m */; };
+		ECE435BE1CC049B200BA8485 /* LWTransferEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23FA41CBD937900B4D58D /* LWTransferEmptyBlockchainPresenter.m */; };
 		ECE902BD1C3537B700F52971 /* LWWalletFormPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902BB1C3537B700F52971 /* LWWalletFormPresenter.m */; };
 		ECE902BE1C3537B700F52971 /* LWWalletFormPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE902BC1C3537B700F52971 /* LWWalletFormPresenter.xib */; };
 		ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE902C01C353F5600F52971 /* LWAuthenticatedTablePresenter.m */; };
@@ -928,6 +931,8 @@
 		EC7F05121C3EE5360079ECD0 /* LWRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRadioTableViewCell.xib; path = TableCells/LWRadioTableViewCell.xib; sourceTree = "<group>"; };
 		EC7F05141C3EEAC00079ECD0 /* LWPacketSettingSignOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketSettingSignOrder.h; sourceTree = "<group>"; };
 		EC7F05151C3EEAC00079ECD0 /* LWPacketSettingSignOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketSettingSignOrder.m; sourceTree = "<group>"; };
+		EC8923021CC24A0D00201BE7 /* LWLoadingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWLoadingIndicatorView.h; path = LoadingIndicator/LWLoadingIndicatorView.h; sourceTree = "<group>"; };
+		EC8923031CC24A0D00201BE7 /* LWLoadingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWLoadingIndicatorView.m; path = LoadingIndicator/LWLoadingIndicatorView.m; sourceTree = "<group>"; };
 		EC8F48351C4D8A710087DF1F /* LWNotificationSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWNotificationSettingsPresenter.h; path = Notifications/LWNotificationSettingsPresenter.h; sourceTree = "<group>"; };
 		EC8F48361C4D8A710087DF1F /* LWNotificationSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWNotificationSettingsPresenter.m; path = Notifications/LWNotificationSettingsPresenter.m; sourceTree = "<group>"; };
 		EC8F48371C4D8A710087DF1F /* LWNotificationSettingsPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWNotificationSettingsPresenter.xib; path = Notifications/LWNotificationSettingsPresenter.xib; sourceTree = "<group>"; };
@@ -1298,6 +1303,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC8923011CC249E400201BE7 /* LoadingIndicator */,
 				EC9AE0641CAC7A1E0047DF0D /* QrCode */,
 				EC9F3F581C90833D00DC1F87 /* Transfer */,
 				EC3144441C4C010000DEA50B /* Trading */,
@@ -2091,6 +2097,15 @@
 				EC7F05101C3EE5290079ECD0 /* LWRadioTableViewCell.m */,
 			);
 			name = TableCells;
+			sourceTree = "<group>";
+		};
+		EC8923011CC249E400201BE7 /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				EC8923021CC24A0D00201BE7 /* LWLoadingIndicatorView.h */,
+				EC8923031CC24A0D00201BE7 /* LWLoadingIndicatorView.m */,
+			);
+			name = LoadingIndicator;
 			sourceTree = "<group>";
 		};
 		EC8F48341C4D8A350087DF1F /* Notifications */ = {
@@ -2982,6 +2997,7 @@
 				EC57F47F1C3D8A6400E31746 /* UITextField+Validation.m in Sources */,
 				ECD1E9021C3BC8B40064AAB3 /* LWAuthPresenter.m in Sources */,
 				CFF2AAE21C1F893000320FF9 /* LWRegisterCameraPresenter.m in Sources */,
+				EC8923041CC24A0D00201BE7 /* LWLoadingIndicatorView.m in Sources */,
 				EC3CE8B81C401E2E00CAC3FE /* LWPacketBlockchainTransaction.m in Sources */,
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
@@ -3045,6 +3061,7 @@
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
 				ECECAB431C9897300020E050 /* LWCashEmptyBlockchainPresenter.m in Sources */,
 				ECECAB5B1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */,
+				ECE435BE1CC049B200BA8485 /* LWTransferEmptyBlockchainPresenter.m in Sources */,
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
 				CF9EC8F11C17C38900F742A6 /* LWAuthNavigationController.m in Sources */,
 				EC3CE8BB1C4023D800CAC3FE /* LWAssetBlockchainTableViewCell.m in Sources */,
@@ -3182,6 +3199,7 @@
 				EC4D91A21C8778DF006EE7C8 /* TKTableViewCell.m in Sources */,
 				EC4D91A31C8778DF006EE7C8 /* LWAuthenticationPresenter.m in Sources */,
 				EC4D91A41C8778DF006EE7C8 /* ABPadLockScreenSetupViewController.m in Sources */,
+				EC8923051CC24A0D00201BE7 /* LWLoadingIndicatorView.m in Sources */,
 				ECAACF361C9F3B7A000227E0 /* LWErrorView.m in Sources */,
 				EC4D91A51C8778DF006EE7C8 /* LWExchangeResultPresenter.m in Sources */,
 				EC4D91A61C8778DF006EE7C8 /* LWTabController.m in Sources */,

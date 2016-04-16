@@ -117,3 +117,5 @@ static float     const kTableCellDetailFontSize   = 22.0;
 static NSString *const kTableCellLightFontName    = kFontLight;
 static NSString *const kTableCellRegularFontName  = kFontRegular;
 
+static float     const kTableCellTransferFontSize = 15.0;
+

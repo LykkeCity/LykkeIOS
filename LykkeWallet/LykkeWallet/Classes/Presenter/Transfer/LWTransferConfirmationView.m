@@ -12,6 +12,7 @@
 #import "LWAssetPairModel.h"
 #import "LWAssetPairRateModel.h"
 #import "LWAssetModel.h"
+#import "LWLoadingIndicatorView.h"
 #import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
@@ -34,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton         *placeOrderButton;
 @property (weak, nonatomic) IBOutlet UILabel          *waitingLabel;
-@property (weak, nonatomic) IBOutlet UIImageView      *waitingImageView;
+@property (weak, nonatomic) IBOutlet LWLoadingIndicatorView *waitingImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
 
@@ -176,26 +177,13 @@ static float const kNoPinProtectionHeight = 256;
     self.navigationItem.leftBarButtonItem.enabled = !loading;
     self.placeOrderButton.hidden = loading;
     self.waitingLabel.hidden = !loading;
-    self.waitingImageView.hidden = !loading;
     self.waitingLabel.text = reason;
     
     if (pinKeyboardView) {
         pinKeyboardView.hidden = loading;
     }
     
-    if (loading) {
-        CABasicAnimation *rotation;
-        rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-        rotation.fromValue = [NSNumber numberWithFloat:0];
-        rotation.toValue = [NSNumber numberWithFloat:(2 * M_PI)];
-        rotation.duration = 1.2f;
-        rotation.repeatCount = HUGE_VALF;
-        [self.waitingImageView.layer removeAllAnimations];
-        [self.waitingImageView.layer addAnimation:rotation forKey:@"Spin"];
-    }
-    else {
-        [self.waitingImageView.layer removeAllAnimations];
-    }
+    [self.waitingImageView setLoading:loading];
 }
 
 - (void)registerCellWithIdentifier:(NSString *)identifier name:(NSString *)name {

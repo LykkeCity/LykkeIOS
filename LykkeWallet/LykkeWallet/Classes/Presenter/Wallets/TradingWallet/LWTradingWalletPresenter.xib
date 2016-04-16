@@ -85,6 +85,6 @@
     </objects>
     <resources>
         <image name="ButtonOKInactive" width="320" height="51"/>
-        <image name="ButtonShare" width="130" height="45"/>
+        <image name="ButtonShare" width="320" height="51"/>
     </resources>
 </document>

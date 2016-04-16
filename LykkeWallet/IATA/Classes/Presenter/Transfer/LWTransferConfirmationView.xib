@@ -53,7 +53,7 @@
                                             <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SendingOrderIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="9os-JP-CWp">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SendingOrderIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="9os-JP-CWp" customClass="LWLoadingIndicatorView">
                                             <rect key="frame" x="132" y="0.0" width="56" height="56"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="40K-2d-3tX"/>

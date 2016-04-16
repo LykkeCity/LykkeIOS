@@ -86,7 +86,7 @@
 "wallets.bitcoin.copytoast" = "Скопировано.";
 "wallets.bitcoin.sendemail" = "Email отправлен.";
 
-"wallets.trading.title" = "TRADING WALLET";
+"wallets.trading.title" = "WALLET";
 "wallets.trading.withdraw" = "WITHDRAW";
 "wallets.trading.deposit" = "DEPOSIT";
 
