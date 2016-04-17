@@ -6,10 +6,10 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthenticatedTablePresenter.h"
+#import "LWAuthComplexPresenter.h"
 
 
-@interface LWWalletsPresenter : LWAuthenticatedTablePresenter {
+@interface LWWalletsPresenter : LWAuthComplexPresenter {
     
 }
 

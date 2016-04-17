@@ -70,17 +70,16 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
     self.navigationItem.title = Localize(@"tab.settings");
     
     [self registerCellWithIdentifier:SettingsIdentifiers[0]
-                             forName:SettingsCells[0]];
+                                name:SettingsCells[0]];
     
     [self registerCellWithIdentifier:SettingsIdentifiers[1]
-                             forName:SettingsCells[1]];
+                                name:SettingsCells[1]];
     
     [self registerCellWithIdentifier:SettingsIdentifiers[4]
-                             forName:SettingsCells[4]];
+                                name:SettingsCells[4]];
     
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.delegate = self;
-    
+    [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
+ 
     baseAsset = nil;
 }
 
@@ -92,6 +91,10 @@ static NSString *const SettingsIdentifiers[kNumberOfRows] = {
 
 
 #pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return kNumberOfRows;

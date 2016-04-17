@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -21,14 +21,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AeroflotIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mLP-O0-pog">
-                        <rect key="frame" x="26" y="4" width="40" height="40"/>
+                        <rect key="frame" x="38" y="4" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="IZj-Uq-imc"/>
                             <constraint firstAttribute="width" constant="40" id="PG1-RQ-IUB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AEROFLOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOn-Yb-CiP">
-                        <rect key="frame" x="76" y="16" width="236" height="18"/>
+                        <rect key="frame" x="88" y="16" width="194" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="tTq-HO-E76"/>
                         </constraints>
@@ -38,10 +38,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qOn-Yb-CiP" firstAttribute="trailing" secondItem="SuX-4a-H4G" secondAttribute="trailingMargin" id="HbI-Co-bLA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qOn-Yb-CiP" secondAttribute="trailing" constant="30" id="FrI-XS-pLv"/>
                     <constraint firstItem="qOn-Yb-CiP" firstAttribute="centerY" secondItem="SuX-4a-H4G" secondAttribute="centerY" id="QMT-CY-JUa"/>
                     <constraint firstItem="mLP-O0-pog" firstAttribute="centerY" secondItem="SuX-4a-H4G" secondAttribute="centerY" id="jpI-cZ-uiQ"/>
-                    <constraint firstItem="mLP-O0-pog" firstAttribute="leading" secondItem="SuX-4a-H4G" secondAttribute="leadingMargin" constant="18" id="pfJ-RY-ZiS"/>
+                    <constraint firstItem="mLP-O0-pog" firstAttribute="leading" secondItem="SuX-4a-H4G" secondAttribute="leadingMargin" constant="30" id="pfJ-RY-ZiS"/>
                     <constraint firstItem="qOn-Yb-CiP" firstAttribute="leading" secondItem="mLP-O0-pog" secondAttribute="trailing" constant="10" id="t2A-1e-eyK"/>
                 </constraints>
             </tableViewCellContentView>

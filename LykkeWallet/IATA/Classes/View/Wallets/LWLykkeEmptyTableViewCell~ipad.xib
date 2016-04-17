@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -21,13 +21,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coins not added" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85J-ii-07i">
-                        <rect key="frame" x="18" y="8" width="242" height="33"/>
+                        <rect key="frame" x="68" y="8" width="172" height="33"/>
                         <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
                         <color key="textColor" red="0.074509803920000006" green="0.2666666667" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJv-VP-Wxk">
-                        <rect key="frame" x="268" y="8" width="34" height="34"/>
+                        <rect key="frame" x="248" y="8" width="34" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="34" id="ZCK-CL-4iF"/>
                             <constraint firstAttribute="height" constant="34" id="pKq-pg-CNA"/>
@@ -41,9 +41,9 @@
                 <constraints>
                     <constraint firstItem="HJv-VP-Wxk" firstAttribute="centerY" secondItem="UN5-BR-PAl" secondAttribute="centerY" id="008-dl-OtL"/>
                     <constraint firstItem="85J-ii-07i" firstAttribute="bottom" secondItem="UN5-BR-PAl" secondAttribute="bottomMargin" id="DWD-km-bAc"/>
-                    <constraint firstItem="85J-ii-07i" firstAttribute="leading" secondItem="UN5-BR-PAl" secondAttribute="leadingMargin" constant="10" id="FpG-lP-ltQ"/>
+                    <constraint firstItem="85J-ii-07i" firstAttribute="leading" secondItem="UN5-BR-PAl" secondAttribute="leadingMargin" constant="60" id="FpG-lP-ltQ"/>
                     <constraint firstItem="HJv-VP-Wxk" firstAttribute="leading" secondItem="85J-ii-07i" secondAttribute="trailing" constant="8" id="ZVV-BE-5ZT"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="HJv-VP-Wxk" secondAttribute="trailing" constant="10" id="bfa-KM-Dsw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="HJv-VP-Wxk" secondAttribute="trailing" constant="30" id="bfa-KM-Dsw"/>
                     <constraint firstItem="85J-ii-07i" firstAttribute="top" secondItem="UN5-BR-PAl" secondAttribute="topMargin" id="dBM-ew-np2"/>
                 </constraints>
             </tableViewCellContentView>

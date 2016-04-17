@@ -68,7 +68,9 @@
     self.navigationItem.title = Localize(@"tab.history");
     
     [self registerCellWithIdentifier:kHistoryTableViewCellIdentifier
-                             forName:kHistoryTableViewCell];
+                                name:kHistoryTableViewCell];
+    
+    [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
     [self setRefreshControl];
 }
@@ -295,6 +297,10 @@
     
     cell.typeLabel.text = operation;
     cell.dateLabel.text = [item.dateTime toShortFormat];
+    
+#ifdef PROJECT_IATA
+    cell.separatorInset = UIEdgeInsetsMake(0, 38, 0, 38);
+#endif
 }
 
 - (void)setRefreshControl {

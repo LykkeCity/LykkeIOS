@@ -43,6 +43,9 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tipsBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
+// for IATA iPad
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBottomConstraint;
 
 #pragma mark - Actions
 
@@ -123,13 +126,38 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
 }
 
 - (void)observeKeyboardWillShowNotification:(NSNotification *)notification {
-    CGRect frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect const frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+#ifdef PROJECT_IATA
+    BOOL isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    if (isiPad) {
+        [self.loginBottomConstraint setConstant:frame.size.height - 130];
+        [self.viewTopConstraint setConstant:-40];
+    }
+    else {
+        [self.tipsBottomConstraint setConstant:frame.size.height];
+    }
+#else
     [self.tipsBottomConstraint setConstant:frame.size.height];
+#endif
+
     [self animateConstraintChanges];
 }
 
 - (void)observeKeyboardWillHideNotification:(NSNotification *)notification {
+#ifdef PROJECT_IATA
+    BOOL isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    if (isiPad) {
+        [self.loginBottomConstraint setConstant:0];
+        [self.viewTopConstraint setConstant:30];
+    }
+    else {
+        [self.tipsBottomConstraint setConstant:0];
+    }
+#else
     [self.tipsBottomConstraint setConstant:0];
+#endif
+
     [self animateConstraintChanges];
 }
 

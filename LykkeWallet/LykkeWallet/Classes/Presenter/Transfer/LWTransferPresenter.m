@@ -113,8 +113,13 @@ static NSString *const RecipientCodes[kNumberOfRows] = {
 #ifdef PROJECT_IATA
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        cell.separatorInset = UIEdgeInsetsMake(0, 38, 0, 38);
+    }
+    else {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:UIEdgeInsetsZero];
+        }
     }
     
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {

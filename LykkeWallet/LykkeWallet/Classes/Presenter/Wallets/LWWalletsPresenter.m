@@ -149,34 +149,36 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     }
     
     [self registerCellWithIdentifier:kWalletTableViewCellIdentifier
-                             forName:kWalletTableViewCell];
+                             name:kWalletTableViewCell];
     
     [self registerCellWithIdentifier:kBanksTableViewCellIdentifier
-                             forName:kBanksTableViewCell];
+                             name:kBanksTableViewCell];
     
     [self registerCellWithIdentifier:kLykkeTableViewCellIdentifier
-                             forName:kLykkeTableViewCell];
+                             name:kLykkeTableViewCell];
     
     [self registerCellWithIdentifier:kWalletEmptyTableViewCellIdentifier
-                             forName:kWalletEmptyTableViewCell];
+                             name:kWalletEmptyTableViewCell];
     
     [self registerCellWithIdentifier:kLykkeEmptyTableViewCellIdentifier
-                             forName:kLykkeEmptyTableViewCell];
+                             name:kLykkeEmptyTableViewCell];
 
 #ifdef PROJECT_IATA
 #else
     [self registerCellWithIdentifier:kBitcoinTableViewCellIdentifier
-                             forName:kBitcoinTableViewCell];
+                             name:kBitcoinTableViewCell];
 #endif
     
     [self registerCellWithIdentifier:kLoadingTableViewCellIdentifier
-                             forName:kLoadingTableViewCell];
+                             name:kLoadingTableViewCell];
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
     self.tableView.contentInset = insets;
     self.tableView.scrollIndicatorInsets = insets;
     
     shouldShowError = NO;
+    
+    [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
     [self setRefreshControl];
 }
@@ -205,7 +207,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                 return MAX(1, self.iataWallets.count) + rowCell;
             }
             else if (section == kSectionSWIFTItems) {
-#warning TODO: hardcode general row + empty row
                 return 2;//MAX(1, self.data.bankCards.count) + rowCell;
             }
             else {
@@ -268,6 +269,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         // Hide plus button for bitcoin
         wallet.addWalletButton.hidden = (indexPath.section == kSectionIATAWallets
                                          || indexPath.section == kSectionSWIFTItems);
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            cell.separatorInset = UIEdgeInsetsMake(0, 42, 0, 42);
+        }
 #else
         // Hide plus button for bitcoin
         wallet.addWalletButton.hidden =
@@ -307,6 +312,12 @@ static NSString *const WalletIcons[kNumberOfSections] = {
                         
                         lykke.delegate = self;
                     }
+                    
+#ifdef PROJECT_IATA
+                    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                        cell.separatorInset = UIEdgeInsetsMake(0, 68, 0, 42);
+                    }
+#endif
                 }
                 // Show Empty
                 else {
@@ -324,11 +335,14 @@ static NSString *const WalletIcons[kNumberOfSections] = {
             }
         }
         else if (indexPath.section == kSectionSWIFTItems) {
-#warning TODO:
             cell = [tableView dequeueReusableCellWithIdentifier:kLykkeEmptyTableViewCellIdentifier];
             LWLykkeEmptyTableViewCell *emptyCell = (LWLykkeEmptyTableViewCell *)cell;
             emptyCell.titleLabel.text = Localize(@"wallets.swift.empty");
             emptyCell.addWalletButton.hidden = YES;
+            
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                cell.separatorInset = UIEdgeInsetsMake(0, 68, 0, 42);
+            }
         }
 #else
         if (indexPath.section == kSectionLykkeWallets) {
@@ -586,7 +600,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     NSIndexPath *path = [self.tableView indexPathForCell:cell];
 #ifdef PROJECT_IATA
     if (path && path.section == kSectionSWIFTItems) {
-#warning TODO:
     }
     else if (path && path.section == kSectionIATAWallets) {
         NSInteger const tradingTabIndex = 1;
@@ -626,7 +639,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     NSIndexPath *path = [self.tableView indexPathForCell:cell];
     LWBitcoinDepositPresenter *presenter = [LWBitcoinDepositPresenter new];
 
-#warning TODO: logic???
 #ifdef PROJECT_IATA
     if (path.section == kSectionIATAWallets) {
         presenter.assetName = @"LYKKE";
@@ -710,7 +722,6 @@ static NSString *const WalletIcons[kNumberOfSections] = {
         return (data ? data.identity : nil);
     }
     else if (indexPath.section == kSectionSWIFTItems) {
-#warning TODO:
     }
 #else
     // Lykke cells
