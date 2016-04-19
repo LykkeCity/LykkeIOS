@@ -42,8 +42,8 @@
 @implementation LWExchangeResultPresenter
 
 
-static int const kNumberOfRows = 7;
-static int const kBlockchainRow = 5;
+static int const kNumberOfRows = 5;
+static int const kBlockchainRow = 4;
 
 
 #pragma mark - Lifecycle
@@ -137,10 +137,10 @@ static int const kBlockchainRow = 5;
         Localize(@"exchange.assets.result.assetname"),
         Localize(@"exchange.assets.result.units"),
         Localize(@"exchange.assets.result.price"),
-        Localize(@"exchange.assets.result.commission"),
+        //Localize(@"exchange.assets.result.commission"),
         Localize(@"exchange.assets.result.cost"),
-        Localize(@"exchange.assets.result.blockchain"),
-        Localize(@"exchange.assets.result.position")
+        Localize(@"exchange.assets.result.blockchain")
+        //Localize(@"exchange.assets.result.position")
     };
     cell.titleLabel.text = titles[row];
 }
@@ -160,10 +160,10 @@ static int const kBlockchainRow = 5;
         self.purchase.assetPair,
         [LWMath makeStringByNumber:self.purchase.volume withPrecision:self.purchase.accuracy.integerValue],
         [LWMath makeStringByNumber:self.purchase.price withPrecision:self.purchase.accuracy.integerValue],
-        [LWMath makeStringByNumber:self.purchase.commission withPrecision:2],
+        //[LWMath makeStringByNumber:self.purchase.commission withPrecision:2],
         [LWMath makeStringByNumber:self.purchase.totalCost withPrecision:2],
-        self.purchase.blockchainSettled ? self.purchase.blockchainId : Localize(@"exchange.assets.result.blockchain.progress"),
-        [LWMath makeStringByNumber:self.purchase.position withPrecision:0]
+        self.purchase.blockchainSettled ? self.purchase.blockchainId : Localize(@"exchange.assets.result.blockchain.progress")
+        //[LWMath makeStringByNumber:self.purchase.position withPrecision:0]
     };
     
     return values[row];

@@ -51,7 +51,7 @@
 		<string>GothaProReg.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen~ipad</string>
+	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

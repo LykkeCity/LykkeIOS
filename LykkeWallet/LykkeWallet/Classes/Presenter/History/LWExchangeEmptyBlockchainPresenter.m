@@ -34,8 +34,8 @@
 #warning TODO: refactoring because of copying LWExchangeResultPresenter
 @implementation LWExchangeEmptyBlockchainPresenter
 
-static int const kNumberOfRows = 7;
-static int const kBlockchainRow = 5;
+static int const kNumberOfRows = 5;
+static int const kBlockchainRow = 4;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -106,10 +106,10 @@ static int const kBlockchainRow = 5;
         Localize(@"exchange.assets.result.assetname"),
         Localize(@"exchange.assets.result.units"),
         Localize(@"exchange.assets.result.price"),
-        Localize(@"exchange.assets.result.commission"),
+        //Localize(@"exchange.assets.result.commission"),
         Localize(@"exchange.assets.result.cost"),
-        Localize(@"exchange.assets.result.blockchain"),
-        Localize(@"exchange.assets.result.position")
+        Localize(@"exchange.assets.result.blockchain")
+        //Localize(@"exchange.assets.result.position")
     };
     cell.titleLabel.text = titles[row];
 }
@@ -129,10 +129,10 @@ static int const kBlockchainRow = 5;
         self.model.assetPair,
         [LWMath makeStringByNumber:self.model.volume withPrecision:0],
         [LWMath makeStringByNumber:self.model.price withPrecision:self.model.accuracy.integerValue],
-        [LWMath makeStringByNumber:self.model.commission withPrecision:2],
+        //[LWMath makeStringByNumber:self.model.commission withPrecision:2],
         [LWMath makeStringByNumber:self.model.totalCost withPrecision:2],
-        self.model.blockchainSettled ? self.model.blockchainId : Localize(@"exchange.assets.result.blockchain.progress"),
-        [LWMath makeStringByNumber:self.model.position withPrecision:0]
+        self.model.blockchainSettled ? self.model.blockchainId : Localize(@"exchange.assets.result.blockchain.progress")
+        //[LWMath makeStringByNumber:self.model.position withPrecision:0]
     };
     
     return values[row];
