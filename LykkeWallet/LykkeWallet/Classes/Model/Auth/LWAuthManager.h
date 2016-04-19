@@ -60,6 +60,7 @@
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainCashTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didGetBlockchainExchangeTransaction:(LWAssetBlockchainModel *)blockchain;
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainTransferTransaction:(LWAssetBlockchainModel *)blockchain;
 - (void)authManager:(LWAuthManager *)manager didReceiveTransactions:(LWTransactionsModel *)transactions;
 - (void)authManager:(LWAuthManager *)manager didReceiveMarketOrder:(LWAssetDealModel *)marketOrder;
 - (void)authManagerDidSendBlockchainEmail:(LWAuthManager *)manager;
@@ -117,6 +118,7 @@ SINGLETON_DECLARE
 - (void)requestBlockchainOrderTransaction:(NSString *)orderId;
 - (void)requestBlockchainCashTransaction:(NSString *)cashOperationId;
 - (void)requestBlockchainExchangeTransaction:(NSString *)exchnageOperationId;
+- (void)requestBlockchainTransferTrnasaction:(NSString *)transferOperationId;
 - (void)requestTransactions:(NSString *)assetId;
 - (void)requestMarketOrder:(NSString *)orderId;
 - (void)requestEmailBlockchain;

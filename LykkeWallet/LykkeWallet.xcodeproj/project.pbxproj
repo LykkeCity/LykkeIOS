@@ -135,6 +135,8 @@
 		EC3144491C4C01B500DEA50B /* LWMathKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3144471C4C01B500DEA50B /* LWMathKeyboardView.xib */; };
 		EC31444C1C4C01DD00DEA50B /* LWPinKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31444B1C4C01DD00DEA50B /* LWPinKeyboardView.m */; };
 		EC31444E1C4C01ED00DEA50B /* LWPinKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC31444D1C4C01ED00DEA50B /* LWPinKeyboardView.xib */; };
+		EC35B0C21CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = EC35B0C11CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m */; };
+		EC35B0C31CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = EC35B0C11CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m */; };
 		EC370B221C47BD7F00175786 /* LWKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC370B211C47BD7F00175786 /* LWKeyboardToolbar.m */; };
 		EC370B241C47BEE300175786 /* LWKeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */; };
 		EC37ED1A1C3A817D002379DD /* LWStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37ED191C3A817D002379DD /* LWStringUtils.m */; };
@@ -811,6 +813,8 @@
 		EC31444A1C4C01DD00DEA50B /* LWPinKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWPinKeyboardView.h; path = Trading/LWPinKeyboardView.h; sourceTree = "<group>"; };
 		EC31444B1C4C01DD00DEA50B /* LWPinKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWPinKeyboardView.m; path = Trading/LWPinKeyboardView.m; sourceTree = "<group>"; };
 		EC31444D1C4C01ED00DEA50B /* LWPinKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWPinKeyboardView.xib; path = Trading/LWPinKeyboardView.xib; sourceTree = "<group>"; };
+		EC35B0C01CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketBlockchainTransferTransaction.h; sourceTree = "<group>"; };
+		EC35B0C11CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketBlockchainTransferTransaction.m; sourceTree = "<group>"; };
 		EC370B201C47BD7F00175786 /* LWKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWKeyboardToolbar.h; path = Toolbars/LWKeyboardToolbar.h; sourceTree = "<group>"; };
 		EC370B211C47BD7F00175786 /* LWKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWKeyboardToolbar.m; path = Toolbars/LWKeyboardToolbar.m; sourceTree = "<group>"; };
 		EC370B231C47BEE300175786 /* LWKeyboardToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWKeyboardToolbar.xib; path = Toolbars/LWKeyboardToolbar.xib; sourceTree = "<group>"; };
@@ -1675,6 +1679,8 @@
 				ECECAB621C99A9360020E050 /* LWPacketBlockchainCashTransaction.m */,
 				ECECAB651C99A9680020E050 /* LWPacketBlockchainExchangeTransaction.h */,
 				ECECAB661C99A9680020E050 /* LWPacketBlockchainExchangeTransaction.m */,
+				EC35B0C01CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.h */,
+				EC35B0C11CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m */,
 				ECEC40B91C42B06700B22BEE /* LWPacketTransactions.h */,
 				ECEC40BA1C42B06700B22BEE /* LWPacketTransactions.m */,
 				ECEC40E21C44253D00B22BEE /* LWPacketMarketOrder.h */,
@@ -3114,6 +3120,7 @@
 				ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */,
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
 				ECECAB431C9897300020E050 /* LWCashEmptyBlockchainPresenter.m in Sources */,
+				EC35B0C21CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m in Sources */,
 				ECECAB5B1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */,
 				ECE435BE1CC049B200BA8485 /* LWTransferEmptyBlockchainPresenter.m in Sources */,
 				ECD1E8F41C3B10AE0064AAB3 /* LWPacketAssetPairRate.m in Sources */,
@@ -3208,6 +3215,7 @@
 				ECECAB441C9897300020E050 /* LWCashEmptyBlockchainPresenter.m in Sources */,
 				EC4D917E1C8778DF006EE7C8 /* LWSettingsAssetTableViewCell.m in Sources */,
 				EC4D917F1C8778DF006EE7C8 /* NSString+Utils.m in Sources */,
+				EC35B0C31CC6CB50001C6F96 /* LWPacketBlockchainTransferTransaction.m in Sources */,
 				EC4D91801C8778DF006EE7C8 /* LWKeychainManager.m in Sources */,
 				EC051A701CB6E12D00E31BD5 /* LWTransferConfirmationView.m in Sources */,
 				EC4D91811C8778DF006EE7C8 /* LWExchangePresenter.m in Sources */,

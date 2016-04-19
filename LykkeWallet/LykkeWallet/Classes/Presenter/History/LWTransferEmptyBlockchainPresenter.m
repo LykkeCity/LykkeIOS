@@ -125,7 +125,7 @@ static int const kNumberOfRows = 3;
 - (void)startRefreshControl {
     [super startRefreshControl];
     
-    [[LWAuthManager instance] requestBlockchainOrderTransaction:self.model.blockchainHash];
+    [[LWAuthManager instance] requestBlockchainTransferTrnasaction:self.model.identity];
 }
 
 
@@ -137,7 +137,7 @@ static int const kNumberOfRows = 3;
     [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 }
 
-- (void)authManager:(LWAuthManager *)manager didGetBlockchainCashTransaction:(LWAssetBlockchainModel *)blockchain {
+- (void)authManager:(LWAuthManager *)manager didGetBlockchainTransferTransaction:(LWAssetBlockchainModel *)blockchain {
     [self stopRefreshControl];
     
     if (blockchain) {

@@ -36,6 +36,7 @@
 #import "LWPacketBlockchainTransaction.h"
 #import "LWPacketBlockchainCashTransaction.h"
 #import "LWPacketBlockchainExchangeTransaction.h"
+#import "LWPacketBlockchainTransferTransaction.h"
 #import "LWPacketTransactions.h"
 #import "LWPacketMarketOrder.h"
 #import "LWPacketSendBlockchainEmail.h"
@@ -304,6 +305,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestBlockchainTransferTrnasaction:(NSString *)transferOperationId {
+    LWPacketBlockchainTransferTransaction *pack = [LWPacketBlockchainTransferTransaction new];
+    pack.transferOperationId = transferOperationId;
+    
+    [self sendPacket:pack];
+}
+
 - (void)requestTransactions:(NSString *)assetId {
     LWPacketTransactions *pack = [LWPacketTransactions new];
     pack.assetId = assetId;
@@ -544,6 +552,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketBlockchainExchangeTransaction.class) {
         if ([self.delegate respondsToSelector:@selector(authManager: didGetBlockchainExchangeTransaction:)]) {
             [self.delegate authManager:self didGetBlockchainExchangeTransaction:((LWPacketBlockchainExchangeTransaction *)pack).blockchain];
+        }
+    }
+    else if (pack.class == LWPacketBlockchainTransferTransaction.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager: didGetBlockchainTransferTransaction:)]) {
+            [self.delegate authManager:self didGetBlockchainTransferTransaction:((LWPacketBlockchainTransferTransaction *)pack).blockchain];
         }
     }
     else if (pack.class == LWPacketTransactions.class) {
