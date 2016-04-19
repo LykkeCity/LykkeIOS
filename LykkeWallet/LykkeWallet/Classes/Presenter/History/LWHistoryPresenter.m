@@ -215,12 +215,9 @@
         [[LWAuthManager instance] requestBlockchainCashTransaction:item.identity];
     }
     else if (item && item.historyType == LWHistoryItemTypeTransfer) {
-        if (item.identity && ![item.identity isEqualToString:@""]) {
-            [self setLoading:YES];
-            self.loadedElement = indexPath;
-            LWTransferHistoryItemType *transfer = (LWTransferHistoryItemType *)item;
-            [[LWAuthManager instance] requestBlockchainOrderTransaction:transfer.blockchainHash];
-        }
+        [self setLoading:YES];
+        self.loadedElement = indexPath;
+        [[LWAuthManager instance] requestBlockchainOrderTransaction:item.identity];
     }
 }
 
