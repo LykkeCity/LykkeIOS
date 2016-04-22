@@ -298,7 +298,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
         [[LWAuthManager instance] requestSellAsset:[LWCache instance].baseAssetId
                                          assetPair:self.assetPair.identity
                                             volume:[self volumeFromField]
-                                              rate:self.assetRate.ask];
+                                              rate:self.assetRate.bid];
     }
 }
 
@@ -339,22 +339,11 @@ static NSString *const FormIdentifiers[kFormRows] = {
         return;
     }
     
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-
     // operation type
     NSString *operation = (self.assetDealType == LWAssetDealTypeBuy)
     ? Localize(@"exchange.assets.description.buy")
     : Localize(@"exchange.assets.description.sell");
     
-    // operation rate
-    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:self.assetRate.ask.decimalValue];
-    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:rate]) {
-            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
-            rate = [one decimalNumberByDividingBy:rate];
-        }
-    }
-
     // build description
     NSString *description = [NSString stringWithFormat:operation,
                              volumeString,
@@ -374,7 +363,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
     // update price cell
     LWAssetBuyPriceTableViewCell *priceCell = (LWAssetBuyPriceTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 
-    NSString *priceText = [LWUtils priceForAsset:self.assetPair forValue:self.assetRate.ask];
+    NSString *priceText = nil;
+    if (self.assetDealType == LWAssetDealTypeBuy) {
+        priceText = [LWUtils priceForAsset:self.assetPair forValue:self.assetRate.ask];
+    }
+    else {
+        priceText = [LWUtils priceForAsset:self.assetPair forValue:self.assetRate.bid];
+    }
     priceCell.priceLabel.text = priceText;
     
     // update total cell
@@ -436,7 +431,13 @@ static NSString *const FormIdentifiers[kFormRows] = {
 
 - (NSString *)totalString {
     NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSDecimalNumber *decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
+    NSDecimalNumber *decimalPrice = nil;
+    if (self.assetDealType == LWAssetDealTypeBuy) {
+        decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
+    }
+    else {
+        decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.bid decimalValue]];
+    }
     NSDecimalNumber *volume = [volumeString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:volumeString];
     
     NSDecimalNumber *result = [NSDecimalNumber zero];

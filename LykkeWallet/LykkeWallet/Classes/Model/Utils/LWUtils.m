@@ -89,18 +89,7 @@
 }
 
 + (NSString *)priceForAsset:(LWAssetPairModel *)assetPair forValue:(NSNumber *)value {
-    // operation rate
-    NSString *baseAssetId = [LWCache instance].baseAssetId;
-    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithDecimal:value.decimalValue];
-    if ([baseAssetId isEqualToString:assetPair.baseAssetId]) {
-        if (![LWMath isDecimalEqualToZero:rate]) {
-            NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:@"1"];
-            rate = [one decimalNumberByDividingBy:rate];
-        }
-    }
-    
-    NSNumber *number = [NSNumber numberWithDouble:rate.doubleValue];
-    NSString *result = [LWMath priceString:number
+    NSString *result = [LWMath priceString:value
                                  precision:assetPair.accuracy
                                 withPrefix:@""];
     return result;
