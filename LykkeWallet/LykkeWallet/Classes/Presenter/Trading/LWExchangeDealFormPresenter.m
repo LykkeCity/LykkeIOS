@@ -29,6 +29,10 @@
 #import "UITextField+Validation.h"
 #import "NSString+Utils.h"
 
+typedef enum {
+    LastInput_Volume = 1,
+    LastInput_Result = 2
+} LastInputs;
 
 @interface LWExchangeDealFormPresenter () <UITextFieldDelegate, LWExchangeConfirmationViewDelegate> {
     
@@ -36,8 +40,10 @@
     UITextField                *sumTextField;
     UITextField                *resultTextField;
     
-    BOOL      isVolumeValid;
+    BOOL      isInputValid;
     NSString *volumeString;
+    NSString *resultString;
+    LastInputs lastInput;
 }
 
 
@@ -64,7 +70,6 @@
 
 @implementation LWExchangeDealFormPresenter
 
-
 static NSInteger const kFormRows = 3;
 
 static NSString *const FormIdentifiers[kFormRows] = {
@@ -86,6 +91,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [self setHideKeyboardOnTap:NO]; // gesture recognizer deletion
     
     volumeString = @"";
+    resultString = @"";
     [self volumeChanged:volumeString withValidState:NO];
     
     [self registerCellWithIdentifier:@"LWAssetBuySumTableViewCellIdentifier"
@@ -176,7 +182,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
         
         resultTextField = totalCell.totalTextField;
         resultTextField.delegate = self;
-        resultTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
+        resultTextField.placeholder = Localize(@"exchange.assets.result.placeholder");
         resultTextField.keyboardType = UIKeyboardTypeDecimalPad;
         
         [resultTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
@@ -199,14 +205,12 @@ static NSString *const FormIdentifiers[kFormRows] = {
     if (sender == sumTextField) {
         [self volumeChanged:sender.text
              withValidState:[sender isNumberValid]];
-        [self updatePrice];
     }
     else if (sender == resultTextField) {
-#error TODO:
         [self resultChanged:sender.text
              withValidState:[sender isNumberValid]];
-        [self updatePrice];
     }
+    [self updatePrice];
 }
 
 
@@ -323,8 +327,9 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (void)volumeChanged:(NSString *)volume withValidState:(BOOL)isValid {
-    isVolumeValid = isValid;
-    if (isVolumeValid) {
+    isInputValid = isValid;
+    lastInput = LastInput_Volume;
+    if (isInputValid) {
         volumeString = volume;
         [self updatePrice];
     }
@@ -335,11 +340,11 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [LWValidator setButton:self.buyButton enabled:isValid];
 }
 
-- (void)resultChanged:(NSString *)volume withValidState:(BOOL)isValid {
-#error TODO:
-    isVolumeValid = isValid;
-    if (isVolumeValid) {
-        volumeString = volume;
+- (void)resultChanged:(NSString *)input withValidState:(BOOL)isValid {
+    isInputValid = isValid;
+    lastInput = LastInput_Result;
+    if (isInputValid) {
+        resultString = input;
         [self updatePrice];
     }
     else {
@@ -363,12 +368,20 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (void)updateDescription {
-    
-    if (!volumeString || [volumeString isEqualToString:@""]) {
-        self.descriptionLabel.text = @"";
-        return;
+    if (lastInput == LastInput_Volume) {
+        if (!volumeString || [volumeString isEqualToString:@""]) {
+            self.descriptionLabel.text = @"";
+            return;
+        }
     }
-    else if (!isVolumeValid) {
+    else {
+        if (!resultString || [resultString isEqualToString:@""]) {
+            self.descriptionLabel.text = @"";
+            return;
+        }
+    }
+    
+    if (!isInputValid) {
         self.descriptionLabel.text = @"";
         return;
     }
@@ -379,10 +392,18 @@ static NSString *const FormIdentifiers[kFormRows] = {
     : Localize(@"exchange.assets.description.sell");
     
     // build description
+    NSString *volume = volumeString;
+    NSString *result = resultString;
+    if (lastInput == LastInput_Volume) {
+        result = [self totalString];
+    }
+    else {
+        volume = [self volumeString];
+    }
     NSString *description = [NSString stringWithFormat:operation,
-                             volumeString,
+                             volume,
                              [LWUtils baseAssetTitle:self.assetPair],
-                             [self totalString],
+                             result,
                              [LWUtils quotedAssetTitle:self.assetPair]];
     
     self.descriptionLabel.text = description;
@@ -407,15 +428,23 @@ static NSString *const FormIdentifiers[kFormRows] = {
     priceCell.priceLabel.text = priceText;
     
     // update total cell
-    LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    
-    NSString *totalStringValue = [self totalString];
-    totalCell.totalTextField.text = totalStringValue;
-    
+    NSString *volume = volumeString;
+    NSString *total = resultString;
+    if (lastInput == LastInput_Volume) {
+        LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+        total = [self totalString];
+        totalCell.totalTextField.text = total;
+    }
+    else if (lastInput == LastInput_Result) {
+        LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        volume = [self volumeString];
+        sumCell.sumTextField.text = volume;
+    }
+
     if (confirmationView) {
         confirmationView.rateString = priceText;
-        confirmationView.volumeString = volumeString;
-        confirmationView.totalString = totalStringValue;
+        confirmationView.volumeString = volume;
+        confirmationView.totalString = total;
     }
     
     [self updateDescription];
@@ -463,6 +492,8 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [self updatePrice];
 }
 
+// if (invert): total = volume / price
+// else: total = volume * price
 - (NSString *)totalString {
     NSString *baseAssetId = [LWCache instance].baseAssetId;
     NSDecimalNumber *decimalPrice = nil;
@@ -489,7 +520,48 @@ static NSString *const FormIdentifiers[kFormRows] = {
     NSString *totalText = [LWMath historyPriceString:number
                                            precision:accuracy
                                           withPrefix:@""];
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString *groupSymbol = [formatter groupingSeparator];
+    totalText = [totalText stringByReplacingOccurrencesOfString:groupSymbol withString:@""];
     return totalText;
+}
+
+// if (invert): volume = total * price
+// else: volume = total / price
+- (NSString *)volumeString {
+    NSString *baseAssetId = [LWCache instance].baseAssetId;
+    NSDecimalNumber *decimalPrice = nil;
+    if (self.assetDealType == LWAssetDealTypeBuy) {
+        decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.ask decimalValue]];
+    }
+    else {
+        decimalPrice = [NSDecimalNumber decimalNumberWithDecimal:[self.assetRate.bid decimalValue]];
+    }
+    
+    NSDecimalNumber *total = [resultString isEmpty] ? [NSDecimalNumber zero] : [LWMath numberWithString:resultString];
+    
+    NSDecimalNumber *volume = [NSDecimalNumber zero];
+    if ([baseAssetId isEqualToString:self.assetPair.baseAssetId]) {
+        volume = [total decimalNumberByMultiplyingBy:decimalPrice];
+    }
+    else {
+        if (![LWMath isDecimalEqualToZero:decimalPrice]) {
+            volume = [total decimalNumberByDividingBy:decimalPrice];
+        }
+    }
+    
+    NSInteger const accuracy = self.assetPair.accuracy.integerValue;
+    NSNumber *number = [NSNumber numberWithDouble:volume.doubleValue];
+    NSString *volumeText = [LWMath historyPriceString:number
+                                           precision:accuracy
+                                          withPrefix:@""];
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString *groupSymbol = [formatter groupingSeparator];
+    volumeText = [volumeText stringByReplacingOccurrencesOfString:groupSymbol withString:@""];
+    
+    return volumeText;
 }
 
 @end

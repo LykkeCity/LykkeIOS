@@ -37,11 +37,12 @@
         // Ensure that the local decimal seperator is used max 1 time
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         NSString *decimalSymbol = [formatter decimalSeparator];
+        NSString *groupSymbol = [formatter groupingSeparator];
         if ([candidate componentsSeparatedByString:decimalSymbol].count > 2) {
             return NO;
         }
         
-        NSString *validChars = [NSString stringWithFormat:@"0123456789%@", decimalSymbol];
+        NSString *validChars = [NSString stringWithFormat:@"0123456789%@%@", decimalSymbol, groupSymbol];
         if ([candidate stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:validChars]].length) {
             return NO;
         }

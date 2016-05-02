@@ -134,6 +134,7 @@
 "exchange.assets.description.sell" = "I want to sell %@ %@ for %@ %@";
 "exchange.assets.buy.sum" = "Объем";
 "exchange.assets.buy.placeholder" = "Введите объем";
+"exchange.assets.result.placeholder" = "Input result";
 "exchange.assets.buy.price" = "Цена";
 "exchange.assets.buy.total" = "Результат";
 "exchange.assets.buy.checkout" = "ОФОРМИТЬ";

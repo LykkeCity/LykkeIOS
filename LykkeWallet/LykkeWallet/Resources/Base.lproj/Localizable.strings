@@ -134,6 +134,7 @@
 "exchange.assets.description.sell" = "I want to sell %@ %@ for %@ %@";
 "exchange.assets.buy.sum" = "Volume";
 "exchange.assets.buy.placeholder" = "Input amount";
+"exchange.assets.result.placeholder" = "Input result";
 "exchange.assets.buy.price" = "Price";
 "exchange.assets.buy.total" = "Total cost";
 "exchange.assets.buy.checkout" = "CHECKOUT";
