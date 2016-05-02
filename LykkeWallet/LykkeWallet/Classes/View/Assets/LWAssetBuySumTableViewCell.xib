@@ -36,7 +36,7 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sum" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFa-Uy-7k1">
                         <rect key="frame" x="142" y="8" width="104" height="33"/>
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="22"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LKK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-vW-zaS">

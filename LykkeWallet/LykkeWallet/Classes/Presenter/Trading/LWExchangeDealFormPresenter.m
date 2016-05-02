@@ -34,6 +34,7 @@
     
     LWExchangeConfirmationView *confirmationView;
     UITextField                *sumTextField;
+    UITextField                *resultTextField;
     
     BOOL      isVolumeValid;
     NSString *volumeString;
@@ -172,6 +173,16 @@ static NSString *const FormIdentifiers[kFormRows] = {
         LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)cell;
         totalCell.titleLabel.text = Localize(@"exchange.assets.buy.total");
         totalCell.assetLabel.text = [LWUtils quotedAssetTitle:self.assetPair];
+        
+        resultTextField = totalCell.totalTextField;
+        resultTextField.delegate = self;
+        resultTextField.placeholder = Localize(@"exchange.assets.buy.placeholder");
+        resultTextField.keyboardType = UIKeyboardTypeDecimalPad;
+        
+        [resultTextField setTintColor:[UIColor colorWithHexString:kDefaultTextFieldPlaceholder]];
+        [resultTextField addTarget:self
+                         action:@selector(textFieldDidChange:)
+               forControlEvents:UIControlEventEditingChanged];
     }
     
     return cell;
@@ -185,8 +196,17 @@ static NSString *const FormIdentifiers[kFormRows] = {
 }
 
 - (void)textFieldDidChange:(UITextField *)sender {
-    [self volumeChanged:sender.text withValidState:[sender isNumberValid]];
-    [self updatePrice];
+    if (sender == sumTextField) {
+        [self volumeChanged:sender.text
+             withValidState:[sender isNumberValid]];
+        [self updatePrice];
+    }
+    else if (sender == resultTextField) {
+#error TODO:
+        [self resultChanged:sender.text
+             withValidState:[sender isNumberValid]];
+        [self updatePrice];
+    }
 }
 
 
@@ -315,6 +335,20 @@ static NSString *const FormIdentifiers[kFormRows] = {
     [LWValidator setButton:self.buyButton enabled:isValid];
 }
 
+- (void)resultChanged:(NSString *)volume withValidState:(BOOL)isValid {
+#error TODO:
+    isVolumeValid = isValid;
+    if (isVolumeValid) {
+        volumeString = volume;
+        [self updatePrice];
+    }
+    else {
+        self.descriptionLabel.text = @"";
+    }
+    
+    [LWValidator setButton:self.buyButton enabled:isValid];
+}
+
 
 #pragma mark - Utils
 
@@ -376,7 +410,7 @@ static NSString *const FormIdentifiers[kFormRows] = {
     LWAssetBuyTotalTableViewCell *totalCell = (LWAssetBuyTotalTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     
     NSString *totalStringValue = [self totalString];
-    totalCell.totalLabel.text = totalStringValue;
+    totalCell.totalTextField.text = totalStringValue;
     
     if (confirmationView) {
         confirmationView.rateString = priceText;

@@ -6,8 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Proxima Nova Light.otf">
+            <string>ProximaNova-Light</string>
+        </mutableArray>
         <mutableArray key="Proxima Nova Regular.otf">
-            <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
         </mutableArray>
@@ -31,12 +33,6 @@
                         <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 871,8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4S-Uw-dg8">
-                        <rect key="frame" x="142" y="8" width="104" height="33"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="22"/>
-                        <color key="textColor" red="0.2470588235" green="0.30196078430000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2md-oK-eL7">
                         <rect key="frame" x="254" y="8" width="40" height="33"/>
                         <constraints>
@@ -46,25 +42,31 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Результат" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BA8-Zb-d7u">
+                        <rect key="frame" x="142" y="8" width="104" height="33"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="18"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="V4S-Uw-dg8" firstAttribute="leading" secondItem="lct-Bk-4Px" secondAttribute="trailing" constant="16" id="4SM-dU-Bj4"/>
                     <constraint firstItem="lct-Bk-4Px" firstAttribute="leading" secondItem="Xta-5o-j73" secondAttribute="leadingMargin" constant="18" id="5te-vp-M0L"/>
                     <constraint firstItem="2md-oK-eL7" firstAttribute="top" secondItem="Xta-5o-j73" secondAttribute="topMargin" id="6Co-A0-0Ur"/>
-                    <constraint firstItem="V4S-Uw-dg8" firstAttribute="bottom" secondItem="Xta-5o-j73" secondAttribute="bottomMargin" id="6WG-dl-6zN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2md-oK-eL7" secondAttribute="trailing" constant="18" id="Aci-3y-BCV"/>
-                    <constraint firstItem="V4S-Uw-dg8" firstAttribute="top" secondItem="Xta-5o-j73" secondAttribute="topMargin" id="IkZ-xH-V0Q"/>
-                    <constraint firstItem="2md-oK-eL7" firstAttribute="leading" secondItem="V4S-Uw-dg8" secondAttribute="trailing" constant="8" id="Ybp-yG-YUC"/>
+                    <constraint firstItem="BA8-Zb-d7u" firstAttribute="leading" secondItem="lct-Bk-4Px" secondAttribute="trailing" constant="16" id="CdM-de-oFX"/>
+                    <constraint firstItem="BA8-Zb-d7u" firstAttribute="top" secondItem="Xta-5o-j73" secondAttribute="topMargin" id="HLF-50-pnM"/>
+                    <constraint firstItem="BA8-Zb-d7u" firstAttribute="bottom" secondItem="Xta-5o-j73" secondAttribute="bottomMargin" id="Ozf-q2-Aij"/>
                     <constraint firstItem="lct-Bk-4Px" firstAttribute="bottom" secondItem="Xta-5o-j73" secondAttribute="bottomMargin" id="ZLc-YY-TVA"/>
                     <constraint firstItem="2md-oK-eL7" firstAttribute="bottom" secondItem="Xta-5o-j73" secondAttribute="bottomMargin" id="cV2-sJ-5G9"/>
                     <constraint firstItem="lct-Bk-4Px" firstAttribute="top" secondItem="Xta-5o-j73" secondAttribute="topMargin" id="nj5-x3-rB3"/>
+                    <constraint firstItem="2md-oK-eL7" firstAttribute="leading" secondItem="BA8-Zb-d7u" secondAttribute="trailing" constant="8" id="o5J-pe-SS4"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="assetLabel" destination="2md-oK-eL7" id="xfJ-6N-bfe"/>
                 <outlet property="titleLabel" destination="lct-Bk-4Px" id="kUw-bd-NYC"/>
-                <outlet property="totalLabel" destination="V4S-Uw-dg8" id="0Fc-NB-2eG"/>
+                <outlet property="totalTextField" destination="BA8-Zb-d7u" id="Y87-bA-hne"/>
             </connections>
             <point key="canvasLocation" x="169" y="182"/>
         </tableViewCell>
