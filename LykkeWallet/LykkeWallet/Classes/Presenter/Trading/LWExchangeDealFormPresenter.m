@@ -450,7 +450,11 @@ static NSString *const FormIdentifiers[kFormRows] = {
         result = [volume decimalNumberByMultiplyingBy:decimalPrice];
     }
     
-    NSString *totalText = [LWMath makeStringByDecimal:result withPrecision:self.assetPair.accuracy.integerValue];
+    NSInteger const accuracy = self.assetPair.accuracy.integerValue;
+    NSNumber *number = [NSNumber numberWithDouble:result.doubleValue];
+    NSString *totalText = [LWMath historyPriceString:number
+                                           precision:accuracy
+                                          withPrefix:@""];
     return totalText;
 }
 
