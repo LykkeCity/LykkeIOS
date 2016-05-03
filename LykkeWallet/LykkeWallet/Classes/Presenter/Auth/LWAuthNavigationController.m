@@ -12,6 +12,7 @@
 #import "LWKYCCheckDocumentsPresenter.h"
 
 #import "LWRegisterBasePresenter.h"
+#import "LWSMSCodeStepPresenter.h"
 #import "LWRegisterFullNamePresenter.h"
 #import "LWRegisterPhonePresenter.h"
 #import "LWRegisterPasswordPresenter.h"
@@ -81,6 +82,7 @@
                     LWAuthPINEnterPresenter.class,
                     LWKYCCheckDocumentsPresenter.class,
 
+                    LWSMSCodeStepPresenter.class,
                     LWRegisterFullNamePresenter.class,
                     LWRegisterPhonePresenter.class,
                     LWRegisterPasswordPresenter.class,

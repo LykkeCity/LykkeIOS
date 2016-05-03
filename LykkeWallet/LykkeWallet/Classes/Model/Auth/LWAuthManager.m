@@ -44,6 +44,8 @@
 #import "LWPacketDicts.h"
 #import "LWPacketCashOut.h"
 #import "LWPacketTransfer.h"
+#import "LWPacketEmailVerificationGet.h"
+#import "LWPacketEmailVerificationSet.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -363,6 +365,21 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestVerificationEmail:(NSString *)email {
+    LWPacketEmailVerificationSet *pack = [LWPacketEmailVerificationSet new];
+    pack.email = email;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestVerificationEmail:(NSString *)email forCode:(NSString *)code {
+    LWPacketEmailVerificationGet *pack = [LWPacketEmailVerificationGet new];
+    pack.email = email;
+    pack.code = code;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -593,6 +610,16 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketTransfer.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidTransfer:)]) {
             [self.delegate authManagerDidTransfer:self];
+        }
+    }
+    else if (pack.class == LWPacketEmailVerificationGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidCheckValidationEmail:passed:)]) {
+            [self.delegate authManagerDidCheckValidationEmail:self passed:((LWPacketEmailVerificationGet *)pack).isPassed];
+        }
+    }
+    else if (pack.class == LWPacketEmailVerificationSet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSendValidationEmail:)]) {
+            [self.delegate authManagerDidSendValidationEmail:self];
         }
     }
 }

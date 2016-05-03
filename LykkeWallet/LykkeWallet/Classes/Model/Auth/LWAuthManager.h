@@ -68,6 +68,8 @@
 - (void)authManager:(LWAuthManager *)manager didReceiveAssetDicts:(NSArray *)assetDicts;
 - (void)authManagerDidCashOut:(LWAuthManager *)manager;
 - (void)authManagerDidTransfer:(LWAuthManager *)manager;
+- (void)authManagerDidSendValidationEmail:(LWAuthManager *)manager;
+- (void)authManagerDidCheckValidationEmail:(LWAuthManager *)manager passed:(BOOL)passed;
 
 @end
 
@@ -126,6 +128,8 @@ SINGLETON_DECLARE
 - (void)requestDictionaries;
 - (void)requestCashOut:(NSNumber *)amount assetId:(NSString *)assetId multiSig:(NSString *)multiSig;
 - (void)requestTransfer:(NSString *)assetId amount:(NSNumber *)amount recipient:(NSString *)recepientId;
+- (void)requestVerificationEmail:(NSString *)email;
+- (void)requestVerificationEmail:(NSString *)email forCode:(NSString *)code;
 
 #pragma mark - Static methods
 

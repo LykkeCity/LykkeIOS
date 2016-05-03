@@ -12,6 +12,7 @@
 #import "LWTipsView.h"
 #import "LWValidator.h"
 #import "LWAuthManager.h"
+#import "LWSMSCodeStepPresenter.h"
 #import "LWRegisterBasePresenter.h"
 #import "LWAuthenticationPresenter.h"
 #import "LWUrlAddressPresenter.h"
@@ -191,9 +192,9 @@ typedef NS_ENUM(NSInteger, LWAuthEntryPointNextStep) {
             break;
         }
         case LWAuthEntryPointNextStepRegister: {
-            [nav navigateToStep:LWAuthStepRegisterFullName
+            [nav navigateToStep:LWAuthStepSMSCode
                preparationBlock:^(LWAuthStepPresenter *presenter) {
-                   ((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
+                   ((LWSMSCodeStepPresenter *)presenter).email = emailTextField.text;
                }];
             break;
         }

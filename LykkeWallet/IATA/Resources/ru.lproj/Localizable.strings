@@ -22,6 +22,11 @@
 "auth.validation.fingerpring" = "Пожалуйста, выполните сканирование отпечатка пальца для подтверждения Вашей учетной записи.";
 
 "register.title" = "Регистрация";
+"register.sms.title" = "We've sent the code on your email %@";
+"register.sms.code.placeholder" = "Code";
+"register.sms.code.paste" = "Paste";
+"register.sms.confirm" = "CONFIRM";
+"register.sms.help.info" = "Haven't received the code?";
 "register.step1.prompt" = "Заполните ваш профиль";
 "register.email" = "Email";
 "register.firstName" = "Имя";
