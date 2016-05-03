@@ -186,6 +186,10 @@ static NSString *const WalletIcons[kNumberOfSections] = {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    if (self.tabBarController && self.navigationItem) {
+        self.tabBarController.title = [self.navigationItem.title uppercaseString];
+    }
+    
     [[LWAuthManager instance] requestLykkeWallets];
 }
 

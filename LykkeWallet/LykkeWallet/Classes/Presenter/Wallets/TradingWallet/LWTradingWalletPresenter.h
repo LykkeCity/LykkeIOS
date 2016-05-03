@@ -6,17 +6,16 @@
 //  Copyright © 2016 Lykkex. All rights reserved.
 //
 
-#import "LWAuthComplexPresenter.h"
+#import "LWBaseHistoryPresenter.h"
 
 
-@interface LWTradingWalletPresenter : LWAuthComplexPresenter {
+@interface LWTradingWalletPresenter : LWBaseHistoryPresenter {
     
 }
 
 
 #pragma mark - Properties
 
-@property (copy,   nonatomic) NSString *assetId;
 @property (copy,   nonatomic) NSString *assetName;
 @property (copy,   nonatomic) NSString *issuerId;
 

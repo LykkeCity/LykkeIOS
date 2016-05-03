@@ -6,17 +6,11 @@
 //  Copyright © 2015 Lykkex. All rights reserved.
 //
 
-#import "LWAuthComplexPresenter.h"
+#import "LWBaseHistoryPresenter.h"
 
 
-@interface LWHistoryPresenter : LWAuthComplexPresenter {
+@interface LWHistoryPresenter : LWBaseHistoryPresenter {
     
 }
-
-
-#pragma mark - Properties
-
-@property (copy,   nonatomic) NSString *assetId;
-@property (assign, nonatomic) BOOL shouldGoBack;
 
 @end

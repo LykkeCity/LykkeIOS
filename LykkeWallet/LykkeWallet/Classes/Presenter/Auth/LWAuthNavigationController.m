@@ -219,6 +219,7 @@
     pTrading.tabBarItem = [self createTabBarItemWithTitle:@"tab.trading"
                                                 withImage:@"TradingTab"];
     LWHistoryPresenter *pHistory = [LWHistoryPresenter new];
+    pHistory.title = Localize(@"tab.history");
     pHistory.tabBarItem = [self createTabBarItemWithTitle:@"tab.history"
                                                 withImage:@"HistoryTab"];
     LWSettingsPresenter *pSettings = [LWSettingsPresenter new];
