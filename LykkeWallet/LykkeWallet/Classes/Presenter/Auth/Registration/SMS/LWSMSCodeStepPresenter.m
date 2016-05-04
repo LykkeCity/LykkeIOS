@@ -7,10 +7,12 @@
 //
 
 #import "LWSMSCodeStepPresenter.h"
+#import "LWAuthManager.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
 #import "LWConstants.h"
 #import "TKButton.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWSMSCodeStepPresenter ()<LWTextFieldDelegate> {
@@ -60,6 +62,9 @@
     [super viewWillAppear:animated];
     
     [self updatePasteButtonStatus];
+    
+    [self setLoading:YES];
+    [[LWAuthManager instance] requestVerificationEmail:self.email];
 }
 
 - (void)localize {
@@ -93,13 +98,10 @@
 #pragma mark - Outlets
 
 - (IBAction)confirmClicked:(id)sender {
-    //LWWithdrawInputPresenter *presenter = [LWWithdrawInputPresenter new];
-    //presenter.assetId = self.assetId;
-    //presenter.bitcoinString = bitcoinTextField.text;
-    //[self.navigationController pushViewController:presenter animated:YES];
-    
-    
-    //((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
+    if (!(codeTextField.text == nil || codeTextField.text.length <= 0)) {
+        [self setLoading:YES];
+        [[LWAuthManager instance] requestVerificationEmail:self.email forCode:codeTextField.text];
+    }
 }
 
 - (IBAction)pasteClicked:(id)sender {
@@ -135,6 +137,24 @@
     // check button state
     [LWValidator setButton:self.confirmButton enabled:[self canProceed]];
     self.pasteButton.hidden = [self canProceed];
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManagerDidCheckValidationEmail:(LWAuthManager *)manager passed:(BOOL)passed {
+    [self setLoading:NO];
+    
+    if (passed) {
+        //((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
+    }
+    else {
+        self.titleLabel.text = [NSString stringWithFormat:Localize(@"register.sms.error"), self.email];
+    }
+}
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
 }
 
 @end

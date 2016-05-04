@@ -23,6 +23,7 @@
 
 "register.title" = "Регистрация";
 "register.sms.title" = "We've sent the code on your email %@";
+"register.sms.error" = "Problems during sending code to %@";
 "register.sms.code.placeholder" = "Code";
 "register.sms.code.paste" = "Paste";
 "register.sms.confirm" = "CONFIRM";
