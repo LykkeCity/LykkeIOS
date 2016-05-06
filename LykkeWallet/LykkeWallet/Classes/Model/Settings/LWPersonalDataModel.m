@@ -28,4 +28,21 @@
     return self;
 }
 
+
+#pragma mark - Utils
+
+- (BOOL)isFullNameEmpty {
+    BOOL const isFullNameEmpty = self.fullName == nil ||
+                            [self.fullName isKindOfClass:[NSNull class]] ||
+                            [self.fullName isEqualToString:@""];
+    return isFullNameEmpty;
+}
+
+- (BOOL)isPhoneEmpty {
+    BOOL const isPhoneEmpty = self.phone == nil ||
+                            [self.phone isKindOfClass:[NSNull class]] ||
+                            [self.phone isEqualToString:@""];
+    return isPhoneEmpty;
+}
+
 @end

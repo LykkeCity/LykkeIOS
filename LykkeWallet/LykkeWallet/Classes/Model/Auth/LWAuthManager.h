@@ -16,6 +16,7 @@
 @class LWLykkeWalletsData;
 @class LWBankCardsAdd;
 @class LWAssetModel;
+@class LWPersonalData;
 @class LWAssetPairModel;
 @class LWAssetPairRateModel;
 @class LWAppSettingsModel;
@@ -33,11 +34,11 @@
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context;
 - (void)authManager:(LWAuthManager *)manager didCheckRegistration:(BOOL)isRegistered email:(NSString *)email;
 - (void)authManagerDidRegister:(LWAuthManager *)manager;
-- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered;
+- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered personalData:(LWPersonalData *)personalData;
 - (void)authManagerDidAuthenticate:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered;
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status;
 - (void)authManagerDidSendDocument:(LWAuthManager *)manager ofType:(KYCDocumentType)docType;
-- (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status;
+- (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status personalData:(LWPersonalData *)personalData;
 - (void)authManagerDidSetKYCStatus:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didValidatePin:(BOOL)isValid;
 - (void)authManagerDidSetPin:(LWAuthManager *)manager;
@@ -70,6 +71,7 @@
 - (void)authManagerDidTransfer:(LWAuthManager *)manager;
 - (void)authManagerDidSendValidationEmail:(LWAuthManager *)manager;
 - (void)authManagerDidCheckValidationEmail:(LWAuthManager *)manager passed:(BOOL)passed;
+- (void)authManagerDidSetFullName:(LWAuthManager *)manager;
 
 @end
 
@@ -130,6 +132,7 @@ SINGLETON_DECLARE
 - (void)requestTransfer:(NSString *)assetId amount:(NSNumber *)amount recipient:(NSString *)recepientId;
 - (void)requestVerificationEmail:(NSString *)email;
 - (void)requestVerificationEmail:(NSString *)email forCode:(NSString *)code;
+- (void)requestSetFullName:(NSString *)fullName;
 
 #pragma mark - Static methods
 

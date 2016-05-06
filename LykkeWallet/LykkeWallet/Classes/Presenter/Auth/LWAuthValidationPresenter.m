@@ -10,6 +10,7 @@
 #import "LWRegisterCameraPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWAuthManager.h"
+#import "LWPersonalData.h"
 #import "UIViewController+Loading.h"
 
 
@@ -53,14 +54,34 @@
 
 #pragma mark - LWAuthManagerDelegate
 
-- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered {
+- (void)authManagerDidRegisterGet:(LWAuthManager *)manager KYCStatus:(NSString *)status isPinEntered:(BOOL)isPinEntered personalData:(LWPersonalData *)personalData {
 
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
     
     if ([status isEqualToString:@"NeedToFillData"]) {
         // request documents to upload
         self.textLabel.text = [NSString stringWithFormat:Localize(@"register.check.documents.label")];
-        [[LWAuthManager instance] requestDocumentsToUpload];
+        
+        BOOL const isFullNameEmpty = personalData.fullName == nil || [personalData.fullName isKindOfClass:[NSNull class]] || [personalData.fullName isEqualToString:@""];
+        BOOL const isPhoneEmpty = personalData.phone == nil || [personalData.phone isKindOfClass:[NSNull class]] ||[personalData.phone isEqualToString:@""];
+        
+        if (isFullNameEmpty) {
+            [self setLoading:NO];
+            LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+            [navigation navigateToStep:LWAuthStepRegisterFullName
+                      preparationBlock:^(LWAuthStepPresenter *presenter) {
+                      }];
+        }
+        else if (isPhoneEmpty) {
+            [self setLoading:NO];
+            LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+            [navigation navigateToStep:LWAuthStepRegisterPhone
+                      preparationBlock:^(LWAuthStepPresenter *presenter) {
+                      }];
+        }
+        else {
+            [[LWAuthManager instance] requestDocumentsToUpload];
+        }
     }
     else {
         [navController navigateKYCStatus:status

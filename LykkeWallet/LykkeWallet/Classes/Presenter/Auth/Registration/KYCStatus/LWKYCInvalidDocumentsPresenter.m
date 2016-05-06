@@ -9,6 +9,7 @@
 #import "LWKYCInvalidDocumentsPresenter.h"
 #import "LWRegisterCameraPresenter.h"
 #import "LWRegistrationData.h"
+#import "LWPersonalDataModel.h"
 #import "LWKeychainManager.h"
 #import "UIViewController+Loading.h"
 #import "TKButton.h"
@@ -43,7 +44,8 @@
     [self.okButton setTitleColor:[UIColor colorWithHexString:kMainDarkElementsColor] forState:UIControlStateNormal];
     
     [self setLoading:YES];
-    [[LWAuthManager instance] requestDocumentsToUpload];
+
+    [[LWAuthManager instance] requestPersonalData];
 }
 
 - (void)localize {
@@ -67,6 +69,26 @@
 
 
 #pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didReceivePersonalData:(LWPersonalDataModel *)data {
+    if ([data isFullNameEmpty]) {
+        [self setLoading:NO];
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterFullName
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else if ([data isPhoneEmpty]) {
+        [self setLoading:NO];
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterPhone
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else {
+        [[LWAuthManager instance] requestDocumentsToUpload];
+    }
+}
 
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {
     [self setLoading:NO];

@@ -9,6 +9,7 @@
 #import "LWRegisterConfirmPasswordPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWRegisterCameraPresenter.h"
+#import "LWPersonalDataModel.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
 #import "UIViewController+Loading.h"
@@ -55,7 +56,27 @@
 #pragma mark - LWAuthManagerDelegate
 
 - (void)authManagerDidRegister:(LWAuthManager *)manager {
-    [[LWAuthManager instance] requestDocumentsToUpload];
+    [[LWAuthManager instance] requestPersonalData];
+}
+
+- (void)authManager:(LWAuthManager *)manager didReceivePersonalData:(LWPersonalDataModel *)data {
+    if ([data isFullNameEmpty]) {
+        [self setLoading:NO];
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterFullName
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else if ([data isPhoneEmpty]) {
+        [self setLoading:NO];
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterPhone
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else {
+        [[LWAuthManager instance] requestDocumentsToUpload];
+    }
 }
 
 - (void)authManager:(LWAuthManager *)manager didCheckDocumentsStatus:(LWDocumentsStatus *)status {

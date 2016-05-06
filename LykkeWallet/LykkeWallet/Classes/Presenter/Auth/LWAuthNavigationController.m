@@ -83,10 +83,10 @@
                     LWKYCCheckDocumentsPresenter.class,
 
                     LWSMSCodeStepPresenter.class,
-                    LWRegisterFullNamePresenter.class,
-                    LWRegisterPhonePresenter.class,
                     LWRegisterPasswordPresenter.class,
                     LWRegisterConfirmPasswordPresenter.class,
+                    LWRegisterFullNamePresenter.class,
+                    LWRegisterPhonePresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,

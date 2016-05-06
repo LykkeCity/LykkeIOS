@@ -66,7 +66,7 @@
     }
 }
 
-- (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status {
+- (void)authManager:(LWAuthManager *)manager didGetKYCStatus:(NSString *)status personalData:(LWPersonalData *)personalData {
     LWAuthNavigationController *navController = (LWAuthNavigationController *)self.navigationController;
 
     // repeat request every x seconds

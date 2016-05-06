@@ -23,7 +23,7 @@
 
 "register.title" = "Register";
 "register.sms.title" = "We've sent the code on your email %@";
-"register.sms.error" = "Problems during sending code to %@";
+"register.sms.error" = "Invalid code. Please try again.";
 "register.sms.code.placeholder" = "Code";
 "register.sms.code.paste" = "Paste";
 "register.sms.confirm" = "CONFIRM";
@@ -34,6 +34,7 @@
 "register.fullName" = "Full Name";
 "register.lastName" = "Last Name";
 "register.phone" = "Phone";
+"register.phone.send" = "SEND CODE";
 "register.password" = "Password (min 6 symbols)";
 "register.passwordConfirm" = "Confirm Password (min 6 symbols)";
 "register.submit" = "Submit";

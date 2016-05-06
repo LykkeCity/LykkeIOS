@@ -7,6 +7,8 @@
 //
 
 #import "LWSMSCodeStepPresenter.h"
+#import "LWRegisterBasePresenter.h"
+#import "LWAuthNavigationController.h"
 #import "LWAuthManager.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
@@ -142,11 +144,20 @@
 
 #pragma mark - LWAuthManagerDelegate
 
+- (void)authManagerDidSendValidationEmail:(LWAuthManager *)manager {
+    [self setLoading:NO];
+    self.titleLabel.text = [NSString stringWithFormat:Localize(@"register.sms.title"), self.email];
+}
+
 - (void)authManagerDidCheckValidationEmail:(LWAuthManager *)manager passed:(BOOL)passed {
     [self setLoading:NO];
     
     if (passed) {
-        //((LWRegisterBasePresenter *)presenter).registrationInfo.email = emailTextField.text;
+        LWAuthNavigationController *nav = (LWAuthNavigationController *)self.navigationController;
+        [nav navigateToStep:LWAuthStepRegisterPassword
+           preparationBlock:^(LWAuthStepPresenter *presenter) {
+               ((LWRegisterBasePresenter *)presenter).registrationInfo.email = self.email;
+           }];
     }
     else {
         self.titleLabel.text = [NSString stringWithFormat:Localize(@"register.sms.error"), self.email];

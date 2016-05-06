@@ -108,6 +108,10 @@
     // override if necessary
 }
 
+- (NSString *)textFieldString {
+    return textField.text;
+}
+
 
 #pragma mark - Properties
 

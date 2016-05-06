@@ -33,8 +33,8 @@
 
 - (NSDictionary *)params {
     return @{@"Email" : self.registrationData.email,
-             @"FullName" : self.registrationData.fullName,
-             @"ContactPhone" : self.registrationData.phone,
+             //@"FullName" : self.registrationData.fullName,
+             //@"ContactPhone" : self.registrationData.phone,
              @"Password" : self.registrationData.password,
              @"ClientInfo" : self.registrationData.clientInfo};
 }

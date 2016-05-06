@@ -541,6 +541,8 @@
 		ECD1144E1CD91F9C002B36C0 /* LWPacketEmailVerificationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1144C1CD91F9C002B36C0 /* LWPacketEmailVerificationGet.m */; };
 		ECD114511CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */; };
 		ECD114521CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */; };
+		ECD114551CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */; };
+		ECD114561CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -1086,6 +1088,8 @@
 		ECD1144C1CD91F9C002B36C0 /* LWPacketEmailVerificationGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketEmailVerificationGet.m; sourceTree = "<group>"; };
 		ECD1144F1CD91FB8002B36C0 /* LWPacketEmailVerificationSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketEmailVerificationSet.h; sourceTree = "<group>"; };
 		ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketEmailVerificationSet.m; sourceTree = "<group>"; };
+		ECD114531CDD4758002B36C0 /* LWPacketClientFullNameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketClientFullNameSet.h; sourceTree = "<group>"; };
+		ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketClientFullNameSet.m; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1721,6 +1725,8 @@
 				ECD1144C1CD91F9C002B36C0 /* LWPacketEmailVerificationGet.m */,
 				ECD1144F1CD91FB8002B36C0 /* LWPacketEmailVerificationSet.h */,
 				ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */,
+				ECD114531CDD4758002B36C0 /* LWPacketClientFullNameSet.h */,
+				ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -3137,6 +3143,7 @@
 				CD10AAAF1C1E14800086634B /* LWPacketRestrictedCountries.m in Sources */,
 				EC51D1961C3054AA00550EF2 /* LWJSONObject.m in Sources */,
 				ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */,
+				ECD114551CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */,
 				EC51D19F1C30578700550EF2 /* LWLykkeAssetsData.m in Sources */,
 				EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */,
 				ECE902C71C35504200F52971 /* LWBankCardsAdd.m in Sources */,
@@ -3320,6 +3327,7 @@
 				ECAB1BC31C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */,
 				EC0175321CA8041800ACC675 /* LWTradingWalletPresenter.m in Sources */,
 				EC4D91AF1C8778DF006EE7C8 /* ABPinSelectionView.m in Sources */,
+				ECD114561CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */,
 				EC4D91B01C8778DF006EE7C8 /* LWExchangeConfirmationView.m in Sources */,
 				EC4D91B11C8778DF006EE7C8 /* LWAuthorizePacket.m in Sources */,
 				EC4D91B21C8778DF006EE7C8 /* LWKYCPresenter.m in Sources */,

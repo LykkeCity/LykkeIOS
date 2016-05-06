@@ -22,7 +22,7 @@
 
 "register.title" = "Регистрация";
 "register.sms.title" = "We've sent the code on your email %@";
-"register.sms.error" = "Problems during sending code to %@";
+"register.sms.error" = "Invalid code. Please try again.";
 "register.sms.code.placeholder" = "Code";
 "register.sms.code.paste" = "Paste";
 "register.sms.confirm" = "CONFIRM";
@@ -34,6 +34,7 @@
 "register.fullName" = "Имя Фамилия";
 "register.lastName" = "Фамилия";
 "register.phone" = "Телефон";
+"register.phone.send" = "SEND CODE";
 "register.password" = "Пароль (мин 6 символов)";
 "register.passwordConfirm" = "Подтвердите пароль (мин 6 символов)";
 "register.submit" = "Отправить";

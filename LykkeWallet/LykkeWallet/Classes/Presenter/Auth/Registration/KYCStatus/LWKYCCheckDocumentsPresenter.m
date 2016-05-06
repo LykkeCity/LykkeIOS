@@ -8,6 +8,7 @@
 
 #import "LWKYCCheckDocumentsPresenter.h"
 #import "LWRegisterCameraPresenter.h"
+#import "LWPersonalDataModel.h"
 
 
 @interface LWKYCCheckDocumentsPresenter () {
@@ -29,7 +30,26 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    [[LWAuthManager instance] requestDocumentsToUpload];
+    [[LWAuthManager instance] requestPersonalData];
+}
+
+- (void)authManager:(LWAuthManager *)manager didReceivePersonalData:(LWPersonalDataModel *)data {
+#warning TODO: five places with the same code - refactoring
+    if ([data isFullNameEmpty]) {
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterFullName
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else if ([data isPhoneEmpty]) {
+        LWAuthNavigationController *navigation = (LWAuthNavigationController *)self.navigationController;
+        [navigation navigateToStep:LWAuthStepRegisterPhone
+                  preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  }];
+    }
+    else {
+        [[LWAuthManager instance] requestDocumentsToUpload];
+    }
 }
 
 - (LWAuthStep)stepId {

@@ -34,5 +34,6 @@
 
 - (BOOL)validateInput:(NSString *)input;
 - (void)configureTextField:(LWTextField *)textField;
+- (NSString *)textFieldString;
 
 @end

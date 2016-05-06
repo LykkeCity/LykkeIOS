@@ -9,7 +9,7 @@
 #import "LWRegisterBasePresenter.h"
 
 
-@interface LWRegisterPhonePresenter : LWRegisterBasePresenter {
+@interface LWRegisterPhonePresenter : LWAuthStepPresenter {
     
 }
 

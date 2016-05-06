@@ -24,4 +24,10 @@
 @property (readonly, nonatomic) NSString *city;
 @property (readonly, nonatomic) NSString *address;
 
+
+#pragma mark - Utils
+
+- (BOOL)isFullNameEmpty;
+- (BOOL)isPhoneEmpty;
+
 @end

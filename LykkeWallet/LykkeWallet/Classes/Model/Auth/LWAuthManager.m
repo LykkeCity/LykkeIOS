@@ -46,6 +46,7 @@
 #import "LWPacketTransfer.h"
 #import "LWPacketEmailVerificationGet.h"
 #import "LWPacketEmailVerificationSet.h"
+#import "LWPacketClientFullNameSet.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -380,6 +381,13 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestSetFullName:(NSString *)fullName {
+    LWPacketClientFullNameSet *pack = [LWPacketClientFullNameSet new];
+    pack.fullName = fullName;
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -420,11 +428,12 @@ SINGLETON_INIT {
     }
     else if (pack.class == LWPacketRegistrationGet.class) {
         // call delegate
-        if ([self.delegate respondsToSelector:@selector(authManagerDidRegisterGet:KYCStatus:isPinEntered:)]) {
-            LWPacketRegistrationGet *registration = (LWPacketRegistrationGet *)pack;
+        if ([self.delegate respondsToSelector:@selector(authManagerDidRegisterGet:KYCStatus:isPinEntered:personalData:)]) {
+            LWPacketRegistrationGet *packet = (LWPacketRegistrationGet *)pack;
             [self.delegate authManagerDidRegisterGet:self
-                                           KYCStatus:registration.status
-                                        isPinEntered:registration.isPinEntered];
+                                           KYCStatus:packet.status
+                                        isPinEntered:packet.isPinEntered
+                                        personalData:packet.personalData];
         }
     }
     else if (pack.class == LWPacketPersonalData.class) {
@@ -453,8 +462,11 @@ SINGLETON_INIT {
         }
     }
     else if (pack.class == LWPacketKYCStatusGet.class) {
-        if ([self.delegate respondsToSelector:@selector(authManager:didGetKYCStatus:)]) {
-            [self.delegate authManager:self didGetKYCStatus:((LWPacketKYCStatusGet *)pack).status];
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetKYCStatus: personalData:)]) {
+            LWPacketKYCStatusGet *packet = (LWPacketKYCStatusGet *)pack;
+            [self.delegate authManager:self
+                       didGetKYCStatus:packet.status
+                          personalData:packet.personalData];
         }
     }
     else if (pack.class == LWPacketKYCStatusSet.class) {
@@ -620,6 +632,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketEmailVerificationSet.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendValidationEmail:)]) {
             [self.delegate authManagerDidSendValidationEmail:self];
+        }
+    }
+    else if (pack.class == LWPacketClientFullNameSet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSetFullName:)]) {
+            [self.delegate authManagerDidSetFullName:self];
         }
     }
 }
