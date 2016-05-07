@@ -24,8 +24,9 @@
     if (self.changes && self.changes.count >= 2) {
         // calculation preparation
         CGFloat xPosition = 0.0;
+        CGFloat xMargin = 5.0;
         CGSize const size = self.frame.size;
-        CGFloat const xStep = size.width / (CGFloat)self.changes.count;
+        CGFloat const xStep = (size.width - xMargin) / (self.changes.count - 1);
         NSNumber *firstPoint = self.changes[0];
         NSNumber *lastPoint = self.changes[self.changes.count - 1];
         
@@ -53,7 +54,7 @@
         [path stroke];
         
         // draw last point
-        CGRect rect = CGRectMake(xPosition - xStep, [self point:lastPoint forSize:size], 2.0, 2.0);
+        CGRect rect = CGRectMake(xPosition - xStep - 1.0, [self point:lastPoint forSize:size] - 1.0, 2.0, 2.0);
         UIBezierPath *cicle = [UIBezierPath bezierPathWithOvalInRect:rect];
         
         [color set];
@@ -62,7 +63,10 @@
 }
 
 - (CGFloat)point:(NSNumber *)point forSize:(CGSize)size {
-    return size.height * (1.0 - point.doubleValue);
+    CGFloat const yMargin = 4.0;
+    CGFloat const yMarginPercantage = 1.0 + yMargin * 0.01;
+    CGFloat result = (size.height - yMargin) * (yMarginPercantage - point.doubleValue);
+    return result;
 }
 
 @end
