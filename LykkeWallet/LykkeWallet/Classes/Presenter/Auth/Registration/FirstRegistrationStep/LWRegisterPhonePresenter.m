@@ -155,6 +155,7 @@
 
 - (NSString *)phoneNumber {
     NSString *phone = [NSString stringWithFormat:@"%@%@", self.codeTextField.text, self.numberTextField.text];
+    phone = [phone stringByReplacingOccurrencesOfString:@"+" withString:@""];
     return phone;
 }
 

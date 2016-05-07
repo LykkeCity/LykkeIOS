@@ -24,7 +24,8 @@
 }
 
 - (NSString *)urlRelative {
-    return [NSString stringWithFormat:@"CheckMobilePhone?phoneNumber=%@&code=%@", self.phone, self.code];
+    NSString *url = [NSString stringWithFormat:@"CheckMobilePhone?phoneNumber=%@&code=%@", self.phone, self.code];
+    return url;
 }
 
 - (GDXRESTPacketType)type {
