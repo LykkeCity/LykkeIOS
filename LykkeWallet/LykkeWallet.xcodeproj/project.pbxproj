@@ -555,6 +555,14 @@
 		ECD1146B1CDDE39D002B36C0 /* LWCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */; };
 		ECD1146D1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */; };
 		ECD1146E1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */; };
+		ECD114721CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114701CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m */; };
+		ECD114731CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114701CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m */; };
+		ECD114741CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD114711CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib */; };
+		ECD114751CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD114711CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib */; };
+		ECD114781CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */; };
+		ECD114791CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */; };
+		ECD1147C1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */; };
+		ECD1147D1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -1112,6 +1120,13 @@
 		ECD114681CDDE39D002B36C0 /* LWCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCountryTableViewCell.h; path = Countries/LWCountryTableViewCell.h; sourceTree = "<group>"; };
 		ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCountryTableViewCell.m; path = Countries/LWCountryTableViewCell.m; sourceTree = "<group>"; };
 		ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCountryTableViewCell.xib; path = Countries/LWCountryTableViewCell.xib; sourceTree = "<group>"; };
+		ECD1146F1CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWRegisterPhoneConfirmPresenter.h; path = FirstRegistrationStep/LWRegisterPhoneConfirmPresenter.h; sourceTree = "<group>"; };
+		ECD114701CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWRegisterPhoneConfirmPresenter.m; path = FirstRegistrationStep/LWRegisterPhoneConfirmPresenter.m; sourceTree = "<group>"; };
+		ECD114711CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWRegisterPhoneConfirmPresenter.xib; path = FirstRegistrationStep/LWRegisterPhoneConfirmPresenter.xib; sourceTree = "<group>"; };
+		ECD114761CDE2350002B36C0 /* LWPacketPhoneVerificationGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPhoneVerificationGet.h; sourceTree = "<group>"; };
+		ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPhoneVerificationGet.m; sourceTree = "<group>"; };
+		ECD1147A1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPhoneVerificationSet.h; sourceTree = "<group>"; };
+		ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPhoneVerificationSet.m; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1279,6 +1294,9 @@
 				CDCD5B0D1C26C92A007BAD78 /* LWRegisterPhonePresenter.h */,
 				CDCD5B0E1C26C92A007BAD78 /* LWRegisterPhonePresenter.m */,
 				CDCD5B0F1C26C92A007BAD78 /* LWRegisterPhonePresenter.xib */,
+				ECD1146F1CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.h */,
+				ECD114701CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m */,
+				ECD114711CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib */,
 				CDCD5B151C26CC50007BAD78 /* LWRegisterPasswordPresenter.h */,
 				CDCD5B161C26CC50007BAD78 /* LWRegisterPasswordPresenter.m */,
 				CDCD5B171C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib */,
@@ -1756,6 +1774,10 @@
 				ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */,
 				ECD1145C1CDDCD8F002B36C0 /* LWPacketCountryCodes.h */,
 				ECD1145D1CDDCD8F002B36C0 /* LWPacketCountryCodes.m */,
+				ECD114761CDE2350002B36C0 /* LWPacketPhoneVerificationGet.h */,
+				ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */,
+				ECD1147A1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.h */,
+				ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2798,6 +2820,7 @@
 				EC7F04FB1C3E75E00079ECD0 /* LWExchangeConfirmationView.xib in Resources */,
 				ECAB1BC91C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */,
 				EC7A45D91C309A6200926BB4 /* LWWalletTableViewCell.xib in Resources */,
+				ECD114741CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib in Resources */,
 				EC3EDBA11C92F8A40044AA6B /* LWChooseAssetTableViewCell.xib in Resources */,
 				ECECAB531C98ACF30020E050 /* LWBitcoinDepositPresenter.xib in Resources */,
 				CFF758421C202C7D00BC7658 /* LWKYCInvalidDocumentsPresenter.xib in Resources */,
@@ -2862,6 +2885,7 @@
 				EC4D92251C8778DF006EE7C8 /* LWWalletFormPresenter.xib in Resources */,
 				EC9C94851C89A71F006FD46B /* LWAuthEntryPointPresenter~iphone.xib in Resources */,
 				EC9EC2501C8EE65900C986DD /* LWExchangeBlockchainPresenter.xib in Resources */,
+				ECD114751CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.xib in Resources */,
 				EC9EC2691C8EF58700C986DD /* LWAssetInfoTextTableViewCell.xib in Resources */,
 				EC8923071CC3937B00201BE7 /* LaunchScreen.storyboard in Resources */,
 				EC4D92281C8778DF006EE7C8 /* LWKeyboardToolbar.xib in Resources */,
@@ -3200,6 +3224,7 @@
 				ECD76BCA1C2EBE9C00E1D3DA /* LWPersonalDataPacket.m in Sources */,
 				ECD114551CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */,
 				EC51D19F1C30578700550EF2 /* LWLykkeAssetsData.m in Sources */,
+				ECD114721CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m in Sources */,
 				EC2813EC1C343CE9009BE680 /* UIImage+Resize.m in Sources */,
 				ECE902C71C35504200F52971 /* LWBankCardsAdd.m in Sources */,
 				EC7519C21C3739D300CDDF5B /* LWPacketBaseAssetGet.m in Sources */,
@@ -3266,8 +3291,10 @@
 				CF6F69CF1C2413F70016CFC5 /* ABPadButton.m in Sources */,
 				ECA23F9D1CBD733300B4D58D /* LWTransactionCashInOutModel.m in Sources */,
 				ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */,
+				ECD1147C1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */,
 				CFD60E571C18C80C000BF83C /* LWTipsView.m in Sources */,
 				EC7A45D11C309A2B00926BB4 /* LWBanksTableViewCell.m in Sources */,
+				ECD114781CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m in Sources */,
 				EC57F44A1C3C18EA00E31746 /* LWCache.m in Sources */,
 				CF6632641C175DE5004353F5 /* TKPresenter.m in Sources */,
 				ECD114511CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m in Sources */,
@@ -3442,6 +3469,7 @@
 				EC4D91D71C8778DF006EE7C8 /* TKButton.m in Sources */,
 				EC4D91D81C8778DF006EE7C8 /* main.m in Sources */,
 				EC4D91D91C8778DF006EE7C8 /* LWFingerprintHelper.m in Sources */,
+				ECD114791CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m in Sources */,
 				EC5AE4961CD8A7000079DDFA /* LWBaseHistoryPresenter.m in Sources */,
 				EC4D91DA1C8778DF006EE7C8 /* LWAssetBuySumTableViewCell.m in Sources */,
 				EC4D91DB1C8778DF006EE7C8 /* LWExchangeDealFormPresenter.m in Sources */,
@@ -3478,11 +3506,13 @@
 				EC4D91F51C8778DF006EE7C8 /* LWExchangeBlockchainPresenter.m in Sources */,
 				ECD114641CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m in Sources */,
 				EC4D91F61C8778DF006EE7C8 /* LWRegisterPhonePresenter.m in Sources */,
+				ECD114731CDDF726002B36C0 /* LWRegisterPhoneConfirmPresenter.m in Sources */,
 				EC4D91F71C8778DF006EE7C8 /* LWAssetInfoIconTableViewCell.m in Sources */,
 				EC9AE0731CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */,
 				EC4D91F81C8778DF006EE7C8 /* LWPacketBuySellAsset.m in Sources */,
 				EC4D91F91C8778DF006EE7C8 /* LWAssetDealModel.m in Sources */,
 				EC4D91FA1C8778DF006EE7C8 /* LWPacketAppSettings.m in Sources */,
+				ECD1147D1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */,
 				EC4D91FB1C8778DF006EE7C8 /* LWDocumentsStatus.m in Sources */,
 				EC4D91FC1C8778DF006EE7C8 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				EC4D91FD1C8778DF006EE7C8 /* ABPadLockScreenAbstractViewController.m in Sources */,

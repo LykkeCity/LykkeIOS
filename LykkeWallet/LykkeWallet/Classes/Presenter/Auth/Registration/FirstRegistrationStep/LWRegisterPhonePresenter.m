@@ -7,10 +7,12 @@
 //
 
 #import "LWRegisterPhonePresenter.h"
+#import "LWRegisterPhoneConfirmPresenter.h"
 #import "LWCountrySelectorPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
+#import "UIViewController+Loading.h"
 
 
 @interface LWRegisterPhonePresenter () <UITextFieldDelegate, LWCountrySelectorPresenterDelegate> {
@@ -43,6 +45,14 @@
     self.numberTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.numberTextField.delegate = self;
     self.numberTextField.placeholder = Localize(@"register.phone.placeholder");
+    
+    [self.codeTextField addTarget:self
+                           action:@selector(textFieldDidChangeValue:)
+                 forControlEvents:UIControlEventEditingChanged];
+    
+    [self.codeTextField addTarget:self
+                           action:@selector(textFieldDidChangeValue:)
+                 forControlEvents:UIControlEventEditingChanged];
 
     [self.codeTextField becomeFirstResponder];
 }
@@ -51,13 +61,17 @@
     [super viewWillAppear:animated];
     
     // check button state
-    //[LWValidator setButton:self.nextButton enabled:[self canProceed]];
+    [LWValidator setButton:self.nextButton enabled:[self canProceed]];
     
     self.observeKeyboardEvents = YES;
 }
 
 - (IBAction)nextClicked:(id)sender {
-    //[self proceedToNextStep];
+    if ([self canProceed]) {
+        NSString *phone = [self phoneNumber];
+        [self setLoading:YES];
+        [[LWAuthManager instance] requestVerificationPhone:phone];
+    }
 }
 
 - (IBAction)countryClicked:(id)sender {
@@ -87,25 +101,6 @@
 }
 
 
-#pragma mark - Navigation
-
-- (void)proceedToNextStep {
-    // copy data to model
-    /*[self prepareNextStepData:textField.text];
-    
-    [((LWAuthNavigationController *)self.navigationController)
-     navigateToStep:[self nextStep]
-     preparationBlock:^(LWAuthStepPresenter *presenter) {
-         LWRegisterBasePresenter *nextPresenter = (LWRegisterBasePresenter *)presenter;
-         nextPresenter.registrationInfo = [self.registrationInfo copy];
-     }];*/
-}
-
-- (void)prepareNextStepData:(NSString *)input {
-    // override if necessary
-}
-
-
 #pragma mark - Properties
 
 - (NSString *)fieldPlaceholder {
@@ -113,27 +108,22 @@
 }
 
 - (LWAuthStep)nextStep {
-//#error TODO:
-    return LWAuthStepRegisterPhone;
+    return LWAuthStepRegisterPhoneConfirm;
 }
 
 - (BOOL)canProceed {
-    //return textField.isValid;
-    return NO;
+    NSString *phone = [self phoneNumber];
+    return (phone.length > 0);
 }
 
 
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidChangeValue:(UITextField *)textFieldInput {
-    //[self.textField addTarget:target
-    //                   action:selector
-    //         forControlEvents:UIControlEventEditingChanged];
-    
-    if (!self.isVisible) { // prevent from being processed if controller is not presented
+    // prevent from being processed if controller is not presented
+    if (!self.isVisible) {
         return;
     }
-    //textField.valid = [self validateInput:textField.text];
     // check button state
     [LWValidator setButton:self.nextButton enabled:self.canProceed];
 }
@@ -143,6 +133,29 @@
 
 - (void)countrySelected:(NSString *)name code:(NSString *)code prefix:(NSString *)prefix {
     self.codeTextField.text = prefix;
+}
+
+
+#pragma mark - LWAuthManagerDelegate
+
+- (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
+    [self showReject:reject response:context.task.response];
+}
+
+- (void)authManagerDidSendValidationPhone:(LWAuthManager *)manager {
+    // copy data to model
+    [self setLoading:NO];
+    LWAuthNavigationController *controller = (LWAuthNavigationController *)self.navigationController;
+    [controller navigateToStep:[self nextStep]
+              preparationBlock:^(LWAuthStepPresenter *presenter) {
+                  LWRegisterPhoneConfirmPresenter *nextPresenter = (LWRegisterPhoneConfirmPresenter *)presenter;
+                  nextPresenter.phone = [self phoneNumber];
+              }];
+}
+
+- (NSString *)phoneNumber {
+    NSString *phone = [NSString stringWithFormat:@"%@%@", self.codeTextField.text, self.numberTextField.text];
+    return phone;
 }
 
 @end

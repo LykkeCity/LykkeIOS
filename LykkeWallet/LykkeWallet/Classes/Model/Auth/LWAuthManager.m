@@ -46,6 +46,8 @@
 #import "LWPacketTransfer.h"
 #import "LWPacketEmailVerificationGet.h"
 #import "LWPacketEmailVerificationSet.h"
+#import "LWPacketPhoneVerificationGet.h"
+#import "LWPacketPhoneVerificationSet.h"
 #import "LWPacketClientFullNameSet.h"
 #import "LWPacketCountryCodes.h"
 
@@ -382,6 +384,21 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestVerificationPhone:(NSString *)phone {
+    LWPacketPhoneVerificationSet *pack = [LWPacketPhoneVerificationSet new];
+    pack.phone = phone;
+    
+    [self sendPacket:pack];
+}
+
+- (void)requestVerificationPhone:(NSString *)phone forCode:(NSString *)code {
+    LWPacketPhoneVerificationGet *pack = [LWPacketPhoneVerificationGet new];
+    pack.phone = phone;
+    pack.code = code;
+    
+    [self sendPacket:pack];
+}
+
 - (void)requestSetFullName:(NSString *)fullName {
     LWPacketClientFullNameSet *pack = [LWPacketClientFullNameSet new];
     pack.fullName = fullName;
@@ -639,6 +656,16 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketEmailVerificationSet.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSendValidationEmail:)]) {
             [self.delegate authManagerDidSendValidationEmail:self];
+        }
+    }
+    else if (pack.class == LWPacketPhoneVerificationGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidCheckValidationPhone:passed:)]) {
+            [self.delegate authManagerDidCheckValidationPhone:self passed:((LWPacketPhoneVerificationGet *)pack).isPassed];
+        }
+    }
+    else if (pack.class == LWPacketPhoneVerificationSet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManagerDidSendValidationPhone:)]) {
+            [self.delegate authManagerDidSendValidationPhone:self];
         }
     }
     else if (pack.class == LWPacketClientFullNameSet.class) {

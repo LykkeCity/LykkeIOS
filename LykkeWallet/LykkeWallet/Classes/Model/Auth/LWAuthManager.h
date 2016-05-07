@@ -71,6 +71,8 @@
 - (void)authManagerDidTransfer:(LWAuthManager *)manager;
 - (void)authManagerDidSendValidationEmail:(LWAuthManager *)manager;
 - (void)authManagerDidCheckValidationEmail:(LWAuthManager *)manager passed:(BOOL)passed;
+- (void)authManagerDidSendValidationPhone:(LWAuthManager *)manager;
+- (void)authManagerDidCheckValidationPhone:(LWAuthManager *)manager passed:(BOOL)passed;
 - (void)authManagerDidSetFullName:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetCountryCodes:(NSArray *)countryCodes;
 
@@ -133,6 +135,8 @@ SINGLETON_DECLARE
 - (void)requestTransfer:(NSString *)assetId amount:(NSNumber *)amount recipient:(NSString *)recepientId;
 - (void)requestVerificationEmail:(NSString *)email;
 - (void)requestVerificationEmail:(NSString *)email forCode:(NSString *)code;
+- (void)requestVerificationPhone:(NSString *)phone;
+- (void)requestVerificationPhone:(NSString *)phone forCode:(NSString *)code;
 - (void)requestSetFullName:(NSString *)fullName;
 - (void)requestCountyCodes;
 

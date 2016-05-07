@@ -15,6 +15,7 @@
 #import "LWSMSCodeStepPresenter.h"
 #import "LWRegisterFullNamePresenter.h"
 #import "LWRegisterPhonePresenter.h"
+#import "LWRegisterPhoneConfirmPresenter.h"
 #import "LWRegisterPasswordPresenter.h"
 #import "LWRegisterConfirmPasswordPresenter.h"
 
@@ -87,6 +88,7 @@
                     LWRegisterConfirmPasswordPresenter.class,
                     LWRegisterFullNamePresenter.class,
                     LWRegisterPhonePresenter.class,
+                    LWRegisterPhoneConfirmPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
                     LWRegisterCameraPresenter.class,
