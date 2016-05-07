@@ -543,6 +543,18 @@
 		ECD114521CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */; };
 		ECD114551CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */; };
 		ECD114561CDD4758002B36C0 /* LWPacketClientFullNameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */; };
+		ECD1145A1CDDCC73002B36C0 /* LWCountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114591CDDCC73002B36C0 /* LWCountryModel.m */; };
+		ECD1145B1CDDCC73002B36C0 /* LWCountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114591CDDCC73002B36C0 /* LWCountryModel.m */; };
+		ECD1145E1CDDCD8F002B36C0 /* LWPacketCountryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1145D1CDDCD8F002B36C0 /* LWPacketCountryCodes.m */; };
+		ECD1145F1CDDCD8F002B36C0 /* LWPacketCountryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1145D1CDDCD8F002B36C0 /* LWPacketCountryCodes.m */; };
+		ECD114631CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114611CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m */; };
+		ECD114641CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114611CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m */; };
+		ECD114651CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD114621CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib */; };
+		ECD114661CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD114621CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib */; };
+		ECD1146A1CDDE39D002B36C0 /* LWCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */; };
+		ECD1146B1CDDE39D002B36C0 /* LWCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */; };
+		ECD1146D1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */; };
+		ECD1146E1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -1090,6 +1102,16 @@
 		ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketEmailVerificationSet.m; sourceTree = "<group>"; };
 		ECD114531CDD4758002B36C0 /* LWPacketClientFullNameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketClientFullNameSet.h; sourceTree = "<group>"; };
 		ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketClientFullNameSet.m; sourceTree = "<group>"; };
+		ECD114581CDDCC73002B36C0 /* LWCountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCountryModel.h; path = Countries/LWCountryModel.h; sourceTree = "<group>"; };
+		ECD114591CDDCC73002B36C0 /* LWCountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCountryModel.m; path = Countries/LWCountryModel.m; sourceTree = "<group>"; };
+		ECD1145C1CDDCD8F002B36C0 /* LWPacketCountryCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketCountryCodes.h; sourceTree = "<group>"; };
+		ECD1145D1CDDCD8F002B36C0 /* LWPacketCountryCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketCountryCodes.m; sourceTree = "<group>"; };
+		ECD114601CDDD7E2002B36C0 /* LWCountrySelectorPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCountrySelectorPresenter.h; path = FirstRegistrationStep/LWCountrySelectorPresenter.h; sourceTree = "<group>"; };
+		ECD114611CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCountrySelectorPresenter.m; path = FirstRegistrationStep/LWCountrySelectorPresenter.m; sourceTree = "<group>"; };
+		ECD114621CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCountrySelectorPresenter.xib; path = FirstRegistrationStep/LWCountrySelectorPresenter.xib; sourceTree = "<group>"; };
+		ECD114681CDDE39D002B36C0 /* LWCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWCountryTableViewCell.h; path = Countries/LWCountryTableViewCell.h; sourceTree = "<group>"; };
+		ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWCountryTableViewCell.m; path = Countries/LWCountryTableViewCell.m; sourceTree = "<group>"; };
+		ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LWCountryTableViewCell.xib; path = Countries/LWCountryTableViewCell.xib; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1263,6 +1285,9 @@
 				CDCD5B1A1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.h */,
 				CDCD5B1B1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m */,
 				CDCD5B1C1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.xib */,
+				ECD114601CDDD7E2002B36C0 /* LWCountrySelectorPresenter.h */,
+				ECD114611CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m */,
+				ECD114621CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib */,
 			);
 			name = FirstRegistrationStep;
 			sourceTree = "<group>";
@@ -1323,6 +1348,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECD114571CDDCC11002B36C0 /* Countries */,
 				ECFAC5B01CB1111C009B1CC9 /* Utils */,
 				EC9AE05E1CAC796A0047DF0D /* QrCode */,
 				EC8FF6A91CA32DC400160528 /* Dicts */,
@@ -1357,6 +1383,7 @@
 		CF6632411C175B54004353F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECD114671CDDE372002B36C0 /* Countries */,
 				EC8923011CC249E400201BE7 /* LoadingIndicator */,
 				EC9AE0641CAC7A1E0047DF0D /* QrCode */,
 				EC9F3F581C90833D00DC1F87 /* Transfer */,
@@ -1727,6 +1754,8 @@
 				ECD114501CD91FB8002B36C0 /* LWPacketEmailVerificationSet.m */,
 				ECD114531CDD4758002B36C0 /* LWPacketClientFullNameSet.h */,
 				ECD114541CDD4758002B36C0 /* LWPacketClientFullNameSet.m */,
+				ECD1145C1CDDCD8F002B36C0 /* LWPacketCountryCodes.h */,
+				ECD1145D1CDDCD8F002B36C0 /* LWPacketCountryCodes.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2492,6 +2521,25 @@
 			name = SMS;
 			sourceTree = "<group>";
 		};
+		ECD114571CDDCC11002B36C0 /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				ECD114581CDDCC73002B36C0 /* LWCountryModel.h */,
+				ECD114591CDDCC73002B36C0 /* LWCountryModel.m */,
+			);
+			name = Countries;
+			sourceTree = "<group>";
+		};
+		ECD114671CDDE372002B36C0 /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				ECD114681CDDE39D002B36C0 /* LWCountryTableViewCell.h */,
+				ECD114691CDDE39D002B36C0 /* LWCountryTableViewCell.m */,
+				ECD1146C1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib */,
+			);
+			name = Countries;
+			sourceTree = "<group>";
+		};
 		ECD1E8F51C3B16E40064AAB3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2761,6 +2809,7 @@
 				ECAACF381C9F3BCD000227E0 /* LWErrorView.xib in Resources */,
 				CDCD5B191C26CC50007BAD78 /* LWRegisterPasswordPresenter.xib in Resources */,
 				EC59526D1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.xib in Resources */,
+				ECD114651CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib in Resources */,
 				CDCD5AEB1C259629007BAD78 /* LWHistoryPresenter~iphone.xib in Resources */,
 				EC9C94981C89C89E006FD46B /* LWTextField.xib in Resources */,
 				EC9AE0751CAD1A070047DF0D /* LWWithdrawConfirmationView.xib in Resources */,
@@ -2799,6 +2848,7 @@
 				EC7F05041C3EA8950079ECD0 /* LWDetailTableViewCell.xib in Resources */,
 				CFF758471C202C8E00BC7658 /* LWKYCRestrictedPresenter.xib in Resources */,
 				CDA69FE01C281E1C00BE4DCA /* LWAuthValidationPresenter.xib in Resources */,
+				ECD1146D1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */,
 				EC7519BF1C3735E000CDDF5B /* LWSettingsLogOutTableViewCell.xib in Resources */,
 				ECECAB5E1C998CAD0020E050 /* LWLykkeEmptyTableViewCell.xib in Resources */,
 			);
@@ -2819,6 +2869,7 @@
 				EC8923241CC3DCAB00201BE7 /* LWSettingsPresenter~ipad.xib in Resources */,
 				EC9C947B1C899006006FD46B /* Assets.xcassets in Resources */,
 				EC9C949C1C89CCD6006FD46B /* LWTipsView.xib in Resources */,
+				ECD114661CDDD7E2002B36C0 /* LWCountrySelectorPresenter.xib in Resources */,
 				EC9EC2551C8EE67300C986DD /* LWExchangeResultPresenter.xib in Resources */,
 				EC051A771CB6EE2A00E31BD5 /* LWTransferAssetPresenter.xib in Resources */,
 				EC9EC2661C8EF58700C986DD /* LWAssetBuyTotalTableViewCell.xib in Resources */,
@@ -2870,6 +2921,7 @@
 				EC3EDB9D1C92F8870044AA6B /* LWSettingsAssetTableViewCell.xib in Resources */,
 				EC4D925C1C8778DF006EE7C8 /* LWKYCPendingPresenter.xib in Resources */,
 				EC9EC2411C8EE09E00C986DD /* LWAuthValidationPresenter.xib in Resources */,
+				ECD1146E1CDDE3B4002B36C0 /* LWCountryTableViewCell.xib in Resources */,
 				EC051A821CB7017800E31BD5 /* LWTransferResultController.xib in Resources */,
 				EC9AE06F1CAC7C830047DF0D /* LWWithdrawInputPresenter.xib in Resources */,
 				EC9C94A11C89CDAE006FD46B /* LWTextField.xib in Resources */,
@@ -3091,6 +3143,7 @@
 				ECF55EA21C5961F2006FE254 /* LWWalletsLoadingTableViewCell.m in Sources */,
 				EC51D19C1C30575600550EF2 /* LWBankCardsData.m in Sources */,
 				ECD1E9151C3BE3180064AAB3 /* LWAssetEmptyTableViewCell.m in Sources */,
+				ECD1146A1CDDE39D002B36C0 /* LWCountryTableViewCell.m in Sources */,
 				ECE902C41C354FA500F52971 /* LWPacketBankCards.m in Sources */,
 				ECD1E9101C3BDED40064AAB3 /* LWAssetLykkeTableViewCell.m in Sources */,
 				EC3CE8A61C3FCDBE00CAC3FE /* LWSettingsConfirmationPresenter.m in Sources */,
@@ -3107,6 +3160,7 @@
 				EC7519CC1C37430900CDDF5B /* LWPacketBaseAssets.m in Sources */,
 				CFF758461C202C8E00BC7658 /* LWKYCRestrictedPresenter.m in Sources */,
 				EC9AE0721CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */,
+				ECD1145E1CDDCD8F002B36C0 /* LWPacketCountryCodes.m in Sources */,
 				CF6632711C175DF0004353F5 /* TKView.m in Sources */,
 				EC57F47A1C3D529B00E31746 /* LWAssetBuyTotalTableViewCell.m in Sources */,
 				CF6F69D41C2413F70016CFC5 /* ABPinSelectionView.m in Sources */,
@@ -3132,6 +3186,7 @@
 				CDCD5AE61C259587007BAD78 /* TKTablePresenter.m in Sources */,
 				EC7A45CC1C3099F900926BB4 /* LWLykkeTableViewCell.m in Sources */,
 				CD10AAA31C1E0B530086634B /* LWPacketAuthentication.m in Sources */,
+				ECD114631CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m in Sources */,
 				EC59526C1C31ED6C0036240C /* LWKYCCheckDocumentsPresenter.m in Sources */,
 				EC9AE0521CAC5F440047DF0D /* LWWithdrawFundsPresenter.m in Sources */,
 				EC168F1A1C514D0800AF8DD5 /* LWPersonalDataModel.m in Sources */,
@@ -3207,6 +3262,7 @@
 				CFAD8A8D1C1D5E4B00185CD1 /* LWDocumentsStatus.m in Sources */,
 				CDCD5B1D1C26CC73007BAD78 /* LWRegisterConfirmPasswordPresenter.m in Sources */,
 				CF6F69D01C2413F70016CFC5 /* ABPadLockScreenAbstractViewController.m in Sources */,
+				ECD1145A1CDDCC73002B36C0 /* LWCountryModel.m in Sources */,
 				CF6F69CF1C2413F70016CFC5 /* ABPadButton.m in Sources */,
 				ECA23F9D1CBD733300B4D58D /* LWTransactionCashInOutModel.m in Sources */,
 				ECA80B651C2E0E47001C4E8F /* LWCameraOverlayPresenter.m in Sources */,
@@ -3253,7 +3309,10 @@
 				EC4D91761C8778DF006EE7C8 /* LWLykkeWalletsData.m in Sources */,
 				EC4D91771C8778DF006EE7C8 /* LWRegisterFullNamePresenter.m in Sources */,
 				EC8FF6A81CA32D3400160528 /* LWPacketDicts.m in Sources */,
+				ECD1145B1CDDCC73002B36C0 /* LWCountryModel.m in Sources */,
 				EC4D91781C8778DF006EE7C8 /* LWPacketWallets.m in Sources */,
+				ECD1146B1CDDE39D002B36C0 /* LWCountryTableViewCell.m in Sources */,
+				ECD1145F1CDDCD8F002B36C0 /* LWPacketCountryCodes.m in Sources */,
 				EC4D91791C8778DF006EE7C8 /* LWWalletsPresenter.m in Sources */,
 				EC4D917A1C8778DF006EE7C8 /* LWAuthStepPresenter.m in Sources */,
 				EC4D917B1C8778DF006EE7C8 /* LWLeftDetailTableViewCell.m in Sources */,
@@ -3417,6 +3476,7 @@
 				EC4D91F31C8778DF006EE7C8 /* LWAssetPairModel.m in Sources */,
 				EC4D91F41C8778DF006EE7C8 /* LWDeviceInfo.m in Sources */,
 				EC4D91F51C8778DF006EE7C8 /* LWExchangeBlockchainPresenter.m in Sources */,
+				ECD114641CDDD7E2002B36C0 /* LWCountrySelectorPresenter.m in Sources */,
 				EC4D91F61C8778DF006EE7C8 /* LWRegisterPhonePresenter.m in Sources */,
 				EC4D91F71C8778DF006EE7C8 /* LWAssetInfoIconTableViewCell.m in Sources */,
 				EC9AE0731CAD19EE0047DF0D /* LWWithdrawConfirmationView.m in Sources */,

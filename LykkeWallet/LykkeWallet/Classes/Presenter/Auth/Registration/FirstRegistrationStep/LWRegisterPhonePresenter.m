@@ -7,19 +7,18 @@
 //
 
 #import "LWRegisterPhonePresenter.h"
+#import "LWCountrySelectorPresenter.h"
 #import "LWAuthNavigationController.h"
 #import "LWTextField.h"
 #import "LWValidator.h"
 
 
-@interface LWRegisterPhonePresenter () <LWTextFieldDelegate> {
-    LWTextField *codeTextField;
-    LWTextField *numberTextField;
+@interface LWRegisterPhonePresenter () <UITextFieldDelegate, LWCountrySelectorPresenterDelegate> {
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-@property (weak, nonatomic) IBOutlet TKContainer *countryCodeContainer;
-@property (weak, nonatomic) IBOutlet TKContainer *countryNumberContainer;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *numberTextField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
@@ -37,29 +36,34 @@
     [self.nextButton setTitle:Localize(@"register.phone.send")
                      forState:UIControlStateNormal];
     
-    codeTextField = [LWTextField createTextFieldForContainer:self.countryCodeContainer withPlaceholder:self.fieldPlaceholder];
-    codeTextField.keyboardType = UIKeyboardTypeNumberPad;
-    codeTextField.delegate = self;
-    [self configureTextField:codeTextField];
-    [codeTextField becomeFirstResponder];
+    self.codeTextField.keyboardType = UIKeyboardTypePhonePad;
+    self.codeTextField.delegate = self;
+    self.codeTextField.text = @"+";
     
-    numberTextField = [LWTextField createTextFieldForContainer:self.countryNumberContainer withPlaceholder:self.fieldPlaceholder];
-    numberTextField.keyboardType = UIKeyboardTypeNumberPad;
-    numberTextField.delegate = self;
-    [self configureTextField:numberTextField];
+    self.numberTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.numberTextField.delegate = self;
+    self.numberTextField.placeholder = Localize(@"register.phone.placeholder");
+
+    [self.codeTextField becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     // check button state
-    [LWValidator setButton:self.nextButton enabled:[self canProceed]];
+    //[LWValidator setButton:self.nextButton enabled:[self canProceed]];
     
     self.observeKeyboardEvents = YES;
 }
 
 - (IBAction)nextClicked:(id)sender {
     //[self proceedToNextStep];
+}
+
+- (IBAction)countryClicked:(id)sender {
+    LWCountrySelectorPresenter *presenter = [LWCountrySelectorPresenter new];
+    presenter.delegate = self;
+    [self.navigationController pushViewController:presenter animated:YES];
 }
 
 #pragma mark - Keyboard
@@ -102,22 +106,6 @@
 }
 
 
-#pragma mark - Utils
-
-- (BOOL)validateInput:(NSString *)input {
-    return NO;
-}
-
-- (void)configureTextField:(LWTextField *)textField {
-    // override if necessary
-}
-
-- (NSString *)textFieldString {
-    //return textField.text;
-    return nil;
-}
-
-
 #pragma mark - Properties
 
 - (NSString *)fieldPlaceholder {
@@ -135,15 +123,26 @@
 }
 
 
-#pragma mark - LWTextFieldDelegate
+#pragma mark - UITextFieldDelegate
 
-- (void)textFieldDidChangeValue:(LWTextField *)textFieldInput {
+- (void)textFieldDidChangeValue:(UITextField *)textFieldInput {
+    //[self.textField addTarget:target
+    //                   action:selector
+    //         forControlEvents:UIControlEventEditingChanged];
+    
     if (!self.isVisible) { // prevent from being processed if controller is not presented
         return;
     }
     //textField.valid = [self validateInput:textField.text];
     // check button state
     [LWValidator setButton:self.nextButton enabled:self.canProceed];
+}
+
+
+#pragma mark - LWCountrySelectorPresenterDelegate
+
+- (void)countrySelected:(NSString *)name code:(NSString *)code prefix:(NSString *)prefix {
+    self.codeTextField.text = prefix;
 }
 
 @end

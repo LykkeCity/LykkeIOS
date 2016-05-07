@@ -35,6 +35,9 @@
 "register.lastName" = "Last Name";
 "register.phone" = "Phone";
 "register.phone.send" = "SEND CODE";
+"register.phone.placeholder" = "Your phone number";
+"register.phone.country.title" = "COUNTRY";
+"register.phone.country.placeholder" = "Search";
 "register.password" = "Password (min 6 symbols)";
 "register.passwordConfirm" = "Confirm Password (min 6 symbols)";
 "register.submit" = "Submit";

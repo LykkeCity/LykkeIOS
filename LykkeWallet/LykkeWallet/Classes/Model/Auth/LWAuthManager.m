@@ -47,6 +47,7 @@
 #import "LWPacketEmailVerificationGet.h"
 #import "LWPacketEmailVerificationSet.h"
 #import "LWPacketClientFullNameSet.h"
+#import "LWPacketCountryCodes.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -388,6 +389,12 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestCountyCodes {
+    LWPacketCountryCodes *pack = [LWPacketCountryCodes new];
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -637,6 +644,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketClientFullNameSet.class) {
         if ([self.delegate respondsToSelector:@selector(authManagerDidSetFullName:)]) {
             [self.delegate authManagerDidSetFullName:self];
+        }
+    }
+    else if (pack.class == LWPacketCountryCodes.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetCountryCodes:)]) {
+            [self.delegate authManager:self didGetCountryCodes:((LWPacketCountryCodes *)pack).countries];
         }
     }
 }

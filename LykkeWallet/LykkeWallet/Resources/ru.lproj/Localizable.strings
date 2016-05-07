@@ -35,6 +35,9 @@
 "register.lastName" = "Фамилия";
 "register.phone" = "Телефон";
 "register.phone.send" = "SEND CODE";
+"register.phone.placeholder" = "Your phone number";
+"register.phone.country.title" = "COUNTRY";
+"register.phone.country.placeholder" = "Search";
 "register.password" = "Пароль (мин 6 символов)";
 "register.passwordConfirm" = "Подтвердите пароль (мин 6 символов)";
 "register.submit" = "Отправить";

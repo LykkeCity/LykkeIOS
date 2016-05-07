@@ -21,7 +21,7 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    if (self.changes && self.changes.count > 2) {
+    if (self.changes && self.changes.count >= 2) {
         // calculation preparation
         CGFloat xPosition = 0.0;
         CGSize const size = self.frame.size;
