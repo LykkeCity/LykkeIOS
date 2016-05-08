@@ -17,6 +17,7 @@
 #import "LWValidator.h"
 #import "LWCache.h"
 #import "Macro.h"
+#import "UIView+Navigation.h"
 
 
 @interface LWExchangeConfirmationView () <UITableViewDataSource, LWPinKeyboardViewDelegate> {
@@ -138,14 +139,12 @@ static float const kNoPinProtectionHeight = 300;
     [self.placeOrderButton setTitle:Localize(@"exchange.assets.modal.button")
                            forState:UIControlStateNormal];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:Localize(@"exchange.assets.modal.cancel") style:UIBarButtonItemStylePlain target:self action:@selector(cancelClicked:)];
+    NSString *cancelTitle = Localize(@"exchange.assets.modal.cancel");
+    [self setCancelButtonWithTitle:cancelTitle
+                        navigation:self.navigationItem
+                            target:self
+                          selector:@selector(cancelClicked:)];
     
-    UIFont *font = [UIFont fontWithName:kModalNavBarFontName size:kModalNavBarFontSize];
-    
-    [cancelButton setTitleTextAttributes:@{NSFontAttributeName:font}
-                                forState:UIControlStateNormal];
-    
-    self.navigationItem.leftBarButtonItem = cancelButton;
     self.placeOrderButton.hidden = NO;
     
     [self registerCellWithIdentifier:kDetailTableViewCellIdentifier

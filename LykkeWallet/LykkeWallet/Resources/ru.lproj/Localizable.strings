@@ -41,6 +41,7 @@
 "register.phone.sent" = "We've sent the code on number %@";
 "register.phone.error" = "Invalid code. Please try again.";
 "register.phone.code.placeholder" = "Code";
+"register.phone.cancel" = "CANCEL";
 "register.password" = "Пароль (мин 6 символов)";
 "register.passwordConfirm" = "Подтвердите пароль (мин 6 символов)";
 "register.submit" = "Отправить";

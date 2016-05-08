@@ -12,5 +12,6 @@
 @interface UIViewController (Navigation)
 
 - (void)setBackButton;
+- (void)setCancelButtonWithTitle:(NSString *)title target:(id)target selector:(SEL)action;
 
 @end

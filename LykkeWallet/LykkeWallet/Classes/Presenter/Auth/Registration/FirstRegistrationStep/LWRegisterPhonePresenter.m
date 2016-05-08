@@ -50,9 +50,9 @@
                            action:@selector(textFieldDidChangeValue:)
                  forControlEvents:UIControlEventEditingChanged];
     
-    [self.codeTextField addTarget:self
-                           action:@selector(textFieldDidChangeValue:)
-                 forControlEvents:UIControlEventEditingChanged];
+    [self.numberTextField addTarget:self
+                             action:@selector(textFieldDidChangeValue:)
+                   forControlEvents:UIControlEventEditingChanged];
 
     [self.codeTextField becomeFirstResponder];
 }
@@ -60,7 +60,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // check button state
     [LWValidator setButton:self.nextButton enabled:[self canProceed]];
     
     self.observeKeyboardEvents = YES;
@@ -77,7 +76,12 @@
 - (IBAction)countryClicked:(id)sender {
     LWCountrySelectorPresenter *presenter = [LWCountrySelectorPresenter new];
     presenter.delegate = self;
-    [self.navigationController pushViewController:presenter animated:YES];
+    
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:presenter];
+
+    [self.navigationController presentViewController:navigation
+                                            animated:YES
+                                          completion:nil];
 }
 
 #pragma mark - Keyboard
@@ -112,8 +116,8 @@
 }
 
 - (BOOL)canProceed {
-    NSString *phone = [self phoneNumber];
-    return (phone.length > 0);
+    return (self.codeTextField.text.length > 0 &&
+            self.numberTextField.text.length > 0);
 }
 
 
@@ -124,7 +128,7 @@
     if (!self.isVisible) {
         return;
     }
-    // check button state
+
     [LWValidator setButton:self.nextButton enabled:self.canProceed];
 }
 
@@ -133,6 +137,8 @@
 
 - (void)countrySelected:(NSString *)name code:(NSString *)code prefix:(NSString *)prefix {
     self.codeTextField.text = prefix;
+    
+    [LWValidator setButton:self.nextButton enabled:self.canProceed];
 }
 
 

@@ -19,6 +19,7 @@
 #import "LWColorizer.h"
 #import "LWCache.h"
 #import "Macro.h"
+#import "UIView+Navigation.h"
 
 
 @interface LWTransferConfirmationView ()<UITableViewDataSource, LWPinKeyboardViewDelegate> {
@@ -139,13 +140,13 @@ static float const kNoPinProtectionHeight = 256;
     [self.placeOrderButton setTitle:Localize(@"transfer.receiver.modal.button")
                            forState:UIControlStateNormal];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:Localize(@"transfer.receiver.modal.cancel") style:UIBarButtonItemStylePlain target:self action:@selector(cancelClicked:)];
     
-    UIFont *font = [UIFont fontWithName:kModalNavBarFontName size:kModalNavBarFontSize];
-    [cancelButton setTitleTextAttributes:@{NSFontAttributeName:font}
-                                forState:UIControlStateNormal];
+    NSString *cancelTitle = Localize(@"transfer.receiver.modal.cancel");
+    [self setCancelButtonWithTitle:cancelTitle
+                        navigation:self.navigationItem
+                            target:self
+                          selector:@selector(cancelClicked:)];
     
-    self.navigationItem.leftBarButtonItem = cancelButton;
     self.placeOrderButton.hidden = NO;
 
 #ifdef PROJECT_IATA

@@ -563,6 +563,8 @@
 		ECD114791CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */; };
 		ECD1147C1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */; };
 		ECD1147D1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */; };
+		ECD114801CDF1809002B36C0 /* UIView+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147F1CDF1809002B36C0 /* UIView+Navigation.m */; };
+		ECD114811CDF1809002B36C0 /* UIView+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1147F1CDF1809002B36C0 /* UIView+Navigation.m */; };
 		ECD1E8E81C3B0DD80064AAB3 /* LWAssetPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */; };
 		ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8EA1C3B0E670064AAB3 /* LWPacketAssetPairs.m */; };
 		ECD1E8EE1C3B0F300064AAB3 /* LWAssetPairRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1E8ED1C3B0F300064AAB3 /* LWAssetPairRateModel.m */; };
@@ -1127,6 +1129,8 @@
 		ECD114771CDE2350002B36C0 /* LWPacketPhoneVerificationGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPhoneVerificationGet.m; sourceTree = "<group>"; };
 		ECD1147A1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketPhoneVerificationSet.h; sourceTree = "<group>"; };
 		ECD1147B1CDE2362002B36C0 /* LWPacketPhoneVerificationSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPacketPhoneVerificationSet.m; sourceTree = "<group>"; };
+		ECD1147E1CDF1809002B36C0 /* UIView+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Navigation.h"; sourceTree = "<group>"; };
+		ECD1147F1CDF1809002B36C0 /* UIView+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Navigation.m"; sourceTree = "<group>"; };
 		ECD1E8E61C3B0DD80064AAB3 /* LWAssetPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAssetPairModel.h; path = Assets/LWAssetPairModel.h; sourceTree = "<group>"; };
 		ECD1E8E71C3B0DD80064AAB3 /* LWAssetPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAssetPairModel.m; path = Assets/LWAssetPairModel.m; sourceTree = "<group>"; };
 		ECD1E8E91C3B0E670064AAB3 /* LWPacketAssetPairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPacketAssetPairs.h; sourceTree = "<group>"; };
@@ -1446,6 +1450,8 @@
 				ECA80B5D1C2E0E08001C4E8F /* UIViewController+Loading.m */,
 				EC57F4561C3C41E600E31746 /* UIViewController+Navigation.h */,
 				EC57F4571C3C41E600E31746 /* UIViewController+Navigation.m */,
+				ECD1147E1CDF1809002B36C0 /* UIView+Navigation.h */,
+				ECD1147F1CDF1809002B36C0 /* UIView+Navigation.m */,
 				CF66325F1C175DE5004353F5 /* TKNavigationPresenter.h */,
 				CF6632601C175DE5004353F5 /* TKNavigationPresenter.m */,
 				CF6632611C175DE5004353F5 /* TKPresenter.h */,
@@ -3244,6 +3250,7 @@
 				EC57F4681C3D3FF900E31746 /* LWExchangeDealFormPresenter.m in Sources */,
 				CDA69FCE1C275C3800BE4DCA /* LWKYCSubmitPresenter.m in Sources */,
 				ECD1E8FF1C3B21300064AAB3 /* LWMath.m in Sources */,
+				ECD114801CDF1809002B36C0 /* UIView+Navigation.m in Sources */,
 				CF86B37B1C1B693B006D5488 /* LWPacketRegistration.m in Sources */,
 				ECD1E8F11C3B10170064AAB3 /* LWPacketAssetPairRates.m in Sources */,
 				EC2813EF1C344ED2009BE680 /* LWPacketKYCSendDocumentBin.m in Sources */,
@@ -3447,6 +3454,7 @@
 				EC4D91C71C8778DF006EE7C8 /* LWExchangeFormPresenter.m in Sources */,
 				EC4D91C81C8778DF006EE7C8 /* LWAssetPairRateModel.m in Sources */,
 				EC4D91C91C8778DF006EE7C8 /* LWPacket.m in Sources */,
+				ECD114811CDF1809002B36C0 /* UIView+Navigation.m in Sources */,
 				EC0E34741CB6C46A0035BE70 /* LWReceiverPresenter.m in Sources */,
 				EC8FF6AD1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */,
 				EC051A7B1CB6FB1200E31BD5 /* LWPacketTransfer.m in Sources */,

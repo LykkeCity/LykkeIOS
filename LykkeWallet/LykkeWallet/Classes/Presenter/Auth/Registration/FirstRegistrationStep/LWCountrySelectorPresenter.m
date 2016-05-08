@@ -10,11 +10,12 @@
 #import "LWCountryTableViewCell.h"
 #import "LWCountryModel.h"
 #import "LWAuthManager.h"
+#import "LWConstants.h"
 #import "UIViewController+Navigation.h"
 #import "UIViewController+Loading.h"
 
 
-@interface LWCountrySelectorPresenter ()/* <UISearchBarDelegate, UISearchDisplayDelegate>*/ {
+@interface LWCountrySelectorPresenter () <UISearchBarDelegate> {
     NSArray *countries;
     NSArray *sections;
 }
@@ -44,7 +45,9 @@
     countries = [NSArray array];
     sections = [NSArray arrayWithObjects:@"#", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
     
-    [self setBackButton];
+    [self setCancelButtonWithTitle:Localize(@"register.phone.cancel")
+                            target:self
+                          selector:@selector(cancelClicked)];
  
     NSString *searchText = Localize(@"register.phone.country.placeholder");
     [self.searchBar setKeyboardType:UIKeyboardTypeDefault];
@@ -54,6 +57,8 @@
     
     [self registerCellWithIdentifier:kCountryTableViewCellIdentifier
                              forName:kCountryTableViewCell];
+    
+    self.tableView.sectionIndexColor = [UIColor colorWithHexString:kMainElementsColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +67,10 @@
     [self setLoading:YES];
     
     [[LWAuthManager instance] requestCountyCodes];
+}
+
+- (void)cancelClicked {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -76,7 +85,7 @@
 - (void)authManager:(LWAuthManager *)manager didFailWithReject:(NSDictionary *)reject context:(GDXRESTContext *)context {
     [self showReject:reject response:context.task.response code:context.error.code willNotify:YES];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -119,8 +128,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LWCountryTableViewCell *cell = (LWCountryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (cell) {
-        [self.delegate countrySelected:cell.model.name code:cell.model.identity prefix:cell.model.prefix];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate countrySelected:cell.model.name
+                                  code:cell.model.identity
+                                prefix:cell.model.prefix];
+
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

@@ -15,6 +15,7 @@
 #import "LWValidator.h"
 #import "LWCache.h"
 #import "Macro.h"
+#import "UIView+Navigation.h"
 
 
 @interface LWWithdrawConfirmationView ()<UITableViewDataSource, LWPinKeyboardViewDelegate> {
@@ -134,15 +135,14 @@ static float const kNoPinProtectionHeight = 356;
     [self.navigationItem setTitle:Localize(@"withdraw.funds.modal.title")];
     [self.placeOrderButton setTitle:Localize(@"withdraw.funds.modal.button")
                            forState:UIControlStateNormal];
+
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:Localize(@"withdraw.funds.modal.cancel") style:UIBarButtonItemStylePlain target:self action:@selector(cancelClicked:)];
+    NSString *cancelTitle = Localize(@"withdraw.funds.modal.cancel");
+    [self setCancelButtonWithTitle:cancelTitle
+                        navigation:self.navigationItem
+                            target:self
+                          selector:@selector(cancelClicked:)];
     
-    UIFont *font = [UIFont fontWithName:kModalNavBarFontName size:kModalNavBarFontSize];
-    
-    [cancelButton setTitleTextAttributes:@{NSFontAttributeName:font}
-                                forState:UIControlStateNormal];
-    
-    self.navigationItem.leftBarButtonItem = cancelButton;
     self.placeOrderButton.hidden = NO;
     
     [self registerCellWithIdentifier:@"LWAssetInfoTextTableViewCellIdentifier"
