@@ -64,6 +64,10 @@
 }
 
 + (NSString *)baseAssetTitle:(LWAssetPairModel *)assetPair {
+    if (!assetPair) {
+        return @"";
+    }
+    
     NSString *baseAssetId = [LWCache instance].baseAssetId;
     NSString *assetTitleId = assetPair.baseAssetId;
     if ([baseAssetId isEqualToString:assetPair.baseAssetId]) {
@@ -76,6 +80,10 @@
 }
 
 + (NSString *)quotedAssetTitle:(LWAssetPairModel *)assetPair {
+    if (!assetPair) {
+        return @"";
+    }
+    
     NSString *baseAssetId = [LWCache instance].baseAssetId;
     NSString *assetTitleId = assetPair.quotingAssetId;
     if (![baseAssetId isEqualToString:assetPair.quotingAssetId]) {

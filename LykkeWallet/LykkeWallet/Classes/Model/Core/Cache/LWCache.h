@@ -31,6 +31,9 @@ SINGLETON_DECLARE
 @property (assign, nonatomic) BOOL shouldSignOrder;
 @property (assign, nonatomic) BOOL debugMode;
 
+// Array of LWAssetPairModel
+@property (copy, nonatomic) NSArray *assetPairs;
+
 - (BOOL)isMultisigAvailable;
 
 @end

@@ -23,4 +23,6 @@
 @property (readonly, nonatomic) NSString *baseAssetId;
 @property (readonly, nonatomic) NSString *quotingAssetId;
 
++ (LWAssetPairModel *)assetPairById:(NSString *)identity;
+
 @end

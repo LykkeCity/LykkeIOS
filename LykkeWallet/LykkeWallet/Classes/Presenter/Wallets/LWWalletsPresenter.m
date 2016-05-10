@@ -821,6 +821,7 @@ static NSString *const WalletIcons[kNumberOfSections] = {
     LWLykkeAssetsData *data = [self assetDataForIndexPath:indexPath];
     if (data) {
         presenter.assetId = data.identity;
+        presenter.assetPairId = data.assetPairId;
         presenter.assetName = data.name;
         presenter.issuerId = data.issuerId;
         [self.navigationController pushViewController:presenter animated:YES];

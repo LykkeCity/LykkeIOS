@@ -35,6 +35,7 @@
     [[LWAuthManager instance] requestAppSettings];
     [[LWAuthManager instance] requestDictionaries];
     [[LWAuthManager instance] requestBaseAssets];
+    [[LWAuthManager instance] requestAssetPairs];
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }

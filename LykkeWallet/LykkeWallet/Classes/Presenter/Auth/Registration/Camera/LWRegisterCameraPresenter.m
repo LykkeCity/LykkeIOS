@@ -140,6 +140,7 @@
     }
     
     UIImagePickerController *picker = [UIImagePickerController new];
+    picker.navigationBar.translucent = NO;
     // if camera is unavailable - set photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         

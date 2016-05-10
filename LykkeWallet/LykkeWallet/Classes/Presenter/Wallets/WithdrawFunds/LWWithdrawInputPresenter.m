@@ -10,11 +10,13 @@
 #import "LWAuthNavigationController.h"
 #import "LWWithdrawConfirmationView.h"
 #import "LWFingerprintHelper.h"
+#import "LWAssetPairModel.h"
 #import "LWAssetBuySumTableViewCell.h"
 #import "LWAuthManager.h"
 #import "LWConstants.h"
 #import "LWValidator.h"
 #import "LWCache.h"
+#import "LWUtils.h"
 #import "LWMath.h"
 #import "TKButton.h"
 #import "UITextField+Validation.h"
@@ -101,8 +103,10 @@ float const kMathHeightKeyboard = 239.0;
     NSString *identifier = FormIdentifiers[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (indexPath.row == 0) {
+        LWAssetPairModel *assetPair = [LWAssetPairModel assetPairById:self.assetPairId];
         LWAssetBuySumTableViewCell *sumCell = (LWAssetBuySumTableViewCell *)cell;
         sumCell.titleLabel.text = Localize(@"withdraw.funds.amount");
+        sumCell.assetLabel.text = [LWUtils baseAssetTitle:assetPair];
         
         sumTextField = sumCell.sumTextField;
         sumTextField.delegate = self;

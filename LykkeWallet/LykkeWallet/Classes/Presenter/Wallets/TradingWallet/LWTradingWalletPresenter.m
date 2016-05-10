@@ -57,6 +57,7 @@
 - (IBAction)withdrawClicked:(id)sender {
     LWWithdrawFundsPresenter *presenter = [LWWithdrawFundsPresenter new];
     presenter.assetId = self.assetId;
+    presenter.assetPairId = self.assetPairId;
     
     [self.navigationController pushViewController:presenter animated:YES];
 }

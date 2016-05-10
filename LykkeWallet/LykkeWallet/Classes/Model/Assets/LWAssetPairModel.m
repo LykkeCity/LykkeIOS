@@ -7,6 +7,7 @@
 //
 
 #import "LWAssetPairModel.h"
+#import "LWCache.h"
 
 
 @implementation LWAssetPairModel
@@ -25,6 +26,18 @@
         _quotingAssetId = [json objectForKey:@"QuotingAssetId"];
     }
     return self;
+}
+
++ (LWAssetPairModel *)assetPairById:(NSString *)identity {
+    NSArray *list = [LWCache instance].assetPairs;
+    if (list && list.count > 0) {
+        for (LWAssetPairModel *item in list) {
+            if ([item.identity isEqualToString:identity]) {
+                return item;
+            }
+        }
+    }
+    return nil;
 }
 
 @end

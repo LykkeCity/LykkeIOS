@@ -123,6 +123,7 @@
 - (IBAction)proceedClicked:(id)sender {
     LWWithdrawInputPresenter *presenter = [LWWithdrawInputPresenter new];
     presenter.assetId = self.assetId;
+    presenter.assetPairId = self.assetPairId;
     presenter.bitcoinString = bitcoinTextField.text;
     [self.navigationController pushViewController:presenter animated:YES];
 }
