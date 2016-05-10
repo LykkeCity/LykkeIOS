@@ -58,6 +58,11 @@
     [self.infoLabel addGestureRecognizer:gesture];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateButtonStatus];
+}
+
 - (void)localize {
     self.infoLabel.text = Localize(@"register.sms.help.info");
     self.statusLabel.text = [NSString stringWithFormat:Localize(@"register.phone.sent"), self.phone];
@@ -79,12 +84,14 @@
     if (!self.isVisible) {
         return;
     }
+    
+    [self updateButtonStatus];
 }
 
 #pragma mark - Outlets
 
 - (IBAction)confirmClicked:(id)sender {
-    if (!(codeTextField.text == nil || codeTextField.text.length <= 0)) {
+    if ([self canProceed]) {
         [self setLoading:YES];
         [[LWAuthManager instance] requestVerificationPhone:self.phone forCode:codeTextField.text];
     }
@@ -110,6 +117,11 @@
 - (BOOL)canProceed {
     BOOL canProceed = codeTextField.text.length > 0;
     return canProceed;
+}
+
+- (void)updateButtonStatus {
+    // check button state
+    [LWValidator setButton:self.confirmButton enabled:[self canProceed]];
 }
 
 
