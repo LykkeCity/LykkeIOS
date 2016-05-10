@@ -7,6 +7,7 @@
 //
 
 #import "LWPacketGraphRates.h"
+#import "LWGraphPeriodRatesModel.h"
 
 
 @implementation LWPacketGraphRates
@@ -20,10 +21,12 @@
     if (self.isRejected) {
         return;
     }
+    
+    _data = [[LWGraphPeriodRatesModel alloc] initWithJSON:result];
 }
 
 - (NSString *)urlRelative {
-    NSString *url = [NSString stringWithFormat:@"AssetPairDetailedRates"];
+    NSString *url = [NSString stringWithFormat:@"AssetPairDetailedRates?period=%@&assetId=%@&points=%@", self.period, self.assetId, self.points];
     return url;
 }
 

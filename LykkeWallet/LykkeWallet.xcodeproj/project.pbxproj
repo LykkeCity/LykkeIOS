@@ -527,6 +527,8 @@
 		ECAB1BC81C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */; };
 		ECAB1BC91C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
 		ECAB1BCA1C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */; };
+		ECACB4B41CE277E70026D8CA /* LWGraphPeriodRatesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECACB4B31CE277E70026D8CA /* LWGraphPeriodRatesModel.m */; };
+		ECACB4B51CE277E70026D8CA /* LWGraphPeriodRatesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECACB4B31CE277E70026D8CA /* LWGraphPeriodRatesModel.m */; };
 		ECC526FA1C9C1EC800022382 /* stockchart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC526F91C9C1EC800022382 /* stockchart.framework */; };
 		ECC526FB1C9C1ECC00022382 /* stockchart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC526F91C9C1EC800022382 /* stockchart.framework */; };
 		ECC527001C9C1F3700022382 /* LWTradingGraphPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC526FE1C9C1F3700022382 /* LWTradingGraphPresenter.m */; };
@@ -1103,6 +1105,8 @@
 		ECAB1BC41C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWExchangeEmptyBlockchainPresenter.h; sourceTree = "<group>"; };
 		ECAB1BC51C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWExchangeEmptyBlockchainPresenter.m; sourceTree = "<group>"; };
 		ECAB1BC61C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWExchangeEmptyBlockchainPresenter.xib; sourceTree = "<group>"; };
+		ECACB4B21CE277E70026D8CA /* LWGraphPeriodRatesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWGraphPeriodRatesModel.h; path = Graph/LWGraphPeriodRatesModel.h; sourceTree = "<group>"; };
+		ECACB4B31CE277E70026D8CA /* LWGraphPeriodRatesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWGraphPeriodRatesModel.m; path = Graph/LWGraphPeriodRatesModel.m; sourceTree = "<group>"; };
 		ECBF52441C878372008E0C0D /* LWConstantsLykke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsLykke.h; sourceTree = "<group>"; };
 		ECBF52451C878382008E0C0D /* LWConstantsIATA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWConstantsIATA.h; sourceTree = "<group>"; };
 		ECC526F91C9C1EC800022382 /* stockchart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = stockchart.framework; sourceTree = "<group>"; };
@@ -2532,6 +2536,8 @@
 			children = (
 				ECA0E1E31CE2401A00B5FF9D /* LWGraphPeriodModel.h */,
 				ECA0E1E41CE2401A00B5FF9D /* LWGraphPeriodModel.m */,
+				ECACB4B21CE277E70026D8CA /* LWGraphPeriodRatesModel.h */,
+				ECACB4B31CE277E70026D8CA /* LWGraphPeriodRatesModel.m */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -3299,6 +3305,7 @@
 				CF9EC8FC1C17C6AD00F742A6 /* LWAuthManager.m in Sources */,
 				EC7F05111C3EE5290079ECD0 /* LWRadioTableViewCell.m in Sources */,
 				ECAB1BC21C99D67700A64A20 /* LWExchangeInfoModel.m in Sources */,
+				ECACB4B41CE277E70026D8CA /* LWGraphPeriodRatesModel.m in Sources */,
 				EC7A45C41C30650C00926BB4 /* LWWalletTableViewCell.m in Sources */,
 				EC8FF6AC1CA32DE400160528 /* LWAssetsDictionaryItem.m in Sources */,
 				ECE902C11C353F5600F52971 /* LWAuthenticatedTablePresenter.m in Sources */,
@@ -3419,6 +3426,7 @@
 				EC4D91961C8778DF006EE7C8 /* ZExpParser.mm in Sources */,
 				EC4D91971C8778DF006EE7C8 /* LWSettingsPresenter.m in Sources */,
 				EC4D91981C8778DF006EE7C8 /* LWAssetInfoTextTableViewCell.m in Sources */,
+				ECACB4B51CE277E70026D8CA /* LWGraphPeriodRatesModel.m in Sources */,
 				EC4D91991C8778DF006EE7C8 /* LWWalletConfirmPresenter.m in Sources */,
 				ECECAB5C1C998C530020E050 /* LWLykkeEmptyTableViewCell.m in Sources */,
 				EC4D919A1C8778DF006EE7C8 /* UIViewController+Navigation.m in Sources */,

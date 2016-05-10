@@ -9,6 +9,9 @@
 #import "LWAuthorizePacket.h"
 
 
+@class LWGraphPeriodRatesModel;
+
+
 @interface LWPacketGraphRates : LWAuthorizePacket {
     
 }
@@ -17,8 +20,6 @@
 @property (copy, nonatomic) NSString *assetId;
 @property (copy, nonatomic) NSNumber *points;
 // out
-@property (strong, nonatomic) NSString *dateTime;
-// Array of LWGraphPeriodModel
-@property (strong, nonatomic) NSArray  *rates;
+@property (strong, nonatomic) LWGraphPeriodRatesModel *data;
 
 @end

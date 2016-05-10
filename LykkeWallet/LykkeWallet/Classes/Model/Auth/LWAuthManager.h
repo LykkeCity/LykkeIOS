@@ -27,6 +27,7 @@
 @class LWPersonalDataModel;
 @class LWTransactionMarketOrderModel;
 @class LWExchangeInfoModel;
+@class LWGraphPeriodRatesModel;
 
 
 @protocol LWAuthManagerDelegate<NSObject>
@@ -76,6 +77,7 @@
 - (void)authManagerDidSetFullName:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetCountryCodes:(NSArray *)countryCodes;
 - (void)authManager:(LWAuthManager *)manager didGetGraphPeriods:(NSArray *)graphPeriods;
+- (void)authManager:(LWAuthManager *)manager didGetGraphPeriodRates:(LWGraphPeriodRatesModel *)periodRates;
 
 @end
 
@@ -141,6 +143,7 @@ SINGLETON_DECLARE
 - (void)requestSetFullName:(NSString *)fullName;
 - (void)requestCountyCodes;
 - (void)requestGraphPeriods;
+- (void)requestGraphPeriodRates:(NSString *)period assetId:(NSString *)assetId points:(NSNumber *)points;
 
 #pragma mark - Static methods
 

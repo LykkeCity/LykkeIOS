@@ -51,6 +51,7 @@
 #import "LWPacketClientFullNameSet.h"
 #import "LWPacketCountryCodes.h"
 #import "LWPacketGraphPeriodsGet.h"
+#import "LWPacketGraphRates.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -419,6 +420,15 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestGraphPeriodRates:(NSString *)period assetId:(NSString *)assetId points:(NSNumber *)points {
+    LWPacketGraphRates *pack = [LWPacketGraphRates new];
+    pack.period  = [period copy];
+    pack.assetId = [assetId copy];
+    pack.points  = [points copy];
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -688,6 +698,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketGraphPeriodsGet.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didGetGraphPeriods:)]) {
             [self.delegate authManager:self didGetGraphPeriods:((LWPacketGraphPeriodsGet *)pack).graphPeriods];
+        }
+    }
+    else if (pack.class == LWPacketGraphRates.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetGraphPeriodRates:)]) {
+            [self.delegate authManager:self didGetGraphPeriodRates:((LWPacketGraphRates *)pack).data];
         }
     }
 }
