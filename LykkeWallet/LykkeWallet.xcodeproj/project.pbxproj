@@ -499,6 +499,8 @@
 		EC9F3F561C9070F500DC1F87 /* LWTransferPresenter~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F551C9070F500DC1F87 /* LWTransferPresenter~iphone.xib */; };
 		EC9F3F5D1C9083A000DC1F87 /* LWTransferTableViewCell~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell~iphone.xib */; };
 		EC9F3F5E1C9083A900DC1F87 /* LWTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */; };
+		ECA0E1E51CE2401A00B5FF9D /* LWGraphPeriodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0E1E41CE2401A00B5FF9D /* LWGraphPeriodModel.m */; };
+		ECA0E1E61CE2401A00B5FF9D /* LWGraphPeriodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0E1E41CE2401A00B5FF9D /* LWGraphPeriodModel.m */; };
 		ECA23F9C1CBD72F800B4D58D /* LWTransactionTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */; };
 		ECA23F9D1CBD733300B4D58D /* LWTransactionCashInOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEC40C71C42B38100B22BEE /* LWTransactionCashInOutModel.m */; };
 		ECA23FA01CBD748400B4D58D /* LWTransferHistoryItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA23F9F1CBD748400B4D58D /* LWTransferHistoryItemType.m */; };
@@ -1070,6 +1072,8 @@
 		EC9F3F591C90837300DC1F87 /* LWTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferTableViewCell.h; path = Transfer/LWTransferTableViewCell.h; sourceTree = "<group>"; };
 		EC9F3F5A1C90837300DC1F87 /* LWTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransferTableViewCell.m; path = Transfer/LWTransferTableViewCell.m; sourceTree = "<group>"; };
 		EC9F3F5C1C9083A000DC1F87 /* LWTransferTableViewCell~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LWTransferTableViewCell~iphone.xib"; path = "IATA/Classes/View/Transfer/LWTransferTableViewCell~iphone.xib"; sourceTree = SOURCE_ROOT; };
+		ECA0E1E31CE2401A00B5FF9D /* LWGraphPeriodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWGraphPeriodModel.h; path = Graph/LWGraphPeriodModel.h; sourceTree = "<group>"; };
+		ECA0E1E41CE2401A00B5FF9D /* LWGraphPeriodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWGraphPeriodModel.m; path = Graph/LWGraphPeriodModel.m; sourceTree = "<group>"; };
 		ECA23F9A1CBD72F800B4D58D /* LWTransactionTransferModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransactionTransferModel.h; path = History/LWTransactionTransferModel.h; sourceTree = "<group>"; };
 		ECA23F9B1CBD72F800B4D58D /* LWTransactionTransferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWTransactionTransferModel.m; path = History/LWTransactionTransferModel.m; sourceTree = "<group>"; };
 		ECA23F9E1CBD748400B4D58D /* LWTransferHistoryItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWTransferHistoryItemType.h; path = History/LWTransferHistoryItemType.h; sourceTree = "<group>"; };
@@ -1378,6 +1382,7 @@
 		CF66323F1C175B54004353F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0E1E21CE23FED00B5FF9D /* Graph */,
 				ECD114571CDDCC11002B36C0 /* Countries */,
 				ECFAC5B01CB1111C009B1CC9 /* Utils */,
 				EC9AE05E1CAC796A0047DF0D /* QrCode */,
@@ -2522,6 +2527,15 @@
 			name = Transfer;
 			sourceTree = "<group>";
 		};
+		ECA0E1E21CE23FED00B5FF9D /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0E1E31CE2401A00B5FF9D /* LWGraphPeriodModel.h */,
+				ECA0E1E41CE2401A00B5FF9D /* LWGraphPeriodModel.m */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 		ECA80B611C2E0E38001C4E8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -3152,6 +3166,7 @@
 				ECFAC5B31CB11138009B1CC9 /* LWUtils.m in Sources */,
 				ECD1E9051C3BCAE30064AAB3 /* LWExchangePresenter.m in Sources */,
 				ECA80B5E1C2E0E08001C4E8F /* UIViewController+Loading.m in Sources */,
+				ECA0E1E51CE2401A00B5FF9D /* LWGraphPeriodModel.m in Sources */,
 				ECD1E8EB1C3B0E670064AAB3 /* LWPacketAssetPairs.m in Sources */,
 				CF8252B51C1CE2C700D6A4BD /* LWPacketKYCStatusSet.m in Sources */,
 				EC57F4501C3C377300E31746 /* LWAssetDescriptionModel.m in Sources */,
@@ -3450,6 +3465,7 @@
 				ECECAB641C99A9360020E050 /* LWPacketBlockchainCashTransaction.m in Sources */,
 				ECAB1BC81C99F70C00A64A20 /* LWExchangeEmptyBlockchainPresenter.m in Sources */,
 				EC9AE0681CAC7A370047DF0D /* QRCodeReaderView.m in Sources */,
+				ECA0E1E61CE2401A00B5FF9D /* LWGraphPeriodModel.m in Sources */,
 				EC4D91BA1C8778DF006EE7C8 /* LWWalletFormPresenter.m in Sources */,
 				EC4D91BB1C8778DF006EE7C8 /* LWKYCInvalidDocumentsPresenter.m in Sources */,
 				EC4D91BC1C8778DF006EE7C8 /* LWAuthSteps.m in Sources */,

@@ -34,6 +34,9 @@ SINGLETON_DECLARE
 // Array of LWAssetPairModel
 @property (copy, nonatomic) NSArray *assetPairs;
 
+// Array of LWGraphPeriodModel
+@property (copy, nonatomic) NSArray *graphPeriods;
+
 - (BOOL)isMultisigAvailable;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "LWPacketGraphPeriodsGet.h"
+#import "LWGraphPeriodModel.h"
+#import "LWCache.h"
 
 
 @implementation LWPacketGraphPeriodsGet
@@ -20,6 +22,15 @@
     if (self.isRejected) {
         return;
     }
+    
+    // read assets
+    NSMutableArray *periods = [NSMutableArray new];
+    for (NSDictionary *item in result[@"AvailablePeriods"]) {
+        [periods addObject:[[LWGraphPeriodModel alloc] initWithJSON:item]];
+    }
+    
+    [LWCache instance].graphPeriods = [periods copy];
+    _graphPeriods = periods;
 }
 
 - (NSString *)urlRelative {

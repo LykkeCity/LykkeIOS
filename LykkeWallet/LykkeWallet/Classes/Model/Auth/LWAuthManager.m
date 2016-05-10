@@ -50,6 +50,7 @@
 #import "LWPacketPhoneVerificationSet.h"
 #import "LWPacketClientFullNameSet.h"
 #import "LWPacketCountryCodes.h"
+#import "LWPacketGraphPeriodsGet.h"
 
 #import "LWLykkeWalletsData.h"
 #import "LWBankCardsAdd.h"
@@ -412,6 +413,12 @@ SINGLETON_INIT {
     [self sendPacket:pack];
 }
 
+- (void)requestGraphPeriods {
+    LWPacketGraphPeriodsGet *pack = [LWPacketGraphPeriodsGet new];
+    
+    [self sendPacket:pack];
+}
+
 
 #pragma mark - Observing
 
@@ -676,6 +683,11 @@ SINGLETON_INIT {
     else if (pack.class == LWPacketCountryCodes.class) {
         if ([self.delegate respondsToSelector:@selector(authManager:didGetCountryCodes:)]) {
             [self.delegate authManager:self didGetCountryCodes:((LWPacketCountryCodes *)pack).countries];
+        }
+    }
+    else if (pack.class == LWPacketGraphPeriodsGet.class) {
+        if ([self.delegate respondsToSelector:@selector(authManager:didGetGraphPeriods:)]) {
+            [self.delegate authManager:self didGetGraphPeriods:((LWPacketGraphPeriodsGet *)pack).graphPeriods];
         }
     }
 }

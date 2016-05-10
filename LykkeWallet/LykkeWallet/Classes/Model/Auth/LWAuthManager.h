@@ -75,6 +75,7 @@
 - (void)authManagerDidCheckValidationPhone:(LWAuthManager *)manager passed:(BOOL)passed;
 - (void)authManagerDidSetFullName:(LWAuthManager *)manager;
 - (void)authManager:(LWAuthManager *)manager didGetCountryCodes:(NSArray *)countryCodes;
+- (void)authManager:(LWAuthManager *)manager didGetGraphPeriods:(NSArray *)graphPeriods;
 
 @end
 
@@ -139,6 +140,7 @@ SINGLETON_DECLARE
 - (void)requestVerificationPhone:(NSString *)phone forCode:(NSString *)code;
 - (void)requestSetFullName:(NSString *)fullName;
 - (void)requestCountyCodes;
+- (void)requestGraphPeriods;
 
 #pragma mark - Static methods
 

@@ -12,9 +12,8 @@
 @interface LWPacketGraphPeriodsGet : LWAuthorizePacket {
     
 }
-// in
-@property (copy, nonatomic) NSString *asset;
 // out
-//TODO:
+// Array of LWGraphPeriodModel
+@property (strong, nonatomic) NSArray *graphPeriods;
 
 @end

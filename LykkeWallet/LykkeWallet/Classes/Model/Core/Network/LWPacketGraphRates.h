@@ -13,8 +13,12 @@
     
 }
 // in
-@property (copy, nonatomic) NSString *asset;
+@property (copy, nonatomic) NSString *period;
+@property (copy, nonatomic) NSString *assetId;
+@property (copy, nonatomic) NSNumber *points;
 // out
-//TODO:
+@property (strong, nonatomic) NSString *dateTime;
+// Array of LWGraphPeriodModel
+@property (strong, nonatomic) NSArray  *rates;
 
 @end

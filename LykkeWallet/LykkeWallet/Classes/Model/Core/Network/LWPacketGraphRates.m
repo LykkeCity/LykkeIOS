@@ -23,7 +23,7 @@
 }
 
 - (NSString *)urlRelative {
-    NSString *url = [NSString stringWithFormat:@"GraphPeriods"];
+    NSString *url = [NSString stringWithFormat:@"AssetPairDetailedRates"];
     return url;
 }
 
